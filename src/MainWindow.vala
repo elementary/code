@@ -19,7 +19,7 @@
 */
 
 namespace Scratch {
-    public class MainWindow : Hdy.Window {
+    public class MainWindow : Adw.Window {
         public const int FONT_SIZE_MAX = 72;
         public const int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
@@ -48,7 +48,6 @@ namespace Scratch {
         private Code.Terminal terminal;
         private FolderManager.FileView folder_manager_view;
         private Scratch.Services.DocumentManager document_manager;
-        private Gtk.EventControllerKey key_controller;
         // Plugins
         private Scratch.Services.PluginsManager plugins;
 
@@ -59,7 +58,7 @@ namespace Scratch {
         private Gtk.Paned vp;
         private Gtk.Stack content_stack;
 
-        public Gtk.Clipboard clipboard;
+        public Gdk.Clipboard clipboard;
 
         // Delegates
         delegate void HookFunc ();
@@ -83,8 +82,8 @@ namespace Scratch {
         public const string ACTION_DUPLICATE_TAB = "action-duplicate-tab";
         public const string ACTION_PREFERENCES = "preferences";
 
-        public const string ACTION_UNDO = "action-undo";
-        public const string ACTION_REDO = "action-redo";
+        // public const string ACTION_UNDO = "action-undo";
+        // public const string ACTION_REDO = "action-redo";
         public const string ACTION_REVERT = "action-revert";
         public const string ACTION_SAVE = "action-save";
         public const string ACTION_SAVE_AS = "action-save-as";
@@ -147,8 +146,8 @@ namespace Scratch {
             { ACTION_NEW_FROM_CLIPBOARD, action_new_tab_from_clipboard },
             { ACTION_DUPLICATE_TAB, action_duplicate_tab },
             { ACTION_PREFERENCES, action_preferences },
-            { ACTION_UNDO, action_undo },
-            { ACTION_REDO, action_redo },
+            // { ACTION_UNDO, action_undo },
+            // { ACTION_REDO, action_redo },
             { ACTION_SHOW_REPLACE, action_show_replace },
             { ACTION_TO_LOWER_CASE, action_to_lower_case },
             { ACTION_TO_UPPER_CASE, action_to_upper_case },
@@ -209,8 +208,8 @@ namespace Scratch {
             action_accelerators.set (ACTION_GO_TO, "<Control>i");
             action_accelerators.set (ACTION_NEW_TAB, "<Control>n");
             action_accelerators.set (ACTION_DUPLICATE_TAB, "<Control><Shift>k" );
-            action_accelerators.set (ACTION_UNDO, "<Control>z");
-            action_accelerators.set (ACTION_REDO, "<Control><shift>z");
+            // action_accelerators.set (ACTION_UNDO, "<Control>z");
+            // action_accelerators.set (ACTION_REDO, "<Control><shift>z");
             action_accelerators.set (ACTION_SHOW_REPLACE, "<Control>r");
             action_accelerators.set (ACTION_TO_LOWER_CASE, "<Control>l");
             action_accelerators.set (ACTION_TO_UPPER_CASE, "<Control>u");
@@ -245,8 +244,8 @@ namespace Scratch {
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
-            Gtk.StyleContext.add_provider_for_screen (
-                Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+            Gtk.StyleContext.add_provider_for_display (
+                Gdk.Display.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
             );
 
             if (Constants.BRANCH != "") {
@@ -294,13 +293,14 @@ namespace Scratch {
                 update_style ();
             });
 
-            clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+            clipboard = Gdk.Display.get_default ().get_clipboard ();
 
             plugins = new Scratch.Services.PluginsManager (this);
 
-            key_controller = new Gtk.EventControllerKey (this) {
+            var key_controller = new Gtk.EventControllerKey () {
                 propagation_phase = TARGET
             };
+            ((Gtk.Widget) this).add_controller (key_controller);
             key_controller.key_pressed.connect (on_key_pressed);
 
             // Set up layout
@@ -321,7 +321,6 @@ namespace Scratch {
             }
 
             // Show/Hide widgets
-            show_all ();
 
 
             // Create folder for unsaved documents
@@ -449,33 +448,32 @@ namespace Scratch {
             welcome_view = new Code.WelcomeView (this);
             document_view = new Scratch.Widgets.DocumentView (this);
             // Handle Drag-and-drop for files functionality on welcome screen
-            Gtk.TargetEntry target = {"text/uri-list", 0, 0};
-            Gtk.drag_dest_set (welcome_view, Gtk.DestDefaults.ALL, {target}, Gdk.DragAction.COPY);
+            // Gtk.TargetEntry target = {"text/uri-list", 0, 0};
+            // Gtk.drag_dest_set (welcome_view, Gtk.DestDefaults.ALL, {target}, Gdk.DragAction.COPY);
 
-            welcome_view.drag_data_received.connect ((ctx, x, y, sel, info, time) => {
-                var uris = sel.get_uris ();
-                if (uris.length > 0) {
-                    for (var i = 0; i < uris.length; i++) {
-                        string filename = uris[i];
-                        var file = File.new_for_uri (filename);
-                        bool is_folder;
-                        //TODO Handle folders dropped here
-                        if (Scratch.Services.FileHandler.can_open_file (file, out is_folder) && !is_folder) {
-                            Scratch.Services.Document doc = new Scratch.Services.Document (actions, file);
-                            document_view.open_document.begin (doc);
-                        }
-                    }
+            // welcome_view.drag_data_received.connect ((ctx, x, y, sel, info, time) => {
+            //     var uris = sel.get_uris ();
+            //     if (uris.length > 0) {
+            //         for (var i = 0; i < uris.length; i++) {
+            //             string filename = uris[i];
+            //             var file = File.new_for_uri (filename);
+            //             bool is_folder;
+            //             //TODO Handle folders dropped here
+            //             if (Scratch.Services.FileHandler.can_open_file (file, out is_folder) && !is_folder) {
+            //                 Scratch.Services.Document doc = new Scratch.Services.Document (actions, file);
+            //                 document_view.open_document.begin (doc);
+            //             }
+            //         }
 
-                    Gtk.drag_finish (ctx, true, false, time);
-                }
-            });
+            //         Gtk.drag_finish (ctx, true, false, time);
+            //     }
+            // });
 
             sidebar = new Code.Sidebar ();
 
             folder_manager_view = new FolderManager.FileView (plugins);
 
             sidebar.add_tab (folder_manager_view);
-            folder_manager_view.show_all ();
 
             folder_manager_view.activate.connect ((a) => {
                 var file = new Scratch.FolderManager.File (a);
@@ -505,15 +503,12 @@ namespace Scratch {
             });
 
             terminal = new Code.Terminal () {
-                no_show_all = true,
                 visible = false
             };
 
-            var view_grid = new Gtk.Grid () {
-                orientation = Gtk.Orientation.VERTICAL
-            };
-            view_grid.add (search_bar);
-            view_grid.add (document_view);
+            var view_grid = new Gtk.Box (VERTICAL, 0);
+            view_grid.append (search_bar);
+            view_grid.append (document_view);
 
             content_stack = new Gtk.Stack () {
                 hexpand = true,
@@ -521,24 +516,23 @@ namespace Scratch {
                 width_request = 200
             };
 
-            content_stack.add (view_grid);  // Must be added first to avoid terminal warnings
-            content_stack.add (welcome_view);
+            content_stack.add_child (view_grid);  // Must be added first to avoid terminal warnings
+            content_stack.add_child (welcome_view);
             content_stack.visible_child = view_grid; // Must be visible while restoring
 
-            // The pane position is restored from settings
             vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
-            vp.pack1 (content_stack, true, false);
-            vp.pack2 (terminal, false, false);
+            vp.start_child = content_stack;
+            vp.end_child = terminal;
 
             var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            box.add (toolbar);
-            box.add (vp);
+            box.append (toolbar);
+            box.append (vp);
 
             hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-            hp1.pack1 (sidebar, false, false);
-            hp1.pack2 (box, true, false);
+            hp1.start_child = sidebar;
+            hp1.end_child = box;
 
-            add (hp1);
+            child = hp1;
 
             var header_group = new Hdy.HeaderGroup ();
             header_group.add_header_bar (sidebar.headerbar);
@@ -698,7 +692,7 @@ namespace Scratch {
             return false;
         }
 
-        protected override bool delete_event (Gdk.EventAny event) {
+        protected override bool close_request () {
             action_close_window ();
             return true;
         }
@@ -826,10 +820,10 @@ namespace Scratch {
 
         private void update_window_state_setting () {
             // Save window state
-            var state = get_window ().get_state ();
-            if (Gdk.WindowState.MAXIMIZED in state) {
+            var state = ((Gdk.Toplevel) this).state;
+            if (Gdk.ToplevelState.MAXIMIZED in state) {
                 Scratch.saved_state.set_enum ("window-state", ScratchWindowState.MAXIMIZED);
-            } else if (Gdk.WindowState.FULLSCREEN in state) {
+            } else if (Gdk.ToplevelState.FULLSCREEN in state) {
                 Scratch.saved_state.set_enum ("window-state", ScratchWindowState.FULLSCREEN);
             } else {
                 Scratch.saved_state.set_enum ("window-state", ScratchWindowState.NORMAL);
@@ -970,16 +964,20 @@ namespace Scratch {
             file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
 
             file_chooser.response.connect ((res) => {
-                var uris = file_chooser.get_uris ();
+                var files = file_chooser.get_files (); // Returns ListModel of GFile objects
+                // var uris = file_chooser.get_uris ();
                 file_chooser.destroy (); // Close now so it does not stay open during lengthy or failed loading
                 if (res == Gtk.ResponseType.ACCEPT) {
-                    foreach (string uri in file_chooser.get_uris ()) {
+                    var index = 0;
+                    var obj = files.get_item (index++);
+                    while (obj != null) {
+                        var file = (GLib.File) obj;
                         // Update last visited path
-                        Utils.last_path = Path.get_dirname (uri);
+                        Utils.last_path = Path.get_dirname (file.get_uri ());
                         // Open the file
-                        var file = File.new_for_uri (uri);
                         var doc = new Scratch.Services.Document (actions, file);
                         open_document.begin (doc);
+                        obj = files.get_item (index++);
                     }
                 }
             });
@@ -1018,10 +1016,14 @@ namespace Scratch {
                 var files = chooser.get_files ();
                 chooser.destroy ();
                 if (res == Gtk.ResponseType.ACCEPT) {
-                    files.foreach ((glib_file) => {
-                        var foldermanager_file = new FolderManager.File (glib_file.get_path ());
+var index = 0;
+                    var obj = files.get_item (index++);
+                    while (obj != null) {
+                        var file = (GLib.File) obj;
+                        var foldermanager_file = new FolderManager.File (file.get_path ());
                         folder_manager_view.open_folder (foldermanager_file);
-                    });
+                        obj = files.get_item (index++);
+                    }
                 }
             });
 
@@ -1132,19 +1134,19 @@ namespace Scratch {
             }
         }
 
-        private void action_undo () {
-            var doc = get_current_document ();
-            if (doc != null) {
-                doc.undo ();
-            }
-        }
+        // private void action_undo () {
+        //     var doc = get_current_document ();
+        //     if (doc != null) {
+        //         doc.undo ();
+        //     }
+        // }
 
-        private void action_redo () {
-            var doc = get_current_document ();
-            if (doc != null) {
-                doc.redo ();
-            }
-        }
+        // private void action_redo () {
+        //     var doc = get_current_document ();
+        //     if (doc != null) {
+        //         doc.redo ();
+        //     }
+        // }
 
         private void action_revert () {
             var confirmation_dialog = new Scratch.Dialogs.RestoreConfirmationDialog (this);
@@ -1179,7 +1181,8 @@ namespace Scratch {
         }
 
         private void action_fullscreen () {
-            if (Gdk.WindowState.FULLSCREEN in get_window ().get_state ()) {
+            var state = ((Gdk.Toplevel) this).state;
+            if (Gdk.ToplevelState.FULLSCREEN in state) {
                 unfullscreen ();
             } else {
                 fullscreen ();

@@ -133,10 +133,7 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         };
 
         filter_button = new Gtk.MenuButton () {
-            image = new Gtk.Image.from_icon_name (
-                "filter-symbolic",
-                Gtk.IconSize.SMALL_TOOLBAR
-            ),
+            icon_name = "filter-symbolic",
             tooltip_text = _("Filter symbol type"),
         };
 
@@ -174,17 +171,16 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
 
         spinner = new Gtk.Spinner ();
         stack = new Gtk.Stack ();
-        stack.add (filter_button);
-        stack.add (spinner);
+        stack.add_child (filter_button);
+        stack.add_child (spinner);
         stack.visible_child = filter_button;
 
         var tool_box = new Gtk.Box (HORIZONTAL, 3);
-        tool_box.add (search_entry);
-        tool_box.add (stack);
-        add (tool_box);
-        add (store);
+        tool_box.append (search_entry);
+        tool_box.append (stack);
+        append (tool_box);
+        append (store);
         set_up_css ();
-        show_all ();
 
         realize.connect (() => {
             store.set_filter_func (filter_func, false);
@@ -271,18 +267,18 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
 
     protected void set_up_css () {
         source_list_style_provider = new Gtk.CssProvider ();
-        Gtk.StyleContext.add_provider_for_screen (
-            Gdk.Screen.get_default (),
+        Gtk.StyleContext.add_provider_for_display (
+            Gdk.Display.get_default (),
             source_list_style_provider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
         // Add a class to distinguish from foldermanager sourcelist
-        get_style_context ().add_class ("symbol-outline");
-        update_style_scheme (((Gtk.SourceBuffer)(doc.source_view.buffer)).style_scheme);
+        add_css_class ("symbol-outline");
+        update_style_scheme (((GtkSource.Buffer)(doc.source_view.buffer)).style_scheme);
         doc.source_view.style_changed.connect (update_style_scheme);
     }
 
-    protected void update_style_scheme (Gtk.SourceStyleScheme style_scheme) {
+    protected void update_style_scheme (GtkSource.StyleScheme style_scheme) {
         var text_color_data = style_scheme.get_style ("text");
 
         // Default gtksourceview background color is white
@@ -292,12 +288,7 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         }
 
         var define = ".symbol-outline {background-color: %s;}".printf (color);
-
-        try {
-            source_list_style_provider.load_from_data (define);
-        } catch (Error e) {
-            critical ("Unable to sourcelist styling, going back to classic styling");
-        }
+        source_list_style_provider.load_from_string (define);
     }
 
     private void action_select_filters (SimpleAction action, Variant? param) {

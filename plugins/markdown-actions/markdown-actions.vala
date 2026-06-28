@@ -27,7 +27,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
 
     public void update_state () {}
 
-    private Gtk.EventControllerKey key_controller;
+    // private Gtk.EventControllerKey key_controller;
     private bool is_markdown = false;
 
     public void activate () {
@@ -43,9 +43,10 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
             current_source.notify["language"].connect (configure_shortcuts);
         });
         plugins.hook_window.connect ((w) => {
-            key_controller = new Gtk.EventControllerKey (w) {
+            var key_controller = new Gtk.EventControllerKey (w) {
                 propagation_phase = CAPTURE
             };
+            w.add_controller (w);
             key_controller.key_pressed.connect (shortcut_handler);
         });
     }
@@ -56,7 +57,6 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
     }
 
     private bool shortcut_handler (
-        Gtk.EventController controller,
         uint keyval,
         uint keycode,
         Gdk.ModifierType state

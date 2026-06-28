@@ -54,9 +54,7 @@ public class Code.Widgets.CellRendererExpander : Gtk.CellRenderer {
      * @since 0.2
      */
     public virtual int get_arrow_size (Gtk.Widget widget) {
-        int arrow_size;
-        widget.style_get ("expander-size", out arrow_size);
-        return arrow_size;
+        return 12;
     }
 
     public override void render (
@@ -94,9 +92,9 @@ public class Code.Widgets.CellRendererExpander : Gtk.CellRenderer {
         ctx.save ();
 
         if (is_category_expander)
-            ctx.add_class (Granite.STYLE_CLASS_CATEGORY_EXPANDER);
+            ctx.add_class ("category-expander");
         else
-            ctx.add_class (Gtk.STYLE_CLASS_EXPANDER);
+            ctx.add_class ("row-expander"); //TODO What Granite style is appropriate
 
         return ctx;
     }

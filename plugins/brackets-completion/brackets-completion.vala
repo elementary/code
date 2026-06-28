@@ -11,7 +11,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Scratch.Se
 
     public Object object { owned get; set construct; }
 
-    private Gtk.EventControllerKey key_controller;
+    // private Gtk.EventControllerKey key_controller;
     private Gee.HashMap<string, string> brackets;
     private Gee.HashMap<uint, string> keys;
     private Gtk.TextBuffer current_buffer;
@@ -42,9 +42,10 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Scratch.Se
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect (on_hook_document);
         plugins.hook_window.connect ((w) => {
-            key_controller = new Gtk.EventControllerKey (w) {
+            var key_controller = new Gtk.EventControllerKey (w) {
                 propagation_phase = CAPTURE
             };
+            w.add_controller (key_controller);
             key_controller.key_pressed.connect (on_key_down);
         });
     }

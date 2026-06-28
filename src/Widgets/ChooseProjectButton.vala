@@ -28,9 +28,8 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
     construct {
 
-        var img = new Gtk.Image () {
-            gicon = new ThemedIcon ("git-symbolic"),
-            icon_size = Gtk.IconSize.SMALL_TOOLBAR
+        var img = new Gtk.Image.from_gicon (new ThemedIcon ("git-symbolic")) {
+            icon_size = Gtk.IconSize.NORMAL
         };
 
         label_widget = new Gtk.Label (_(NO_PROJECT_SELECTED)) {
@@ -48,10 +47,10 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             hexpand = true,
             vexpand = false
         };
-        box.add (img);
-        box.add (label_widget);
-        box.add (cloning_spinner);
-        add (box);
+        box.append (img);
+        box.append (label_widget);
+        box.append (cloning_spinner);
+        child = box;
 
         project_listbox = new Gtk.ListBox () {
             selection_mode = Gtk.SelectionMode.SINGLE
@@ -73,17 +72,16 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             project_listbox.invalidate_filter ();
         });
 
-        var project_scrolled = new Gtk.ScrolledWindow (null, null) {
+        var project_scrolled = new Gtk.ScrolledWindow () {
             hscrollbar_policy = Gtk.PolicyType.NEVER,
             hexpand = true,
             vexpand = true,
             margin_top = 3,
             margin_bottom = 3,
             max_content_height = 350,
-            propagate_natural_height = true
+            propagate_natural_height = true,
+            child = project_listbox
         };
-
-        project_scrolled.add (project_listbox);
 
         var add_folder_button = new PopoverMenuItem (_("Open Folder…")) {
             action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_PROJECT,
@@ -96,19 +94,16 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         };
 
         var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        popover_content.add (project_filter);
-        popover_content.add (project_scrolled);
-        popover_content.add (new Gtk.Separator (HORIZONTAL));
-        popover_content.add (add_folder_button);
-        popover_content.add (clone_button);
+        popover_content.append (project_filter);
+        popover_content.append (project_scrolled);
+        popover_content.append (new Gtk.Separator (HORIZONTAL));
+        popover_content.append (add_folder_button);
+        popover_content.append (clone_button);
 
-        popover_content.show_all ();
-
-        var project_popover = new Gtk.Popover (this) {
-            position = Gtk.PositionType.BOTTOM
+        var project_popover = new Gtk.Popover () {
+            position = Gtk.PositionType.BOTTOM,
+            child = popover_content
         };
-
-        project_popover.add (popover_content);
 
         popover = project_popover;
 
@@ -124,10 +119,10 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         }
 
         git_manager.project_liststore.items_changed.connect ((src, pos, n_removed, n_added) => {
-            var rows = project_listbox.get_children ();
-            for (int index = (int)pos; index < pos + n_removed; index++) {
-                var row = rows.nth_data (index);
-                row.destroy ();
+            var child = project_listbox.get_first_child ();
+            while (child != null) {
+                child.destroy ();
+                child = project_listbox.get_first_child ();
             }
 
             for (int index = (int)pos; index < pos + n_added; index++) {
@@ -139,23 +134,15 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             }
         });
 
-        project_listbox.remove.connect ((row) => {
-            var project_row = row as ProjectRow;
-            var current_project = Scratch.Services.GitManager.get_instance ().active_project_path;
-            if (project_row.project_path == current_project) {
-                Scratch.Services.GitManager.get_instance ().active_project_path = "";
-                // Label and active_path will be updated automatically
-            }
-        });
-
-
-        toggled.connect (() => {
+        activate.connect (() => {
             if (active) {
                 unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
-                foreach (var child in project_listbox.get_children ()) {
+                var child = project_listbox.get_first_child ();
+                while (child != null) {
                     var project_row = ((ProjectRow) child);
                     // All paths must not end in directory separator so can be compared directly
                     project_row.active = active_path == project_row.project_path;
+                    child = child.get_next_sibling ();
                 }
             }
         });
@@ -178,10 +165,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
     private Gtk.Widget create_project_row (Scratch.FolderManager.ProjectFolderItem project_folder) {
         var project_path = project_folder.file.file.get_path ();
-        var project_row = new ProjectRow (project_path);
-        // Project folder items cannot be renamed in UI, no need to handle
-
-        return project_row;
+        return new ProjectRow (project_path);
     }
 
     public class ProjectRow : Gtk.ListBoxRow {
@@ -209,10 +193,8 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             );
         }
 
-        private Gtk.GestureMultiPress button_controller;
-
         class construct {
-            set_css_name (Gtk.STYLE_CLASS_MENUITEM);
+            set_css_name (Granite.STYLE_CLASS_MENUITEM);
         }
 
         construct {
@@ -220,17 +202,18 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             action_target = new Variant.string (project_path);
 
             check_button = new Gtk.CheckButton.with_label (Path.get_basename (project_path));
-            add (check_button);
+            child = check_button;
 
-            button_controller = new Gtk.GestureMultiPress (check_button) {
+            var button_controller = new Gtk.GestureClick () {
                 propagation_phase = CAPTURE,
                 button = 0
             };
-            button_controller.released.connect (() => {
+
+            check_button.add_controller (button_controller);
+            button_controller.released.connect ((n, dx, dy) => {
                 activate ();
             });
-
-            show_all ();
+            check_button = new Gtk.CheckButton.with_label (Path.get_basename (project_path));
         }
     }
 }

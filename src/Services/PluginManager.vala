@@ -122,7 +122,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
     // Return an emulation of the discontinued libpeas-1.0 widget
     public Gtk.Widget get_view () {
         var list_box = new Gtk.ListBox ();
-        list_box.get_accessible ().accessible_name = _("Extensions");
+        ((Gtk.Accessible)list_box).update_property (Gtk.AccessibleProperty.LABEL, _("Extensions"), -1);
 
         var scrolled_window = new Gtk.ScrolledWindow (null, null) {
             hscrollbar_policy = NEVER,
@@ -147,7 +147,6 @@ public class Scratch.Services.PluginsManager : GLib.Object {
             );
         });
 
-        frame.show_all ();
         return frame;
     }
 
@@ -159,7 +158,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
             state = info.is_loaded ()
         };
 
-        var image = new Gtk.Image.from_icon_name (info.get_icon_name (), LARGE_TOOLBAR) {
+        var image = new Gtk.Image.from_icon_name (info.get_icon_name ()) {
             valign = START
         };
 
@@ -174,14 +173,14 @@ public class Scratch.Services.PluginsManager : GLib.Object {
             wrap = true,
             xalign = 0
         };
-        description_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
-        description_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+        description_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
+        description_label.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
 
         var description_box = new Gtk.Box (VERTICAL, 0) {
             hexpand = true
         };
-        description_box.add (name_label);
-        description_box.add (description_label);
+        description_box.append (name_label);
+        description_box.append (description_label);
 
         var content = new Gtk.Box (HORIZONTAL, 6) {
             margin_top = 6,
@@ -189,9 +188,9 @@ public class Scratch.Services.PluginsManager : GLib.Object {
             margin_bottom = 6,
             margin_start = 6
         };
-        content.add (image);
-        content.add (description_box);
-        content.add (load_switch);
+        content.append (image);
+        content.append (description_box);
+        content.append (load_switch);
         content.set_data<string> ("name", info.get_name ());
 
             load_switch.notify["active"].connect (() => {

@@ -24,10 +24,10 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.A
 
     public Object object { owned get; set construct; }
 
-    private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
-    private Gtk.EventControllerKey key_controller;
+    private List<GtkSource.View> text_view_list = new List<GtkSource.View> ();
+    // private Gtk.EventControllerKey key_controller;
     public Euclide.Completion.Parser parser {get; private set;}
-    public Gtk.SourceView? current_view {get; private set;}
+    public GtkSource.View? current_view {get; private set;}
     public Scratch.Services.Document current_document {get; private set;}
 
     private MainWindow main_window;
@@ -56,9 +56,10 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.A
 
         plugins.hook_document.connect (on_new_source_view);
         plugins.hook_window.connect ((w) => {
-            key_controller = new Gtk.EventControllerKey (w) {
+            key_controller = new Gtk.EventControllerKey () {
                 propagation_phase = CAPTURE
             };
+            w.add_controller (key_controller);
 
             key_controller.key_pressed.connect (on_key_press);
         });
@@ -182,7 +183,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.A
         return _("%s - Word Completion").printf (doc.get_basename ());
     }
 
-    private void cleanup (Gtk.SourceView view) {
+    private void cleanup (GtkSource.View view) {
         current_view.completion.get_providers ().foreach ((p) => {
             try {
                 /* Only remove provider added by this plug in */

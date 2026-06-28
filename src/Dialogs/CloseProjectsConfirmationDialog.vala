@@ -63,6 +63,6 @@ public class Scratch.Dialogs.CloseProjectsConfirmationDialog : Granite.MessageDi
         add_button (_("Don't Open"), Gtk.ResponseType.REJECT);
 
         var ignore_button = (Gtk.Button) add_button (button_label, Gtk.ResponseType.ACCEPT);
-        ignore_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+        ignore_button.add_css_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
     }
 }

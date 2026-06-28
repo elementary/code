@@ -4,7 +4,7 @@
  *                         2013 Mario Guerriero <mefrio.g@gmail.com>
  */
 
-public class Scratch.HeaderBar : Hdy.HeaderBar {
+public class Scratch.HeaderBar : Adw.HeaderBar {
     // Plugins segfault without full access
     public Code.FormatBar format_bar;
     public GLib.Menu share_menu;
@@ -29,7 +29,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
     construct {
         var app_instance = (Gtk.Application) GLib.Application.get_default ();
 
-        var open_button = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR) {
+        var open_button = new Gtk.Button.from_icon_name ("document-open") {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN
         };
         open_button.tooltip_markup = Granite.markup_accel_tooltip (
@@ -38,7 +38,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
         );
 
 
-        var save_button = new Gtk.Button.from_icon_name ("document-save", Gtk.IconSize.LARGE_TOOLBAR) {
+        var save_button = new Gtk.Button.from_icon_name ("document-save") {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SAVE
         };
         save_button.tooltip_markup = Granite.markup_accel_tooltip (
@@ -46,7 +46,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             _("Save this file")
         );
 
-        var save_as_button = new Gtk.Button.from_icon_name ("document-save-as", Gtk.IconSize.LARGE_TOOLBAR) {
+        var save_as_button = new Gtk.Button.from_icon_name ("document-save-as") {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SAVE_AS
         };
         save_as_button.tooltip_markup = Granite.markup_accel_tooltip (
@@ -54,7 +54,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             _("Save this file with a different name")
         );
 
-        var revert_button = new Gtk.Button.from_icon_name ("document-revert", Gtk.IconSize.LARGE_TOOLBAR) {
+        var revert_button = new Gtk.Button.from_icon_name ("document-revert") {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REVERT
         };
         revert_button.tooltip_markup = Granite.markup_accel_tooltip (
@@ -65,13 +65,12 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
         share_menu = new GLib.Menu ();
 
         share_menu_button = new Gtk.MenuButton () {
-            image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR),
-            no_show_all = true,
+            icon_name = "document-export",
             menu_model = share_menu,
             tooltip_text = _("Share")
         };
 
-        var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic", Gtk.IconSize.MENU) {
+        var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic") {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_OUT
         };
         zoom_out_button.tooltip_markup = Granite.markup_accel_tooltip (
@@ -87,7 +86,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             _("Zoom 1:1")
         );
 
-        var zoom_in_button = new Gtk.Button.from_icon_name ("zoom-in-symbolic", Gtk.IconSize.MENU) {
+        var zoom_in_button = new Gtk.Button.from_icon_name ("zoom-in-symbolic") {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_IN
         };
         zoom_in_button.tooltip_markup = Granite.markup_accel_tooltip (
@@ -103,21 +102,21 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             margin_bottom = 6,
             margin_start = 12
         };
-        font_size_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
-        font_size_box.add (zoom_out_button);
-        font_size_box.add (zoom_default_button);
-        font_size_box.add (zoom_in_button);
+        font_size_box.add_css_class (Granite.STYLE_CLASS_LINKED);
+        font_size_box.append (zoom_out_button);
+        font_size_box.append (zoom_default_button);
+        font_size_box.append (zoom_in_button);
 
         find_button = new Gtk.ToggleButton () {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SHOW_FIND,
-            image = new Gtk.Image.from_icon_name ("edit-find-on-page-symbolic", Gtk.IconSize.MENU)
+            icon_name = "edit-find-on-page-symbolic"
         };
         find_button.tooltip_markup = Granite.markup_accel_tooltip (
             app_instance.get_accels_for_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND + "::"),
             _("Find on Page…")
         );
 
-        var search_button = new Gtk.Button.from_icon_name ("edit-find-symbolic", Gtk.IconSize.MENU) {
+        var search_button = new Gtk.Button.from_icon_name ("edit-find-symbolic") {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
             action_target = new Variant.string ("")
         };
@@ -133,29 +132,32 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             margin_bottom = 12,
             margin_start = 12
         };
-        find_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
-        find_box.add (find_button);
-        find_box.add (search_button);
+        find_box.add_css_class (Granite.STYLE_CLASS_LINKED);
+        find_box.append (find_button);
+        find_box.append (search_button);
 
         var follow_system_switchmodelbutton = new Granite.SwitchModelButton (_("Follow System Style")) {
             margin_top = 3
         };
 
-        // Intentionally never attached so we can have a non-selected state
-        var color_button_none = new Gtk.RadioButton (null);
+        // Intentionally never attached so we can have a none selected state
+        var color_button_none = new Gtk.CheckButton ();
 
-        var color_button_white = new Gtk.RadioButton.from_widget (color_button_none) {
-            halign = Gtk.Align.CENTER
+        var color_button_white = new Gtk.CheckButton () {
+            halign = Gtk.Align.CENTER,
+            group = color_button_none
         };
         style_color_button (color_button_white, STYLE_SCHEME_HIGH_CONTRAST);
 
-        var color_button_light = new Gtk.RadioButton.from_widget (color_button_none) {
-            halign = Gtk.Align.CENTER
+        var color_button_light = new Gtk.CheckButton () {
+            halign = Gtk.Align.CENTER,
+            group = color_button_none
         };
         style_color_button (color_button_light, STYLE_SCHEME_LIGHT);
 
-        var color_button_dark = new Gtk.RadioButton.from_widget (color_button_none) {
-            halign = Gtk.Align.CENTER
+        var color_button_dark = new Gtk.CheckButton () {
+            halign = Gtk.Align.CENTER,
+            group = color_button_none
         };
         style_color_button (color_button_dark, STYLE_SCHEME_DARK);
 
@@ -164,12 +166,12 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             margin_top = 6,
             margin_bottom = 6
         };
-        color_box.add (color_button_white);
-        color_box.add (color_button_light);
-        color_box.add (color_button_dark);
+        color_box.append (color_button_white);
+        color_box.append (color_button_light);
+        color_box.append (color_button_dark);
 
         var color_revealer = new Gtk.Revealer ();
-        color_revealer.add (color_box);
+        color_revealer.child = color_box;
 
         var menu_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
             margin_bottom = 3,
@@ -178,12 +180,12 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
 
         sidebar_button = new Gtk.ToggleButton () {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SIDEBAR,
-            image = new Gtk.Image.from_icon_name ("panel-left-symbolic", Gtk.IconSize.MENU)
+            icon_name = "panel-left-symbolic"
         };
 
         terminal_button = new Gtk.ToggleButton () {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_TERMINAL,
-            image = new Gtk.Image.from_icon_name ("panel-bottom-symbolic", Gtk.IconSize.MENU)
+            icon_name = "panel-bottom-symbolic"
         };
         terminal_button.tooltip_markup = Granite.markup_accel_tooltip (
             app_instance.get_accels_for_action (terminal_button.action_name),
@@ -192,7 +194,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
 
         outline_button = new Gtk.ToggleButton () {
             action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_OUTLINE,
-            image = new Gtk.Image.from_icon_name ("panel-right-symbolic", Gtk.IconSize.MENU)
+            icon_name = "panel-right-symbolic"
         };
 
         var panels_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
@@ -202,43 +204,40 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             margin_bottom = 6,
             margin_start = 12
         };
-        panels_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
-        panels_box.add (sidebar_button);
-        panels_box.add (terminal_button);
-        panels_box.add (outline_button);
+        panels_box.add_css_class (Granite.STYLE_CLASS_LINKED);
+        panels_box.append (sidebar_button);
+        panels_box.append (terminal_button);
+        panels_box.append (outline_button);
 
-        var preferences_menuitem = new Gtk.ModelButton () {
-            action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREFERENCES,
-            text = _("Preferences")
+        var preferences_menuitem = new Gtk.Button.with_label (_("Preferences")) {
+            action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREFERENCES
         };
 
         var menu_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
             margin_bottom = 3
         };
-        menu_box.add (font_size_box);
-        menu_box.add (find_box);
-        menu_box.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
-        menu_box.add (follow_system_switchmodelbutton);
-        menu_box.add (color_revealer);
-        menu_box.add (panels_box);
-        menu_box.add (menu_separator);
-        menu_box.add (preferences_menuitem);
-        menu_box.show_all ();
+        menu_box.append (font_size_box);
+        menu_box.append (find_box);
+        menu_box.append (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
+        menu_box.append (follow_system_switchmodelbutton);
+        menu_box.append (color_revealer);
+        menu_box.append (panels_box);
+        menu_box.append (menu_separator);
+        menu_box.append (preferences_menuitem);
 
         var menu = new Gtk.Popover (null);
         menu.add (menu_box);
 
         var app_menu = new Gtk.MenuButton () {
-            image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR),
+            icon_name = "open-menu",
             popover = menu,
             tooltip_text = _("Menu")
         };
 
         format_bar = new Code.FormatBar () {
-            no_show_all = true,
             valign = Gtk.Align.CENTER
         };
-        set_custom_title (format_bar);
+        title_widget = format_bar;
 
         pack_start (open_button);
         pack_start (save_button);
@@ -294,31 +293,37 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
                 color_button_none.active = true;
         }
 
-        color_button_dark.clicked.connect (() => {
-            Scratch.settings.set_boolean ("prefer-dark-style", true);
-            Scratch.settings.set_string ("style-scheme", STYLE_SCHEME_DARK);
-            gtk_settings.gtk_application_prefer_dark_theme = true;
+        color_button_dark.toggled.connect (() => {
+            if (color_button_dark.active) {
+                Scratch.settings.set_boolean ("prefer-dark-style", true);
+                Scratch.settings.set_string ("style-scheme", STYLE_SCHEME_DARK);
+                gtk_settings.gtk_application_prefer_dark_theme = true;
+            }
         });
 
-        color_button_light.clicked.connect (() => {
-            Scratch.settings.set_boolean ("prefer-dark-style", false);
-            Scratch.settings.set_string ("style-scheme", STYLE_SCHEME_LIGHT);
-            gtk_settings.gtk_application_prefer_dark_theme = false;
+        color_button_light.toggled.connect (() => {
+            if (color_button_light.active) {
+                Scratch.settings.set_boolean ("prefer-dark-style", false);
+                Scratch.settings.set_string ("style-scheme", STYLE_SCHEME_LIGHT);
+                gtk_settings.gtk_application_prefer_dark_theme = false;
+            }
         });
 
-        color_button_white.clicked.connect (() => {
-            Scratch.settings.set_boolean ("prefer-dark-style", false);
-            Scratch.settings.set_string ("style-scheme", STYLE_SCHEME_HIGH_CONTRAST);
-            gtk_settings.gtk_application_prefer_dark_theme = false;
+        color_button_white.toggled.connect (() => {
+            if (color_button_white.active) {
+                Scratch.settings.set_boolean ("prefer-dark-style", false);
+                Scratch.settings.set_string ("style-scheme", STYLE_SCHEME_HIGH_CONTRAST);
+                gtk_settings.gtk_application_prefer_dark_theme = false;
+            }
         });
     }
 
-    private void style_color_button (Gtk.ToggleButton color_button, string style_id) {
+    private void style_color_button (Gtk.CheckButton color_button, string style_id) {
         var background = "";
         var foreground = "";
 
-        Gtk.SourceStyleScheme? scheme = null;
-        var sssm = Gtk.SourceStyleSchemeManager.get_default ();
+        GtkSource.StyleScheme? scheme = null;
+        var sssm = GtkSource.StyleSchemeManager.get_default ();
         if (style_id in sssm.scheme_ids) {
             scheme = sssm.get_scheme (style_id);
             // We currently ship and hard-code the style schemes so can assume the "text" key
@@ -368,16 +373,10 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
         """.printf (background, foreground);
 
             var css_provider = new Gtk.CssProvider ();
+            css_provider.load_from_string (style_css);
 
-            try {
-                css_provider.load_from_data (style_css);
-            } catch (Error e) {
-                critical ("Unable to style color button: %s", e.message);
-            }
-
-            unowned var style_context = color_button.get_style_context ();
-            style_context.add_class (Granite.STYLE_CLASS_COLOR_BUTTON);
-            style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            color_button.add_css_class (Granite.STYLE_CLASS_COLOR_BUTTON);
+            Gtk.StyleContext.add_provider_for_display (Gdk.Display.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
             color_button.tooltip_text = scheme.name;
         } else if (scheme != null || background == "" || foreground == "") {
             //Fallback to standard radio buttons (should not happen)
@@ -399,11 +398,8 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
 
     private void on_share_menu_changed () {
         if (share_menu.get_n_items () > 0) {
-            share_menu_button.no_show_all = false;
             share_menu_button.visible = true;
-            share_menu_button.show_all ();
         } else {
-            share_menu_button.no_show_all = true;
             share_menu_button.visible = false;
             share_menu_button.hide ();
         }
@@ -411,10 +407,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
 
     public void document_available (bool has_document) {
         if (has_document) {
-            format_bar.no_show_all = false;
-            format_bar.show_all ();
         } else {
-            format_bar.no_show_all = true;
             format_bar.hide ();
         }
     }

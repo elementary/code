@@ -17,7 +17,7 @@
  * Authored by: Corentin Noël <corentin@elementary.io>
  */
 
-public class Code.Sidebar : Gtk.Grid {
+public class Code.Sidebar : Gtk.Box {
     public enum TargetType {
         URI_LIST
     }
@@ -26,7 +26,7 @@ public class Code.Sidebar : Gtk.Grid {
     public const string SIDEBAR_ACTION_PREFIX = SIDEBAR_ACTION_GROUP + ".";
     public Gtk.Stack stack { get; private set; }
     public Code.ChooseProjectButton choose_project_button { get; private set; }
-    public Hdy.HeaderBar headerbar { get; private set; }
+    public Adw.HeaderBar headerbar { get; private set; }
     public GLib.MenuModel project_menu_model { get; construct; }
     // May show progress in different way in future
     public bool cloning_in_progress {
@@ -40,27 +40,27 @@ public class Code.Sidebar : Gtk.Grid {
     }
 
     private Gtk.StackSwitcher stack_switcher;
-    private Granite.Widgets.Toast cloning_success_toast;
+    private Granite.Toast cloning_success_toast;
 
     construct {
         orientation = Gtk.Orientation.VERTICAL;
-        get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
+        add_css_class (Granite.STYLE_CLASS_SIDEBAR);
 
         choose_project_button = new Code.ChooseProjectButton () {
             hexpand = true,
             valign = Gtk.Align.CENTER
         };
 
-        cloning_success_toast = new Granite.Widgets.Toast (_("Cloning complete")) {
+        cloning_success_toast = new Granite.Toast (_("Cloning complete")) {
             halign = CENTER,
             valign = START
         };
 
-        headerbar = new Hdy.HeaderBar () {
-            custom_title = choose_project_button,
-            show_close_button = true
+        headerbar = new Adw.HeaderBar () {
+            title_widget = choose_project_button,
+            decoration_layout = "close:"
         };
-        headerbar.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+        headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
 
         stack = new Gtk.Stack ();
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
@@ -71,13 +71,11 @@ public class Code.Sidebar : Gtk.Grid {
         overlay.add_overlay (cloning_success_toast);
 
         stack_switcher = new Gtk.StackSwitcher ();
-        stack_switcher.no_show_all = true;
         stack_switcher.visible = false;
         stack_switcher.stack = stack;
-        stack_switcher.homogeneous = true;
 
         var actionbar = new Gtk.ActionBar ();
-        actionbar.get_style_context ().add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
+        actionbar.add_css_class (Granite.STYLE_CLASS_FLAT);
 
         var collapse_all_menu_item = new GLib.MenuItem (_("Collapse All"), Scratch.MainWindow.ACTION_PREFIX
         + Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS);
@@ -102,88 +100,72 @@ public class Code.Sidebar : Gtk.Grid {
         };
         var project_menu_button = new Gtk.MenuButton () {
             hexpand = true,
-            use_popover = false,
             menu_model = project_menu_model,
             child = label
         };
 
         actionbar.pack_start (project_menu_button);
 
-        add (headerbar);
-        add (stack_switcher);
-        add (overlay);
-        add (actionbar);
+        append (headerbar);
+        append (stack_switcher);
+        append (overlay);
+        append (actionbar);
 
-        stack.add.connect (() => {
-            if (stack.get_children ().length () > 1) {
-                stack_switcher.no_show_all = false;
-                stack_switcher.show_all ();
-            }
+        // stack.remove.connect (() => {
 
-            stack.no_show_all = false;
-            stack.show_all ();
-        });
+        // });
 
-        Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
-        Gtk.drag_dest_set (this, Gtk.DestDefaults.ALL, {uris}, Gdk.DragAction.COPY);
-        drag_data_received.connect (drag_received);
+        // Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
+        // Gtk.drag_dest_set (this, Gtk.DestDefaults.ALL, {uris}, Gdk.DragAction.COPY);
+        // drag_data_received.connect (drag_received);
     }
 
-    private void drag_received (Gtk.Widget w,
-                                Gdk.DragContext ctx,
-                                int x,
-                                int y,
-                                Gtk.SelectionData sel,
-                                uint info,
-                                uint time) {
+    // private void drag_received (Gtk.Widget w,
+    //                             Gdk.DragContext ctx,
+    //                             int x,
+    //                             int y,
+    //                             Gtk.SelectionData sel,
+    //                             uint info,
+    //                             uint time) {
 
-        if (info == TargetType.URI_LIST) {
-            var uri_list = sel.get_uris ();
-            GLib.List<GLib.File> folder_list = null;
-            foreach (unowned var uri in uri_list) {
-                var file = GLib.File.new_for_uri (uri);
-                // Blocking but for simplicity omit cancellable for now
-                var ftype = file.query_file_type (FileQueryInfoFlags.NOFOLLOW_SYMLINKS);
-                if (ftype == GLib.FileType.DIRECTORY) {
-                  folder_list.prepend (file);
-                }
-            }
+    //     if (info == TargetType.URI_LIST) {
+    //         var uri_list = sel.get_uris ();
+    //         GLib.List<GLib.File> folder_list = null;
+    //         foreach (unowned var uri in uri_list) {
+    //             var file = GLib.File.new_for_uri (uri);
+    //             // Blocking but for simplicity omit cancellable for now
+    //             var ftype = file.query_file_type (FileQueryInfoFlags.NOFOLLOW_SYMLINKS);
+    //             if (ftype == GLib.FileType.DIRECTORY) {
+    //               folder_list.prepend (file);
+    //             }
+    //         }
 
-            foreach (var folder in folder_list) {
-                var win_group = get_action_group (Scratch.MainWindow.ACTION_GROUP);
-                win_group.activate_action (
-                    Scratch.MainWindow.ACTION_OPEN_FOLDER,
-                    new Variant.string (folder.get_path ())
-                );
-            }
+    //         foreach (var folder in folder_list) {
+    //             activate_action (
+    //                 Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER,
+    //                 "s",
+    //                  folder.get_path ()
+    //             );
+    //         }
 
-            Gtk.drag_finish (ctx, folder_list.length () > 0, false, time);
-        }
-    }
+    //         Gtk.drag_finish (ctx, folder_list.length () > 0, false, time);
+    //     }
+    // }
 
     public void add_tab (Code.PaneSwitcher tab) {
-        stack.add (tab);
-        stack.child_set_property (tab, "title", tab.title);
-        stack.child_set_property (tab, "icon-name", tab.icon_name);
-
-        tab.notify["title"].connect (() => {
-            stack.child_set_property (tab, "title", tab.title);
-        });
-
-        tab.notify["icon-name"].connect (() => {
-            stack.child_set_property (tab, "icon-name", tab.icon_name);
-        });
+        stack.add_child (tab);
+        var page = stack.get_page (tab);
+        tab.bind_property ("title", page, "title", DEFAULT | SYNC_CREATE);
+        tab.bind_property ("icon-name", page, "icon-name", DEFAULT | SYNC_CREATE);
     }
 
     public void remove_tab (Code.PaneSwitcher tab) {
         stack.remove (tab);
-        switch (stack.get_children ().length ()) {
+        switch (stack.pages.get_n_items ()) {
             case 0:
-                stack.no_show_all = true;
                 stack.hide ();
                 break;
             case 1:
-                stack_switcher.no_show_all = true;
                 stack_switcher.hide ();
                 break;
         }

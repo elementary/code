@@ -261,9 +261,9 @@ namespace Scratch.Utils {
         var scratch_app = (Scratch.Application) (GLib.Application.get_default ());
         if (scratch_app.is_running_in_flatpak || app_id == "") {
             var uri = Uri.join (UriFlags.NONE, "file", null, null, -1, path, null, null);
-
+            var launcher = new Gtk.UriLauncher (uri);
             try {
-                Gtk.show_uri_on_window (scratch_app.get_active_window (), uri, Gdk.CURRENT_TIME);
+                launcher.launch (scratch_app.get_active_window (), null);
             } catch (Error e) {
                 warning ("Error showing uri %s, %s", uri, e.message);
             }
