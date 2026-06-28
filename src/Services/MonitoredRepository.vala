@@ -324,6 +324,7 @@ namespace Scratch.Services {
                 });
 
                 dialog.show ();
+
                 return false;
             }
 

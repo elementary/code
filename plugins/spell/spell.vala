@@ -81,6 +81,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Scratch.Services.Activat
                             new ThemedIcon ("dialog-warning"),
                             Gtk.ButtonsType.CLOSE
                         );
+
                         dialog.response.connect (() => {
                             dialog.destroy ();
                         });
@@ -129,7 +130,6 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Scratch.Services.Activat
             window = w;
             window.destroy.connect (save_settings);
         });
-
     }
 
 

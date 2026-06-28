@@ -432,8 +432,8 @@ namespace Scratch.Services {
                 return;
             }
 
-            while (Gtk.events_pending ()) {
-                Gtk.main_iteration ();
+            while (MainContext.@default ().pending ()) {
+                MainContext.@default ().iteration (false);
             }
 
             var buffer = new Gtk.SourceBuffer (null); /* Faster to load into a separate buffer */
@@ -530,44 +530,15 @@ namespace Scratch.Services {
                        (!app_closing && is_file_temporary && !delete_temporary_file ())) {
 
                 // Ask whether to save changes
-                var parent_window = source_view.get_toplevel () as Gtk.Window;
-                var dialog = new Granite.MessageDialog (
-                    _("Save changes to “%s” before closing?").printf (this.get_basename ()),
-                    _("If you don't save, changes will be permanently lost."),
-                    new ThemedIcon ("dialog-warning"),
-                    Gtk.ButtonsType.NONE
-                );
-                dialog.transient_for = parent_window;
-
-                var no_save_button = (Gtk.Button) dialog.add_button (_("Close Without Saving"), Gtk.ResponseType.NO);
-                no_save_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
-
-                dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
-                dialog.add_button (_("Save"), Gtk.ResponseType.YES);
-                dialog.set_default_response (Gtk.ResponseType.YES);
-
-                int response = dialog.run ();
-                switch (response) {
-                    case Gtk.ResponseType.CANCEL:
-                    case Gtk.ResponseType.DELETE_EVENT:
-                        ret_value = false;
-                        break;
-                    case Gtk.ResponseType.YES:
-                        // Must save locked or temporary documents to a different location
-                        if (locked || this.is_file_temporary) {
-                            ret_value = yield save_as_with_hold ();
-                        } else {
-                            ret_value = yield save_with_hold ();
-                        }
-                        break;
-                    case Gtk.ResponseType.NO:
-                        ret_value = true;
-                        if (this.is_file_temporary) {
-                            delete_temporary_file (true);
-                        }
-                        break;
+               if (yield ask_save_changes ()) {
+                    if (locked || this.is_file_temporary) {
+                        ret_value = yield save_as_with_hold ();
+                    } else {
+                        ret_value = yield save_with_hold ();
+                    }
+                } else {
+                    ret_value = false;
                 }
-                dialog.destroy ();
             }
 
             if (ret_value) {
@@ -579,6 +550,53 @@ namespace Scratch.Services {
             }
 
             return ret_value;
+        }
+
+        private async bool ask_save_changes () {
+            var parent_window = source_view.get_toplevel () as Gtk.Window;
+            var dialog = new Granite.MessageDialog (
+                _("Save changes to “%s” before closing?").printf (this.get_basename ()),
+                _("If you don't save, changes will be permanently lost."),
+                new ThemedIcon ("dialog-warning"),
+                Gtk.ButtonsType.NONE
+            ) {
+                modal = true
+            };
+            dialog.transient_for = parent_window;
+
+            var no_save_button = (Gtk.Button) dialog.add_button (_("Close Without Saving"), Gtk.ResponseType.NO);
+            no_save_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+            dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
+            dialog.add_button (_("Save"), Gtk.ResponseType.YES);
+            dialog.set_default_response (Gtk.ResponseType.YES);
+
+            var dialog_response = false;
+            dialog.response.connect ((res) => {
+                dialog.destroy ();
+                switch (res) {
+                    case Gtk.ResponseType.CANCEL:
+                    case Gtk.ResponseType.DELETE_EVENT:
+                        break;
+                    case Gtk.ResponseType.YES:
+                        dialog_response = true;
+                        break;
+                    case Gtk.ResponseType.NO:
+                        if (this.is_file_temporary) {
+                            delete_temporary_file (true);
+                        }
+
+                        dialog_response = true;
+                        break;
+                }
+
+                ask_save_changes.callback ();
+            });
+
+            dialog.show ();
+            yield;
+
+            return dialog_response;
         }
 
         // Handle save action (only use for user interaction)
@@ -723,13 +741,20 @@ namespace Scratch.Services {
             var current_file = file.dup ();
             var is_current_file_temporary = this.is_file_temporary;
 
-            if (file_chooser.run () == Gtk.ResponseType.ACCEPT) {
-                file = File.new_for_uri (file_chooser.get_uri ());
-                // Update last visited path
-                Utils.last_path = Path.get_dirname (file_chooser.get_file ().get_uri ());
-                success = true;
-            }
+            file_chooser.response.connect ((res) => {
+                if (res == Gtk.ResponseType.ACCEPT) {
+                    file = File.new_for_uri (file_chooser.get_uri ());
+                    // Update last visited path
+                    Utils.last_path = Path.get_dirname (file_chooser.get_file ().get_uri ());
+                    success = true;
+                    warning ("dialog success path %s", Utils.last_path);
+                }
 
+                save_as.callback ();
+            });
+
+            file_chooser.show ();
+            yield;
             var is_saved = false;
             if (success) {
                 // Should not set "modified" state of the buffer to true - this is automatic
@@ -751,7 +776,7 @@ namespace Scratch.Services {
                 // Calling function responsible for restoring original
             }
 
-            /* We delay destruction of file chooser dialog til to avoid the document focussing in,
+            /* We delay destruction of file chooser dialog til now to avoid the document focussing in,
              * which triggers premature loading of overwritten content.
              */
             file_chooser.destroy ();
@@ -1338,7 +1363,7 @@ namespace Scratch.Services {
         /* Pull the buffer into an array and then work out which parts are to be deleted.
          * Do not strip line currently being edited unless forced */
         private void strip_trailing_spaces () {
-            if (!loaded || source_view.language == null) {
+            if (!loaded || source_view.language == null || source_view.buffer.has_selection) {
                 return;
             }
 
