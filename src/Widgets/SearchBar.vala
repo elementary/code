@@ -680,13 +680,11 @@ namespace Scratch.Widgets {
                 }
 
                 // Update appearance of search entry
-                var ctx = entry_for_search.get_style_context ();
-
                 if (entry_for_search.text != "" && count_of_search == 0) {
-                    ctx.add_class (Granite.STYLE_CLASS_ERROR);
+                    entry_for_search.add_css_class (Granite.STYLE_CLASS_ERROR);
                     entry_for_search.primary_icon_name = "dialog-error-symbolic";
                 } else if (ctx.has_class (Granite.STYLE_CLASS_ERROR)) {
-                    ctx.remove_class (Granite.STYLE_CLASS_ERROR);
+                    entry_for_search.remove_css_class (Granite.STYLE_CLASS_ERROR);
                     entry_for_search.primary_icon_name = "edit-find-symbolic";
                 }
 

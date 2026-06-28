@@ -37,7 +37,7 @@ public class Code.FormatBar : Gtk.Box {
     private unowned Scratch.Services.Document? doc = null;
 
     construct {
-        get_style_context ().add_class (Granite.STYLE_CLASS_LINKED);
+        add_css_class (Granite.STYLE_CLASS_LINKED);
 
         manager = GtkSource.LanguageManager.get_default ();
 

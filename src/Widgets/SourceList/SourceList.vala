@@ -1620,14 +1620,13 @@ public class SourceList : Gtk.ScrolledWindow {
         }
 
         construct {
-            unowned Gtk.StyleContext style_context = get_style_context ();
-            style_context.add_class (Granite.STYLE_CLASS_SIDEBAR);
-            style_context.add_class ("source-list");
+            add_css_class (Granite.STYLE_CLASS_SIDEBAR);
+            add_css_class ("source-list");
 
             var css_provider = new Gtk.CssProvider ();
             try {
                 css_provider.load_from_data (DEFAULT_STYLESHEET, -1);
-                style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_FALLBACK);
+                Gtk.StyleContext.add_provider_for_display (Gdk.Display.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_FALLBACK);
             } catch (Error e) {
                 warning ("Could not create CSS Provider: %s\nStylesheet:\n%s", e.message, DEFAULT_STYLESHEET);
             }

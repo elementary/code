@@ -380,9 +380,8 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
                 critical ("Unable to style color button: %s", e.message);
             }
 
-            unowned var style_context = color_button.get_style_context ();
-            style_context.add_class (Granite.STYLE_CLASS_COLOR_BUTTON);
-            style_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            color_button.add_css_class (Granite.STYLE_CLASS_COLOR_BUTTON);
+            Gtk.StyleContext.add_provider_for_display (Gdk.Display.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
             color_button.tooltip_text = scheme.name;
         } else if (scheme != null || background == "" || foreground == "") {
             //Fallback to standard radio buttons (should not happen)

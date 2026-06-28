@@ -273,7 +273,7 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
         // Add a class to distinguish from foldermanager sourcelist
-        get_style_context ().add_class ("symbol-outline");
+        add_css_class ("symbol-outline");
         update_style_scheme (((GtkSource.Buffer)(doc.source_view.buffer)).style_scheme);
         doc.source_view.style_changed.connect (update_style_scheme);
     }
