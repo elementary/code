@@ -348,7 +348,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                     : search_root.file.file;
 
                 bool is_explicit = !(item_for_path is ProjectFolderItem);
-                search_root.global_search (start_folder, term, is_explicit);
+                search_root.global_search.begin (start_folder, term, is_explicit);
             }
         }
     }
