@@ -96,7 +96,7 @@ namespace Scratch.Widgets {
             style_scheme_manager = new GtkSource.StyleSchemeManager ();
 
             font_css_provider = new Gtk.CssProvider ();
-            get_style_context ().add_provider (font_css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            Gtk.StyleContext.add_provider_for_display (Gdk.Display.get_default (), font_css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
             var source_buffer = new GtkSource.Buffer (null);
             set_buffer (source_buffer);
