@@ -1031,14 +1031,18 @@ namespace Scratch {
 
             chooser.select_multiple = true;
 
-            if (chooser.run () == Gtk.ResponseType.ACCEPT) {
-                chooser.get_files ().foreach ((glib_file) => {
-                    var foldermanager_file = new FolderManager.File (glib_file.get_path ());
-                    folder_manager_view.open_folder (foldermanager_file);
-                });
-            }
+            chooser.response.connect ((res) => {
+                var files = chooser.get_files ();
+                chooser.destroy ();
+                if (res == Gtk.ResponseType.ACCEPT) {
+                    files.foreach ((glib_file) => {
+                        var foldermanager_file = new FolderManager.File (glib_file.get_path ());
+                        folder_manager_view.open_folder (foldermanager_file);
+                    });
+                }
+            });
 
-            chooser.destroy ();
+            chooser.show ();
         }
 
         private void action_open_folder (SimpleAction action, Variant? param) {
