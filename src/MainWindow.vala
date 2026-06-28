@@ -587,9 +587,13 @@ namespace Scratch {
                     Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
                     Scratch.saved_state.bind ("outline-visible", document_view , "outline_visible", SettingsBindFlags.DEFAULT);
                     Scratch.saved_state.bind ("terminal-visible", terminal, "visible", SettingsBindFlags.DEFAULT);
-
-                    restore ();
+                } else {
+                    sidebar.visible = Scratch.saved_state.get_boolean ("sidebar-visible");
+                    document_view.outline_visible = Scratch.saved_state.get_boolean ("outline-visible");
+                    terminal.visible = Scratch.saved_state.get_boolean ("terminal-visible");
                 }
+
+                restore ();
             });
 
             document_view.realize.connect (() => {
