@@ -652,7 +652,6 @@ namespace Scratch.Services {
         }
 
         private async bool save (bool force = false, bool saving_as = false) requires (!locked && is_saving) {
-            warning ("save");
             if (completion_shown ||
                 !force && (source_view.buffer.get_modified () == false ||
                 !loaded)) {
@@ -715,7 +714,6 @@ namespace Scratch.Services {
         }
 
         private async bool save_as () requires (!locked && is_saving) {
-            warning ("save as");
             // New file
             if (!loaded) {
                 return false;
