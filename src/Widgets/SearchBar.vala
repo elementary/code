@@ -414,12 +414,12 @@ namespace Scratch.Widgets {
             text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
 
             if (search_for_iter (start_iter, out end_iter)) {
-                search_entry.get_style_context ().remove_class (Granite.STYLE_CLASS_ERROR);
+                search_entry.remove_css_class (Granite.STYLE_CLASS_ERROR);
                 search_entry.primary_icon_name = "edit-find-symbolic";
             } else {
                 text_buffer.get_start_iter (out start_iter);
                 if (search_for_iter (start_iter, out end_iter)) {
-                    search_entry.get_style_context ().remove_class (Granite.STYLE_CLASS_ERROR);
+                    search_entry.remove_css_class (Granite.STYLE_CLASS_ERROR);
                     search_entry.primary_icon_name = "edit-find-symbolic";
                 } else {
                     debug ("Not found: \"%s\"", search_entry.text);

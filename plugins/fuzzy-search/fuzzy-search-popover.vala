@@ -292,7 +292,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
     private void preselect_new_item (FileItem old_item, FileItem new_item) {
         var class_name = "preselect-fuzzy";
-        old_item.get_style_context ().remove_class (class_name);
+        old_item.remove_css_class (class_name);
         new_item.add_css_class (class_name);
     }
 
