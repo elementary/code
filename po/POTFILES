@@ -3,7 +3,6 @@ src/MainWindow.vala
 src/Utils.vala
 src/Dialogs/CloneRepositoryDialog.vala
 src/Dialogs/GlobalSearchDialog.vala
-src/Dialogs/NewBranchDialog.vala
 src/Dialogs/PreferencesDialog.vala
 src/Dialogs/RestoreConfirmationDialog.vala
 src/Dialogs/CloseProjectsConfirmationDialog.vala
@@ -19,7 +18,6 @@ src/Services/FileHandler.vala
 src/Services/MonitoredRepository.vala
 src/Services/PluginManager.vala
 src/Services/Settings.vala
-src/Services/TemplateManager.vala
 src/SymbolPane/C/CtagsSymbol.vala
 src/SymbolPane/C/CtagsSymbolIter.vala
 src/SymbolPane/C/CtagsSymbolOutline.vala

@@ -2,7 +2,9 @@
 /***
   BEGIN LICENSE
 
-  Copyright (C) 2011-2012 Giulio Collura <random.cpp@gmail.com>
+  Copyright (C) 2011-2013 Giulio Collura <random.cpp@gmail.com>
+  Copyright (C) 2014-2021 elementary, Inc. (https://elementary.io)
+
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -376,7 +378,8 @@ namespace Scratch.Dialogs {
             var languages_scrolled = new Gtk.ScrolledWindow (null, null) {
                 hscrollbar_policy = Gtk.PolicyType.NEVER,
                 height_request = 250,
-                expand = true
+                hexpand = true,
+                vexpand = true
             };
             languages_scrolled.add (languages_listbox);
 
