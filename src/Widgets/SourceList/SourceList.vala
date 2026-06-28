@@ -1874,7 +1874,7 @@ public class SourceList : Gtk.ScrolledWindow {
             Gtk.TreePath path;
             Gtk.TreeViewColumn column = get_column (Column.ITEM);
 
-            get_tooltip_context (ref x, ref y, keyboard_tooltip, null, out path, null);
+            get_tooltip_context (x, y, keyboard_tooltip, null, out path, null);
             if (path == null) {
                 return false;
             }
