@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-27 17:20+0000\n"
-"PO-Revision-Date: 2026-04-19 00:13+0000\n"
+"PO-Revision-Date: 2026-06-29 23:39+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
-"Language-Team: Spanish <https://l10n.elementaryos.org/projects/code/code/es/"
-">\n"
+"Language-Team: Spanish <https://l10n.elementaryos.org/projects/code/code/es/>"
+"\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:100
@@ -240,7 +240,7 @@ msgstr "Eliminar espacios en blanco al guardar"
 
 #: src/Dialogs/PreferencesDialog.vala:29
 msgid "Except Plain Text, Markdown and YAML"
-msgstr ""
+msgstr "Exceptuando texto plano, Markdown y YAML"
 
 #: src/Dialogs/PreferencesDialog.vala:32
 msgid "Smart cut/copy lines"
@@ -319,10 +319,9 @@ msgid "Line width guide"
 msgstr "Guía de tamaño de línea"
 
 #: src/Dialogs/PreferencesDialog.vala:128
-#, fuzzy, c-format
-#| msgid "Use system font"
+#, c-format
 msgid "Use system font (%s)"
-msgstr "Usar fuentes del sistema"
+msgstr "Usar fuente del sistema (%s)"
 
 #: src/Dialogs/PreferencesDialog.vala:138
 msgid "Font"
@@ -466,7 +465,7 @@ msgstr "Archivo vacío"
 
 #: src/FolderManager/FolderItem.vala:252
 msgid "…too many templates"
-msgstr ""
+msgstr "...demasiadas plantillas"
 
 #: src/FolderManager/FolderItem.vala:255
 msgid "Templates"
