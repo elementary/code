@@ -72,18 +72,21 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Scratch.Services.Activat
                     }
 
                     if (language_list.length () == 0) {
+                        // This fallback to the LC used but might fail.
+                        spell.set_language (null);
+
                         var dialog = new Granite.MessageDialog (
                             _("No Suitable Dictionaries Were Found"),
                             _("Please install at least one [aspell] dictionary."),
                             new ThemedIcon ("dialog-warning"),
                             Gtk.ButtonsType.CLOSE
                         );
-                        dialog.run ();
-                        dialog.destroy ();
-
-                        // This fallback to the LC used but might fail.
-                        spell.set_language (null);
-
+                        dialog.response.connect (() => {
+                            dialog.destroy ();
+                        });
+                        // The following code does not depend on the dialog response
+                        //so we can just show the dialog
+                        dialog.show ();
                     } else if (!exist_language) {
                         this.lang_dict = language_list.first ().data;
                         spell.set_language (lang_dict);

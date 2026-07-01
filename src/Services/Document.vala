@@ -292,8 +292,16 @@ namespace Scratch.Services {
                         check_undoable_actions ();
                         check_file_status.begin ();
                     }
-                } else if (Scratch.settings.get_boolean ("autosave")) {
+
+                    doc_view.current_document = this;
+                } else {
+                    if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
+                        strip_trailing_spaces ();
+                    }
+
+                    if (Scratch.settings.get_boolean ("autosave")) {
                         save_with_hold.begin ();
+                    }
                 }
             });
 
@@ -324,13 +332,6 @@ namespace Scratch.Services {
             source_view.enter_notify_event.connect (() => {
                 if (!source_view.has_focus) {
                     source_view.grab_focus ();
-                }
-            });
-
-            source_view.focus_out_event.connect (() => {
-                if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
-
-                    strip_trailing_spaces ();
                 }
             });
 
@@ -1044,7 +1045,8 @@ namespace Scratch.Services {
                 Gtk.ButtonsType.NONE
             ) {
                 badge_icon = new ThemedIcon ("dialog-question"),
-                transient_for = app_instance.active_window
+                transient_for = app_instance.active_window,
+                modal = true
             };
 
             dialog.add_button (_("Ignore"), Gtk.ResponseType.REJECT);
@@ -1077,7 +1079,7 @@ namespace Scratch.Services {
                 });
             });
 
-            dialog.present ();
+            dialog.show ();
         }
 
         private void ask_external_changes (
@@ -1094,8 +1096,8 @@ namespace Scratch.Services {
                     new ThemedIcon ("dialog-warning"),
                     Gtk.ButtonsType.NONE
                 ) {
-                transient_for = app_instance.active_window
-
+                transient_for = app_instance.active_window,
+                modal = true
             };
 
             dialog.add_button (_("Continue"), Gtk.ResponseType.REJECT);
@@ -1153,7 +1155,7 @@ namespace Scratch.Services {
                 });
             });
 
-            dialog.present ();
+            dialog.show ();
         }
         // Set Undo/Redo action sensitive property
         public void check_undoable_actions () {
