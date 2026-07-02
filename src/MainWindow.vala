@@ -1061,6 +1061,10 @@ namespace Scratch {
         }
 
         private void action_clone_repo (SimpleAction action, Variant? param) {
+            clone_repo.begin ();
+        }
+
+        private async void clone_repo () {
             var default_projects_folder = Scratch.settings.get_string ("default-projects-folder");
             if (default_projects_folder == "" && git_manager.active_project_path != "") {
                 default_projects_folder = Path.get_dirname (git_manager.active_project_path);
@@ -1068,63 +1072,66 @@ namespace Scratch {
 
             var default_remote = Scratch.settings.get_string ("default-remote");
             var clone_dialog = new Dialogs.CloneRepositoryDialog (default_projects_folder, default_remote);
-            clone_dialog.response.connect ((res) => {
-                // Persist last entries (not necessarily valid)
-                Scratch.settings.set_string ("default-remote", clone_dialog.get_remote ());
-                Scratch.settings.set_string ("default-projects-folder", clone_dialog.get_projects_folder ());
-                //TODO Show more information re progress using Ggit callbacks
-                if (res == Gtk.ResponseType.APPLY && clone_dialog.can_clone) {
-                    sidebar.cloning_in_progress = true;
-                    clone_dialog.hide ();
-                    var uri = clone_dialog.get_valid_source_repository_uri ();
-                    var target = clone_dialog.get_valid_target ();
-                    git_manager.clone_repository.begin (
-                        uri,
-                        target,
-                        (obj, res) => {
-                            sidebar.cloning_in_progress = false;
-                            File? workdir = null;
-                            string? error = null;
-                            if (git_manager.clone_repository.end (res, out workdir, out error)) {
-                                open_folder (workdir);
-                                clone_dialog.destroy ();
-                                if (this.is_active) {
-                                    sidebar.notify_cloning_success ();
-                                } else {
-                                    var notification = new Notification (_("Cloning completed"));
-                                    notification.set_body (_("Clone successfully created in %s").printf (target));
-                                    notification.set_icon (new ThemedIcon ("process-completed-symbolic"));
-                                    app.send_notification ("cloning-finished-%s".printf (target), notification);
-                                }
-                            } else {
-                                var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                                    _("Unable to clone %s").printf (uri),
-                                    error,
-                                    "dialog-error",
-                                    Gtk.ButtonsType.CLOSE
-                                ) {
-                                    transient_for = this
-                                };
-                                message_dialog.add_button (_("Retry"), 1);
-                                message_dialog.response.connect ((res) => {
-                                    if (res == 1) {
-                                        clone_dialog.show ();
-                                    } else {
-                                        clone_dialog.destroy ();
-                                    }
 
-                                    message_dialog.destroy ();
-                                });
-                                message_dialog.present ();
-                            }
-                        }
-                    );
-                } else {
-                    clone_dialog.destroy ();
-                }
+            var action_complete = false;
+            clone_dialog.response.connect ((res) => {
+                action_complete = (res != Gtk.ResponseType.APPLY || !clone_dialog.can_clone);
+                clone_repo.callback ();
             });
 
-            clone_dialog.present ();
+            while (!action_complete) {
+                clone_dialog.show ();
+                yield;
+
+                if (!action_complete) {
+                    Scratch.settings.set_string ("default-remote", clone_dialog.get_remote ());
+                    Scratch.settings.set_string ("default-projects-folder", clone_dialog.get_projects_folder ());
+                    //TODO Show more information re progress using Ggit callbacks
+                    clone_dialog.hide ();
+
+                    var uri = clone_dialog.get_valid_source_repository_uri ();
+                    var target = clone_dialog.get_valid_target ();
+                    sidebar.cloning_in_progress = true;
+                    File? workdir = null;
+                    string? error = null;
+                    var success = yield git_manager.clone_repository (uri, target, out workdir, out error);
+                    sidebar.cloning_in_progress = false;
+
+                    if (success) {
+                        open_folder (workdir);
+                        if (this.is_active) {
+                            sidebar.notify_cloning_success ();
+                        } else {
+                            var notification = new Notification (_("Cloning completed"));
+                            notification.set_body (_("Clone successfully created in %s").printf (target));
+                            notification.set_icon (new ThemedIcon ("process-completed-symbolic"));
+                            app.send_notification ("cloning-finished-%s".printf (target), notification);
+                        }
+
+                        action_complete = true;
+                    } else {
+                        var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                            _("Unable to clone %s").printf (uri),
+                            error,
+                            "dialog-error",
+                            Gtk.ButtonsType.CLOSE
+                        ) {
+                            transient_for = this,
+                            modal = true
+                        };
+                        message_dialog.add_button (_("Retry"), 1);
+                        message_dialog.response.connect ((res) => {
+                            action_complete = res != 1;
+                            message_dialog.destroy ();
+                            clone_repo.callback ();
+                        });
+                        message_dialog.show ();
+                        yield;
+                    }
+                }
+            }
+
+            clone_dialog.destroy ();
         }
 
         private void action_collapse_all_folders () {
