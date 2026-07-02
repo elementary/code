@@ -27,14 +27,14 @@ public class Scratch.Dialogs.OverwriteUncommittedConfirmationDialog : Granite.Me
         Object (
             buttons: Gtk.ButtonsType.NONE,
             transient_for: parent,
-            branch_name: new_branch_name
+            branch_name: new_branch_name,
+            modal: true
         );
 
         show_error_details (details);
     }
 
     construct {
-        modal = true;
         image_icon = new ThemedIcon ("dialog-warning");
 
         primary_text = _("There are uncommitted changes in the current branch");

@@ -1,5 +1,5 @@
 /*
-* Copyright 2024 elementary, Inc. (https://elementary.io)
+* Copyright 2024-2025 elementary, Inc. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -26,7 +26,8 @@ public class Scratch.Dialogs.CloseProjectsConfirmationDialog : Granite.MessageDi
             buttons: Gtk.ButtonsType.NONE,
             transient_for: parent,
             n_parents: n_parents,
-            n_children: n_children
+            n_children: n_children,
+            modal: true
         );
     }
 

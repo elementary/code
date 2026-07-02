@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 elementary, Inc. <https://elementary.io>
+ * Copyright 2025-2026 elementary, Inc. <https://elementary.io>
  * SPDX-License-Identifier: GPL-3.0-or-later
 *
 * Authored by: Jeremy Wootten <jeremywootten@gmail.com>
