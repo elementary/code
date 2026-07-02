@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2021 elementary Inc. (https://elementary.io)
+ * Copyright (c) 2021-2026 elementary Inc. (https://elementary.io)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -62,8 +62,10 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             selection_mode = Gtk.SelectionMode.SINGLE
         };
         var project_filter = new Gtk.SearchEntry () {
-            margin = 12,
+            margin_top = 12,
             margin_bottom = 6,
+            margin_start = 12,
+            margin_end = 12,
             placeholder_text = _("Filter projects")
         };
 
@@ -78,7 +80,8 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
 
         var project_scrolled = new Gtk.ScrolledWindow (null, null) {
             hscrollbar_policy = Gtk.PolicyType.NEVER,
-            expand = true,
+            hexpand = true,
+            vexpand = true,
             margin_top = 3,
             margin_bottom = 3,
             max_content_height = 350,

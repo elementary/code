@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2018 elementary LLC. (https://elementary.io),
+ * Copyright (c) 2018-2026 elementary LLC. (https://elementary.io),
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
@@ -397,13 +397,14 @@ namespace Scratch.FolderManager {
                     new ThemedIcon ("git"),
                     Gtk.ButtonsType.CLOSE
                 ) {
-                    badge_icon = new ThemedIcon ("dialog-error")
+                    badge_icon = new ThemedIcon ("dialog-error"),
+                    modal = true
                 };
                 dialog.transient_for = (Gtk.Window)(view.get_toplevel ());
                 dialog.response.connect (() => {
                     dialog.destroy ();
                 });
-                dialog.run ();
+                dialog.show ();
             }
         }
 

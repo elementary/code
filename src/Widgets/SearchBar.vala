@@ -245,20 +245,21 @@ namespace Scratch.Widgets {
 
             // Connecting to some signals
             search_entry.changed.connect (on_search_parameters_changed);
-            search_entry.focus_in_event.connect (on_search_entry_focused_in);
+            search_entry.notify["is-focus"].connect (() => {
+                if (search_entry.is_focus && text_buffer != null) {
+                    Idle.add (() => {
+                        update_search_widgets ();
+                        search_entry.select_region (0, -1);
+                        return Source.REMOVE;
+                    });
+                }
+            });
             search_entry.icon_release.connect ((p0, p1) => {
                 if (p0 == Gtk.EntryIconPosition.PRIMARY) {
                     search_next ();
                 }
             });
             replace_entry.activate.connect (on_replace_entry_activate);
-
-            var entry_path = new Gtk.WidgetPath ();
-            entry_path.append_type (typeof (Gtk.Widget));
-
-            var entry_context = new Gtk.StyleContext ();
-            entry_context.set_path (entry_path);
-            entry_context.add_class ("entry");
 
             var flowbox = new Gtk.FlowBox () {
                 selection_mode = Gtk.SelectionMode.NONE,
@@ -379,20 +380,6 @@ namespace Scratch.Widgets {
             }
 
             update_search_widgets ();
-        }
-
-        private bool on_search_entry_focused_in (Gdk.EventFocus event) {
-            if (text_buffer == null) {
-                return false;
-            }
-
-            Idle.add (() => {
-                update_search_widgets ();
-                search_entry.select_region (0, -1);
-                return Source.REMOVE;
-            });
-
-            return Gdk.EVENT_PROPAGATE;
         }
 
         public bool search () {
