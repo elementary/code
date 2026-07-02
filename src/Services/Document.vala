@@ -432,8 +432,8 @@ namespace Scratch.Services {
                 return;
             }
 
-            while (Gtk.events_pending ()) {
-                Gtk.main_iteration ();
+            while (MainContext.@default ().pending ()) {
+                MainContext.@default ().iteration (false);
             }
 
             var buffer = new Gtk.SourceBuffer (null); /* Faster to load into a separate buffer */
