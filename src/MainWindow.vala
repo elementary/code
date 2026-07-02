@@ -1,5 +1,5 @@
 /*
-* Copyright 2017–2020 elementary, Inc. <https://elementary.io>
+* Copyright 2017–2026 elementary, Inc. <https://elementary.io>
 *           2011–2013 Mario Guerriero <mefrio.g@gmail.com>
 *
 * This program is free software; you can redistribute it and/or
@@ -55,7 +55,6 @@ namespace Scratch {
         // Widgets for Plugins
         public Code.Sidebar sidebar;
 
-        private Granite.Dialog? preferences_dialog = null;
         private Gtk.Paned hp1;
         private Gtk.Paned vp;
         private Gtk.Stack content_stack;
@@ -93,7 +92,6 @@ namespace Scratch {
         public const string ACTION_REVERT = "action-revert";
         public const string ACTION_SAVE = "action-save";
         public const string ACTION_SAVE_AS = "action-save-as";
-        public const string ACTION_TEMPLATES = "action-templates";
         public const string ACTION_SHOW_REPLACE = "action-show-replace";
         public const string ACTION_TO_LOWER_CASE = "action-to-lower-case";
         public const string ACTION_TO_UPPER_CASE = "action-to-upper-case";
@@ -133,6 +131,7 @@ namespace Scratch {
         private ulong color_scheme_listener_handler_id = 0;
 
         private Services.GitManager git_manager;
+        private bool is_first_window;
 
         private const ActionEntry[] ACTION_ENTRIES = {
             { ACTION_CLONE_REPO, action_clone_repo },
@@ -149,7 +148,6 @@ namespace Scratch {
             { ACTION_SAVE, action_save },
             { ACTION_SAVE_AS, action_save_as },
             { ACTION_TOGGLE_SHOW_FIND, action_toggle_show_find, null, "false" },
-            { ACTION_TEMPLATES, action_templates },
             { ACTION_GO_TO, action_go_to },
             { ACTION_SORT_LINES, action_sort_lines },
             { ACTION_NEW_TAB, action_new_tab },
@@ -280,6 +278,7 @@ namespace Scratch {
         construct {
             application = ((Gtk.Application)(GLib.Application.get_default ()));
             app = (Scratch.Application)application;
+            is_first_window = application.get_windows ().length () == 1;
             title = base_title;
 
             weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
@@ -342,10 +341,6 @@ namespace Scratch {
             // Show/Hide widgets
             show_all ();
 
-            toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
-            plugins.plugin_iface.template_manager.notify["template_available"].connect (() => {
-                toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
-            });
 
             // Create folder for unsaved documents
             create_unsaved_documents_directory ();
@@ -542,7 +537,8 @@ namespace Scratch {
             view_grid.add (document_view);
 
             content_stack = new Gtk.Stack () {
-                expand = true,
+                hexpand = true,
+                vexpand = true,
                 width_request = 200
             };
 
@@ -550,12 +546,8 @@ namespace Scratch {
             content_stack.add (welcome_view);
             content_stack.visible_child = view_grid; // Must be visible while restoring
 
-            // Set a proper position for ThinPaned widgets
-            int width, height;
-            get_size (out width, out height);
-
+            // The pane position is restored from settings
             vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
-            vp.position = (height - 150);
             vp.pack1 (content_stack, true, false);
             vp.pack2 (terminal, false, false);
 
@@ -578,9 +570,6 @@ namespace Scratch {
             size_group.add_widget (toolbar);
 
             realize.connect (() => {
-                Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
-                Scratch.saved_state.bind ("outline-visible", document_view , "outline_visible", SettingsBindFlags.DEFAULT);
-                Scratch.saved_state.bind ("terminal-visible", terminal, "visible", SettingsBindFlags.DEFAULT);
                 // Plugins hook
                 HookFunc hook_func = () => {
                     plugins.hook_window (this);
@@ -593,6 +582,17 @@ namespace Scratch {
                 });
 
                 hook_func ();
+
+                // Allow secondary windows to have a different pane state
+                if (is_first_window) {
+                    Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
+                    Scratch.saved_state.bind ("outline-visible", document_view , "outline_visible", SettingsBindFlags.DEFAULT);
+                    Scratch.saved_state.bind ("terminal-visible", terminal, "visible", SettingsBindFlags.DEFAULT);
+                } else {
+                    sidebar.visible = Scratch.saved_state.get_boolean ("sidebar-visible");
+                    document_view.outline_visible = Scratch.saved_state.get_boolean ("outline-visible");
+                    terminal.visible = Scratch.saved_state.get_boolean ("terminal-visible");
+                }
 
                 restore ();
             });
@@ -876,6 +876,10 @@ namespace Scratch {
 
         private void update_window_state_setting () {
             // Save window state
+            if (!is_first_window) {
+                return;
+            }
+
             var state = get_window ().get_state ();
             if (Gdk.WindowState.MAXIMIZED in state) {
                 Scratch.saved_state.set_enum ("window-state", ScratchWindowState.MAXIMIZED);
@@ -963,13 +967,13 @@ namespace Scratch {
         }
 
         public string get_default_font () {
-            string font = app.system_document_font;
+            string font = app.system_monospace_font;
             string font_family = font.substring (0, font.last_index_of (" "));
             return font_family;
         }
 
         public double get_default_font_size () {
-            string font = app.system_document_font;
+            string font = app.system_monospace_font;
             string font_size = font.substring (font.last_index_of (" ") + 1);
             return double.parse (font_size);
         }
@@ -980,14 +984,12 @@ namespace Scratch {
         }
 
         private void action_preferences () {
-            if (preferences_dialog == null) {
-                preferences_dialog = new Scratch.Dialogs.Preferences (this, plugins);
-                preferences_dialog.show_all ();
+            var preferences_dialog = new Scratch.Dialogs.Preferences (this, plugins);
+            preferences_dialog.show_all ();
 
-                preferences_dialog.destroy.connect (() => {
-                    preferences_dialog = null;
-                });
-            }
+            preferences_dialog.response.connect (() => {
+                preferences_dialog.destroy ();
+            });
 
             preferences_dialog.present ();
         }
@@ -1399,9 +1401,6 @@ namespace Scratch {
             toolbar.format_bar.line_menubutton.active = true;
         }
 
-        private void action_templates () {
-            plugins.plugin_iface.template_manager.show_window (this);
-        }
 
         private void action_to_lower_case () {
             var doc = document_view.current_document;
