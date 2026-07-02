@@ -1,5 +1,5 @@
 /*
-* Copyright 2017–2020 elementary, Inc. <https://elementary.io>
+* Copyright 2017–2026 elementary, Inc. <https://elementary.io>
 *           2011–2013 Mario Guerriero <mefrio.g@gmail.com>
 *
 * This program is free software; you can redistribute it and/or
@@ -55,7 +55,6 @@ namespace Scratch {
         // Widgets for Plugins
         public Code.Sidebar sidebar;
 
-        private Granite.Dialog? preferences_dialog = null;
         private Gtk.Paned hp1;
         private Gtk.Paned vp;
         private Gtk.Stack content_stack;
@@ -93,19 +92,21 @@ namespace Scratch {
         public const string ACTION_REVERT = "action-revert";
         public const string ACTION_SAVE = "action-save";
         public const string ACTION_SAVE_AS = "action-save-as";
-        public const string ACTION_TEMPLATES = "action-templates";
         public const string ACTION_SHOW_REPLACE = "action-show-replace";
         public const string ACTION_TO_LOWER_CASE = "action-to-lower-case";
         public const string ACTION_TO_UPPER_CASE = "action-to-upper-case";
         public const string ACTION_DUPLICATE = "action-duplicate";
         public const string ACTION_FULLSCREEN = "action-fullscreen";
-        public const string ACTION_QUIT = "action-quit";
+        public const string ACTION_QUIT = "action-quit-app";
+        public const string ACTION_CLOSE_WINDOW = "action-close-window";
         public const string ACTION_ZOOM_DEFAULT = "action-zoom-default";
         public const string ACTION_ZOOM_IN = "action-zoom-in";
         public const string ACTION_ZOOM_OUT = "action-zoom-out";
         public const string ACTION_TOGGLE_COMMENT = "action-toggle-comment";
         public const string ACTION_TOGGLE_SHOW_FIND = "action-toggle_show-find";
         public const string ACTION_TOGGLE_SIDEBAR = "action-toggle-sidebar";
+        public const string ACTION_FOCUS_SIDEBAR = "action-focus-sidebar";
+        public const string ACTION_FOCUS_DOCUMENT = "action-focus-document";
         public const string ACTION_TOGGLE_OUTLINE = "action-toggle-outline";
         public const string ACTION_TOGGLE_TERMINAL = "action-toggle-terminal";
         public const string ACTION_OPEN_IN_TERMINAL = "action-open-in-terminal";
@@ -130,6 +131,7 @@ namespace Scratch {
         private ulong color_scheme_listener_handler_id = 0;
 
         private Services.GitManager git_manager;
+        private bool is_first_window;
 
         private const ActionEntry[] ACTION_ENTRIES = {
             { ACTION_CLONE_REPO, action_clone_repo },
@@ -146,7 +148,6 @@ namespace Scratch {
             { ACTION_SAVE, action_save },
             { ACTION_SAVE_AS, action_save_as },
             { ACTION_TOGGLE_SHOW_FIND, action_toggle_show_find, null, "false" },
-            { ACTION_TEMPLATES, action_templates },
             { ACTION_GO_TO, action_go_to },
             { ACTION_SORT_LINES, action_sort_lines },
             { ACTION_NEW_TAB, action_new_tab },
@@ -160,12 +161,15 @@ namespace Scratch {
             { ACTION_TO_UPPER_CASE, action_to_upper_case },
             { ACTION_DUPLICATE, action_duplicate },
             { ACTION_FULLSCREEN, action_fullscreen },
-            { ACTION_QUIT, action_quit },
+            { ACTION_QUIT, action_quit_app },
+            { ACTION_CLOSE_WINDOW, action_close_window },
             { ACTION_ZOOM_DEFAULT, action_set_default_zoom },
             { ACTION_ZOOM_IN, action_zoom_in },
             { ACTION_ZOOM_OUT, action_zoom_out},
             { ACTION_TOGGLE_COMMENT, action_toggle_comment },
             { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar, null, "true" },
+            { ACTION_FOCUS_SIDEBAR, action_focus_sidebar },
+            { ACTION_FOCUS_DOCUMENT, action_focus_document },
             { ACTION_TOGGLE_TERMINAL, action_toggle_terminal, null, "false"},
             { ACTION_OPEN_IN_TERMINAL, action_open_in_terminal, "s"},
             { ACTION_SET_ACTIVE_PROJECT, action_set_active_project, "s"},
@@ -225,6 +229,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_DUPLICATE, "<Control>d");
             action_accelerators.set (ACTION_FULLSCREEN, "F11");
             action_accelerators.set (ACTION_QUIT, "<Control>q");
+            action_accelerators.set (ACTION_CLOSE_WINDOW, "<Control>F4");
             action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>0");
             action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>KP_0");
             action_accelerators.set (ACTION_ZOOM_IN, "<Control>plus");
@@ -236,6 +241,8 @@ namespace Scratch {
             action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>slash");
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "F9"); // GNOME
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "<Control>backslash"); // Atom
+            action_accelerators.set (ACTION_FOCUS_SIDEBAR, "<Control><Alt>Left");
+            action_accelerators.set (ACTION_FOCUS_DOCUMENT, "<Control><Alt>Right");
             action_accelerators.set (ACTION_TOGGLE_TERMINAL, "<Control><Alt>t");
             action_accelerators.set (ACTION_OPEN_IN_TERMINAL + "::", "<Control><Alt><Shift>t");
             action_accelerators.set (ACTION_TOGGLE_OUTLINE, "<Alt>backslash");
@@ -271,6 +278,7 @@ namespace Scratch {
         construct {
             application = ((Gtk.Application)(GLib.Application.get_default ()));
             app = (Scratch.Application)application;
+            is_first_window = application.get_windows ().length () == 1;
             title = base_title;
 
             weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
@@ -333,10 +341,6 @@ namespace Scratch {
             // Show/Hide widgets
             show_all ();
 
-            toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
-            plugins.plugin_iface.template_manager.notify["template_available"].connect (() => {
-                toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
-            });
 
             // Create folder for unsaved documents
             create_unsaved_documents_directory ();
@@ -530,7 +534,8 @@ namespace Scratch {
             view_grid.add (document_view);
 
             content_stack = new Gtk.Stack () {
-                expand = true,
+                hexpand = true,
+                vexpand = true,
                 width_request = 200
             };
 
@@ -538,12 +543,8 @@ namespace Scratch {
             content_stack.add (welcome_view);
             content_stack.visible_child = view_grid; // Must be visible while restoring
 
-            // Set a proper position for ThinPaned widgets
-            int width, height;
-            get_size (out width, out height);
-
+            // The pane position is restored from settings
             vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
-            vp.position = (height - 150);
             vp.pack1 (content_stack, true, false);
             vp.pack2 (terminal, false, false);
 
@@ -566,9 +567,6 @@ namespace Scratch {
             size_group.add_widget (toolbar);
 
             realize.connect (() => {
-                Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
-                Scratch.saved_state.bind ("outline-visible", document_view , "outline_visible", SettingsBindFlags.DEFAULT);
-                Scratch.saved_state.bind ("terminal-visible", terminal, "visible", SettingsBindFlags.DEFAULT);
                 // Plugins hook
                 HookFunc hook_func = () => {
                     plugins.hook_window (this);
@@ -581,6 +579,17 @@ namespace Scratch {
                 });
 
                 hook_func ();
+
+                // Allow secondary windows to have a different pane state
+                if (is_first_window) {
+                    Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
+                    Scratch.saved_state.bind ("outline-visible", document_view , "outline_visible", SettingsBindFlags.DEFAULT);
+                    Scratch.saved_state.bind ("terminal-visible", terminal, "visible", SettingsBindFlags.DEFAULT);
+                } else {
+                    sidebar.visible = Scratch.saved_state.get_boolean ("sidebar-visible");
+                    document_view.outline_visible = Scratch.saved_state.get_boolean ("outline-visible");
+                    terminal.visible = Scratch.saved_state.get_boolean ("terminal-visible");
+                }
 
                 restore ();
             });
@@ -716,7 +725,7 @@ namespace Scratch {
         }
 
         protected override bool delete_event (Gdk.EventAny event) {
-            action_quit ();
+            action_close_window ();
             return true;
         }
 
@@ -804,10 +813,10 @@ namespace Scratch {
         }
 
         // Check that there no unsaved changes and all saves are successful
-        private async bool check_unsaved_changes () {
+        public async bool check_unsaved_changes (bool app_closing) {
             document_view.is_closing = true;
             foreach (var doc in document_view.docs) {
-                if (!yield (doc.do_close (true))) {
+                if (!yield (doc.do_close (app_closing))) {
                     document_view.current_document = doc;
                     return false;
                 }
@@ -841,8 +850,12 @@ namespace Scratch {
             }
         }
 
-        private void update_saved_state () {
+        private void update_window_state_setting () {
             // Save window state
+            if (!is_first_window) {
+                return;
+            }
+
             var state = get_window ().get_state ();
             if (Gdk.WindowState.MAXIMIZED in state) {
                 Scratch.saved_state.set_enum ("window-state", ScratchWindowState.MAXIMIZED);
@@ -865,14 +878,14 @@ namespace Scratch {
 
         // SIGTERM/SIGINT Handling
         public bool quit_source_func () {
-            action_quit ();
+            action_quit_app ();
             return false;
         }
 
         // For exit cleanup
-        private void handle_quit () {
-            document_view.save_opened_files ();
-            update_saved_state ();
+        public void before_quit () {
+            document_view.update_opened_files_setting ();
+            update_window_state_setting ();
         }
 
         public void set_default_zoom () {
@@ -930,13 +943,13 @@ namespace Scratch {
         }
 
         public string get_default_font () {
-            string font = app.default_font;
+            string font = app.system_monospace_font;
             string font_family = font.substring (0, font.last_index_of (" "));
             return font_family;
         }
 
         public double get_default_font_size () {
-            string font = app.default_font;
+            string font = app.system_monospace_font;
             string font_size = font.substring (font.last_index_of (" ") + 1);
             return double.parse (font_size);
         }
@@ -947,25 +960,22 @@ namespace Scratch {
         }
 
         private void action_preferences () {
-            if (preferences_dialog == null) {
-                preferences_dialog = new Scratch.Dialogs.Preferences (this, plugins);
-                preferences_dialog.show_all ();
+            var preferences_dialog = new Scratch.Dialogs.Preferences (this, plugins);
+            preferences_dialog.show_all ();
 
-                preferences_dialog.destroy.connect (() => {
-                    preferences_dialog = null;
-                });
-            }
+            preferences_dialog.response.connect (() => {
+                preferences_dialog.destroy ();
+            });
 
             preferences_dialog.present ();
         }
 
-        private void action_quit () {
-            handle_quit ();
-            check_unsaved_changes.begin ((obj, res) => {
-                if (check_unsaved_changes.end (res)) {
-                    app.quit ();
-                }
-            });
+        private void action_close_window () {
+            app.handle_quit_window.begin (this);
+        }
+
+        private void action_quit_app () {
+            app.handle_quit_app.begin ();
         }
 
         private void action_open () {
@@ -1363,9 +1373,6 @@ namespace Scratch {
             toolbar.format_bar.line_menubutton.active = true;
         }
 
-        private void action_templates () {
-            plugins.plugin_iface.template_manager.show_window (this);
-        }
 
         private void action_to_lower_case () {
             var doc = document_view.current_document;
@@ -1425,6 +1432,26 @@ namespace Scratch {
 
             action.set_state (!action.get_state ().get_boolean ());
             sidebar.visible = action.get_state ().get_boolean ();
+        }
+
+        private void action_focus_sidebar () {
+            if (sidebar == null) {
+                return;
+            }
+
+            if (!sidebar.visible) {
+                var toggle_sidebar_action = Utils.action_from_group (ACTION_TOGGLE_SIDEBAR, actions);
+                toggle_sidebar_action.activate (null);
+            }
+
+            sidebar.focus_sidebar ();
+        }
+
+        private void action_focus_document () {
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.focus ();
+            }
         }
 
         private void action_toggle_terminal () {

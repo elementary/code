@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2017 - 2024 elementary LLC. (https://elementary.io),
+ * Copyright (c) 2017-2026 elementary LLC. (https://elementary.io),
  *               2013 Julien Spautz <spautz.julien@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -11,7 +11,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranties of
  * MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
  * PURPOSE. See the GNU General Public License for more details.
- *
+
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
@@ -31,6 +31,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
     public const string ACTION_RENAME_FOLDER = "rename-folder";
     public const string ACTION_DELETE = "delete";
     public const string ACTION_NEW_FILE = "new-file";
+    public const string ACTION_NEW_FROM_TEMPLATE = "new-from-template";
     public const string ACTION_NEW_FOLDER = "new-folder";
     public const string ACTION_CLOSE_FOLDER = "close-folder";
     public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
@@ -43,6 +44,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         { ACTION_RENAME_FOLDER, action_rename_folder, "s" },
         { ACTION_DELETE, action_delete, "s" },
         { ACTION_NEW_FILE, add_new_file, "s" },
+        { ACTION_NEW_FROM_TEMPLATE, add_new_from_template, "(ss)" },
         { ACTION_NEW_FOLDER, add_new_folder, "s"},
         { ACTION_CLOSE_FOLDER, action_close_folder, "s"},
         { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"}
@@ -158,7 +160,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
     public async void restore_saved_state () {
         foreach (unowned string path in settings.get_strv ("opened-folders")) {
-            yield add_folder (new File (path), false);
+            yield add_folder (new File (path), false, true);
         }
     }
 
@@ -363,6 +365,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         plugins.hook_folder_item_change (source, dest, event);
     }
 
+    // This only works when the list is stable (nothing being added, expanded etc)
     private void rename_file (string path) {
         this.select_path (path);
         if (this.start_editing_item (selected)) {
@@ -458,9 +461,10 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
     private void add_new_file (SimpleAction action, Variant? param) {
         // Using "path" of parent folder from params, call `on_add_new (false)` on `FolderItem`
-        var path = param.get_string ();
+        var path = param != null ? param.get_string () : null;
 
         if (path == null || path == "") {
+            critical ("No path");
             return;
         }
 
@@ -470,6 +474,25 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         }
 
         folder.on_add_new (false);
+    }
+
+    private void add_new_from_template (SimpleAction action, Variant? param) {
+        // Using "path" of parent folder from params, call `on_add_new (false)` on `FolderItem`
+        // var path = param.get_string ();
+        string? parent_path = null, template_path = null;
+        param.@get ("(ss)", out parent_path, out template_path);
+
+        //Do we need this check?
+        if (parent_path == null || parent_path == "") {
+            return;
+        }
+
+        var folder = find_path (root, parent_path) as FolderItem;
+        if (folder == null) {
+            return;
+        }
+
+        folder.on_add_template (template_path);
     }
 
     private void action_launch_app_with_file_path (SimpleAction action, Variant? param) {
@@ -488,14 +511,18 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         var dialog = new Gtk.AppChooserDialog (new Gtk.Window (), Gtk.DialogFlags.MODAL, file);
         dialog.deletable = false;
 
-        if (dialog.run () == Gtk.ResponseType.OK) {
-            var app_info = dialog.get_app_info ();
-            if (app_info != null) {
-                Utils.launch_app_with_file (app_info.get_id (), path);
+        dialog.response.connect ((res) => {
+            if (res == Gtk.ResponseType.OK) {
+                var app_info = dialog.get_app_info ();
+                if (app_info != null) {
+                    Utils.launch_app_with_file (app_info.get_id (), path);
+                }
             }
-        }
 
-        dialog.destroy ();
+            dialog.destroy ();
+        });
+
+        dialog.show ();
     }
 
     private void action_execute_contract_with_file_path (SimpleAction action, Variant? param) {
@@ -558,7 +585,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         }
     }
 
-    private async void add_folder (File folder, bool expand) {
+    private async void add_folder (File folder, bool expand, bool restoring = false) {
         if (is_open (folder)) {
             warning ("Folder '%s' is already open.", folder.path);
             return;
@@ -635,7 +662,13 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                 write_settings ();
             });
 
-            write_settings ();
+            // We do not want to rewrite settings while restoring from settings
+            // This interferes with fuzzy-finder plugins_manager
+            // See https://github.com/elementary/code/issues/1533
+            if (!restoring) {
+                write_settings ();
+            }
+
             add_folder.callback ();
             return Source.REMOVE;
         });

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-05 17:03+0000\n"
+"POT-Creation-Date: 2026-06-27 17:20+0000\n"
 "PO-Revision-Date: 2026-01-31 08:55+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/code/code/"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:41 src/Widgets/DocumentView.vala:99
+#: src/Application.vala:41 src/Widgets/DocumentView.vala:100
 msgid "New Tab"
 msgstr "Нова вкладка"
 
@@ -45,59 +45,59 @@ msgstr "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 msgid "[FILE…]"
 msgstr "[ФАЙЛ…]"
 
-#: src/MainWindow.vala:263
+#: src/MainWindow.vala:269
 #, c-format
 msgid "Code (%s)"
 msgstr "Код (%s)"
 
-#: src/MainWindow.vala:265
+#: src/MainWindow.vala:271
 msgid "Code"
 msgstr "Код"
 
-#: src/MainWindow.vala:401
+#: src/MainWindow.vala:403
 msgid "Hide search bar"
 msgstr "Сховати панель пошуку"
 
-#: src/MainWindow.vala:406 src/Widgets/HeaderBar.vala:122
+#: src/MainWindow.vala:408 src/Widgets/HeaderBar.vala:117
 msgid "Find on Page…"
 msgstr "Знайти на сторінці…"
 
-#: src/MainWindow.vala:417
+#: src/MainWindow.vala:419
 msgid "Hide Projects Sidebar"
 msgstr "Сховати бічну панель проєктів"
 
-#: src/MainWindow.vala:422
+#: src/MainWindow.vala:424
 msgid "Show Projects Sidebar"
 msgstr "Показати бічну панель проєктів"
 
-#: src/MainWindow.vala:431
+#: src/MainWindow.vala:433
 msgid "Hide Symbol Outline"
 msgstr "Сховати контур символу"
 
-#: src/MainWindow.vala:436
+#: src/MainWindow.vala:438
 msgid "Show Symbol Outline"
 msgstr "Показати контур символу"
 
-#: src/MainWindow.vala:445
+#: src/MainWindow.vala:447
 msgid "Hide Terminal"
 msgstr "Сховати термінал"
 
-#: src/MainWindow.vala:450 src/Widgets/HeaderBar.vala:195
+#: src/MainWindow.vala:452 src/Widgets/HeaderBar.vala:190
 msgid "Show Terminal"
 msgstr "Показати термінал"
 
 #. Update MainWindow title
 #. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:620
+#: src/MainWindow.vala:623
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:973 src/Services/Document.vala:668
+#: src/MainWindow.vala:973 src/Services/Document.vala:702
 msgid "All files"
 msgstr "Усі файли"
 
-#: src/MainWindow.vala:977 src/Services/Document.vala:672
+#: src/MainWindow.vala:977 src/Services/Document.vala:706
 msgid "Text files"
 msgstr "Текстові файли"
 
@@ -111,10 +111,9 @@ msgstr "Відкрити"
 
 #: src/MainWindow.vala:985 src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
-#: src/Dialogs/GlobalSearchDialog.vala:86 src/Dialogs/NewBranchDialog.vala:42
-#: src/Services/Document.vala:510 src/Services/Document.vala:680
-#: plugins/pastebin/pastebin_dialog.vala:327
-#: plugins/pastebin/pastebin_dialog.vala:378
+#: src/Dialogs/GlobalSearchDialog.vala:87 src/Services/Document.vala:544
+#: src/Services/Document.vala:714 plugins/pastebin/pastebin_dialog.vala:331
+#: plugins/pastebin/pastebin_dialog.vala:386
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -195,71 +194,60 @@ msgstr "Назва клону"
 msgid "Cloning in progress"
 msgstr "Триває клонування"
 
-#: src/Dialogs/GlobalSearchDialog.vala:62
+#: src/Dialogs/GlobalSearchDialog.vala:63
 msgid "The search term will be treated as a regex expression"
 msgstr "Пошуковий термін розглядатиметься як вираз регулярного виразу"
 
-#: src/Dialogs/GlobalSearchDialog.vala:64
+#: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will be case sensitive"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:64
+#: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will be case insensitive"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:65
+#: src/Dialogs/GlobalSearchDialog.vala:66
 msgid "Search will match only whole words"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:68
+#: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
 msgid "Search for text in “%s”"
 msgstr "Пошук тексту в «%s»"
 
-#: src/Dialogs/GlobalSearchDialog.vala:69
+#: src/Dialogs/GlobalSearchDialog.vala:70
 msgid "The search term must be at least 3 characters long."
 msgstr "Пошукова фраза повинна містити щонайменше 3 символи."
 
-#: src/Dialogs/GlobalSearchDialog.vala:88
+#: src/Dialogs/GlobalSearchDialog.vala:89
 msgid "Search"
 msgstr "Пошук"
 
-#: src/Dialogs/NewBranchDialog.vala:43
-#, c-format
-msgid "Create a new branch of “%s/%s”"
-msgstr "Створення нової гілки з «%s/%s»"
-
-#. /TRANSLATORS "Git" is a proper name and must not be translated
-#: src/Dialogs/NewBranchDialog.vala:48
-msgid "The branch name must be unique and follow Git naming rules."
-msgstr ""
-"Назва гілки повинна бути унікальною та відповідати правилам іменування GIT."
-
-#: src/Dialogs/NewBranchDialog.vala:56
-msgid "Create Branch"
-msgstr "Створити гілку"
-
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:217
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:212
 msgid "Preferences"
 msgstr "Налаштування"
 
-#: src/Dialogs/PreferencesDialog.vala:23
+#: src/Dialogs/PreferencesDialog.vala:24
 msgid "General"
 msgstr "Загальне"
 
-#: src/Dialogs/PreferencesDialog.vala:24
+#: src/Dialogs/PreferencesDialog.vala:25
 msgid "Save files when changed"
 msgstr "Зберігати змінені файли"
 
-#: src/Dialogs/PreferencesDialog.vala:25
+#: src/Dialogs/PreferencesDialog.vala:27
 msgid "Strip trailing whitespace on save"
 msgstr "Вилучати пробіли в кінці рядків під час збереження"
 
-#: src/Dialogs/PreferencesDialog.vala:27
+#: src/Dialogs/PreferencesDialog.vala:29
+msgid "Except Plain Text, Markdown and YAML"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:32
 msgid "Smart cut/copy lines"
 msgstr "Інтелектуальне вирізання/копіювання рядків"
 
-#: src/Dialogs/PreferencesDialog.vala:29
+#: src/Dialogs/PreferencesDialog.vala:34
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
@@ -267,147 +255,149 @@ msgstr ""
 "Вирізання або копіювання без активного виділення вирізає або копіює весь "
 "поточний рядок"
 
-#: src/Dialogs/PreferencesDialog.vala:35
+#: src/Dialogs/PreferencesDialog.vala:40
 msgid "Indentation width"
 msgstr "Ширина відступу"
 
-#: src/Dialogs/PreferencesDialog.vala:46
+#: src/Dialogs/PreferencesDialog.vala:51
 msgid "Indentation"
 msgstr "Відступ"
 
-#: src/Dialogs/PreferencesDialog.vala:47
+#: src/Dialogs/PreferencesDialog.vala:52
 msgid "Automatic indentation"
 msgstr "Автоматичний відступ"
 
-#: src/Dialogs/PreferencesDialog.vala:48
+#: src/Dialogs/PreferencesDialog.vala:53
 msgid "Insert spaces instead of tabs"
 msgstr "Вставляти пробіли замість табуляцій"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:62
 msgid "Default build directory"
 msgstr "Типовий каталог збірки"
 
-#: src/Dialogs/PreferencesDialog.vala:67
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Projects"
 msgstr "Проєкти"
 
-#: src/Dialogs/PreferencesDialog.vala:78
+#: src/Dialogs/PreferencesDialog.vala:83
 msgid "None"
 msgstr "Немає"
 
-#: src/Dialogs/PreferencesDialog.vala:79
+#: src/Dialogs/PreferencesDialog.vala:84
 msgid "Current Line"
 msgstr "Поточний рядок"
 
-#: src/Dialogs/PreferencesDialog.vala:80
+#: src/Dialogs/PreferencesDialog.vala:85
 msgid "All"
 msgstr "Усе"
 
-#: src/Dialogs/PreferencesDialog.vala:96
+#: src/Dialogs/PreferencesDialog.vala:101
 msgid "Whitespace visible when not selected"
 msgstr "Пробіл видно, якщо його не вибрано"
 
-#: src/Dialogs/PreferencesDialog.vala:111
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "Editor"
 msgstr "Редактор"
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Highlight matching brackets"
 msgstr "Виділяти відповідні дужки"
 
-#: src/Dialogs/PreferencesDialog.vala:113
+#: src/Dialogs/PreferencesDialog.vala:118
 #, fuzzy
 #| msgid "Syntax Highlighting"
 msgid "Syntax highlighting"
 msgstr "Підсвічування синтаксису"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "Mini Map"
 msgstr "Мінімапа"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "Wrap lines"
 msgstr "Перенесення рядків"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:122
 msgid "Line width guide"
 msgstr "Довжина рядка"
 
-#: src/Dialogs/PreferencesDialog.vala:125
+#: src/Dialogs/PreferencesDialog.vala:128
+#, fuzzy, c-format
+#| msgid "Use system font"
+msgid "Use system font (%s)"
+msgstr "Використовувати системний шрифт"
+
+#: src/Dialogs/PreferencesDialog.vala:138
 msgid "Font"
 msgstr "Шрифт"
 
-#: src/Dialogs/PreferencesDialog.vala:126
-msgid "Use system font"
-msgstr "Використовувати системний шрифт"
-
-#: src/Dialogs/PreferencesDialog.vala:137
+#: src/Dialogs/PreferencesDialog.vala:153
 msgid "Behavior"
 msgstr "Поведінка"
 
-#: src/Dialogs/PreferencesDialog.vala:138 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:154 src/SymbolPane/SymbolOutline.vala:51
 msgid "Interface"
 msgstr "Зовнішній вигляд"
 
-#: src/Dialogs/PreferencesDialog.vala:154 src/Services/PluginManager.vala:130
+#: src/Dialogs/PreferencesDialog.vala:170 src/Services/PluginManager.vala:125
 msgid "Extensions"
 msgstr "Розширення"
 
-#: src/Dialogs/PreferencesDialog.vala:160
-#: plugins/pastebin/pastebin_dialog.vala:434
+#: src/Dialogs/PreferencesDialog.vala:176
+#: plugins/pastebin/pastebin_dialog.vala:444
 msgid "Close"
 msgstr "Закрити"
 
-#: src/Dialogs/RestoreConfirmationDialog.vala:31
+#: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Are You Sure You Want to Restore This File?"
 msgstr "Ви впевнені, що хочете відновити цей файл?"
 
-#: src/Dialogs/RestoreConfirmationDialog.vala:32
+#: src/Dialogs/RestoreConfirmationDialog.vala:33
 msgid "Restoring a file will undo all changes made since opening it"
 msgstr "Відновлення файлу скасує всі внесені, з часу його відкриття, зміни"
 
-#: src/Dialogs/RestoreConfirmationDialog.vala:34
+#: src/Dialogs/RestoreConfirmationDialog.vala:35
 msgid "Don't Restore"
 msgstr "Не відновлювати"
 
-#: src/Dialogs/RestoreConfirmationDialog.vala:36
+#: src/Dialogs/RestoreConfirmationDialog.vala:37
 msgid "Restore Anyway"
 msgstr "Все одно відновити"
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:40
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
 msgid "This folder is the parent of an open project"
 msgid_plural "This folder is the parent of open projects"
 msgstr[0] "Це батьківська тека відкритого проєкту"
 msgstr[1] "Це батьківська тека відкритих проєктів"
 msgstr[2] "Це батьківська тека відкритих проєктів"
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:46
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:47
 msgid "Opening this folder will close the child project"
 msgid_plural "Opening this folder will close all child projects"
 msgstr[0] "Відкриття цієї теки призведе до закриття вкладеного проєкту"
 msgstr[1] "Відкриття цієї теки призведе до закриття вкладених проєктів"
 msgstr[2] "Відкриття цієї теки призведе до закриття вкладених проєктів"
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:52
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:53
 msgid "Close Child Project"
 msgid_plural "Close Child Projects"
 msgstr[0] "Закрити вкладений проєкт"
 msgstr[1] "Закрити вкладені проєкти"
 msgstr[2] "Закрити вкладені проєкти"
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:57
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
 msgid "This folder is a child of an open project"
 msgstr "Це вкладена тека відкритого проєкту"
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
 msgid "Opening this folder will close the parent project"
 msgstr "Відкриття цієї теки призведе до закриття батьківського проєкту"
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:60
 msgid "Close Parent Project"
 msgstr "Закрити батьківський проєкт"
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:62
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:63
 msgid "Don't Open"
 msgstr "Не відкривати"
 
@@ -439,59 +429,67 @@ msgstr "Не вивантажувати"
 msgid "Checkout and Overwrite"
 msgstr "Вивантажити й перезаписати"
 
-#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:170
 msgid "Other Actions"
 msgstr "Інші дії"
 
-#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:139
+#: src/FolderManager/FileItem.vala:55 src/FolderManager/FolderItem.vala:144
 msgid "Rename"
 msgstr "Перейменувати"
 
-#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:147
+#: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:152
 msgid "Move to Trash"
 msgstr "Перемістити до смітника"
 
-#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:195
+#: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:200
 msgid "Other Application…"
 msgstr "Інший Застосунок…"
 
-#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:215
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:220
 msgid "Open In"
 msgstr "Відкрити у"
 
-#: src/FolderManager/FileView.vala:70
+#: src/FolderManager/FileView.vala:72
 msgid "Folders"
 msgstr "Теки"
 
-#: src/FolderManager/FolderItem.vala:155
+#: src/FolderManager/FolderItem.vala:160
 msgid "Find in Folder…"
 msgstr "Пошук у теці…"
 
-#: src/FolderManager/FolderItem.vala:186
+#: src/FolderManager/FolderItem.vala:191
 msgid "Terminal Pane"
 msgstr "Панель Термінала"
 
-#: src/FolderManager/FolderItem.vala:221
+#: src/FolderManager/FolderItem.vala:226
 msgid "Folder"
 msgstr "Тека"
 
-#: src/FolderManager/FolderItem.vala:229
+#: src/FolderManager/FolderItem.vala:234
 msgid "Empty File"
 msgstr "Порожній файл"
 
+#: src/FolderManager/FolderItem.vala:252
+msgid "…too many templates"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:255
+msgid "Templates"
+msgstr "Шаблони"
+
 #. scan all children
 #. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:240
+#: src/FolderManager/FolderItem.vala:259
 #: src/FolderManager/ProjectFolderItem.vala:328
 #: src/FolderManager/ProjectFolderItem.vala:334
 msgid "New"
 msgstr "Нова"
 
-#: src/FolderManager/FolderItem.vala:396
+#: src/FolderManager/FolderItem.vala:560
 msgid "untitled folder"
 msgstr "тека без назви"
 
-#: src/FolderManager/FolderItem.vala:396
+#: src/FolderManager/FolderItem.vala:560
 msgid "new file"
 msgstr "новий файл"
 
@@ -541,7 +539,7 @@ msgstr[0] "Відновити %u схований документ"
 msgstr[1] "Відновити %u сховані документи"
 msgstr[2] "Відновити %u схованих документів"
 
-#: src/FolderManager/ProjectFolderItem.vala:274 src/Widgets/HeaderBar.vala:131
+#: src/FolderManager/ProjectFolderItem.vala:274 src/Widgets/HeaderBar.vala:126
 msgid "Find in Project…"
 msgstr "Пошук у проєкті…"
 
@@ -555,96 +553,96 @@ msgid "Error while creating new branch: “%s”"
 msgstr "Помилка створення нової гілки: «%s»"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:384
+#: src/Services/Document.vala:418
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s це не текстовий файл"
 
-#: src/Services/Document.vala:385
+#: src/Services/Document.vala:419
 msgid "Code will not load this type of file."
 msgstr "Code не може завантажити цей тип файлу."
 
-#: src/Services/Document.vala:387
+#: src/Services/Document.vala:421
 msgid "Load Anyway"
 msgstr "Все одно завантажити"
 
-#: src/Services/Document.vala:408
+#: src/Services/Document.vala:442
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Завантаження файлу «%s» триває надто довго"
 
-#: src/Services/Document.vala:409
+#: src/Services/Document.vala:443
 msgid "Please wait while Code is loading the file."
 msgstr "Зачекайте хвильку, доки Код завантажує файл."
 
-#: src/Services/Document.vala:411
+#: src/Services/Document.vala:445
 msgid "Cancel Loading"
 msgstr "Скасувати завантаження"
 
-#: src/Services/Document.vala:500
+#: src/Services/Document.vala:534
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Зберегти зміни в «%s» перш ніж закрити?"
 
-#: src/Services/Document.vala:501
+#: src/Services/Document.vala:535
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Якщо не зберегти файл, зміни буде безповоротно втрачено."
 
-#: src/Services/Document.vala:507
+#: src/Services/Document.vala:541
 msgid "Close Without Saving"
 msgstr "Закрити без збереження"
 
-#: src/Services/Document.vala:511 src/Services/Document.vala:679
+#: src/Services/Document.vala:545 src/Services/Document.vala:713
 msgid "Save"
 msgstr "Зберегти"
 
-#: src/Services/Document.vala:638
+#: src/Services/Document.vala:672
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "Не вдалося зберегти до «%s»."
 
-#: src/Services/Document.vala:676
+#: src/Services/Document.vala:710
 msgid "Save File"
 msgstr "Зберегти файл"
 
-#: src/Services/Document.vala:763 src/Services/Document.vala:781
+#: src/Services/Document.vala:797 src/Services/Document.vala:815
 msgid "New Document"
 msgstr "Новий документ"
 
 #. No path for a new document
-#: src/Services/Document.vala:783
+#: src/Services/Document.vala:817
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "Неможливо зберегти цей документ до %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:870
+#: src/Services/Document.vala:908
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "Не вдалося прочитати текст у файлі «%s»"
 
-#: src/Services/Document.vala:873
+#: src/Services/Document.vala:911
 msgid "You may not have permission to read the file."
 msgstr "Можливо, у вас немає дозволу на читання файлу."
 
-#: src/Services/Document.vala:875
+#: src/Services/Document.vala:913
 msgid "The file may be corrupt or may not be a text file"
 msgstr "Файл може бути пошкоджений або не бути текстовим файлом"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:881
+#: src/Services/Document.vala:919
 msgid "Show Anyway"
 msgstr "Усе одно показати"
 
-#: src/Services/Document.vala:912
+#: src/Services/Document.vala:950
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
 msgstr "Попереднє розташування файлу «%s» від'єднано, але є незбережені зміни."
 
-#: src/Services/Document.vala:914
+#: src/Services/Document.vala:952
 #, c-format
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
 msgstr ""
@@ -652,17 +650,17 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:928
+#: src/Services/Document.vala:966
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "Файл «%s» не має дозволу на запис."
 
-#: src/Services/Document.vala:974
+#: src/Services/Document.vala:1016
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "Файл «%s» було змінено іншим застосунком"
 
-#: src/Services/Document.vala:979
+#: src/Services/Document.vala:1021
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
@@ -670,36 +668,36 @@ msgstr ""
 "Також є незбережені зміни. Перезавантаження документа перезапише незбережені "
 "зміни."
 
-#: src/Services/Document.vala:983
+#: src/Services/Document.vala:1025
 msgid "The document changed externally since you last saved it."
 msgstr "З моменту останнього збереження в документі відбулися зовнішні зміни."
 
-#: src/Services/Document.vala:999
+#: src/Services/Document.vala:1041
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "«%s» не можна зберегти тут. Зберегти дублікат в іншому місці?"
 
-#: src/Services/Document.vala:1008
+#: src/Services/Document.vala:1051
 msgid "Ignore"
 msgstr "Ігнорувати"
 
-#: src/Services/Document.vala:1010
+#: src/Services/Document.vala:1053
 msgid "Save Duplicate…"
 msgstr "Зберегти дублікат…"
 
-#: src/Services/Document.vala:1059
+#: src/Services/Document.vala:1102
 msgid "Continue"
 msgstr "Далі"
 
-#: src/Services/Document.vala:1061
+#: src/Services/Document.vala:1104
 msgid "Reload"
 msgstr "Перезавантажити"
 
-#: src/Services/Document.vala:1064
+#: src/Services/Document.vala:1107
 msgid "Overwrite"
 msgstr "Перезаписати"
 
-#: src/Services/Document.vala:1067
+#: src/Services/Document.vala:1110
 msgid "Save Document elsewhere"
 msgstr "Зберегти документ в іншому місці"
 
@@ -715,19 +713,15 @@ msgstr ""
 "Запитувану гілку не знайдено в жодному віддаленому репозиторії, пов'язаному "
 "з цим репозиторієм"
 
-#: src/Services/MonitoredRepository.vala:342
+#: src/Services/MonitoredRepository.vala:343
 msgid "An error occurred while checking out the requested branch"
 msgstr "Виникла помилка під час перевірки запитуваної гілки"
 
 #. /TRANSLATORS "%.8s" is a placeholder for the first 8 characters of a commit reference
-#: src/Services/MonitoredRepository.vala:382
+#: src/Services/MonitoredRepository.vala:385
 #, c-format
 msgid "%.8s (detached)"
 msgstr "%.8s (відокремлено)"
-
-#: src/Services/TemplateManager.vala:198
-msgid "Templates"
-msgstr "Шаблони"
 
 #. Remove fake fields created by the vala parser.
 #: src/SymbolPane/C/CtagsSymbolOutline.vala:79
@@ -819,44 +813,44 @@ msgstr "Проєкт не вибрано"
 msgid "Active Git Project: %s"
 msgstr "Активний Git-проєкт: %s"
 
-#: src/Widgets/ChooseProjectButton.vala:67
+#: src/Widgets/ChooseProjectButton.vala:69
 msgid "Filter projects"
 msgstr "Фільтрувати проєкти"
 
-#: src/Widgets/ChooseProjectButton.vala:90
+#: src/Widgets/ChooseProjectButton.vala:93
 msgid "Open Folder…"
 msgstr "Відкрити теку…"
 
-#: src/Widgets/ChooseProjectButton.vala:95
+#: src/Widgets/ChooseProjectButton.vala:98
 msgid "Clone Git Repository…"
 msgstr "Клонувати Git-репозиторій…"
 
-#: src/Widgets/DocumentView.vala:109
+#: src/Widgets/DocumentView.vala:110
 msgid "Closed Tabs"
 msgstr "Закрити вкладки"
 
-#: src/Widgets/DocumentView.vala:449
+#: src/Widgets/DocumentView.vala:450
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Текстовий файл з %s:%d"
 
-#: src/Widgets/DocumentView.vala:625
+#: src/Widgets/DocumentView.vala:626
 msgid "Close Tabs to the Right"
 msgstr "Закрити вкладки праворуч"
 
-#: src/Widgets/DocumentView.vala:626
+#: src/Widgets/DocumentView.vala:627
 msgid "Close Other Tabs"
 msgstr "Закрити інші вкладки"
 
-#: src/Widgets/DocumentView.vala:627
+#: src/Widgets/DocumentView.vala:628
 msgid "Close Tab"
 msgstr "Закрити вкладку"
 
-#: src/Widgets/DocumentView.vala:630
+#: src/Widgets/DocumentView.vala:631
 msgid "Open in New Window"
 msgstr "Відкрити нове вікно"
 
-#: src/Widgets/DocumentView.vala:631
+#: src/Widgets/DocumentView.vala:632
 msgid "Duplicate Tab"
 msgstr "Дублювати вкладку"
 
@@ -870,35 +864,35 @@ msgstr "Фільтрувати мови"
 msgid "Line number"
 msgstr "Номер рядка"
 
-#: src/Widgets/FormatBar.vala:87
+#: src/Widgets/FormatBar.vala:89
 msgid "Filter languages"
 msgstr "Фільтрувати мови"
 
-#: src/Widgets/FormatBar.vala:111
+#: src/Widgets/FormatBar.vala:113
 msgid "Plain Text"
 msgstr "Звичайний текст"
 
-#: src/Widgets/FormatBar.vala:149
+#: src/Widgets/FormatBar.vala:151
 msgid "Some settings set by EditorConfig file"
 msgstr "Деякі налаштування визначаються файлом EditorConfig"
 
-#: src/Widgets/FormatBar.vala:152
+#: src/Widgets/FormatBar.vala:154
 msgid "Automatic Indentation"
 msgstr "Автовідступ"
 
-#: src/Widgets/FormatBar.vala:154
+#: src/Widgets/FormatBar.vala:156
 msgid "Insert Spaces Instead Of Tabs"
 msgstr "Вставляти пробіли замість табуляцій"
 
-#: src/Widgets/FormatBar.vala:156
+#: src/Widgets/FormatBar.vala:158
 msgid "Tab width"
 msgstr "Ширина табуляції"
 
-#: src/Widgets/FormatBar.vala:236
+#: src/Widgets/FormatBar.vala:238
 msgid "Go To Line:"
 msgstr "Перейти до рядка:"
 
-#: src/Widgets/FormatBar.vala:287
+#: src/Widgets/FormatBar.vala:293
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
@@ -906,7 +900,7 @@ msgstr[0] "%d пробіл"
 msgstr[1] "%d пробіли"
 msgstr[2] "%d пробілів"
 
-#: src/Widgets/FormatBar.vala:289
+#: src/Widgets/FormatBar.vala:295
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -914,59 +908,55 @@ msgstr[0] "%d вкладка"
 msgstr[1] "%d вкладки"
 msgstr[2] "%d вкладок"
 
-#: src/Widgets/HeaderBar.vala:38
+#: src/Widgets/HeaderBar.vala:37
 msgid "Open a file"
 msgstr "Відкрити файл"
 
-#: src/Widgets/HeaderBar.vala:44
-msgid "Project templates"
-msgstr "Шаблони проєктів"
-
-#: src/Widgets/HeaderBar.vala:51
+#: src/Widgets/HeaderBar.vala:46
 msgid "Save this file"
 msgstr "Зберегти цей файл"
 
-#: src/Widgets/HeaderBar.vala:59
+#: src/Widgets/HeaderBar.vala:54
 msgid "Save this file with a different name"
 msgstr "Зберегти цей файл під іншою назвою"
 
-#: src/Widgets/HeaderBar.vala:67
+#: src/Widgets/HeaderBar.vala:62
 msgid "Restore this file"
 msgstr "Повернути файл до початкового стану"
 
-#: src/Widgets/HeaderBar.vala:76
+#: src/Widgets/HeaderBar.vala:71
 msgid "Share"
 msgstr "Поділитися"
 
-#: src/Widgets/HeaderBar.vala:84
+#: src/Widgets/HeaderBar.vala:79
 msgid "Zoom Out"
 msgstr "Зменшити"
 
-#: src/Widgets/HeaderBar.vala:92
+#: src/Widgets/HeaderBar.vala:87
 msgid "Zoom 1:1"
 msgstr "Масштаб 1:1"
 
-#: src/Widgets/HeaderBar.vala:100
+#: src/Widgets/HeaderBar.vala:95
 msgid "Zoom In"
 msgstr "Збільшити"
 
-#: src/Widgets/HeaderBar.vala:145
+#: src/Widgets/HeaderBar.vala:140
 msgid "Follow System Style"
 msgstr "Використовувати стиль системи"
 
-#: src/Widgets/HeaderBar.vala:239
+#: src/Widgets/HeaderBar.vala:234
 msgid "Menu"
 msgstr "Меню"
 
-#: src/Widgets/HeaderBar.vala:392
+#: src/Widgets/HeaderBar.vala:386
 msgid "Light"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:395
+#: src/Widgets/HeaderBar.vala:389
 msgid "Dark"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:398
+#: src/Widgets/HeaderBar.vala:392
 #, fuzzy
 #| msgid "High Contrast"
 msgid "Contrast"
@@ -1008,7 +998,7 @@ msgstr "Шукати позаду"
 msgid "Cyclic Search"
 msgstr "Циклічний пошук"
 
-#: src/Widgets/SearchBar.vala:132 plugins/pastebin/pastebin_dialog.vala:467
+#: src/Widgets/SearchBar.vala:132 plugins/pastebin/pastebin_dialog.vala:477
 msgid "Never"
 msgstr "Ніколи"
 
@@ -1048,48 +1038,48 @@ msgstr "Замінити"
 msgid "Replace all"
 msgstr "Замінити все"
 
-#: src/Widgets/SearchBar.vala:614
+#: src/Widgets/SearchBar.vala:601
 #, c-format
 msgid "%d of %d"
 msgstr "%d з %d"
 
-#: src/Widgets/SearchBar.vala:619
+#: src/Widgets/SearchBar.vala:606
 msgid "no results"
 msgstr "нічого не знайдено"
 
-#: src/Widgets/SourceView.vala:581
+#: src/Widgets/SourceView.vala:576
 #, fuzzy
 #| msgid "Sort Selected Lines"
 msgid "Sort Lines"
 msgstr "Впорядкувати вибрані рядки"
 
-#: src/Widgets/SourceView.vala:585
+#: src/Widgets/SourceView.vala:580
 #, fuzzy
 #| msgid "Mark Current Line"
 msgid "Mark Line"
 msgstr "Позначити поточний рядок"
 
-#: src/Widgets/SourceView.vala:589
+#: src/Widgets/SourceView.vala:584
 #, fuzzy
 #| msgid "Previous Tab"
 msgid "Previous Mark"
 msgstr "Попередня вкладка"
 
-#: src/Widgets/SourceView.vala:593
+#: src/Widgets/SourceView.vala:588
 #, fuzzy
 #| msgid "Next Tab"
 msgid "Next Mark"
 msgstr "Наступна вкладка"
 
-#: src/Widgets/SourceView.vala:603
+#: src/Widgets/SourceView.vala:598
 msgid "Toggle Comment"
 msgstr "Закоментувати/розкоментувати"
 
-#: src/Widgets/Terminal.vala:140
+#: src/Widgets/Terminal.vala:134
 msgid "Copy"
 msgstr "Копіювати"
 
-#: src/Widgets/Terminal.vala:141
+#: src/Widgets/Terminal.vala:135
 msgid "Paste"
 msgstr "Вставити"
 
@@ -1125,68 +1115,83 @@ msgstr "Відкрити теку"
 msgid "Add a project folder to the sidebar."
 msgstr "Додати теку проєкту на бічну панель."
 
-#: plugins/pastebin/pastebin_dialog.vala:248
-#: plugins/pastebin/pastebin_dialog.vala:328 plugins/pastebin/pastebin.vala:125
+#: plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:332 plugins/pastebin/pastebin.vala:127
 msgid "Upload to Pastebin"
 msgstr "Завантажити на Pastebin"
 
-#: plugins/pastebin/pastebin_dialog.vala:257
+#: plugins/pastebin/pastebin_dialog.vala:259
 msgid "Name:"
 msgstr "Назва:"
 
-#: plugins/pastebin/pastebin_dialog.vala:261
+#: plugins/pastebin/pastebin_dialog.vala:263
 msgid "Format:"
 msgstr "Формат:"
 
-#: plugins/pastebin/pastebin_dialog.vala:268
+#: plugins/pastebin/pastebin_dialog.vala:270
 msgid "Choose different format"
 msgstr "Вибрати інший формат"
 
-#: plugins/pastebin/pastebin_dialog.vala:290
+#: plugins/pastebin/pastebin_dialog.vala:292
 msgid "Expiration:"
 msgstr "Термін дії:"
 
-#: plugins/pastebin/pastebin_dialog.vala:297
+#: plugins/pastebin/pastebin_dialog.vala:299
 msgid "Keep this paste private"
 msgstr "Залишити цей текст недоступним для інших"
 
-#: plugins/pastebin/pastebin_dialog.vala:354
+#: plugins/pastebin/pastebin_dialog.vala:358
 msgid "Available Formats"
 msgstr "Доступні формати"
 
-#: plugins/pastebin/pastebin_dialog.vala:380
+#: plugins/pastebin/pastebin_dialog.vala:388
 msgid "Select Format"
 msgstr "Вибрати формат"
 
-#: plugins/pastebin/pastebin_dialog.vala:468
+#: plugins/pastebin/pastebin_dialog.vala:478
 msgid "Ten minutes"
 msgstr "Десять хвилин"
 
-#: plugins/pastebin/pastebin_dialog.vala:469
+#: plugins/pastebin/pastebin_dialog.vala:479
 msgid "One hour"
 msgstr "Одна година"
 
-#: plugins/pastebin/pastebin_dialog.vala:470
+#: plugins/pastebin/pastebin_dialog.vala:480
 msgid "One day"
 msgstr "Один день"
 
-#: plugins/pastebin/pastebin_dialog.vala:471
+#: plugins/pastebin/pastebin_dialog.vala:481
 msgid "One month"
 msgstr "Один місяць"
 
-#: plugins/spell/spell.vala:73
+#: plugins/spell/spell.vala:79
 msgid "No Suitable Dictionaries Were Found"
 msgstr "Відповідних словників не знайдено"
 
-#: plugins/spell/spell.vala:74
+#: plugins/spell/spell.vala:80
 msgid "Please install at least one [aspell] dictionary."
 msgstr "Установіть принаймні один словник [aspell]."
 
-#: plugins/word-completion/plugin.vala:165
+#: plugins/word-completion/plugin.vala:166
 #: plugins/word-completion/completion-provider.vala:55
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - завершення слів"
+
+#, c-format
+#~ msgid "Create a new branch of “%s/%s”"
+#~ msgstr "Створення нової гілки з «%s/%s»"
+
+#~ msgid "The branch name must be unique and follow Git naming rules."
+#~ msgstr ""
+#~ "Назва гілки повинна бути унікальною та відповідати правилам іменування "
+#~ "GIT."
+
+#~ msgid "Create Branch"
+#~ msgstr "Створити гілку"
+
+#~ msgid "Project templates"
+#~ msgstr "Шаблони проєктів"
 
 #~ msgid "Local"
 #~ msgstr "Локально"

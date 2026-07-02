@@ -1,7 +1,7 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /*
 * Copyright (c) 2013 Mario Guerriero <mefrio.g@gmail.com>
-*               2017–2020 elementary, Inc. <https://elementary.io>
+*               2017–2026 elementary, Inc. <https://elementary.io>
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -40,8 +40,8 @@ namespace Scratch.Widgets {
         private NavMarkGutterRenderer navmark_gutter_renderer;
 
         private const uint THROTTLE_MS = 400;
-        private double total_delta = 0;
-        private const double SCROLL_THRESHOLD = 1.0;
+
+        protected static Scratch.Application application;
 
         public signal void style_changed (Gtk.SourceStyleScheme style);
         // "selection_changed" signal now only emitted when the selected text changes (position ignored).
@@ -84,9 +84,11 @@ namespace Scratch.Widgets {
         }
 
         construct {
+            application = (Scratch.Application) (GLib.Application.get_default ());
             space_drawer.enable_matrix = true;
 
-            expand = true;
+            hexpand = true;
+            vexpand = true;
             manager = Gtk.SourceLanguageManager.get_default ();
             style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
 
@@ -132,23 +134,6 @@ namespace Scratch.Widgets {
             var granite_settings = Granite.Settings.get_default ();
             granite_settings.notify["prefers-color-scheme"].connect (restore_settings);
 
-            scroll_event.connect ((key_event) => {
-                var handled = false;
-                if (Gdk.ModifierType.CONTROL_MASK in key_event.state) {
-                    total_delta += key_event.delta_y;
-                    if (total_delta < -SCROLL_THRESHOLD) {
-                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_IN, null);
-                        total_delta = 0.0;
-                    } else if (total_delta > SCROLL_THRESHOLD) {
-                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_OUT, null);
-                        total_delta = 0.0;
-                    }
-
-                    return true;
-                }
-
-                return false;
-            });
 
             cut_clipboard.connect (() => {
                 if (!Scratch.settings.get_boolean ("smart-cut-copy")) {
@@ -199,6 +184,12 @@ namespace Scratch.Widgets {
                         bottom_margin = calculate_bottom_margin (allocation.height);
                         return GLib.Source.REMOVE;
                     });
+                }
+            });
+
+            application.notify["system-monospace-font"].connect (() => {
+                if (Scratch.settings.get_boolean ("use-system-font")) {
+                    update_font ();
                 }
             });
         }
@@ -278,8 +269,27 @@ namespace Scratch.Widgets {
                 set_wrap_mode (Gtk.WrapMode.NONE);
             }
 
+            update_font ();
+
+            if (settings.get_boolean ("follow-system-style")) {
+                var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+                if (system_prefers_dark) {
+                    source_buffer.style_scheme = style_scheme_manager.get_scheme ("elementary-dark");
+                } else {
+                    source_buffer.style_scheme = style_scheme_manager.get_scheme ("elementary-light");
+                }
+            } else {
+                var scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
+                source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("classic");
+            }
+
+            git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
+            style_changed (source_buffer.style_scheme);
+        }
+
+        private void update_font () {
             if (Scratch.settings.get_boolean ("use-system-font")) {
-                font = ((Scratch.Application) GLib.Application.get_default ()).default_font;
+                font = application.system_monospace_font;
             } else {
                 font = Scratch.settings.get_string ("font");
             }
@@ -296,21 +306,6 @@ namespace Scratch.Widgets {
             } catch (Error e) {
                 critical (e.message);
             }
-
-            if (settings.get_boolean ("follow-system-style")) {
-                var system_prefers_dark = Granite.Settings.get_default ().prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-                if (system_prefers_dark) {
-                    source_buffer.style_scheme = style_scheme_manager.get_scheme ("elementary-dark");
-                } else {
-                    source_buffer.style_scheme = style_scheme_manager.get_scheme ("elementary-light");
-                }
-            } else {
-                var scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
-                source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("elementary-highcontrast-light");
-            }
-
-            git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
-            style_changed (source_buffer.style_scheme);
         }
 
         public void go_to_line (int line, int offset = 0) {
@@ -631,7 +626,7 @@ namespace Scratch.Widgets {
             // Use a default size of 10pt
             double px_per_line = 10 * PT_TO_PX;
 
-            var last_window = ((Scratch.Application) GLib.Application.get_default ()).get_last_window ();
+            var last_window = application.get_last_window ();
             if (last_window != null) {
                 // Get the actual font size
                 px_per_line = last_window.get_current_font_size () * PT_TO_PX;

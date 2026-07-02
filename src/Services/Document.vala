@@ -189,8 +189,13 @@ namespace Scratch.Services {
         private Mount mount;
         private Icon locked_icon;
 
+        private Gtk.EventControllerScroll scroll_controller;
+
         private static Pango.FontDescription? builder_blocks_font = null;
         private static Pango.FontMap? builder_font_map = null;
+
+        private double total_delta = 0;
+        private const double SCROLL_THRESHOLD = 1.0;
 
         public Document (SimpleActionGroup actions, File file) {
             Object (
@@ -221,9 +226,33 @@ namespace Scratch.Services {
             source_view = new Scratch.Widgets.SourceView ();
 
             scroll = new Gtk.ScrolledWindow (null, null) {
-                expand = true
+                hexpand = true,
+                vexpand = true
             };
             scroll.add (source_view);
+
+            scroll_controller = new Gtk.EventControllerScroll (scroll, VERTICAL) {
+                propagation_phase = CAPTURE
+            };
+            scroll_controller.scroll.connect ((dx, dy) => {
+                Gdk.ModifierType state;
+                Gtk.get_current_event_state (out state);
+                if (Gdk.ModifierType.CONTROL_MASK in state) {
+                    total_delta += dy;
+                    if (total_delta < -SCROLL_THRESHOLD) {
+                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_IN, null);
+                        total_delta = 0.0;
+                    } else if (total_delta > SCROLL_THRESHOLD) {
+                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_OUT, null);
+                        total_delta = 0.0;
+                    }
+
+                    return;
+                }
+
+                Gtk.propagate_event (scroll, Gtk.get_current_event ());
+            });
+
             source_file = new Gtk.SourceFile ();
             source_map = new Gtk.SourceMap ();
             outline_widget_pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
@@ -257,28 +286,26 @@ namespace Scratch.Services {
 
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
 
-            // Focus in event for SourceView
-            // Check if file changed externally or permissions changed
-            this.source_view.focus_in_event.connect (() => {
-                if (!locked && !is_file_temporary) {
-                    check_undoable_actions ();
-                    check_file_status.begin ();
+            this.source_view.notify["is-focus"].connect (() => {
+                return_if_fail (!locked);
+                if (source_view.is_focus) {
+                    if (!is_file_temporary) {
+                        check_undoable_actions ();
+                        check_file_status.begin ();
+                    }
+
+                    doc_view.current_document = this;
+                    restore_selection ();
+                } else {
+                    save_selection ();
+                    if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
+                        strip_trailing_spaces ();
+                    }
+
+                    if (Scratch.settings.get_boolean ("autosave")) {
+                        save_with_hold.begin ();
+                    }
                 }
-
-                restore_selection ();
-
-                return false;
-            });
-
-            // Focus out event for SourceView
-            this.source_view.focus_out_event.connect (() => {
-                if (!locked && Scratch.settings.get_boolean ("autosave")) {
-                    save_with_hold.begin ();
-                }
-
-                save_selection ();
-
-                return false;
             });
 
             source_view.buffer.changed.connect (() => {
@@ -308,13 +335,6 @@ namespace Scratch.Services {
             source_view.enter_notify_event.connect (() => {
                 if (!source_view.has_focus) {
                     source_view.grab_focus ();
-                }
-            });
-
-            source_view.focus_out_event.connect (() => {
-                if (Scratch.settings.get_boolean ("strip-trailing-on-save")) {
-
-                    strip_trailing_spaces ();
                 }
             });
 
@@ -823,6 +843,10 @@ namespace Scratch.Services {
         public void revert () {
             this.source_view.set_text (original_content, false);
             check_undoable_actions ();
+
+            if (outline != null) {
+                outline.parse_symbols ();
+            }
         }
 
         // Get text
@@ -986,6 +1010,10 @@ namespace Scratch.Services {
                         set_saved_status (true);
                         source_view.buffer.set_modified (false);
                         loaded = true;
+
+                        if (outline != null) {
+                            outline.parse_symbols ();
+                        }
                         return;
                     }
 
@@ -1020,7 +1048,8 @@ namespace Scratch.Services {
                 Gtk.ButtonsType.NONE
             ) {
                 badge_icon = new ThemedIcon ("dialog-question"),
-                transient_for = app_instance.active_window
+                transient_for = app_instance.active_window,
+                modal = true
             };
 
             dialog.add_button (_("Ignore"), Gtk.ResponseType.REJECT);
@@ -1053,7 +1082,7 @@ namespace Scratch.Services {
                 });
             });
 
-            dialog.present ();
+            dialog.show ();
         }
 
         private void ask_external_changes (
@@ -1070,8 +1099,8 @@ namespace Scratch.Services {
                     new ThemedIcon ("dialog-warning"),
                     Gtk.ButtonsType.NONE
                 ) {
-                transient_for = app_instance.active_window
-
+                transient_for = app_instance.active_window,
+                modal = true
             };
 
             dialog.add_button (_("Continue"), Gtk.ResponseType.REJECT);
@@ -1107,6 +1136,10 @@ namespace Scratch.Services {
                             last_save_content = source_view.buffer.text;
                             set_saved_status (true);
                             locked = false;
+
+                            if (outline != null) {
+                                outline.parse_symbols ();
+                            }
                             break;
                         case 1: // Overwrite
                             // Force save, unlock to allow saving to same location
@@ -1125,7 +1158,7 @@ namespace Scratch.Services {
                 });
             });
 
-            dialog.present ();
+            dialog.show ();
         }
         // Set Undo/Redo action sensitive property
         public void check_undoable_actions () {
@@ -1312,6 +1345,11 @@ namespace Scratch.Services {
                 return;
             }
 
+            var lang_id = source_view.language.id;
+            if (lang_id == "markdown" || lang_id == "yaml") {
+                return;
+            }
+
             var source_buffer = (Gtk.SourceBuffer)source_view.buffer;
             Gtk.TextIter iter;
 
@@ -1351,6 +1389,10 @@ namespace Scratch.Services {
                     start_delete.forward_to_line_end ();
                     end_delete = start_delete;
                     end_delete.backward_chars (info.fetch (0).length);
+
+                    if (source_buffer.iter_has_context_class (start_delete, "string")) {
+                        continue;
+                    }
 
                     source_buffer.begin_not_undoable_action ();
                     source_buffer.@delete (ref start_delete, ref end_delete);
