@@ -974,7 +974,14 @@ namespace Scratch {
             file_chooser.add_filter (text_files_filter);
             file_chooser.add_filter (all_files_filter);
             file_chooser.select_multiple = true;
-            file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
+            var current_folder = GLib.File.new_for_path (
+                Utils.last_path ?? GLib.Environment.get_home_dir ()
+            );
+            try {
+                file_chooser.set_current_folder (current_folder);
+            } catch (Error e) {
+                warning ("Unable to set current folder %s", e.message);
+            }
 
             file_chooser.response.connect ((res) => {
                 var files = file_chooser.get_files (); // Returns ListModel of GFile objects

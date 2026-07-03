@@ -99,7 +99,15 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
             chooser.set_current_folder (projects_folder_label.label);
             chooser.response.connect ((res) => {
                 if (res == Gtk.ResponseType.ACCEPT) {
-                    projects_folder_label.label = chooser.get_filename ();
+                    var file = chooser.get_file ();
+                    try {
+                        var info = file.query_info (STANDARD_DISPLAY_NAME, NONE, null);
+                        projects_folder_label.label = info.get_string_as_string (STANDARD_DISPLAY_NAME);
+                    } catch (Error e){
+                        warning ("could not get display name attribute");
+                        projects_folder_label.label = file.get_basename ();
+                    }
+
                     update_can_clone ();
                 }
 
