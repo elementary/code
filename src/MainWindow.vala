@@ -834,9 +834,7 @@ namespace Scratch {
             } else {
                 Scratch.saved_state.set_enum ("window-state", ScratchWindowState.NORMAL);
                 // Save window size
-                int width, height;
-                get_size (out width, out height);
-                Scratch.saved_state.set ("window-size", "(ii)", width, height);
+                Scratch.saved_state.set ("window-size", "(ii)", default_width, default_height);
             }
 
             // Plugin panes size
