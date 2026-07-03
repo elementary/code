@@ -1,5 +1,5 @@
 /*-
- * Copyright 2017-2020 elementary, Inc. (https://elementary.io)
+ * Copyright 2017-2026 elementary, Inc. (https://elementary.io)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -124,19 +124,6 @@ public class Code.Sidebar : Gtk.Grid {
             stack.show_all ();
         });
 
-        stack.remove.connect (() => {
-            switch (stack.get_children ().length ()) {
-                case 0:
-                    stack.no_show_all = true;
-                    stack.hide ();
-                    break;
-                case 1:
-                    stack_switcher.no_show_all = true;
-                    stack_switcher.hide ();
-                    break;
-            }
-        });
-
         Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
         Gtk.drag_dest_set (this, Gtk.DestDefaults.ALL, {uris}, Gdk.DragAction.COPY);
         drag_data_received.connect (drag_received);
@@ -190,9 +177,25 @@ public class Code.Sidebar : Gtk.Grid {
 
     public void remove_tab (Code.PaneSwitcher tab) {
         stack.remove (tab);
+        switch (stack.get_children ().length ()) {
+            case 0:
+                stack.no_show_all = true;
+                stack.hide ();
+                break;
+            case 1:
+                stack_switcher.no_show_all = true;
+                stack_switcher.hide ();
+                break;
+        }
     }
 
     public void notify_cloning_success () {
         cloning_success_toast.send_notification ();
+    }
+
+    public void focus_sidebar () {
+        if (stack.visible_child is Code.Widgets.SourceList) {
+            ((Code.Widgets.SourceList) stack.visible_child).grab_focus ();
+        }
     }
 }
