@@ -415,12 +415,23 @@ namespace Scratch.Services {
                 || ContentType.is_a (content_type, "application/x-zerosize")   // Empty files are valid text files
             )) {
                 var title = _("%s Is Not a Text File").printf (get_basename ());
-                var description = _("Code will not load this type of file.");
-                var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-warning");
-                alert_view.show_action (_("Load Anyway"));
+                var alert_view = new Granite.Placeholder (title) {
+                    description = _("Code will not load this type of file."),
+                    icon = new ThemedIcon ("dialog-warning")
+                };
+                var load_button = alert_view.append_button (
+                    new ThemedIcon ("document-open"),
+                    _("Load Anyway"),
+                    ""
+                );
+                var cancel_button = alert_view.append_button (
+                    new ThemedIcon ("process-stop"),
+                    _("Cancel"),
+                    ""
+                );
                 main_stack.add_named (alert_view, "load_alert");
                 main_stack.set_visible_child (alert_view);
-                alert_view.action_activated.connect (() => {
+                load_button.clicked (() => {
                     open.begin (true);
                     alert_view.destroy ();
                 });
@@ -438,12 +449,18 @@ namespace Scratch.Services {
             load_timout_id = Timeout.add_seconds_full (GLib.Priority.HIGH, 5, () => {
                 if (load_cancellable != null && !load_cancellable.is_cancelled ()) {
                     var title = _("Loading File “%s” Is Taking a Long Time").printf (get_basename ());
-                    var description = _("Please wait while Code is loading the file.");
-                    var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-information");
-                    alert_view.show_action (_("Cancel Loading"));
+                    var alert_view = new Granite.Placeholder (title) {
+                        description = _("Please wait while Code is loading the file."),
+                        icon = new ThemedIcon ("dialog-information")
+                    };
+                    var cancel_button = alert_view.append_button (
+                        new ThemedIcon ("process-stop"),
+                        _("Cancel Loading"),
+                        ""
+                    );
                     main_stack.add_named (alert_view, "wait_alert");
                     main_stack.set_visible_child (alert_view);
-                    alert_view.action_activated.connect (() => {
+                    cancel_button.clicked.connect (() => {
                         load_cancellable.cancel ();
                         doc_closed ();
                     });
@@ -934,12 +951,19 @@ namespace Scratch.Services {
             } else {
                 description = _("The file may be corrupt or may not be a text file");
             }
-            var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-error");
+            var alert_view = new Granite.Placeholder (title) {
+                description = this.description,
+                icon = new ThemedIcon ("dialog-error")
+            };
             // Lack of read permission results in empty content string. Do not give option to open
             // in new document in that case.
             if (invalid_content != "") {
-                alert_view.show_action (_("Show Anyway"));
-                alert_view.action_activated.connect (() => {
+                var show_button = alert_view.append_button (
+                    new ThemedIcon ("go-next"),
+                    _("Show Anyway"),
+                    ""
+                );
+                show_button.clicked.connect (() => {
                     main_stack.set_visible_child_name ("content");
                     Idle.add (() => {
                         var clipboard = Gdk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
