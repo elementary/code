@@ -9,8 +9,9 @@ public class Code.Terminal : Gtk.Box {
     public const string ACTION_COPY = "action-copy";
     public const string ACTION_PASTE = "action-paste";
 
-    private const double MAX_SCALE = 5.0;
-    private const double MIN_SCALE = 0.2;
+    private const double SCROLL_THRESHOLD = 1.0;
+    private const double MAX_SCALE = 2.0;
+    private const double MIN_SCALE = 0.5;
     private const string LEGACY_SETTINGS_SCHEMA = "org.pantheon.terminal.settings";
     private const string SETTINGS_SCHEMA = "io.elementary.terminal.settings";
     private const string GNOME_DESKTOP_INTERFACE_SCHEMA = "org.gnome.desktop.interface";
@@ -25,6 +26,7 @@ public class Code.Terminal : Gtk.Box {
 
     public Vte.Terminal terminal { get; construct; }
     private Gtk.EventControllerKey key_controller;
+    private Gtk.EventControllerScroll scroll_controller;
     private Gtk.GestureMultiPress button_controller;
     private Settings? terminal_settings = null;
     private Settings? gnome_interface_settings = null;
@@ -34,6 +36,7 @@ public class Code.Terminal : Gtk.Box {
 
     private GLib.Pid child_pid;
     private Gtk.Clipboard current_clipboard;
+    private double total_delta_y = 0;
     private Menu menu_model;
 
     private Scratch.Application application;
@@ -43,9 +46,13 @@ public class Code.Terminal : Gtk.Box {
         terminal = new Vte.Terminal () {
             hexpand = true,
             vexpand = true,
+            scroll_unit_is_pixels = true,
             scrollback_lines = -1,
             cursor_blink_mode = SYSTEM  // There is no Terminal setting so follow Gnome
         };
+
+        var scrolled_window = new Gtk.ScrolledWindow (null, terminal.get_vadjustment ());
+        scrolled_window.add (terminal);
 
         // Set font, allow-bold, audible-bell, background, foreground, and palette of pantheon-terminal
         var schema_source = SettingsSchemaSource.get_default ();
@@ -97,6 +104,7 @@ public class Code.Terminal : Gtk.Box {
             // "org.gnome.desktop.interface.color-scheme"
         }
 
+        Scratch.settings.bind ("terminal-fontscale", terminal, "font-scale", DEFAULT);
         // Always monitor changes in systen font as that is what Terminal usually follows
         // The terminal font key is by default "" and can only be changed by editing the settings externally
         application.notify["system-monospace-font"].connect (() => {
@@ -146,6 +154,27 @@ public class Code.Terminal : Gtk.Box {
         };
         key_controller.key_pressed.connect (key_pressed);
 
+       scroll_controller = new Gtk.EventControllerScroll (this, VERTICAL) {
+            propagation_phase = CAPTURE
+        };
+        scroll_controller.scroll.connect ((dx, dy) => {
+            Gdk.ModifierType state;
+            Gtk.get_current_event_state (out state);
+            var mods = state & Gdk.ModifierType.MODIFIER_MASK;
+            if ((mods & Gdk.ModifierType.CONTROL_MASK) > 0) {
+                total_delta_y += dy;
+                if (total_delta_y > SCROLL_THRESHOLD) {
+                    total_delta_y = 0;
+                    decrement_size ();
+                } else if (total_delta_y < -SCROLL_THRESHOLD) {
+                    total_delta_y = 0;
+                    increment_size ();
+                }
+            } else {
+                Gtk.propagate_event (scrolled_window, Gtk.get_current_event ());
+            }
+        });
+
         // Cannot use event controller in Gtk3 because of https://gitlab.gnome.org/GNOME/gtk/-/issues/7225
         terminal.enter_notify_event.connect (() => {
             if (!terminal.has_focus) {
@@ -176,9 +205,6 @@ public class Code.Terminal : Gtk.Box {
         });
 
         spawn_shell (Scratch.saved_state.get_string ("last-opened-path"));
-
-        var scrolled_window = new Gtk.ScrolledWindow (null, terminal.get_vadjustment ());
-        scrolled_window.add (terminal);
 
         add (scrolled_window);
         show_all ();
