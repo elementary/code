@@ -82,8 +82,8 @@ namespace Scratch {
         public const string ACTION_DUPLICATE_TAB = "action-duplicate-tab";
         public const string ACTION_PREFERENCES = "preferences";
 
-        // public const string ACTION_UNDO = "action-undo";
-        // public const string ACTION_REDO = "action-redo";
+        public const string ACTION_UNDO = "action-undo";
+        public const string ACTION_REDO = "action-redo";
         public const string ACTION_REVERT = "action-revert";
         public const string ACTION_SAVE = "action-save";
         public const string ACTION_SAVE_AS = "action-save-as";
@@ -147,8 +147,8 @@ namespace Scratch {
             { ACTION_NEW_FROM_CLIPBOARD, action_new_tab_from_clipboard },
             { ACTION_DUPLICATE_TAB, action_duplicate_tab },
             { ACTION_PREFERENCES, action_preferences },
-            // { ACTION_UNDO, action_undo },
-            // { ACTION_REDO, action_redo },
+            { ACTION_UNDO, action_undo },
+            { ACTION_REDO, action_redo },
             { ACTION_SHOW_REPLACE, action_show_replace },
             { ACTION_TO_LOWER_CASE, action_to_lower_case },
             { ACTION_TO_UPPER_CASE, action_to_upper_case },
@@ -209,8 +209,8 @@ namespace Scratch {
             action_accelerators.set (ACTION_GO_TO, "<Control>i");
             action_accelerators.set (ACTION_NEW_TAB, "<Control>n");
             action_accelerators.set (ACTION_DUPLICATE_TAB, "<Control><Shift>k" );
-            // action_accelerators.set (ACTION_UNDO, "<Control>z");
-            // action_accelerators.set (ACTION_REDO, "<Control><shift>z");
+            action_accelerators.set (ACTION_UNDO, "<Control>z");
+            action_accelerators.set (ACTION_REDO, "<Control><shift>z");
             action_accelerators.set (ACTION_SHOW_REPLACE, "<Control>r");
             action_accelerators.set (ACTION_TO_LOWER_CASE, "<Control>l");
             action_accelerators.set (ACTION_TO_UPPER_CASE, "<Control>u");
@@ -1149,19 +1149,19 @@ var index = 0;
             }
         }
 
-        // private void action_undo () {
-        //     var doc = get_current_document ();
-        //     if (doc != null) {
-        //         doc.undo ();
-        //     }
-        // }
+        private void action_undo () {
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.undo ();
+            }
+        }
 
-        // private void action_redo () {
-        //     var doc = get_current_document ();
-        //     if (doc != null) {
-        //         doc.redo ();
-        //     }
-        // }
+        private void action_redo () {
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.redo ();
+            }
+        }
 
         private void action_revert () {
             var confirmation_dialog = new Scratch.Dialogs.RestoreConfirmationDialog (this);
