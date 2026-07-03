@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-27 17:20+0000\n"
-"PO-Revision-Date: 2026-02-26 01:55+0000\n"
-"Last-Translator: Rubén Vera <rmvercan_dev@proton.me>\n"
-"Language-Team: Spanish <https://l10n.elementaryos.org/projects/code/extra/es/"
-">\n"
+"PO-Revision-Date: 2026-06-29 23:39+0000\n"
+"Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
+"Language-Team: Spanish <https://l10n.elementaryos.org/projects/code/extra/"
+"es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9
@@ -157,23 +157,29 @@ msgstr "Mejoras:"
 
 #: data/code.metainfo.xml.in:75
 msgid "The sidebar can now be focused using a keyboard shortcut"
-msgstr ""
+msgstr "La barra lateral ahora se puede enfocar mediante un atajo"
 
 #: data/code.metainfo.xml.in:76
 msgid ""
 "Closing a second window by headerbar or shortcut only closes that window, "
 "saving its documents"
 msgstr ""
+"Ahora cerrar una segunda ventana mediante un atajo of la barra de título "
+"cierra solamente esa ventana, guardando sus documentos"
 
 #: data/code.metainfo.xml.in:77
 msgid "The system font is shown and can be selected in the Preferences dialog"
 msgstr ""
+"Ahora se muestra la fuente del sistema y se puede seleccionar en el cuadro "
+"de diálogo de Preferencias"
 
 #: data/code.metainfo.xml.in:78
 msgid ""
 "Improved desktop consistency and contrast by using user accent color for "
 "selections"
 msgstr ""
+"Se mejoró la consistencia y contraste del escritorio usando colores de "
+"énfasis para las selecciones"
 
 #: data/code.metainfo.xml.in:80 data/code.metainfo.xml.in:111
 #: data/code.metainfo.xml.in:132 data/code.metainfo.xml.in:161
@@ -188,20 +194,28 @@ msgstr "Actualizaciones menores:"
 #: data/code.metainfo.xml.in:82
 msgid "Closing all windows by shortcut now correctly saves all documents"
 msgstr ""
+"Ahora se guardan correctamente todos los documentos al cerrar todas las "
+"ventanas mediante atajos"
 
 #: data/code.metainfo.xml.in:83
 msgid ""
 "Filetypes excluded from stripping trailing whitespace are shown in the "
 "application menu"
 msgstr ""
+"Los tipos de archivos excluidos para eliminar los espacios en blanco al "
+"final, ahora se muestran en el menú de la aplicación"
 
 #: data/code.metainfo.xml.in:84
 msgid "Stripping trailing whitespace now correctly excludes string literals"
 msgstr ""
+"Eliminar los espacios en blanco al final ahora excluye correctamente las "
+"cadenas de caracteres"
 
 #: data/code.metainfo.xml.in:85
 msgid "Fuzzy searching for project files now correctly searches active project"
 msgstr ""
+"La búsqueda difusa por proyecto ahora busca correctamente en el proyecto "
+"activo"
 
 #: data/code.metainfo.xml.in:86 data/code.metainfo.xml.in:114
 #: data/code.metainfo.xml.in:140 data/code.metainfo.xml.in:167
@@ -218,25 +232,33 @@ msgid ""
 "Trailing spaces are now removed when the document focuses out (subject to "
 "setting)"
 msgstr ""
+"Los espacio en blanco al final son eliminados cuando se de-selecciona la "
+"ventana del documento (en etapa de prueba)"
 
 #: data/code.metainfo.xml.in:107
 msgid "Focus following is implemented between textview and terminal pane"
 msgstr ""
+"Se ha implementado el cambio y seguimiento de la selección de ventana entre "
+"la vista del texto y el panel de terminal"
 
 #: data/code.metainfo.xml.in:108
 msgid ""
 "A new dialog for branch actions (open, new) is implemented linked to hot-key "
 "Ctrl-B"
 msgstr ""
+"Se ha implementado un nuevo diálogo para acciones para ramas (abrir, nuevo), "
+"asignado al atajo Ctrl + B"
 
 #: data/code.metainfo.xml.in:109
 msgid "It is now possible to create a new document from a template"
-msgstr ""
+msgstr "Ahora es posible crear un documento nuevo a partir de una plantilla"
 
 #: data/code.metainfo.xml.in:113
 msgid ""
 "Restoring screen state no longer can get stuck always restoring full screen"
 msgstr ""
+"Al restaurar el estado de una ventana, ya no se atasca en siempre restaurar "
+"a pantalla completa"
 
 #: data/code.metainfo.xml.in:127
 msgid ""
