@@ -1178,8 +1178,6 @@ namespace Scratch.Services {
         // Set Undo/Redo action sensitive property
         public void check_undoable_actions () {
             var source_buffer = (GtkSource.Buffer) source_view.buffer;
-            Utils.action_from_group (MainWindow.ACTION_UNDO, actions).set_enabled (source_buffer.can_undo);
-            Utils.action_from_group (MainWindow.ACTION_REDO, actions).set_enabled (source_buffer.can_redo);
             Utils.action_from_group (MainWindow.ACTION_REVERT, actions).set_enabled (
                 original_content != source_buffer.text
             );
