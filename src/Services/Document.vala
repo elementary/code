@@ -508,50 +508,6 @@ namespace Scratch.Services {
             return;
         }
 
-        public async bool do_close (bool app_closing = false) {
-            debug ("Closing \"%s\"", get_basename ());
-            if (closing) {
-                return true;
-            }
-
-            if (!loaded) {
-                load_cancellable.cancel ();
-                return true;
-            }
-
-            bool ret_value = true;
-            // Prevent trying to save locked document to current location
-            if (!locked && Scratch.settings.get_boolean ("autosave") && !saved) {
-                ret_value = yield save_with_hold ();
-            } else if (!locked && app_closing && is_file_temporary && !delete_temporary_file ()) {
-                debug ("Save temporary file!");
-                ret_value = yield save_with_hold ();
-            } else if (!this.saved ||  // Even locked documents can be modified
-                       (!app_closing && is_file_temporary && !delete_temporary_file ())) {
-
-                // Ask whether to save changes
-               if (yield ask_save_changes ()) {
-                    if (locked || this.is_file_temporary) {
-                        ret_value = yield save_as_with_hold ();
-                    } else {
-                        ret_value = yield save_with_hold ();
-                    }
-                } else {
-                    ret_value = false;
-                }
-            }
-
-            if (ret_value) {
-                // Delete backup copy file
-                closing = true; // Stops recreating backup when trailing space stripped
-                delete_backup ();
-                notify["tab.loading"].disconnect (on_tab_loading_change);
-                doc_closed ();
-            }
-
-            return ret_value;
-        }
-
         private async bool ask_save_changes () {
             var parent_window = source_view.get_toplevel () as Gtk.Window;
             var dialog = new Granite.MessageDialog (
@@ -571,22 +527,23 @@ namespace Scratch.Services {
             dialog.add_button (_("Save"), Gtk.ResponseType.YES);
             dialog.set_default_response (Gtk.ResponseType.YES);
 
-            var dialog_response = false;
+            var can_close = true;
+            var try_save = false;
             dialog.response.connect ((res) => {
                 dialog.destroy ();
                 switch (res) {
                     case Gtk.ResponseType.CANCEL:
                     case Gtk.ResponseType.DELETE_EVENT:
+                        can_close = false;
                         break;
-                    case Gtk.ResponseType.YES:
-                        dialog_response = true;
+                    case Gtk.ResponseType.YES: // Save and close if success
+                        try_save = true;
                         break;
-                    case Gtk.ResponseType.NO:
+                    case Gtk.ResponseType.NO: // Do not save but close
                         if (this.is_file_temporary) {
                             delete_temporary_file (true);
                         }
 
-                        dialog_response = true;
                         break;
                 }
 
@@ -596,7 +553,51 @@ namespace Scratch.Services {
             dialog.show ();
             yield;
 
-            return dialog_response;
+            if (try_save) {
+                if (locked || this.is_file_temporary) {
+                    can_close = yield save_as_with_hold ();
+                } else {
+                    can_close = yield save_with_hold ();
+                }
+            }
+
+            return can_close;
+        }
+
+        public async bool do_close (bool app_closing = false) {
+            debug ("Closing \"%s\"", get_basename ());
+            if (closing) {
+                return true;
+            }
+
+            if (!loaded) {
+                load_cancellable.cancel ();
+                return true;
+            }
+
+            bool can_close = true;
+            // Prevent trying to save locked document to current location
+            if (!locked && Scratch.settings.get_boolean ("autosave") && !saved) {
+                can_close = yield save_with_hold ();
+            } else if (!locked && app_closing && is_file_temporary && !delete_temporary_file ()) {
+                debug ("Save temporary file!");
+                can_close = yield save_with_hold ();
+            } else if (!this.saved ||  // Even locked documents can be modified
+                       (!app_closing && is_file_temporary && !delete_temporary_file ())) {
+
+                // Ask whether to save changes
+                can_close = yield ask_save_changes ();
+            }
+
+            if (can_close) {
+                // Delete backup copy file
+                closing = true; // Stops recreating backup when trailing space stripped
+                delete_backup ();
+                notify["tab.loading"].disconnect (on_tab_loading_change);
+                doc_closed ();
+            }
+
+            return can_close;
         }
 
         // Handle save action (only use for user interaction)
@@ -747,7 +748,6 @@ namespace Scratch.Services {
                     // Update last visited path
                     Utils.last_path = Path.get_dirname (file_chooser.get_file ().get_uri ());
                     success = true;
-                    warning ("dialog success path %s", Utils.last_path);
                 }
 
                 save_as.callback ();
@@ -755,6 +755,7 @@ namespace Scratch.Services {
 
             file_chooser.show ();
             yield;
+
             var is_saved = false;
             if (success) {
                 // Should not set "modified" state of the buffer to true - this is automatic
