@@ -276,7 +276,6 @@ namespace Scratch {
             }
 
             set_size_request (450, 400);
-            set_hide_titlebar_when_maximized (false);
 
             var rect = Gdk.Rectangle ();
             Scratch.saved_state.get ("window-size", "(ii)", out rect.width, out rect.height);
@@ -437,7 +436,6 @@ namespace Scratch {
 
         private void init_layout () {
             toolbar = new Scratch.HeaderBar ();
-            toolbar.title = base_title;
 
             // SearchBar
             search_bar = new Scratch.Widgets.SearchBar (this);
