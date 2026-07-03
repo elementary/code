@@ -47,13 +47,15 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Box {
         };
         scrolled_window.child = list_box;
 
-        entry = new Gtk.Text ();
         search_entry = new Gtk.SearchEntry () {
             placeholder_text = _("Enter search term"),
-            child = entry,
-            key_capture_widget = entry,
             search_delay = 300
         };
+
+        entry = new Gtk.Text ();
+        entry.set_parent (search_entry);
+
+        search_entry.set_key_capture_widget (entry);
 
         recent_header = new Granite.HeaderLabel (_("Recent Branches"));
         local_header = new Granite.HeaderLabel (_("Local Branches"));

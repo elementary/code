@@ -45,7 +45,7 @@ namespace Scratch.Widgets {
         private Granite.SwitchModelButton whole_word_search_button;
         private Gtk.SearchEntry search_entry;
         private Gtk.Entry entry_for_search;
-        private Gtk.SearchEntry replace_entry;
+        private Gtk.SearchEntry replace_search_entry;
         private Gtk.Entry entry_for_replace;
         private Gtk.Label search_occurence_count_label;
         private Gtk.Button replace_tool_button;
@@ -117,14 +117,16 @@ namespace Scratch.Widgets {
 
         construct {
             this.orientation = HORIZONTAL;
-            entry_for_search = new Gtk.Entry ();
+
             search_entry = new Gtk.SearchEntry () {
                 hexpand = true,
                 placeholder_text = _("Find"),
-                child = entry_for_search,
-                key_capture_widget = entry_for_search
             };
 
+            entry_for_search = new Gtk.Entry ();
+            entry_for_search.set_parent (search_entry);
+
+            search_entry.set_key_capture_widget (entry_for_search);
             search_occurence_count_label = new Gtk.Label (_("No Results"));
             search_occurence_count_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
 
@@ -221,17 +223,17 @@ namespace Scratch.Widgets {
             search_flow_box_child.can_focus = false;
             search_flow_box_child.child = search_box;
 
-            entry_for_replace = new Gtk.Entry () ;
-            replace_entry = new Gtk.SearchEntry () {
+
+            replace_search_entry = new Gtk.SearchEntry () {
                 hexpand = true,
-                placeholder_text = _("Replace With").
-                child = entry_for_replace,
-                key_capture_widget = entry_for_replace
+                placeholder_text = _("Replace With")
             };
+            entry_for_replace = new Gtk.Entry ();
+            entry_for_replace.set_parent (replace_search_entry);
             entry_for_replace.set_icon_from_icon_name (Gtk.EntryIconPosition.PRIMARY, "edit-symbolic");
 
             replace_tool_button = new Gtk.Button.with_label (_("Replace"));
-            replace_tool_button.clicked.connect (on_replace_entry_activate);
+            replace_tool_button.clicked.connect (on_replace_search_entry_activate);
 
             replace_all_tool_button = new Gtk.Button.with_label (_("Replace all"));
             replace_all_tool_button.clicked.connect (on_replace_all_entry_activate);
@@ -243,7 +245,7 @@ namespace Scratch.Widgets {
                 margin_start = 3
             };
             replace_grid.add_css_class (Granite.STYLE_CLASS_LINKED);
-            replace_grid.append (replace_entry);
+            replace_grid.append (replace_search_entry);
             replace_grid.append (replace_tool_button);
             replace_grid.append (replace_all_tool_button);
 
@@ -254,8 +256,10 @@ namespace Scratch.Widgets {
             // Connecting to some signals
             search_entry.search_changed.connect (on_search_parameters_changed);
 
-            search_entry.notify["is-focus"].connect (() => {
-                if (search_entry.is_focus && text_buffer != null) {
+            var search_focus_controller = new Gtk.EventControllerFocus ();
+            entry_for_search.add_controller (search_focus_controller);
+            search_focus_controller.enter.connect (() => {
+                if (search_focus_controller.is_focus && text_buffer != null) {
                     Idle.add (() => {
                         update_search_widgets ();
                         entry_for_search.select_region (0, -1);
@@ -264,13 +268,13 @@ namespace Scratch.Widgets {
                 }
             });
 
-            entry_for_search.icon_release.connect ((p0, p1) => {
-                if (p0 == Gtk.EntryIconPosition.PRIMARY) {
+            entry_for_search.icon_release.connect ((icon_pos) => {
+                if (icon_pos == Gtk.EntryIconPosition.PRIMARY) {
                     search_next ();
                 }
             });
 
-            replace_entry.activate.connect (on_replace_entry_activate);
+            replace_search_entry.activate.connect (on_replace_search_entry_activate);
 
             var flowbox = new Gtk.FlowBox () {
                 selection_mode = Gtk.SelectionMode.NONE,
@@ -327,7 +331,7 @@ namespace Scratch.Widgets {
             update_search_widgets ();
         }
 
-        private void on_replace_entry_activate () {
+        private void on_replace_search_entry_activate () {
             if (text_buffer == null) {
                 warning ("No valid buffer to replace");
                 return;
@@ -337,12 +341,12 @@ namespace Scratch.Widgets {
             text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
 
             if (search_for_iter (start_iter, out end_iter)) {
-                string replace_string = replace_entry.text;
+                string replace_string = replace_search_entry.text;
                 try {
                     cancel_update_search_widgets ();
                     search_context.replace (start_iter, end_iter, replace_string, replace_string.length);
                     update_search_widgets ();
-                    debug ("Replaced \"%s\" with \"%s\"", search_entry.text, replace_entry.text);
+                    debug ("Replaced \"%s\" with \"%s\"", search_entry.text, replace_search_entry.text);
                 } catch (Error e) {
                     critical (e.message);
                 }
@@ -355,7 +359,7 @@ namespace Scratch.Widgets {
                 return;
             }
 
-            string replace_string = replace_entry.text;
+            string replace_string = replace_search_entry.text;
             this.window.get_current_document ().toggle_changed_handlers (false);
             try {
                 cancel_update_search_widgets ();
@@ -414,19 +418,19 @@ namespace Scratch.Widgets {
             text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
 
             if (search_for_iter (start_iter, out end_iter)) {
-                search_entry.remove_css_class (Granite.STYLE_CLASS_ERROR);
-                search_entry.primary_icon_name = "edit-find-symbolic";
+                entry_for_search.remove_css_class (Granite.STYLE_CLASS_ERROR);
+                entry_for_search.primary_icon_name = "edit-find-symbolic";
             } else {
                 text_buffer.get_start_iter (out start_iter);
                 if (search_for_iter (start_iter, out end_iter)) {
-                    search_entry.remove_css_class (Granite.STYLE_CLASS_ERROR);
-                    search_entry.primary_icon_name = "edit-find-symbolic";
+                    entry_for_search.remove_css_class (Granite.STYLE_CLASS_ERROR);
+                    entry_for_search.primary_icon_name = "edit-find-symbolic";
                 } else {
                     debug ("Not found: \"%s\"", search_entry.text);
                     start_iter.set_offset (-1);
                     text_buffer.select_range (start_iter, start_iter);
-                    search_entry.add_css_class (Granite.STYLE_CLASS_ERROR);
-                    search_entry.primary_icon_name = "dialog-error-symbolic";
+                    entry_for_search.add_css_class (Granite.STYLE_CLASS_ERROR);
+                    entry_for_search.primary_icon_name = "dialog-error-symbolic";
                     return false;
                 }
             }
@@ -525,11 +529,11 @@ namespace Scratch.Widgets {
         }
 
         public void focus_search_entry () {
-            search_entry.grab_focus ();
+            entry_for_search.grab_focus ();
         }
 
         public void focus_replace_entry () {
-            replace_entry.grab_focus ();
+            entry_for_replace.grab_focus ();
         }
 
         public void reveal (bool to_reveal) {
