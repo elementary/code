@@ -341,10 +341,10 @@ public class Code.Terminal : Gtk.Box {
             terminal_settings != null && terminal_settings.get_boolean ("natural-copy-paste"))) {
 
             // Assume actions already enabled/disabled as appropriate
-            if (keyval = Gdk.Key.c) {
+            if (keyval == Gdk.Key.c) {
                 actions.activate_action (ACTION_COPY, null);
                 return true;
-            } else if (keyval = Gdk.Key.v) {
+            } else if (keyval == Gdk.Key.v) {
                 actions.activate_action (ACTION_PASTE, null);
                 return true;
             }
