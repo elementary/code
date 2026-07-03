@@ -126,6 +126,7 @@ namespace Scratch {
         private ulong color_scheme_listener_handler_id = 0;
 
         private Services.GitManager git_manager;
+        private bool is_first_window;
 
         private const ActionEntry[] ACTION_ENTRIES = {
             { ACTION_CLONE_REPO, action_clone_repo },
@@ -261,6 +262,7 @@ namespace Scratch {
         construct {
             application = ((Gtk.Application)(GLib.Application.get_default ()));
             app = (Scratch.Application)application;
+            is_first_window = application.get_windows ().length () == 1;
             title = base_title;
 
             weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
@@ -549,9 +551,6 @@ namespace Scratch {
             size_group.add_widget (toolbar);
 
             realize.connect (() => {
-                Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
-                Scratch.saved_state.bind ("outline-visible", document_view , "outline_visible", SettingsBindFlags.DEFAULT);
-                Scratch.saved_state.bind ("terminal-visible", terminal, "visible", SettingsBindFlags.DEFAULT);
                 // Plugins hook
                 HookFunc hook_func = () => {
                     plugins.hook_window (this);
@@ -564,6 +563,17 @@ namespace Scratch {
                 });
 
                 hook_func ();
+
+                // Allow secondary windows to have a different pane state
+                if (is_first_window) {
+                    Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
+                    Scratch.saved_state.bind ("outline-visible", document_view , "outline_visible", SettingsBindFlags.DEFAULT);
+                    Scratch.saved_state.bind ("terminal-visible", terminal, "visible", SettingsBindFlags.DEFAULT);
+                } else {
+                    sidebar.visible = Scratch.saved_state.get_boolean ("sidebar-visible");
+                    document_view.outline_visible = Scratch.saved_state.get_boolean ("outline-visible");
+                    terminal.visible = Scratch.saved_state.get_boolean ("terminal-visible");
+                }
 
                 restore ();
             });
@@ -826,6 +836,10 @@ namespace Scratch {
 
         private void update_window_state_setting () {
             // Save window state
+            if (!is_first_window) {
+                return;
+            }
+
             var state = get_window ().get_state ();
             if (Gdk.WindowState.MAXIMIZED in state) {
                 Scratch.saved_state.set_enum ("window-state", ScratchWindowState.MAXIMIZED);
