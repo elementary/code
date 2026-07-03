@@ -1176,8 +1176,14 @@ var index = 0;
         }
 
         private void action_new_tab_from_clipboard () {
-            string text_from_clipboard = clipboard.wait_for_text ();
-            document_view.new_document_from_clipboard (text_from_clipboard);
+            try {
+                var text_val = Value (typeof (string));
+                if (clipboard.content.get_value (ref text_val)) {
+                    document_view.new_document_from_clipboard (text_val.get_string ());
+                }
+            } catch (Error e) {
+                warning ("Failed to get clipboard content. %s", e.message);
+            }
         }
 
         private void action_fullscreen () {

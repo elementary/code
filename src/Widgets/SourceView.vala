@@ -151,7 +151,7 @@ namespace Scratch.Widgets {
                         string cut_text = iter_start.get_slice (iter_end);
 
                         buffer.begin_user_action ();
-                        clipboard.set_text (cut_text, -1);
+                        clipboard.set_text (cut_text);
                         buffer.delete_range (iter_start, iter_end);
                         buffer.end_user_action ();
                     }
@@ -171,7 +171,7 @@ namespace Scratch.Widgets {
                         var clipboard = Gdk.Display.get_default ().get_clipboard ();
                         string copy_text = iter_start.get_slice (iter_end);
 
-                        clipboard.set_text (copy_text, -1);
+                        clipboard.set_text (copy_text);
                     }
                 }
             });

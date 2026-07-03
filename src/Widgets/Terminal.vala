@@ -163,7 +163,7 @@ public class Code.Terminal : Gtk.Box {
         button_controller.pressed.connect ((n, x, y) => {
             var event = button_controller.get_last_event (null);
             if (event.triggers_context_menu ()) {
-                paste_action.set_enabled (current_clipboard.wait_is_text_available ());
+                paste_action.set_enabled (current_clipboard.content != null);
                 menu.pointing_to = Gdk.Rectangle () {x = (int)x, y = (int)y, height = 1, width = 1};
                 menu.popup ();
             }

@@ -103,7 +103,7 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
                     try {
                         var info = file.query_info (STANDARD_DISPLAY_NAME, NONE, null);
                         projects_folder_label.label = info.get_string_as_string (STANDARD_DISPLAY_NAME);
-                    } catch (Error e){
+                    } catch (Error e) {
                         warning ("could not get display name attribute");
                         projects_folder_label.label = file.get_basename ();
                     }
