@@ -244,7 +244,7 @@ namespace Scratch.Widgets {
             };
             ((Gtk.Widget) application.get_active_window ()).add_controller (key_controller);
             key_controller.key_pressed.connect ((kv, kc, state) => {
-                if (!this.is_focus || !Gtk.accelerator_valid (kv, state)) {
+                if (!this.is_focus () || !Gtk.accelerator_valid (kv, state)) {
                     return false;
                 }
 

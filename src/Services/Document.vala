@@ -280,9 +280,11 @@ namespace Scratch.Services {
 
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
 
-            this.source_view.notify["is-focus"].connect (() => {
+            var fc = new Gtk.EventControllerFocus ();
+            source_view.add_controller (fc);
+            fc.enter.connect (() => {
                 return_if_fail (!locked);
-                if (source_view.is_focus) {
+                if (fc.is_focus) {
                     if (!is_file_temporary) {
                         check_undoable_actions ();
                         check_file_status.begin ();
