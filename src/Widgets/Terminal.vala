@@ -166,13 +166,7 @@ public class Code.Terminal : Gtk.Box {
                     increment_size ();
                 }
             } else {
-                // The event is not automatically propagated for some reason event
-                // even though the handler does not return a boolean. So scroll window
-                // explicitly.  Should not be necessary in Gtk4?
-                scrolled_window.scroll_child (
-                    dy > 0 ? Gtk.ScrollType.STEP_FORWARD : Gtk.ScrollType.STEP_BACKWARD,
-                    false
-                );
+                Gtk.propagate_event (scrolled_window, Gtk.get_current_event ());
             }
         });
 
