@@ -945,7 +945,6 @@ namespace Scratch {
 
         private void action_preferences () {
             var preferences_dialog = new Scratch.Dialogs.Preferences (this, plugins);
-            preferences_dialog.show_all ();
 
             preferences_dialog.response.connect (() => {
                 preferences_dialog.destroy ();
@@ -987,7 +986,7 @@ namespace Scratch {
                 var uris = file_chooser.get_uris ();
                 file_chooser.destroy (); // Close now so it does not stay open during lengthy or failed loading
                 if (res == Gtk.ResponseType.ACCEPT) {
-                    foreach (string uri in file_chooser.get_uris ()) {
+                    foreach (string uri in uris) {
                         // Update last visited path
                         Utils.last_path = Path.get_dirname (uri);
                         // Open the file
