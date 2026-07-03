@@ -27,6 +27,7 @@ public class Code.Terminal : Gtk.Box {
 
     public Vte.Terminal terminal { get; construct; }
     private Gtk.EventControllerKey key_controller;
+    private Gtk.EventControllerScroll scroll_controller;
 
     private Settings? terminal_settings = null;
     private Settings? gnome_interface_settings = null;
@@ -48,6 +49,9 @@ public class Code.Terminal : Gtk.Box {
             scrollback_lines = -1,
             cursor_blink_mode = SYSTEM  // There is no Terminal setting so follow Gnome
         };
+
+        var scrolled_window = new Gtk.ScrolledWindow (null, terminal.get_vadjustment ());
+        scrolled_window.add (terminal);
 
         // Set font, allow-bold, audible-bell, background, foreground, and palette of pantheon-terminal
         var schema_source = SettingsSchemaSource.get_default ();
@@ -145,6 +149,33 @@ public class Code.Terminal : Gtk.Box {
         };
         key_controller.key_pressed.connect (key_pressed);
 
+       scroll_controller = new Gtk.EventControllerScroll (this, VERTICAL) {
+            propagation_phase = CAPTURE
+        };
+        scroll_controller.scroll.connect ((dx, dy) => {
+            Gdk.ModifierType state;
+            Gtk.get_current_event_state (out state);
+            var mods = state & Gdk.ModifierType.MODIFIER_MASK;
+            if ((mods & Gdk.ModifierType.CONTROL_MASK) > 0) {
+                total_delta_y += dy;
+                if (total_delta_y > SCROLL_THRESHOLD) {
+                    total_delta_y = 0;
+                    decrement_size ();
+                } else if (total_delta_y < -SCROLL_THRESHOLD) {
+                    total_delta_y = 0;
+                    increment_size ();
+                }
+            } else {
+                // The event is not automatically propagated for some reason event
+                // even though the handler does not return a boolean. So scroll window
+                // explicitly.  Should not be necessary in Gtk4?
+                scrolled_window.scroll_child (
+                    dy > 0 ? Gtk.ScrollType.STEP_FORWARD : Gtk.ScrollType.STEP_BACKWARD,
+                    false
+                );
+            }
+        });
+
         // Cannot use event controller in Gtk3 because of https://gitlab.gnome.org/GNOME/gtk/-/issues/7225
         terminal.enter_notify_event.connect (() => {
             if (!terminal.has_focus) {
@@ -171,29 +202,7 @@ public class Code.Terminal : Gtk.Box {
             copy_action.set_enabled (terminal.get_has_selection ());
         });
 
-        // Zoom font size independent of the source view
-        terminal.scroll_event.connect ((event) => {
-            var mods = event.state & Gdk.ModifierType.MODIFIER_MASK;
-            if ((mods & Gdk.ModifierType.CONTROL_MASK) > 0) {
-                total_delta_y += event.delta_y;
-                if (total_delta_y > SCROLL_THRESHOLD) {
-                    total_delta_y = 0;
-                    decrement_size ();
-                } else if (total_delta_y < -SCROLL_THRESHOLD) {
-                    total_delta_y = 0;
-                    increment_size ();
-                }
-
-                return Gdk.EVENT_STOP;
-            }
-
-            return Gdk.EVENT_PROPAGATE;
-        });
-
         spawn_shell (Scratch.saved_state.get_string ("last-opened-path"));
-
-        var scrolled_window = new Gtk.ScrolledWindow (null, terminal.get_vadjustment ());
-        scrolled_window.add (terminal);
 
         add (scrolled_window);
         show_all ();
