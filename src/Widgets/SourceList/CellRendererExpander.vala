@@ -58,34 +58,45 @@ public class Code.Widgets.CellRendererExpander : Gtk.CellRenderer {
     }
 
     public override void render (
-        Cairo.Context context,
+        Gtk.Snapshot snapshot,
         Gtk.Widget widget,
         Gdk.Rectangle bg_area,
         Gdk.Rectangle cell_area,
         Gtk.CellRendererState flags
     ) {
-        if (!is_expander) {
-            return;
-        }
-
-        unowned Gtk.StyleContext ctx = apply_style_changes (widget);
-
-        Gdk.Rectangle aligned_area = get_aligned_area (widget, flags, cell_area);
-
-        int arrow_size = int.min (get_arrow_size (widget), aligned_area.width);
-
-        int offset = arrow_size / 2;
-        int x = aligned_area.x + aligned_area.width / 2 - offset;
-        int y = aligned_area.y + aligned_area.height / 2 - offset;
-
-        var state = ctx.get_state ();
-        const Gtk.StateFlags EXPANDED_FLAG = Gtk.StateFlags.CHECKED;
-        ctx.set_state (is_expanded ? state | EXPANDED_FLAG : state & ~EXPANDED_FLAG);
-
-        ctx.render_expander (context, x, y, arrow_size, arrow_size);
-
-        revert_style_changes (widget);
+        // No simple replacement for render_expander so leave for now
+        // Renderers to be replaced with TreeListModel and TreeExpanders etc
     }
+
+    // public override void render (
+    //     Cairo.Context context,
+    //     Gtk.Widget widget,
+    //     Gdk.Rectangle bg_area,
+    //     Gdk.Rectangle cell_area,
+    //     Gtk.CellRendererState flags
+    // ) {
+    //     if (!is_expander) {
+    //         return;
+    //     }
+
+    //     unowned Gtk.StyleContext ctx = apply_style_changes (widget);
+
+    //     Gdk.Rectangle aligned_area = get_aligned_area (widget, flags, cell_area);
+
+    //     int arrow_size = int.min (get_arrow_size (widget), aligned_area.width);
+
+    //     int offset = arrow_size / 2;
+    //     int x = aligned_area.x + aligned_area.width / 2 - offset;
+    //     int y = aligned_area.y + aligned_area.height / 2 - offset;
+
+    //     var state = ctx.get_state ();
+    //     const Gtk.StateFlags EXPANDED_FLAG = Gtk.StateFlags.CHECKED;
+    //     ctx.set_state (is_expanded ? state | EXPANDED_FLAG : state & ~EXPANDED_FLAG);
+
+    //     ctx.render_expander (context, x, y, arrow_size, arrow_size);
+
+    //     revert_style_changes (widget);
+    // }
 
     private unowned Gtk.StyleContext apply_style_changes (Gtk.Widget widget) {
         unowned Gtk.StyleContext ctx = widget.get_style_context ();
