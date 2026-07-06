@@ -93,13 +93,15 @@ public class Code.FormatBar : Gtk.Box {
             lang_selection_listbox.invalidate_filter ();
         });
 
-        var lang_scrolled = new Gtk.ScrolledWindow (null, null);
-        lang_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
-        lang_scrolled.height_request = 350;
-        lang_scrolled.expand = true;
-        lang_scrolled.margin_top = lang_scrolled.margin_bottom = 3;
-
-        lang_scrolled.add (lang_selection_listbox);
+        var lang_scrolled = new Gtk.ScrolledWindow (null, null) {
+            hscrollbar_policy = Gtk.PolicyType.NEVER,
+            height_request = 350,
+            hexpand = true,
+            vexpand = true,
+            margin_top = 3,
+            margin_bottom = 3,
+            child = lang_selection_listbox
+        };
 
         unowned string[]? ids = manager.get_language_ids ();
         unowned SList<Gtk.RadioButton> group = null;
@@ -119,10 +121,10 @@ public class Code.FormatBar : Gtk.Box {
 
         popover_content.show_all ();
 
-        var lang_popover = new Gtk.Popover (lang_menubutton);
-        lang_popover.position = Gtk.PositionType.BOTTOM;
-        lang_popover.add (popover_content);
-
+        var lang_popover = new Gtk.Popover (lang_menubutton) {
+            position = Gtk.PositionType.BOTTOM,
+            child = popover_content
+        };
         lang_menubutton.popover = lang_popover;
 
         lang_selection_listbox.row_activated.connect ((row) => {
@@ -180,10 +182,9 @@ public class Code.FormatBar : Gtk.Box {
         box.show_all ();
 
         var tab_popover = new Gtk.Popover (tab_menubutton) {
-            position = Gtk.PositionType.BOTTOM
+            position = Gtk.PositionType.BOTTOM,
+            child = box
         };
-        tab_popover.add (box);
-
         tab_menubutton.popover = tab_popover;
 
         Scratch.settings.changed["indent-width"].connect (format_tab_header_from_global_settings);
@@ -251,10 +252,10 @@ public class Code.FormatBar : Gtk.Box {
         line_grid.attach (goto_entry, 1, 0, 1, 1);
         line_grid.show_all ();
 
-        var line_popover = new Gtk.Popover (line_menubutton);
-        line_popover.position = Gtk.PositionType.BOTTOM;
-        line_popover.add (line_grid);
-
+        var line_popover = new Gtk.Popover (line_menubutton) {
+            position = Gtk.PositionType.BOTTOM,
+            child = line_grid
+        };
         line_menubutton.popover = line_popover;
 
         // We need to connect_after because otherwise, the text isn't parsed into the "value" property and we only get the previous value

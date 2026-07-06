@@ -111,7 +111,6 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         return true;
     }
 
-
     private bool get_proposals (out GLib.List<Gtk.SourceCompletionItem>? props, bool no_minimum) {
         string to_find = "";
         Gtk.TextBuffer temp_buffer = buffer;
