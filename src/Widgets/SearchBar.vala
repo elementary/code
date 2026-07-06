@@ -172,8 +172,9 @@ namespace Scratch.Widgets {
             search_option_box.add (whole_word_search_button);
             search_option_box.add (regex_search_button);
 
-            var search_popover = new Gtk.Popover (null);
-            search_popover.add (search_option_box);
+            var search_popover = new Gtk.Popover (null) {
+                child = search_option_box
+            };
             search_popover.show_all ();
 
             var search_buttonbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
