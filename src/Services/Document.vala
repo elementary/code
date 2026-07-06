@@ -226,9 +226,9 @@ namespace Scratch.Services {
 
             scroll = new Gtk.ScrolledWindow (null, null) {
                 hexpand = true,
-                vexpand = true
+                vexpand = true,
+                child = source_view
             };
-            scroll.add (source_view);
 
             scroll_controller = new Gtk.EventControllerScroll (scroll, VERTICAL) {
                 propagation_phase = CAPTURE
