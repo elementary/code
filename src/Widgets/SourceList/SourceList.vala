@@ -1511,16 +1511,6 @@ public class SourceList : Gtk.ScrolledWindow {
         ) {
             min_height = natural_height = 2 * (int) ypad;
         }
-
-        public override void render (
-            Cairo.Context context,
-            Gtk.Widget widget,
-            Gdk.Rectangle bg_area,
-            Gdk.Rectangle cell_area,
-            Gtk.CellRendererState flags
-        ) {
-            // Nothing to do. This renderer only adds space.
-        }
     }
 
 
