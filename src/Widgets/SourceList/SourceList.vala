@@ -2304,10 +2304,10 @@ public class SourceList : Gtk.ScrolledWindow {
                     // Cancel any editing operation going on
                     stop_editing ();
 
-                    var button = button_controller.get_current_button ();
-                    if (button == Gdk.BUTTON_SECONDARY) {
+                    var event = Gtk.get_current_event ();
+                    if (event.triggers_context_menu ()) {
                         popup_context_menu (item, (int) dx, (int) dy);
-                    } else if (button == Gdk.BUTTON_PRIMARY) {
+                    } else if (button_controller.get_current_button () == Gdk.BUTTON_PRIMARY) {
                         // Check whether an expander (or an equivalent area) was clicked.
                         bool is_expandable = item is ExpandableItem;
                         bool is_category = is_expandable && data_model.is_category (item, null, path);
