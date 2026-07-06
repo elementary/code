@@ -147,7 +147,13 @@ public class Scratch.Widgets.NavMarkGutterRenderer : GtkSource.GutterRendererPix
     //     }
     // }
 
-    public override void activate (Gtk.TextIter iter, Gdk.Rectangle rect, Gdk.Event event) {
+    public override void activate (
+        Gtk.TextIter iter,
+        Gdk.Rectangle rect,
+        uint button,
+        Gdk.ModifierType state,
+        int n_presses
+    ) {
         if (has_mark_at_line (iter.get_line ())) {
             delete_mark_at_line (iter.get_line ());
         } else {
