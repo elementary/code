@@ -519,7 +519,7 @@ namespace Scratch {
             vp.end_child = terminal;
 
             var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            box.append (toolbar);
+            box.append (toolbar.header_bar);
             box.append (vp);
 
             hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
@@ -530,17 +530,17 @@ namespace Scratch {
 
             var header_group = new Hdy.HeaderGroup ();
             header_group.add_header_bar (sidebar.headerbar);
-            header_group.add_header_bar (toolbar);
+            header_group.add_header_bar (toolbar.header_bar);
 
             var size_group = new Gtk.SizeGroup (Gtk.SizeGroupMode.VERTICAL);
             size_group.add_widget (sidebar.headerbar);
-            size_group.add_widget (toolbar);
+            size_group.add_widget (toolbar.header_bar);
 
             realize.connect (() => {
                 // Plugins hook
                 HookFunc hook_func = () => {
                     plugins.hook_window (this);
-                    plugins.hook_toolbar (toolbar);
+                    plugins.hook_toolbar (toolbar.headerbar);
                     plugins.hook_share_menu (toolbar.share_menu);
                 };
 
