@@ -177,8 +177,9 @@ public class Code.Terminal : Gtk.Box {
 
         spawn_shell (Scratch.saved_state.get_string ("last-opened-path"));
 
-        var scrolled_window = new Gtk.ScrolledWindow (null, terminal.get_vadjustment ());
-        scrolled_window.add (terminal);
+        var scrolled_window = new Gtk.ScrolledWindow (null, terminal.get_vadjustment ()) {
+            child = terminal
+        };
 
         add (scrolled_window);
         show_all ();

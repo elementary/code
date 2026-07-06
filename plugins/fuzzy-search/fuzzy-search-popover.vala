@@ -234,10 +234,9 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
         scrolled = new Gtk.ScrolledWindow (null, null) {
             propagate_natural_height = true,
-            hexpand = true
+            hexpand = true,
+            child = search_result_container
         };
-
-        scrolled.add (search_result_container);
 
         var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
         box.pack_start (entry_layout, false, false);
