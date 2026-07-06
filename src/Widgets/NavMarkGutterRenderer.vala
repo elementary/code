@@ -127,7 +127,7 @@ public class Scratch.Widgets.NavMarkGutterRenderer : GtkSource.GutterRendererPix
     }
 
     public override void query_data (Object lines, uint line) {
-        var line = ((GtkSource.GutterLines)lines).get_first ();
+        var line = (int) ((GtkSource.GutterLines)lines).get_first ();
         if (sorted_line_list.contains (line)) {
             icon_name = "edit-symbolic";
         } else {
