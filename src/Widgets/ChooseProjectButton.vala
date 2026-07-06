@@ -105,11 +105,9 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         popover_content.show_all ();
 
         var project_popover = new Gtk.Popover (this) {
-            position = Gtk.PositionType.BOTTOM
+            position = Gtk.PositionType.BOTTOM,
+            child = popover_content
         };
-
-        project_popover.add (popover_content);
-
         popover = project_popover;
 
         // Initialise with any pre-existing projects (needed for second and subsequent window)
