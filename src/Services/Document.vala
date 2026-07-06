@@ -948,14 +948,14 @@ namespace Scratch.Services {
         // Show an error view which says "Hey, I cannot read that file!"
         private void show_default_load_error_view (string invalid_content = "") {
             var title = _("Cannot read text in file “%s”").printf (get_basename ());
-            string description;
+            string detail;
             if (invalid_content == "") {
-                description = _("You may not have permission to read the file.");
+                detail = _("You may not have permission to read the file.");
             } else {
-                description = _("The file may be corrupt or may not be a text file");
+                detail = _("The file may be corrupt or may not be a text file");
             }
             var alert_view = new Granite.Placeholder (title) {
-                description = this.description,
+                description = detail,
                 icon = new ThemedIcon ("dialog-error")
             };
             // Lack of read permission results in empty content string. Do not give option to open
@@ -969,8 +969,8 @@ namespace Scratch.Services {
                 show_button.clicked.connect (() => {
                     main_stack.set_visible_child_name ("content");
                     Idle.add (() => {
-                        var clipboard = Gdk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
-                        clipboard.set_text (invalid_content, -1);
+                        var clipboard = Gdk.Display.get_default ().get_clipboard ();
+                        clipboard.set_text (invalid_content);
                         var clipboard_action = Utils.action_from_group (MainWindow.ACTION_NEW_FROM_CLIPBOARD, actions);
                         clipboard_action.set_enabled (true);
                         clipboard_action.activate (null);
