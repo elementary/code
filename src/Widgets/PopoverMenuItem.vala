@@ -33,8 +33,7 @@ public class Code.PopoverMenuItem : Gtk.Button {
 
         child = box;
 
-        get_accessible ().accessible_role = MENU_ITEM;
-        ((Gtk.Accessible) this).accessible_role = Gtk.AccessibleRole.MENUITEM;
+        set_accessible_role (MENU_ITEM);
 
         clicked.connect (() => {
             var popover = (Gtk.Popover) get_ancestor (typeof (Gtk.Popover));
