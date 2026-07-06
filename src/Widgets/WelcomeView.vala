@@ -29,9 +29,9 @@ public class Code.WelcomeView : Granite.Placeholder {
     }
 
     construct {
-        var new_button = append_button ("document-new", _("New File"), _("Create a new empty file."));
-        var open_button = append_button ("document-open", _("Open File"), _("Open a saved file."));
-        var project_button = append_button ("open-project", _("Open Folder"), _("Add a project folder to the sidebar."));
+        var new_button = append_button (new ThemedIcon ("document-new"), _("New File"), _("Create a new empty file."));
+        var open_button = append_button (new ThemedIcon ("document-open"), _("Open File"), _("Open a saved file."));
+        var project_button = append_button (new ThemedIcon ("open-project"), _("Open Folder"), _("Add a project folder to the sidebar."));
 
         new_button.activated.connect (() => {
             Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_NEW_TAB, window.actions).activate (null);
