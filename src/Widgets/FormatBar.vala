@@ -98,7 +98,7 @@ public class Code.FormatBar : Gtk.Box {
             height_request = 350,
             hexpand = true,
             vexpand = true,
-            margin_top = lang_scrolled.margin_bottom = 3,
+            margin_top = margin_bottom = 3,
             child = lang_selection_listbox
         };
 
@@ -120,7 +120,7 @@ public class Code.FormatBar : Gtk.Box {
 
         var lang_popover = new Gtk.Popover () {
             position = Gtk.PositionType.BOTTOM,
-            child = popovr_content
+            child = popover_content
         };
         lang_menubutton.popover = lang_popover;
 
@@ -357,9 +357,9 @@ public class Code.FormatBar : Gtk.Box {
         public string? lang_id { get; construct; }
         public string lang_name { get; construct; }
         public Gtk.CheckButton group {
-            private get {
-                return lang_radio.group;
-            }
+            // private get {
+            //     return lang_radio.group;
+            // }
 
             set {
                 lang_radio.group = value;
