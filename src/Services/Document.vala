@@ -431,7 +431,7 @@ namespace Scratch.Services {
                 );
                 main_stack.add_named (alert_view, "load_alert");
                 main_stack.set_visible_child (alert_view);
-                load_button.clicked (() => {
+                load_button.clicked.connect (() => {
                     open.begin (true);
                     alert_view.destroy ();
                 });
