@@ -72,7 +72,10 @@ public class Scratch.Widgets.GitGutterRenderer : GtkSource.GutterRenderer {
             color = status_color_map [Services.VCStatus.NONE];
         }
 
-        var rect = Gdk.Rectangle () { x = 0, y = 0, width = 6, height = 12 }; //TODO get height from view line height
+        var rect = Graphene.Rect () {
+            origin = Graphene.Point () { x = 0.0f, y = 0.0f },
+            size = Graphene.Size () { width = 6.0f , height = 12.0f }
+        };
         snapshot.append_color (color, rect);
     }
 
