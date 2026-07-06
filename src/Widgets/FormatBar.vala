@@ -93,13 +93,14 @@ public class Code.FormatBar : Gtk.Box {
             lang_selection_listbox.invalidate_filter ();
         });
 
-        var lang_scrolled = new Gtk.ScrolledWindow ();
-        lang_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
-        lang_scrolled.height_request = 350;
-        lang_scrolled.expand = true;
-        lang_scrolled.margin_top = lang_scrolled.margin_bottom = 3;
-
-        lang_scrolled.add (lang_selection_listbox);
+        var lang_scrolled = new Gtk.ScrolledWindow () {
+            hscrollbar_policy = Gtk.PolicyType.NEVER,
+            height_request = 350,
+            hexpand = true,
+            vexpand = true,
+            margin_top = lang_scrolled.margin_bottom = 3,
+            child = lang_selection_listbox
+        };
 
         normal_entry = new LangEntry (null, _("Plain Text"));
         lang_selection_listbox.append (normal_entry);
