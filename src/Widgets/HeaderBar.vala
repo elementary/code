@@ -4,8 +4,9 @@
  *                         2013 Mario Guerriero <mefrio.g@gmail.com>
  */
 
-public class Scratch.HeaderBar : Adw.HeaderBar {
+public class Scratch.HeaderBar : Object {
     // Plugins segfault without full access
+    public Gtk.HeaderBar header_bar;
     public Code.FormatBar format_bar;
     public GLib.Menu share_menu;
     public Gtk.MenuButton share_menu_button;
@@ -19,14 +20,18 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
     private const string STYLE_SCHEME_LIGHT = "elementary-light";
     private const string STYLE_SCHEME_DARK = "elementary-dark";
 
-    public HeaderBar () {
-        Object (
-            has_subtitle: false,
-            show_close_button: true
-        );
-    }
+    // public HeaderBar () {
+    //     Object (
+    //         has_subtitle: false,
+    //         show_close_button: true
+    //     );
+    // }
 
     construct {
+        header_bar = new Gtk.HeaderBar () {
+            decoration_layout = ":maximize"
+        };
+
         var app_instance = (Gtk.Application) GLib.Application.get_default ();
 
         var open_button = new Gtk.Button.from_icon_name ("document-open") {
@@ -238,18 +243,18 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
         format_bar = new Code.FormatBar () {
             valign = Gtk.Align.CENTER
         };
-        title_widget = format_bar;
 
-        pack_start (open_button);
-        pack_start (save_button);
-        pack_start (save_as_button);
-        pack_start (revert_button);
-        pack_end (app_menu);
-        pack_end (share_menu_button);
+        header_bar.title_widget = format_bar;
+        header_bar.pack_start (open_button);
+        header_bar.pack_start (save_button);
+        header_bar.pack_start (save_as_button);
+        header_bar.pack_start (revert_button);
+        header_bar.pack_end (app_menu);
+        header_bar.pack_end (share_menu_button);
 
         share_menu.items_changed.connect (on_share_menu_changed);
 
-        realize.connect (() => {
+        header_bar.realize.connect (() => {
             save_button.visible = !Scratch.settings.get_boolean ("autosave");
         });
 
