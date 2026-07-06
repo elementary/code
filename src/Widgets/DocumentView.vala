@@ -66,6 +66,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     private Gtk.CssProvider style_provider;
     private Gtk.MenuButton tab_history_button;
     private double total_delta = 0.0;
+    private const double SCROLL_THRESHOLD = 1.0;
 
     public DocumentView (Scratch.MainWindow window) {
         Object (
