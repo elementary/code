@@ -20,9 +20,9 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Box {
     private Gtk.ListBox list_box;
     private Gtk.SearchEntry search_entry;
     private Gtk.Text entry;
-    private Gtk.Label local_header;
-    private Gtk.Label remote_header;
-    private Gtk.Label recent_header;
+    private Gtk.Widget local_header;
+    private Gtk.Widget remote_header;
+    private Gtk.Widget recent_header;
 
     public BranchListBox (BranchActionDialog dialog, bool show_remotes) {
         Object (
