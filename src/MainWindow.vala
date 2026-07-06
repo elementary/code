@@ -248,8 +248,6 @@ namespace Scratch {
             } else {
                 base_title = _("Code");
             }
-
-            Hdy.init ();
         }
 
         construct {
@@ -258,7 +256,7 @@ namespace Scratch {
             is_first_window = application.get_windows ().length () == 1;
             title = base_title;
 
-            weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
+            weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_for_display (Gdk.Display.get_default ());
             default_theme.add_resource_path ("/io/elementary/code");
 
             document_manager = Scratch.Services.DocumentManager.get_instance ();
@@ -528,19 +526,19 @@ namespace Scratch {
 
             child = hp1;
 
-            var header_group = new Hdy.HeaderGroup ();
-            header_group.add_header_bar (sidebar.headerbar);
-            header_group.add_header_bar (toolbar.header_bar);
+            // var header_group = new Hdy.HeaderGroup ();
+            // header_group.add_header_bar (sidebar.headerbar);
+            // header_group.add_header_bar (toolbar.header_bar);
 
             var size_group = new Gtk.SizeGroup (Gtk.SizeGroupMode.VERTICAL);
             size_group.add_widget (sidebar.headerbar);
             size_group.add_widget (toolbar.header_bar);
 
-            realize.connect (() => {
+            ((Gtk.Widget) this).realize.connect (() => {
                 // Plugins hook
                 HookFunc hook_func = () => {
                     plugins.hook_window (this);
-                    plugins.hook_toolbar (toolbar.headerbar);
+                    plugins.hook_toolbar (toolbar);
                     plugins.hook_share_menu (toolbar.share_menu);
                 };
 
