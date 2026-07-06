@@ -33,15 +33,15 @@ public class Code.WelcomeView : Granite.Placeholder {
         var open_button = append_button (new ThemedIcon ("document-open"), _("Open File"), _("Open a saved file."));
         var project_button = append_button (new ThemedIcon ("open-project"), _("Open Folder"), _("Add a project folder to the sidebar."));
 
-        new_button.activated.connect (() => {
+        new_button.clicked.connect (() => {
             Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_NEW_TAB, window.actions).activate (null);
         });
 
-        open_button.activated.connect (() => {
+        open_button.clicked.connect (() => {
             Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_OPEN, window.actions).activate (null);
         });
 
-        project_button.activated.connect (() => {
+        project_button.clicked.connect (() => {
             Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_OPEN_PROJECT, window.actions).activate (null);
         });
     }
