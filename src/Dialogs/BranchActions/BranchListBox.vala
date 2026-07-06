@@ -42,9 +42,9 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Box {
             hscrollbar_policy = NEVER,
             vscrollbar_policy = AUTOMATIC,
             min_content_height = 200,
-            vexpand = true
+            vexpand = true,
+            child = list_box
         };
-        scrolled_window.child = list_box;
 
         search_entry = new Gtk.SearchEntry () {
             placeholder_text = _("Enter search term")
