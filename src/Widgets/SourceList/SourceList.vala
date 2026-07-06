@@ -2228,11 +2228,12 @@ public class SourceList : Gtk.ScrolledWindow {
             enable_item_property_monitor ();
         }
 
-        public override void row_activated (Gtk.TreePath path, Gtk.TreeViewColumn column) {
-            if (column == get_column (Column.ITEM)) {
+        public override void row_activated (Gtk.TreePath path, Gtk.TreeViewColumn? column) {
+            if (column != null && column == get_column (Column.ITEM)) {
                 var item = data_model.get_item_from_path (path);
-                if (item != null)
+                if (item != null) {
                     item.activated ();
+                }
             }
         }
 
