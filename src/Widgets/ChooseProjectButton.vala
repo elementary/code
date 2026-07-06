@@ -24,14 +24,9 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     private Gtk.Label label_widget;
     private Gtk.ListBox project_listbox;
 
-    public ActionGroup toplevel_action_group { get; construct; }
     public signal void project_chosen ();
 
     construct {
-        realize.connect (() => {
-            toplevel_action_group = get_action_group (Scratch.MainWindow.ACTION_GROUP);
-            assert_nonnull (toplevel_action_group);
-        });
 
         var img = new Gtk.Image () {
             gicon = new ThemedIcon ("git-symbolic"),
@@ -142,23 +137,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             }
         });
 
-        project_listbox.remove.connect ((row) => {
-            var project_row = row as ProjectRow;
-            var current_project = Scratch.Services.GitManager.get_instance ().active_project_path;
-            if (project_row.project_path == current_project) {
-                Scratch.Services.GitManager.get_instance ().active_project_path = "";
-                // Label and active_path will be updated automatically
-            }
-        });
-
-        project_listbox.row_activated.connect ((row) => {
-            var project_entry = ((ProjectRow) row);
-            toplevel_action_group.activate_action (
-                Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT,
-                new Variant.string (project_entry.project_path)
-            );
-        });
-
         toggled.connect (() => {
             if (active) {
                 unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
@@ -219,16 +197,28 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             );
         }
 
+        private Gtk.GestureMultiPress button_controller;
+
         class construct {
             set_css_name (Gtk.STYLE_CLASS_MENUITEM);
         }
 
         construct {
-            check_button = new Gtk.CheckButton.with_label (Path.get_basename (project_path));
+            can_focus = true;
+            action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT;
+            action_target = new Variant.string (project_path);
+
+            check_button = new Gtk.CheckButton.with_label (Path.get_basename (project_path)) {
+                can_focus = false
+            };
             add (check_button);
-            check_button.button_release_event.connect (() => {
+
+            button_controller = new Gtk.GestureMultiPress (check_button) {
+                propagation_phase = CAPTURE,
+                button = 0
+            };
+            button_controller.released.connect (() => {
                 activate ();
-                return Gdk.EVENT_PROPAGATE;
             });
 
             show_all ();
