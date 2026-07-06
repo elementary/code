@@ -163,7 +163,7 @@ public class Scratch.Widgets.NavMarkGutterRenderer : GtkSource.GutterRendererPix
         queue_draw ();
     }
 
-    public override bool query_activatable (Gtk.TextIter iter, Gdk.Rectangle rect, Gdk.Event event) {
+    public override bool query_activatable (Gtk.TextIter iter, Gdk.Rectangle rect) {
         return true;
     }
 }
