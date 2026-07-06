@@ -93,7 +93,7 @@ public class Code.FormatBar : Gtk.Box {
             lang_selection_listbox.invalidate_filter ();
         });
 
-        var lang_scrolled = new Gtk.ScrolledWindow (null, null);
+        var lang_scrolled = new Gtk.ScrolledWindow ();
         lang_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
         lang_scrolled.height_request = 350;
         lang_scrolled.expand = true;

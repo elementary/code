@@ -39,7 +39,7 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Box {
             activate_on_single_click = false
         };
 
-        var scrolled_window = new Gtk.ScrolledWindow (null, null) {
+        var scrolled_window = new Gtk.ScrolledWindow () {
             hscrollbar_policy = NEVER,
             vscrollbar_policy = AUTOMATIC,
             min_content_height = 200,

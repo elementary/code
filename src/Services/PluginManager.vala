@@ -124,7 +124,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
         var list_box = new Gtk.ListBox ();
         ((Gtk.Accessible)list_box).update_property (Gtk.AccessibleProperty.LABEL, _("Extensions"), -1);
 
-        var scrolled_window = new Gtk.ScrolledWindow (null, null) {
+        var scrolled_window = new Gtk.ScrolledWindow () {
             hscrollbar_policy = NEVER,
             child = list_box
         };

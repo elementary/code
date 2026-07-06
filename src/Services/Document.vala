@@ -224,7 +224,7 @@ namespace Scratch.Services {
             main_stack = new Gtk.Stack ();
             source_view = new Scratch.Widgets.SourceView ();
 
-            scroll = new Gtk.ScrolledWindow (null, null) {
+            scroll = new Gtk.ScrolledWindow () {
                 child = source_view
             };
 
