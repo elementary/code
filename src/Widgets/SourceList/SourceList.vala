@@ -2304,7 +2304,7 @@ public class SourceList : Gtk.ScrolledWindow {
                     // Cancel any editing operation going on
                     stop_editing ();
 
-                    var event = Gtk.get_current_event ();
+                    var event = button_controller.get_last_event (null);
                     if (event.triggers_context_menu ()) {
                         popup_context_menu (item, (int) dx, (int) dy);
                     } else if (button_controller.get_current_button () == Gdk.BUTTON_PRIMARY) {
