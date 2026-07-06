@@ -57,7 +57,7 @@ public class Code.Widgets.CellRendererExpander : Gtk.CellRenderer {
         return 12;
     }
 
-    public override void render (
+    public override void snapshot (
         Gtk.Snapshot snapshot,
         Gtk.Widget widget,
         Gdk.Rectangle bg_area,
