@@ -225,8 +225,9 @@ public class Scratch.HeaderBar : Adw.HeaderBar {
         menu_box.append (menu_separator);
         menu_box.append (preferences_menuitem);
 
-        var menu = new Gtk.Popover ();
-        menu.add (menu_box);
+        var menu = new Gtk.Popover () {
+            child = menu_box
+        };
 
         var app_menu = new Gtk.MenuButton () {
             icon_name = "open-menu",

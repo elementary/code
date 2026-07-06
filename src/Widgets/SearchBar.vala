@@ -179,9 +179,9 @@ namespace Scratch.Widgets {
             search_option_box.append (whole_word_search_button);
             search_option_box.append (regex_search_button);
 
-            var search_popover = new Gtk.Popover ();
-            search_popover.add (search_option_box);
-
+            var search_popover = new Gtk.Popover () {
+                child = search_option_box
+            };
             var search_buttonbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
             search_buttonbox.append (search_occurence_count_label);
             search_buttonbox.append (new Gtk.Image.from_icon_name ("pan-down-symbolic"));
