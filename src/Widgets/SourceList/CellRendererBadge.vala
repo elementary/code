@@ -70,11 +70,11 @@ public class Code.Widgets.CellRendererBadge : Gtk.CellRenderer {
         // This is needed in order to fetch the proper style information.
         ctx.add_class (Granite.STYLE_CLASS_BADGE);
 
-        var state = ctx.get_state ();
+        // var state = ctx.get_state ();
 
-        margin = ctx.get_margin (state);
-        padding = ctx.get_padding (state);
-        border = ctx.get_border (state);
+        margin = ctx.get_margin ();
+        padding = ctx.get_padding ();
+        border = ctx.get_border ();
 
         text_layout = widget.create_pango_layout (text);
 
