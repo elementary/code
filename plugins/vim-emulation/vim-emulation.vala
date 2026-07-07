@@ -55,10 +55,10 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Scratch.Services
             this.views.add (view);
         });
         plugins.hook_window.connect ((w) => {
-            key_controller = new Gtk.EventControllerKey () {
+            var key_controller = new Gtk.EventControllerKey () {
                 propagation_phase = CAPTURE
             };
-            w.add_controller (key_controller);
+            ((Gtk.Widget) w).add_controller (key_controller);
             key_controller.key_pressed.connect (handle_key_press);
         });
     }
@@ -73,7 +73,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Scratch.Services
         Gdk.ModifierType state
     ) requires (view != null) {
 
-        if (!view.is_focus) {
+        if (!view.is_focus ()) {
             return false;
         }
 
@@ -178,7 +178,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Scratch.Services
                 view.move_cursor (Gtk.MovementStep.PARAGRAPH_ENDS, 1, false);
                 break;
             case Gdk.Key.u:
-                view.undo ();
+                // view.undo (); //TODO Use native undo
                 break;
             case Gdk.Key.H:
                 view.move_cursor (Gtk.MovementStep.BUFFER_ENDS, -1, false);
