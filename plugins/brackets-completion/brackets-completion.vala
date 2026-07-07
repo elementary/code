@@ -11,7 +11,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Scratch.Se
 
     public Object object { owned get; set construct; }
 
-    // private Gtk.EventControllerKey key_controller;
+    private Gtk.EventControllerKey key_controller;
     private Gee.HashMap<string, string> brackets;
     private Gee.HashMap<uint, string> keys;
     private Gtk.TextBuffer current_buffer;
@@ -42,11 +42,12 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Scratch.Se
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect (on_hook_document);
         plugins.hook_window.connect ((w) => {
-            var key_controller = new Gtk.EventControllerKey (w) {
+            key_controller = new Gtk.EventControllerKey () {
                 propagation_phase = CAPTURE
             };
-            w.add_controller (key_controller);
+            ((Gtk.Widget) w).add_controller (key_controller);
             key_controller.key_pressed.connect (on_key_down);
+            key_controller.key_released.connect (on_key_release);
         });
     }
 
@@ -58,15 +59,17 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Scratch.Se
 
     private void on_hook_document (Scratch.Services.Document doc) {
         current_buffer = doc.source_view.buffer;
-
+        // var key_controller = new Gtk.EventControllerKey () {
+        //     propagation_phase = BUBBLE
+        // };
         if (current_source_view != null) {
-            current_source_view.event_after.disconnect (on_event_after);
+            // current_source_view.event_after.disconnect (on_event_after);
             current_source_view.backspace.disconnect (on_backspace);
         }
 
         current_source_view = doc.source_view;
 
-        current_source_view.event_after.connect (on_event_after);
+        // current_source_view.event_after.connect (on_event_after);
         current_source_view.backspace.connect (on_backspace);
     }
 
@@ -175,11 +178,11 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Scratch.Se
         Gdk.ModifierType state
     ) requires (current_source_view != null && current_buffer != null) {
 
-        if (!current_source_view.is_focus) {
+        if (!current_source_view.is_focus ()) {
             return false;
         }
 
-        if (Gdk.ModifierType.MOD1_MASK in state || Gdk.ModifierType.CONTROL_MASK in state) {
+        if (Gdk.ModifierType.ALT_MASK in state || Gdk.ModifierType.CONTROL_MASK in state) {
             return false;
         }
 
@@ -236,22 +239,25 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Scratch.Se
         }
     }
 
-    private void on_event_after (Gdk.Event root_event) {
-        if (root_event.type != Gdk.EventType.KEY_PRESS) {
-            return;
-        }
+    private void on_key_release (
+        uint keyval,
+        uint keycode,
+        Gdk.ModifierType state
+    ) {
+    // private void on_event_after (Gdk.Event root_event) {
+        // if (root_event.type != Gdk.EventType.KEY_PRESS) {
+        //     return;
+        // }
 
-        var event = root_event.key;
-
-        if (current_source_view.auto_indent && (event.keyval == Gdk.Key.Return || event.keyval == Gdk.Key.KP_Enter)) {
+        if (current_source_view.auto_indent && (keyval == Gdk.Key.Return || keyval == Gdk.Key.KP_Enter)) {
             check_bracket_indent ();
         }
 
-        if (keys.has_key (event.keyval) &&
-            !(Gdk.ModifierType.MOD1_MASK in event.state) &&
-            !(Gdk.ModifierType.CONTROL_MASK in event.state)) {
+        if (keys.has_key (keyval) &&
+            !(Gdk.ModifierType.ALT_MASK in state) &&
+            !(Gdk.ModifierType.CONTROL_MASK in state)) {
 
-            string bracket = keys[event.keyval];
+            string bracket = keys[keyval];
             string next_char = get_next_char ();
             string prev_char = get_previous_char ();
             bool brackets_match = next_char == bracket && prev_char == bracket;
