@@ -43,10 +43,10 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
             current_source.notify["language"].connect (configure_shortcuts);
         });
         plugins.hook_window.connect ((w) => {
-            var key_controller = new Gtk.EventControllerKey (w) {
+            var key_controller = new Gtk.EventControllerKey () {
                 propagation_phase = CAPTURE
             };
-            w.add_controller (w);
+            ((Gtk.Widget) w).add_controller (key_controller);
             key_controller.key_pressed.connect (shortcut_handler);
         });
     }
@@ -62,7 +62,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         Gdk.ModifierType state
     ) requires (current_source != null) {
 
-        if (!current_source.is_focus) {
+        if (!current_source.is_focus ()) {
             return false;
         }
 
