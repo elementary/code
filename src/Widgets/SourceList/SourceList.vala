@@ -207,7 +207,7 @@ public interface SourceListDragDest : SourceList.Item {
  * the selection was modified.
  *
  */
-public class SourceList : Gtk.ScrolledWindow {
+public class SourceList : Gtk.Box {
 
     /**
      * = WORKING INTERNALS =
@@ -2633,7 +2633,13 @@ public class SourceList : Gtk.ScrolledWindow {
         }
     }
 
+    public Gtk.Adjustment vadjustment {
+        get {
+            return scrolled_window.vadjustment;
+        }
+    }
     private Tree tree;
+    private Gtk.ScrolledWindow scrolled_window;
     private DataModel data_model = new DataModel ();
     /**
      * Creates a new {@link Code.Widgets.SourceList}.
@@ -2647,10 +2653,11 @@ public class SourceList : Gtk.ScrolledWindow {
 
     construct {
         tree = new Tree (data_model);
-
-        set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
-        child = tree;
-
+        scrolled_window = new Gtk.ScrolledWindow () {
+            child = tree
+        };
+        scrolled_window.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
+        append (scrolled_window);
         tree.item_selected.connect ((item) => item_selected (item));
     }
 
