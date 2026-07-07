@@ -687,7 +687,7 @@ namespace Scratch.Widgets {
                 if (entry_for_search.text != "" && count_of_search == 0) {
                     entry_for_search.add_css_class (Granite.STYLE_CLASS_ERROR);
                     entry_for_search.primary_icon_name = "dialog-error-symbolic";
-                } else if (ctx.has_class (Granite.STYLE_CLASS_ERROR)) {
+                } else if (entry_for_search.has_css_class (Granite.STYLE_CLASS_ERROR)) {
                     entry_for_search.remove_css_class (Granite.STYLE_CLASS_ERROR);
                     entry_for_search.primary_icon_name = "edit-find-symbolic";
                 }

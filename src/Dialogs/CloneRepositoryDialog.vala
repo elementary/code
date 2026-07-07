@@ -57,7 +57,8 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
         var cancel_button = add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
         clone_button = (Gtk.Button)add_button (_("Clone Repository"), Gtk.ResponseType.APPLY);
-        set_default (clone_button);
+
+        set_default_response (Gtk.ResponseType.CANCEL);
 
         try {
             name_regex = new Regex (NAME_REGEX, OPTIMIZE, ANCHORED | NOTEMPTY);
@@ -101,8 +102,8 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
                 if (res == Gtk.ResponseType.ACCEPT) {
                     var file = chooser.get_file ();
                     try {
-                        var info = file.query_info (STANDARD_DISPLAY_NAME, NONE, null);
-                        projects_folder_label.label = info.get_string_as_string (STANDARD_DISPLAY_NAME);
+                        var info = file.query_info (FileAttribute.STANDARD_DISPLAY_NAME, NONE, null);
+                        projects_folder_label.label = info.get_attribute_as_string (FileAttribute.STANDARD_DISPLAY_NAME);
                     } catch (Error e) {
                         warning ("could not get display name attribute");
                         projects_folder_label.label = file.get_basename ();

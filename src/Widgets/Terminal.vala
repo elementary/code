@@ -134,12 +134,9 @@ public class Code.Terminal : Gtk.Box {
         menu_model.append (_("Copy"), ACTION_COPY);
         menu_model.append (_("Paste"), ACTION_PASTE);
 
-        var menu = new Gtk.PopoverMenu () {
-            modal = true,
-            relative_to = terminal,
+        var menu = new Gtk.PopoverMenu.from_model (menu_model) {
             position = RIGHT
         };
-        menu.bind_model (menu_model, ACTION_GROUP);
 
         var key_controller = new Gtk.EventControllerKey () {
             propagation_phase = BUBBLE

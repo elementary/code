@@ -86,7 +86,6 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
         add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 
         var search_button = (Gtk.Button) add_button (_("Search"), Gtk.ResponseType.ACCEPT);
-        search_button.has_default = true;
         search_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
         search_term_entry.bind_property (
