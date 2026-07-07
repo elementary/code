@@ -97,7 +97,13 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
                 _("Select"),
                 _("Cancel")
             );
-            chooser.set_current_folder (GLib.File.new_for_path (projects_folder_label.label));
+
+            try {
+                chooser.set_current_folder (GLib.File.new_for_path (projects_folder_label.label));
+            } catch (Error e) {
+                warning ("Could not set current folder. %s", e.message);
+            }
+
             chooser.response.connect ((res) => {
                 if (res == Gtk.ResponseType.ACCEPT) {
                     var file = chooser.get_file ();
