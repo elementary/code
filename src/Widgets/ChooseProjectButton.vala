@@ -16,18 +16,18 @@
  *
  */
 
-public class Code.ChooseProjectButton : Gtk.MenuButton {
+public class Code.ChooseProjectButton : Gtk.Box {
     public bool cloning_in_progress { get; set; }
 
     private const string NO_PROJECT_SELECTED = N_("No Project Selected");
     private const string PROJECT_TOOLTIP = N_("Active Git Project: %s");
     private Gtk.Label label_widget;
     private Gtk.ListBox project_listbox;
+    private Gtk.MenuButton menu_button;
 
     public signal void project_chosen ();
 
     construct {
-
         var img = new Gtk.Image.from_gicon (new ThemedIcon ("git-symbolic")) {
             icon_size = Gtk.IconSize.NORMAL
         };
@@ -50,7 +50,10 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         box.append (img);
         box.append (label_widget);
         box.append (cloning_spinner);
-        child = box;
+        menu_button = new Gtk.MenuButton () {
+            child = box
+        };
+        menu_button.set_parent (this);
 
         project_listbox = new Gtk.ListBox () {
             selection_mode = Gtk.SelectionMode.SINGLE
@@ -105,7 +108,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             child = popover_content
         };
 
-        popover = project_popover;
+        menu_button.popover = project_popover;
 
         // Initialise with any pre-existing projects (needed for second and subsequent window)
         var git_manager = Scratch.Services.GitManager.get_instance ();
@@ -134,8 +137,8 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             }
         });
 
-        activate.connect (() => {
-            if (active) {
+        menu_button.activate.connect (() => {
+            if (menu_button.active) {
                 unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
                 var child = project_listbox.get_first_child ();
                 while (child != null) {

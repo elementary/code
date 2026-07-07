@@ -315,7 +315,7 @@ public class Code.FormatBar : Gtk.Box {
         }
     }
 
-    public class FormatButton : Gtk.MenuButton {
+    public class FormatButton : Gtk.Box {
         public unowned string text {
             set {
                 label_widget.label = "<span font-features='tnum'>%s</span>".printf (value);
@@ -330,8 +330,12 @@ public class Code.FormatBar : Gtk.Box {
             }
         }
 
+        public Gtk.Popover popover { get; set; }
+        public bool active { get; set; }
+
         private Gtk.Image img;
         private Gtk.Label label_widget;
+        private Gtk.MenuButton menu_button;
 
         construct {
             img = new Gtk.Image () {
@@ -349,7 +353,13 @@ public class Code.FormatBar : Gtk.Box {
             box.append (img);
             box.append (label_widget);
 
-            child = box;
+            menu_button = new Gtk.MenuButton () {
+                child = box
+            };
+
+            menu_button.set_parent (this);
+            bind_property ("popover", menu_button, "popover");
+            bind_property ("active", menu_button, "active");
         }
     }
 
