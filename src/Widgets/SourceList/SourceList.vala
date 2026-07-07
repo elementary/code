@@ -2382,13 +2382,10 @@ public class SourceList : Gtk.ScrolledWindow {
             if (item != null) {
                 var menu_model = item.get_context_menu ();
                 if (menu_model != null) {
-                    var menu = new Gtk.PopoverMenu () {
-                        modal = true,
-                        relative_to = this,
+                    var menu = new Gtk.PopoverMenu.from_model (menu_model) {
                         position = RIGHT
                     };
 
-                    menu.bind_model (menu_model, null);
                     menu.pointing_to = Gdk.Rectangle () { x = px, y = py };
                     menu.popup ();
                 }
