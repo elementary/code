@@ -750,10 +750,14 @@ namespace Scratch.Services {
             );
             file_chooser.add_filter (all_files_filter);
             file_chooser.add_filter (text_files_filter);
-            var current_folder = Utils.last_path != null ?
-                GLib.File.new_for_path (Utils.last_path) :
-                GLib.File.new_for_path (Environment.get_home_dir ());
-            file_chooser.set_current_folder (current_folder);
+            try {
+                var current_folder = Utils.last_path != null ?
+                    GLib.File.new_for_path (Utils.last_path) :
+                    GLib.File.new_for_path (Environment.get_home_dir ());
+                file_chooser.set_current_folder (current_folder);
+            } catch (Error e) {
+                warning ("Could not set current folder. %s", e.message);
+            }
 
             var success = false;
             var current_file = file.dup ();
