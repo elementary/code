@@ -33,6 +33,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.A
     private MainWindow main_window;
     private Scratch.Services.Interface plugins;
     private bool completion_in_progress = false;
+    private Scratch.Plugins.CompletionProvider comp_provider;
 
     private const uint [] ACTIVATE_KEYS = {
         Gdk.Key.Return,
@@ -56,10 +57,10 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.A
 
         plugins.hook_document.connect (on_new_source_view);
         plugins.hook_window.connect ((w) => {
-            key_controller = new Gtk.EventControllerKey () {
+            var key_controller = new Gtk.EventControllerKey () {
                 propagation_phase = CAPTURE
             };
-            w.add_controller (key_controller);
+            ((Gtk.Widget) w).add_controller (key_controller);
 
             key_controller.key_pressed.connect (on_key_press);
         });
@@ -100,11 +101,10 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.A
         if (text_view_list.find (current_view) == null)
             text_view_list.append (current_view);
 
-        var comp_provider = new Scratch.Plugins.CompletionProvider (parser, doc);
+        comp_provider = new Scratch.Plugins.CompletionProvider (parser, doc);
 
         try {
             current_view.completion.add_provider (comp_provider);
-            current_view.completion.show_headers = true;
             current_view.completion.show_icons = true;
             /* Wait a bit to allow text to load then run parser*/
             timeout_id = Timeout.add (1000, on_timeout_update);
@@ -137,11 +137,11 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.A
     ) requires (current_view != null) {
 
         var kv = keyval;
-        if (!current_view.is_focus) {
+        if (!current_view.is_focus ()) {
             return false;
         }
         /* Pass through any modified keypress except Shift or Capslock */
-        Gdk.ModifierType mods = state & Gdk.ModifierType.MODIFIER_MASK
+        Gdk.ModifierType mods = state & Gdk.MODIFIER_MASK
                                             & ~Gdk.ModifierType.SHIFT_MASK
                                             & ~Gdk.ModifierType.LOCK_MASK;
         if (mods > 0 ) {
@@ -184,17 +184,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.A
     }
 
     private void cleanup (GtkSource.View view) {
-        current_view.completion.get_providers ().foreach ((p) => {
-            try {
-                /* Only remove provider added by this plug in */
-                if (p.get_name () == provider_name_from_document (current_document)) {
-                    debug ("removing provider %s", p.get_name ());
-                    current_view.completion.remove_provider (p);
-                }
-            } catch (Error e) {
-                warning (e.message);
-            }
-        });
+        current_view.completion.remove_provider (comp_provider);
     }
 }
 
