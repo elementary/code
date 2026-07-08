@@ -63,8 +63,6 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     }
 
     construct {
-        modal = true;
-        relative_to = current_window.document_view;
         width_request = 500;
         pointing_to = { 0, 32, 1, 1 };
 
@@ -186,7 +184,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
                         bool first = true;
 
                         var child = search_result_listbox.get_first_child ();
-                        while (child != null);
+                        while (child != null) {
                             search_result_listbox.remove (child);
                         }
 
@@ -202,7 +200,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
                                 preselected_index = 0;
                             }
 
-                            search_result_listbox.add (file_item);
+                            search_result_listbox.append (file_item);
                             items.add (file_item);
                         }
 
@@ -216,7 +214,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
                 });
             } else {
                 var child = search_result_listbox.get_first_child ();
-                while (child != null);
+                while (child != null) {
                     search_result_listbox.remove (child);
                 }
 
@@ -228,23 +226,22 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
         var entry_layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
         entry_layout.valign = Gtk.Align.START;
 
-        entry_layout.add (title_label);
-        entry_layout.add (search_term_entry);
+        entry_layout.append (title_label);
+        entry_layout.append (search_term_entry);
         search_term_entry.valign = Gtk.Align.START;
 
-        scrolled = new Gtk.ScrolledWindow (null, null) {
+        scrolled = new Gtk.ScrolledWindow () {
             propagate_natural_height = true,
-            hexpand = true
+            hexpand = true,
+            child = search_result_listbox
         };
 
-        scrolled.add (search_result_listbox);
-
         var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        box.pack_start (entry_layout, false, false);
-        box.pack_end (scrolled, true, true);
+        box.prepend (entry_layout);
+        box.append (scrolled);
 
         scrolled.hide ();
-        this.add (box);
+        this.child = box;
 
         fuzzy_finder = new Services.FuzzyFinder (search_indexer.project_paths);
         indexer = search_indexer;
@@ -252,8 +249,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
         cancellables = new Gee.LinkedList<GLib.Cancellable> ();
 
         search_term_entry.realize.connect_after (() => {
-            int height;
-            current_window.get_size (null, out height);
+            int height = current_window.get_size (VERTICAL);
 
             // Limit the shown results if the window height is too small
             if (height > 400) {
