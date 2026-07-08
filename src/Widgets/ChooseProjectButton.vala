@@ -41,7 +41,7 @@ public class Code.ChooseProjectButton : Gtk.Box {
         var cloning_spinner = new Gtk.Spinner () {
             halign = END
         };
-        bind_property ("cloning-in-progress", cloning_spinner, "active");
+        bind_property ("cloning-in-progress", cloning_spinner, "spinning");
 
         var box = new Gtk.Box (HORIZONTAL, 3) {
             hexpand = true,
@@ -122,12 +122,7 @@ public class Code.ChooseProjectButton : Gtk.Box {
         }
 
         git_manager.project_liststore.items_changed.connect ((src, pos, n_removed, n_added) => {
-            var child = project_listbox.get_first_child ();
-            while (child != null) {
-                child.destroy ();
-                child = project_listbox.get_first_child ();
-            }
-
+            project_listbox.remove_all ();
             for (int index = (int)pos; index < pos + n_added; index++) {
                 var item = src.get_object (index);
                 if (item is Scratch.FolderManager.ProjectFolderItem) {
@@ -173,16 +168,7 @@ public class Code.ChooseProjectButton : Gtk.Box {
 
     public class ProjectRow : Gtk.ListBoxRow {
         private Gtk.CheckButton check_button;
-        public bool active {
-            get {
-                return check_button.active;
-            }
-
-            set {
-                    check_button.active = value;
-            }
-        }
-
+        public bool active { get; set; }
         public string project_path { get; construct; }
         public string project_name {
             get {
@@ -217,7 +203,8 @@ public class Code.ChooseProjectButton : Gtk.Box {
             button_controller.released.connect ((n, dx, dy) => {
                 activate ();
             });
-            check_button = new Gtk.CheckButton.with_label (Path.get_basename (project_path));
+
+            check_button.bind_property ("active", this, "active");
         }
     }
 }

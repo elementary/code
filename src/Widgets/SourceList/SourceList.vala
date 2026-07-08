@@ -1463,18 +1463,18 @@ public class SourceList : Gtk.Box {
     private class CellRendererIcon : Gtk.CellRenderer {
         public signal void activated (string path);
         public Icon gicon { get; set; }
-        private Gtk.CellRendererPixbuf renderer_pixbuf;
+        // private Gtk.CellRendererPixbuf renderer_pixbuf;
         public CellRendererIcon () {
 
         }
 
         construct {
-            renderer_pixbuf = new Gtk.CellRendererPixbuf () {
-                mode = Gtk.CellRendererMode.ACTIVATABLE,
-                icon_size = Gtk.IconSize.NORMAL
-            };
+            // renderer_pixbuf = new Gtk.CellRendererPixbuf () {
+            //     mode = Gtk.CellRendererMode.ACTIVATABLE,
+            //     icon_size = Gtk.IconSize.NORMAL
+            // };
 
-            bind_property ("gicon", renderer_pixbuf, "gicon");
+            // bind_property ("gicon", renderer_pixbuf, "gicon");
         }
 
         public override bool activate (
@@ -1489,44 +1489,44 @@ public class SourceList : Gtk.Box {
             return true;
         }
 
-        public override Gdk.Rectangle get_aligned_area (
-            Gtk.Widget widget,
-            Gtk.CellRendererState flags,
-            Gdk.Rectangle cell_area
-        ) {
-            return renderer_pixbuf.get_aligned_area (widget, flags, cell_area);
-        }
-        public override void get_preferred_height (Gtk.Widget widget, out int minimum_size, out int natural_size) {
-            int m, n;
-            renderer_pixbuf.get_preferred_height (widget, out m, out n);
-            minimum_size = m;
-            natural_size = n;
-        }
-        public override void get_preferred_height_for_width (Gtk.Widget widget, int width, out int minimum_height, out int natural_height) {
-            int m, n;
-            renderer_pixbuf.get_preferred_height_for_width (widget, width, out m, out n);
-            minimum_height = m;
-            natural_height = n;
-        }
-        public virtual void get_preferred_width (Gtk.Widget widget, out int minimum_size, out int natural_size) {
-            int m, n;
-            renderer_pixbuf.get_preferred_width (widget, out m, out n);
-            minimum_size = m;
-            natural_size = n;
-        }
-        public virtual void get_preferred_width_for_height (Gtk.Widget widget, int height, out int minimum_width, out int natural_width) {
-           int m, n;
-            renderer_pixbuf.get_preferred_width_for_height (widget, height, out m, out n);
-            minimum_width = m;
-            natural_width = n;
-        }
-        public override Gtk.SizeRequestMode get_request_mode () {
-            return renderer_pixbuf.get_request_mode ();
-        }
+        // public override Gdk.Rectangle get_aligned_area (
+        //     Gtk.Widget widget,
+        //     Gtk.CellRendererState flags,
+        //     Gdk.Rectangle cell_area
+        // ) {
+        //     return renderer_pixbuf.get_aligned_area (widget, flags, cell_area);
+        // }
+        // public override void get_preferred_height (Gtk.Widget widget, out int minimum_size, out int natural_size) {
+        //     int m, n;
+        //     renderer_pixbuf.get_preferred_height (widget, out m, out n);
+        //     minimum_size = m;
+        //     natural_size = n;
+        // }
+        // public override void get_preferred_height_for_width (Gtk.Widget widget, int width, out int minimum_height, out int natural_height) {
+        //     int m, n;
+        //     renderer_pixbuf.get_preferred_height_for_width (widget, width, out m, out n);
+        //     minimum_height = m;
+        //     natural_height = n;
+        // }
+        // public virtual void get_preferred_width (Gtk.Widget widget, out int minimum_size, out int natural_size) {
+        //     int m, n;
+        //     renderer_pixbuf.get_preferred_width (widget, out m, out n);
+        //     minimum_size = m;
+        //     natural_size = n;
+        // }
+        // public virtual void get_preferred_width_for_height (Gtk.Widget widget, int height, out int minimum_width, out int natural_width) {
+        //    int m, n;
+        //     renderer_pixbuf.get_preferred_width_for_height (widget, height, out m, out n);
+        //     minimum_width = m;
+        //     natural_width = n;
+        // }
+        // public override Gtk.SizeRequestMode get_request_mode () {
+        //     return renderer_pixbuf.get_request_mode ();
+        // }
 
-        public override void snapshot (Gtk.Snapshot snapshot, Gtk.Widget widget, Gdk.Rectangle background_area, Gdk.Rectangle cell_area, Gtk.CellRendererState flags) {
-            renderer_pixbuf.snapshot (snapshot, widget, background_area, cell_area, flags);
-        }
+        // public override void snapshot (Gtk.Snapshot snapshot, Gtk.Widget widget, Gdk.Rectangle background_area, Gdk.Rectangle cell_area, Gtk.CellRendererState flags) {
+        //     renderer_pixbuf.snapshot (snapshot, widget, background_area, cell_area, flags);
+        // }
     }
 
 
@@ -1557,8 +1557,6 @@ public class SourceList : Gtk.Box {
             min_height = natural_height = 2 * (int) ypad;
         }
     }
-
-
 
     /**
      * The tree that actually displays the items.

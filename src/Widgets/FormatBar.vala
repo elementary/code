@@ -109,7 +109,7 @@ public class Code.FormatBar : Gtk.Box {
         foreach (unowned string id in ids) {
             weak GtkSource.Language lang = manager.get_language (id);
             var entry = new LangEntry (id, lang.name) {
-                group = (Gtk.CheckButton)normal_entry
+                group = normal_entry.group
             };
             lang_selection_listbox.append (entry);
         }
@@ -366,27 +366,19 @@ public class Code.FormatBar : Gtk.Box {
     public class LangEntry : Gtk.ListBoxRow {
         public string? lang_id { get; construct; }
         public string lang_name { get; construct; }
+        private Gtk.CheckButton _group;
         public Gtk.CheckButton group {
-            // private get {
-            //     return lang_radio.group;
-            // }
-
-            set {
-                lang_radio.group = value;
-            }
-        }
-        // public unowned SList<Gtk.CheckButton> group { get; construct; }
-
-        public bool active {
             get {
-                return lang_radio.active;
+                return _group;
             }
 
             set {
-                lang_radio.active = value;
+                _group = value;
+                lang_radio.group = _group;
             }
         }
 
+        public bool active { get; set; }
         public bool selected {
             get {
                 return lang_radio.active;
@@ -413,6 +405,7 @@ public class Code.FormatBar : Gtk.Box {
             lang_radio = new Gtk.CheckButton.with_label (lang_name);
             child = lang_radio;
             lang_radio.toggled.connect (radio_toggled);
+            lang_radio.bind_property ("active", this, "active");
         }
 
         private void radio_toggled () {

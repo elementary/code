@@ -63,6 +63,7 @@ public class Scratch.Widgets.GitGutterRenderer : GtkSource.GutterRenderer {
     }
 
     public override void snapshot_line (Gtk.Snapshot snapshot, GtkSource.GutterLines lines, uint line) {
+    warning ("snapshot_line");
         //Gutter and diff lines numbers start at one, source lines start at 0
         var gutter_line_no = (int) lines.get_first ();
         Gdk.RGBA? color;

@@ -91,6 +91,8 @@ public class Code.Widgets.CellRendererBadge : Gtk.CellRenderer {
         Gdk.Rectangle cell_area,
         Gtk.CellRendererState flags
     ) {
+
+    warning ("snapshot badge");
         update_layout_properties (widget);
 
         Gdk.Rectangle aligned_area = get_aligned_area (widget, flags, cell_area);

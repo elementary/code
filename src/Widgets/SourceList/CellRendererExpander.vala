@@ -57,16 +57,16 @@ public class Code.Widgets.CellRendererExpander : Gtk.CellRenderer {
         return 12;
     }
 
-    public override void snapshot (
-        Gtk.Snapshot snapshot,
-        Gtk.Widget widget,
-        Gdk.Rectangle bg_area,
-        Gdk.Rectangle cell_area,
-        Gtk.CellRendererState flags
-    ) {
-        // No simple replacement for render_expander so leave for now
-        // Renderers to be replaced with TreeListModel and TreeExpanders etc
-    }
+    // public override void snapshot (
+    //     Gtk.Snapshot snapshot,
+    //     Gtk.Widget widget,
+    //     Gdk.Rectangle bg_area,
+    //     Gdk.Rectangle cell_area,
+    //     Gtk.CellRendererState flags
+    // ) {
+    //     // No simple replacement for render_expander so leave for now
+    //     // Renderers to be replaced with TreeListModel and TreeExpanders etc
+    // }
 
     // public override void render (
     //     Cairo.Context context,

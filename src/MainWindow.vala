@@ -524,7 +524,7 @@ namespace Scratch {
             hp1.start_child = sidebar;
             hp1.end_child = box;
 
-            child = hp1;
+            content = hp1;
 
             // var header_group = new Hdy.HeaderGroup ();
             // header_group.add_header_bar (sidebar.headerbar);
