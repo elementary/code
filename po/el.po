@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-27 17:20+0000\n"
-"PO-Revision-Date: 2026-06-29 08:34+0000\n"
+"PO-Revision-Date: 2026-07-10 12:01+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: Greek <https://l10n.elementaryos.org/projects/code/code/el/>\n"
 "Language: el\n"
@@ -44,10 +44,9 @@ msgid "[FILE…]"
 msgstr "[ΑΡΧΕΙΟ…]"
 
 #: src/MainWindow.vala:269
-#, fuzzy, c-format
-#| msgid "Code"
+#, c-format
 msgid "Code (%s)"
-msgstr "Κώδικας"
+msgstr "Κώδικας (%s)"
 
 #: src/MainWindow.vala:271
 msgid "Code"
@@ -132,7 +131,7 @@ msgstr "_Ακύρωση"
 
 #: src/MainWindow.vala:1084
 msgid "Cloning completed"
-msgstr ""
+msgstr "Η κλωνοποίηση ολοκληρώθηκε"
 
 #: src/MainWindow.vala:1085
 #, c-format
@@ -146,7 +145,7 @@ msgstr ""
 
 #: src/MainWindow.vala:1098
 msgid "Retry"
-msgstr ""
+msgstr "Επανάληψη"
 
 #. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
 #: src/Utils.vala:212
@@ -167,11 +166,11 @@ msgstr ""
 
 #: src/Dialogs/CloneRepositoryDialog.vala:59
 msgid "Clone Repository"
-msgstr ""
+msgstr "Κλωνοποίηση αποθετηρίου"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
-msgstr ""
+msgstr "https://example.com/username/projectname.git"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:93
 msgid "Select folder where the cloned repository will be created"
@@ -183,11 +182,11 @@ msgstr "Επιλογή"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:118
 msgid "Repository URL"
-msgstr ""
+msgstr "URL αποθετηρίου"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:119
 msgid "Location"
-msgstr ""
+msgstr "Τοποθεσία"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:120
 msgid "Name of Clone"
@@ -333,13 +332,11 @@ msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:121
 msgid "Wrap lines"
-msgstr ""
+msgstr "Αναδίπλωση γραμμών"
 
 #: src/Dialogs/PreferencesDialog.vala:122
-#, fuzzy
-#| msgid "Line width guide:"
 msgid "Line width guide"
-msgstr "Οδηγός πλάτους γραμμής:"
+msgstr "Οδηγός πλάτους γραμμής"
 
 #: src/Dialogs/PreferencesDialog.vala:128
 #, c-format
@@ -708,7 +705,7 @@ msgstr ""
 
 #: src/Services/Document.vala:1051
 msgid "Ignore"
-msgstr ""
+msgstr "Παράβλεψη"
 
 #: src/Services/Document.vala:1053
 msgid "Save Duplicate…"
@@ -977,10 +974,9 @@ msgstr "Μεγέθυνση"
 
 #: src/Widgets/HeaderBar.vala:87
 msgid "Zoom 1:1"
-msgstr "Μεγέθυνση 1:1"
+msgstr "Ζουμ 1:1"
 
 #: src/Widgets/HeaderBar.vala:95
-#, fuzzy
 msgid "Zoom In"
 msgstr "Μεγέθυνση"
 
@@ -994,21 +990,19 @@ msgstr "Μενού"
 
 #: src/Widgets/HeaderBar.vala:386
 msgid "Light"
-msgstr ""
+msgstr "Ανοιχτόχρωμο"
 
 #: src/Widgets/HeaderBar.vala:389
 msgid "Dark"
-msgstr ""
+msgstr "Σκουρόχρωμο"
 
 #: src/Widgets/HeaderBar.vala:392
-#, fuzzy
-#| msgid "High Contrast"
 msgid "Contrast"
-msgstr "Υψηλό Contrast"
+msgstr "Αντίθεση"
 
 #: src/Widgets/Sidebar.vala:54
 msgid "Cloning complete"
-msgstr ""
+msgstr "Η κλωνοποίηση ολοκληρώθηκε"
 
 #: src/Widgets/Sidebar.vala:82
 msgid "Collapse All"
@@ -1040,7 +1034,7 @@ msgstr "Αναζήτηση προηγούμενου"
 
 #: src/Widgets/SearchBar.vala:129
 msgid "Cyclic Search"
-msgstr ""
+msgstr "Κυκλική αναζήτηση"
 
 #: src/Widgets/SearchBar.vala:132 plugins/pastebin/pastebin_dialog.vala:477
 msgid "Never"
@@ -1087,7 +1081,7 @@ msgstr "Αντικατάσταση Όλων"
 #: src/Widgets/SearchBar.vala:601
 #, c-format
 msgid "%d of %d"
-msgstr ""
+msgstr "%d από %d"
 
 #: src/Widgets/SearchBar.vala:606
 msgid "no results"
@@ -1146,7 +1140,6 @@ msgid "Create a new empty file."
 msgstr "Δημιουργία νέου κενού αρχείου."
 
 #: src/Widgets/WelcomeView.vala:33
-#, fuzzy
 msgid "Open File"
 msgstr "Άνοιγμα αρχείου"
 
