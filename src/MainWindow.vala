@@ -467,7 +467,7 @@ namespace Scratch {
 
             sidebar.add_tab (folder_manager_view);
 
-            folder_manager_view.activate.connect ((a) => {
+            folder_manager_view.file_activate.connect ((a) => {
                 var file = new Scratch.FolderManager.File (a);
                 var doc = new Scratch.Services.Document (actions, file.file);
 

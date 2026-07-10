@@ -22,19 +22,31 @@ namespace Scratch.FolderManager {
     /**
      * Common abstract class for file and folder items.
      */
-    public abstract class Item: Code.Widgets.SourceList.ExpandableItem, Code.Widgets.SourceListSortable {
+    public abstract class Item: Code.TreeListItem {
         public File file { get; construct; }
-
         public FileView view { get; construct; }
+
+        public string name {
+            get {
+                return text;
+            }
+
+            set {
+                text = value;
+            }
+        }
+
         public string path {
             owned get { return file.path; }
             set { file.path = value; }
         }
 
+        public signal void edited (string new_name);
+
         construct {
             selectable = true;
             editable = true;
-            name = file.name;
+            text = file.name;
             icon = file.icon;
             edited.connect (rename);
             tooltip = Scratch.Utils.replace_home_with_tilde (file.path);
@@ -42,7 +54,7 @@ namespace Scratch.FolderManager {
             notify["activatable-tooltip"].connect (() => {
                 tooltip = ("%s\n" + Granite.TOOLTIP_SECONDARY_TEXT_MARKUP).printf (
                     Scratch.Utils.replace_home_with_tilde (file.path),
-                    activatable_tooltip
+                    secondary_icon_tooltip
                 );
             });
         }
@@ -59,7 +71,7 @@ namespace Scratch.FolderManager {
             file.trash ();
         }
 
-        public int compare (Code.Widgets.SourceList.Item a, Code.Widgets.SourceList.Item b) {
+        public int compare (Code.TreeListItem a, Code.TreeListItem  b) {
             if (a is RenameItem) {
                 return -1;
             } else if (b is RenameItem) {
@@ -81,7 +93,7 @@ namespace Scratch.FolderManager {
             return false;
         }
 
-        public ProjectFolderItem? get_root_folder (Code.Widgets.SourceList.ExpandableItem? start = null) {
+        public ProjectFolderItem? get_root_folder (Code.TreeListItem start = null) {
             if (start == null) {
                 start = this;
             }
@@ -125,5 +137,7 @@ namespace Scratch.FolderManager {
                 }
             }
         }
+
+        public virtual GLib.Menu? get_context_menu () { return null; }
     }
 }

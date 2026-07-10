@@ -45,6 +45,8 @@ code_files = files(
     'Services/PluginManager.vala',
     'Services/RestoreOverride.vala',
     'Services/Settings.vala',
+    'Widgets/TreeList/TreeList.vala',
+    'Widgets/TreeList/TreeListItem.vala',
     'Widgets/ChooseProjectButton.vala',
     'Widgets/DocumentView.vala',
     'Widgets/FormatBar.vala',

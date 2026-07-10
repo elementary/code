@@ -60,16 +60,14 @@ namespace Scratch.FolderManager {
             if (monitored_repo != null) {
                 //As SourceList items are not widgets we have to use markup to change appearance of text.
                 if (monitored_repo.head_is_branch) {
-                    markup = "%s\n<span size='small' weight='normal'>%s</span>".printf (
+                    text = "%s\n<span size='small' weight='normal'>%s</span>".printf (
                         name, monitored_repo.branch_name
                     );
                 } else { //Distinguish detached heads visually
-                    markup = "%s\n <span size='small' weight='normal' style='italic'>%s</span>".printf (
+                    text = "%s\n <span size='small' weight='normal' style='italic'>%s</span>".printf (
                         name, monitored_repo.branch_name
                     );
                 }
-
-
             }
         }
 
@@ -99,17 +97,19 @@ namespace Scratch.FolderManager {
             }
         }
 
-        public void child_folder_loaded (FolderItem folder) {
-            foreach (var child in folder.children) {
+        public void after_child_folder_loaded (FolderItem folder) {
+            iterate_children (folder, (child) => {
                 if (child is Item) {
                     var item = (Item)child;
                     var rel_path = this.file.file.get_relative_path (item.file.file);
-
                     if (rel_path != null && rel_path != "") {
                         visible_item_list.prepend ({rel_path, item});
                     }
                 }
-            }
+
+                return Code.TreeList.ITERATE_CONTINUE;
+            });
+
 
             if (monitored_repo != null) {
                 monitored_repo.update_status_map ();
@@ -196,7 +196,7 @@ namespace Scratch.FolderManager {
                 FileView.ACTION_CLOSE_OTHER_FOLDERS,
                 view.actions
             );
-            close_other_folders_action.set_enabled (view.root.children.size > 1);
+            close_other_folders_action.set_enabled (view.n_root_items () > 1);
 
             var close_actions_section = new GLib.Menu ();
             close_actions_section.append_item (close_folder_item);
@@ -314,7 +314,7 @@ namespace Scratch.FolderManager {
                 }
 
                 var item = visible_item.item;
-                item.activatable = null;
+                item.secondary_icon = null;
                 monitored_repo.non_current_entries.@foreach ((entry) => {
                     // Match non_current_path with parent folder as well as itself
                     var match = entry.key.has_prefix (visible_item.rel_path);
@@ -322,16 +322,16 @@ namespace Scratch.FolderManager {
                         is_new = (entry.@value & (Ggit.StatusFlags.WORKING_TREE_NEW | Ggit.StatusFlags.INDEX_NEW)) > 0;
                         // Only mark folders new if only contains new items otherwise mark modified
                         if (item is FolderItem &&
-                            is_new && item.activatable == null) {
+                            is_new && item.secondary_icon == null) {
 
-                            item.activatable = added_icon;
-                            item.activatable_tooltip = _("New");
+                            item.secondary_icon = added_icon;
+                            item.secondary_icon_tooltip = _("New");
                             return true;  // scan all children
                         }
 
-                        if (!(item is FolderItem) || !item.expanded) { //No need to show status when children shown
-                            item.activatable = is_new ? added_icon : modified_icon;
-                            item.activatable_tooltip = is_new ? _("New") : _("Modified");
+                        if (!(item is FolderItem) || !item.is_expanded) { //No need to show status when children shown
+                            item.secondary_icon = is_new ? added_icon : modified_icon;
+                            item.secondary_icon_tooltip = is_new ? _("New") : _("Modified");
                         }
                         return false;
                     } else {
@@ -350,9 +350,9 @@ namespace Scratch.FolderManager {
                 var item = visible_item.item;
                 try {
                     if (monitored_repo.path_is_ignored (visible_item.rel_path)) {
-                        item.markup = Markup.printf_escaped ("<span fgalpha='75&#37;'><i>%s</i></span>", item.name);
+                        item.text = Markup.printf_escaped ("<span fgalpha='75&#37;'><i>%s</i></span>", item.name);
                     } else {
-                        item.markup = item.name;
+                        item.text = item.name;
                     }
                 } catch (Error e) {
                     warning ("An error occurred while checking if item '%s' is git-ignored: %s", item.name, e.message);
@@ -520,7 +520,8 @@ namespace Scratch.FolderManager {
             if (search_term != null) {
                 // Remove results of previous search before attempting a new one
                 remove_all_badges ();
-                collapse_all ();
+                // Collapse everything
+                collapse_all (true, true);
 
                 /* Put search term in search bar to help user locate the position of the matches in each doc */
                 var search_variant = new Variant.string (search_term);

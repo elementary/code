@@ -27,9 +27,10 @@ namespace Scratch.FolderManager {
             Object (file: file, view: view);
         }
 
-        public override void activated () {
-            view.activate (file.path);
-        }
+        // The ListView has an activate signal
+        // public override void activated () {
+        //     view.activate (file.path);
+        // }
 
         public override GLib.Menu? get_context_menu () {
             GLib.FileInfo info = null;

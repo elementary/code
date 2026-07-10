@@ -28,18 +28,21 @@ namespace Scratch.FolderManager {
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
         private bool has_dummy;
-        private Code.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
+        private Code.TreeListItem dummy; /* Blank item for expanded empty folders */
 
         public bool loading_required {
             get {
-                return !children_loaded && n_children <= 1 && file.children.size > 0;
+                return !children_loaded && file.children.size > 0;
             }
         }
 
         public signal void children_finished_loading ();
 
         public FolderItem (File file, FileView view) {
-            Object (file: file, view: view);
+            Object (
+                file: file,
+                view: view
+            );
         }
 
         ~FolderItem () {
@@ -48,11 +51,11 @@ namespace Scratch.FolderManager {
 
         construct {
             selectable = false;
+            is_expandable = true;
 
-            dummy = new Code.Widgets.SourceList.Item ("");
+            dummy = new TreeListItem.dummy ();
             // Must add dummy on unexpanded folders else expander will not show
-            dummy.selectable = false;
-            ((Code.Widgets.SourceList.ExpandableItem)this).add (dummy);
+            add (dummy);
             has_dummy = true;
 
             toggled.connect (on_toggled);
@@ -65,34 +68,41 @@ namespace Scratch.FolderManager {
             }
         }
 
+        private void create_child_items (File file) {
+            foreach (var file in file.children) {
+                if (file.is_folder) {
+                    add_child (new FolderItem (file, view));
+                } else {
+                    add_child (new FileItem (file, view));
+                }
+            }
+        }
+
         public void load_children () {
             if (loading_required) {
-                foreach (var child in file.children) {
-                    add_child (child);
-                }
-
+                create_child_items (file);
                 after_children_loaded ();
             }
         }
 
         private async void load_children_async () {
             if (loading_required) {
-                foreach (var child in file.children) {
-                    Idle.add (() => {
-                        add_child (child);
-                        load_children_async.callback ();
-                        return Source.REMOVE;
-                    });
+                // Do we need to yield after each child with dynamic view??
+                Idle.add (() => {
+                    create_child_items (file);
+                    add_child (child);
+                    load_children_async.callback ();
+                    return Source.REMOVE;
+                });
 
-                    yield;
-                }
+                yield;
             }
 
             after_children_loaded ();
         }
 
-        private void add_child (File child) {
-            Code.Widgets.SourceList.Item item = null;
+        private void add_file (File child) {
+            Code.TreeListItem item = null;
             if (child.is_valid_directory) {
                 item = new FolderItem (child, view);
             } else if (child.is_valid_textfile) {
@@ -100,7 +110,7 @@ namespace Scratch.FolderManager {
             }
 
             if (item != null) {
-                add (item);
+                add_child (item);
             }
         }
 
@@ -108,7 +118,7 @@ namespace Scratch.FolderManager {
             children_loaded = true;
             var root = get_root_folder ();
             if (root != null) {
-                root.child_folder_loaded (this); //Updates child status emblens
+                root.after_child_folder_loaded (this); //Updates child status emblens
             }
 
             children_finished_loading ();
@@ -348,7 +358,8 @@ namespace Scratch.FolderManager {
             }
         }
 
-        private void remove_badge (Code.Widgets.SourceList.Item item) {
+        private void remove_badge (Code.TreeListItem item) {
+
             if (item is FolderItem) {
                 ((FolderItem) item).remove_all_badges ();
             }
@@ -356,35 +367,35 @@ namespace Scratch.FolderManager {
             item.badge = "";
         }
 
-        public new void add (Code.Widgets.SourceList.Item item) {
-            if (has_dummy && n_children == 1) {
-                ((Code.Widgets.SourceList.ExpandableItem)this).remove (dummy);
+        public override void add_child (Code.TreeListItem item) {
+            if (has_dummy) {
+                base.remove_child (dummy);
                 has_dummy = false;
             }
 
-            base.add (item);
+            base.add_child (item);
         }
 
-        public new void remove (Code.Widgets.SourceList.Item item) {
+        // Only for removing "real" items; dummy is added/removed directly
+        public override void remove_child (Code.TreeListItem item) requires (has_dummy == false) {
             if (item is FolderItem) {
-                var folder = (FolderItem)item;
-                foreach (var child in folder.children) {
-                    folder.remove (child);
-                }
+                var folder = (FolderItem) item;
+                folder.remove_all_children ();
             }
 
-            ((Code.Widgets.SourceList.ExpandableItem)this).remove (item);
+            base.remove_child (item);
+
             // Add back dummy if empty
-            if (!(has_dummy || n_children > 0)) {
-                ((Code.Widgets.SourceList.ExpandableItem)this).add (dummy);
+            if (has_no_children ()) {
+                base.add_child (dummy);
                 has_dummy = true;
             }
         }
 
-        public new void clear () {
-            ((Code.Widgets.SourceList.ExpandableItem)this).clear ();
-            has_dummy = false;
-        }
+        // public new void clear () {
+        //     ((Code.Widgets.SourceList.ExpandableItem)this).clear ();
+        //     has_dummy = false;
+        // }
 
         protected virtual void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
             if (source.get_basename ().has_prefix (".goutputstream")) {
@@ -474,14 +485,21 @@ namespace Scratch.FolderManager {
         }
 
         private FolderManager.Item? find_item_for_path (string path) {
-            foreach (var item in children) {
+            FolderManager.Item? found_item = null;
+            view.iterate_children (this, (item) => {
                 // Item could be dummy
-                if ((item is FolderManager.Item) && ((FolderManager.Item) item).path == path) {
-                    return (FolderManager.Item)item;
+                if (item is FolderManager.Item) {
+                    var child = (FolderManager.Item) item;
+                    if (child.path == path) {
+                        found_item = child;
+                        return Code.TreeList.ITERATE_STOP;
+                    }
+                } else {
+                    return Code.TreeList.ITERATE_CONTINUE;
                 }
-            }
+            });
 
-            return null;
+            return found_item;
         }
 
         public void on_add_template (string template_path) {
