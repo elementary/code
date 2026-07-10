@@ -98,7 +98,7 @@ namespace Scratch.FolderManager {
         }
 
         public void after_child_folder_loaded (FolderItem folder) {
-            iterate_children (folder, (child) => {
+            view.iterate_children (folder, (child) => {
                 if (child is Item) {
                     var item = (Item)child;
                     var rel_path = this.file.file.get_relative_path (item.file.file);
@@ -672,7 +672,7 @@ namespace Scratch.FolderManager {
             }
 
             if (match_count > 0) {
-                unowned var item = view.expand_to_path (target_path);
+                var item = view.expand_to_path (target_path);
                 if (item != null) {
                     item.badge = match_count.to_string ();
                 }

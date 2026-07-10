@@ -23,18 +23,22 @@ public class Code.TreeListItem : Object {
     public bool is_editable { get; set; default = false; }
     public bool is_dummy { get; construct; }
 
+    public signal void child_added (TreeListItem item); // To emulate source list
+
     public TreeListItem () {
         Object (
             is_dummy: false,
             is_expandable: false
         );
     }
+
     public TreeListItem.dummy () {
         Object (
             is_dummy: true,
             is_expandable: false
         );
     }
+
     public TreeListItem.expandable () {
         Object (
             is_dummy: false,
@@ -53,8 +57,10 @@ public class Code.TreeListItem : Object {
         }
 
         child_model.insert_sorted (child, (a, b) => {
-            return strcmp (a.text, b.text);
+            return strcmp (((TreeListItem) a).text, ((TreeListItem) b).text);
         });
+
+        child_added (child);
     }
 
     public virtual void remove_child (TreeListItem child) requires (child_model != null) {
@@ -90,7 +96,7 @@ public class Code.TreeListItem : Object {
         bool recursive,
         uint level = 0
     ) requires (child_model != null){
-        TreeListItem? child;
+        TreeListItem? child = null;
         uint pos = 0;
         do {
             child = (TreeListItem?) (child_model.get_object (pos++));

@@ -44,8 +44,8 @@ namespace Scratch.FolderManager {
         public signal void edited (string new_name);
 
         construct {
-            selectable = true;
-            editable = true;
+            is_selectable = true;
+            is_editable = true;
             text = file.name;
             icon = file.icon;
             edited.connect (rename);
@@ -72,11 +72,12 @@ namespace Scratch.FolderManager {
         }
 
         public int compare (Code.TreeListItem a, Code.TreeListItem  b) {
-            if (a is RenameItem) {
-                return -1;
-            } else if (b is RenameItem) {
-                return 1;
-            }
+            // if (a is RenameItem) {
+            //     return -1;
+            // } else
+            // if (b is RenameItem) {
+            //     return 1;
+            // }
 
             if (a is FolderItem && b is FileItem) {
                 return -1;
@@ -109,34 +110,35 @@ namespace Scratch.FolderManager {
             }
         }
 
-        protected class RenameItem : Code.Widgets.SourceList.Item {
-            public bool is_folder { get; construct; }
+        // protected class RenameItem : Code.TreeListItem {
+        //     public bool is_folder { get; construct; }
+        //     public string name { get; set construct; }
 
-            public RenameItem (string name, bool is_folder) {
-                Object (
-                    name: name,
-                    is_folder: is_folder
-                );
-            }
+        //     public RenameItem (string name, bool is_folder) {
+        //         Object (
+        //             name: name
+        //             is_folder: is_folder
+        //         );
+        //     }
 
-            construct {
-                editable = true;
-                selectable = true;
-                edited.connect (on_edited);
+        //     construct {
+        //         is_editable = true;
+        //         is_selectable = true;
+        //         edited.connect (on_edited);
 
-                if (is_folder) {
-                    icon = GLib.ContentType.get_icon ("inode/directory");
-                } else {
-                    icon = GLib.ContentType.get_icon ("text");
-                }
-            }
+        //         if (is_folder) {
+        //             icon = GLib.ContentType.get_icon ("inode/directory");
+        //         } else {
+        //             icon = GLib.ContentType.get_icon ("text");
+        //         }
+        //     }
 
-            private void on_edited (string new_name) {
-                if (new_name != "") {
-                    name = new_name;
-                }
-            }
-        }
+        //     private void on_edited (string new_name) {
+        //         if (new_name != "") {
+        //             name = new_name;
+        //         }
+        //     }
+        // }
 
         public virtual GLib.Menu? get_context_menu () { return null; }
     }

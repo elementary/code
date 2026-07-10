@@ -9,8 +9,14 @@ public class Code.TreeList : Gtk.Box {
     private Gtk.TreeListModel tree_model;
     protected Gtk.SelectionModel selection_model;
 
+    public bool activate_on_single_click { get; set; }
+
+    public signal void item_activated (TreeListItem item);
+    // public TreeListItem? selected { get; set; } // Selection handled by SelectionModel
+
     construct {
         root_model = new GLib.ListStore (typeof (TreeListItem));
+        // Passthrough false (create Gtk.TreeListRows), autoexpand false
         tree_model = new Gtk.TreeListModel (root_model, false, false, create_model_func);
         selection_model = new Gtk.SingleSelection (tree_model);
         var tree_list_factory = new Gtk.SignalListItemFactory ();
@@ -19,82 +25,115 @@ public class Code.TreeList : Gtk.Box {
             header_factory = tree_header_factory
         };
 
+        bind_property ("activate-on-single-click", list_view, "activate-on-single-click", BIDIRECTIONAL | SYNC_CREATE);
+        list_view.activate.connect ((pos) => {
+            item_activated ((TreeListItem) selection_model.get_item (pos));
+        });
          // LIST ITEM FACTORY HANDLERS
         tree_list_factory.setup.connect ((obj) => {
-           var row = (Gtk.ListItem) obj;
-           var label = new Gtk.Label ("") {
-               halign = START
-           };
-           label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
-           var expander = new Gtk.TreeExpander () {
-               child = label,
-               use_markup = true
-           };
-           row.child = expander;
-           //TODO Show icon, secondary icon and badge
-       });
-
+            var listitem = (Gtk.ListItem) obj;
+            create_listitem_child (listitem);
+           // By default just create a use a label (not expandable)
+        });
+        tree_list_factory.teardown.connect ((obj) => {
+            var listitem = (Gtk.ListItem) obj;
+            teardown_listitem_child (listitem);
+        });
         tree_list_factory.bind.connect ((obj) => {
-            var row = (Gtk.ListItem) obj;
-            var treelistrow = (Gtk.TreeListRow) (row.get_item ());
+            var listitem = (Gtk.ListItem) obj;
+            var treelistrow = (Gtk.TreeListRow) (listitem.get_item ());
             var data = (Code.TreeListItem) (treelistrow.get_item ());
-            var expander = (Gtk.TreeExpander) (row.get_child ());
-            var label = (Gtk.Label) (expander.get_child ());
-            label.label = data.text;
-            // expander.hide_expander = !data.expandable;
-            expander.set_list_row (treelistrow);
-            row.activatable = data.is_activatable;
-            // Is there a better way
-            data.expanded_binding = data.bind_property (
-                "is_expanded",
-                treelistrow, "expanded",
-                BIDIRECTIONAL | SYNC_CREATE
-            );
-       });
+            bind_data_to_row (data, treelistrow, listitem);
+        });
+        tree_list_factory.unbind.connect ((obj) => {
+            var listitem = (Gtk.ListItem) obj;
+            var treelistrow = (Gtk.TreeListRow) (listitem.item);
+            var data = (Code.TreeListItem) (treelistrow.item);
+            unbind_data_from_row (data, treelistrow, listitem);
+        });
 
-       tree_list_factory.unbind.connect ((obj) => {
-           var row = (Gtk.ListItem) obj;
-           var treelistrow = (Gtk.TreeListRow) (row.get_item ());
-           var data = (Code.TreeListItem) (treelistrow.get_item ());
-           data.expanded_binding.unbind ();
-       });
-       tree_list_factory.teardown.connect (() => {});
-
-       // HEADER FACTORY HANDLERS
-       tree_header_factory.setup.connect ((obj) => {
-           var row = (Gtk.ListItem) obj;
-           var text_label = new Gtk.Label ("") {
-               halign = START,
-           };
-           text_label.add_css_class (Granite.STYLE_CLASS_H3_LABEL);
-           var subtext_label = new Gtk.Label ("") {
-               halign = START
-           };
-           subtext_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
-           var box = new Gtk.Box (VERTICAL, 0);
-           box.append (text_label);
-           box.append (subtext_label);
-           var expander = new Gtk.TreeExpander () {
-               child = box,
-           };
-           row.child = expander;
-       });
-
-       tree_header_factory.bind.connect ((obj) => {
-           var row = (Gtk.ListItem) obj;
-           var data = (Code.TreeListItem) (row.get_item ());
-           var expander = (Gtk.TreeExpander) (row.get_child ());
-           var box = (Gtk.Box) (expander.get_child ());
-           var text_label = (Gtk.Label) (box.get_first_child ());
-           var subtext_label = (Gtk.Label) (text_label.get_next_sibling ());
-           text_label.label = data.text;
-           subtext_label.label = data.sub_text;
-           expander.hide_expander = false;
-       });
+        // HEADER FACTORY HANDLERS
+        tree_header_factory.setup.connect ((obj) => {
+            // By default create header and subheader, expandable
+           var listitem = (Gtk.ListItem) obj;
+           create_headeritem_child (listitem);
+        });
+        tree_header_factory.bind.connect ((obj) => {
+            var listitem = (Gtk.ListItem) obj;
+            var treelistrow = (Gtk.TreeListRow) listitem.item;
+            var data = (Code.TreeListItem) treelistrow.item;
+        });
        tree_header_factory.unbind.connect (() => {});
        tree_header_factory.teardown.connect (() => {});
 
        append (list_view);
+    }
+
+    protected virtual void create_listitem_child (Gtk.ListItem item) {
+        var label = new Gtk.Label ("") {
+           halign = START,
+        };
+        label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
+        item.child = label;
+    }
+    protected virtual void teardown_listitem_child (Gtk.ListItem item) {
+        // Must be paired with create_listitem child
+    }
+    protected virtual void bind_data_to_row (
+        TreeListItem data,
+        Gtk.TreeListRow row,
+        Gtk.ListItem item) {
+        // Must be matched with create item widget when overriding
+        var label = (Gtk.Label)(item.child);
+        label.label = data.text;
+    }
+    protected virtual void unbind_data_from_row (
+        TreeListItem data,
+        Gtk.TreeListRow row,
+        Gtk.ListItem item
+    ) {
+        //Must undo any signal connections etc made in bind_data_to_row
+    }
+
+    protected virtual void create_headeritem_child (Gtk.ListItem item) {
+       var text_label = new Gtk.Label ("") {
+           halign = START,
+       };
+       text_label.add_css_class (Granite.STYLE_CLASS_H3_LABEL);
+       var subtext_label = new Gtk.Label ("") {
+           halign = START
+       };
+       subtext_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
+       var box = new Gtk.Box (VERTICAL, 0);
+       box.append (text_label);
+       box.append (subtext_label);
+       var expander = new Gtk.TreeExpander () {
+           child = box,
+       };
+       item.child = expander;
+    }
+    protected virtual void teardown_headeritem_child () {
+        // Must be paired with create_listitem child
+    }
+    protected virtual void bind_data_to_headeritem (
+        TreeListItem data,
+        Gtk.TreeListRow row,
+        Gtk.ListItem item
+     ) {
+        var expander = (Gtk.TreeExpander) item.child;
+        var box = (Gtk.Box) expander.get_child ();
+        var text_label = (Gtk.Label) box.get_first_child ();
+        var subtext_label = (Gtk.Label) text_label.get_next_sibling ();
+        text_label.label = data.text;
+        subtext_label.label = data.sub_text;
+    }
+
+    protected virtual void unbind_data_from_headerrow (
+        TreeListItem data,
+        Gtk.TreeListRow row,
+        Gtk.ListItem item
+    ) {
+        //Must undo any signal connections etc made in bind_data_to_row
     }
 
     public ListModel? create_model_func (Object item) {
@@ -113,23 +152,9 @@ public class Code.TreeList : Gtk.Box {
         root_model.append (item);
         return item;
     }
-    // // Root items must generally be expandable
-    // public TreeListItem create_root_item (
-    //     string text,
-    //     bool expandable = true
-    // ) {
-    //     TreeListItem item;
-    //     if (expandable) {
-    //         item = new TreeListItem.expandable ();
-    //     } else {
-    //         item = new TreeListItem ();
-    //     }
-
-    //     root_model.append (item);
-    //     return item;
-    // }
 
     public void remove_root_item (TreeListItem item) {
+        uint pos;
         if (root_model.find (item, out pos)) {
             root_model.remove (pos);
         }
@@ -142,8 +167,6 @@ public class Code.TreeList : Gtk.Box {
                 root_model.remove (pos);
             }
         }
-
-        item.destroy (); // Do we need this?
     }
 
     public void sort_root_children (CompareDataFunc sort_func) {
@@ -157,7 +180,7 @@ public class Code.TreeList : Gtk.Box {
     public delegate bool ListIteratorCallback (TreeListItem item);
     public static bool ITERATE_CONTINUE = true;
     public static bool ITERATE_STOP = false;
-    public bool iterate_children (TreeListItem?  start, ListIteratorCallback cb) {
+    public void iterate_children (TreeListItem?  start, ListIteratorCallback cb) {
         ListModel model;
         if (start == null) {
             model = root_model;
@@ -165,7 +188,7 @@ public class Code.TreeList : Gtk.Box {
             model = start.child_model;
         }
 
-        TreeListItem? item;
+        TreeListItem? item = null;
         uint pos = 0;
         do {
             item = (TreeListItem?) (model.get_object (pos++));

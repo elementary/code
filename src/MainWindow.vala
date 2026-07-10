@@ -467,8 +467,8 @@ namespace Scratch {
 
             sidebar.add_tab (folder_manager_view);
 
-            folder_manager_view.file_activate.connect ((a) => {
-                var file = new Scratch.FolderManager.File (a);
+            folder_manager_view.file_activate.connect ((file) => {
+                // var file = new Scratch.FolderManager.File (a);
                 var doc = new Scratch.Services.Document (actions, file.file);
 
                 if (file.is_valid_textfile) {
@@ -582,11 +582,7 @@ namespace Scratch {
 
             document_view.tab_removed.connect ((doc) => {
                 update_find_actions ();
-                var selected_item = (Scratch.FolderManager.Item?)(folder_manager_view.selected);
-                if (selected_item != null && selected_item.file.file.equal (doc.file)) {
-                    // Do not leave removed tab selected
-                    folder_manager_view.selected = null;
-                }
+                folder_manager_view.unselect_file (doc.file);
             });
 
             document_view.document_change.connect ((doc) => {

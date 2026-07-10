@@ -54,7 +54,7 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
     private Scratch.Services.GitManager git_manager;
     private Scratch.Services.PluginsManager plugins;
 
-    public signal void file_activate (string file);
+    public signal void file_activate (File file);
     public signal bool rename_request (File file);
 
     public SimpleActionGroup actions { get; private set; }
@@ -66,7 +66,6 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
     }
 
     construct {
-        activate_on_single_click = true;
         icon_name = "folder-symbolic";
         title = _("Folders");
 
@@ -83,10 +82,9 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
         });
 
         // Convert ListView signal into file_activate
-        activate.connect ((pos) => {
-            var item = model.get_item (pos);
+        item_activated.connect ((item) => {
             if (item is FileItem) {
-                activate_file (((FileItem) item).file);
+                file_activate (((FileItem) item).file);
             }
         });
     }
@@ -189,6 +187,7 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
     public void collapse_all () {
         iterate_children (null, (child) => {
             child.collapse_all (true, true);
+            return Code.TreeList.ITERATE_CONTINUE;
         });
     }
 
@@ -209,8 +208,12 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
         find_path (null, path);
     }
 
+    public void unselect_file (GLib.File file) {
+        //TODO Complete this
+    }
+
     public void unselect_all () {
-        selected = null;
+        selection_model.unselect_all ();
     }
 
     public void collapse_other_projects () {
@@ -220,14 +223,14 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
         iterate_children (null, (child) => {
             var project_folder = ((ProjectFolderItem) child);
             if (project_folder.path != path) {
-                project_folder.expanded = false;
+                project_folder.is_expanded = false;
                 activate_action (
                     MainWindow.ACTION_PREFIX + MainWindow.ACTION_HIDE_PROJECT_DOCS,
                     "s",
                     project_folder.path
                 );
             } else if (project_folder.path == path) {
-                project_folder.expanded = true;
+                project_folder.is_expanded = true;
                 activate_action (
                     MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS,
                     "s",
@@ -388,92 +391,92 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
 
     // This only works when the list is stable (nothing being added, expanded etc)
     private void rename_file (string path) {
-        this.select_path (path);
-        if (this.start_editing_item (selected)) {
-            ulong once = 0;
-            once = selected.edited.connect ((new_name) => {
-                selected.disconnect (once);
-                var new_path = Path.get_dirname (path) + Path.DIR_SEPARATOR_S + new_name;
-                activate_action (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_TAB,
-                    "s",
-                    path
-                );
+        // this.select_path (path);
+        // if (this.start_editing_item (selected)) {
+        //     ulong once = 0;
+        //     once = selected.edited.connect ((new_name) => {
+        //         selected.disconnect (once);
+        //         var new_path = Path.get_dirname (path) + Path.DIR_SEPARATOR_S + new_name;
+        //         activate_action (
+        //             MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_TAB,
+        //             "s",
+        //             path
+        //         );
 
-                // RecentManager requires valid URI
-                var new_uri = "file://" + new_path; // Code only edits local files
-                Gtk.RecentManager.get_default ().add_item (new_uri);
+        //         // RecentManager requires valid URI
+        //         var new_uri = "file://" + new_path; // Code only edits local files
+        //         Gtk.RecentManager.get_default ().add_item (new_uri);
 
-                activate (new_path);
-            });
-        }
+        //         activate (new_path);
+        //     });
+        // }
 
-        // Handle cancelled rename (which does not produce signal)
-        Timeout.add (200, () => {
-            if (this.editing) {
-                return Source.CONTINUE;
-            } else {
-                // Avoid selected but unopened item if rename cancelled (they would not open if clicked on)
-                this.unselect_all ();
-                return Source.REMOVE;
-            }
-        });
+        // // Handle cancelled rename (which does not produce signal)
+        // Timeout.add (200, () => {
+        //     if (this.editing) {
+        //         return Source.CONTINUE;
+        //     } else {
+        //         // Avoid selected but unopened item if rename cancelled (they would not open if clicked on)
+        //         this.unselect_all ();
+        //         return Source.REMOVE;
+        //     }
+        // });
     }
 
     private void rename_folder (string path) {
-        var folder_to_rename = find_path (null, path) as FolderItem;
-        if (folder_to_rename == null) {
-            critical ("Could not find folder from given path to rename: %s", path);
-            return;
-        }
+        // var folder_to_rename = find_path (null, path) as FolderItem;
+        // if (folder_to_rename == null) {
+        //     critical ("Could not find folder from given path to rename: %s", path);
+        //     return;
+        // }
 
-        folder_to_rename.selectable = true;
-        if (start_editing_item (folder_to_rename)) {
-            // Need to poll view as no signal emited when editing cancelled and need to set
-            // selectable to false anyway.
-            Timeout.add (200, () => {
-                if (editing) {
-                    return Source.CONTINUE;
-                } else {
-                    unselect_all ();
-                    // Must do this *after* unselecting all else sourcelist breaks
-                    folder_to_rename.selectable = false;
-                }
+        // folder_to_rename.selectable = true;
+        // if (start_editing_item (folder_to_rename)) {
+        //     // Need to poll view as no signal emited when editing cancelled and need to set
+        //     // selectable to false anyway.
+        //     Timeout.add (200, () => {
+        //         if (editing) {
+        //             return Source.CONTINUE;
+        //         } else {
+        //             unselect_all ();
+        //             // Must do this *after* unselecting all else sourcelist breaks
+        //             folder_to_rename.selectable = false;
+        //         }
 
-                return Source.REMOVE;
-            });
-        } else {
-            critical ("Could not rename %s", path);
-            folder_to_rename.selectable = false;
-        }
+        //         return Source.REMOVE;
+        //     });
+        // } else {
+        //     critical ("Could not rename %s", path);
+        //     folder_to_rename.selectable = false;
+        // }
     }
 
     private void rename_items_with_same_name (Item item) {
-        string item_name = item.file.name;
-        iterate_children (null, (child) => {
-            string new_other_item_name, new_item_name;
-            var other_item = (ProjectFolderItem) child;
+        // string item_name = item.file.name;
+        // iterate_children (null, (child) => {
+        //     string new_other_item_name, new_item_name;
+        //     var other_item = (ProjectFolderItem) child;
 
-            if (Utils.find_unique_path (
-                    item.file.file,
-                    other_item.file.file,
-                    out new_item_name,
-                    out new_other_item_name
-                )
-            ) {
-                if (item_name.length < new_item_name.length) {
-                    item_name = new_item_name;
-                }
+        //     if (Utils.find_unique_path (
+        //             item.file.file,
+        //             other_item.file.file,
+        //             out new_item_name,
+        //             out new_other_item_name
+        //         )
+        //     ) {
+        //         if (item_name.length < new_item_name.length) {
+        //             item_name = new_item_name;
+        //         }
 
-                if (other_item.name.length < new_other_item_name.length) {
-                    other_item.name = new_other_item_name;
-                }
-            }
+        //         if (other_item.name.length < new_other_item_name.length) {
+        //             other_item.name = new_other_item_name;
+        //         }
+        //     }
 
-            return Code.TreeList.ITERATE_CONTINUE;
-        });
+        //     return Code.TreeList.ITERATE_CONTINUE;
+        // });
 
-        item.name = item_name;
+        // item.name = item_name;
     }
 
     private void add_new_folder (SimpleAction action, Variant? param) {
@@ -686,7 +689,7 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
             add_root_item (folder_root);
             rename_items_with_same_name (folder_root);
 
-            folder_root.expanded = expand;
+            folder_root.is_expanded = expand;
             folder_root.closed.connect (() => {
                 activate_action (
                     MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
