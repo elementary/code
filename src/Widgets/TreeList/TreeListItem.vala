@@ -11,7 +11,7 @@ public class Code.TreeListItem : Object {
     public Icon? icon { get; set; default = null;}
     public Icon? secondary_icon { get; set; default = null;}
     public string secondary_icon_tooltip { get; set; default = ""; }
-    public int badge = -1; // Negative badge not shown
+    public string badge = ""; // Use label styled with Granite.STYLE_CLASS_BADGE?
 
     public ListStore? child_model { get; set; default = null; }
     public TreeListItem? parent { get; set; default = null; }
