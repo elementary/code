@@ -25,7 +25,7 @@ public class Scratch.Plugins.DetectIndent: Peas.ExtensionBase, Scratch.Services.
                 return;
             }
 
-            var source_buffer = (Gtk.SourceBuffer) view.buffer;
+            var source_buffer = (GtkSource.Buffer) view.buffer;
             Gtk.TextIter it;
             source_buffer.get_iter_at_line (out it, 0);
 

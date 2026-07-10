@@ -31,15 +31,15 @@ public class Code.FormatBar : Gtk.Box {
     private Gtk.Entry goto_entry;
     private Gtk.ListBox lang_selection_listbox;
     private Gtk.SearchEntry lang_selection_filter;
-    private Gtk.SourceLanguageManager manager;
+    private GtkSource.LanguageManager manager;
     private LangEntry normal_entry;
 
     private unowned Scratch.Services.Document? doc = null;
 
     construct {
-        get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+        add_css_class (Granite.STYLE_CLASS_LINKED);
 
-        manager = Gtk.SourceLanguageManager.get_default ();
+        manager = GtkSource.LanguageManager.get_default ();
 
         tab_menubutton = new FormatButton () {
             icon = new ThemedIcon ("format-indent-more-symbolic")
@@ -61,9 +61,9 @@ public class Code.FormatBar : Gtk.Box {
         );
 
         homogeneous = true;
-        add (tab_menubutton);
-        add (lang_menubutton);
-        add (line_menubutton);
+        append (tab_menubutton);
+        append (lang_menubutton);
+        append (line_menubutton);
 
         create_tabulation_popover ();
         create_language_popover ();
@@ -93,36 +93,35 @@ public class Code.FormatBar : Gtk.Box {
             lang_selection_listbox.invalidate_filter ();
         });
 
-        var lang_scrolled = new Gtk.ScrolledWindow (null, null);
-        lang_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
-        lang_scrolled.height_request = 350;
-        lang_scrolled.expand = true;
-        lang_scrolled.margin_top = lang_scrolled.margin_bottom = 3;
+        var lang_scrolled = new Gtk.ScrolledWindow () {
+            hscrollbar_policy = Gtk.PolicyType.NEVER,
+            height_request = 350,
+            hexpand = true,
+            vexpand = true,
+            margin_top = margin_bottom = 3,
+            child = lang_selection_listbox
+        };
 
-        lang_scrolled.add (lang_selection_listbox);
+        normal_entry = new LangEntry (null, _("Plain Text"));
+        lang_selection_listbox.append (normal_entry);
 
         unowned string[]? ids = manager.get_language_ids ();
-        unowned SList<Gtk.RadioButton> group = null;
         foreach (unowned string id in ids) {
-            weak Gtk.SourceLanguage lang = manager.get_language (id);
-            var entry = new LangEntry (id, lang.name, group);
-            group = entry.get_radio_group ();
-            lang_selection_listbox.add (entry);
+            weak GtkSource.Language lang = manager.get_language (id);
+            var entry = new LangEntry (id, lang.name) {
+                group = normal_entry.group
+            };
+            lang_selection_listbox.append (entry);
         }
 
-        normal_entry = new LangEntry (null, _("Plain Text"), group);
-        lang_selection_listbox.add (normal_entry);
-
         var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        popover_content.add (lang_selection_filter);
-        popover_content.add (lang_scrolled);
+        popover_content.append (lang_selection_filter);
+        popover_content.append (lang_scrolled);
 
-        popover_content.show_all ();
-
-        var lang_popover = new Gtk.Popover (lang_menubutton);
-        lang_popover.position = Gtk.PositionType.BOTTOM;
-        lang_popover.add (popover_content);
-
+        var lang_popover = new Gtk.Popover () {
+            position = Gtk.PositionType.BOTTOM,
+            child = popover_content
+        };
         lang_menubutton.popover = lang_popover;
 
         lang_selection_listbox.row_activated.connect ((row) => {
@@ -148,8 +147,8 @@ public class Code.FormatBar : Gtk.Box {
             margin_end = 9,
             margin_start = 9
         };
-        editorconfig_infobar.get_content_area ().add (new Gtk.Label (_("Some settings set by EditorConfig file")));
-        editorconfig_infobar.get_style_context ().add_class (Gtk.STYLE_CLASS_FRAME);
+        editorconfig_infobar.add_child (new Gtk.Label (_("Some settings set by EditorConfig file")));
+        editorconfig_infobar.add_css_class (Granite.STYLE_CLASS_FRAME);
 
         var autoindent_modelbutton = new Granite.SwitchModelButton (_("Automatic Indentation"));
 
@@ -167,23 +166,21 @@ public class Code.FormatBar : Gtk.Box {
             margin_end = 12,
             margin_start = 12,
         };
-        tab_box.add (width_label);
-        tab_box.add (width_spinbutton);
+        tab_box.append (width_label);
+        tab_box.append (width_spinbutton);
 
         var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
             margin_bottom = 12
         };
-        box.add (editorconfig_infobar);
-        box.add (autoindent_modelbutton);
-        box.add (space_tab_modelbutton);
-        box.add (tab_box);
-        box.show_all ();
+        box.append (editorconfig_infobar);
+        box.append (autoindent_modelbutton);
+        box.append (space_tab_modelbutton);
+        box.append (tab_box);
 
-        var tab_popover = new Gtk.Popover (tab_menubutton) {
-            position = Gtk.PositionType.BOTTOM
+        var tab_popover = new Gtk.Popover () {
+            position = Gtk.PositionType.BOTTOM,
+            child = box
         };
-        tab_popover.add (box);
-
         tab_menubutton.popover = tab_popover;
 
         Scratch.settings.changed["indent-width"].connect (format_tab_header_from_global_settings);
@@ -249,12 +246,11 @@ public class Code.FormatBar : Gtk.Box {
         line_grid.column_spacing = 12;
         line_grid.attach (goto_label, 0, 0, 1, 1);
         line_grid.attach (goto_entry, 1, 0, 1, 1);
-        line_grid.show_all ();
 
-        var line_popover = new Gtk.Popover (line_menubutton);
-        line_popover.position = Gtk.PositionType.BOTTOM;
-        line_popover.add (line_grid);
-
+        var line_popover = new Gtk.Popover () {
+            position = Gtk.PositionType.BOTTOM,
+            child = line_grid
+        };
         line_menubutton.popover = line_popover;
 
         // We need to connect_after because otherwise, the text isn't parsed into the "value" property and we only get the previous value
@@ -305,18 +301,21 @@ public class Code.FormatBar : Gtk.Box {
         var language = doc.source_view.language;
         if (language != null) {
             var lang_id = language.id;
-            lang_selection_listbox.get_children ().foreach ((child) => {
-                var lang_entry = ((LangEntry) child);
+            var child = lang_selection_listbox.get_first_child ();
+            while (child != null) {
+               var lang_entry = ((LangEntry) child);
                 if (lang_entry.lang_id == lang_id) {
                     select_language (lang_entry, false);
                 }
-            });
+
+                child = child.get_next_sibling ();
+            }
         } else {
             select_language (normal_entry, false);
         }
     }
 
-    public class FormatButton : Gtk.MenuButton {
+    public class FormatButton : Gtk.Box {
         public unowned string text {
             set {
                 label_widget.label = "<span font-features='tnum'>%s</span>".printf (value);
@@ -331,12 +330,16 @@ public class Code.FormatBar : Gtk.Box {
             }
         }
 
+        public Gtk.Popover popover { get; set; }
+        public bool active { get; set; }
+
         private Gtk.Image img;
         private Gtk.Label label_widget;
+        private Gtk.MenuButton menu_button;
 
         construct {
             img = new Gtk.Image () {
-                icon_size = Gtk.IconSize.SMALL_TOOLBAR
+                icon_size = Gtk.IconSize.NORMAL
             };
 
             label_widget = new Gtk.Label (null) {
@@ -347,28 +350,35 @@ public class Code.FormatBar : Gtk.Box {
             var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
                 halign = Gtk.Align.CENTER
             };
-            box.add (img);
-            box.add (label_widget);
+            box.append (img);
+            box.append (label_widget);
 
-            add (box);
+            menu_button = new Gtk.MenuButton () {
+                child = box
+            };
+
+            menu_button.set_parent (this);
+            bind_property ("popover", menu_button, "popover");
+            bind_property ("active", menu_button, "active");
         }
     }
 
     public class LangEntry : Gtk.ListBoxRow {
         public string? lang_id { get; construct; }
         public string lang_name { get; construct; }
-        public unowned SList<Gtk.RadioButton> group { get; construct; }
-
-        public bool active {
+        private Gtk.CheckButton _group;
+        public Gtk.CheckButton group {
             get {
-                return lang_radio.active;
+                return _group;
             }
 
             set {
-                lang_radio.active = value;
+                _group = value;
+                lang_radio.group = _group;
             }
         }
 
+        public bool active { get; set; }
         public bool selected {
             get {
                 return lang_radio.active;
@@ -381,30 +391,27 @@ public class Code.FormatBar : Gtk.Box {
             }
         }
 
-        private Gtk.RadioButton lang_radio;
-        public LangEntry (string? lang_id, string lang_name, SList<Gtk.RadioButton> group) {
-            Object (group: group, lang_id: lang_id, lang_name: lang_name);
+        public Gtk.CheckButton lang_radio { get; private set; }
+
+        public LangEntry (string? lang_id, string lang_name) {
+            Object (lang_id: lang_id, lang_name: lang_name);
         }
 
         class construct {
-            set_css_name (Gtk.STYLE_CLASS_MENUITEM);
+            set_css_name (Granite.STYLE_CLASS_MENUITEM);
         }
 
         construct {
-            lang_radio = new Gtk.RadioButton.with_label (group, lang_name);
-
-            add (lang_radio);
+            lang_radio = new Gtk.CheckButton.with_label (lang_name);
+            child = lang_radio;
             lang_radio.toggled.connect (radio_toggled);
+            lang_radio.bind_property ("active", this, "active");
         }
 
         private void radio_toggled () {
             if (lang_radio.active) {
                 activate ();
             }
-        }
-
-        public unowned SList<Gtk.RadioButton> get_radio_group () {
-            return lang_radio.get_group ();
         }
     }
 }

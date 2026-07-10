@@ -54,49 +54,58 @@ public class Code.Widgets.CellRendererExpander : Gtk.CellRenderer {
      * @since 0.2
      */
     public virtual int get_arrow_size (Gtk.Widget widget) {
-        int arrow_size;
-        widget.style_get ("expander-size", out arrow_size);
-        return arrow_size;
+        return 12;
     }
 
-    public override void render (
-        Cairo.Context context,
-        Gtk.Widget widget,
-        Gdk.Rectangle bg_area,
-        Gdk.Rectangle cell_area,
-        Gtk.CellRendererState flags
-    ) {
-        if (!is_expander) {
-            return;
-        }
+    // public override void snapshot (
+    //     Gtk.Snapshot snapshot,
+    //     Gtk.Widget widget,
+    //     Gdk.Rectangle bg_area,
+    //     Gdk.Rectangle cell_area,
+    //     Gtk.CellRendererState flags
+    // ) {
+    //     // No simple replacement for render_expander so leave for now
+    //     // Renderers to be replaced with TreeListModel and TreeExpanders etc
+    // }
 
-        unowned Gtk.StyleContext ctx = apply_style_changes (widget);
+    // public override void render (
+    //     Cairo.Context context,
+    //     Gtk.Widget widget,
+    //     Gdk.Rectangle bg_area,
+    //     Gdk.Rectangle cell_area,
+    //     Gtk.CellRendererState flags
+    // ) {
+    //     if (!is_expander) {
+    //         return;
+    //     }
 
-        Gdk.Rectangle aligned_area = get_aligned_area (widget, flags, cell_area);
+    //     unowned Gtk.StyleContext ctx = apply_style_changes (widget);
 
-        int arrow_size = int.min (get_arrow_size (widget), aligned_area.width);
+    //     Gdk.Rectangle aligned_area = get_aligned_area (widget, flags, cell_area);
 
-        int offset = arrow_size / 2;
-        int x = aligned_area.x + aligned_area.width / 2 - offset;
-        int y = aligned_area.y + aligned_area.height / 2 - offset;
+    //     int arrow_size = int.min (get_arrow_size (widget), aligned_area.width);
 
-        var state = ctx.get_state ();
-        const Gtk.StateFlags EXPANDED_FLAG = Gtk.StateFlags.CHECKED;
-        ctx.set_state (is_expanded ? state | EXPANDED_FLAG : state & ~EXPANDED_FLAG);
+    //     int offset = arrow_size / 2;
+    //     int x = aligned_area.x + aligned_area.width / 2 - offset;
+    //     int y = aligned_area.y + aligned_area.height / 2 - offset;
 
-        ctx.render_expander (context, x, y, arrow_size, arrow_size);
+    //     var state = ctx.get_state ();
+    //     const Gtk.StateFlags EXPANDED_FLAG = Gtk.StateFlags.CHECKED;
+    //     ctx.set_state (is_expanded ? state | EXPANDED_FLAG : state & ~EXPANDED_FLAG);
 
-        revert_style_changes (widget);
-    }
+    //     ctx.render_expander (context, x, y, arrow_size, arrow_size);
+
+    //     revert_style_changes (widget);
+    // }
 
     private unowned Gtk.StyleContext apply_style_changes (Gtk.Widget widget) {
         unowned Gtk.StyleContext ctx = widget.get_style_context ();
         ctx.save ();
 
         if (is_category_expander)
-            ctx.add_class (Granite.STYLE_CLASS_CATEGORY_EXPANDER);
+            ctx.add_class ("category-expander");
         else
-            ctx.add_class (Gtk.STYLE_CLASS_EXPANDER);
+            ctx.add_class ("row-expander"); //TODO What Granite style is appropriate
 
         return ctx;
     }

@@ -17,31 +17,32 @@
  * Authored by: Corentin Noël <corentin@elementary.io>
  */
 
-public class Code.WelcomeView : Granite.Widgets.Welcome {
+public class Code.WelcomeView : Granite.Placeholder {
     public unowned Scratch.MainWindow window { get; construct; }
 
     public WelcomeView (Scratch.MainWindow window) {
         Object (
             window: window,
             title: _("No Files Open"),
-            subtitle: _("Open a file to begin editing.")
+            description: _("Open a file to begin editing.")
         );
     }
 
     construct {
-        append ("document-new", _("New File"), _("Create a new empty file."));
-        append ("document-open", _("Open File"), _("Open a saved file."));
-        append ("open-project", _("Open Folder"), _("Add a project folder to the sidebar."));
+        var new_button = append_button (new ThemedIcon ("document-new"), _("New File"), _("Create a new empty file."));
+        var open_button = append_button (new ThemedIcon ("document-open"), _("Open File"), _("Open a saved file."));
+        var project_button = append_button (new ThemedIcon ("open-project"), _("Open Folder"), _("Add a project folder to the sidebar."));
 
-        activated.connect ((i) => {
-            // New file
-            if (i == 0) {
-                Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_NEW_TAB, window.actions).activate (null);
-            } else if (i == 1) {
-                Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_OPEN, window.actions).activate (null);
-            } else if (i == 2) {
-                Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_OPEN_PROJECT, window.actions).activate (null);
-            }
+        new_button.clicked.connect (() => {
+            Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_NEW_TAB, window.actions).activate (null);
+        });
+
+        open_button.clicked.connect (() => {
+            Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_OPEN, window.actions).activate (null);
+        });
+
+        project_button.clicked.connect (() => {
+            Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_OPEN_PROJECT, window.actions).activate (null);
         });
     }
 }

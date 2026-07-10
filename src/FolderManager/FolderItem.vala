@@ -28,18 +28,21 @@ namespace Scratch.FolderManager {
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
         private bool has_dummy;
-        private Code.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
+        private Code.TreeListItem dummy; /* Blank item for expanded empty folders */
 
         public bool loading_required {
             get {
-                return !children_loaded && n_children <= 1 && file.children.size > 0;
+                return !children_loaded && file.children.size > 0;
             }
         }
 
         public signal void children_finished_loading ();
 
         public FolderItem (File file, FileView view) {
-            Object (file: file, view: view);
+            Object (
+                file: file,
+                view: view
+            );
         }
 
         ~FolderItem () {
@@ -47,15 +50,16 @@ namespace Scratch.FolderManager {
         }
 
         construct {
-            selectable = false;
+            is_selectable = false;
+            is_expandable = true;
 
-            dummy = new Code.Widgets.SourceList.Item ("");
+            dummy = new Code.TreeListItem.dummy ();
             // Must add dummy on unexpanded folders else expander will not show
-            dummy.selectable = false;
-            ((Code.Widgets.SourceList.ExpandableItem)this).add (dummy);
+            add_child (dummy);
             has_dummy = true;
 
-            toggled.connect (on_toggled);
+            // Signal when expanded
+            notify["is-expanded"].connect (on_toggled);
 
             try {
                 monitor = file.file.monitor_directory (GLib.FileMonitorFlags.NONE);
@@ -65,34 +69,40 @@ namespace Scratch.FolderManager {
             }
         }
 
+        private void create_child_items (File file) {
+            foreach (var child_file in file.children) {
+                if (child_file.is_valid_directory) {
+                    add_child (new FolderItem (child_file, view));
+                } else if (child_file.is_valid_textfile) {
+                    add_child (new FileItem (child_file, view));
+                }
+            }
+        }
+
         public void load_children () {
             if (loading_required) {
-                foreach (var child in file.children) {
-                    add_child (child);
-                }
-
+                create_child_items (file);
                 after_children_loaded ();
             }
         }
 
         private async void load_children_async () {
             if (loading_required) {
-                foreach (var child in file.children) {
-                    Idle.add (() => {
-                        add_child (child);
-                        load_children_async.callback ();
-                        return Source.REMOVE;
-                    });
+                // Do we need to yield after each child with dynamic view??
+                Idle.add (() => {
+                    create_child_items (file);
+                    load_children_async.callback ();
+                    return Source.REMOVE;
+                });
 
-                    yield;
-                }
+                yield;
             }
 
             after_children_loaded ();
         }
 
-        private void add_child (File child) {
-            Code.Widgets.SourceList.Item item = null;
+        private void add_file (File child) {
+            Code.TreeListItem item = null;
             if (child.is_valid_directory) {
                 item = new FolderItem (child, view);
             } else if (child.is_valid_textfile) {
@@ -100,7 +110,7 @@ namespace Scratch.FolderManager {
             }
 
             if (item != null) {
-                add (item);
+                add_child (item);
             }
         }
 
@@ -108,16 +118,15 @@ namespace Scratch.FolderManager {
             children_loaded = true;
             var root = get_root_folder ();
             if (root != null) {
-                root.child_folder_loaded (this); //Updates child status emblens
+                root.after_child_folder_loaded (this); //Updates child status emblens
             }
 
             children_finished_loading ();
         }
 
         private void on_toggled () {
-            if (expanded) {
+            if (is_expanded) {
                 load_children_async.begin ();
-                return;
             } else {
                 var root = get_root_folder ();
                 if (root != null &&
@@ -264,7 +273,10 @@ namespace Scratch.FolderManager {
 
         // Recursively load templates from folder and subfolders keeping count of total menuitems
         const int MAX_TEMPLATES = 2048;
-        private uint load_templates_from_folder (GLib.File template_folder, Menu template_submenu) {
+        private uint load_templates_from_folder (
+            GLib.File template_folder,
+            Menu template_submenu
+        ) {
             GLib.List<GLib.File> template_list = null;
             GLib.List<GLib.File> folder_list = null;
 
@@ -343,12 +355,14 @@ namespace Scratch.FolderManager {
         }
 
         public void remove_all_badges () {
-            foreach (var child in children) {
+            view.iterate_children (this, (child) => {
                 remove_badge (child);
-            }
+                return Code.TreeList.ITERATE_CONTINUE;
+            });
         }
 
-        private void remove_badge (Code.Widgets.SourceList.Item item) {
+        private void remove_badge (Code.TreeListItem item) {
+
             if (item is FolderItem) {
                 ((FolderItem) item).remove_all_badges ();
             }
@@ -356,37 +370,41 @@ namespace Scratch.FolderManager {
             item.badge = "";
         }
 
-        public new void add (Code.Widgets.SourceList.Item item) {
-            if (has_dummy && n_children == 1) {
-                ((Code.Widgets.SourceList.ExpandableItem)this).remove (dummy);
+        public override void add_child (Code.TreeListItem item) {
+            if (has_dummy) {
+                base.remove_child (dummy);
                 has_dummy = false;
             }
 
-            base.add (item);
+            base.add_child (item);
         }
 
-        public new void remove (Code.Widgets.SourceList.Item item) {
+        // Only for removing "real" items; dummy is added/removed directly
+        public override void remove_child (Code.TreeListItem item) requires (has_dummy == false) {
             if (item is FolderItem) {
-                var folder = (FolderItem)item;
-                foreach (var child in folder.children) {
-                    folder.remove (child);
-                }
+                var folder = (FolderItem) item;
+                folder.remove_all_children ();
             }
 
-            ((Code.Widgets.SourceList.ExpandableItem)this).remove (item);
+            base.remove_child (item);
+
             // Add back dummy if empty
-            if (!(has_dummy || n_children > 0)) {
-                ((Code.Widgets.SourceList.ExpandableItem)this).add (dummy);
+            if (has_no_children ()) {
+                base.add_child (dummy);
                 has_dummy = true;
             }
         }
 
-        public new void clear () {
-            ((Code.Widgets.SourceList.ExpandableItem)this).clear ();
-            has_dummy = false;
-        }
+        // public new void clear () {
+        //     ((Code.Widgets.SourceList.ExpandableItem)this).clear ();
+        //     has_dummy = false;
+        // }
 
-        protected virtual void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
+        protected virtual void on_changed (
+            GLib.File source,
+            GLib.File? dest,
+            GLib.FileMonitorEvent event
+        ) {
             if (source.get_basename ().has_prefix (".goutputstream")) {
                 return; // Ignore changes due to temp files and streams
             }
@@ -398,14 +416,15 @@ namespace Scratch.FolderManager {
                 switch (event) {
                     case GLib.FileMonitorEvent.DELETED:
                         file.invalidate_cache (); //TODO Throttle if required
-                        if (expanded) {
-                            toggled ();
+                        if (is_expanded) {
+                            // Force refresh of child model?
+                            notify_property ("is-expanded");
                         }
                         break;
                     case GLib.FileMonitorEvent.CREATED:
                         file.invalidate_cache ();  //TODO Throttle if required
-                        if (expanded) {
-                            toggled ();
+                        if (is_expanded) {
+                            notify_property ("is-expanded");
                         }
                         break;
                     case FileMonitorEvent.RENAMED:
@@ -420,15 +439,19 @@ namespace Scratch.FolderManager {
 
                         break;
                 }
-            } else { // Child has been expanded ( but could be closed now) and items loaded (or dummy)
-                // No cache invalidation is needed here because the entire state is kept in the tree
+            } else {
+                // Child has been expanded ( but could be closed now) and
+                // items loaded (or dummy).
+                // No cache invalidation is needed here because the entire state
+                // is kept in the tree
+                //TODO Test for TreeList
                 switch (event) {
                     case GLib.FileMonitorEvent.DELETED:
                         // Find item corresponding to deleted file
                         // Note may not be found if deleted file is not valid for display
                         var path_item = find_item_for_path (source.get_path ());
                         if (path_item != null) {
-                            remove (path_item);
+                            remove_child (path_item);
                         }
 
                         break;
@@ -436,6 +459,7 @@ namespace Scratch.FolderManager {
                         if (source.query_exists () == false) {
                             return;
                         }
+
                         var path_item = find_item_for_path (source.get_path ());
                         if (path_item == null) {
                             var file = new File (source.get_path ());
@@ -445,7 +469,7 @@ namespace Scratch.FolderManager {
                                 path_item = new FileItem (file, view);
                             }
 
-                            add (path_item); // null parameter is silently ignored
+                            add_child (path_item); // null parameter is silently ignored
                         }
 
                         break;
@@ -474,20 +498,27 @@ namespace Scratch.FolderManager {
         }
 
         private FolderManager.Item? find_item_for_path (string path) {
-            foreach (var item in children) {
+            FolderManager.Item? found_item = null;
+            view.iterate_children (this, (item) => {
                 // Item could be dummy
-                if ((item is FolderManager.Item) && ((FolderManager.Item) item).path == path) {
-                    return (FolderManager.Item)item;
+                if (item is FolderManager.Item) {
+                    var child = (FolderManager.Item) item;
+                    if (child.path == path) {
+                        found_item = child;
+                        return Code.TreeList.ITERATE_STOP;
+                    }
                 }
-            }
 
-            return null;
+                return Code.TreeList.ITERATE_CONTINUE;
+            });
+
+            return found_item;
         }
 
         public void on_add_template (string template_path) {
             // Expand folder before trying to copy template so that child appears for renaming
-            if (!expanded) {
-                expanded = true;  // causes async loading of children
+            if (!is_expanded) {
+                is_expanded = true;  // causes async loading of children
                 ulong once = 0;
                 once = children_finished_loading.connect (() => {
                     this.disconnect (once);
@@ -568,62 +599,63 @@ namespace Scratch.FolderManager {
             name = new_file.get_basename ();
 
             // Expand folder before trying to rename
-            if (!expanded) {
+            if (!is_expanded) {
                 ulong once = 0;
                 once = children_finished_loading.connect (() => {
                     this.disconnect (once);
                     rename_new (name, is_folder);
                 });
 
-                expanded = true;  // causes async loading of children
+                is_expanded = true;  // causes async loading of children
             } else {
                 rename_new (name, is_folder);
             }
         }
 
-        private void rename_new (string name, bool is_folder) requires (!view.editing) {
-            var rename_item = new RenameItem (name, is_folder);
-            add (rename_item);
+        private void rename_new (string name, bool is_folder) {
+            // assert (!view.editing);
+            // var rename_item = new RenameItem (name, is_folder);
+            // add_child (rename_item);
 
-            // Wait until can start editing
-            // For some reason using an Idle does not work properly here - the editable gets drawn in the wrong place
-            //TODO Find a way to detect when the sourcelist is stable and can be edited
-            Timeout.add (RENAME_AFTER_NEW_DELAY_MSEC, () => {
-                if (view.start_editing_item (rename_item)) {
-                    ulong once = 0;
-                    once = rename_item.edited.connect (() => {
-                        rename_item.disconnect (once);
-                        // A name was accepted so create the corresponding file
-                        var new_name = rename_item.name;
-                        try {
-                            var gfile = file.file.get_child_for_display_name (new_name);
-                            if (rename_item.is_folder) {
-                                gfile.make_directory ();
-                            } else {
-                                gfile.create (FileCreateFlags.NONE);
-                                view.activate (gfile.get_path ());
-                            }
-                        } catch (Error e) {
-                            warning (e.message);
-                        }
-                    });
+            // // Wait until can start editing
+            // // For some reason using an Idle does not work properly here - the editable gets drawn in the wrong place
+            // //TODO Find a way to detect when the sourcelist is stable and can be edited
+            // Timeout.add (RENAME_AFTER_NEW_DELAY_MSEC, () => {
+            //     if (view.start_editing_item (rename_item)) {
+            //         ulong once = 0;
+            //         once = rename_item.edited.connect (() => {
+            //             rename_item.disconnect (once);
+            //             // A name was accepted so create the corresponding file
+            //             var new_name = rename_item.name;
+            //             try {
+            //                 var gfile = file.file.get_child_for_display_name (new_name);
+            //                 if (rename_item.is_folder) {
+            //                     gfile.make_directory ();
+            //                 } else {
+            //                     gfile.create (FileCreateFlags.NONE);
+            //                     view.activate (gfile.get_path ());
+            //                 }
+            //             } catch (Error e) {
+            //                 warning (e.message);
+            //             }
+            //         });
 
-                    /* Need to remove rename item even when editing cancelled so cannot use "edited" signal */
-                    Timeout.add (200, () => {
-                        if (view.editing) {
-                            return Source.CONTINUE;
-                        } else {
-                            remove (rename_item);
-                            return Source.REMOVE;
-                        }
-                    });
-                } else {
-                    critical ("Failed to rename new item");
-                    remove (rename_item);
-                }
+            //         /* Need to remove rename item even when editing cancelled so cannot use "edited" signal */
+            //         Timeout.add (200, () => {
+            //             if (view.editing) {
+            //                 return Source.CONTINUE;
+            //             } else {
+            //                 remove_child (rename_item);
+            //                 return Source.REMOVE;
+            //             }
+            //         });
+            //     } else {
+            //         critical ("Failed to rename new item");
+            //         remove_child (rename_item);
+            //     }
 
-                return Source.REMOVE;
-            });
+            //     return Source.REMOVE;
+            // });
         }
     }
 }

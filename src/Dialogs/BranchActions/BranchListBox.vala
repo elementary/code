@@ -19,9 +19,10 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Box {
 
     private Gtk.ListBox list_box;
     private Gtk.SearchEntry search_entry;
-    private Gtk.Label local_header;
-    private Gtk.Label remote_header;
-    private Gtk.Label recent_header;
+    private Gtk.Text entry;
+    private Gtk.Widget local_header;
+    private Gtk.Widget remote_header;
+    private Gtk.Widget recent_header;
 
     public BranchListBox (BranchActionDialog dialog, bool show_remotes) {
         Object (
@@ -38,7 +39,7 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Box {
             activate_on_single_click = false
         };
 
-        var scrolled_window = new Gtk.ScrolledWindow (null, null) {
+        var scrolled_window = new Gtk.ScrolledWindow () {
             hscrollbar_policy = NEVER,
             vscrollbar_policy = AUTOMATIC,
             min_content_height = 200,
@@ -47,8 +48,14 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Box {
         scrolled_window.child = list_box;
 
         search_entry = new Gtk.SearchEntry () {
-            placeholder_text = _("Enter search term")
+            placeholder_text = _("Enter search term"),
+            search_delay = 300
         };
+
+        entry = new Gtk.Text ();
+        entry.set_parent (search_entry);
+
+        search_entry.set_key_capture_widget (entry);
 
         recent_header = new Granite.HeaderLabel (_("Recent Branches"));
         local_header = new Granite.HeaderLabel (_("Local Branches"));
@@ -62,7 +69,7 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Box {
                     row.is_recent = true;
                 }
 
-                list_box.add (row);
+                list_box.append (row);
             }
         }
 
@@ -70,9 +77,9 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Box {
         list_box.set_header_func (listbox_header_func);
         list_box.row_selected.connect ((listboxrow) => {
             //We want cursor to end up after the inserted text
-            search_entry.text = ((BranchNameRow)(listboxrow)).branch_name;
-            search_entry.grab_focus_without_selecting ();
-            search_entry.move_cursor (DISPLAY_LINE_ENDS, 1, false);
+            entry.text = ((BranchNameRow)(listboxrow)).branch_name;
+            entry.grab_focus_without_selecting ();
+            entry.move_cursor (DISPLAY_LINE_ENDS, 1, false);
         });
         list_box.row_activated.connect ((listboxrow) => {
             dialog.page_activated ();
@@ -81,7 +88,7 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Box {
             return (((BranchNameRow)(listboxrow)).branch_name.contains (search_entry.text));
         });
 
-        search_entry.changed.connect (() => {
+        search_entry.search_changed.connect (() => {
             list_box.invalidate_filter ();
             branch_changed (text);
         });
@@ -89,8 +96,8 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Box {
             dialog.page_activated ();
         });
 
-        add (search_entry);
-        add (scrolled_window);
+        append (search_entry);
+        append (scrolled_window);
     }
 
     public BranchNameRow? get_selected_row () {

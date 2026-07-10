@@ -71,25 +71,22 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
 
         var box = new Gtk.Box (VERTICAL, 0);
         if (!use_regex) {
-            box.add (new Gtk.Label (case_text) { halign = START });
+            box.append (new Gtk.Label (case_text) { halign = START });
             if (wholeword) {
-                box.add (new Gtk.Label (wholeword_text) { halign = START });
+                box.append (new Gtk.Label (wholeword_text) { halign = START });
             }
         } else {
-            box.add (new Gtk.Label (regex_text) { halign = START });
+            box.append (new Gtk.Label (regex_text) { halign = START });
         }
 
-        box.add (search_term_entry);
+        box.append (search_term_entry);
 
-        custom_bin.add (box);
-        custom_bin.show_all ();
+        custom_bin.append (box);
 
         add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 
         var search_button = (Gtk.Button) add_button (_("Search"), Gtk.ResponseType.ACCEPT);
-        search_button.can_default = true;
-        search_button.has_default = true;
-        search_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+        search_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
         search_term_entry.bind_property (
             "is-valid", search_button, "sensitive", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE

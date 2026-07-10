@@ -24,8 +24,8 @@ public class Code.Terminal : Gtk.Box {
     private const string GNOME_BELL_KEY = "audible-bell";
 
     public Vte.Terminal terminal { get; construct; }
-    private Gtk.EventControllerKey key_controller;
-    private Gtk.GestureMultiPress button_controller;
+    // private Gtk.EventControllerKey key_controller;
+    // private Gtk.GestureClick button_controller;
     private Settings? terminal_settings = null;
     private Settings? gnome_interface_settings = null;
     private Settings? gnome_wm_settings = null;
@@ -33,7 +33,8 @@ public class Code.Terminal : Gtk.Box {
     public SimpleActionGroup actions { get; construct; }
 
     private GLib.Pid child_pid;
-    private Gtk.Clipboard current_clipboard;
+    private Gdk.Clipboard current_clipboard;
+
     private Menu menu_model;
 
     private Scratch.Application application;
@@ -110,8 +111,7 @@ public class Code.Terminal : Gtk.Box {
 
         terminal.child_exited.connect (() => {
             //Hide the exited terminal
-            var win_group = get_action_group (Scratch.MainWindow.ACTION_GROUP);
-            win_group.activate_action (Scratch.MainWindow.ACTION_TOGGLE_TERMINAL, null);
+            activate_action (Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_TOGGLE_TERMINAL, null);
             //Get ready to resume at last saved location
             spawn_shell (Scratch.saved_state.get_string ("last-opened-path"));
             //Clear screen of new shell
@@ -134,40 +134,40 @@ public class Code.Terminal : Gtk.Box {
         menu_model.append (_("Copy"), ACTION_COPY);
         menu_model.append (_("Paste"), ACTION_PASTE);
 
-        var menu = new Gtk.PopoverMenu () {
-            modal = true,
-            relative_to = terminal,
+        var menu = new Gtk.PopoverMenu.from_model (menu_model) {
             position = RIGHT
         };
-        menu.bind_model (menu_model, ACTION_GROUP);
 
-        key_controller = new Gtk.EventControllerKey (terminal) {
+        var key_controller = new Gtk.EventControllerKey () {
             propagation_phase = BUBBLE
         };
+        terminal.add_controller (key_controller);
         key_controller.key_pressed.connect (key_pressed);
 
-        // Cannot use event controller in Gtk3 because of https://gitlab.gnome.org/GNOME/gtk/-/issues/7225
-        terminal.enter_notify_event.connect (() => {
-            if (!terminal.has_focus) {
+        var focus_controller = new Gtk.EventControllerFocus ();
+        add_controller (focus_controller);
+        focus_controller.enter.connect (() => {
+           if (!terminal.has_focus) {
                 terminal.grab_focus ();
             }
         });
 
-        button_controller = new Gtk.GestureMultiPress (terminal) {
+        var button_controller = new Gtk.GestureClick () {
             propagation_phase = CAPTURE,
             button = 0
         };
+        add_controller (button_controller);
         button_controller.pressed.connect ((n, x, y) => {
             var event = button_controller.get_last_event (null);
             if (event.triggers_context_menu ()) {
-                paste_action.set_enabled (current_clipboard.wait_is_text_available ());
+                paste_action.set_enabled (current_clipboard.content != null);
                 menu.pointing_to = Gdk.Rectangle () {x = (int)x, y = (int)y, height = 1, width = 1};
                 menu.popup ();
             }
         });
 
         realize.connect (() => {
-            current_clipboard = terminal.get_clipboard (Gdk.SELECTION_CLIPBOARD);
+            current_clipboard = terminal.get_clipboard ();
             copy_action.set_enabled (terminal.get_has_selection ());
         });
 
@@ -177,11 +177,11 @@ public class Code.Terminal : Gtk.Box {
 
         spawn_shell (Scratch.saved_state.get_string ("last-opened-path"));
 
-        var scrolled_window = new Gtk.ScrolledWindow (null, terminal.get_vadjustment ());
-        scrolled_window.add (terminal);
+        var scrolled_window = new Gtk.ScrolledWindow () {
+            vadjustment = terminal.get_vadjustment ()
+        };
 
-        add (scrolled_window);
-        show_all ();
+        append (scrolled_window);
     }
 
     private void spawn_shell (string dir = GLib.Environment.get_current_dir ()) {
@@ -317,36 +317,38 @@ public class Code.Terminal : Gtk.Box {
         terminal.font_scale = 1.0;
     }
 
-    private bool key_pressed (uint keyval, uint keycode, Gdk.ModifierType modifiers) {
-        // Use hardware keycodes so the key used is unaffected by internationalized layout
-        bool match_keycode (uint keyval, uint code) {
-            Gdk.KeymapKey[] keys;
+    private bool key_pressed (uint keyval, uint keycode, Gdk.ModifierType state) {
+        // // Use hardware keycodes so the key used is unaffected by internationalized layout
+        // bool match_keycode (uint keyval, uint code) {
+        //     Gdk.KeymapKey[] keys;
 
-            var keymap = Gdk.Keymap.get_for_display (get_display ());
-            if (keymap.get_entries_for_keyval (keyval, out keys)) {
-                foreach (var key in keys) {
-                    if (code == key.keycode) {
-                        return Gdk.EVENT_STOP;
-                    }
-                }
-            }
+        //     var keymap = Gdk.Keymap.get_for_display (get_display ());
+        //     if (keymap.get_entries_for_keyval (keyval, out keys)) {
+        //         foreach (var key in keys) {
+        //             if (code == key.keycode) {
+        //                 return Gdk.EVENT_STOP;
+        //             }
+        //         }
+        //     }
 
-            return Gdk.EVENT_PROPAGATE;
-        }
+        //     return Gdk.EVENT_PROPAGATE;
+        // }
 
-        if (CONTROL_MASK in modifiers && (SHIFT_MASK in modifiers ||
+
+        if (CONTROL_MASK in state && (SHIFT_MASK in state ||
             terminal_settings != null && terminal_settings.get_boolean ("natural-copy-paste"))) {
 
-            if (match_keycode (Gdk.Key.c, keycode) && terminal.get_has_selection ()) {
+            // Assume actions already enabled/disabled as appropriate
+            if (keyval == Gdk.Key.c) {
                 actions.activate_action (ACTION_COPY, null);
-                return Gdk.EVENT_STOP;
-            } else if (match_keycode (Gdk.Key.v, keycode) && current_clipboard.wait_is_text_available ()) {
+                return true;
+            } else if (keyval == Gdk.Key.v) {
                 actions.activate_action (ACTION_PASTE, null);
-                return Gdk.EVENT_STOP;
+                return true;
             }
         }
 
 
-        return Gdk.EVENT_PROPAGATE;
+        return false;
     }
 }

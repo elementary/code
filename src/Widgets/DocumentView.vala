@@ -60,11 +60,13 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     public bool outline_visible { get; set; default = false; }
     public int outline_width { get; set; }
 
-    private Hdy.TabView tab_view;
-    private Hdy.TabBar tab_bar;
-    private weak Hdy.TabPage? tab_menu_target = null;
+    private Adw.TabView tab_view;
+    private Adw.TabBar tab_bar;
+    private weak Adw.TabPage? tab_menu_target = null;
     private Gtk.CssProvider style_provider;
     private Gtk.MenuButton tab_history_button;
+    private double total_delta = 0.0;
+    private const double SCROLL_THRESHOLD = 1.0;
 
     public DocumentView (Scratch.MainWindow window) {
         Object (
@@ -78,7 +80,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     construct {
         docs = new GLib.List<Services.Document> ();
         var app_instance = (Gtk.Application) GLib.Application.get_default ();
-        tab_view = new Hdy.TabView () {
+        tab_view = new Adw.TabView () {
             hexpand = true,
             vexpand = true
         };
@@ -94,7 +96,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         });
 
         var new_tab_button = new Gtk.Button.from_icon_name ("list-add-symbolic") {
-            relief = Gtk.ReliefStyle.NONE,
             tooltip_markup = Granite.markup_accel_tooltip (
                 app_instance.get_accels_for_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_TAB),
                 _("New Tab")
@@ -106,12 +107,11 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         });
 
         tab_history_button = new Gtk.MenuButton () {
-            image = new Gtk.Image.from_icon_name ("document-open-recent-symbolic", Gtk.IconSize.MENU),
-            tooltip_text = _("Closed Tabs"),
-            use_popover = false,
+            icon_name = "document-open-recent-symbolic",
+            tooltip_text = _("Closed Tabs")
         };
 
-        tab_bar = new Hdy.TabBar () {
+        tab_bar = new Adw.TabBar () {
             autohide = false,
             expand_tabs = false,
             inverted = true,
@@ -150,8 +150,8 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         tab_view.create_window.connect (on_doc_to_new_window);
 
         style_provider = new Gtk.CssProvider ();
-        Gtk.StyleContext.add_provider_for_screen (
-            Gdk.Screen.get_default (),
+        Gtk.StyleContext.add_provider_for_display (
+            Gdk.Display.get_default (),
             style_provider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
@@ -171,12 +171,37 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         });
 
         // Handle Drag-and-drop of files onto add-tab button to create document
-        Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
-        Gtk.drag_dest_set (tab_bar, Gtk.DestDefaults.ALL, {uris}, Gdk.DragAction.COPY);
-        tab_bar.drag_data_received.connect (drag_received);
+        // Gtk.TargetEntry uris = {"text/uri-list", 0, TargetType.URI_LIST};
+        // Gtk.drag_dest_set (tab_bar, Gtk.DestDefaults.ALL, {uris}, Gdk.DragAction.COPY);
+        // tab_bar.drag_data_received.connect (drag_received);
 
-        add (tab_bar);
-        add (tab_view);
+        append (tab_bar);
+        append (tab_view);
+
+        var scroll_controller = new Gtk.EventControllerScroll (VERTICAL) {
+            propagation_phase = CAPTURE
+        };
+        add_controller (scroll_controller);
+
+        scroll_controller.scroll.connect ((dx, dy) => {
+            var state = scroll_controller.get_current_event_state ();
+            var mods = (state & Gtk.accelerator_get_default_mod_mask ());
+            if (Gdk.ModifierType.CONTROL_MASK in mods) {
+                total_delta += dy;
+                if (total_delta < -SCROLL_THRESHOLD) {
+                    activate_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_IN, null);
+                    total_delta = 0.0;
+                } else if (total_delta > SCROLL_THRESHOLD) {
+                    activate_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_OUT, null);
+                    total_delta = 0.0;
+                }
+
+                return true;
+            }
+
+            return false;
+        });
+
     }
 
     private void update_inline_tab_colors () {
@@ -192,7 +217,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             style_scheme = Scratch.settings.get_string ("style-scheme");
         }
 
-        var sssm = Gtk.SourceStyleSchemeManager.get_default ();
+        var sssm = GtkSource.StyleSchemeManager.get_default ();
         if (style_scheme in sssm.scheme_ids) {
             var theme = sssm.get_scheme (style_scheme);
             var text_color_data = theme.get_style ("text");
@@ -205,11 +230,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             }
 
             var define = "@define-color tab_base_color %s;".printf (color);
-            try {
-                style_provider.load_from_data (define);
-            } catch (Error e) {
-                critical ("Unable to set inline tab styling, going back to classic notebook tabs");
-            }
+            style_provider.load_from_string (define);
         }
     }
 
@@ -424,7 +445,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     // This is called when tab context menu is opened or closed
-    private void tab_view_setup_menu (Hdy.TabPage? page) {
+    private void tab_view_setup_menu (Adw.TabPage? page) {
         tab_menu_target = page;
 
         var close_other_tabs_action = Utils.action_from_group (MainWindow.ACTION_CLOSE_OTHER_TABS, window.actions);
@@ -464,7 +485,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         return unsaved_file_path_builder (extension);
     }
 
-    private void on_page_detached (Hdy.TabPage tab, int position) {
+    private void on_page_detached (Adw.TabPage tab, int position) {
         var doc = tab.get_child () as Services.Document;
         if (doc == null) {
             return;
@@ -504,7 +525,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         tab_removed (doc);
         Scratch.Services.DocumentManager.get_instance ().remove_open_document (doc);
 
-
         if (docs.length () > 0) {
             if (!doc.is_file_temporary) {
                 foreach (var d in docs) {
@@ -534,7 +554,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         }
     }
 
-    private void on_doc_reordered (Hdy.TabPage tab, int new_position) {
+    private void on_doc_reordered (Adw.TabPage tab, int new_position) {
         var doc = tab.child as Services.Document;
         if (doc != null) {
             docs.remove (doc);
@@ -545,12 +565,12 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         update_opened_files_setting ();
     }
 
-    private unowned Hdy.TabView? on_doc_to_new_window (Hdy.TabView tab_view) {
+    private unowned Adw.TabView? on_doc_to_new_window (Adw.TabView tab_view) {
         var other_window = new MainWindow (false);
         return other_window.document_view.tab_view;
     }
 
-    private void on_doc_added (Hdy.TabPage page, int position) {
+    private void on_doc_added (Adw.TabPage page, int position) {
         var doc = page.get_child () as Services.Document;
 
         doc.init_tab (page);
@@ -623,23 +643,23 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         return menu;
     }
 
-    private void drag_received (Gtk.Widget w,
-                                Gdk.DragContext ctx,
-                                int x,
-                                int y,
-                                Gtk.SelectionData sel,
-                                uint info,
-                                uint time) {
+    // private void drag_received (Gtk.Widget w,
+    //                             Gdk.DragContext ctx,
+    //                             int x,
+    //                             int y,
+    //                             Gtk.SelectionData sel,
+    //                             uint info,
+    //                             uint time) {
 
-        if (info == TargetType.URI_LIST) {
-            var uris = sel.get_uris ();
-            foreach (var filename in uris) {
-                var file = File.new_for_uri (filename);
-                var doc = new Services.Document (window.actions, file);
-                open_document.begin (doc);
-            }
+    //     if (info == TargetType.URI_LIST) {
+    //         var uris = sel.get_uris ();
+    //         foreach (var filename in uris) {
+    //             var file = File.new_for_uri (filename);
+    //             var doc = new Services.Document (window.actions, file);
+    //             open_document.begin (doc);
+    //         }
 
-            Gtk.drag_finish (ctx, true, false, time);
-        }
-    }
+    //         Gtk.drag_finish (ctx, true, false, time);
+    //     }
+    // }
 }

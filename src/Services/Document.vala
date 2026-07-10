@@ -37,7 +37,7 @@ namespace Scratch.Services {
         public unowned SimpleActionGroup actions { get; set construct; }
 
         // The TabPage that this document is a child of
-        public unowned Hdy.TabPage tab { get; private set; }
+        public unowned Adw.TabPage tab { get; private set; }
 
         public bool is_file_temporary {
             get {
@@ -51,7 +51,7 @@ namespace Scratch.Services {
             }
         }
 
-        private Gtk.SourceFile source_file;
+        private GtkSource.File source_file;
         public GLib.File file {
             get {
                 return source_file.location;
@@ -167,7 +167,7 @@ namespace Scratch.Services {
         private Scratch.Services.SymbolOutline? outline = null;
         private Scratch.Widgets.DocumentView doc_view {
             get {
-                return ((MainWindow) get_toplevel ()).document_view;
+                return ((MainWindow) get_root ()).document_view;
             }
         }
 
@@ -177,7 +177,7 @@ namespace Scratch.Services {
         private bool completion_shown = false;
 
         private Gtk.ScrolledWindow scroll;
-        private Gtk.SourceMap source_map;
+        private GtkSource.Map source_map;
         private Gtk.Paned outline_widget_pane;
 
         private GLib.Cancellable save_cancellable;
@@ -188,7 +188,7 @@ namespace Scratch.Services {
         private Mount mount;
         private Icon locked_icon;
 
-        private Gtk.EventControllerScroll scroll_controller;
+        // private Gtk.EventControllerScroll scroll_controller;
 
         private static Pango.FontDescription? builder_blocks_font = null;
         private static Pango.FontMap? builder_font_map = null;
@@ -224,36 +224,34 @@ namespace Scratch.Services {
             main_stack = new Gtk.Stack ();
             source_view = new Scratch.Widgets.SourceView ();
 
-            scroll = new Gtk.ScrolledWindow (null, null) {
-                hexpand = true,
-                vexpand = true
+            scroll = new Gtk.ScrolledWindow () {
+                child = source_view
             };
-            scroll.add (source_view);
 
-            scroll_controller = new Gtk.EventControllerScroll (scroll, VERTICAL) {
+            var scroll_controller = new Gtk.EventControllerScroll (VERTICAL) {
                 propagation_phase = CAPTURE
             };
+            scroll.add_controller (scroll_controller);
             scroll_controller.scroll.connect ((dx, dy) => {
-                Gdk.ModifierType state;
-                Gtk.get_current_event_state (out state);
+                var state = scroll_controller.get_current_event_state ();
                 if (Gdk.ModifierType.CONTROL_MASK in state) {
                     total_delta += dy;
                     if (total_delta < -SCROLL_THRESHOLD) {
-                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_IN, null);
+                        activate_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_IN, null);
                         total_delta = 0.0;
                     } else if (total_delta > SCROLL_THRESHOLD) {
-                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_OUT, null);
+                        activate_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_OUT, null);
                         total_delta = 0.0;
                     }
 
-                    return;
+                    return Gdk.EVENT_STOP;
                 }
 
-                Gtk.propagate_event (scroll, Gtk.get_current_event ());
+                return Gdk.EVENT_PROPAGATE;
             });
 
-            source_file = new Gtk.SourceFile ();
-            source_map = new Gtk.SourceMap ();
+            source_file = new GtkSource.File ();
+            source_map = new GtkSource.Map ();
             outline_widget_pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
 
             if (builder_blocks_font != null && builder_font_map != null) {
@@ -268,26 +266,25 @@ namespace Scratch.Services {
             settings.changed["show-mini-map"].connect (set_minimap);
             settings.changed["strip-trailing-on-save"].connect (set_strip_trailing_whitespace);
 
-            var source_grid = new Gtk.Grid () {
-                orientation = Gtk.Orientation.HORIZONTAL,
-                column_homogeneous = false
+            var source_grid = new Gtk.Box (HORIZONTAL, 0) {
+                homogeneous = false
             };
-            source_grid.add (scroll);
-            source_grid.add (source_map);
-            outline_widget_pane.pack1 (source_grid, true, false);
+            source_grid.append (scroll);
+            source_grid.append (source_map);
+            outline_widget_pane.start_child = source_grid;
 
-            var doc_grid = new Gtk.Grid ();
-            doc_grid.orientation = Gtk.Orientation.VERTICAL;
-            doc_grid.add (outline_widget_pane);
-            doc_grid.show_all ();
+            var doc_grid = new Gtk.Box (VERTICAL, 0);
+            doc_grid.append (outline_widget_pane);
 
             main_stack.add_named (doc_grid, "content");
 
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
 
-            this.source_view.notify["is-focus"].connect (() => {
+            var fc = new Gtk.EventControllerFocus ();
+            source_view.add_controller (fc);
+            fc.enter.connect (() => {
                 return_if_fail (!locked);
-                if (source_view.is_focus) {
+                if (fc.is_focus) {
                     if (!is_file_temporary) {
                         check_undoable_actions ();
                         check_file_status.begin ();
@@ -329,19 +326,20 @@ namespace Scratch.Services {
                 completion_shown = false;
             });
 
-            source_view.enter_notify_event.connect (() => {
-                if (!source_view.has_focus) {
+            var focus_controller = new Gtk.EventControllerFocus ();
+            add_controller (focus_controller);
+            focus_controller.enter.connect (() => {
+               if (!source_view.has_focus) {
                     source_view.grab_focus ();
                 }
             });
 
             loaded = file == null;
 
-            add (main_stack);
-            this.show_all ();
+            append (main_stack);
         }
 
-        public void init_tab (Hdy.TabPage tab) {
+        public void init_tab (Adw.TabPage tab) {
             this.tab = tab;
             tab.notify["loading"].connect (on_tab_loading_change);
 
@@ -417,13 +415,23 @@ namespace Scratch.Services {
                 || ContentType.is_a (content_type, "application/x-zerosize")   // Empty files are valid text files
             )) {
                 var title = _("%s Is Not a Text File").printf (get_basename ());
-                var description = _("Code will not load this type of file.");
-                var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-warning");
-                alert_view.show_action (_("Load Anyway"));
-                alert_view.show_all ();
+                var alert_view = new Granite.Placeholder (title) {
+                    description = _("Code will not load this type of file."),
+                    icon = new ThemedIcon ("dialog-warning")
+                };
+                var load_button = alert_view.append_button (
+                    new ThemedIcon ("document-open"),
+                    _("Load Anyway"),
+                    ""
+                );
+                var cancel_button = alert_view.append_button (
+                    new ThemedIcon ("process-stop"),
+                    _("Cancel"),
+                    ""
+                );
                 main_stack.add_named (alert_view, "load_alert");
                 main_stack.set_visible_child (alert_view);
-                alert_view.action_activated.connect (() => {
+                load_button.clicked.connect (() => {
                     open.begin (true);
                     alert_view.destroy ();
                 });
@@ -436,18 +444,23 @@ namespace Scratch.Services {
                 MainContext.@default ().iteration (false);
             }
 
-            var buffer = new Gtk.SourceBuffer (null); /* Faster to load into a separate buffer */
+            var buffer = new GtkSource.Buffer (null); /* Faster to load into a separate buffer */
 
             load_timout_id = Timeout.add_seconds_full (GLib.Priority.HIGH, 5, () => {
                 if (load_cancellable != null && !load_cancellable.is_cancelled ()) {
                     var title = _("Loading File “%s” Is Taking a Long Time").printf (get_basename ());
-                    var description = _("Please wait while Code is loading the file.");
-                    var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-information");
-                    alert_view.show_action (_("Cancel Loading"));
-                    alert_view.show_all ();
+                    var alert_view = new Granite.Placeholder (title) {
+                        description = _("Please wait while Code is loading the file."),
+                        icon = new ThemedIcon ("dialog-information")
+                    };
+                    var cancel_button = alert_view.append_button (
+                        new ThemedIcon ("process-stop"),
+                        _("Cancel Loading"),
+                        ""
+                    );
                     main_stack.add_named (alert_view, "wait_alert");
                     main_stack.set_visible_child (alert_view);
-                    alert_view.action_activated.connect (() => {
+                    cancel_button.clicked.connect (() => {
                         load_cancellable.cancel ();
                         doc_closed ();
                     });
@@ -461,13 +474,15 @@ namespace Scratch.Services {
             });
 
             try {
-                var source_file_loader = new Gtk.SourceFileLoader (buffer, source_file);
+                var source_file_loader = new GtkSource.FileLoader (buffer, source_file);
                 yield source_file_loader.load_async (GLib.Priority.LOW, load_cancellable, null);
-                var source_buffer = source_view.buffer as Gtk.SourceBuffer;
+                var source_buffer = source_view.buffer as GtkSource.Buffer;
                 if (source_buffer != null) {
-                    source_buffer.begin_not_undoable_action ();
+                    source_buffer.enable_undo = false;
+                    // source_buffer.begin_not_undoable_action ();
                     source_buffer.text = buffer.text;
-                    source_buffer.end_not_undoable_action ();
+                    // source_buffer.end_not_undoable_action ();
+                    source_buffer.enable_undo = false;
                 } else {
                     source_view.buffer.text = buffer.text;
                 }
@@ -509,7 +524,7 @@ namespace Scratch.Services {
         }
 
         private async bool ask_save_changes () {
-            var parent_window = source_view.get_toplevel () as Gtk.Window;
+            var parent_window = (Gtk.Window) (source_view.get_root ());
             var dialog = new Granite.MessageDialog (
                 _("Save changes to “%s” before closing?").printf (this.get_basename ()),
                 _("If you don't save, changes will be permanently lost."),
@@ -521,7 +536,7 @@ namespace Scratch.Services {
             dialog.transient_for = parent_window;
 
             var no_save_button = (Gtk.Button) dialog.add_button (_("Close Without Saving"), Gtk.ResponseType.NO);
-            no_save_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+            no_save_button.add_css_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
             dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
             dialog.add_button (_("Save"), Gtk.ResponseType.YES);
@@ -664,7 +679,7 @@ namespace Scratch.Services {
 
             save_cancellable.cancel ();
             save_cancellable = new GLib.Cancellable ();
-            var source_file_saver = new Gtk.SourceFileSaver ((Gtk.SourceBuffer) source_view.buffer, source_file);
+            var source_file_saver = new GtkSource.FileSaver ((GtkSource.Buffer) source_view.buffer, source_file);
             var success = false;
             var error = "";
             try {
@@ -728,15 +743,21 @@ namespace Scratch.Services {
 
             var file_chooser = new Gtk.FileChooserNative (
                 _("Save File"),
-                (Gtk.Window) this.get_toplevel (),
+                (Gtk.Window) this.get_root (),
                 Gtk.FileChooserAction.SAVE,
                 _("Save"),
                 _("Cancel")
             );
             file_chooser.add_filter (all_files_filter);
             file_chooser.add_filter (text_files_filter);
-            file_chooser.do_overwrite_confirmation = true;
-            file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
+            try {
+                var current_folder = Utils.last_path != null ?
+                    GLib.File.new_for_path (Utils.last_path) :
+                    GLib.File.new_for_path (Environment.get_home_dir ());
+                file_chooser.set_current_folder (current_folder);
+            } catch (Error e) {
+                warning ("Could not set current folder. %s", e.message);
+            }
 
             var success = false;
             var current_file = file.dup ();
@@ -744,7 +765,6 @@ namespace Scratch.Services {
 
             file_chooser.response.connect ((res) => {
                 if (res == Gtk.ResponseType.ACCEPT) {
-                    file = File.new_for_uri (file_chooser.get_uri ());
                     // Update last visited path
                     Utils.last_path = Path.get_dirname (file_chooser.get_file ().get_uri ());
                     success = true;
@@ -797,7 +817,6 @@ namespace Scratch.Services {
                 scroll.vscrollbar_policy = Gtk.PolicyType.EXTERNAL;
             } else {
                 source_map.hide ();
-                source_map.no_show_all = true;
                 scroll.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
             }
         }
@@ -849,18 +868,18 @@ namespace Scratch.Services {
             }
         }
 
-        // SourceView related functions
-        // Undo
-        public void undo () {
-            this.source_view.undo ();
-            check_undoable_actions ();
-        }
+        // // SourceView related functions
+        // // Undo
+        // public void undo () {
+        //     this.source_view.undo ();
+        //     check_undoable_actions ();
+        // }
 
-        // Redo
-        public void redo () {
-            this.source_view.redo ();
-            check_undoable_actions ();
-        }
+        // // Redo
+        // public void redo () {
+        //     this.source_view.redo ();
+        //     check_undoable_actions ();
+        // }
 
         // Revert
         public void revert () {
@@ -905,7 +924,7 @@ namespace Scratch.Services {
 
         // Get language name
         public string get_language_name () {
-            var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
+            var source_buffer = (GtkSource.Buffer) source_view.buffer;
             var lang = source_buffer.language;
             if (lang != null) {
                 return lang.name;
@@ -916,7 +935,7 @@ namespace Scratch.Services {
 
         // Get language id
         public string get_language_id () {
-            var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
+            var source_buffer = (GtkSource.Buffer) source_view.buffer;
             var lang = source_buffer.language;
             if (lang != null) {
                 return lang.id;
@@ -933,22 +952,29 @@ namespace Scratch.Services {
         // Show an error view which says "Hey, I cannot read that file!"
         private void show_default_load_error_view (string invalid_content = "") {
             var title = _("Cannot read text in file “%s”").printf (get_basename ());
-            string description;
+            string detail;
             if (invalid_content == "") {
-                description = _("You may not have permission to read the file.");
+                detail = _("You may not have permission to read the file.");
             } else {
-                description = _("The file may be corrupt or may not be a text file");
+                detail = _("The file may be corrupt or may not be a text file");
             }
-            var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-error");
+            var alert_view = new Granite.Placeholder (title) {
+                description = detail,
+                icon = new ThemedIcon ("dialog-error")
+            };
             // Lack of read permission results in empty content string. Do not give option to open
             // in new document in that case.
             if (invalid_content != "") {
-                alert_view.show_action (_("Show Anyway"));
-                alert_view.action_activated.connect (() => {
+                var show_button = alert_view.append_button (
+                    new ThemedIcon ("go-next"),
+                    _("Show Anyway"),
+                    ""
+                );
+                show_button.clicked.connect (() => {
                     main_stack.set_visible_child_name ("content");
                     Idle.add (() => {
-                        var clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
-                        clipboard.set_text (invalid_content, -1);
+                        var clipboard = Gdk.Display.get_default ().get_clipboard ();
+                        clipboard.set_text (invalid_content);
                         var clipboard_action = Utils.action_from_group (MainWindow.ACTION_NEW_FROM_CLIPBOARD, actions);
                         clipboard_action.set_enabled (true);
                         clipboard_action.activate (null);
@@ -961,7 +987,6 @@ namespace Scratch.Services {
                 });
             }
 
-            alert_view.show_all ();
             main_stack.add_named (alert_view, "error_alert");
             main_stack.set_visible_child (alert_view);
         }
@@ -1001,8 +1026,8 @@ namespace Scratch.Services {
                     // If user selects to continue regardless then no further
                     // check made for this document
                     // External changes will be overwritten on next (auto) save
-                    var new_buffer = new Gtk.SourceBuffer (null);
-                    var source_file_loader = new Gtk.SourceFileLoader (
+                    var new_buffer = new GtkSource.Buffer (null);
+                    var source_file_loader = new GtkSource.FileLoader (
                         new_buffer,
                         source_file
                     );
@@ -1078,7 +1103,7 @@ namespace Scratch.Services {
             dialog.add_button (_("Ignore"), Gtk.ResponseType.REJECT);
 
             var saveas_button = (Gtk.Button) dialog.add_button (_("Save Duplicate…"), Gtk.ResponseType.ACCEPT);
-            saveas_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+            saveas_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
             if (error_text != "") {
                 dialog.show_error_details (error_text);
@@ -1129,13 +1154,13 @@ namespace Scratch.Services {
             dialog.add_button (_("Continue"), Gtk.ResponseType.REJECT);
 
             var reload_button = (Gtk.Button) (dialog.add_button (_("Reload"), 0));
-            reload_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+            reload_button.add_css_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
             var overwrite_button = (Gtk.Button) (dialog.add_button (_("Overwrite"), 1));
-            overwrite_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+            overwrite_button.add_css_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
             var saveas_button = (Gtk.Button) (dialog.add_button (_("Save Document elsewhere"), Gtk.ResponseType.ACCEPT));
-            saveas_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+            saveas_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
             dialog.response.connect ((id) => {
                 dialog.destroy ();
@@ -1185,9 +1210,7 @@ namespace Scratch.Services {
         }
         // Set Undo/Redo action sensitive property
         public void check_undoable_actions () {
-            var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
-            Utils.action_from_group (MainWindow.ACTION_UNDO, actions).set_enabled (source_buffer.can_undo);
-            Utils.action_from_group (MainWindow.ACTION_REDO, actions).set_enabled (source_buffer.can_redo);
+            var source_buffer = (GtkSource.Buffer) source_view.buffer;
             Utils.action_from_group (MainWindow.ACTION_REVERT, actions).set_enabled (
                 original_content != source_buffer.text
             );
@@ -1316,7 +1339,8 @@ namespace Scratch.Services {
                 }
 
                 if (outline != null) {
-                    outline_widget_pane.pack2 (outline.get_widget (), false, false);
+                    // outline_widget_pane.pack2 (outline.get_widget (), false, false);
+                    outline_widget_pane.end_child = outline.get_widget ();
                     Idle.add (() => {
                         set_outline_width (doc_view.outline_width);
                         outline_widget_pane.notify["position"].connect (sync_outline_width);
@@ -1329,7 +1353,7 @@ namespace Scratch.Services {
                 }
             } else if (!show && outline != null) {
                outline_widget_pane.notify["position"].disconnect (sync_outline_width);
-               outline_widget_pane.get_child2 ().destroy ();
+               outline_widget_pane.end_child.destroy ();
                outline = null;
             }
         }
@@ -1373,7 +1397,7 @@ namespace Scratch.Services {
                 return;
             }
 
-            var source_buffer = (Gtk.SourceBuffer)source_view.buffer;
+            var source_buffer = (GtkSource.Buffer)source_view.buffer;
             Gtk.TextIter iter;
 
             var cursor_pos = source_buffer.cursor_position;
@@ -1417,9 +1441,11 @@ namespace Scratch.Services {
                         continue;
                     }
 
-                    source_buffer.begin_not_undoable_action ();
+                    source_buffer.enable_undo = false;
+                    // source_buffer.begin_not_undoable_action ();
                     source_buffer.@delete (ref start_delete, ref end_delete);
-                    source_buffer.end_not_undoable_action ();
+                    // source_buffer.end_not_undoable_action ();
+                    source_buffer.enable_undo = true;
                 }
             }
 

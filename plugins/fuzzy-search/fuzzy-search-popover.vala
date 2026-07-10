@@ -9,7 +9,7 @@
 public class Scratch.FuzzySearchPopover : Gtk.Popover {
     private Gtk.SearchEntry search_term_entry;
     private Services.FuzzyFinder fuzzy_finder;
-    private Gtk.ListBox search_result_container;
+    private Gtk.ListBox search_result_listbox;
     private int preselected_index;
     private Gtk.ScrolledWindow scrolled;
     private Gee.ArrayList<FileItem> items;
@@ -17,7 +17,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     private int window_height;
     private int max_items;
     private Gee.LinkedList<GLib.Cancellable> cancellables;
-    private Gtk.EventControllerKey search_term_entry_key_controller;
+    // private Gtk.EventControllerKey search_term_entry_key_controller;
     private Gtk.Label title_label;
     private string current_doc_project;
     public Scratch.MainWindow current_window { get; construct; }
@@ -63,30 +63,28 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     }
 
     construct {
-        modal = true;
-        relative_to = current_window.document_view;
         width_request = 500;
         pointing_to = { 0, 32, 1, 1 };
 
-        this.get_style_context ().add_class ("fuzzy-popover");
+        this.add_css_class ("fuzzy-popover");
 
         title_label = new Gtk.Label (_("Find project files"));
         title_label.halign = Gtk.Align.START;
-        title_label.get_style_context ().add_class ("h4");
+        title_label.add_css_class ("h4");
 
         search_term_entry = new Gtk.SearchEntry ();
         search_term_entry.halign = Gtk.Align.FILL;
         search_term_entry.hexpand = true;
 
-        search_result_container = new Gtk.ListBox () {
+        search_result_listbox = new Gtk.ListBox () {
             selection_mode = Gtk.SelectionMode.NONE,
             activate_on_single_click = true,
             can_focus = false
         };
 
-        search_result_container.get_style_context ().add_class ("fuzzy-list");
+        search_result_listbox.add_css_class ("fuzzy-list");
 
-        search_result_container.row_activated.connect ((row) => {
+        search_result_listbox.row_activated.connect ((row) => {
             var file_item = row as FileItem;
             if (file_item == null) {
                 return;
@@ -95,7 +93,8 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
             handle_item_selection (items.index_of (file_item));
         });
 
-        search_term_entry_key_controller = new Gtk.EventControllerKey (search_term_entry);
+        var search_term_entry_key_controller = new Gtk.EventControllerKey ();
+        search_term_entry.add_controller (search_term_entry_key_controller);
         search_term_entry_key_controller.key_pressed.connect ((keyval, keycode, state) => {
             // Handle key up/down to select other files found by fuzzy search
             switch (keyval) {
@@ -184,10 +183,9 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
                         bool first = true;
 
-
-
-                        foreach (var c in search_result_container.get_children ()) {
-                            search_result_container.remove (c);
+                        var child = search_result_listbox.get_first_child ();
+                        while (child != null) {
+                            search_result_listbox.remove (child);
                         }
 
                         items.clear ();
@@ -198,16 +196,15 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
                             if (first) {
                                 first = false;
-                                file_item.get_style_context ().add_class ("preselect-fuzzy");
+                                file_item.add_css_class ("preselect-fuzzy");
                                 preselected_index = 0;
                             }
 
-                            search_result_container.add (file_item);
+                            search_result_listbox.append (file_item);
                             items.add (file_item);
                         }
 
                         scrolled.hide ();
-                        scrolled.show_all ();
 
                         // Reset scrolling
                         scrolled.vadjustment.value = 0;
@@ -216,8 +213,9 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
                     return Source.REMOVE;
                 });
             } else {
-                foreach (var c in search_result_container.get_children ()) {
-                    search_result_container.remove (c);
+                var child = search_result_listbox.get_first_child ();
+                while (child != null) {
+                    search_result_listbox.remove (child);
                 }
 
                 items.clear ();
@@ -228,24 +226,22 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
         var entry_layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
         entry_layout.valign = Gtk.Align.START;
 
-        entry_layout.add (title_label);
-        entry_layout.add (search_term_entry);
+        entry_layout.append (title_label);
+        entry_layout.append (search_term_entry);
         search_term_entry.valign = Gtk.Align.START;
 
-        scrolled = new Gtk.ScrolledWindow (null, null) {
+        scrolled = new Gtk.ScrolledWindow () {
             propagate_natural_height = true,
-            hexpand = true
+            hexpand = true,
+            child = search_result_listbox
         };
 
-        scrolled.add (search_result_container);
-
         var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        box.pack_start (entry_layout, false, false);
-        box.pack_end (scrolled, true, true);
-        box.show_all ();
+        box.prepend (entry_layout);
+        box.append (scrolled);
 
         scrolled.hide ();
-        this.add (box);
+        this.child = box;
 
         fuzzy_finder = new Services.FuzzyFinder (search_indexer.project_paths);
         indexer = search_indexer;
@@ -253,8 +249,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
         cancellables = new Gee.LinkedList<GLib.Cancellable> ();
 
         search_term_entry.realize.connect_after (() => {
-            int height;
-            current_window.get_size (null, out height);
+            int height = current_window.get_size (VERTICAL);
 
             // Limit the shown results if the window height is too small
             if (height > 400) {
@@ -266,7 +261,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
             scrolled.set_max_content_height (45 /* height */ * max_items);
 
             current_doc_project = get_current_project (); // This will not change while popover is showing
-            search_result_container.set_sort_func ((a , b) => {
+            search_result_listbox.set_sort_func ((a , b) => {
                 var result_a = ((FileItem)a).result;
                 var result_b = ((FileItem)b).result;
                 var project_a_is_current = result_a.project == current_doc_project;
@@ -293,8 +288,8 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
     private void preselect_new_item (FileItem old_item, FileItem new_item) {
         var class_name = "preselect-fuzzy";
-        old_item.get_style_context ().remove_class (class_name);
-        new_item.get_style_context ().add_class (class_name);
+        old_item.remove_css_class (class_name);
+        new_item.add_css_class (class_name);
     }
 
     private string get_current_project () {

@@ -28,12 +28,12 @@ public class Code.PopoverMenuItem : Gtk.Button {
         var label = new Granite.AccelLabel (text);
 
         var box = new Gtk.Box (HORIZONTAL, 6);
-        box.add (image);
-        box.add (label);
+        box.append (image);
+        box.append (label);
 
         child = box;
 
-        get_accessible ().accessible_role = MENU_ITEM;
+        set_accessible_role (MENU_ITEM);
 
         clicked.connect (() => {
             var popover = (Gtk.Popover) get_ancestor (typeof (Gtk.Popover));

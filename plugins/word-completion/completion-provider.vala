@@ -19,12 +19,12 @@
  *
  */
 
-public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, GLib.Object {
+public class Scratch.Plugins.CompletionProvider : GtkSource.CompletionProvider, GLib.Object {
     private const int MAX_COMPLETIONS = 10;
     public string name { get; construct; }
     public int priority { get; construct; }
     public int interactive_delay { get; construct; }
-    public Gtk.SourceCompletionActivation activation { get; construct; }
+    public GtkSource.CompletionActivation activation { get; construct; }
 
     public const string COMPLETION_END_MARK_NAME = "ScratchWordCompletionEnd";
     public const string COMPLETION_START_MARK_NAME = "ScratchWordCompletionStart";
@@ -32,11 +32,11 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
     public Gtk.TextView? view { get; construct; }
     public Euclide.Completion.Parser parser { get; construct; }
 
-    private unowned Gtk.TextBuffer buffer {
-        get {
-            return view.buffer;
-        }
-    }
+    // private unowned Gtk.TextBuffer buffer {
+    //     get {
+    //         return view.buffer;
+    //     }
+    // }
 
     private Gtk.TextMark completion_end_mark;
     private Gtk.TextMark completion_start_mark;
@@ -61,93 +61,122 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         activation = INTERACTIVE | USER_REQUESTED;
         Gtk.TextIter iter;
         view.buffer.get_iter_at_offset (out iter, 0);
-        completion_end_mark = buffer.create_mark (COMPLETION_END_MARK_NAME, iter, false);
-        completion_start_mark = buffer.create_mark (COMPLETION_START_MARK_NAME, iter, false);
+        completion_end_mark = view.buffer.create_mark (COMPLETION_END_MARK_NAME, iter, false);
+        completion_start_mark = view.buffer.create_mark (COMPLETION_START_MARK_NAME, iter, false);
     }
 
-    public bool match (Gtk.SourceCompletionContext context) {
+    public bool match (GtkSource.CompletionContext context) {
         Gtk.TextIter start, end;
-        buffer.get_iter_at_offset (out end, buffer.cursor_position);
+        var buff = context.get_buffer ();
+        buff.get_iter_at_offset (out end, buff.cursor_position);
         start = end.copy ();
         Euclide.Completion.Parser.back_to_word_start (ref start);
-        string text = buffer.get_text (start, end, true);
+        string text = buff.get_text (start, end, true);
 
         return parser.match (text);
     }
 
-    public void populate (Gtk.SourceCompletionContext context) {
+    public async ListModel populate_async (GtkSource.CompletionContext context, Cancellable? cancellable) throws Error {
         /*Store current insertion point for use in activate_proposal */
-        GLib.List<Gtk.SourceCompletionItem>? file_props;
-        bool no_minimum = (context.get_activation () == Gtk.SourceCompletionActivation.USER_REQUESTED);
-        get_proposals (out file_props, no_minimum);
-        context.add_proposals (this, file_props, true);
+        bool no_minimum = (context.get_activation () == GtkSource.CompletionActivation.USER_REQUESTED);
+        return yield get_proposals (context, no_minimum);
     }
 
-    public bool activate_proposal (Gtk.SourceCompletionProposal proposal, Gtk.TextIter iter) {
+    public void display (
+        GtkSource.CompletionContext context,
+        GtkSource.CompletionProposal proposal,
+        GtkSource.CompletionCell cell
+    ) {
+        var columntype = cell.column;
+        warning ("filling column %s", columntype.to_string ());
+        // For now only fill TYPED_TEXT
+        if (columntype == TYPED_TEXT) {
+            cell.text = ((CompletionItem) proposal).label;
+        };
+    }
+
+    public void activate (
+        GtkSource.CompletionContext context,
+        GtkSource.CompletionProposal proposal
+    ) {
         Gtk.TextIter start;
         Gtk.TextIter end;
         Gtk.TextMark mark;
+        var completion_item = (CompletionItem) proposal;
+        var buff = context.get_buffer ();
+        mark = buff.get_mark (COMPLETION_END_MARK_NAME);
+        buff.get_iter_at_mark (out end, mark);
 
-        mark = buffer.get_mark (COMPLETION_END_MARK_NAME);
-        buffer.get_iter_at_mark (out end, mark);
+        mark = buff.get_mark (COMPLETION_START_MARK_NAME);
+        buff.get_iter_at_mark (out start, mark);
 
-        mark = buffer.get_mark (COMPLETION_START_MARK_NAME);
-        buffer.get_iter_at_mark (out start, mark);
-
-        buffer.@delete (ref start, ref end);
-        buffer.insert (ref start, proposal.get_text (), proposal.get_text ().length);
-        return true;
+        buff.@delete (ref start, ref end);
+        buff.insert (ref start, completion_item.text, completion_item.text.length);
     }
 
-    public bool get_start_iter (Gtk.SourceCompletionContext context,
-                                Gtk.SourceCompletionProposal proposal,
+    public void refilter (GtkSource.CompletionContext context, ListModel model) {
+        //TODO Allow refiltering of the model
+    }
+
+    public bool get_start_iter (GtkSource.CompletionContext context,
+                                GtkSource.CompletionProposal proposal,
                                 out Gtk.TextIter iter) {
-        var mark = buffer.get_insert ();
+        var mark = context.get_buffer ().get_insert ();
         Gtk.TextIter cursor_iter;
-        buffer.get_iter_at_mark (out cursor_iter, mark);
+        context.get_buffer ().get_iter_at_mark (out cursor_iter, mark);
 
         iter = cursor_iter;
         Euclide.Completion.Parser.back_to_word_start (ref iter);
         return true;
     }
 
-    private bool get_proposals (out GLib.List<Gtk.SourceCompletionItem>? props, bool no_minimum) {
-        string to_find = "";
-        Gtk.TextBuffer temp_buffer = buffer;
-        props = null;
+    private async ListModel get_proposals (GtkSource.CompletionContext context, bool no_minimum) throws Error {
+        // Just throw IOERROR for now - not worth registering domain
+        var model = new ListStore (typeof (GtkSource.CompletionProposal));
+        // string to_find = "";
+        var buff = context.get_buffer ();
+        // props = null;
 
         Gtk.TextIter start, end;
-        buffer.get_selection_bounds (out start, out end);
+        context.get_bounds (out start, out end);
 
-        to_find = temp_buffer.get_text (start, end, true);
+        var to_find = context.get_word ();
 
         if (to_find.length == 0) {
-            temp_buffer.get_iter_at_offset (out end, buffer.cursor_position);
-
+            buff.get_iter_at_offset (out end, buff.cursor_position);
             start = end;
             Euclide.Completion.Parser.back_to_word_start (ref start);
-
-            to_find = buffer.get_text (start, end, false);
         }
 
-        buffer.move_mark_by_name (COMPLETION_END_MARK_NAME, end);
-        buffer.move_mark_by_name (COMPLETION_START_MARK_NAME, start);
+        // Do we need this?
+        buff.move_mark_by_name (COMPLETION_END_MARK_NAME, end);
+        buff.move_mark_by_name (COMPLETION_START_MARK_NAME, start);
 
         /* There is no minimum length of word to find if the user requested a completion */
-        if (no_minimum || to_find.length >= Euclide.Completion.Parser.MINIMUM_WORD_LENGTH) {
+        if (!no_minimum && to_find.length < Euclide.Completion.Parser.MINIMUM_WORD_LENGTH) {
+            throw new IOError.INVALID_DATA ("Word to find shorter than minimum");
+        } else {
             /* Get proposals, if any */
             List<string> prop_word_list;
             if (parser.get_for_word (to_find, out prop_word_list)) {
                 foreach (var word in prop_word_list) {
-                    var item = new Gtk.SourceCompletionItem ();
-                    item.label = word;
-                    item.text = word;
-                    props.append (item);
-                }
+                    var item = new CompletionItem () {
+                        label = word,  // What is displayed
+                        text = word  // What gets inserted
+                    };
 
-                return true;
+                    model.append (item);
+                }
+            } else {
+                throw new IOError.NOT_FOUND ("No proposals found");
             }
         }
-        return false;
+
+        return model;
+    }
+
+    private class CompletionItem : Object, GtkSource.CompletionProposal {
+        public string label { get; set construct; }
+        public string text { get; set construct; }
     }
 }

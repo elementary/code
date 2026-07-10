@@ -35,6 +35,6 @@ public class Scratch.Dialogs.RestoreConfirmationDialog : Granite.MessageDialog {
         add_button (_("Don't Restore"), Gtk.ResponseType.REJECT);
 
         var ignore_button = (Gtk.Button) add_button (_("Restore Anyway"), Gtk.ResponseType.ACCEPT);
-        ignore_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+        ignore_button.add_css_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
     }
 }

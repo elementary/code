@@ -70,11 +70,11 @@ public class Code.Widgets.CellRendererBadge : Gtk.CellRenderer {
         // This is needed in order to fetch the proper style information.
         ctx.add_class (Granite.STYLE_CLASS_BADGE);
 
-        var state = ctx.get_state ();
+        // var state = ctx.get_state ();
 
-        margin = ctx.get_margin (state);
-        padding = ctx.get_padding (state);
-        border = ctx.get_border (state);
+        margin = ctx.get_margin ();
+        padding = ctx.get_padding ();
+        border = ctx.get_border ();
 
         text_layout = widget.create_pango_layout (text);
 
@@ -84,13 +84,15 @@ public class Code.Widgets.CellRendererBadge : Gtk.CellRenderer {
         text_layout.get_pixel_extents (out ink_rect, out text_logical_rect);
     }
 
-    public override void render (
-        Cairo.Context context,
+    public override void snapshot (
+        Gtk.Snapshot snapshot,
         Gtk.Widget widget,
         Gdk.Rectangle bg_area,
         Gdk.Rectangle cell_area,
         Gtk.CellRendererState flags
     ) {
+
+    warning ("snapshot badge");
         update_layout_properties (widget);
 
         Gdk.Rectangle aligned_area = get_aligned_area (widget, flags, cell_area);
@@ -106,11 +108,7 @@ public class Code.Widgets.CellRendererBadge : Gtk.CellRenderer {
         width -= margin.left + margin.right;
         height -= margin.top + margin.bottom;
 
-        var ctx = widget.get_style_context ();
-        ctx.add_class (Granite.STYLE_CLASS_BADGE);
-
-        ctx.render_background (context, x, y, width, height);
-        ctx.render_frame (context, x, y, width, height);
+        widget.add_css_class (Granite.STYLE_CLASS_BADGE); //TODO Use CSS for frame and background
 
         // Apply border width and padding offsets
         x += border.right + padding.right;
@@ -122,6 +120,6 @@ public class Code.Widgets.CellRendererBadge : Gtk.CellRenderer {
         x += text_logical_rect.x + (width - text_logical_rect.width) / 2;
         y += text_logical_rect.y + (height - text_logical_rect.height) / 2;
 
-        ctx.render_layout (context, x, y, text_layout);
+        snapshot.append_layout (text_layout, widget.get_color ());
     }
 }

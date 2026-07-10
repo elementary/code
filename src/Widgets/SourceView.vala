@@ -20,9 +20,9 @@
 */
 
 namespace Scratch.Widgets {
-    public class SourceView : Gtk.SourceView {
-        public Gtk.SourceLanguageManager manager;
-        public Gtk.SourceStyleSchemeManager style_scheme_manager;
+    public class SourceView : GtkSource.View {
+        public GtkSource.LanguageManager manager;
+        public GtkSource.StyleSchemeManager style_scheme_manager;
         public Gtk.CssProvider font_css_provider;
         public Gtk.TextTag warning_tag;
         public Gtk.TextTag error_tag;
@@ -39,25 +39,25 @@ namespace Scratch.Widgets {
         private string selected_text = "";
         private GitGutterRenderer git_diff_gutter_renderer;
         private NavMarkGutterRenderer navmark_gutter_renderer;
-        private Gtk.EventControllerKey key_controller;
+        // private Gtk.EventControllerKey key_controller;
 
         private const uint THROTTLE_MS = 400;
 
         protected static Scratch.Application application;
 
-        public signal void style_changed (Gtk.SourceStyleScheme style);
+        public signal void style_changed (GtkSource.StyleScheme style);
         // "selection_changed" signal now only emitted when the selected text changes (position ignored).
         // Listened to by searchbar and highlight word selection plugin
         public signal void selection_changed (Gtk.TextIter start_iter, Gtk.TextIter end_iter);
 
         //lang can be null, in the case of *No highlight style* aka Normal text
-        public Gtk.SourceLanguage? language {
+        public GtkSource.Language? language {
             set {
-                ((Gtk.SourceBuffer) buffer).language = value;
+                ((GtkSource.Buffer) buffer).language = value;
             }
 
             get {
-                return ((Gtk.SourceBuffer) buffer).language;
+                return ((GtkSource.Buffer) buffer).language;
             }
         }
 
@@ -81,7 +81,7 @@ namespace Scratch.Widgets {
             Object (
                 show_line_numbers: true,
                 smart_backspace: true,
-                smart_home_end: Gtk.SourceSmartHomeEndType.BEFORE,
+                smart_home_end: GtkSource.SmartHomeEndType.BEFORE,
                 wrap_mode: Gtk.WrapMode.WORD
             );
         }
@@ -92,20 +92,20 @@ namespace Scratch.Widgets {
 
             hexpand = true;
             vexpand = true;
-            manager = Gtk.SourceLanguageManager.get_default ();
-            style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
+            manager = GtkSource.LanguageManager.get_default ();
+            style_scheme_manager = new GtkSource.StyleSchemeManager ();
 
             font_css_provider = new Gtk.CssProvider ();
-            get_style_context ().add_provider (font_css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            Gtk.StyleContext.add_provider_for_display (Gdk.Display.get_default (), font_css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-            var source_buffer = new Gtk.SourceBuffer (null);
+            var source_buffer = new GtkSource.Buffer (null);
             set_buffer (source_buffer);
             source_buffer.highlight_syntax = Scratch.settings.get_boolean ("syntax-highlighting");
             source_buffer.mark_set.connect (on_mark_set);
             source_buffer.mark_deleted.connect (on_mark_deleted);
             highlight_current_line = true;
 
-            var draw_spaces_tag = new Gtk.SourceTag ("draw_spaces");
+            var draw_spaces_tag = new GtkSource.Tag ("draw_spaces");
             draw_spaces_tag.draw_spaces = true;
             source_buffer.tag_table.add (draw_spaces_tag);
 
@@ -116,12 +116,12 @@ namespace Scratch.Widgets {
             get_gutter (Gtk.TextWindowType.LEFT).insert (git_diff_gutter_renderer, 10);
             get_gutter (Gtk.TextWindowType.LEFT).insert (navmark_gutter_renderer, -48);
 
-            smart_home_end = Gtk.SourceSmartHomeEndType.AFTER;
+            smart_home_end = GtkSource.SmartHomeEndType.AFTER;
 
             // Create common tags
             warning_tag = new Gtk.TextTag ("warning_bg");
             warning_tag.underline = Pango.Underline.ERROR;
-            warning_tag.underline_rgba = Gdk.RGBA () { red = 0.13, green = 0.55, blue = 0.13, alpha = 1.0 };
+            warning_tag.underline_rgba = Gdk.RGBA () { red = 0.13f, green = 0.55f, blue = 0.13f, alpha = 1.0f };
 
             error_tag = new Gtk.TextTag ("error_bg");
             error_tag.underline = Pango.Underline.ERROR;
@@ -129,14 +129,13 @@ namespace Scratch.Widgets {
             source_buffer.tag_table.add (error_tag);
             source_buffer.tag_table.add (warning_tag);
 
-            Gtk.drag_dest_add_uri_targets (this);
+            // Gtk.drag_dest_add_uri_targets (this);
 
             restore_settings ();
             settings.changed.connect (restore_settings);
 
             var granite_settings = Granite.Settings.get_default ();
             granite_settings.notify["prefers-color-scheme"].connect (restore_settings);
-
 
             cut_clipboard.connect (() => {
                 if (!Scratch.settings.get_boolean ("smart-cut-copy")) {
@@ -148,11 +147,11 @@ namespace Scratch.Widgets {
                     Gtk.TextIter iter_start, iter_end;
 
                     if (get_current_line (out iter_start, out iter_end)) {
-                        var clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+                        var clipboard = Gdk.Display.get_default ().get_clipboard ();
                         string cut_text = iter_start.get_slice (iter_end);
 
                         buffer.begin_user_action ();
-                        clipboard.set_text (cut_text, -1);
+                        clipboard.set_text (cut_text);
                         buffer.delete_range (iter_start, iter_end);
                         buffer.end_user_action ();
                     }
@@ -169,10 +168,10 @@ namespace Scratch.Widgets {
                     Gtk.TextIter iter_start, iter_end;
 
                     if (get_current_line (out iter_start, out iter_end)) {
-                        var clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+                        var clipboard = Gdk.Display.get_default ().get_clipboard ();
                         string copy_text = iter_start.get_slice (iter_end);
 
-                        clipboard.set_text (copy_text, -1);
+                        clipboard.set_text (copy_text);
                     }
                 }
             });
@@ -197,7 +196,7 @@ namespace Scratch.Widgets {
             next_mark_action.activate.connect (goto_next_mark);
             prev_mark_action.activate.connect (goto_previous_mark);
             toggle_comment_action.activate.connect (() => {
-                CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
+                CommentToggler.toggle_comment (buffer as GtkSource.Buffer);
             });
 
             var extra_menu = new Menu ();
@@ -212,7 +211,7 @@ namespace Scratch.Widgets {
                 sort_action.set_enabled (buffer.has_selection);
             });
             buffer.notify["language"].connect (() => {
-                toggle_comment_action.set_enabled (CommentToggler.language_has_comments (((Gtk.SourceBuffer)buffer).language));
+                toggle_comment_action.set_enabled (CommentToggler.language_has_comments (((GtkSource.Buffer)buffer).language));
             });
             buffer.notify_property ("has-selection");
             buffer.notify_property ("language");
@@ -223,29 +222,29 @@ namespace Scratch.Widgets {
             });
             navmark_gutter_renderer.notify_property ("has-marks");
 
-            // For Gtk3 we need to convert extra_menu to additional Gtk.MenuItems. This is omitted in Gtk4
-            populate_popup.connect_after ((menu) => {
-                scroll_mark_onscreen (buffer.get_mark ("insert")); //TODO Check if still needed in Gtk4
-                for (int i = 0; i < extra_menu.get_n_items (); i++) {
-                    var name = extra_menu.get_item_attribute_value (i, "label", VariantType.STRING).get_string ();
-                    var action = extra_menu.get_item_attribute_value (i, "action", VariantType.STRING).get_string ();
-                    // warning ("adding menuitem name %s, action_name %s", name, action);
-                    menu.add (
-                        new Gtk.MenuItem.with_label (name) {
-                            action_name = "sourceview." + action
-                        }
-                    );
-                }
-                menu.show_all ();
-            });
+            // // For Gtk3 we need to convert extra_menu to additional Gtk.MenuItems. This is omitted in Gtk4
+            // populate_popup.connect_after ((menu) => {
+            //     scroll_mark_onscreen (buffer.get_mark ("insert")); //TODO Check if still needed in Gtk4
+            //     for (int i = 0; i < extra_menu.get_n_items (); i++) {
+            //         var name = extra_menu.get_item_attribute_value (i, "label", VariantType.STRING).get_string ();
+            //         var action = extra_menu.get_item_attribute_value (i, "action", VariantType.STRING).get_string ();
+            //         // warning ("adding menuitem name %s, action_name %s", name, action);
+            //         menu.add (
+            //             new Gtk.MenuItem.with_label (name) {
+            //                 action_name = "sourceview." + action
+            //             }
+            //         );
+            //     }
+            // });
 
             // Handle context menu shortcuts here.
-            // In Gtk3 we use a EventControllerKey but after porting to Gtk4 we can replace with Gtk.Shortcuts
-            key_controller = new Gtk.EventControllerKey (application.get_active_window ()) {
+            // For port keep the key controller After porting to Gtk4 we may replace with shortcutcontroller
+            var key_controller = new Gtk.EventControllerKey () {
                 propagation_phase = CAPTURE
             };
+            ((Gtk.Widget) application.get_active_window ()).add_controller (key_controller);
             key_controller.key_pressed.connect ((kv, kc, state) => {
-                if (!this.is_focus || !Gtk.accelerator_valid (kv, state)) {
+                if (!this.is_focus () || !Gtk.accelerator_valid (kv, state)) {
                     return false;
                 }
 
@@ -266,7 +265,7 @@ namespace Scratch.Widgets {
                             return true;
                     case "<Primary>m":
                     case "<Primary>slash":
-                            CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
+                            CommentToggler.toggle_comment (buffer as GtkSource.Buffer);
                             return true;
                     default:
                         break;
@@ -275,22 +274,24 @@ namespace Scratch.Widgets {
                 return false;
             });
 
-            size_allocate.connect ((allocation) => {
-                // Throttle for performance
-                if (size_allocate_timer == 0) {
-                    size_allocate_timer = Timeout.add (THROTTLE_MS, () => {
-                        size_allocate_timer = 0;
-                        bottom_margin = calculate_bottom_margin (allocation.height);
-                        return GLib.Source.REMOVE;
-                    });
-                }
-            });
-
             application.notify["system-monospace-font"].connect (() => {
                 if (Scratch.settings.get_boolean ("use-system-font")) {
                     update_font ();
                 }
             });
+        }
+
+        public override void size_allocate (int width, int height, int baseline) {
+            // Throttle for performance
+            if (size_allocate_timer == 0) {
+                size_allocate_timer = Timeout.add (THROTTLE_MS, () => {
+                    size_allocate_timer = 0;
+                    bottom_margin = calculate_bottom_margin (height);
+                    return GLib.Source.REMOVE;
+                });
+            }
+
+            base.size_allocate (width, height, baseline);
         }
 
         private bool get_current_line (out Gtk.TextIter start, out Gtk.TextIter end) {
@@ -327,32 +328,32 @@ namespace Scratch.Widgets {
             show_right_margin = Scratch.settings.get_boolean ("show-right-margin");
             right_margin_position = Scratch.settings.get_int ("right-margin-position");
             insert_spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
-            var source_buffer = (Gtk.SourceBuffer) buffer;
+            var source_buffer = (GtkSource.Buffer) buffer;
             source_buffer.highlight_matching_brackets = Scratch.settings.get_boolean ("highlight-matching-brackets");
             source_buffer.highlight_syntax = Scratch.settings.get_boolean ("syntax-highlighting");
             space_drawer.enable_matrix = false;
             switch ((ScratchDrawSpacesState) Scratch.settings.get_enum ("draw-spaces")) {
                 case ScratchDrawSpacesState.ALWAYS:
                     space_drawer.set_types_for_locations (
-                        Gtk.SourceSpaceLocationFlags.ALL,
-                        Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB
+                        GtkSource.SpaceLocationFlags.ALL,
+                        GtkSource.SpaceTypeFlags.SPACE | GtkSource.SpaceTypeFlags.TAB
                     );
                     break;
                 case ScratchDrawSpacesState.FOR_SELECTION:
                 case ScratchDrawSpacesState.CURRENT:
                     space_drawer.set_types_for_locations (
-                        Gtk.SourceSpaceLocationFlags.ALL,
-                        Gtk.SourceSpaceTypeFlags.NONE
+                        GtkSource.SpaceLocationFlags.ALL,
+                        GtkSource.SpaceTypeFlags.NONE
                     );
                     space_drawer.set_types_for_locations (
-                        Gtk.SourceSpaceLocationFlags.TRAILING,
-                        Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB
+                        GtkSource.SpaceLocationFlags.TRAILING,
+                        GtkSource.SpaceTypeFlags.SPACE | GtkSource.SpaceTypeFlags.TAB
                     );
                     break;
                 default:
                     space_drawer.set_types_for_locations (
-                        Gtk.SourceSpaceLocationFlags.ALL,
-                        Gtk.SourceSpaceTypeFlags.NONE
+                        GtkSource.SpaceLocationFlags.ALL,
+                        GtkSource.SpaceTypeFlags.NONE
                     );
                     break;
             }
@@ -400,11 +401,7 @@ namespace Scratch.Widgets {
                 "}"
             );
 
-            try {
-                font_css_provider.load_from_data (font_css);
-            } catch (Error e) {
-                critical (e.message);
-            }
+            font_css_provider.load_from_string (font_css);
         }
 
         public void go_to_line (int line, int offset = 0) {
@@ -597,15 +594,17 @@ namespace Scratch.Widgets {
         }
 
         public void set_text (string text, bool opening = true) {
-            var source_buffer = (Gtk.SourceBuffer) buffer;
+            var source_buffer = (GtkSource.Buffer) buffer;
             if (opening) {
-                source_buffer.begin_not_undoable_action ();
+                source_buffer.enable_undo = false;
+                // source_buffer.begin_not_undoable_action ();
             }
 
             source_buffer.text = text;
 
             if (opening) {
-                source_buffer.end_not_undoable_action ();
+                source_buffer.enable_undo = true;
+                // source_buffer.end_not_undoable_action ();
             }
 
             Gtk.TextIter? start = null;

@@ -57,7 +57,8 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
 
         var cancel_button = add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
         clone_button = (Gtk.Button)add_button (_("Clone Repository"), Gtk.ResponseType.APPLY);
-        set_default (clone_button);
+
+        set_default_response (Gtk.ResponseType.CANCEL);
 
         try {
             name_regex = new Regex (NAME_REGEX, OPTIMIZE, ANCHORED | NOTEMPTY);
@@ -80,9 +81,9 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         };
 
         var folder_chooser_button_child = new Gtk.Box (HORIZONTAL, 6);
-        folder_chooser_button_child.add (projects_folder_label);
-        folder_chooser_button_child.add (
-            new Gtk.Image.from_icon_name ("folder-open-symbolic", BUTTON)
+        folder_chooser_button_child.append (projects_folder_label);
+        folder_chooser_button_child.append (
+            new Gtk.Image.from_icon_name ("folder-open-symbolic")
         );
 
         var folder_chooser_button = new Gtk.Button () {
@@ -96,10 +97,24 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
                 _("Select"),
                 _("Cancel")
             );
-            chooser.set_current_folder (projects_folder_label.label);
+
+            try {
+                chooser.set_current_folder (GLib.File.new_for_path (projects_folder_label.label));
+            } catch (Error e) {
+                warning ("Could not set current folder. %s", e.message);
+            }
+
             chooser.response.connect ((res) => {
                 if (res == Gtk.ResponseType.ACCEPT) {
-                    projects_folder_label.label = chooser.get_filename ();
+                    var file = chooser.get_file ();
+                    try {
+                        var info = file.query_info (FileAttribute.STANDARD_DISPLAY_NAME, NONE, null);
+                        projects_folder_label.label = info.get_attribute_as_string (FileAttribute.STANDARD_DISPLAY_NAME);
+                    } catch (Error e) {
+                        warning ("could not get display name attribute");
+                        projects_folder_label.label = file.get_basename ();
+                    }
+
                     update_can_clone ();
                 }
 
@@ -115,9 +130,9 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         local_project_name_entry.changed.connect (validate_local_name);
 
         var content_box = new Gtk.Box (VERTICAL, 0);
-        content_box.add (new CloneEntry (_("Repository URL"), remote_repository_uri_entry));
-        content_box.add (new CloneEntry (_("Location"), folder_chooser_button));
-        content_box.add (new CloneEntry (_("Name of Clone"), local_project_name_entry));
+        content_box.append (new CloneEntry (_("Repository URL"), remote_repository_uri_entry));
+        content_box.append (new CloneEntry (_("Location"), folder_chooser_button));
+        content_box.append (new CloneEntry (_("Name of Clone"), local_project_name_entry));
 
         var cloning_label = new Granite.HeaderLabel (_("Cloning in progress"));
         spinner = new Gtk.Spinner ();
@@ -126,16 +141,15 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
             valign = CENTER,
             halign = CENTER
         };
-        cloning_box.add (cloning_label);
-        cloning_box.add (spinner);
+        cloning_box.append (cloning_label);
+        cloning_box.append (spinner);
 
         stack = new Gtk.Stack ();
         stack.add_named (content_box, "entries");
         stack.add_named (cloning_box, "cloning");
         stack.visible_child_name = "entries";
 
-        custom_bin.add (stack);
-        custom_bin.show_all ();
+        custom_bin.append (stack);
 
         bind_property ("can-clone", clone_button, "sensitive", DEFAULT | SYNC_CREATE);
         spinner.bind_property ("active", clone_button, "visible", INVERT_BOOLEAN);
@@ -246,8 +260,8 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
                 mnemonic_widget = entry
             };
 
-            add (label);
-            add (entry);
+            append (label);
+            append (entry);
         }
 
         construct {

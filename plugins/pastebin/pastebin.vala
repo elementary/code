@@ -150,8 +150,9 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Scratch.Services.Act
         } else {
             MainWindow window = plugins.manager.window;
             pastebin_dialog = new Dialogs.PasteBinDialog (window, doc);
-            pastebin_dialog.destroy.connect (() => {
+            pastebin_dialog.close_request.connect (() => {
                 pastebin_dialog = null;
+                return false;
             });
         }
     }
