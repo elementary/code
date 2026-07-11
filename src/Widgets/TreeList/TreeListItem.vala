@@ -15,13 +15,19 @@ public class Code.TreeListItem : Object {
 
     public ListStore? child_model { get; set; default = null; }
     public TreeListItem? parent { get; set; default = null; }
-    public bool is_expandable { get; construct; }
+    public bool is_expandable { get; set construct; }
     public bool is_expanded { get; set; } // gets bound to the ListItem (temporarily)
     public Binding expanded_binding { get; set; } // Need to save bind so we can unbind
     public bool is_activatable { get; set; default = true; }
     public bool is_selectable { get; set; default = true; }
     public bool is_editable { get; set; default = false; }
     public bool is_dummy { get; construct; }
+
+    public uint n_children {
+        get {
+            return child_model == null ? 0 : child_model.get_n_items ();
+        }
+    }
 
     public signal void child_added (TreeListItem item); // To emulate source list
 

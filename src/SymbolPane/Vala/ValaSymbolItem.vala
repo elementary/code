@@ -16,7 +16,7 @@
  *
  */
 
-public class Scratch.Services.ValaSymbolItem : Code.Widgets.SourceList.ExpandableItem, Code.Widgets.SourceListSortable, Scratch.Services.SymbolItem {
+public class Scratch.Services.ValaSymbolItem : Code.TreeListItem, Scratch.Services.SymbolItem {
     public Vala.Symbol symbol { get; construct; }
     public SymbolType symbol_type { get; set; default = SymbolType.OTHER; }
     public ValaSymbolItem (Vala.Symbol symbol, string _tooltip) {
@@ -30,12 +30,12 @@ public class Scratch.Services.ValaSymbolItem : Code.Widgets.SourceList.Expandabl
         if (symbol is Vala.CreationMethod) {
             var klass = ((Vala.CreationMethod)symbol).class_name;
             if (symbol.name == ".new") {
-                name = klass;
+                text = klass;
             } else {
-                name = "%s.%s".printf (klass, symbol.name);
+                text = "%s.%s".printf (klass, symbol.name);
             }
         } else {
-            name = symbol.name;
+            text = symbol.name;
         }
 
         if (symbol is Vala.Struct) {
@@ -105,7 +105,7 @@ public class Scratch.Services.ValaSymbolItem : Code.Widgets.SourceList.Expandabl
         debug ("Destroy Vala symbol");
     }
 
-    public int compare (Code.Widgets.SourceList.Item a, Code.Widgets.SourceList.Item b) {
+    public int compare (Code.TreeListItem a, Code.TreeListItem b) {
         return ValaComparison.sort_function (a, b);
     }
 

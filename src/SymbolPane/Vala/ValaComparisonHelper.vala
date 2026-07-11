@@ -17,9 +17,9 @@
  */
 
 namespace Scratch.Services.ValaComparison {
-    int sort_function (Code.Widgets.SourceList.Item str1, Code.Widgets.SourceList.Item str2) {
+    int sort_function (Code.TreeListItem str1, Code.TreeListItem str2) {
         if (!(str1 is ValaSymbolItem && str2 is ValaSymbolItem))
-            return str1.name.collate (str2.name);
+            return str1.text.collate (str2.text);
         var a = (ValaSymbolItem) str1;
         var b = (ValaSymbolItem) str2;
         var sa = a.symbol;
@@ -52,7 +52,7 @@ namespace Scratch.Services.ValaComparison {
             return (compare_signal ((Vala.Signal) sa, sb));
         else if (sa is Vala.Struct)
             return (compare_struct ((Vala.Struct) sa, sb));
-        return str1.name.collate (str2.name);
+        return str1.text.collate (str2.text);
     }
 
     int compare_class (Vala.Class s, Vala.Symbol s2) {

@@ -62,23 +62,22 @@ public class Scratch.Widgets.GitGutterRenderer : GtkSource.GutterRenderer {
         status_color_map.set (status, color);
     }
 
-    public override void snapshot_line (Gtk.Snapshot snapshot, GtkSource.GutterLines lines, uint line) {
-    warning ("snapshot_line");
-        //Gutter and diff lines numbers start at one, source lines start at 0
-        var gutter_line_no = (int) lines.get_first ();
-        Gdk.RGBA? color;
-        if (line_status_map.has_key (gutter_line_no)) {
-            color = status_color_map[line_status_map[gutter_line_no]];
-        } else {
-            color = status_color_map [Services.VCStatus.NONE];
-        }
+    // public override void snapshot_line (Gtk.Snapshot snapshot, GtkSource.GutterLines lines, uint line) {
+    //     //Gutter and diff lines numbers start at one, source lines start at 0
+    //     var gutter_line_no = (int) lines.get_first ();
+    //     Gdk.RGBA? color;
+    //     if (line_status_map.has_key (gutter_line_no)) {
+    //         color = status_color_map[line_status_map[gutter_line_no]];
+    //     } else {
+    //         color = status_color_map [Services.VCStatus.NONE];
+    //     }
 
-        var rect = Graphene.Rect () {
-            origin = Graphene.Point () { x = 0.0f, y = 0.0f },
-            size = Graphene.Size () { width = 6.0f , height = 12.0f }
-        };
-        snapshot.append_color (color, rect);
-    }
+    //     var rect = Graphene.Rect () {
+    //         origin = Graphene.Point () { x = 0.0f, y = 0.0f },
+    //         size = Graphene.Size () { width = 6.0f , height = 12.0f }
+    //     };
+    //     snapshot.append_color (color, rect);
+    // }
 
     // public override void draw (Cairo.Context cr,
     //                            Gdk.Rectangle bg,

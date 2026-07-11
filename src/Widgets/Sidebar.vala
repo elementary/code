@@ -176,8 +176,8 @@ public class Code.Sidebar : Gtk.Box {
     }
 
     public void focus_sidebar () {
-        if (stack.visible_child is Code.Widgets.SourceList) {
-            ((Code.Widgets.SourceList) stack.visible_child).grab_focus ();
-        }
+        // if (stack.visible_child is Code.TreeList) {
+        //     ((Code.Widgets.SourceList) stack.visible_child).grab_focus ();
+        // }
     }
 }

@@ -4,12 +4,19 @@
  */
 
 public class Code.TreeList : Gtk.Box {
+    private Gtk.ScrolledWindow scrolled_window;
     private Gtk.ListView list_view;
     protected GLib.ListStore root_model;
     private Gtk.TreeListModel tree_model;
     protected Gtk.SelectionModel selection_model;
 
-    public bool activate_on_single_click { get; set; }
+    public Gtk.Adjustment vadjustment {
+        get {
+            return scrolled_window.vadjustment;
+        }
+    }
+
+    public bool activate_on_single_click { get; set; default = true;}
 
     public signal void item_activated (TreeListItem item);
     // public TreeListItem? selected { get; set; } // Selection handled by SelectionModel
@@ -169,6 +176,10 @@ public class Code.TreeList : Gtk.Box {
         }
     }
 
+    public void remove_all () {
+        root_model.remove_all ();
+    }
+
     public void sort_root_children (CompareDataFunc sort_func) {
         root_model.sort (sort_func);
     }
@@ -193,5 +204,17 @@ public class Code.TreeList : Gtk.Box {
         do {
             item = (TreeListItem?) (model.get_object (pos++));
         } while (item != null && cb (item));
+    }
+
+    public void expand_all (TreeListItem? start) {
+        iterate_children (start, expand_callback);
+    }
+
+    private bool expand_callback (TreeListItem item) {
+        if (item.is_expandable) {
+            iterate_children (item, expand_callback);
+        }
+
+        return TreeList.ITERATE_CONTINUE;
     }
  }

@@ -59,11 +59,11 @@ public enum Scratch.Services.SymbolType {
     }
 }
 
-public interface Scratch.Services.SymbolItem : Code.Widgets.SourceList.ExpandableItem {
+public interface Scratch.Services.SymbolItem : Code.TreeListItem {
     public abstract SymbolType symbol_type { get; set; default = SymbolType.OTHER;}
 }
 
-public class Scratch.Services.SymbolOutline : Gtk.Box {
+public class Scratch.Services.SymbolOutline : Code.TreeList {
     protected static SymbolType[] filters; //Initialized by derived classes
     const string ACTION_GROUP = "symbol";
     const string ACTION_PREFIX = ACTION_GROUP + ".";
@@ -76,8 +76,8 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
 
     protected Gee.HashMap<SymbolType, SimpleAction> checks;
     protected Gtk.SearchEntry search_entry;
-    protected Code.Widgets.SourceList store;
-    protected Code.Widgets.SourceList.ExpandableItem root;
+    // protected Code.TreeList store;
+    protected Code.TreeListItem root;
     protected Gtk.CssProvider source_list_style_provider;
     public Gtk.Widget get_widget () { return this; }
     public bool tool_box_sensitive {
@@ -112,7 +112,7 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
     }
 
     public virtual void parse_symbols () {}
-    public virtual void add_tooltips (Code.Widgets.SourceList.ExpandableItem root) {}
+    public virtual void add_tooltips (Code.TreeListItem? root) {}
 
     private Gtk.MenuButton filter_button;
     private Gtk.Spinner spinner;
@@ -123,9 +123,12 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         insert_action_group (ACTION_GROUP, symbol_action_group);
 
         checks = new Gee.HashMap<SymbolType, SimpleAction> ();
-        store = new Code.Widgets.SourceList ();
-        root = new Code.Widgets.SourceList.ExpandableItem (_("Symbols"));
-        store.root.add (root);
+        // store = new Code.TreeList ();
+        root = new Code.TreeListItem () {
+            text = _("Symbols")
+        };
+
+        add_root_item (root);
 
         search_entry = new Gtk.SearchEntry () {
             placeholder_text = _("Find Symbol"),
@@ -179,11 +182,11 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         tool_box.append (search_entry);
         tool_box.append (stack);
         append (tool_box);
-        append (store);
+        // append (store);
         set_up_css ();
 
         realize.connect (() => {
-            store.set_filter_func (filter_func, false);
+            // store.set_filter_func (filter_func, false);
             search_entry.changed.connect (schedule_refilter);
         });
     }
@@ -229,13 +232,13 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
 
         // Do not exclude text search misses on Item with children as may
         // hide hits on its children
-        if (item is Code.Widgets.SourceList.ExpandableItem) {
-            var expandable = (Code.Widgets.SourceList.ExpandableItem)item;
+        if (item is Code.TreeListItem) {
+            var expandable = (Code.TreeListItem) item;
             if (expandable.n_children > 0) {
                 return true;
             }
 
-            return ((SymbolItem)item).name.contains (search_entry.text);
+            return ((SymbolItem)item).text.contains (search_entry.text);
         }
 
         return true;
@@ -256,10 +259,10 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
                 delay_refilter = false;
                 return Source.CONTINUE;
             } else {
-                refilter_timeout_id = 0;
-                store.refilter ();
+                // refilter_timeout_id = 0;
+                // store.refilter ();
                 // Ensure new visible items shown when filter removed
-                store.root.expand_all (true, true);
+                expand_all (null);
                 return Source.REMOVE;
             }
         });
