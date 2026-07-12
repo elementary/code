@@ -1372,9 +1372,8 @@ namespace Scratch {
         }
 
         private void action_go_to () {
-            toolbar.format_bar.line_menubutton.active = true;
+            toolbar.format_bar.activate_line_menubutton ();
         }
-
 
         private void action_to_lower_case () {
             var doc = document_view.current_document;
