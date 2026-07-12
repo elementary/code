@@ -34,7 +34,7 @@ public sealed class Code.TreeList : Granite.Bin {
             header_factory = tree_header_factory
         };
 
-        bind_property ("activate-on-single-click", list_view, "activate-on-single-click", BIDIRECTIONAL | SYNC_CREATE);
+        bind_property ("activate-on-single-click", list_view, "single-click-activate", BIDIRECTIONAL | SYNC_CREATE);
         list_view.activate.connect ((pos) => {
             item_activated ((TreeListItem) selection_model.get_item (pos));
         });
