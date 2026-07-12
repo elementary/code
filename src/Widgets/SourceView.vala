@@ -109,12 +109,12 @@ namespace Scratch.Widgets {
             draw_spaces_tag.draw_spaces = true;
             source_buffer.tag_table.add (draw_spaces_tag);
 
-            // Make the gutter renderer and insert into the left side of the source view.
-            git_diff_gutter_renderer = new GitGutterRenderer ();
-            navmark_gutter_renderer = new NavMarkGutterRenderer (source_buffer);
+            // // Make the gutter renderer and insert into the left side of the source view.
+            // git_diff_gutter_renderer = new GitGutterRenderer ();
+            // navmark_gutter_renderer = new NavMarkGutterRenderer (source_buffer);
 
-            get_gutter (Gtk.TextWindowType.LEFT).insert (git_diff_gutter_renderer, 10);
-            get_gutter (Gtk.TextWindowType.LEFT).insert (navmark_gutter_renderer, -48);
+            // get_gutter (Gtk.TextWindowType.LEFT).insert (git_diff_gutter_renderer, 10);
+            // get_gutter (Gtk.TextWindowType.LEFT).insert (navmark_gutter_renderer, -48);
 
             smart_home_end = GtkSource.SmartHomeEndType.AFTER;
 
@@ -383,7 +383,7 @@ namespace Scratch.Widgets {
                 source_buffer.style_scheme = scheme ?? style_scheme_manager.get_scheme ("classic");
             }
 
-            git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
+            // git_diff_gutter_renderer.set_style_scheme (source_buffer.style_scheme);
             style_changed (source_buffer.style_scheme);
         }
 

@@ -110,7 +110,7 @@ endif
 subdir('data')
 subdir('src')
 if get_option('plugins')
-    subdir('plugins')
+    # subdir('plugins')
 endif
 subdir('po')
 
