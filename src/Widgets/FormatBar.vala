@@ -20,11 +20,11 @@
 public class Code.FormatBar : Gtk.Box {
     public bool tab_style_set_by_editor_config { get; set; default = false; }
     public bool tab_width_set_by_editor_config { get; set; default = false; }
-    public FormatButton line_menubutton { get; private set;}
     public Gtk.InfoBar editorconfig_infobar { get; set construct; }
     public Gtk.Box tab_box { get; set construct; }
     public Gtk.SpinButton width_spinbutton { get; set construct; }
 
+    private FormatButton line_menubutton;
     private FormatButton lang_menubutton;
     private FormatButton tab_menubutton;
     private Granite.SwitchModelButton space_tab_modelbutton;
@@ -68,6 +68,10 @@ public class Code.FormatBar : Gtk.Box {
         create_tabulation_popover ();
         create_language_popover ();
         create_line_popover ();
+    }
+
+    public void activate_line_menubutton () {
+        line_menubutton.active = true;
     }
 
     private void create_language_popover () {
@@ -317,7 +321,7 @@ public class Code.FormatBar : Gtk.Box {
         }
     }
 
-    public class FormatButton : Gtk.MenuButton {
+    private class FormatButton : Gtk.MenuButton {
         public unowned string text {
             set {
                 label_widget.label = "<span font-features='tnum'>%s</span>".printf (value);
@@ -355,7 +359,7 @@ public class Code.FormatBar : Gtk.Box {
         }
     }
 
-    public class LangEntry : Gtk.ListBoxRow {
+    private class LangEntry : Gtk.ListBoxRow {
         public string? lang_id { get; construct; }
         public string lang_name { get; construct; }
         public unowned SList<Gtk.RadioButton> group { get; construct; }
