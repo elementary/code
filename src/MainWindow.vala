@@ -511,6 +511,10 @@ namespace Scratch {
                 visible = false
             };
 
+            terminal.terminal.notify["is-focus"].connect (() => {
+                on_terminal_focus_change ();
+            });
+
             var view_grid = new Gtk.Grid () {
                 orientation = Gtk.Orientation.VERTICAL
             };
@@ -630,6 +634,27 @@ namespace Scratch {
 
 
             set_widgets_sensitive (false);
+        }
+
+        private bool on_terminal_focus_change () {
+            var focused = terminal.terminal.is_focus;
+            //<Control>r +- shift
+            Utils.action_from_group (ACTION_SHOW_REPLACE, actions).set_enabled (!focused);
+            Utils.action_from_group (ACTION_RESTORE_PROJECT_DOCS, actions).set_enabled (!focused);
+            //<Control>z +- shift
+            Utils.action_from_group (ACTION_UNDO, actions).set_enabled (!focused);
+            Utils.action_from_group (ACTION_REDO, actions).set_enabled (!focused);
+
+            //<Control>u
+            Utils.action_from_group (ACTION_TO_UPPER_CASE, actions).set_enabled (!focused);
+
+            //<Control>k +- shift
+            Utils.action_from_group (ACTION_DUPLICATE_TAB, actions).set_enabled (!focused);
+            Utils.action_from_group (ACTION_CLEAR_LINES, actions).set_enabled (!focused);
+
+            //<Control>l
+            Utils.action_from_group (ACTION_TO_LOWER_CASE, actions).set_enabled (!focused);
+            return false;
         }
 
         private void open_binary (File file) {
