@@ -48,7 +48,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         parser = new Vala.Parser ();
         resolver = new Code.Plugins.ValaSymbolResolver ();
 
-        item_activated.connect ((item) => {
+        tree_list.item_activated.connect ((item) => {
             doc.goto (((ValaSymbolItem)item).symbol.source_reference.begin.line);
         });
 
@@ -104,14 +104,14 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
 
             if (!cancellable.is_cancelled () || took_too_long) {
                 Idle.add (() => {
-                    double adjustment_value = vadjustment.value;
+                    double adjustment_value = tree_list.vadjustment.value;
                     // var root_children = root.children; // Keep reference to children for later destruction
                     // root.clear (); // This does not destroy children but disconnects signals - avoids terminal warnings
                     // foreach (var child in root_children) { // Destroy items after clearing list to avoid memory leak
                     //     destroy_all_children ((Code.TreeListItem)child);
                     // }
 
-                    remove_all ();
+                    tree_list.remove_all ();
                     // if (took_too_long) {
                     //     var warning_item = new Code.Widgets.SourceList.Item () {
                     //         icon = new ThemedIcon ("dialog-warning"),
@@ -122,7 +122,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
 
                     //     root.add (warning_item);
                     // } else {
-                        add_root_item (new_root);
+                        tree_list.add_root_item (new_root);
                     // }
 
                     // root.expand_all ();
@@ -138,7 +138,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
     }
 
     protected override void add_tooltips (Code.TreeListItem? root = null) {
-        iterate_children (root, (child) => {
+        tree_list.iterate_children (root, (child) => {
             add_tooltip ((Code.TreeListItem) parent);
             return Code.TreeList.ITERATE_CONTINUE;
         });
@@ -230,7 +230,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
 
     ValaSymbolItem? find_existing (Vala.Symbol symbol, Code.TreeListItem parent, GLib.Cancellable cancellable) {
         ValaSymbolItem match = null;
-        iterate_children (null, (_child) => {
+        tree_list.iterate_children (null, (_child) => {
             if (cancellable.is_cancelled ()) {
                 return Code.TreeList.ITERATE_STOP;
             }

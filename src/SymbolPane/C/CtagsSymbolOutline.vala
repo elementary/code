@@ -42,7 +42,7 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
     }
 
     construct {
-        item_activated.connect ((item) => {
+        tree_list.item_activated.connect ((item) => {
             doc.goto (((CtagsSymbol)item).line);
         });
     }
@@ -263,11 +263,11 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
         }
 
         Idle.add (() => {
-            double adjustment_value = vadjustment.value;
-            remove_all ();
-            add_root_item (new_root);
+            double adjustment_value = tree_list.vadjustment.value;
+            tree_list.remove_all ();
+            tree_list.add_root_item (new_root);
             // store.root.expand_all ();
-            vadjustment.set_value (adjustment_value);
+            tree_list.vadjustment.set_value (adjustment_value);
 
             destroy_root (root);
             root = new_root;
@@ -278,7 +278,7 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
     }
 
     protected override void add_tooltips (Code.TreeListItem? root) {
-        iterate_children (root, (child) => {
+        tree_list.iterate_children (root, (child) => {
             add_tooltip (child);
             return Code.TreeList.ITERATE_CONTINUE;
         });
@@ -321,7 +321,7 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
 
     private Gee.TreeSet<CtagsSymbol> collect_children (Code.TreeListItem? parent) {
         var result = new Gee.TreeSet<CtagsSymbol> ();
-        iterate_children (parent, (child) => {
+        tree_list.iterate_children (parent, (child) => {
             result.add_all (collect_children ((CtagsSymbol)child));
             return Code.TreeList.ITERATE_CONTINUE;
         });
@@ -331,7 +331,7 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
     CtagsSymbol? find_existing (string name, Code.TreeListItem parent) {
         CtagsSymbol match = null;
         // foreach (var child in parent.children) {
-        iterate_children (parent, (child) => {
+        tree_list.iterate_children (parent, (child) => {
             var child_symbol = (CtagsSymbol) child;
             if (child_symbol.text == name) {
                 match = child_symbol;

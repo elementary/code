@@ -463,36 +463,37 @@ namespace Scratch {
 
             sidebar = new Code.Sidebar ();
 
-            folder_manager_view = new FolderManager.FileView (plugins);
+            // folder_manager_view = new FolderManager.FileView (plugins);
 
-            sidebar.add_tab (folder_manager_view);
+            // sidebar.add_tab (folder_manager_view);
+            // sidebar.add_tab (new Granite.HeaderLabel ("Dummy Sidebar"));
 
-            folder_manager_view.file_activate.connect ((file) => {
-                // var file = new Scratch.FolderManager.File (a);
-                var doc = new Scratch.Services.Document (actions, file.file);
+            // folder_manager_view.file_activate.connect ((file) => {
+            //     // var file = new Scratch.FolderManager.File (a);
+            //     var doc = new Scratch.Services.Document (actions, file.file);
 
-                if (file.is_valid_textfile) {
-                    open_document.begin (doc);
-                } else {
-                    open_binary (file.file);
-                }
-            });
+            //     if (file.is_valid_textfile) {
+            //         open_document.begin (doc);
+            //     } else {
+            //         open_binary (file.file);
+            //     }
+            // });
 
-            folder_manager_view.rename_request.connect ((file) => {
-                var allow = true;
-                foreach (var window in app.get_windows ()) {
-                    var win = (MainWindow)window;
-                    foreach (var doc in win.document_view.docs) {
-                        if (doc.file.equal (file.file)) {
-                            // Only allow sidebar to rename docs that are in sync with their file in
-                            // all windows
-                            allow = allow && !doc.locked && doc.saved;
-                        }
-                    }
-                }
+            // folder_manager_view.rename_request.connect ((file) => {
+            //     var allow = true;
+            //     foreach (var window in app.get_windows ()) {
+            //         var win = (MainWindow)window;
+            //         foreach (var doc in win.document_view.docs) {
+            //             if (doc.file.equal (file.file)) {
+            //                 // Only allow sidebar to rename docs that are in sync with their file in
+            //                 // all windows
+            //                 allow = allow && !doc.locked && doc.saved;
+            //             }
+            //         }
+            //     }
 
-                return allow;
-            });
+            //     return allow;
+            // });
 
             terminal = new Code.Terminal () {
                 visible = false
@@ -594,7 +595,7 @@ namespace Scratch {
 
                     toolbar.set_document_focus (doc);
 
-                    folder_manager_view.select_path (doc.file.get_path ());
+                    // folder_manager_view.select_path (doc.file.get_path ());
 
                     // Must follow setting focus document for editorconfig plug
                     plugins.hook_document (doc);
@@ -668,7 +669,7 @@ namespace Scratch {
             document_view.update_outline_visible ();
             restore_override = null;
             if (focused_file != null) {
-                folder_manager_view.expand_to_path (focused_file.get_path ());
+                // folder_manager_view.expand_to_path (focused_file.get_path ());
             }
         }
 
@@ -752,8 +753,8 @@ namespace Scratch {
                                    bool focus = true,
                                    int cursor_position = 0) {
 
-            FolderManager.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
-            doc.source_view.project = project;
+            // FolderManager.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
+            // doc.source_view.project = project;
             yield document_view.open_document (doc, focus, cursor_position);
         }
 
@@ -765,7 +766,7 @@ namespace Scratch {
                 return;
             }
 
-            doc.source_view.project = folder_manager_view.get_project_for_file (doc.file);
+            // doc.source_view.project = folder_manager_view.get_project_for_file (doc.file);
             yield document_view.open_document (doc, focus, 0, range);
         }
 
@@ -792,12 +793,12 @@ namespace Scratch {
              hp1.set_position (Scratch.saved_state.get_int ("hp1-size"));
              vp.set_position (Scratch.saved_state.get_int ("vp-size"));
             // Ensure foldermanager finishes loading projects before start opening documents
-            folder_manager_view.restore_saved_state.begin ((obj, res) => {
-                folder_manager_view.restore_saved_state.end (res);
+            // folder_manager_view.restore_saved_state.begin ((obj, res) => {
+            //     folder_manager_view.restore_saved_state.end (res);
                 if (restore_docs) {
                     restore_opened_documents.begin ();
                 }
-            });
+            // });
         }
 
         private void create_unsaved_documents_directory () {
@@ -1021,10 +1022,10 @@ namespace Scratch {
 var index = 0;
                     var obj = files.get_item (index++);
                     while (obj != null) {
-                        var file = (GLib.File) obj;
-                        var foldermanager_file = new FolderManager.File (file.get_path ());
-                        folder_manager_view.open_folder (foldermanager_file);
-                        obj = files.get_item (index++);
+                        // var file = (GLib.File) obj;
+                        // var foldermanager_file = new FolderManager.File (file.get_path ());
+                        // folder_manager_view.open_folder (foldermanager_file);
+                        // obj = files.get_item (index++);
                     }
                 }
             });
@@ -1037,7 +1038,7 @@ var index = 0;
             if (path == "") {
                 choose_folder ();
             } else {
-                folder_manager_view.open_folder (new FolderManager.File (path));
+                // folder_manager_view.open_folder (new FolderManager.File (path));
             }
         }
 
@@ -1117,7 +1118,7 @@ var index = 0;
         }
 
         private void action_collapse_all_folders () {
-            folder_manager_view.collapse_all ();
+            // folder_manager_view.collapse_all ();
         }
 
         private void action_save () {
@@ -1319,7 +1320,7 @@ var index = 0;
             }
 
             if (search_path != "") {
-                folder_manager_view.search_global (search_path, search_bar.entry_text);
+                // folder_manager_view.search_global (search_path, search_bar.entry_text);
             } else {
                 // Fallback to standard search
                 warning ("Unable to perform global search - search document instead");
@@ -1450,21 +1451,21 @@ var index = 0;
         }
 
         private void action_set_active_project (SimpleAction action, Variant? param) {
-            var project_path = param.get_string ();
-            if (folder_manager_view.project_is_open (project_path)) {
-                git_manager.active_project_path = project_path;
-                folder_manager_view.collapse_other_projects ();
-                //The opened folders are not changed so no need to update "opened-folders" setting
-            } else {
-                warning ("Attempt to set folder path %s which is not opened as active project ignored", project_path);
-                //TODO Handle this by opening the folder
-            }
+        //     var project_path = param.get_string ();
+        //     if (folder_manager_view.project_is_open (project_path)) {
+        //         git_manager.active_project_path = project_path;
+        //         folder_manager_view.collapse_other_projects ();
+        //         //The opened folders are not changed so no need to update "opened-folders" setting
+        //     } else {
+        //         warning ("Attempt to set folder path %s which is not opened as active project ignored", project_path);
+        //         //TODO Handle this by opening the folder
+        //     }
 
-            var new_build_dir = Services.GitManager.get_instance ().get_default_build_dir (null);
-            terminal.change_location (new_build_dir);
-            if (terminal.visible) {
-                terminal.terminal.grab_focus ();
-            }
+        //     var new_build_dir = Services.GitManager.get_instance ().get_default_build_dir (null);
+        //     terminal.change_location (new_build_dir);
+        //     if (terminal.visible) {
+        //         terminal.terminal.grab_focus ();
+        //     }
         }
 
         private void action_toggle_outline (SimpleAction action) {
@@ -1490,7 +1491,7 @@ var index = 0;
         }
 
         private void action_branch_actions (SimpleAction action, Variant? param) {
-            folder_manager_view.branch_actions (get_target_path_for_actions (param));
+            // folder_manager_view.branch_actions (get_target_path_for_actions (param));
         }
 
         private void action_move_tab_to_new_window () {

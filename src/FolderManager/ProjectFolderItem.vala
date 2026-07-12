@@ -196,7 +196,7 @@ namespace Scratch.FolderManager {
                 FileView.ACTION_CLOSE_OTHER_FOLDERS,
                 view.actions
             );
-            close_other_folders_action.set_enabled (view.n_root_items () > 1);
+            close_other_folders_action.set_enabled (!view.is_empty);
 
             var close_actions_section = new GLib.Menu ();
             close_actions_section.append_item (close_folder_item);

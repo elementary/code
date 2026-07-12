@@ -216,11 +216,11 @@ namespace Scratch.Widgets {
             buffer.notify_property ("has-selection");
             buffer.notify_property ("language");
 
-            navmark_gutter_renderer.notify["has-marks"].connect (() => {
-                next_mark_action.set_enabled (navmark_gutter_renderer.has_marks);
-                prev_mark_action.set_enabled (next_mark_action.get_enabled ());
-            });
-            navmark_gutter_renderer.notify_property ("has-marks");
+            // navmark_gutter_renderer.notify["has-marks"].connect (() => {
+            //     next_mark_action.set_enabled (navmark_gutter_renderer.has_marks);
+            //     prev_mark_action.set_enabled (next_mark_action.get_enabled ());
+            // });
+            // navmark_gutter_renderer.notify_property ("has-marks");
 
             // // For Gtk3 we need to convert extra_menu to additional Gtk.MenuItems. This is omitted in Gtk4
             // populate_popup.connect_after ((menu) => {
@@ -620,7 +620,7 @@ namespace Scratch.Widgets {
             Gtk.TextIter? cur_iter = null;
             buffer.get_iter_at_offset (out cur_iter, cursor_position);
             var cur_line = cur_iter.get_line ();
-            navmark_gutter_renderer.add_mark_at_line (cur_line);
+            // navmark_gutter_renderer.add_mark_at_line (cur_line);
         }
 
         public void goto_previous_mark () {
@@ -635,12 +635,12 @@ namespace Scratch.Widgets {
             Gtk.TextIter? start, end;
             int line;
             if (get_current_line (out start, out end)) {
-                navmark_gutter_renderer.get_nearest_marked_line (start.get_line (), before, out line);
-                    Gtk.TextIter? iter;
-                    buffer.get_iter_at_line (out iter, line);
-                    if (iter != null) {
-                        cursor_position = iter.get_offset ();
-                    }
+                // navmark_gutter_renderer.get_nearest_marked_line (start.get_line (), before, out line);
+                    // Gtk.TextIter? iter;
+                    // buffer.get_iter_at_line (out iter, line);
+                    // if (iter != null) {
+                    //     cursor_position = iter.get_offset ();
+                    // }
             }
         }
 
@@ -709,7 +709,7 @@ namespace Scratch.Widgets {
             var name = mark.get_name ();
             if (name != null && name.has_prefix ("NavMark")) {
                 warning ("NavMark deleted");
-                navmark_gutter_renderer.remove_mark (mark);
+                // navmark_gutter_renderer.remove_mark (mark);
             }
         }
 
@@ -736,14 +736,14 @@ namespace Scratch.Widgets {
             refresh_timeout_id = Timeout.add (250, () => {
                 refresh_timeout_id = 0;
                 if (project != null && project.is_git_repo) {
-                    git_diff_gutter_renderer.line_status_map.clear ();
+                    // git_diff_gutter_renderer.line_status_map.clear ();
                     project.refresh_diff (ref git_diff_gutter_renderer.line_status_map, location.get_path ());
-                    git_diff_gutter_renderer.queue_draw ();
+                    // git_diff_gutter_renderer.queue_draw ();
                 }
 
-                if (navmark_gutter_renderer.has_marks) {
-                    navmark_gutter_renderer.queue_draw ();
-                }
+                // if (navmark_gutter_renderer.has_marks) {
+                //     navmark_gutter_renderer.queue_draw ();
+                // }
 
                 return Source.REMOVE;
             });

@@ -63,22 +63,8 @@ public interface Scratch.Services.SymbolItem : Code.TreeListItem {
     public abstract SymbolType symbol_type { get; set; default = SymbolType.OTHER;}
 }
 
-public class Scratch.Services.SymbolOutline : Code.TreeList {
-    protected static SymbolType[] filters; //Initialized by derived classes
-    const string ACTION_GROUP = "symbol";
-    const string ACTION_PREFIX = ACTION_GROUP + ".";
-    const string ACTION_SELECT = "action-select";
-    const string ACTION_TOGGLE = "toggle-";
-    const uint SPINNER_DELAY_MSEC = 300;
-    SimpleActionGroup symbol_action_group;
-
+public class Scratch.Services.SymbolOutline : Gtk.Box {
     public Scratch.Services.Document doc { get; construct; }
-
-    protected Gee.HashMap<SymbolType, SimpleAction> checks;
-    protected Gtk.SearchEntry search_entry;
-    // protected Code.TreeList store;
-    protected Code.TreeListItem root;
-    protected Gtk.CssProvider source_list_style_provider;
     public Gtk.Widget get_widget () { return this; }
     public bool tool_box_sensitive {
         set {
@@ -87,8 +73,16 @@ public class Scratch.Services.SymbolOutline : Code.TreeList {
         }
     }
 
+    public virtual void parse_symbols () {}
+    public virtual void add_tooltips (Code.TreeListItem? root) {}
+
+    protected static SymbolType[] filters; //Initialized by derived classes
+    protected Gee.HashMap<SymbolType, SimpleAction> checks;
+    protected Gtk.SearchEntry search_entry;
+    protected Code.TreeList tree_list;
+    protected Code.TreeListItem root;
+    protected Gtk.CssProvider source_list_style_provider;
     protected bool took_too_long;
-    private uint show_spinner_timeout_id = 0;
     protected void before_parse () {
         tool_box_sensitive = true;
         took_too_long = false;
@@ -111,14 +105,20 @@ public class Scratch.Services.SymbolOutline : Code.TreeList {
         tool_box_sensitive = !took_too_long;
     }
 
-    public virtual void parse_symbols () {}
-    public virtual void add_tooltips (Code.TreeListItem? root) {}
-
+    private const string ACTION_GROUP = "symbol";
+    private const string ACTION_PREFIX = ACTION_GROUP + ".";
+    private const string ACTION_SELECT = "action-select";
+    private const string ACTION_TOGGLE = "toggle-";
+    private const uint SPINNER_DELAY_MSEC = 300;
     private Gtk.MenuButton filter_button;
     private Gtk.Spinner spinner;
     private Gtk.Stack stack;
+    private uint show_spinner_timeout_id = 0;
+
+    SimpleActionGroup symbol_action_group;
 
     construct {
+        tree_list = new Code.TreeList ();
         symbol_action_group = new SimpleActionGroup ();
         insert_action_group (ACTION_GROUP, symbol_action_group);
 
@@ -128,7 +128,7 @@ public class Scratch.Services.SymbolOutline : Code.TreeList {
             text = _("Symbols")
         };
 
-        add_root_item (root);
+        tree_list.add_root_item (root);
 
         search_entry = new Gtk.SearchEntry () {
             placeholder_text = _("Find Symbol"),
@@ -182,7 +182,7 @@ public class Scratch.Services.SymbolOutline : Code.TreeList {
         tool_box.append (search_entry);
         tool_box.append (stack);
         append (tool_box);
-        // append (store);
+        append (tree_list);
         set_up_css ();
 
         realize.connect (() => {
@@ -262,7 +262,7 @@ public class Scratch.Services.SymbolOutline : Code.TreeList {
                 // refilter_timeout_id = 0;
                 // store.refilter ();
                 // Ensure new visible items shown when filter removed
-                expand_all (null);
+                tree_list.expand_all (null);
                 return Source.REMOVE;
             }
         });

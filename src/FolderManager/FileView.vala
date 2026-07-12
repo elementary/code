@@ -21,7 +21,11 @@
 /**
  * SourceList that displays folders and their contents.
  */
-public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
+// public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
+public class Scratch.FolderManager.FileView : Granite.Bin, Code.PaneSwitcher {
+    public signal void file_activate (File file);
+    public signal bool rename_request (File file);
+
     public const string ACTION_GROUP = "file-view";
     public const string ACTION_PREFIX = ACTION_GROUP + ".";
     public const string ACTION_LAUNCH_APP_WITH_FILE_PATH = "launch-app-with-file-path";
@@ -50,22 +54,23 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
         { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"}
     };
 
-    private GLib.Settings settings;
-    private Scratch.Services.GitManager git_manager;
-    private Scratch.Services.PluginsManager plugins;
-
-    public signal void file_activate (File file);
-    public signal bool rename_request (File file);
 
     public SimpleActionGroup actions { get; private set; }
     public string icon_name { get; set; }
     public string title { get; set; }
+    public bool is_empty { get { return tree_list.n_root_items () == 0; } }
+
+    private Code.TreeList tree_list;
+    private GLib.Settings settings;
+    private Scratch.Services.GitManager git_manager;
+    private Scratch.Services.PluginsManager plugins;
 
     public FileView (Scratch.Services.PluginsManager plugins_manager) {
         plugins = plugins_manager;
     }
 
     construct {
+        tree_list = new Code.TreeList ();
         icon_name = "folder-symbolic";
         title = _("Folders");
 
@@ -82,11 +87,13 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
         });
 
         // Convert ListView signal into file_activate
-        item_activated.connect ((item) => {
+        tree_list.item_activated.connect ((item) => {
             if (item is FileItem) {
                 file_activate (((FileItem) item).file);
             }
         });
+
+        child = tree_list;
     }
 
     private void action_close_folder (SimpleAction action, GLib.Variant? parameter) {
@@ -115,7 +122,7 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
         }
 
         List<Code.TreeListItem> to_remove = null;
-        iterate_children (null, (child) => {
+        tree_list.iterate_children (null, (child) => {
             var project_folder_item = (ProjectFolderItem) child;
             if (project_folder_item != folder_root) {
                 activate_action (
@@ -130,7 +137,7 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
             return Code.TreeList.ITERATE_CONTINUE;
         });
 
-        remove_root_children (to_remove);
+        tree_list.remove_root_children (to_remove);
         //Make remaining project the active one
         set_project_active (path);
     }
@@ -174,8 +181,8 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
     public void open_folder (File folder) {
         if (is_open (folder)) {
             var existing = find_path (null, folder.path);
-            if (existing is Code.Widgets.SourceList.ExpandableItem) {
-                ((Code.Widgets.SourceList.ExpandableItem)existing).expanded = true;
+            if (existing is Code.TreeListItem) {
+                ((Code.TreeListItem)existing).is_expanded = true;
             }
 
             return;
@@ -185,7 +192,7 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
     }
 
     public void collapse_all () {
-        iterate_children (null, (child) => {
+        tree_list.iterate_children (null, (child) => {
             child.collapse_all (true, true);
             return Code.TreeList.ITERATE_CONTINUE;
         });
@@ -196,7 +203,7 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
             return;
         }
 
-        sort_root_children ((a, b) => {
+        tree_list.sort_root_children ((a, b) => {
             return strcmp (
                 ((ProjectFolderItem)a).name.down (),
                 ((ProjectFolderItem)b).name.down ()
@@ -213,14 +220,14 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
     }
 
     public void unselect_all () {
-        selection_model.unselect_all ();
+        tree_list.unselect_all ();
     }
 
     public void collapse_other_projects () {
         unowned string path;
         path = git_manager.active_project_path;
 
-        iterate_children (null, (child) => {
+        tree_list.iterate_children (null, (child) => {
             var project_folder = ((ProjectFolderItem) child);
             if (project_folder.path != path) {
                 project_folder.is_expanded = false;
@@ -295,11 +302,10 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
         GLib.File? target_file = null // Alternatively find this file
     ) {
 
-        var model = list != null ? list.child_model : root_model;
         var target = target_file ?? GLib.File.new_for_path (path);
         Code.TreeListItem? matched_item = null;
 
-        iterate_children (null, (item) => {
+        tree_list.iterate_children (null, (item) => {
             if ((item is Item) && item.path == path) {
                 matched_item = item;
                 return Code.TreeList.ITERATE_STOP;
@@ -340,7 +346,7 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
 
     public ProjectFolderItem? get_project_for_file (GLib.File file) {
         ProjectFolderItem? matched_project = null;
-        iterate_children (null, (item) => {
+        tree_list.iterate_children (null, (item) => {
             if (item is ProjectFolderItem) {
                 var folder = (ProjectFolderItem) item;
                 if (folder.file.file.equal (file) || folder.contains_file (file)) {
@@ -376,7 +382,7 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
     }
 
     public void clear_badges () {
-        iterate_children (null, (child) => {
+        tree_list.iterate_children (null, (child) => {
             if (child is ProjectFolderItem) {
                 ((FolderItem)child).remove_all_badges ();
             }
@@ -387,6 +393,10 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
 
     public void folder_item_update_hook (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
         plugins.hook_folder_item_change (source, dest, event);
+    }
+
+    public void iterate_children (Code.TreeListItem? start, Code.TreeList.ListIteratorCallback cb) {
+        tree_list.iterate_children (start, cb);
     }
 
     // This only works when the list is stable (nothing being added, expanded etc)
@@ -453,7 +463,7 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
 
     private void rename_items_with_same_name (Item item) {
         // string item_name = item.file.name;
-        // iterate_children (null, (child) => {
+        // tree_list.iterate_children (null, (child) => {
         //     string new_other_item_name, new_item_name;
         //     var other_item = (ProjectFolderItem) child;
 
@@ -635,7 +645,7 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
         var parents = new List<ProjectFolderItem> ();
         var children = new List<ProjectFolderItem> ();
 
-        iterate_children (null, (child) => {
+        tree_list.iterate_children (null, (child) => {
             var item = (ProjectFolderItem) child;
             if (add_file.get_relative_path (item.file.file) != null) {
                 debug ("Trying to add parent of existing project");
@@ -686,7 +696,7 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
         // Process any closed signals emitted before proceeding
         Idle.add (() => {
             var folder_root = new ProjectFolderItem (folder, this); // Constructor adds project to GitManager
-            add_root_item (folder_root);
+            tree_list.add_root_item (folder_root);
             rename_items_with_same_name (folder_root);
 
             folder_root.is_expanded = expand;
@@ -697,9 +707,9 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
                     folder_root.path
                 );
 
-                remove_root_item (folder_root);
+                tree_list.remove_root_item (folder_root);
 
-                iterate_children (null, (child) => {
+                tree_list.iterate_children (null, (child) => {
                     var child_folder = (ProjectFolderItem) child;
                     if (child_folder.name != child_folder.file.name) {
                         rename_items_with_same_name (child_folder);
@@ -730,7 +740,7 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
 
     private bool is_open (File folder) {
         bool open = false;
-        iterate_children (null, (child) => {
+        tree_list.iterate_children (null, (child) => {
             if (folder.path == ((Item) child).path) {
                 open = true;
                 return Code.TreeList.ITERATE_STOP;
@@ -744,7 +754,7 @@ public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
 
     private void write_settings () {
         string[] to_save = {};
-        iterate_children (null, (item) => {
+        tree_list.iterate_children (null, (item) => {
             var saved = false;
             var folder_path = ((Item) item).path;
 

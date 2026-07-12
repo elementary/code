@@ -26,19 +26,14 @@ public enum Scratch.CaseSensitiveMode {
 }
 
 namespace Scratch.Widgets {
-    public class SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayout Widget
+    public class SearchBar : Granite.Bin {
 
         public weak MainWindow window { get; construct; }
 
 
+
         private Gtk.Button tool_arrow_up;
         private Gtk.Button tool_arrow_down;
-
-        /**
-         * Is the search cyclic? e.g., when you are at the bottom, if you press
-         * "Down", it will go at the start of the file to search for the content
-         * of the search entry.
-         **/
         private Granite.SwitchModelButton cycle_search_button ;
         private Gtk.ComboBoxText case_sensitive_search_button;
         private Granite.SwitchModelButton regex_search_button;
@@ -116,15 +111,13 @@ namespace Scratch.Widgets {
         }
 
         construct {
-            this.orientation = HORIZONTAL;
-
             search_entry = new Gtk.SearchEntry () {
                 hexpand = true,
                 placeholder_text = _("Find"),
             };
 
             entry_for_search = new Gtk.Entry ();
-            entry_for_search.set_parent (search_entry);
+            // entry_for_search.set_parent (search_entry);
 
             search_entry.set_key_capture_widget (entry_for_search);
             search_occurence_count_label = new Gtk.Label (_("No Results"));
@@ -214,7 +207,8 @@ namespace Scratch.Widgets {
                 margin_start = 6
             };
             search_box.add_css_class (Granite.STYLE_CLASS_LINKED);
-            search_box.append (search_entry);
+            // search_box.append (search_entry);
+            search_box.append (entry_for_search);
             search_box.append (tool_arrow_down);
             search_box.append (tool_arrow_up);
             search_box.append (search_menubutton);
@@ -229,7 +223,8 @@ namespace Scratch.Widgets {
                 placeholder_text = _("Replace With")
             };
             entry_for_replace = new Gtk.Entry ();
-            entry_for_replace.set_parent (replace_search_entry);
+            replace_search_entry.set_key_capture_widget (entry_for_replace);
+            // entry_for_replace.set_parent (replace_search_entry);
             entry_for_replace.set_icon_from_icon_name (Gtk.EntryIconPosition.PRIMARY, "edit-symbolic");
 
             replace_tool_button = new Gtk.Button.with_label (_("Replace"));
@@ -245,7 +240,8 @@ namespace Scratch.Widgets {
                 margin_start = 3
             };
             replace_grid.add_css_class (Granite.STYLE_CLASS_LINKED);
-            replace_grid.append (replace_search_entry);
+            replace_grid.append (entry_for_replace);
+            // replace_grid.append (replace_search_entry);
             replace_grid.append (replace_tool_button);
             replace_grid.append (replace_all_tool_button);
 
@@ -290,7 +286,7 @@ namespace Scratch.Widgets {
                 reveal_child = false
             };
 
-            append (revealer);
+            this.child = revealer;
             update_search_widgets ();
 
             var key_controller = new Gtk.EventControllerKey () {

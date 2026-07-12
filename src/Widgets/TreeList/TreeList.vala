@@ -3,12 +3,9 @@
  * SPDX-FileCopyrightText: 20126 elementary, Inc. <https://elementary.io>
  */
 
-public class Code.TreeList : Gtk.Box {
-    private Gtk.ScrolledWindow scrolled_window;
-    private Gtk.ListView list_view;
-    protected GLib.ListStore root_model;
-    private Gtk.TreeListModel tree_model;
-    protected Gtk.SelectionModel selection_model;
+public sealed class Code.TreeList : Granite.Bin {
+
+    public signal void item_activated (TreeListItem item);
 
     public Gtk.Adjustment vadjustment {
         get {
@@ -18,8 +15,13 @@ public class Code.TreeList : Gtk.Box {
 
     public bool activate_on_single_click { get; set; default = true;}
 
-    public signal void item_activated (TreeListItem item);
     // public TreeListItem? selected { get; set; } // Selection handled by SelectionModel
+
+    private Gtk.ScrolledWindow scrolled_window;
+    private Gtk.ListView list_view;
+    private GLib.ListStore root_model;
+    private Gtk.TreeListModel tree_model;
+    private Gtk.SelectionModel selection_model;
 
     construct {
         root_model = new GLib.ListStore (typeof (TreeListItem));
@@ -73,7 +75,7 @@ public class Code.TreeList : Gtk.Box {
        tree_header_factory.unbind.connect (() => {});
        tree_header_factory.teardown.connect (() => {});
 
-       append (list_view);
+       child = list_view;
     }
 
     protected virtual void create_listitem_child (Gtk.ListItem item) {
@@ -208,6 +210,10 @@ public class Code.TreeList : Gtk.Box {
 
     public void expand_all (TreeListItem? start) {
         iterate_children (start, expand_callback);
+    }
+
+    public void unselect_all () {
+        selection_model.unselect_all ();
     }
 
     private bool expand_callback (TreeListItem item) {
