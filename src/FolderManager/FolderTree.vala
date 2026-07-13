@@ -31,8 +31,6 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
     public const string ACTION_NEW_FILE = "new-file";
     public const string ACTION_NEW_FROM_TEMPLATE = "new-from-template";
     public const string ACTION_NEW_FOLDER = "new-folder";
-    public const string ACTION_CLOSE_FOLDER = "close-folder";
-    public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
 
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_LAUNCH_APP_WITH_FILE_PATH, action_launch_app_with_file_path, "as" },
@@ -44,41 +42,45 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
         { ACTION_NEW_FILE, add_new_file, "s" },
         { ACTION_NEW_FROM_TEMPLATE, add_new_from_template, "(ss)" },
         { ACTION_NEW_FOLDER, add_new_folder, "s"},
-        { ACTION_CLOSE_FOLDER, action_close_folder, "s"},
-        { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"}
     };
 
 
     public SimpleActionGroup actions { get; private set; }
     public string icon_name { get; set; }
     public string title { get; set; }
+    public string root_path { get; construct; }
     public bool is_empty { get { return tree_list.n_root_items () == 0; } }
 
     private Code.TreeList tree_list;
-    private GLib.Settings settings;
-    private Scratch.Services.GitManager git_manager;
-    private Scratch.Services.PluginsManager plugins;
+    // private GLib.Settings settings;
+    // private Scratch.Services.GitManager git_manager;
+    // private Scratch.Services.PluginsManager plugins;
 
-    public FolderTree (Scratch.Services.PluginsManager plugins_manager) {
-        plugins = plugins_manager;
+    // public FolderTree (Scratch.Services.PluginsManager plugins_manager) {
+    //     plugins = plugins_manager;
+    // }
+    public FolderTree (string root_path) {
+        Object (
+            root_path: root_path
+        );
     }
 
     construct {
         tree_list = new Code.TreeList ();
-        icon_name = "folder-symbolic";
-        title = _("Folders");
+        // icon_name = "folder-symbolic";
+        // title = _("Folders");
 
-        settings = new GLib.Settings ("io.elementary.code.folder-manager");
+        // settings = new GLib.Settings ("io.elementary.code.folder-manager");
 
-        git_manager = Scratch.Services.GitManager.get_instance ();
+        // git_manager = Scratch.Services.GitManager.get_instance ();
 
         actions = new SimpleActionGroup ();
         actions.add_action_entries (ACTION_ENTRIES, this);
         insert_action_group (ACTION_GROUP, actions);
 
-        Scratch.saved_state.changed["order-folders"].connect (() => {
-            order_folders ();
-        });
+        // Scratch.saved_state.changed["order-folders"].connect (() => {
+        //     order_folders ();
+        // });
 
         // Convert ListView signal into file_activate
         tree_list.item_activated.connect ((item) => {
@@ -95,100 +97,100 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
         return false;
     }
 
-    private void action_close_folder (SimpleAction action, GLib.Variant? parameter) {
-        var path = parameter.get_string ();
-        if (path == null || path == "") {
-            return;
-        }
+    // private void action_close_folder (SimpleAction action, GLib.Variant? parameter) {
+    //     var path = parameter.get_string ();
+    //     if (path == null || path == "") {
+    //         return;
+    //     }
 
-        var project_item = find_path (null, path) as ProjectFolderItem;
-        if (project_item == null) {
-            return;
-        }
+    //     var project_item = find_path (null, path) as ProjectFolderItem;
+    //     if (project_item == null) {
+    //         return;
+    //     }
 
-        project_item.closed ();
-    }
+    //     project_item.closed ();
+    // }
 
-    private void action_close_other_folders (SimpleAction action, GLib.Variant? parameter) {
-        var path = parameter.get_string ();
-        if (path == null || path == "") {
-            return;
-        }
+    // private void action_close_other_folders (SimpleAction action, GLib.Variant? parameter) {
+    //     var path = parameter.get_string ();
+    //     if (path == null || path == "") {
+    //         return;
+    //     }
 
-        var folder_root = find_path (null, path) as ProjectFolderItem;
-        if (folder_root == null) {
-            return;
-        }
+    //     var folder_root = find_path (null, path) as ProjectFolderItem;
+    //     if (folder_root == null) {
+    //         return;
+    //     }
 
-        List<Code.TreeListItem> to_remove = null;
-        tree_list.iterate_children (null, (child) => {
-            var project_folder_item = (ProjectFolderItem) child;
-            if (project_folder_item != folder_root) {
-                activate_action (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
-                    "s",
-                    project_folder_item.path
-                );
-                to_remove.prepend (project_folder_item);
-                git_manager.remove_project (project_folder_item);
-            }
+    //     List<Code.TreeListItem> to_remove = null;
+    //     tree_list.iterate_children (null, (child) => {
+    //         var project_folder_item = (ProjectFolderItem) child;
+    //         if (project_folder_item != folder_root) {
+    //             activate_action (
+    //                 MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
+    //                 "s",
+    //                 project_folder_item.path
+    //             );
+    //             to_remove.prepend (project_folder_item);
+    //             git_manager.remove_project (project_folder_item);
+    //         }
 
-            return Code.TreeList.ITERATE_CONTINUE;
-        });
+    //         return Code.TreeList.ITERATE_CONTINUE;
+    //     });
 
-        tree_list.remove_root_children (to_remove);
-        //Make remaining project the active one
-        set_project_active (path);
-    }
+    //     tree_list.remove_root_children (to_remove);
+    //     //Make remaining project the active one
+    //     set_project_active (path);
+    // }
 
-    private void action_set_active_project (SimpleAction action, GLib.Variant? parameter) {
-        var path = parameter.get_string ();
-        if (path == null || path == "") {
-            return;
-        }
+    // private void action_set_active_project (SimpleAction action, GLib.Variant? parameter) {
+    //     var path = parameter.get_string ();
+    //     if (path == null || path == "") {
+    //         return;
+    //     }
 
-        set_active_project (path);
-    }
+    //     set_active_project (path);
+    // }
 
-    private ProjectFolderItem? set_active_project (string path) {
-        var folder_root = find_path (null, path) as ProjectFolderItem;
-        if (folder_root == null) {
-            return null;
-        }
+    // private ProjectFolderItem? set_active_project (string path) {
+    //     var folder_root = find_path (null, path) as ProjectFolderItem;
+    //     if (folder_root == null) {
+    //         return null;
+    //     }
 
-        git_manager.active_project_path = path;
+    //     git_manager.active_project_path = path;
 
-        write_settings ();
+    //     write_settings ();
 
-        return folder_root;
-    }
+    //     return folder_root;
+    // }
 
-    private void set_project_active (string path) {
-        activate_action (
-            MainWindow.ACTION_PREFIX + MainWindow.ACTION_SET_ACTIVE_PROJECT,
-            "s",
-            path
-        );
-    }
+    // private void set_project_active (string path) {
+    //     activate_action (
+    //         MainWindow.ACTION_PREFIX + MainWindow.ACTION_SET_ACTIVE_PROJECT,
+    //         "s",
+    //         path
+    //     );
+    // }
 
-    public async void restore_saved_state () {
-        foreach (unowned string path in settings.get_strv ("opened-folders")) {
-            yield add_folder (new File (path), false, true);
-        }
-    }
+    // public async void restore_saved_state () {
+    //     foreach (unowned string path in settings.get_strv ("opened-folders")) {
+    //         yield add_folder (new File (path), false, true);
+    //     }
+    // }
 
-    public void open_folder (File folder) {
-        if (is_open (folder)) {
-            var existing = find_path (null, folder.path);
-            if (existing is Code.TreeListItem) {
-                ((Code.TreeListItem)existing).is_expanded = true;
-            }
+    // public void open_folder (File folder) {
+    //     if (is_open (folder)) {
+    //         var existing = find_path (null, folder.path);
+    //         if (existing is Code.TreeListItem) {
+    //             ((Code.TreeListItem)existing).is_expanded = true;
+    //         }
 
-            return;
-        }
+    //         return;
+    //     }
 
-        add_folder.begin (folder, true);
-    }
+    //     add_folder.begin (folder, true);
+    // }
 
     public void collapse_all () {
         tree_list.iterate_children (null, (child) => {
@@ -197,18 +199,18 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
         });
     }
 
-    public void order_folders () {
-        if (!Scratch.saved_state.get_boolean ("order-folders")) {
-            return;
-        }
+    // public void order_folders () {
+    //     if (!Scratch.saved_state.get_boolean ("order-folders")) {
+    //         return;
+    //     }
 
-        tree_list.sort_root_children ((a, b) => {
-            return strcmp (
-                ((ProjectFolderItem)a).name.down (),
-                ((ProjectFolderItem)b).name.down ()
-            );
-        });
-    }
+    //     tree_list.sort_root_children ((a, b) => {
+    //         return strcmp (
+    //             ((ProjectFolderItem)a).name.down (),
+    //             ((ProjectFolderItem)b).name.down ()
+    //         );
+    //     });
+    // }
 
     public void select_path (string path) {
         find_path (null, path);
@@ -222,77 +224,77 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
         tree_list.unselect_all ();
     }
 
-    public void collapse_other_projects () {
-        unowned string path;
-        path = git_manager.active_project_path;
+    // public void collapse_other_projects () {
+    //     unowned string path;
+    //     path = git_manager.active_project_path;
 
-        tree_list.iterate_children (null, (child) => {
-            var project_folder = ((ProjectFolderItem) child);
-            if (project_folder.path != path) {
-                project_folder.is_expanded = false;
-                activate_action (
-                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_HIDE_PROJECT_DOCS,
-                    "s",
-                    project_folder.path
-                );
-            } else if (project_folder.path == path) {
-                project_folder.is_expanded = true;
-                activate_action (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS,
-                    "s",
-                    project_folder.path
-                );
-            }
+    //     tree_list.iterate_children (null, (child) => {
+    //         var project_folder = ((ProjectFolderItem) child);
+    //         if (project_folder.path != path) {
+    //             project_folder.is_expanded = false;
+    //             activate_action (
+    //                 Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_HIDE_PROJECT_DOCS,
+    //                 "s",
+    //                 project_folder.path
+    //             );
+    //         } else if (project_folder.path == path) {
+    //             project_folder.is_expanded = true;
+    //             activate_action (
+    //                 MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS,
+    //                 "s",
+    //                 project_folder.path
+    //             );
+    //         }
 
-            return Code.TreeList.ITERATE_CONTINUE;
-        });
-    }
+    //         return Code.TreeList.ITERATE_CONTINUE;
+    //     });
+    // }
 
-    public void branch_actions (string path) {
-        // Must only carry out branch actions on active project so switch if necessary.
-        //TODO Warn before switching active project?
-        var active_project = set_active_project (path);
-        if (active_project == null || !active_project.is_git_repo) {
-            Gdk.Display.get_default ().beep ();
-            return;
-        }
+    // public void branch_actions (string path) {
+    //     // Must only carry out branch actions on active project so switch if necessary.
+    //     //TODO Warn before switching active project?
+    //     var active_project = set_active_project (path);
+    //     if (active_project == null || !active_project.is_git_repo) {
+    //         Gdk.Display.get_default ().beep ();
+    //         return;
+    //     }
 
-        var dialog = new Dialogs.BranchActionDialog (active_project);
-        dialog.response.connect ((res) => {
-            if (res == Gtk.ResponseType.APPLY) {
-                perform_branch_action (dialog);
-            }
+    //     var dialog = new Dialogs.BranchActionDialog (active_project);
+    //     dialog.response.connect ((res) => {
+    //         if (res == Gtk.ResponseType.APPLY) {
+    //             perform_branch_action (dialog);
+    //         }
 
-            dialog.destroy ();
-        });
+    //         dialog.destroy ();
+    //     });
 
-        dialog.present ();
-    }
+    //     dialog.present ();
+    // }
 
-    private void perform_branch_action (
-        Scratch.Dialogs.BranchActionDialog dialog
-    ) {
-        switch (dialog.action) {
-            case CHECKOUT:
-                dialog.project.checkout_branch_ref (dialog.branch_ref);
-                break;
-            case COMMIT:
-                break;
-            case PUSH:
-                break;
-            case PULL:
-                break;
-            case MERGE:
-                break;
-            case DELETE:
-                break;
-            case CREATE:
-                dialog.project.new_branch (dialog.new_branch_name);
-                break;
-            default:
-                assert_not_reached ();
-        }
-    }
+    // private void perform_branch_action (
+    //     Scratch.Dialogs.BranchActionDialog dialog
+    // ) {
+    //     switch (dialog.action) {
+    //         case CHECKOUT:
+    //             dialog.project.checkout_branch_ref (dialog.branch_ref);
+    //             break;
+    //         case COMMIT:
+    //             break;
+    //         case PUSH:
+    //             break;
+    //         case PULL:
+    //             break;
+    //         case MERGE:
+    //             break;
+    //         case DELETE:
+    //             break;
+    //         case CREATE:
+    //             dialog.project.new_branch (dialog.new_branch_name);
+    //             break;
+    //         default:
+    //             assert_not_reached ();
+    //     }
+    // }
 
     private Code.TreeListItem? find_path (
         Code.TreeListItem? list,  // Starting point for search
@@ -343,58 +345,59 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
     //     return get_project_for_file (GLib.File.new_for_path (project_path)) != null;
     // }
 
-    public ProjectFolderItem? get_project_for_file (GLib.File file) {
-        ProjectFolderItem? matched_project = null;
-        tree_list.iterate_children (null, (item) => {
-            if (item is ProjectFolderItem) {
-                var folder = (ProjectFolderItem) item;
-                if (folder.file.file.equal (file) || folder.contains_file (file)) {
-                    matched_project = folder;
-                    return Code.TreeList.ITERATE_STOP;
-                }
-            }
+    // public ProjectFolderItem? get_project_for_file (GLib.File file) {
+    //     ProjectFolderItem? matched_project = null;
+    //     tree_list.iterate_children (null, (item) => {
+    //         if (item is ProjectFolderItem) {
+    //             var folder = (ProjectFolderItem) item;
+    //             if (folder.file.file.equal (file) || folder.contains_file (file)) {
+    //                 matched_project = folder;
+    //                 return Code.TreeList.ITERATE_STOP;
+    //             }
+    //         }
 
-            return Code.TreeList.ITERATE_CONTINUE;
-        });
+    //         return Code.TreeList.ITERATE_CONTINUE;
+    //     });
 
-        return matched_project;
-    }
+    //     return matched_project;
+    // }
 
     public Code.TreeListItem? expand_to_path (string path) {
          return find_path (null, path, true);
     }
 
-    /* Do global search on project containing the file path supplied in parameter */
-    public void search_global (string path, string? term = null) {
-        var item_for_path = (FolderManagerItem?)(expand_to_path (path));
-        if (item_for_path != null) {
-            var search_root = item_for_path.get_root_folder ();
-            if (search_root is ProjectFolderItem) {
-                GLib.File start_folder = (item_for_path is FolderItem)
-                    ? item_for_path.file.file
-                    : search_root.file.file;
+    // /* Do global search on project containing the file path supplied in parameter */
+    // public void search_global (string path, string? term = null) {
+    //     var item_for_path = (FolderManagerItem?)(expand_to_path (path));
+    //     if (item_for_path != null) {
+    //         var search_root = item_for_path.get_root_folder ();
+    //         if (search_root is ProjectFolderItem) {
+    //             GLib.File start_folder = (item_for_path is FolderItem)
+    //                 ? item_for_path.file.file
+    //                 : search_root.file.file;
 
-                bool is_explicit = !(item_for_path is ProjectFolderItem);
-                search_root.global_search.begin (start_folder, term, is_explicit);
-            }
-        }
-    }
+    //             bool is_explicit = !(item_for_path is ProjectFolderItem);
+    //             search_root.global_search.begin (start_folder, term, is_explicit);
+    //         }
+    //     }
+    // }
 
     public void clear_badges () {
-        tree_list.iterate_children (null, (child) => {
-            if (child is ProjectFolderItem) {
-                ((FolderItem)child).remove_all_badges ();
-            }
+        // tree_list.iterate_children (null, (child) => {
+        //     if (child is ProjectFolderItem) {
+        //         ((FolderItem)child).remove_all_badges ();
+        //     }
 
-            return Code.TreeList.ITERATE_CONTINUE;
-        });
+        //     return Code.TreeList.ITERATE_CONTINUE;
+        // });
     }
 
     public void folder_item_update_hook (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
-        plugins.hook_folder_item_change (source, dest, event);
+        // plugins.hook_folder_item_change (source, dest, event);
+        //TODO Make plugins a singleton
     }
 
-    public void iterate_children (Code.TreeListItem? start, Code.TreeList.ListIteratorCallback cb) {
+    private void iterate_children (Code.TreeListItem? start, Code.TreeList.ListIteratorCallback cb) {
         tree_list.iterate_children (start, cb);
     }
 
@@ -489,289 +492,289 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
     }
 
     private void add_new_folder (SimpleAction action, Variant? param) {
-        // Using "path" of parent folder from params, call `on_add_new (true)` on `FolderItem`
-        var path = param.get_string ();
+        // // Using "path" of parent folder from params, call `on_add_new (true)` on `FolderItem`
+        // var path = param.get_string ();
 
-        if (path == null || path == "") {
-            return;
-        }
+        // if (path == null || path == "") {
+        //     return;
+        // }
 
-        var folder = find_path (null, path) as FolderItem;
-        if (folder == null) {
-            return;
-        }
+        // var folder = find_path (null, path) as FolderItem;
+        // if (folder == null) {
+        //     return;
+        // }
 
-        folder.on_add_new (true);
+        // folder.on_add_new (true);
     }
 
     private void add_new_file (SimpleAction action, Variant? param) {
-        // Using "path" of parent folder from params, call `on_add_new (false)` on `FolderItem`
-        var path = param != null ? param.get_string () : null;
+        // // Using "path" of parent folder from params, call `on_add_new (false)` on `FolderItem`
+        // var path = param != null ? param.get_string () : null;
 
-        if (path == null || path == "") {
-            critical ("No path");
-            return;
-        }
+        // if (path == null || path == "") {
+        //     critical ("No path");
+        //     return;
+        // }
 
-        var folder = find_path (null, path) as FolderItem;
-        if (folder == null) {
-            return;
-        }
+        // var folder = find_path (null, path) as FolderItem;
+        // if (folder == null) {
+        //     return;
+        // }
 
-        folder.on_add_new (false);
+        // folder.on_add_new (false);
     }
 
     private void add_new_from_template (SimpleAction action, Variant? param) {
-        // Using "path" of parent folder from params, call `on_add_new (false)` on `FolderItem`
-        // var path = param.get_string ();
-        string? parent_path = null, template_path = null;
-        param.@get ("(ss)", out parent_path, out template_path);
+        // // Using "path" of parent folder from params, call `on_add_new (false)` on `FolderItem`
+        // // var path = param.get_string ();
+        // string? parent_path = null, template_path = null;
+        // param.@get ("(ss)", out parent_path, out template_path);
 
-        //Do we need this check?
-        if (parent_path == null || parent_path == "") {
-            return;
-        }
+        // //Do we need this check?
+        // if (parent_path == null || parent_path == "") {
+        //     return;
+        // }
 
-        var folder = find_path (null, parent_path) as FolderItem;
-        if (folder == null) {
-            return;
-        }
+        // var folder = find_path (null, parent_path) as FolderItem;
+        // if (folder == null) {
+        //     return;
+        // }
 
-        folder.on_add_template (template_path);
+        // folder.on_add_template (template_path);
     }
 
     private void action_launch_app_with_file_path (SimpleAction action, Variant? param) {
-        var params = param.get_strv ();
-        Utils.launch_app_with_file (params[1], params[0]);
+        // var params = param.get_strv ();
+        // Utils.launch_app_with_file (params[1], params[0]);
     }
 
     private void action_show_app_chooser (SimpleAction action, Variant? param) {
-        var path = param.get_string ();
+        // var path = param.get_string ();
 
-        if (path == null || path == "") {
-            return;
-        }
+        // if (path == null || path == "") {
+        //     return;
+        // }
 
-        var file = GLib.File.new_for_path (path);
-        var dialog = new Gtk.AppChooserDialog (new Gtk.Window (), Gtk.DialogFlags.MODAL, file);
-        dialog.deletable = false;
+        // var file = GLib.File.new_for_path (path);
+        // var dialog = new Gtk.AppChooserDialog (new Gtk.Window (), Gtk.DialogFlags.MODAL, file);
+        // dialog.deletable = false;
 
-        dialog.response.connect ((res) => {
-            if (res == Gtk.ResponseType.OK) {
-                var app_info = dialog.get_app_info ();
-                if (app_info != null) {
-                    Utils.launch_app_with_file (app_info.get_id (), path);
-                }
-            }
+        // dialog.response.connect ((res) => {
+        //     if (res == Gtk.ResponseType.OK) {
+        //         var app_info = dialog.get_app_info ();
+        //         if (app_info != null) {
+        //             Utils.launch_app_with_file (app_info.get_id (), path);
+        //         }
+        //     }
 
-            dialog.destroy ();
-        });
+        //     dialog.destroy ();
+        // });
 
-        dialog.show ();
+        // dialog.show ();
     }
 
     private void action_execute_contract_with_file_path (SimpleAction action, Variant? param) {
-        var params = param.get_strv ();
-        var path = params[0];
-        if (path == null || path == "") {
-            return;
-        }
+        // var params = param.get_strv ();
+        // var path = params[0];
+        // if (path == null || path == "") {
+        //     return;
+        // }
 
-        var contract_name = params[1];
-        if (contract_name == null || contract_name == "") {
-            return;
-        }
+        // var contract_name = params[1];
+        // if (contract_name == null || contract_name == "") {
+        //     return;
+        // }
 
-        Utils.execute_contract_with_file_path (path, contract_name);
+        // Utils.execute_contract_with_file_path (path, contract_name);
     }
 
     private void action_rename_file (SimpleAction action, Variant? param) {
-        var path = param.get_string ();
+        // var path = param.get_string ();
 
-        if (path == null || path == "") {
-            return;
-        }
+        // if (path == null || path == "") {
+        //     return;
+        // }
 
-        rename_file (path);
+        // rename_file (path);
     }
 
     private void action_rename_folder (SimpleAction action, Variant? param) {
-        var path = param.get_string ();
+        // var path = param.get_string ();
 
-        if (path == null || path == "") {
-            return;
-        }
+        // if (path == null || path == "") {
+        //     return;
+        // }
 
-        rename_folder (path);
+        // rename_folder (path);
     }
 
 
     private void action_delete (SimpleAction action, Variant? param) {
-        var path = param.get_string ();
+        // var path = param.get_string ();
 
-        if (path == null || path == "") {
-            return;
-        }
+        // if (path == null || path == "") {
+        //     return;
+        // }
 
-        var item = find_path (null, path);
-        if (item != null) {
-            var item_to_delete = item as Code.FolderManagerItem;
+        // var item = find_path (null, path);
+        // if (item != null) {
+        //     var item_to_delete = item as Code.FolderManagerItem;
 
-            // Wait for ProjectFolderItem closed signal handle logic to run before moving item to trash
-            if (item_to_delete is Code.ProjectFolderItem) {
-                item_to_delete.closed.connect_after (() => {
-                    item_to_delete.trash ();
-                });
-                item_to_delete.closed ();
-                return;
-            }
+        //     // Wait for ProjectFolderItem closed signal handle logic to run before moving item to trash
+        //     if (item_to_delete is Code.ProjectFolderItem) {
+        //         item_to_delete.closed.connect_after (() => {
+        //             item_to_delete.trash ();
+        //         });
+        //         item_to_delete.closed ();
+        //         return;
+        //     }
 
-            item_to_delete.trash ();
-        }
+        //     item_to_delete.trash ();
+        // }
     }
 
-    private async void add_folder (File folder, bool expand, bool restoring = false) {
-        if (is_open (folder)) {
-            warning ("Folder '%s' is already open.", folder.path);
-            return;
-        } else if (!folder.is_valid_directory) {
-            warning ("Cannot open invalid directory.");
-            return;
-        }
+    // private async void add_folder (File folder, bool expand, bool restoring = false) {
+    //     if (is_open (folder)) {
+    //         warning ("Folder '%s' is already open.", folder.path);
+    //         return;
+    //     } else if (!folder.is_valid_directory) {
+    //         warning ("Cannot open invalid directory.");
+    //         return;
+    //     }
 
-        var add_file = folder.file;
-        // Need to deal with case where folder is parent or child of an existing project
-        var parents = new List<ProjectFolderItem> ();
-        var children = new List<ProjectFolderItem> ();
+    //     var add_file = folder.file;
+    //     // Need to deal with case where folder is parent or child of an existing project
+    //     var parents = new List<ProjectFolderItem> ();
+    //     var children = new List<ProjectFolderItem> ();
 
-        tree_list.iterate_children (null, (child) => {
-            var item = (ProjectFolderItem) child;
-            if (add_file.get_relative_path (item.file.file) != null) {
-                debug ("Trying to add parent of existing project");
-                children.append (item);
-            } else if (item.file.file.get_relative_path (add_file) != null) {
-                debug ("Trying to add child of existing project");
-                parents.append (item);
-            }
+    //     tree_list.iterate_children (null, (child) => {
+    //         var item = (ProjectFolderItem) child;
+    //         if (add_file.get_relative_path (item.file.file) != null) {
+    //             debug ("Trying to add parent of existing project");
+    //             children.append (item);
+    //         } else if (item.file.file.get_relative_path (add_file) != null) {
+    //             debug ("Trying to add child of existing project");
+    //             parents.append (item);
+    //         }
 
-            return Code.TreeList.ITERATE_CONTINUE;
-        });
+    //         return Code.TreeList.ITERATE_CONTINUE;
+    //     });
 
-        if (parents.length () > 0 || children.length () > 0) {
-            assert (parents.length () <= 1);
-            assert (parents.length () == 0 || children.length () == 0);
-            var dialog = new Scratch.Dialogs.CloseProjectsConfirmationDialog (
-                (Scratch.MainWindow) get_root (),
-                parents.length (),
-                children.length ()
-            );
+    //     if (parents.length () > 0 || children.length () > 0) {
+    //         assert (parents.length () <= 1);
+    //         assert (parents.length () == 0 || children.length () == 0);
+    //         var dialog = new Scratch.Dialogs.CloseProjectsConfirmationDialog (
+    //             (Scratch.MainWindow) get_root (),
+    //             parents.length (),
+    //             children.length ()
+    //         );
 
-            var close_projects = false;
-            dialog.response.connect ((res) => {
-                if (res == Gtk.ResponseType.ACCEPT) {
-                    close_projects = true;
-                }
+    //         var close_projects = false;
+    //         dialog.response.connect ((res) => {
+    //             if (res == Gtk.ResponseType.ACCEPT) {
+    //                 close_projects = true;
+    //             }
 
-                dialog.destroy ();
-                add_folder.callback ();
-            });
+    //             dialog.destroy ();
+    //             add_folder.callback ();
+    //         });
 
-            dialog.show ();
-            yield;
+    //         dialog.show ();
+    //         yield;
 
-            if (close_projects) {
-                foreach (var item in parents) {
-                    item.closed ();
-                }
+    //         if (close_projects) {
+    //             foreach (var item in parents) {
+    //                 item.closed ();
+    //             }
 
-                foreach (var item in children) {
-                    item.closed ();
-                }
-            } else {
-                return;
-            }
-        }
+    //             foreach (var item in children) {
+    //                 item.closed ();
+    //             }
+    //         } else {
+    //             return;
+    //         }
+    //     }
 
-        // Process any closed signals emitted before proceeding
-        Idle.add (() => {
-            var folder_root = new ProjectFolderItem (folder, this); // Constructor adds project to GitManager
-            tree_list.add_root_item (folder_root);
-            rename_items_with_same_name (folder_root);
+    //     // Process any closed signals emitted before proceeding
+    //     Idle.add (() => {
+    //         var folder_root = new ProjectFolderItem (folder, this); // Constructor adds project to GitManager
+    //         tree_list.add_root_item (folder_root);
+    //         rename_items_with_same_name (folder_root);
 
-            folder_root.is_expanded = expand;
-            folder_root.closed.connect (() => {
-                activate_action (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
-                    "s",
-                    folder_root.path
-                );
+    //         folder_root.is_expanded = expand;
+    //         folder_root.closed.connect (() => {
+    //             activate_action (
+    //                 MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
+    //                 "s",
+    //                 folder_root.path
+    //             );
 
-                tree_list.remove_root_item (folder_root);
+    //             tree_list.remove_root_item (folder_root);
 
-                tree_list.iterate_children (null, (child) => {
-                    var child_folder = (ProjectFolderItem) child;
-                    if (child_folder.name != child_folder.file.name) {
-                        rename_items_with_same_name (child_folder);
-                    }
+    //             tree_list.iterate_children (null, (child) => {
+    //                 var child_folder = (ProjectFolderItem) child;
+    //                 if (child_folder.name != child_folder.file.name) {
+    //                     rename_items_with_same_name (child_folder);
+    //                 }
 
-                    return Code.TreeList.ITERATE_CONTINUE;
-                });
+    //                 return Code.TreeList.ITERATE_CONTINUE;
+    //             });
 
-                Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
-                write_settings ();
-            });
+    //             Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
+    //             write_settings ();
+    //         });
 
-            // We do not want to rewrite settings while restoring from settings
-            // This interferes with fuzzy-finder plugins_manager
-            // See https://github.com/elementary/code/issues/1533
-            if (!restoring) {
-                write_settings ();
-            }
+    //         // We do not want to rewrite settings while restoring from settings
+    //         // This interferes with fuzzy-finder plugins_manager
+    //         // See https://github.com/elementary/code/issues/1533
+    //         if (!restoring) {
+    //             write_settings ();
+    //         }
 
-            add_folder.callback ();
-            return Source.REMOVE;
-        });
+    //         add_folder.callback ();
+    //         return Source.REMOVE;
+    //     });
 
-        yield;
+    //     yield;
 
-        order_folders ();
-    }
+    //     order_folders ();
+    // }
 
-    private bool is_open (File folder) {
-        bool open = false;
-        tree_list.iterate_children (null, (child) => {
-            if (folder.path == ((FolderManagerItem) child).path) {
-                open = true;
-                return Code.TreeList.ITERATE_STOP;
-            }
+    // private bool is_open (File folder) {
+    //     bool open = false;
+    //     tree_list.iterate_children (null, (child) => {
+    //         if (folder.path == ((FolderManagerItem) child).path) {
+    //             open = true;
+    //             return Code.TreeList.ITERATE_STOP;
+    //         }
 
-            return Code.TreeList.ITERATE_CONTINUE;
-        });
+    //         return Code.TreeList.ITERATE_CONTINUE;
+    //     });
 
-        return open;
-    }
+    //     return open;
+    // }
 
-    private void write_settings () {
-        string[] to_save = {};
-        tree_list.iterate_children (null, (item) => {
-            var saved = false;
-            var folder_path = ((FolderManagerItem) item).path;
+    // private void write_settings () {
+    //     string[] to_save = {};
+    //     tree_list.iterate_children (null, (item) => {
+    //         var saved = false;
+    //         var folder_path = ((FolderManagerItem) item).path;
 
-            //Do we need to de-duplicate? Not possible to open a project twice?
-            foreach (var saved_folder in to_save) {
-                if (folder_path == saved_folder) {
-                    saved = true;
-                    break;
-                }
-            }
+    //         //Do we need to de-duplicate? Not possible to open a project twice?
+    //         foreach (var saved_folder in to_save) {
+    //             if (folder_path == saved_folder) {
+    //                 saved = true;
+    //                 break;
+    //             }
+    //         }
 
-            if (!saved) {
-                to_save += folder_path;
-            }
+    //         if (!saved) {
+    //             to_save += folder_path;
+    //         }
 
-            return Code.TreeList.ITERATE_CONTINUE;
-        });
+    //         return Code.TreeList.ITERATE_CONTINUE;
+    //     });
 
-        settings.set_strv ("opened-folders", to_save);
-    }
+    //     settings.set_strv ("opened-folders", to_save);
+    // }
 }

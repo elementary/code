@@ -19,22 +19,38 @@
 */
 
 public class Code.File : GLib.Object {
-    public GLib.File file { get; private set; }
+    public GLib.File file { get; set construct; }
     private GLib.FileInfo? info = null; // Non-null after loading
 
     public File (string path) {
         Object (path: path);
     }
 
-    // returns the path the file
-    public string path {
-        owned get {
-            return file.get_path ();
-        }
-        set construct {
-            load_file_for_path (value);
+    construct {
+        file = GLib.File.new_for_path (path);
+        info = new FileInfo ();
+        try {
+            var query_string = GLib.FileAttribute.STANDARD_CONTENT_TYPE + "," +
+                                GLib.FileAttribute.STANDARD_IS_BACKUP + "," +
+                                GLib.FileAttribute.STANDARD_IS_HIDDEN + "," +
+                                GLib.FileAttribute.STANDARD_DISPLAY_NAME + "," +
+                                GLib.FileAttribute.STANDARD_TYPE;
+
+            info = file.query_info (query_string, FileQueryInfoFlags.NONE);
+        } catch (GLib.Error error) {
+            info = null;
+            warning (error.message);
         }
     }
+    // returns the path the file
+    public string path { get; construct; }
+    //     owned get {
+    //         return file.get_path ();
+    //     }
+    //     set construct {
+    //         load_file_for_path (value);
+    //     }
+    // }
 
     // returns the basename of the file
     private string _name;
@@ -154,24 +170,6 @@ public class Code.File : GLib.Object {
         var info = file.query_info (attribute, GLib.FileQueryInfoFlags.NONE);
 
         return info.get_attribute_boolean (attribute);
-    }
-
-    private void load_file_for_path (string path) {
-        file = GLib.File.new_for_path (path);
-
-        info = new FileInfo ();
-        try {
-            var query_string = GLib.FileAttribute.STANDARD_CONTENT_TYPE + "," +
-                                GLib.FileAttribute.STANDARD_IS_BACKUP + "," +
-                                GLib.FileAttribute.STANDARD_IS_HIDDEN + "," +
-                                GLib.FileAttribute.STANDARD_DISPLAY_NAME + "," +
-                                GLib.FileAttribute.STANDARD_TYPE;
-
-            info = file.query_info (query_string, FileQueryInfoFlags.NONE);
-        } catch (GLib.Error error) {
-            info = null;
-            warning (error.message);
-        }
     }
 
     public void rename (string name) {

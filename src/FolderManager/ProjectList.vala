@@ -5,8 +5,8 @@
 
 //TODO Can we just use ProjectFolderItems direct?
 public class Code.ProjectListItem : Object {
-    public ProjectFolderItem project_folder { get; construct; }
-    public string path { owned get { return project_folder.path; }}
+    public ProjectFolderItem project_folder { get; set construct; }
+    public string path { get; construct; }
     public GLib.File gfile { get { return project_folder.file.file; }}
     public Code.FolderTree folder_tree { get; set construct; }
 
@@ -15,15 +15,39 @@ public class Code.ProjectListItem : Object {
     private bool is_expanded { get; set; }
     private bool is_active_project { get { return git_manager.active_project_path == path; } }
 
-    public ProjectListItem (ProjectFolderItem project) {
+    public ProjectListItem (string path) {
         Object (
-            project_folder: project
+            path: path
         );
     }
 
     construct {
         folder_tree = new FolderTree (path);
         git_manager = Scratch.Services.GitManager.get_instance ();
+
+        var new_project = new ProjectFolderItem (new Code.File (path), folder_tree); // Constructor adds project to GitManager
+        new_project.project.closed.connect (() => {
+            activate_action (
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
+                "s",
+                folder_root.path
+            );
+
+            tree_list.remove_root_item (folder_root);
+
+            tree_list.iterate_children (null, (child) => {
+                var child_folder = (ProjectFolderItem) child;
+                if (child_folder.name != child_folder.file.name) {
+                    rename_items_with_same_name (child_folder);
+                }
+
+                return Code.TreeList.ITERATE_CONTINUE;
+            });
+
+            Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
+            write_settings ();
+        });
+
     }
 
     public bool is_or_contains_file (GLib.File gfile) {
@@ -40,9 +64,14 @@ public class Code.ProjectListItem : Object {
         is_expanded = true;
     }
 
-    public void closed () {
+    public void close () {
         // folder_tree.clear ();
         project_folder.closed ();
+        git_manager.remove_project (project_folder); // Takes care of active_project?
+    }
+
+    public void set_as_active_project () {
+        git_manager.active_project_path = path;
     }
 }
 
@@ -50,8 +79,9 @@ public class Code.ProjectListItem : Object {
 public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
     public const string ACTION_GROUP = "project-list";
     public const string ACTION_PREFIX = ACTION_GROUP + ".";
-    public const string ACTION_CLOSE_FOLDER = "close-folder";
-    public const string ACTION_CLOSE_OTHER_FOLDERS = "close-other-folders";
+    public const string ACTION_CLOSE_PROJECT_FOLDER = "close-project-folder";
+    public const string ACTION_CLOSE_OTHER_PROJECT_FOLDERS = "close-other-project-folders";
+    public const string CLOSE_PROJECT_DOCS_ACTION_NAME = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_CLOSE_PROJECT_DOCS;
     public SimpleActionGroup actions { get; private set; }
     public bool is_empty { get { return list_store.n_root_items () == 0; } }
 
@@ -64,13 +94,13 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
     private Scratch.Services.PluginsManager plugins;
 
     private const ActionEntry[] ACTION_ENTRIES = {
-        { ACTION_CLOSE_FOLDER, action_close_folder, "s"},
-        { ACTION_CLOSE_OTHER_FOLDERS, action_close_other_folders, "s"}
+        { ACTION_CLOSE_PROJECT_FOLDER, action_close_project_folder, "s"},
+        { ACTION_CLOSE_OTHER_PROJECT_FOLDERS, action_close_other_project_folders, "s"}
     };
 
-    public ProjectList (Scratch.Services.PluginsManager plugins_manager) {
-        plugins = plugins_manager;
-    }
+    // public ProjectList (Scratch.Services.PluginsManager plugins_manager) {
+    //     plugins = plugins_manager;
+    // }
 
     construct {
         settings = new GLib.Settings ("io.elementary.code.folder-manager");
@@ -573,7 +603,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         var parents = new List<ProjectListItem> ();
         var children = new List<ProjectListItem> ();
 
-        iterate_children (null, (listitem) => {
+        iterate_children ((listitem) => {
             // var item = (ProjectFolderItem) child;
             if (add_file.get_relative_path (listitem.gfile) != null) {
                 debug ("Trying to add parent of existing project");
@@ -610,11 +640,11 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
 
             if (close_projects) {
                 foreach (var listitem in parents) {
-                    listitem.closed ();
+                    listitem.close ();
                 }
 
-                foreach (var item in children) {
-                    listitem.closed ();
+                foreach (var listitem in children) {
+                    listitem.close ();
                 }
             } else {
                 return;
@@ -623,28 +653,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
 
         // Process any closed signals emitted before proceeding
         Idle.add (() => {
-            var new_project = new ProjectFolderItem (folder, this); // Constructor adds project to GitManager
-            new_project.project.closed.connect (() => {
-                activate_action (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
-                    "s",
-                    folder_root.path
-                );
 
-                tree_list.remove_root_item (folder_root);
-
-                tree_list.iterate_children (null, (child) => {
-                    var child_folder = (ProjectFolderItem) child;
-                    if (child_folder.name != child_folder.file.name) {
-                        rename_items_with_same_name (child_folder);
-                    }
-
-                    return Code.TreeList.ITERATE_CONTINUE;
-                });
-
-                Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
-                write_settings ();
-            });
 
             var new_item = new ProjectListItem (folder);
             list_store.append_item (new_item);
@@ -684,7 +693,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
     //     return open;
     // }
 
-    private void write_settings () {
+    private void write_open_folders_setting () {
         string[] to_save = {};
         tree_list.iterate_children (null, (item) => {
             var saved = false;
@@ -708,50 +717,64 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         settings.set_strv ("opened-folders", to_save);
     }
 
-    private void action_close_folder (SimpleAction action, GLib.Variant? parameter) {
+    private void action_close_project_folder (SimpleAction action, GLib.Variant? parameter) {
         var path = parameter.get_string ();
         if (path == null || path == "") {
             return;
         }
 
-        var project_item = find_path (null, path) as ProjectFolderItem;
-        if (project_item == null) {
-            return;
-        }
-
-        project_item.closed ();
-    }
-
-    private void action_close_other_folders (SimpleAction action, GLib.Variant? parameter) {
-        var path = parameter.get_string ();
-        if (path == null || path == "") {
-            return;
-        }
-
-        var folder_root = find_path (null, path) as ProjectFolderItem;
-        if (folder_root == null) {
-            return;
-        }
-
-        List<Code.TreeListItem> to_remove = null;
-        tree_list.iterate_children (null, (child) => {
-            var project_folder_item = (ProjectFolderItem) child;
-            if (project_folder_item != folder_root) {
-                activate_action (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
-                    "s",
-                    project_folder_item.path
-                );
-                to_remove.prepend (project_folder_item);
-                git_manager.remove_project (project_folder_item);
+        iterate_children ((listitem) => {
+            if (listitem.path == path) {
+                listitem.close ();
+                return TreeList.ITERATE_STOP;
             }
 
-            return Code.TreeList.ITERATE_CONTINUE;
+            return TreeList.ITERATE_CONTINUE;
+        });
+    }
+
+    private void action_close_other_project_folders (SimpleAction action, GLib.Variant? parameter) {
+        var path = parameter.get_string ();
+        if (path == null || path == "") {
+            return;
+        }
+
+        List<ProjectListItem> to_remove = null;
+        iterate_children ((listitem) => {
+            if (listitem.path != path) {
+                listitem.close ();
+                to_remove.prepend (listitem);
+            }
+
+            return TreeList.ITERATE_CONTINUE;
         });
 
-        tree_list.remove_root_children (to_remove);
-        //Make remaining project the active one
-        set_project_active (path);
+        // List<Code.TreeListItem> to_remove = null;
+        // tree_list.iterate_children (null, (child) => {
+        //     var project_folder_item = (ProjectFolderItem) child;
+        //     if (project_folder_item != folder_root) {
+        //         activate_action (
+        //             MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
+        //             "s",
+        //             project_folder_item.path
+        //         );
+        //         to_remove.prepend (project_folder_item);
+        //         git_manager.remove_project (project_folder_item);
+        //     }
+
+        //     return Code.TreeList.ITERATE_CONTINUE;
+        // });
+
+        foreach (ProjectListItem listitem in to_remove) {
+            activate_action (
+                CLOSE_PROJECT_DOCS_ACTION_NAME,
+                "s",
+                listitem.path
+            );
+            uint pos;
+            list_store.find (listitem, out pos);
+            list_store.remove (pos);
+        }
     }
 
     private void action_set_active_project (SimpleAction action, GLib.Variant? parameter) {
@@ -764,16 +787,15 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
     }
 
     private ProjectFolderItem? set_active_project (string path) {
-        var folder_root = find_path (null, path) as ProjectFolderItem;
-        if (folder_root == null) {
+        var listitem = find_path (path);
+        if (listitem == null) {
             return null;
         }
 
-        git_manager.active_project_path = path;
+        listitem.set_as_active_project ();
+        write_open_folders_setting ();
 
-        write_settings ();
-
-        return folder_root;
+        return listitem;
     }
 
     private void set_project_active (string path) {
