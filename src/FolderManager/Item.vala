@@ -23,12 +23,11 @@ namespace Scratch.FolderManager {
      * Common abstract class for file and folder items.
      */
     public abstract class Item: Code.Widgets.SourceList.ExpandableItem, Code.Widgets.SourceListSortable {
-        public File file { get; construct; }
+        public FolderManager.File file { get; construct; }
 
         public FileView view { get; construct; }
         public string path {
             owned get { return file.path; }
-            set { file.path = value; }
         }
 
         construct {
