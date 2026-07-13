@@ -46,11 +46,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
     private Peas.ExtensionSet extension_set;
 
     public Scratch.Services.Interface plugin_iface { get; private set; }
-    public weak Scratch.MainWindow window { get; construct; }
 
-    public PluginsManager (Scratch.MainWindow _window) {
-        Object (window: _window);
-    }
 
     construct {
         plugin_iface = new Scratch.Services.Interface (this);

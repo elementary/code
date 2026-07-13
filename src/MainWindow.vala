@@ -298,7 +298,7 @@ namespace Scratch {
 
             clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
 
-            plugins = new Scratch.Services.PluginsManager (this);
+            plugins = new Scratch.Services.PluginsManager ();
 
             key_controller = new Gtk.EventControllerKey (this) {
                 propagation_phase = TARGET
@@ -556,6 +556,12 @@ namespace Scratch {
                     plugins.hook_window (this);
                     plugins.hook_toolbar (toolbar);
                     plugins.hook_share_menu (toolbar.share_menu);
+                    // Ensure new plugin active on any existing current doc
+                    var doc = get_current_document ();
+                    if (doc != null) {
+                        plugins.hook_document (doc);
+                    }
+
                 };
 
                 plugins.extension_added.connect (() => {
