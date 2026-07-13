@@ -30,6 +30,15 @@ public class Scratch.Services.Interface : GLib.Object {
         );
     }
 
+    public Scratch.Services.Document open_file (File file) {
+        var doc = new Scratch.Services.Document (manager.window.actions, file);
+        manager.window.open_document.begin (doc);
+        return doc;
+    }
+
+    public void close_document (Scratch.Services.Document doc) {
+        manager.window.close_document (doc);
+    }
 }
 
 public class Scratch.Services.PluginsManager : GLib.Object {
