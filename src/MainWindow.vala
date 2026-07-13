@@ -46,10 +46,10 @@ namespace Scratch {
         public Scratch.Widgets.SearchBar search_bar;
         private Code.WelcomeView welcome_view;
         private Code.Terminal terminal;
-        private FolderManager.FileView folder_manager_view;
+        private Code.ProjectList folder_manager_view;
         private Scratch.Services.DocumentManager document_manager;
         // Plugins
-        private Scratch.Services.PluginsManager plugins;
+        public Scratch.Services.PluginsManager plugins { get; private set;}
 
         // Widgets for Plugins
         public Code.Sidebar sidebar;
@@ -463,13 +463,13 @@ namespace Scratch {
 
             sidebar = new Code.Sidebar ();
 
-            // folder_manager_view = new FolderManager.FileView (plugins);
+            // folder_manager_view = new Code.FileView (plugins);
 
             // sidebar.add_tab (folder_manager_view);
             // sidebar.add_tab (new Granite.HeaderLabel ("Dummy Sidebar"));
 
             // folder_manager_view.file_activate.connect ((file) => {
-            //     // var file = new Scratch.FolderManager.File (a);
+            //     // var file = new Code.File (a);
             //     var doc = new Scratch.Services.Document (actions, file.file);
 
             //     if (file.is_valid_textfile) {
@@ -583,7 +583,7 @@ namespace Scratch {
 
             document_view.tab_removed.connect ((doc) => {
                 update_find_actions ();
-                folder_manager_view.unselect_file (doc.file);
+                // folder_manager_view.unselect_file (doc.file);
             });
 
             document_view.document_change.connect ((doc) => {
@@ -745,7 +745,7 @@ namespace Scratch {
         }
 
         public void open_folder (File folder) {
-            var foldermanager_file = new FolderManager.File (folder.get_path ());
+            var foldermanager_file = new Code.File (folder.get_path ());
             folder_manager_view.open_folder (foldermanager_file);
         }
 
@@ -753,7 +753,7 @@ namespace Scratch {
                                    bool focus = true,
                                    int cursor_position = 0) {
 
-            // FolderManager.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
+            // Code.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
             // doc.source_view.project = project;
             yield document_view.open_document (doc, focus, cursor_position);
         }
@@ -1023,7 +1023,7 @@ var index = 0;
                     var obj = files.get_item (index++);
                     while (obj != null) {
                         // var file = (GLib.File) obj;
-                        // var foldermanager_file = new FolderManager.File (file.get_path ());
+                        // var foldermanager_file = new Code.File (file.get_path ());
                         // folder_manager_view.open_folder (foldermanager_file);
                         // obj = files.get_item (index++);
                     }
@@ -1038,7 +1038,7 @@ var index = 0;
             if (path == "") {
                 choose_folder ();
             } else {
-                // folder_manager_view.open_folder (new FolderManager.File (path));
+                // folder_manager_view.open_folder (new Code.File (path));
             }
         }
 

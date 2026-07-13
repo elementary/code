@@ -99,6 +99,8 @@ public class Scratch.Services.ValaSymbolItem : Code.TreeListItem, Scratch.Servic
         } else {
             warning (symbol.type_name);
         }
+
+        warning ("new symbol text %s", text);
     }
 
     ~ValaSymbolItem () {

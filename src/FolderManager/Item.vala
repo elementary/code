@@ -18,128 +18,124 @@
  * Authored by: Julien Spautz <spautz.julien@gmail.com>, Andrei-Costin Zisu <matzipan@gmail.com>
  */
 
-namespace Scratch.FolderManager {
-    /**
-     * Common abstract class for file and folder items.
-     */
-    public abstract class Item: Code.TreeListItem {
-        public File file { get; construct; }
-        public FileView view { get; construct; }
+public abstract class Code.FolderManagerItem: Object {
+    public Code.File file { get; construct; }
+    public Code.FolderTree view { get; construct; }
 
-        public string name {
-            get {
-                return text;
-            }
-
-            set {
-                text = value;
-            }
+    public string name {
+        get {
+            return text;
         }
 
-        public string path {
-            owned get { return file.path; }
-            set { file.path = value; }
+        set {
+            text = value;
         }
+    }
 
-        public signal void edited (string new_name);
+    public string path {
+        owned get { return file.path; }
+        set { file.path = value; }
+    }
 
-        construct {
-            is_selectable = true;
-            is_editable = true;
-            text = file.name;
-            icon = file.icon;
-            edited.connect (rename);
-            tooltip = Scratch.Utils.replace_home_with_tilde (file.path);
+    public signal void edited (string new_name);
 
-            notify["activatable-tooltip"].connect (() => {
-                tooltip = ("%s\n" + Granite.TOOLTIP_SECONDARY_TEXT_MARKUP).printf (
-                    Scratch.Utils.replace_home_with_tilde (file.path),
-                    secondary_icon_tooltip
-                );
-            });
-        }
+    construct {
+        is_selectable = true;
+        is_editable = true;
+        text = file.name;
+        icon = file.icon;
+        edited.connect (rename);
+        tooltip = Scratch.Utils.replace_home_with_tilde (file.path);
 
-        protected void rename (string new_name) {
-            file.rename (new_name);
-        }
+        notify["activatable-tooltip"].connect (() => {
+            tooltip = ("%s\n" + Granite.TOOLTIP_SECONDARY_TEXT_MARKUP).printf (
+                Scratch.Utils.replace_home_with_tilde (file.path),
+                secondary_icon_tooltip
+            );
+        });
+    }
 
-        public bool equal (Item b) {
-            return path == b.path;
-        }
+    protected void rename (string new_name) {
+        file.rename (new_name);
+    }
 
-        public void trash () {
-            file.trash ();
-        }
+    public bool equal (FolderManagerItem b) {
+        return path == b.path;
+    }
 
-        public int compare (Code.TreeListItem a, Code.TreeListItem  b) {
-            // if (a is RenameItem) {
-            //     return -1;
-            // } else
-            // if (b is RenameItem) {
-            //     return 1;
-            // }
+    public void trash () {
+        file.trash ();
+    }
 
-            if (a is FolderItem && b is FileItem) {
-                return -1;
-            } else if (a is FileItem && b is FolderItem) {
-                return 1;
-            }
-
-            assert (a is Item && b is Item); //Ensure more informative error message
-
-            return File.compare (((Item)a).file, ((Item)b).file);
-        }
-
-        public bool allow_dnd_sorting () {
-            return false;
-        }
-
-        public ProjectFolderItem? get_root_folder (Code.TreeListItem start = null) {
-            if (start == null) {
-                start = this;
-            }
-
-            if (start is ProjectFolderItem) {
-                return start as ProjectFolderItem;
-            } else if (start.parent is ProjectFolderItem) {
-                return start.parent as ProjectFolderItem;
-            } else if (start.parent != null) {
-                return get_root_folder (start.parent);
-            } else {
-                return null;
-            }
-        }
-
-        // protected class RenameItem : Code.TreeListItem {
-        //     public bool is_folder { get; construct; }
-        //     public string name { get; set construct; }
-
-        //     public RenameItem (string name, bool is_folder) {
-        //         Object (
-        //             name: name
-        //             is_folder: is_folder
-        //         );
-        //     }
-
-        //     construct {
-        //         is_editable = true;
-        //         is_selectable = true;
-        //         edited.connect (on_edited);
-
-        //         if (is_folder) {
-        //             icon = GLib.ContentType.get_icon ("inode/directory");
-        //         } else {
-        //             icon = GLib.ContentType.get_icon ("text");
-        //         }
-        //     }
-
-        //     private void on_edited (string new_name) {
-        //         if (new_name != "") {
-        //             name = new_name;
-        //         }
-        //     }
+    public int compare (Code.TreeListItem a, Code.TreeListItem  b) {
+        // if (a is RenameItem) {
+        //     return -1;
+        // } else
+        // if (b is RenameItem) {
+        //     return 1;
         // }
 
-        public virtual GLib.Menu? get_context_menu () { return null; }
+        if (a is FolderItem && b is FileItem) {
+            return -1;
+        } else if (a is FileItem && b is FolderItem) {
+            return 1;
+        }
+
+        assert (a is FolderManagerItem && b is FolderManagerItem); //Ensure more informative error message
+
+        return File.compare (((FolderManagerItem)a).file, ((FolderManagerItem)b).file);
     }
+
+    public bool allow_dnd_sorting () {
+        return false;
+    }
+
+    public ProjectFolderItem? get_root_folder (Code.TreeListItem start = null) {
+        if (start == null) {
+            start = this;
+        }
+
+        if (start is ProjectFolderItem) {
+            return start as ProjectFolderItem;
+        } else if (start.parent is ProjectFolderItem) {
+            return start.parent as ProjectFolderItem;
+        } else if (start.parent != null) {
+            return get_root_folder (start.parent);
+        } else {
+            return null;
+        }
+    }
+
+    // protected class RenameItem : Code.TreeListItem {
+    //     public bool is_folder { get; construct; }
+    //     public string name { get; set construct; }
+
+    //     public RenameItem (string name, bool is_folder) {
+    //         Object (
+    //             name: name
+    //             is_folder: is_folder
+    //         );
+    //     }
+
+    //     construct {
+    //         is_editable = true;
+    //         is_selectable = true;
+    //         edited.connect (on_edited);
+
+    //         if (is_folder) {
+    //             icon = GLib.ContentType.get_icon ("inode/directory");
+    //         } else {
+    //             icon = GLib.ContentType.get_icon ("text");
+    //         }
+    //     }
+
+    //     private void on_edited (string new_name) {
+    //         if (new_name != "") {
+    //             name = new_name;
+    //         }
+    //     }
+    // }
+
+    public virtual GLib.Menu? get_context_menu () { return null; }
 }
+

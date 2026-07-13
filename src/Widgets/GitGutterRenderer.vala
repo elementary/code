@@ -17,7 +17,7 @@ public class Scratch.Widgets.GitGutterRenderer : GtkSource.GutterRenderer {
 
     public Gee.HashMap<int, Services.VCStatus> line_status_map;
     public Gee.HashMap<Services.VCStatus, Gdk.RGBA?> status_color_map;
-    public FolderManager.ProjectFolderItem? project { get; set; default = null; }
+    public Code.ProjectFolderItem? project { get; set; default = null; }
 
     static construct {
         fallback_scheme = GtkSource.StyleSchemeManager.get_default ().get_scheme ("classic"); // We can assume this always exists

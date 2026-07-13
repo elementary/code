@@ -1,28 +1,22 @@
-/*-
- * Copyright (c) 2017-2026 elementary LLC. (https://elementary.io),
- *               2013 Julien Spautz <spautz.julien@gmail.com>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License version 3
- * as published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranties of
- * MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
- * PURPOSE. See the GNU General Public License for more details.
-
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * Authored by: Julien Spautz <spautz.julien@gmail.com>, Andrei-Costin Zisu <matzipan@gmail.com>
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2026 elementary, Inc. <https://elementary.io>
  */
 
-/**
- * SourceList that displays folders and their contents.
- */
-// public class Scratch.FolderManager.FileView : Code.TreeList, Code.PaneSwitcher {
-public class Scratch.FolderManager.FileView : Granite.Bin, Code.PaneSwitcher {
+/* FolderTree shows a single folder and its children as a tree */
+public class Code.FolderTreeItem : Code.TreeListItem {
+    public FolderManagerItem? item { get; construct; } //Either File or Folder Item
+
+    public FolderTreeItem (FolderManagerItem item) {
+        Object ( item: item );
+    }
+
+    construct {
+        item.file.bind_property ("name", this, text);
+    }
+}
+
+public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
     public signal void file_activate (File file);
     public signal bool rename_request (File file);
 
@@ -65,7 +59,7 @@ public class Scratch.FolderManager.FileView : Granite.Bin, Code.PaneSwitcher {
     private Scratch.Services.GitManager git_manager;
     private Scratch.Services.PluginsManager plugins;
 
-    public FileView (Scratch.Services.PluginsManager plugins_manager) {
+    public FolderTree (Scratch.Services.PluginsManager plugins_manager) {
         plugins = plugins_manager;
     }
 
@@ -94,6 +88,11 @@ public class Scratch.FolderManager.FileView : Granite.Bin, Code.PaneSwitcher {
         });
 
         child = tree_list;
+    }
+
+    public bool contains_file (GLib.File gfile) {
+        //TODO Fill out
+        return false;
     }
 
     private void action_close_folder (SimpleAction action, GLib.Variant? parameter) {
@@ -232,7 +231,7 @@ public class Scratch.FolderManager.FileView : Granite.Bin, Code.PaneSwitcher {
             if (project_folder.path != path) {
                 project_folder.is_expanded = false;
                 activate_action (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_HIDE_PROJECT_DOCS,
+                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_HIDE_PROJECT_DOCS,
                     "s",
                     project_folder.path
                 );
@@ -306,7 +305,7 @@ public class Scratch.FolderManager.FileView : Granite.Bin, Code.PaneSwitcher {
         Code.TreeListItem? matched_item = null;
 
         tree_list.iterate_children (null, (item) => {
-            if ((item is Item) && item.path == path) {
+            if ((item is FolderManagerItem) && item.path == path) {
                 matched_item = item;
                 return Code.TreeList.ITERATE_STOP;
             }
@@ -340,9 +339,9 @@ public class Scratch.FolderManager.FileView : Granite.Bin, Code.PaneSwitcher {
         return matched_item;
     }
 
-    public bool project_is_open (string project_path) {
-        return get_project_for_file (GLib.File.new_for_path (project_path)) != null;
-    }
+    // public bool project_is_open (string project_path) {
+    //     return get_project_for_file (GLib.File.new_for_path (project_path)) != null;
+    // }
 
     public ProjectFolderItem? get_project_for_file (GLib.File file) {
         ProjectFolderItem? matched_project = null;
@@ -367,7 +366,7 @@ public class Scratch.FolderManager.FileView : Granite.Bin, Code.PaneSwitcher {
 
     /* Do global search on project containing the file path supplied in parameter */
     public void search_global (string path, string? term = null) {
-        var item_for_path = (Item?)(expand_to_path (path));
+        var item_for_path = (FolderManagerItem?)(expand_to_path (path));
         if (item_for_path != null) {
             var search_root = item_for_path.get_root_folder ();
             if (search_root is ProjectFolderItem) {
@@ -461,7 +460,7 @@ public class Scratch.FolderManager.FileView : Granite.Bin, Code.PaneSwitcher {
         // }
     }
 
-    private void rename_items_with_same_name (Item item) {
+    private void rename_items_with_same_name (FolderManagerItem item) {
         // string item_name = item.file.name;
         // tree_list.iterate_children (null, (child) => {
         //     string new_other_item_name, new_item_name;
@@ -616,10 +615,10 @@ public class Scratch.FolderManager.FileView : Granite.Bin, Code.PaneSwitcher {
 
         var item = find_path (null, path);
         if (item != null) {
-            var item_to_delete = item as Scratch.FolderManager.Item;
+            var item_to_delete = item as Code.FolderManagerItem;
 
             // Wait for ProjectFolderItem closed signal handle logic to run before moving item to trash
-            if (item_to_delete is Scratch.FolderManager.ProjectFolderItem) {
+            if (item_to_delete is Code.ProjectFolderItem) {
                 item_to_delete.closed.connect_after (() => {
                     item_to_delete.trash ();
                 });
@@ -662,7 +661,7 @@ public class Scratch.FolderManager.FileView : Granite.Bin, Code.PaneSwitcher {
             assert (parents.length () <= 1);
             assert (parents.length () == 0 || children.length () == 0);
             var dialog = new Scratch.Dialogs.CloseProjectsConfirmationDialog (
-                (MainWindow) get_root (),
+                (Scratch.MainWindow) get_root (),
                 parents.length (),
                 children.length ()
             );
@@ -741,7 +740,7 @@ public class Scratch.FolderManager.FileView : Granite.Bin, Code.PaneSwitcher {
     private bool is_open (File folder) {
         bool open = false;
         tree_list.iterate_children (null, (child) => {
-            if (folder.path == ((Item) child).path) {
+            if (folder.path == ((FolderManagerItem) child).path) {
                 open = true;
                 return Code.TreeList.ITERATE_STOP;
             }
@@ -756,7 +755,7 @@ public class Scratch.FolderManager.FileView : Granite.Bin, Code.PaneSwitcher {
         string[] to_save = {};
         tree_list.iterate_children (null, (item) => {
             var saved = false;
-            var folder_path = ((Item) item).path;
+            var folder_path = ((FolderManagerItem) item).path;
 
             //Do we need to de-duplicate? Not possible to open a project twice?
             foreach (var saved_folder in to_save) {

@@ -22,7 +22,6 @@ public class Code.TreeListItem : Object {
     public bool is_selectable { get; set; default = true; }
     public bool is_editable { get; set; default = false; }
     public bool is_dummy { get; construct; }
-
     public uint n_children {
         get {
             return child_model == null ? 0 : child_model.get_n_items ();
@@ -33,15 +32,13 @@ public class Code.TreeListItem : Object {
 
     public TreeListItem () {
         Object (
-            is_dummy: false,
-            is_expandable: false
+            is_dummy: false
         );
     }
 
     public TreeListItem.dummy () {
         Object (
-            is_dummy: true,
-            is_expandable: false
+            is_dummy: true
         );
     }
 

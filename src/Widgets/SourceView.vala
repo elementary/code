@@ -28,7 +28,7 @@ namespace Scratch.Widgets {
         public Gtk.TextTag error_tag;
 
         public GLib.File location { get; set; }
-        public FolderManager.ProjectFolderItem project { get; set; default = null; }
+        public Code.ProjectFolderItem project { get; set; default = null; }
         public SimpleActionGroup actions { get; construct; }
 
         private string font;

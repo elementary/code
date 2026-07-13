@@ -124,11 +124,11 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
 
         checks = new Gee.HashMap<SymbolType, SimpleAction> ();
         // store = new Code.TreeList ();
-        root = new Code.TreeListItem () {
-            text = _("Symbols")
-        };
+        // root = new Code.TreeListItem () {
+        //     text = _("Symbols")
+        // };
 
-        tree_list.add_root_item (root);
+        // tree_list.add_root_item (root);
 
         search_entry = new Gtk.SearchEntry () {
             placeholder_text = _("Find Symbol"),

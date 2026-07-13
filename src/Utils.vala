@@ -211,8 +211,8 @@ namespace Scratch.Utils {
                 ///TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
                 _("Show '%s' with default app").printf (file.get_basename ()),
                 GLib.Action.print_detailed_name (
-                    Scratch.FolderManager.FileView.ACTION_PREFIX
-                    + Scratch.FolderManager.FileView.ACTION_LAUNCH_APP_WITH_FILE_PATH,
+                    Code.FolderTree.ACTION_PREFIX
+                    + Code.FolderTree.ACTION_LAUNCH_APP_WITH_FILE_PATH,
                     new GLib.Variant.array (
                         GLib.VariantType.STRING,
                         { file.get_path (), "" }
@@ -241,8 +241,8 @@ namespace Scratch.Utils {
                 var menu_item = new MenuItem (
                     app_info.get_name (),
                     GLib.Action.print_detailed_name (
-                        Scratch.FolderManager.FileView.ACTION_PREFIX
-                        + Scratch.FolderManager.FileView.ACTION_LAUNCH_APP_WITH_FILE_PATH,
+                        Code.FolderTree.ACTION_PREFIX
+                        + Code.FolderTree.ACTION_LAUNCH_APP_WITH_FILE_PATH,
                         new GLib.Variant.array (
                             GLib.VariantType.STRING,
                             { file.get_path (), app_id }
@@ -291,8 +291,8 @@ namespace Scratch.Utils {
                 var menu_item = new GLib.MenuItem (
                     contract_name,
                     GLib.Action.print_detailed_name (
-                        Scratch.FolderManager.FileView.ACTION_PREFIX
-                        + Scratch.FolderManager.FileView.ACTION_EXECUTE_CONTRACT_WITH_FILE_PATH,
+                        Code.FolderTree.ACTION_PREFIX
+                        + Code.FolderTree.ACTION_EXECUTE_CONTRACT_WITH_FILE_PATH,
                         new GLib.Variant.array (
                             GLib.VariantType.STRING,
                             { file.get_path (), contract_name }

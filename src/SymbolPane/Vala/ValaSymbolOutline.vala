@@ -106,7 +106,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
                 Idle.add (() => {
                     double adjustment_value = tree_list.vadjustment.value;
                     // var root_children = root.children; // Keep reference to children for later destruction
-                    // root.clear (); // This does not destroy children but disconnects signals - avoids terminal warnings
+                    // tree_list.clear (); // This does not destroy children but disconnects signals - avoids terminal warnings
                     // foreach (var child in root_children) { // Destroy items after clearing list to avoid memory leak
                     //     destroy_all_children ((Code.TreeListItem)child);
                     // }
@@ -125,9 +125,9 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
                         tree_list.add_root_item (new_root);
                     // }
 
-                    // root.expand_all ();
-                    // add_tooltips (root);
-                    // vadjustment.set_value (adjustment_value);
+                    tree_list.expand_all (null);
+                    add_tooltips (root);
+                    tree_list.vadjustment.set_value (adjustment_value);
                     return Source.REMOVE;
                 });
             }
@@ -178,12 +178,13 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
 
     // Called from separate thread
     private Code.TreeListItem construct_tree (GLib.Cancellable cancellable) {
+    warning ("construct tree");
         var fields = resolver.get_properties_fields ();
         var symbols = resolver.get_symbols ();
         // Remove fake fields created by the vala parser.
         symbols.remove_all (fields);
 
-        var new_root = new Code.TreeListItem () { text = _("Symbols") };
+        var new_root = new Code.TreeListItem () { text = _("Construct Tree Symbols") };
         new_root.tooltip = _("Vala symbols found in %s").printf (doc.file.get_basename ());
         foreach (var symbol in symbols) {
             if (cancellable.is_cancelled ())
@@ -207,17 +208,17 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         Code.TreeListItem given_parent,
         GLib.Cancellable cancellable
     ) {
-
+warning ("construct child");
         Code.TreeListItem parent;
-        if (symbol.scope.parent_scope.owner.name == null)
+        if (symbol.scope.parent_scope.owner.name == null) {
             parent = given_parent;
-        else
+        } else {
             parent = find_existing (symbol.scope.parent_scope.owner, given_parent, cancellable);
+        }
 
         if (parent == null) {
             parent = construct_child (symbol.scope.parent_scope.owner, given_parent, cancellable);
         }
-
 
         var tree_child = new ValaSymbolItem (
             symbol,

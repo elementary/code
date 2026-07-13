@@ -21,13 +21,16 @@ public sealed class Code.TreeList : Granite.Bin {
     private Gtk.ListView list_view;
     private GLib.ListStore root_model;
     private Gtk.TreeListModel tree_model;
-    private Gtk.SelectionModel selection_model;
+    private Gtk.SingleSelection selection_model;
 
     construct {
         root_model = new GLib.ListStore (typeof (TreeListItem));
         // Passthrough false (create Gtk.TreeListRows), autoexpand false
         tree_model = new Gtk.TreeListModel (root_model, false, false, create_model_func);
         selection_model = new Gtk.SingleSelection (tree_model);
+        selection_model.sections_changed.connect ((pos, n_items) => {
+            warning ("sections changed pos %u, n items %u", pos, n_items);
+        });
         var tree_list_factory = new Gtk.SignalListItemFactory ();
         var tree_header_factory = new Gtk.SignalListItemFactory ();
         list_view = new Gtk.ListView (selection_model, tree_list_factory) {
@@ -64,13 +67,18 @@ public sealed class Code.TreeList : Granite.Bin {
         // HEADER FACTORY HANDLERS
         tree_header_factory.setup.connect ((obj) => {
             // By default create header and subheader, expandable
-           var listitem = (Gtk.ListItem) obj;
-           create_headeritem_child (listitem);
+            warning ("tree header setup");
+           var listheader = (Gtk.ListHeader) obj;
+           create_headeritem_child (listheader);
         });
         tree_header_factory.bind.connect ((obj) => {
-            var listitem = (Gtk.ListItem) obj;
-            var treelistrow = (Gtk.TreeListRow) listitem.item;
-            var data = (Code.TreeListItem) treelistrow.item;
+        warning ("tree header bind");
+            var listheader = (Gtk.ListHeader) obj;
+
+            warning ("listheader item is a %s", listheader.item.get_type ().name ());
+            var row = (Gtk.TreeListRow) listheader.item;
+            var data = (Code.TreeListItem) row.item;
+            bind_data_to_header (data, row, listheader);
         });
        tree_header_factory.unbind.connect (() => {});
        tree_header_factory.teardown.connect (() => {});
@@ -104,7 +112,8 @@ public sealed class Code.TreeList : Granite.Bin {
         //Must undo any signal connections etc made in bind_data_to_row
     }
 
-    protected virtual void create_headeritem_child (Gtk.ListItem item) {
+    protected virtual void create_headeritem_child (Gtk.ListHeader item) {
+        warning ("create headeritem child pos");
        var text_label = new Gtk.Label ("") {
            halign = START,
        };
@@ -124,17 +133,19 @@ public sealed class Code.TreeList : Granite.Bin {
     protected virtual void teardown_headeritem_child () {
         // Must be paired with create_listitem child
     }
-    protected virtual void bind_data_to_headeritem (
+    protected virtual void bind_data_to_header (
         TreeListItem data,
         Gtk.TreeListRow row,
-        Gtk.ListItem item
+        Gtk.ListHeader item
      ) {
+
         var expander = (Gtk.TreeExpander) item.child;
         var box = (Gtk.Box) expander.get_child ();
         var text_label = (Gtk.Label) box.get_first_child ();
         var subtext_label = (Gtk.Label) text_label.get_next_sibling ();
         text_label.label = data.text;
         subtext_label.label = data.sub_text;
+     warning ("bind data to header %s", text_label.label);
     }
 
     protected virtual void unbind_data_from_headerrow (
