@@ -105,7 +105,7 @@ public class Scratch.FolderManager.File : Object {
     public bool is_executable {
         get {
             // We queried this attribute on construction
-            if (info.has_attribute (FileAttribute.ACCESS_CAN_EXECUTE)) {
+            if (info != null && info.has_attribute (FileAttribute.ACCESS_CAN_EXECUTE)) {
                 return info.get_attribute_boolean (FileAttribute.ACCESS_CAN_EXECUTE);
             }
 
