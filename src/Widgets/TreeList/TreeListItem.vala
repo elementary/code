@@ -13,7 +13,7 @@ public class Code.TreeListItem : Object {
     public string secondary_icon_tooltip { get; set; default = ""; }
     public string badge = ""; // Use label styled with Granite.STYLE_CLASS_BADGE?
 
-    public ListStore? child_model { get; set; default = null; }
+    public ListStore? child_model { get; set; }
     public TreeListItem? parent { get; set; default = null; }
     public bool is_expandable { get; set construct; }
     public bool is_expanded { get; set; } // gets bound to the ListItem (temporarily)

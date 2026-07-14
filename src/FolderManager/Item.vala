@@ -18,10 +18,20 @@
  * Authored by: Julien Spautz <spautz.julien@gmail.com>, Andrei-Costin Zisu <matzipan@gmail.com>
  */
 
-public abstract class Code.FolderManagerItem: Object {
+public interface Code.FolderManagerItemInterface : Object {
+    public abstract string path { get; set; }
+    public abstract string name { get; set; }
+    public abstract string badge { get; set; }
+    public virtual Menu? get_context_menu () { return null; }
+}
+
+public abstract class Code.FolderManagerItem: Code.TreeListItem, Code.FolderManagerItemInterface {
+    public signal void edited (string new_name);
+
     public Code.File file { get; construct; }
     public Code.FolderTree view { get; construct; }
 
+    // interface Code.FolderManagerItemInterface
     public string name {
         get {
             return text;
@@ -32,12 +42,9 @@ public abstract class Code.FolderManagerItem: Object {
         }
     }
 
-    public string path {
-        owned get { return file.path; }
-        set { file.path = value; }
-    }
+    public string path { get; set; }
+    public string badge { get; set; }
 
-    public signal void edited (string new_name);
 
     construct {
         is_selectable = true;
@@ -53,6 +60,8 @@ public abstract class Code.FolderManagerItem: Object {
                 secondary_icon_tooltip
             );
         });
+
+        file.bind_property ("path", this, "path", SYNC_CREATE);
     }
 
     protected void rename (string new_name) {

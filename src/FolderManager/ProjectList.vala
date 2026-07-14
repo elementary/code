@@ -3,72 +3,72 @@
  * SPDX-FileCopyrightText: 2026 elementary, Inc. <https://elementary.io>
  */
 
-//TODO Can we just use ProjectFolderItems direct?
-public class Code.ProjectListItem : Object {
-    public ProjectFolderItem project_folder { get; set construct; }
-    public ProjectList view { get; set construct; } // Needed to activate actions
-    public string path { get; construct; }
-    public GLib.File gfile { get { return project_folder.file.file; }}
+// //TODO Can we just use ProjectFolderItems direct?
+// public class Code.ProjectListItem : Object {
+//     public ProjectFolderItem project_folder { get; set construct; }
+//     public ProjectList view { get; set construct; } // Needed to activate actions
+//     public string path { get; construct; }
+//     public GLib.File gfile { get { return project_folder.file.file; }}
 
-    private Code.FolderTree folder_tree;
-    private Scratch.Services.GitManager git_manager;
-    private bool is_expanded { get; set; }
-    private bool is_active_project { get { return git_manager.active_project_path == path; } }
+//     private Code.FolderTree folder_tree;
+//     private Scratch.Services.GitManager git_manager;
+//     private bool is_expanded { get; set; }
+//     private bool is_active_project { get { return git_manager.active_project_path == path; } }
 
-    public ProjectListItem (string path, ProjectList view) {
-        Object (
-            path: path,
-            view: view
-        );
-    }
+//     public ProjectListItem (string path, ProjectList view) {
+//         Object (
+//             path: path,
+//             view: view
+//         );
+//     }
 
-    construct {
-        folder_tree = new FolderTree (path);
-        git_manager = Scratch.Services.GitManager.get_instance ();
+//     construct {
+//         folder_tree = new FolderTree (path);
+//         git_manager = Scratch.Services.GitManager.get_instance ();
 
-        // ProjectFolderItem constructor adds project to GitManager
-        var project_folder = new ProjectFolderItem (new Code.File (path), folder_tree);
+//         // ProjectFolderItem constructor adds project to GitManager
+//         var project_folder = new ProjectFolderItem (new Code.File (path), folder_tree);
 
-        // Closed signal emitted when project folder is externally deleted
-        project_folder.deleted.connect (() => {
-            folder_tree.remove_all ();
-            view.item_deleted (this);
-        });
+//         // Closed signal emitted when project folder is externally deleted
+//         project_folder.deleted.connect (() => {
+//             folder_tree.remove_all ();
+//             view.item_deleted (this);
+//         });
 
-    }
+//     }
 
-    public bool is_or_contains_file (GLib.File gfile) {
-        return path == gfile.get_path () || folder_tree.contains_file (gfile);
-    }
+//     public bool is_or_contains_file (GLib.File gfile) {
+//         return path == gfile.get_path () || folder_tree.contains_file (gfile);
+//     }
 
-    public void collapse_all () {
-        // folder_tree.collapse_all ();
-        is_expanded = false;
-    }
+//     public void collapse_all () {
+//         // folder_tree.collapse_all ();
+//         is_expanded = false;
+//     }
 
-    public void expand_all () {
-        // folder_tree.expand_all ();
-        is_expanded = true;
-    }
+//     public void expand_all () {
+//         // folder_tree.expand_all ();
+//         is_expanded = true;
+//     }
 
-    // Does not remove from liststore - that is up to ProjectList
-    public void close () {
-        folder_tree.remove_all ();
-        git_manager.remove_project (project_folder); // Takes care of active_project?
-    }
+//     // Does not remove from liststore - that is up to ProjectList
+//     public void close () {
+//         folder_tree.remove_all ();
+//         git_manager.remove_project (project_folder); // Takes care of active_project?
+//     }
 
-    public void set_as_active_project () {
-        git_manager.active_project_path = path;
-    }
+//     public void set_as_active_project () {
+//         git_manager.active_project_path = path;
+//     }
 
-    public FolderManagerItem? find_path (
-        string path, // File path to search fod
-        bool expand = false // Whether to expsnd to show found item
-        // GLib.File? target_file = null // Alternatively find this file
-    ) {
-        return folder_tree.find_path (null, path, expand);
-    }
-}
+//     public FolderManagerItem? find_path (
+//         string path, // File path to search fod
+//         bool expand = false // Whether to expsnd to show found item
+//         // GLib.File? target_file = null // Alternatively find this file
+//     ) {
+//         return folder_tree.find_path (null, path, expand);
+//     }
+// }
 
 /* ProjectList is a flat list of FolderTrees each representing a single project */
 public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
@@ -106,7 +106,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         icon_name = "not-exist";
         title = "Projects";
         settings = new GLib.Settings ("io.elementary.code.folder-manager");
-        list_store = new ListStore (typeof (ProjectListItem));
+        list_store = new ListStore (typeof (ProjectFolderItem));
         selection_model = new Gtk.NoSelection (list_store);
         var list_factory = new Gtk.SignalListItemFactory ();
         list_view = new Gtk.ListView (selection_model, list_factory);
@@ -132,12 +132,12 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         });
         list_factory.bind.connect ((obj) => {
             var listitem = (Gtk.ListItem) obj;
-            var data = (Code.ProjectListItem) (listitem.item);
+            var data = (Code.ProjectFolderItem) (listitem.item);
             // bind_data_to_row (data, listitem);
         });
         list_factory.unbind.connect ((obj) => {
             var listitem = (Gtk.ListItem) obj;
-            var data = (Code.ProjectListItem) (listitem.item);
+            var data = (Code.ProjectFolderItem) (listitem.item);
             // unbind_data_from_row (data, listitem);
         });
     }
@@ -149,9 +149,9 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
     }
 
     public void open_project_folder (File folder) {
-        ProjectListItem? listitem;
+        ProjectFolderItem? listitem;
         if (is_existing_project_path (folder.path, out listitem)) {
-            listitem.expand_all (); //TODO Just expand first level?
+            listitem.expand ();
             return; //TODO Should we expand here?
         }
 
@@ -159,9 +159,9 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
     }
 
     public void collapse_all () {
-        //TODO Write iterate children
         iterate_children ((listitem) => {
-            listitem.collapse_all ();
+            // For now just collapse the top level
+            listitem.is_expanded = false;
             return Code.TreeList.ITERATE_CONTINUE;
         });
     }
@@ -191,14 +191,14 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
     public void collapse_other_projects (string active_project_path) {
         iterate_children ((listitem) => {
             if (listitem.path != active_project_path) {
-                listitem.collapse_all ();
+                listitem.collapse ();
                 activate_action (
                     Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_HIDE_PROJECT_DOCS,
                     "s",
                     listitem.path
                 );
             } else {
-                listitem.expand_all ();
+                listitem.expand ();
                 activate_action (
                     Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_RESTORE_PROJECT_DOCS,
                     "s",
@@ -256,18 +256,19 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         // }
     }
 
+    //TODO do we need to return anything?
     // Call to find top level foldertree and then call find path on that.
-    private FolderManagerItem? find_path (
+    private FolderManagerItemInterface? find_path (
         string path, // File path to search fod
         bool expand = false // Whether to expsnd to show found item
         // GLib.File? target_file = null // Alternatively find this file
     ) {
 
         // var target = target_file ?? GLib.File.new_for_path (path);
-        FolderManagerItem? matched_item = null;
+        FolderManagerItemInterface? matched_item = null;
         iterate_children ((listitem) => {
             if (listitem.path == path) {
-                matched_item = listitem.project_folder;
+                matched_item = listitem;
                 return Code.TreeList.ITERATE_STOP;
             } else if (path.has_prefix (listitem.path)) { //TODO Ensure paths are compatible
                 matched_item = listitem.find_path (path, expand);
@@ -307,23 +308,23 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
 
     }
 
+    //TODO Is this needed?
+    // // Which project any file is in
+    // public ProjectFolderItem? get_project_for_file (GLib.File file) {
+    //     ProjectFolderItem? matched_project_item = null;
+    //     iterate_children ((listitem) => {
+    //         if (listitem.is_or_contains_file (file)) {
+    //             matched_project_item = listitem;
+    //             return Code.TreeList.ITERATE_STOP;
+    //         }
 
-    // Which project any file is in
-    public ProjectListItem? get_project_for_file (GLib.File file) {
-        ProjectListItem? matched_project_item = null;
-        iterate_children ((listitem) => {
-            if (listitem.is_or_contains_file (file)) {
-                matched_project_item = listitem;
-                return Code.TreeList.ITERATE_STOP;
-            }
+    //         return Code.TreeList.ITERATE_CONTINUE;
+    //     });
 
-            return Code.TreeList.ITERATE_CONTINUE;
-        });
+    //     return matched_project_item;
+    // }
 
-        return matched_project_item;
-    }
-
-    public FolderManagerItem? expand_to_path (string path) {
+    public FolderManagerItemInterface? expand_to_path (string path) {
          return find_path (path, true);
     }
 
@@ -358,7 +359,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
     // }
 
 
-    public void item_deleted (ProjectListItem listitem) {
+    public void item_deleted (ProjectFolderItem listitem) {
         // Just remove it for now
         remove_project_item (listitem);
     }
@@ -372,7 +373,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         //         selected.disconnect (once);
         //         var new_path = Path.get_dirname (path) + Path.DIR_SEPARATOR_S + new_name;
         //         activate_action (
-        //             MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_TAB,
+        //             Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_CLOSE_TAB,
         //             "s",
         //             path
         //         );
@@ -606,8 +607,8 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
 
         var add_file = folder.file;
         // Need to deal with case where folder is parent or child of an existing project
-        var parents = new List<ProjectListItem> ();
-        var children = new List<ProjectListItem> ();
+        var parents = new List<ProjectFolderItem> ();
+        var children = new List<ProjectFolderItem> ();
 
         iterate_children ((listitem) => {
             // var item = (ProjectFolderItem) child;
@@ -661,10 +662,10 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
 
         // Process any closed signals emitted before proceeding
         Idle.add (() => {
-            var new_item = new ProjectListItem (path, this);
+            var new_item = new ProjectFolderItem (folder, this);
             list_store.append (new_item);
             if (expand) {
-                new_item.expand_all ();
+                new_item.expand ();
             }
             // rename_items_with_same_name (new_project); //TODO do this later
 
@@ -684,10 +685,10 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         // order_folders (); //TODO do later
     }
 
-    private bool is_existing_project_path (string path, out ProjectListItem? list_item) {
+    private bool is_existing_project_path (string path, out ProjectFolderItem? list_item) {
         bool open = false;
         list_item = null;
-        ProjectListItem? matched_item = null;
+        ProjectFolderItem? matched_item = null;
         // Only iterate this model
         iterate_children ((listitem) => {
             if (path == listitem.path) {
@@ -725,7 +726,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         settings.set_strv ("opened-folders", to_save);
     }
 
-    private void remove_project_item (ProjectListItem listitem) {
+    private void remove_project_item (ProjectFolderItem listitem) {
         activate_action (
             CLOSE_PROJECT_DOCS_ACTION_NAME,
             "s",
@@ -760,7 +761,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
             return;
         }
 
-        List<ProjectListItem> to_remove = null;
+        List<ProjectFolderItem> to_remove = null;
         iterate_children ((listitem) => {
             if (listitem.path != path) {
                 listitem.close ();
@@ -786,7 +787,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         //     return Code.TreeList.ITERATE_CONTINUE;
         // });
 
-        foreach (ProjectListItem listitem in to_remove) {
+        foreach (ProjectFolderItem listitem in to_remove) {
             remove_project_item (listitem);
         }
     }
@@ -802,10 +803,10 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
 
     //TODO Do we need both these functions???
     private ProjectFolderItem? set_active_project (string path) {
-        ProjectListItem? project_item;
+        ProjectFolderItem? project_item;
         is_existing_project_path (path, out project_item);
         project_item.set_as_active_project ();
-        return project_item.project_folder;
+        return project_item;
     }
 
     // private void set_project_active (string path) {
@@ -816,12 +817,12 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
     //     );
     // }
 
-    delegate bool ProjectListIteratorCallback (ProjectListItem item);
+    delegate bool ProjectListIteratorCallback (ProjectFolderItem item);
     private void iterate_children (ProjectListIteratorCallback cb) {
-        ProjectListItem? item = null;
+        ProjectFolderItem? item = null;
         uint pos = 0;
         do {
-            item = (ProjectListItem?) (list_store.get_object (pos++));
+            item = (ProjectFolderItem?) (list_store.get_object (pos++));
         } while (item != null && cb (item));
     }
 }

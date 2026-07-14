@@ -113,7 +113,7 @@ public class Code.File : GLib.Object {
     public bool is_valid_textfile {
         get {
             if (_is_valid_textfile == null) {
-                _is_valid_textfile = !path.has_suffix ("~") && Utils.check_if_valid_text_file (path, info);
+                _is_valid_textfile = !path.has_suffix ("~") && Scratch.Utils.check_if_valid_text_file (path, info);
             }
 
             return _is_valid_textfile;

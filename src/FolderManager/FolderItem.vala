@@ -18,12 +18,38 @@
  * Authored by: Julien Spautz <spautz.julien@gmail.com>, Andrei-Costin Zisu <matzipan@gmail.com>
  */
 
-public class Code.FolderItem : FolderManagerItem {
-    private const uint RENAME_AFTER_NEW_DELAY_MSEC = 500;
-    private GLib.FileMonitor monitor;
-    private bool children_loaded = false;
-    private bool has_dummy;
-    private Code.TreeListItem dummy; /* Blank item for expanded empty folders */
+public interface Code.FolderInterface : Object {
+    public abstract bool is_expanded { get; set; }
+    public abstract ListStore? child_model { get; set; }
+    public abstract FileMonitor monitor { get; set; }
+    public virtual void on_changed (
+        GLib.File source,
+        GLib.File? dest,
+        GLib.FileMonitorEvent event
+    ) {}
+
+    public virtual void init_monitor_directory (GLib.File gfile) {
+        try {
+            monitor = gfile.monitor_directory (GLib.FileMonitorFlags.NONE);
+            monitor.changed.connect (on_changed);
+        } catch (GLib.Error e) {
+            warning (e.message);
+        }
+    }
+
+    public delegate bool IterateChildrenCallback (Object obj);
+    public virtual void iterate_children (IterateChildrenCallback cb) {}
+    //  {
+    //     uint pos = 0;
+    //     Object child;
+    //     do {
+    //         child = list_model.get_object (pos++);
+    //     } while (child != null && cb (child));
+    // }
+}
+
+public class Code.FolderItem : FolderManagerItem, Code.FolderInterface { // Ultimately a Code.TreeListItem
+    public signal void children_finished_loading ();
 
     public bool loading_required {
         get {
@@ -31,7 +57,14 @@ public class Code.FolderItem : FolderManagerItem {
         }
     }
 
-    public signal void children_finished_loading ();
+    // Code.FolderInterface
+    public bool is_expanded { get; set; }
+    protected FileMonitor monitor { get; set; }
+
+    private const uint RENAME_AFTER_NEW_DELAY_MSEC = 500;
+    private bool children_loaded = false;
+    private bool has_dummy;
+    private Code.TreeListItem dummy; /* Blank item for expanded empty folders */
 
     public FolderItem (File file, FolderTree view) {
         Object (
@@ -53,15 +86,17 @@ public class Code.FolderItem : FolderManagerItem {
         add_child (dummy);
         has_dummy = true;
 
+        init_monitor_directory (file.file);
         // Signal when expanded
         notify["is-expanded"].connect (on_toggled);
+    }
 
-        try {
-            monitor = file.file.monitor_directory (GLib.FileMonitorFlags.NONE);
-            monitor.changed.connect (on_changed);
-        } catch (GLib.Error e) {
-            warning (e.message);
-        }
+    public override void iterate_children  (IterateChildrenCallback cb) {
+        uint pos = 0;
+        Object? child = null;
+        do {
+            child = child_model.get_object (pos++);
+        } while (child != null && cb (child));
     }
 
     private void create_child_items (File file) {
@@ -120,16 +155,15 @@ public class Code.FolderItem : FolderManagerItem {
     }
 
     private void on_toggled () {
-        if (is_expanded) {
-            load_children_async.begin ();
-        } else {
-            var root = get_root_folder ();
-            if (root != null &&
-                root.monitored_repo != null) {
-                //When toggled closed, update status to reflect hidden contents
-                root.update_item_status (this);
-            }
-        }
+        // if (is_expanded) {
+        //     load_children_async.begin ();
+        // } else {
+        //     var root = get_root_folder ();
+        //     if (root != null) {
+        //         //When toggled closed, update status to reflect hidden contents
+        //         root.update_item_status (this);
+        //     }
+        // }
     }
 
     public override GLib.Menu? get_context_menu () {
@@ -142,7 +176,7 @@ public class Code.FolderItem : FolderManagerItem {
 
         var file_type = info.get_content_type ();
 
-        var contractor_items = Utils.create_contract_items_for_file (file.file);
+        var contractor_items = Scratch.Utils.create_contract_items_for_file (file.file);
 
         var rename_menu_item = new GLib.MenuItem (
             _("Rename"),
@@ -163,7 +197,7 @@ public class Code.FolderItem : FolderManagerItem {
         var search_item = new GLib.MenuItem (
             _("Find in Folder…"),
             GLib.Action.print_detailed_name (
-                MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
+                Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_GLOBAL,
                 new Variant.string (file.file.get_path ())
             )
         );
@@ -194,7 +228,7 @@ public class Code.FolderItem : FolderManagerItem {
         var open_in_terminal_pane_item = new GLib.MenuItem (
             (_("Terminal Pane")),
             GLib.Action.print_detailed_name (
-                MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
+                Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_IN_TERMINAL,
                 new Variant.string (file.path)
             )
         );
@@ -218,7 +252,7 @@ public class Code.FolderItem : FolderManagerItem {
 
         var open_in_menu = new GLib.Menu ();
         open_in_menu.append_section (null, terminal_pane_section);
-        open_in_menu.append_section (null, Utils.create_executable_app_items_for_file (file.file, file_type));
+        open_in_menu.append_section (null, Scratch.Utils.create_executable_app_items_for_file (file.file, file_type));
         open_in_menu.append_section (null, extra_section);
 
         var open_in_menu_item = new GLib.MenuItem.submenu (_("Open In"), open_in_menu);
@@ -349,21 +383,21 @@ public class Code.FolderItem : FolderManagerItem {
         return count;
     }
 
-    public void remove_all_badges () {
-        view.iterate_children (this, (child) => {
-            remove_badge (child);
-            return Code.TreeList.ITERATE_CONTINUE;
-        });
-    }
+    // public void remove_all_badges () {
+    //     view.iterate_children (this, (child) => {
+    //         remove_badge (child);
+    //         return Code.TreeList.ITERATE_CONTINUE;
+    //     });
+    // }
 
-    private void remove_badge (Code.TreeListItem item) {
+    // private void remove_badge (Code.TreeListItem item) {
 
-        if (item is FolderItem) {
-            ((FolderItem) item).remove_all_badges ();
-        }
+    //     if (item is FolderItem) {
+    //         ((FolderItem) item).remove_all_badges ();
+    //     }
 
-        item.badge = "";
-    }
+    //     item.badge = "";
+    // }
 
     public override void add_child (Code.TreeListItem item) {
         if (has_dummy) {
@@ -444,7 +478,7 @@ public class Code.FolderItem : FolderManagerItem {
                 case GLib.FileMonitorEvent.DELETED:
                     // Find item corresponding to deleted file
                     // Note may not be found if deleted file is not valid for display
-                    var path_item = find_item_for_path (source.get_path ());
+                    var path_item = get_child_for_path (source.get_path ());
                     if (path_item != null) {
                         remove_child (path_item);
                     }
@@ -455,7 +489,7 @@ public class Code.FolderItem : FolderManagerItem {
                         return;
                     }
 
-                    var path_item = find_item_for_path (source.get_path ());
+                    var path_item = get_child_for_path (source.get_path ());
                     if (path_item == null) {
                         var file = new File (source.get_path ());
                         if (file.is_valid_directory) {
@@ -492,12 +526,13 @@ public class Code.FolderItem : FolderManagerItem {
         }
     }
 
-    private Code.FolderManagerItem? find_item_for_path (string path) {
+    // Called on MonitorEvent so only concerns direct children
+    private Code.FolderManagerItem? get_child_for_path (string path) {
         Code.FolderManagerItem? found_item = null;
-        view.iterate_children (this, (item) => {
+        iterate_children ((obj) => {
             // Item could be dummy
-            if (item is Code.FolderManagerItem) {
-                var child = (Code.FolderManagerItem) item;
+            if (obj is Code.FolderManagerItem) {
+                var child = (Code.FolderManagerItem) obj;
                 if (child.path == path) {
                     found_item = child;
                     return Code.TreeList.ITERATE_STOP;
@@ -563,7 +598,7 @@ public class Code.FolderItem : FolderManagerItem {
             // Still need to wait for sourcelist to become stable and editable
             //TODO Find a better way
             Timeout.add (RENAME_AFTER_NEW_DELAY_MSEC, () => {
-                var rename_action = Utils.action_from_group (FolderTree.ACTION_RENAME_FILE, view.actions);
+                var rename_action = Scratch.Utils.action_from_group (FolderTree.ACTION_RENAME_FILE, view.actions);
                 if (rename_action != null && rename_action.enabled) {
                     rename_action.activate (path);
                 } else {

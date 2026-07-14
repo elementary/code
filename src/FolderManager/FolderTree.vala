@@ -59,6 +59,8 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
     // public FolderTree (Scratch.Services.PluginsManager plugins_manager) {
     //     plugins = plugins_manager;
     // }
+
+    // Root_path is path of the associated //TODO Needed?
     public FolderTree (string root_path) {
         Object (
             root_path: root_path
@@ -307,10 +309,11 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
     ) {
 
         FolderManagerItem? matched_item = null;
+        var target = GLib.File.new_for_path (path);
 
         tree_list.iterate_children (start, (item) => {
             if ((item is FolderManagerItem) && item.path == path) {
-                matched_item = item;
+                matched_item = (FolderManagerItem) item;
                 return Code.TreeList.ITERATE_STOP;
             }
 
@@ -330,7 +333,7 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
                      }
                  }
 
-                var recurse_item = find_path (folder, path, expand, target);
+                var recurse_item = find_path (folder, path, expand);
                 if (recurse_item != null) {
                     matched_item = recurse_item;
                     return Code.TreeList.ITERATE_STOP;
@@ -412,7 +415,7 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
         //         selected.disconnect (once);
         //         var new_path = Path.get_dirname (path) + Path.DIR_SEPARATOR_S + new_name;
         //         activate_action (
-        //             MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_TAB,
+        //             Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_CLOSE_TAB,
         //             "s",
         //             path
         //         );

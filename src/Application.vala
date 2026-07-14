@@ -180,7 +180,7 @@ namespace Scratch {
                 bool is_folder;
                 if (Scratch.Services.FileHandler.can_open_file (file, out is_folder)) {
                     if (is_folder) {
-                        window.open_folder (file);
+                        window.open_folder_as_project (file); // Opens in sidebar not as documents
                     } else {
                         debug ("Files length: %d\n", files.length);
                         var doc = new Scratch.Services.Document (window.actions, file);

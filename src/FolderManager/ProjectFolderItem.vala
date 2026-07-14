@@ -17,27 +17,50 @@
 * Authored by: David Hewitt <davidmhewitt@gmail.com>
 */
 
-
-public class Code.ProjectFolderItem : FolderItem {
-    struct VisibleItem {
-        public string rel_path;
-        public FolderManagerItem item;
-    }
-
-    private static Icon added_icon;
-    private static Icon modified_icon;
-
+// Top level items for ProjectList not derived from TreeListItem but sharing some interfaces
+public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderManagerItemInterface {
     public signal void deleted ();
-
     public Scratch.Services.MonitoredRepository? monitored_repo { get; private set; default = null; }
-    // Cache the visible item in the project.
-    private List<VisibleItem?> visible_item_list = null;
-
     public bool is_git_repo {
         get {
             return monitored_repo != null;
         }
     }
+
+    // Code.FolderManagerItemInterface
+    public string path { get; set; }
+    public string name { get; set; }
+    public string badge { get; set; }
+
+    // Code.FolderItemInterface
+    public bool is_expanded { get; set; }
+    public FileMonitor monitor { get; set; }
+    public ListStore? child_model { get; set; default = null;}
+
+    public Code.File file { get; construct; }
+    public Code.ProjectList view { get; construct; }
+    // For convenience
+    public GLib.File gfile { get { return file.file; }}
+
+    private static Icon added_icon;
+    private static Icon modified_icon;
+    static construct {
+        added_icon = new ThemedIcon ("emblem-git-new-symbolic");
+        modified_icon = new ThemedIcon ("emblem-git-modified-symbolic");
+    }
+
+    private struct VisibleItem {
+        public string rel_path;
+        public FolderManagerItem item;
+    }
+
+
+    private Scratch.Services.GitManager git_manager;
+
+    // Cache the visible item in the project. (Excludes items loaded but in collapsed folder)
+    private List<VisibleItem?> visible_item_list = null;
+    // Child widget shows tree of project files and folders
+    private Code.FolderTree folder_tree;
 
     private Ggit.Repository? git_repo {
         get {
@@ -45,49 +68,33 @@ public class Code.ProjectFolderItem : FolderItem {
         }
     }
 
-    public ProjectFolderItem (File file, FolderTree view) requires (file.is_valid_directory) {
+    public ProjectFolderItem (File file, Code.ProjectList view) requires (file.is_valid_directory) {
         Object (file: file, view: view);
     }
 
-    static construct {
-        added_icon = new ThemedIcon ("emblem-git-new-symbolic");
-        modified_icon = new ThemedIcon ("emblem-git-modified-symbolic");
-    }
-
-    private void branch_or_name_changed () {
-        if (monitored_repo != null) {
-            //As SourceList items are not widgets we have to use markup to change appearance of text.
-            if (monitored_repo.head_is_branch) {
-                text = "%s\n<span size='small' weight='normal'>%s</span>".printf (
-                    name, monitored_repo.branch_name
-                );
-            } else { //Distinguish detached heads visually
-                text = "%s\n <span size='small' weight='normal' style='italic'>%s</span>".printf (
-                    name, monitored_repo.branch_name
-                );
-            }
-        }
-    }
-
     construct {
+        path = file.path;
         monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (this);
+        git_manager = Scratch.Services.GitManager.get_instance ();
+        folder_tree = new Code.FolderTree (path);
         notify["name"].connect (branch_or_name_changed);
         if (monitored_repo != null) {
             monitored_repo.branch_changed.connect (branch_or_name_changed);
             monitored_repo.ignored_changed.connect ((deprioritize_git_ignored));
-            monitored_repo.file_status_change.connect (() => update_item_status (null));
+            // monitored_repo.file_status_change.connect (() => update_item_status (null));
             monitored_repo.update_status_map ();
             monitored_repo.branch_changed ();
         }
     }
 
-    protected override void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
-        if (source.equal (file.file) && event == DELETED) {
-            deleted ();
-        } else {
-            base.on_changed (source, dest, event);
-        }
+    public void refresh_diff (
+        ref Gee.HashMap<int,
+        Scratch.Services.VCStatus> line_status_map,
+        string doc_path
+    ) {
+        monitored_repo.refresh_diff (doc_path, ref line_status_map);
     }
+
 
     public void child_folder_changed (FolderItem folder) {
         if (monitored_repo != null) {
@@ -117,228 +124,234 @@ public class Code.ProjectFolderItem : FolderItem {
         // }
     }
 
-    public override GLib.Menu? get_context_menu () {
-        string file_type = "";
-        try {
-            var info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
-            if (info.has_attribute (GLib.FileAttribute.STANDARD_CONTENT_TYPE)) {
-                file_type = info.get_content_type ();
-            }
-        } catch (Error e) {
-            warning (e.message);
-        }
+    public override Menu? get_context_menu () {
+        // string file_type = "";
+        // try {
+        //     var info = gfile.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
+        //     if (info.has_attribute (GLib.FileAttribute.STANDARD_CONTENT_TYPE)) {
+        //         file_type = info.get_content_type ();
+        //     }
+        // } catch (Error e) {
+        //     warning (e.message);
+        // }
 
-        MenuItem set_active_folder_item;
-        if (is_git_repo) {
-            set_active_folder_item = new GLib.MenuItem (
-                _("Set as Active Project"),
-                GLib.Action.print_detailed_name (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_SET_ACTIVE_PROJECT,
-                    new Variant.string (file.path)
-                )
-            );
-        } else {
-            set_active_folder_item = new GLib.MenuItem (
-                _("Open in Terminal Pane"),
-                GLib.Action.print_detailed_name (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
-                    new Variant.string (
-                        Services.GitManager.get_instance ().get_default_build_dir (path)
-                    )
-                )
-            );
-        }
+        // MenuItem set_active_folder_item;
+        // if (is_git_repo) {
+        //     set_active_folder_item = new GLib.MenuItem (
+        //         _("Set as Active Project"),
+        //         GLib.Action.print_detailed_name (
+        //             Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT,
+        //             new Variant.string (file.path)
+        //         )
+        //     );
+        // } else {
+        //     set_active_folder_item = new GLib.MenuItem (
+        //         _("Open in Terminal Pane"),
+        //         GLib.Action.print_detailed_name (
+        //             Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_IN_TERMINAL,
+        //             new Variant.string (
+        //                 Services.GitManager.get_instance ().get_default_build_dir (path)
+        //             )
+        //         )
+        //     );
+        // }
 
-        set_active_folder_item.set_attribute_value (
-            "accel",
-            Utils.get_accel_for_action (
-                GLib.Action.print_detailed_name (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_TERMINAL,
-                    ""
-                )
-            )
-        );
+        // set_active_folder_item.set_attribute_value (
+        //     "accel",
+        //     Scratch.Utils.get_accel_for_action (
+        //         GLib.Action.print_detailed_name (
+        //             Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_IN_TERMINAL,
+        //             ""
+        //         )
+        //     )
+        // );
 
-        var external_actions_section = new GLib.Menu ();
-        external_actions_section.append_item (set_active_folder_item);
-        external_actions_section.append_item (create_submenu_for_open_in (file_type));
+        // var external_actions_section = new GLib.Menu ();
+        // external_actions_section.append_item (set_active_folder_item);
+        // // external_actions_section.append_item (create_submenu_for_open_in (file_type));
 
-        var folder_actions_section = new GLib.Menu ();
-        folder_actions_section.append_item (create_submenu_for_new ());
-        if (monitored_repo != null) {
-            var branch_action_item = new MenuItem (
-                _("Branch Actions…"),
-                GLib.Action.print_detailed_name (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_BRANCH_ACTIONS,
-                    new Variant.string (file.path)
-                )
-            );
-            folder_actions_section.append_item (branch_action_item);
-        }
+        // var folder_actions_section = new GLib.Menu ();
+        // folder_actions_section.append_item (create_submenu_for_new ());
+        // if (monitored_repo != null) {
+        //     var branch_action_item = new MenuItem (
+        //         _("Branch Actions…"),
+        //         GLib.Action.print_detailed_name (
+        //             Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_BRANCH_ACTIONS,
+        //             new Variant.string (file.path)
+        //         )
+        //     );
+        //     folder_actions_section.append_item (branch_action_item);
+        // }
 
-        var close_folder_item = new GLib.MenuItem (
-            _("Close Folder"),
-            GLib.Action.print_detailed_name (
-                FolderTree.ACTION_PREFIX + FolderTree.ACTION_CLOSE_FOLDER,
-                new Variant.string (file.path)
-            )
-        );
+        // var close_folder_item = new GLib.MenuItem (
+        //     _("Close Folder"),
+        //     GLib.Action.print_detailed_name (
+        //         ProjectList.ACTION_PREFIX + ProjectList.ACTION_CLOSE_PROJECT_FOLDER,
+        //         new Variant.string (file.path)
+        //     )
+        // );
 
-        var close_all_except_item = new GLib.MenuItem (
-            _("Close Other Folders"),
-            GLib.Action.print_detailed_name (
-                FolderTree.ACTION_PREFIX + FolderTree.ACTION_CLOSE_OTHER_FOLDERS,
-                new Variant.string (file.path)
-            )
-        );
-        var close_other_folders_action = Utils.action_from_group (
-            FolderTree.ACTION_CLOSE_OTHER_FOLDERS,
-            view.actions
-        );
-        close_other_folders_action.set_enabled (!view.is_empty);
+        // var close_all_except_item = new GLib.MenuItem (
+        //     _("Close Other Folders"),
+        //     GLib.Action.print_detailed_name (
+        //         ProjectList.ACTION_PREFIX + ProjectList.ACTION_CLOSE_OTHER_PROJECT_FOLDERS,
+        //         new Variant.string (file.path)
+        //     )
+        // );
+        // // var close_other_folders_action = Scratch.Utils.action_from_group (
+        // //     ProjectList.ACTION_CLOSE_OTHER_PROJECT_FOLDERS,
+        // //     view.actions
+        // // );
+        // // close_other_folders_action.set_enabled (!view.is_empty);
 
-        var close_actions_section = new GLib.Menu ();
-        close_actions_section.append_item (close_folder_item);
-        close_actions_section.append_item (close_all_except_item);
+        // var close_actions_section = new GLib.Menu ();
+        // close_actions_section.append_item (close_folder_item);
+        // close_actions_section.append_item (close_all_except_item);
 
-        var n_open = Scratch.Services.DocumentManager.get_instance ().open_for_project (path);
-        var open_text = ngettext ("Close %u Open Document",
-                                  "Close %u Open Documents",
-                                  n_open).printf (n_open);
+        // var n_open = Scratch.Services.DocumentManager.get_instance ().open_for_project (path);
+        // var open_text = ngettext ("Close %u Open Document",
+        //                           "Close %u Open Documents",
+        //                           n_open).printf (n_open);
 
-        var close_item = new GLib.MenuItem (
-            open_text,
-            GLib.Action.print_detailed_name (
-                MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
-                new Variant.string (file.file.get_path ())
-            )
-        );
+        // var close_item = new GLib.MenuItem (
+        //     open_text,
+        //     GLib.Action.print_detailed_name (
+        //         Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_CLOSE_PROJECT_DOCS,
+        //         new Variant.string (file.file.get_path ())
+        //     )
+        // );
 
-        var hide_text = ngettext ("Hide %u Open Document",
-                                  "Hide %u Open Documents",
-                                  n_open).printf (n_open);
+        // var hide_text = ngettext ("Hide %u Open Document",
+        //                           "Hide %u Open Documents",
+        //                           n_open).printf (n_open);
 
-        var hide_item = new GLib.MenuItem (
-            hide_text,
-            GLib.Action.print_detailed_name (
-                MainWindow.ACTION_PREFIX + MainWindow.ACTION_HIDE_PROJECT_DOCS,
-                new Variant.string (file.file.get_path ())
-            )
-        );
+        // var hide_item = new GLib.MenuItem (
+        //     hide_text,
+        //     GLib.Action.print_detailed_name (
+        //         Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_HIDE_PROJECT_DOCS,
+        //         new Variant.string (file.file.get_path ())
+        //     )
+        // );
 
-        hide_item.set_attribute_value (
-            "accel",
-            Utils.get_accel_for_action (
-                GLib.Action.print_detailed_name (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_HIDE_PROJECT_DOCS,
-                    ""
-                )
-            )
-        );
+        // hide_item.set_attribute_value (
+        //     "accel",
+        //     Scratch.Utils.get_accel_for_action (
+        //         GLib.Action.print_detailed_name (
+        //             Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_HIDE_PROJECT_DOCS,
+        //             ""
+        //         )
+        //     )
+        // );
 
-        var n_restorable = Scratch.Services.DocumentManager.get_instance ().restorable_for_project (path);
-        var restore_text = ngettext ("Restore %u Hidden Document",
-                                     "Restore %u Hidden Documents",
-                                     n_restorable).printf (n_restorable);
+        // var n_restorable = Scratch.Services.DocumentManager.get_instance ().restorable_for_project (path);
+        // var restore_text = ngettext ("Restore %u Hidden Document",
+        //                              "Restore %u Hidden Documents",
+        //                              n_restorable).printf (n_restorable);
 
-        var restore_item = new GLib.MenuItem (
-            restore_text,
-            GLib.Action.print_detailed_name (
-                MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS,
-                new Variant.string (file.file.get_path ())
-            )
-        );
+        // var restore_item = new GLib.MenuItem (
+        //     restore_text,
+        //     GLib.Action.print_detailed_name (
+        //         Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_RESTORE_PROJECT_DOCS,
+        //         new Variant.string (file.file.get_path ())
+        //     )
+        // );
 
-        restore_item.set_attribute_value (
-            "accel",
-            Utils.get_accel_for_action (
-                GLib.Action.print_detailed_name (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS,
-                    ""
-                )
-            )
-        );
+        // restore_item.set_attribute_value (
+        //     "accel",
+        //     Scratch.Utils.get_accel_for_action (
+        //         GLib.Action.print_detailed_name (
+        //             Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_RESTORE_PROJECT_DOCS,
+        //             ""
+        //         )
+        //     )
+        // );
 
-        var direct_actions_section = new GLib.Menu ();
-        if (n_restorable > 0) {
-            direct_actions_section.append_item (restore_item);
-        }
+        // var direct_actions_section = new GLib.Menu ();
+        // if (n_restorable > 0) {
+        //     direct_actions_section.append_item (restore_item);
+        // }
 
-        if (n_open > 0) {
-            direct_actions_section.append_item (hide_item);
-            direct_actions_section.append_item (close_item);
-        }
+        // if (n_open > 0) {
+        //     direct_actions_section.append_item (hide_item);
+        //     direct_actions_section.append_item (close_item);
+        // }
 
-        var search_item = new GLib.MenuItem (
-            _("Find in Project…"),
-            GLib.Action.print_detailed_name (
-                MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
-                new Variant.string (file.file.get_path ())
-            )
-        );
+        // var search_item = new GLib.MenuItem (
+        //     _("Find in Project…"),
+        //     GLib.Action.print_detailed_name (
+        //         Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_GLOBAL,
+        //         new Variant.string (file.file.get_path ())
+        //     )
+        // );
 
-        search_item.set_attribute_value (
-            "accel",
-            Utils.get_accel_for_action (
-                GLib.Action.print_detailed_name (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_GLOBAL,
-                    ""
-                )
-            )
-        );
+        // search_item.set_attribute_value (
+        //     "accel",
+        //     Scratch.Utils.get_accel_for_action (
+        //         GLib.Action.print_detailed_name (
+        //             Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_GLOBAL,
+        //             ""
+        //         )
+        //     )
+        // );
 
-        var search_actions_section = new GLib.Menu ();
-        search_actions_section.append_item (search_item);
+        // var search_actions_section = new GLib.Menu ();
+        // search_actions_section.append_item (search_item);
 
-        var menu_model = new GLib.Menu ();
-        menu_model.append_section (null, external_actions_section);
-        menu_model.append_section (null, folder_actions_section);
-        menu_model.append_section (null, close_actions_section);
-        menu_model.append_section (null, direct_actions_section);
-        menu_model.append_section (null, search_actions_section);
+        // var menu_model = new GLib.Menu ();
+        // menu_model.append_section (null, external_actions_section);
+        // menu_model.append_section (null, folder_actions_section);
+        // menu_model.append_section (null, close_actions_section);
+        // menu_model.append_section (null, direct_actions_section);
+        // menu_model.append_section (null, search_actions_section);
 
-        return menu_model;
+        // return menu_model;
+
+        return null;
     }
 
-    public void update_item_status (FolderItem? start_folder) {
-        if (monitored_repo == null) {
-            debug ("Ignore non-git folders");
-            return;
-        }
-        bool is_new = false;
-        string start_path = start_folder != null ? start_folder.path : "";
-        visible_item_list.@foreach ((visible_item) => {
-            if (start_path.has_prefix (visible_item.rel_path)) {
-                return; //Only need to update status for start_folder and its children
-            }
-
-            var item = visible_item.item;
-            item.secondary_icon = null;
-            monitored_repo.non_current_entries.@foreach ((entry) => {
-                // Match non_current_path with parent folder as well as itself
-                var match = entry.key.has_prefix (visible_item.rel_path);
-                if (match) {
-                    is_new = (entry.@value & (Ggit.StatusFlags.WORKING_TREE_NEW | Ggit.StatusFlags.INDEX_NEW)) > 0;
-                    // Only mark folders new if only contains new items otherwise mark modified
-                    if (item is FolderItem &&
-                        is_new && item.secondary_icon == null) {
-
-                        item.secondary_icon = added_icon;
-                        item.secondary_icon_tooltip = _("New");
-                        return true;  // scan all children
-                    }
-
-                    if (!(item is FolderItem) || !item.is_expanded) { //No need to show status when children shown
-                        item.secondary_icon = is_new ? added_icon : modified_icon;
-                        item.secondary_icon_tooltip = is_new ? _("New") : _("Modified");
-                    }
-                    return false;
-                } else {
-                    return true;
-                }
-            });
-        });
+    public void update_item_status () {
+        // var status = folder_tree.update_status ();
+        //TODO update appearance according to global status
     }
+    // public void update_item_status (FolderItem? start_folder) {
+    //     if (monitored_repo == null) {
+    //         debug ("Ignore non-git folders");
+    //         return;
+    //     }
+    //     bool is_new = false;
+    //     string start_path = start_folder != null ? start_folder.path : "";
+    //     visible_item_list.@foreach ((visible_item) => {
+    //         if (start_path.has_prefix (visible_item.rel_path)) {
+    //             return; //Only need to update status for start_folder and its children
+    //         }
+
+    //         var item = visible_item.item;
+    //         // item.secondary_icon = null;
+    //         monitored_repo.non_current_entries.@foreach ((entry) => {
+    //             // Match non_current_path with parent folder as well as itself
+    //             var match = entry.key.has_prefix (visible_item.rel_path);
+    //             if (match) {
+    //                 is_new = (entry.@value & (Ggit.StatusFlags.WORKING_TREE_NEW | Ggit.StatusFlags.INDEX_NEW)) > 0;
+    //                 // Only mark folders new if only contains new items otherwise mark modified
+    //                 if (item is FolderItem &&
+    //                     is_new && item.secondary_icon == null) {
+
+    //                     item.secondary_icon = added_icon;
+    //                     item.secondary_icon_tooltip = _("New");
+    //                     return true;  // scan all children
+    //                 }
+
+    //                 if (!(item is FolderItem) || !item.is_expanded) { //No need to show status when children shown
+    //                     item.secondary_icon = is_new ? added_icon : modified_icon;
+    //                     item.secondary_icon_tooltip = is_new ? _("New") : _("Modified");
+    //                 }
+    //                 return false;
+    //             } else {
+    //                 return true;
+    //             }
+    //         });
+    //     });
+    // }
 
     public bool contains_file (GLib.File descendant) {
         return file.file.get_relative_path (descendant) != null;
@@ -518,9 +531,9 @@ public class Code.ProjectFolderItem : FolderItem {
 
         if (search_term != null) {
             // Remove results of previous search before attempting a new one
-            remove_all_badges ();
+            folder_tree.clear_badges ();
             // Collapse everything
-            collapse_all (true, true);
+            collapse ();
 
             /* Put search term in search bar to help user locate the position of the matches in each doc */
             var search_variant = new Variant.string (search_term);
@@ -587,6 +600,32 @@ public class Code.ProjectFolderItem : FolderItem {
         }
 
         return;
+    }
+
+    public void set_as_active_project () {
+        git_manager.active_project_path = path;
+    }
+
+    public void collapse () {
+        is_expanded = false;
+    }
+
+    public void expand () {
+        is_expanded = true;
+    }
+
+    public FolderManagerItem? find_path (string path, bool expand) {
+        return folder_tree.find_path (null, path, expand);
+    }
+    // Does not remove from liststore - that is up to ProjectList
+    public void close () {
+        folder_tree.remove_all ();
+        git_manager.remove_project (this); // Takes care of active_project?
+    }
+    protected override void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
+        if (source.equal (file.file) && event == DELETED) {
+            deleted ();
+        }
     }
 
     private void search_folder_children (GLib.File start_folder, Regex pattern, bool recurse_subfolders) {
@@ -680,8 +719,19 @@ public class Code.ProjectFolderItem : FolderItem {
         return;
     }
 
-    public void refresh_diff (ref Gee.HashMap<int, Scratch.Services.VCStatus> line_status_map, string doc_path) {
-        monitored_repo.refresh_diff (doc_path, ref line_status_map);
+    private void branch_or_name_changed () {
+        if (monitored_repo != null) {
+            //As SourceList items are not widgets we have to use markup to change appearance of text.
+            if (monitored_repo.head_is_branch) {
+                name = "%s\n<span size='small' weight='normal'>%s</span>".printf (
+                    file.name, monitored_repo.branch_name
+                );
+            } else { //Distinguish detached heads visually
+                name = "%s\n <span size='small' weight='normal' style='italic'>%s</span>".printf (
+                    file.name, monitored_repo.branch_name
+                );
+            }
+        }
     }
 }
 

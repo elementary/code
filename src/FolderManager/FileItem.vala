@@ -38,7 +38,7 @@ public class Code.FileItem : FolderManagerItem {
         }
 
         var file_type = info.get_attribute_string (GLib.FileAttribute.STANDARD_CONTENT_TYPE);
-        var contractor_items = Utils.create_contract_items_for_file (file.file);
+        var contractor_items = Scratch.Utils.create_contract_items_for_file (file.file);
         var external_actions_section = new GLib.Menu ();
         external_actions_section.append_item (create_submenu_for_open_in (file_type));
         if (contractor_items.get_n_items () > 0) {
@@ -55,7 +55,7 @@ public class Code.FileItem : FolderManagerItem {
                 new Variant.string (file.path)
             )
         );
-        var rename_action = Utils.action_from_group (FolderTree.ACTION_RENAME_FILE, view.actions);
+        var rename_action = Scratch.Utils.action_from_group (FolderTree.ACTION_RENAME_FILE, view.actions);
         rename_action.set_enabled (view.rename_request (file));
 
         var delete_item = new GLib.MenuItem (
@@ -81,7 +81,7 @@ public class Code.FileItem : FolderManagerItem {
         var new_window_menu_item = new GLib.MenuItem (
             _("New Window"),
             GLib.Action.print_detailed_name (
-                MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_IN_NEW_WINDOW,
+                Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_IN_NEW_WINDOW,
                 file.path
             )
         );
@@ -104,7 +104,7 @@ public class Code.FileItem : FolderManagerItem {
 
         var open_in_menu = new GLib.Menu ();
         open_in_menu.append_section (null, top_section);
-        open_in_menu.append_section (null, Utils.create_executable_app_items_for_file (file.file, file_type));
+        open_in_menu.append_section (null, Scratch.Utils.create_executable_app_items_for_file (file.file, file_type));
         open_in_menu.append_section (null, extra_section);
 
         var open_in_menu_item = new GLib.MenuItem.submenu (_("Open In"), open_in_menu);
