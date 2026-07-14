@@ -23,6 +23,9 @@ public interface Code.FolderManagerItemInterface : Object {
     public abstract string name { get; set; }
     public abstract string badge { get; set; }
     public virtual Menu? get_context_menu () { return null; }
+    public bool equal (FolderManagerItemInterface b) {
+        return path == b.path;
+    }
 }
 
 public abstract class Code.FolderManagerItem: Code.TreeListItem, Code.FolderManagerItemInterface {
@@ -83,7 +86,7 @@ public abstract class Code.FolderManagerItem: Code.TreeListItem, Code.FolderMana
         // if (b is RenameItem) {
         //     return 1;
         // }
-
+        warning ("compare item");
         if (a is FolderItem && b is FileItem) {
             return -1;
         } else if (a is FileItem && b is FolderItem) {

@@ -463,9 +463,9 @@ namespace Scratch {
 
             sidebar = new Code.Sidebar ();
 
-            // folder_manager_view = new Code.FileView (plugins);
+            folder_manager_view = new Code.ProjectList ();
 
-            // sidebar.add_tab (folder_manager_view);
+            sidebar.add_tab (folder_manager_view);
             // sidebar.add_tab (new Granite.HeaderLabel ("Dummy Sidebar"));
 
             // folder_manager_view.file_activate.connect ((file) => {
@@ -745,6 +745,7 @@ namespace Scratch {
         }
 
         public void open_folder_as_project (File folder) {
+            warning ("opening %s as project", folder.get_path ());
             var foldermanager_file = new Code.File (folder.get_path ());
             folder_manager_view.open_project_folder (foldermanager_file);
         }
@@ -793,12 +794,12 @@ namespace Scratch {
              hp1.set_position (Scratch.saved_state.get_int ("hp1-size"));
              vp.set_position (Scratch.saved_state.get_int ("vp-size"));
             // Ensure foldermanager finishes loading projects before start opening documents
-            // folder_manager_view.restore_saved_state.begin ((obj, res) => {
-            //     folder_manager_view.restore_saved_state.end (res);
+            folder_manager_view.restore_saved_state.begin ((obj, res) => {
+                folder_manager_view.restore_saved_state.end (res);
                 if (restore_docs) {
                     restore_opened_documents.begin ();
                 }
-            // });
+            });
         }
 
         private void create_unsaved_documents_directory () {
@@ -939,6 +940,7 @@ namespace Scratch {
         }
 
         private void action_open () {
+        warning ("action open");
             var all_files_filter = new Gtk.FileFilter ();
             all_files_filter.set_filter_name (_("All files"));
             all_files_filter.add_pattern ("*");
@@ -967,10 +969,12 @@ namespace Scratch {
             }
 
             file_chooser.response.connect ((res) => {
+            warning ("got response %s", res.to_string ());
                 var files = file_chooser.get_files (); // Returns ListModel of GFile objects
                 // var uris = file_chooser.get_uris ();
                 file_chooser.destroy (); // Close now so it does not stay open during lengthy or failed loading
                 if (res == Gtk.ResponseType.ACCEPT) {
+                    warning ("ACCEPT");
                     var index = 0;
                     var obj = files.get_item (index++);
                     while (obj != null) {
@@ -1007,6 +1011,7 @@ namespace Scratch {
         }
 
         private void choose_folder () {
+            warning ("choose folder");
             var chooser = new Gtk.FileChooserNative (
                 "Select a folder.", this, Gtk.FileChooserAction.SELECT_FOLDER,
                 _("_Open"),
@@ -1014,18 +1019,17 @@ namespace Scratch {
             );
 
             chooser.select_multiple = true;
-
             chooser.response.connect ((res) => {
                 var files = chooser.get_files ();
                 chooser.destroy ();
                 if (res == Gtk.ResponseType.ACCEPT) {
-var index = 0;
+                    var index = 0;
                     var obj = files.get_item (index++);
                     while (obj != null) {
-                        // var file = (GLib.File) obj;
-                        // var foldermanager_file = new Code.File (file.get_path ());
-                        // folder_manager_view.open_folder_as_project (foldermanager_file);
-                        // obj = files.get_item (index++);
+                        var file = (GLib.File) obj;
+                        var foldermanager_file = new Code.File (file.get_path ());
+                        folder_manager_view.open_project_folder (foldermanager_file);
+                        obj = files.get_item (index++);
                     }
                 }
             });
@@ -1038,7 +1042,7 @@ var index = 0;
             if (path == "") {
                 choose_folder ();
             } else {
-                // folder_manager_view.open_folder_as_project (new Code.File (path));
+                folder_manager_view.open_project_folder (new Code.File (path));
             }
         }
 
@@ -1118,7 +1122,7 @@ var index = 0;
         }
 
         private void action_collapse_all_folders () {
-            // folder_manager_view.collapse_all ();
+            folder_manager_view.collapse_all ();
         }
 
         private void action_save () {

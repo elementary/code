@@ -41,6 +41,7 @@ public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderM
     public Code.ProjectList view { get; construct; }
     // For convenience
     public GLib.File gfile { get { return file.file; }}
+    public string secondary_text { get; private set; }
 
     private static Icon added_icon;
     private static Icon modified_icon;
@@ -74,13 +75,14 @@ public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderM
 
     construct {
         path = file.path;
+        name = file.name;
         monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (this);
         git_manager = Scratch.Services.GitManager.get_instance ();
         folder_tree = new Code.FolderTree (path);
-        notify["name"].connect (branch_or_name_changed);
+        file.notify["name"].connect (branch_or_name_changed);
         if (monitored_repo != null) {
             monitored_repo.branch_changed.connect (branch_or_name_changed);
-            monitored_repo.ignored_changed.connect ((deprioritize_git_ignored));
+            // monitored_repo.ignored_changed.connect ((deprioritize_git_ignored));
             // monitored_repo.file_status_change.connect (() => update_item_status (null));
             monitored_repo.update_status_map ();
             monitored_repo.branch_changed ();
@@ -353,24 +355,25 @@ public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderM
     //     });
     // }
 
+    // This assumes the descendant exists
     public bool contains_file (GLib.File descendant) {
         return file.file.get_relative_path (descendant) != null;
     }
 
-    private void deprioritize_git_ignored () requires (monitored_repo != null) {
-        visible_item_list.@foreach ((visible_item) => {
-            var item = visible_item.item;
-            try {
-                if (monitored_repo.path_is_ignored (visible_item.rel_path)) {
-                    item.text = Markup.printf_escaped ("<span fgalpha='75&#37;'><i>%s</i></span>", item.name);
-                } else {
-                    item.text = item.name;
-                }
-            } catch (Error e) {
-                warning ("An error occurred while checking if item '%s' is git-ignored: %s", item.name, e.message);
-            }
-        });
-    }
+    // private void deprioritize_git_ignored () requires (monitored_repo != null) {
+    //     visible_item_list.@foreach ((visible_item) => {
+    //         var item = visible_item.item;
+    //         try {
+    //             if (monitored_repo.path_is_ignored (visible_item.rel_path)) {
+    //                 deprioritize = true;
+    //             } else {
+
+    //             }
+    //         } catch (Error e) {
+    //             warning ("An error occurred while checking if item '%s' is git-ignored: %s", item.name, e.message);
+    //         }
+    //     });
+    // }
 
     public bool checkout_branch_ref (Ggit.Ref branch_ref) {
         if (branch_ref.is_branch ()) {
@@ -720,16 +723,13 @@ public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderM
     }
 
     private void branch_or_name_changed () {
+        name = file.name;
         if (monitored_repo != null) {
             //As SourceList items are not widgets we have to use markup to change appearance of text.
             if (monitored_repo.head_is_branch) {
-                name = "%s\n<span size='small' weight='normal'>%s</span>".printf (
-                    file.name, monitored_repo.branch_name
-                );
+                secondary_text = monitored_repo.branch_name;
             } else { //Distinguish detached heads visually
-                name = "%s\n <span size='small' weight='normal' style='italic'>%s</span>".printf (
-                    file.name, monitored_repo.branch_name
-                );
+                secondary_text = _("%s (detached)").printf (monitored_repo.branch_name);
             }
         }
     }

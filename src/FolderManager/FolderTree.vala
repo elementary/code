@@ -308,6 +308,7 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
         bool expand = false // Whether to expsnd to show found item
     ) {
 
+warning ("Folder tree find path");
         FolderManagerItem? matched_item = null;
         var target = GLib.File.new_for_path (path);
 

@@ -44,6 +44,9 @@ public class Code.Sidebar : Gtk.Box {
 
     construct {
         orientation = Gtk.Orientation.VERTICAL;
+        vexpand = true;
+        hexpand = true;
+
         add_css_class (Granite.STYLE_CLASS_SIDEBAR);
 
         choose_project_button = new Code.ChooseProjectButton () {
@@ -62,7 +65,9 @@ public class Code.Sidebar : Gtk.Box {
         };
         headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
 
-        stack = new Gtk.Stack ();
+        stack = new Gtk.Stack () {
+            vexpand = true
+        };
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
 
         var overlay = new Gtk.Overlay () {
@@ -74,7 +79,9 @@ public class Code.Sidebar : Gtk.Box {
         stack_switcher.visible = false;
         stack_switcher.stack = stack;
 
-        var actionbar = new Gtk.ActionBar ();
+        var actionbar = new Gtk.ActionBar () {
+            valign = END
+        };
         actionbar.add_css_class (Granite.STYLE_CLASS_FLAT);
 
         var collapse_all_menu_item = new GLib.MenuItem (_("Collapse All"), Scratch.MainWindow.ACTION_PREFIX
@@ -96,7 +103,8 @@ public class Code.Sidebar : Gtk.Box {
         project_menu_model = project_menu;
 
         var label = new Gtk.Label ( _("Manage project folders…")) {
-            halign = START
+            halign = START,
+            valign = CENTER
         };
         var project_menu_button = new Gtk.MenuButton () {
             hexpand = true,

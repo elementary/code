@@ -85,7 +85,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
     public string title { get; set; }
 
     private Gtk.ScrolledWindow scrolled_window;
-    private Gtk.ListView list_view;
+    private Gtk.ListBox list_box;
     private GLib.ListStore list_store;
     private Gtk.NoSelection selection_model;
 
@@ -108,8 +108,8 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         settings = new GLib.Settings ("io.elementary.code.folder-manager");
         list_store = new ListStore (typeof (ProjectFolderItem));
         selection_model = new Gtk.NoSelection (list_store);
-        var list_factory = new Gtk.SignalListItemFactory ();
-        list_view = new Gtk.ListView (selection_model, list_factory);
+        list_box = new Gtk.ListBox ();
+        list_box.bind_model (selection_model, create_widget);
 
         actions = new SimpleActionGroup ();
         actions.add_action_entries (ACTION_ENTRIES, this);
@@ -119,27 +119,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
             order_folders ();
         });
 
-        child = list_view;
-
-        list_factory.setup.connect ((obj) => {
-            var listitem = (Gtk.ListItem) obj;
-            // create_listitem_child (listitem);
-           // By default just create a use a label (not expandable)
-        });
-        list_factory.teardown.connect ((obj) => {
-            var listitem = (Gtk.ListItem) obj;
-            // teardown_listitem_child (listitem);
-        });
-        list_factory.bind.connect ((obj) => {
-            var listitem = (Gtk.ListItem) obj;
-            var data = (Code.ProjectFolderItem) (listitem.item);
-            // bind_data_to_row (data, listitem);
-        });
-        list_factory.unbind.connect ((obj) => {
-            var listitem = (Gtk.ListItem) obj;
-            var data = (Code.ProjectFolderItem) (listitem.item);
-            // unbind_data_from_row (data, listitem);
-        });
+        child = list_box;
     }
 
     public async void restore_saved_state () {
@@ -149,8 +129,10 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
     }
 
     public void open_project_folder (File folder) {
+        warning ("open project folder");
         ProjectFolderItem? listitem;
         if (is_existing_project_path (folder.path, out listitem)) {
+            warning ("exists - expanding");
             listitem.expand ();
             return; //TODO Should we expand here?
         }
@@ -263,7 +245,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         bool expand = false // Whether to expsnd to show found item
         // GLib.File? target_file = null // Alternatively find this file
     ) {
-
+warning ("Project list find path %s", path);
         // var target = target_file ?? GLib.File.new_for_path (path);
         FolderManagerItemInterface? matched_item = null;
         iterate_children ((listitem) => {
@@ -325,6 +307,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
     // }
 
     public FolderManagerItemInterface? expand_to_path (string path) {
+    warning ("expand to path");
          return find_path (path, true);
     }
 
@@ -599,6 +582,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
 
     // Only call when path is known to be a new project
     private async void add_new_project_folder (string path, bool expand, bool restoring = false) {
+    warning ("add new project folder async");
         var folder = new File (path);
         if (!folder.is_valid_directory) {
             warning ("Cannot open invalid directory.");
@@ -623,7 +607,9 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
             return Code.TreeList.ITERATE_CONTINUE;
         });
 
+        warning ("done iterate children");
         if (parents.length () > 0 || children.length () > 0) {
+        warning ("oarent or children");
             assert (parents.length () <= 1);
             assert (parents.length () == 0 || children.length () == 0);
             var dialog = new Scratch.Dialogs.CloseProjectsConfirmationDialog (
@@ -660,9 +646,11 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
             }
         }
 
+        warning ("before open folder in idle");
         // Process any closed signals emitted before proceeding
         Idle.add (() => {
             var new_item = new ProjectFolderItem (folder, this);
+            warning ("appending item to store");
             list_store.append (new_item);
             if (expand) {
                 new_item.expand ();
@@ -824,5 +812,16 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         do {
             item = (ProjectFolderItem?) (list_store.get_object (pos++));
         } while (item != null && cb (item));
+    }
+
+    private Gtk.Widget create_widget (Object obj) {
+        var project_item = (ProjectFolderItem) obj;
+        var label = new Granite.HeaderLabel ("") {
+            label = project_item.name,
+            secondary_text = "Branch name goes here"
+            // secondary_text = project_item.secondary_text
+        };
+
+        return label;
     }
 }
