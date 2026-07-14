@@ -132,7 +132,7 @@ namespace Scratch {
             { ACTION_FIND_PREVIOUS, action_find_previous },
             { ACTION_FIND_GLOBAL, action_find_global, "s" },
             { ACTION_OPEN, action_open },
-            { ACTION_OPEN_FOLDER, action_open_folder, "s" },
+            { ACTION_OPEN_FOLDER, action_open_folder_as_project, "s" },
             { ACTION_OPEN_PROJECT, action_open_project },
             { ACTION_COLLAPSE_ALL_FOLDERS, action_collapse_all_folders },
             { ACTION_PREFERENCES, action_preferences },
@@ -744,9 +744,9 @@ namespace Scratch {
             return search_bar.search_occurrences > 0;
         }
 
-        public void open_folder (File folder) {
+        public void open_folder_as_project (File folder) {
             var foldermanager_file = new Code.File (folder.get_path ());
-            folder_manager_view.open_folder (foldermanager_file);
+            folder_manager_view.open_project_folder (foldermanager_file);
         }
 
         public async void open_document (Scratch.Services.Document doc,
@@ -1024,7 +1024,7 @@ var index = 0;
                     while (obj != null) {
                         // var file = (GLib.File) obj;
                         // var foldermanager_file = new Code.File (file.get_path ());
-                        // folder_manager_view.open_folder (foldermanager_file);
+                        // folder_manager_view.open_folder_as_project (foldermanager_file);
                         // obj = files.get_item (index++);
                     }
                 }
@@ -1033,12 +1033,12 @@ var index = 0;
             chooser.show ();
         }
 
-        private void action_open_folder (SimpleAction action, Variant? param) {
+        private void action_open_folder_as_project (SimpleAction action, Variant? param) {
             var path = param.get_string ();
             if (path == "") {
                 choose_folder ();
             } else {
-                // folder_manager_view.open_folder (new Code.File (path));
+                // folder_manager_view.open_folder_as_project (new Code.File (path));
             }
         }
 
@@ -1081,7 +1081,7 @@ var index = 0;
                     sidebar.cloning_in_progress = false;
 
                     if (success) {
-                        open_folder (workdir);
+                        open_folder_as_project (workdir);
                         if (this.is_active) {
                             sidebar.notify_cloning_success ();
                         } else {

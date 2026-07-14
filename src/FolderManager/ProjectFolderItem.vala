@@ -27,7 +27,7 @@ public class Code.ProjectFolderItem : FolderItem {
     private static Icon added_icon;
     private static Icon modified_icon;
 
-    public signal void closed ();
+    public signal void deleted ();
 
     public Scratch.Services.MonitoredRepository? monitored_repo { get; private set; default = null; }
     // Cache the visible item in the project.
@@ -83,7 +83,7 @@ public class Code.ProjectFolderItem : FolderItem {
 
     protected override void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
         if (source.equal (file.file) && event == DELETED) {
-            closed ();
+            deleted ();
         } else {
             base.on_changed (source, dest, event);
         }

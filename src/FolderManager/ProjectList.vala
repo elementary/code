@@ -6,18 +6,19 @@
 //TODO Can we just use ProjectFolderItems direct?
 public class Code.ProjectListItem : Object {
     public ProjectFolderItem project_folder { get; set construct; }
+    public ProjectList view { get; set construct; } // Needed to activate actions
     public string path { get; construct; }
     public GLib.File gfile { get { return project_folder.file.file; }}
-    public Code.FolderTree folder_tree { get; set construct; }
 
+    private Code.FolderTree folder_tree;
     private Scratch.Services.GitManager git_manager;
-
     private bool is_expanded { get; set; }
     private bool is_active_project { get { return git_manager.active_project_path == path; } }
 
-    public ProjectListItem (string path) {
+    public ProjectListItem (string path, ProjectList view) {
         Object (
-            path: path
+            path: path,
+            view: view
         );
     }
 
@@ -25,27 +26,13 @@ public class Code.ProjectListItem : Object {
         folder_tree = new FolderTree (path);
         git_manager = Scratch.Services.GitManager.get_instance ();
 
-        var new_project = new ProjectFolderItem (new Code.File (path), folder_tree); // Constructor adds project to GitManager
-        new_project.project.closed.connect (() => {
-            activate_action (
-                MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
-                "s",
-                folder_root.path
-            );
+        // ProjectFolderItem constructor adds project to GitManager
+        var project_folder = new ProjectFolderItem (new Code.File (path), folder_tree);
 
-            tree_list.remove_root_item (folder_root);
-
-            tree_list.iterate_children (null, (child) => {
-                var child_folder = (ProjectFolderItem) child;
-                if (child_folder.name != child_folder.file.name) {
-                    rename_items_with_same_name (child_folder);
-                }
-
-                return Code.TreeList.ITERATE_CONTINUE;
-            });
-
-            Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
-            write_settings ();
+        // Closed signal emitted when project folder is externally deleted
+        project_folder.deleted.connect (() => {
+            folder_tree.remove_all ();
+            view.item_deleted (this);
         });
 
     }
@@ -64,14 +51,22 @@ public class Code.ProjectListItem : Object {
         is_expanded = true;
     }
 
+    // Does not remove from liststore - that is up to ProjectList
     public void close () {
-        // folder_tree.clear ();
-        project_folder.closed ();
+        folder_tree.remove_all ();
         git_manager.remove_project (project_folder); // Takes care of active_project?
     }
 
     public void set_as_active_project () {
         git_manager.active_project_path = path;
+    }
+
+    public FolderManagerItem? find_path (
+        string path, // File path to search fod
+        bool expand = false // Whether to expsnd to show found item
+        // GLib.File? target_file = null // Alternatively find this file
+    ) {
+        return folder_tree.find_path (null, path, expand);
     }
 }
 
@@ -83,7 +78,11 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
     public const string ACTION_CLOSE_OTHER_PROJECT_FOLDERS = "close-other-project-folders";
     public const string CLOSE_PROJECT_DOCS_ACTION_NAME = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_CLOSE_PROJECT_DOCS;
     public SimpleActionGroup actions { get; private set; }
-    public bool is_empty { get { return list_store.n_root_items () == 0; } }
+    public bool is_empty { get { return list_store.n_items == 0; } }
+
+    // PaneSwitcher interface
+    public string icon_name { get; set; }
+    public string title { get; set; }
 
     private Gtk.ScrolledWindow scrolled_window;
     private Gtk.ListView list_view;
@@ -103,13 +102,14 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
     // }
 
     construct {
+        //For Code.PaneSwitcher iterface
+        icon_name = "not-exist";
+        title = "Projects";
         settings = new GLib.Settings ("io.elementary.code.folder-manager");
         list_store = new ListStore (typeof (ProjectListItem));
-        selection_model = new Gtk.NoSelection ();
+        selection_model = new Gtk.NoSelection (list_store);
         var list_factory = new Gtk.SignalListItemFactory ();
-        list_view = new Gtk.ListView (selection_model, list_factory) {
-            header_factory = tree_header_factory
-        };
+        list_view = new Gtk.ListView (selection_model, list_factory);
 
         actions = new SimpleActionGroup ();
         actions.add_action_entries (ACTION_ENTRIES, this);
@@ -119,26 +119,26 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
             order_folders ();
         });
 
-        child = list_store;
+        child = list_view;
 
         list_factory.setup.connect ((obj) => {
             var listitem = (Gtk.ListItem) obj;
-            create_listitem_child (listitem);
+            // create_listitem_child (listitem);
            // By default just create a use a label (not expandable)
         });
         list_factory.teardown.connect ((obj) => {
             var listitem = (Gtk.ListItem) obj;
-            teardown_listitem_child (listitem);
+            // teardown_listitem_child (listitem);
         });
         list_factory.bind.connect ((obj) => {
             var listitem = (Gtk.ListItem) obj;
             var data = (Code.ProjectListItem) (listitem.item);
-            bind_data_to_row (data, listitem);
+            // bind_data_to_row (data, listitem);
         });
         list_factory.unbind.connect ((obj) => {
             var listitem = (Gtk.ListItem) obj;
             var data = (Code.ProjectListItem) (listitem.item);
-            unbind_data_from_row (data, listitem);
+            // unbind_data_from_row (data, listitem);
         });
     }
 
@@ -148,13 +148,14 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         }
     }
 
-    // If project exists expand it, otherwise create
     public void open_project_folder (File folder) {
-        if (is_open_project (folder.path)) {
-            return;
+        ProjectListItem? listitem;
+        if (is_existing_project_path (folder.path, out listitem)) {
+            listitem.expand_all (); //TODO Just expand first level?
+            return; //TODO Should we expand here?
         }
 
-        add_new_project_folder.begin (folder, true, false);
+        add_new_project_folder.begin (folder.path, true, false);
     }
 
     public void collapse_all () {
@@ -189,17 +190,17 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
 
     public void collapse_other_projects (string active_project_path) {
         iterate_children ((listitem) => {
-            if (listitem.path != path) {
+            if (listitem.path != active_project_path) {
                 listitem.collapse_all ();
                 activate_action (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_HIDE_PROJECT_DOCS,
+                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_HIDE_PROJECT_DOCS,
                     "s",
                     listitem.path
                 );
-            } else if (listitem.path == path) {
+            } else {
                 listitem.expand_all ();
                 activate_action (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS,
+                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_RESTORE_PROJECT_DOCS,
                     "s",
                     listitem.path
                 );
@@ -264,13 +265,12 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
 
         // var target = target_file ?? GLib.File.new_for_path (path);
         FolderManagerItem? matched_item = null;
-
         iterate_children ((listitem) => {
             if (listitem.path == path) {
                 matched_item = listitem.project_folder;
                 return Code.TreeList.ITERATE_STOP;
             } else if (path.has_prefix (listitem.path)) { //TODO Ensure paths are compatible
-                matched_item = listitem.tree_root_item.find_path (path);
+                matched_item = listitem.find_path (path, expand);
                 return Code.TreeList.ITERATE_STOP;
             }
 
@@ -308,23 +308,23 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
     }
 
 
-
+    // Which project any file is in
     public ProjectListItem? get_project_for_file (GLib.File file) {
         ProjectListItem? matched_project_item = null;
         iterate_children ((listitem) => {
             if (listitem.is_or_contains_file (file)) {
-                matched_project = listitem;
+                matched_project_item = listitem;
                 return Code.TreeList.ITERATE_STOP;
             }
 
             return Code.TreeList.ITERATE_CONTINUE;
         });
 
-        return matched_project;
+        return matched_project_item;
     }
 
-    public Code.TreeListItem? expand_to_path (string path) {
-         return find_path (null, path, true);
+    public FolderManagerItem? expand_to_path (string path) {
+         return find_path (path, true);
     }
 
     /* Do global search on project containing the file path supplied in parameter */
@@ -343,18 +343,24 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         }
     }
 
-    public void clear_badges () {
-        tree_list.iterate_children (null, (child) => {
-            if (child is ProjectFolderItem) {
-                ((FolderItem)child).remove_all_badges ();
-            }
+    // public void clear_badges () {
+    //     tree_list.iterate_children (null, (child) => {
+    //         if (child is ProjectFolderItem) {
+    //             ((FolderItem)child).remove_all_badges ();
+    //         }
 
-            return Code.TreeList.ITERATE_CONTINUE;
-        });
-    }
+    //         return Code.TreeList.ITERATE_CONTINUE;
+    //     });
+    // }
 
-    public void folder_item_update_hook (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
-        plugins.hook_folder_item_change (source, dest, event);
+    // public void folder_item_update_hook (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
+    //     plugins.hook_folder_item_change (source, dest, event);
+    // }
+
+
+    public void item_deleted (ProjectListItem listitem) {
+        // Just remove it for now
+        remove_project_item (listitem);
     }
 
     // This only works when the list is stable (nothing being added, expanded etc)
@@ -641,10 +647,12 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
             if (close_projects) {
                 foreach (var listitem in parents) {
                     listitem.close ();
+                    remove_project_item (listitem);
                 }
 
                 foreach (var listitem in children) {
                     listitem.close ();
+                    remove_project_item (listitem);
                 }
             } else {
                 return;
@@ -653,10 +661,8 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
 
         // Process any closed signals emitted before proceeding
         Idle.add (() => {
-
-
-            var new_item = new ProjectListItem (folder);
-            list_store.append_item (new_item);
+            var new_item = new ProjectListItem (path, this);
+            list_store.append (new_item);
             if (expand) {
                 new_item.expand_all ();
             }
@@ -666,7 +672,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
             // This interferes with fuzzy-finder plugins_manager
             // See https://github.com/elementary/code/issues/1533
             if (!restoring) {
-                write_settings ();
+                write_open_folders_setting ();
             }
 
             add_new_project_folder.callback ();
@@ -678,37 +684,39 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         // order_folders (); //TODO do later
     }
 
-    // private bool is_open_project (string path) {
-    //     bool open = false;
-    //     // Only iterate this model
-    //     iterate_children ((listitem) => {
-    //         if (path == listitem.path) {
-    //             open = true;
-    //             return Code.TreeList.ITERATE_STOP;
-    //         }
+    private bool is_existing_project_path (string path, out ProjectListItem? list_item) {
+        bool open = false;
+        list_item = null;
+        ProjectListItem? matched_item = null;
+        // Only iterate this model
+        iterate_children ((listitem) => {
+            if (path == listitem.path) {
+                open = true;
+                matched_item = listitem;
+                return Code.TreeList.ITERATE_STOP;
+            }
 
-    //         return Code.TreeList.ITERATE_CONTINUE;
-    //     });
+            return Code.TreeList.ITERATE_CONTINUE;
+        });
 
-    //     return open;
-    // }
+        list_item = matched_item;
+        return open;
+    }
 
     private void write_open_folders_setting () {
         string[] to_save = {};
-        tree_list.iterate_children (null, (item) => {
+        iterate_children ((listitem) => {
             var saved = false;
-            var folder_path = ((FolderManagerItem) item).path;
-
             //Do we need to de-duplicate? Not possible to open a project twice?
             foreach (var saved_folder in to_save) {
-                if (folder_path == saved_folder) {
+                if (listitem.path == saved_folder) {
                     saved = true;
                     break;
                 }
             }
 
             if (!saved) {
-                to_save += folder_path;
+                to_save += listitem.path;
             }
 
             return Code.TreeList.ITERATE_CONTINUE;
@@ -717,6 +725,18 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         settings.set_strv ("opened-folders", to_save);
     }
 
+    private void remove_project_item (ProjectListItem listitem) {
+        activate_action (
+            CLOSE_PROJECT_DOCS_ACTION_NAME,
+            "s",
+            listitem.path
+        );
+
+        uint pos;
+        list_store.find (listitem, out pos);
+        list_store.remove (pos);
+
+    }
     private void action_close_project_folder (SimpleAction action, GLib.Variant? parameter) {
         var path = parameter.get_string ();
         if (path == null || path == "") {
@@ -726,6 +746,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         iterate_children ((listitem) => {
             if (listitem.path == path) {
                 listitem.close ();
+                remove_project_item (listitem); // OK to remove as we stop iterating
                 return TreeList.ITERATE_STOP;
             }
 
@@ -743,7 +764,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         iterate_children ((listitem) => {
             if (listitem.path != path) {
                 listitem.close ();
-                to_remove.prepend (listitem);
+                to_remove.prepend (listitem); // Delay removal during iteration
             }
 
             return TreeList.ITERATE_CONTINUE;
@@ -766,14 +787,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         // });
 
         foreach (ProjectListItem listitem in to_remove) {
-            activate_action (
-                CLOSE_PROJECT_DOCS_ACTION_NAME,
-                "s",
-                listitem.path
-            );
-            uint pos;
-            list_store.find (listitem, out pos);
-            list_store.remove (pos);
+            remove_project_item (listitem);
         }
     }
 
@@ -786,25 +800,21 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         set_active_project (path);
     }
 
+    //TODO Do we need both these functions???
     private ProjectFolderItem? set_active_project (string path) {
-        var listitem = find_path (path);
-        if (listitem == null) {
-            return null;
-        }
-
-        listitem.set_as_active_project ();
-        write_open_folders_setting ();
-
-        return listitem;
+        ProjectListItem? project_item;
+        is_existing_project_path (path, out project_item);
+        project_item.set_as_active_project ();
+        return project_item.project_folder;
     }
 
-    private void set_project_active (string path) {
-        activate_action (
-            MainWindow.ACTION_PREFIX + MainWindow.ACTION_SET_ACTIVE_PROJECT,
-            "s",
-            path
-        );
-    }
+    // private void set_project_active (string path) {
+    //     activate_action (
+    //         MainWindow.ACTION_PREFIX + MainWindow.ACTION_SET_ACTIVE_PROJECT,
+    //         "s",
+    //         path
+    //     );
+    // }
 
     delegate bool ProjectListIteratorCallback (ProjectListItem item);
     private void iterate_children (ProjectListIteratorCallback cb) {

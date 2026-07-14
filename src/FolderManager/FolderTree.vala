@@ -213,7 +213,7 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
     // }
 
     public void select_path (string path) {
-        find_path (null, path);
+        // find_path (null, path);
     }
 
     public void unselect_file (GLib.File file) {
@@ -222,6 +222,10 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
 
     public void unselect_all () {
         tree_list.unselect_all ();
+    }
+
+    public void remove_all () {
+        tree_list.remove_all ();
     }
 
     // public void collapse_other_projects () {
@@ -296,17 +300,15 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
     //     }
     // }
 
-    private Code.TreeListItem? find_path (
-        Code.TreeListItem? list,  // Starting point for search
+    public FolderManagerItem? find_path (
+        Code.TreeListItem? start,
         string path, // File path to search fod
-        bool expand = false, // Whether to expsnd to show found item
-        GLib.File? target_file = null // Alternatively find this file
+        bool expand = false // Whether to expsnd to show found item
     ) {
 
-        var target = target_file ?? GLib.File.new_for_path (path);
-        Code.TreeListItem? matched_item = null;
+        FolderManagerItem? matched_item = null;
 
-        tree_list.iterate_children (null, (item) => {
+        tree_list.iterate_children (start, (item) => {
             if ((item is FolderManagerItem) && item.path == path) {
                 matched_item = item;
                 return Code.TreeList.ITERATE_STOP;

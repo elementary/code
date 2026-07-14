@@ -46,6 +46,7 @@ namespace Scratch.Services {
 
         construct {
             // Used to populate the ChooseProject popover in sorted order
+            //TODO This seems to duplicate the sidebar store - can we combine?
             project_liststore = new ListStore (typeof (Code.ProjectFolderItem));
             settings.bind ("active-project-path", this, "active-project-path", DEFAULT);
         }
