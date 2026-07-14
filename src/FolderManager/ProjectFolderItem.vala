@@ -37,6 +37,7 @@ public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderM
     public FileMonitor monitor { get; set; }
     public ListStore? child_model { get; set; default = null;}
 
+    public Code.FolderTree folder_tree;
     public Code.File file { get; construct; }
     public Code.ProjectList view { get; construct; }
     // For convenience
@@ -61,7 +62,6 @@ public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderM
     // Cache the visible item in the project. (Excludes items loaded but in collapsed folder)
     private List<VisibleItem?> visible_item_list = null;
     // Child widget shows tree of project files and folders
-    private Code.FolderTree folder_tree;
 
     private Ggit.Repository? git_repo {
         get {

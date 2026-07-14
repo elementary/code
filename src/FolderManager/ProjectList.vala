@@ -822,6 +822,11 @@ warning ("Project list find path %s", path);
             // secondary_text = project_item.secondary_text
         };
 
-        return label;
+        var expander = new Gtk.Expander ("") {
+            label_widget = label,
+            child = project_item.folder_tree
+        };
+
+        return expander;
     }
 }
