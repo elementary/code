@@ -32,11 +32,12 @@ public sealed class Code.TreeList : Granite.Bin {
             warning ("sections changed pos %u, n items %u", pos, n_items);
         });
         var tree_list_factory = new Gtk.SignalListItemFactory ();
-        var tree_header_factory = new Gtk.SignalListItemFactory ();
+        // var tree_header_factory = new Gtk.SignalListItemFactory ();
         // list_view = new Gtk.ListView (selection_model, tree_list_factory) {
         //     header_factory = tree_header_factory
         // };
         list_view = new Gtk.ListView (selection_model, tree_list_factory);
+        list_view.add_css_class ("compact");
 
         bind_property ("activate-on-single-click", list_view, "single-click-activate", BIDIRECTIONAL | SYNC_CREATE);
         list_view.activate.connect ((pos) => {
@@ -66,24 +67,24 @@ public sealed class Code.TreeList : Granite.Bin {
             unbind_data_from_row (data, treelistrow, listitem);
         });
 
-        // HEADER FACTORY HANDLERS
-        tree_header_factory.setup.connect ((obj) => {
-            // By default create header and subheader, expandable
-            warning ("tree header setup");
-           var listheader = (Gtk.ListHeader) obj;
-           create_headeritem_child (listheader);
-        });
-        tree_header_factory.bind.connect ((obj) => {
-        warning ("tree header bind");
-            var listheader = (Gtk.ListHeader) obj;
+       //  // HEADER FACTORY HANDLERS
+       //  tree_header_factory.setup.connect ((obj) => {
+       //      // By default create header and subheader, expandable
+       //      warning ("tree header setup");
+       //     var listheader = (Gtk.ListHeader) obj;
+       //     create_headeritem_child (listheader);
+       //  });
+       //  tree_header_factory.bind.connect ((obj) => {
+       //  warning ("tree header bind");
+       //      var listheader = (Gtk.ListHeader) obj;
 
-            warning ("listheader item is a %s", listheader.item.get_type ().name ());
-            var row = (Gtk.TreeListRow) listheader.item;
-            var data = (Code.TreeListItem) row.item;
-            bind_data_to_header (data, row, listheader);
-        });
-       tree_header_factory.unbind.connect (() => {});
-       tree_header_factory.teardown.connect (() => {});
+       //      warning ("listheader item is a %s", listheader.item.get_type ().name ());
+       //      var row = (Gtk.TreeListRow) listheader.item;
+       //      var data = (Code.TreeListItem) row.item;
+       //      bind_data_to_header (data, row, listheader);
+       //  });
+       // tree_header_factory.unbind.connect (() => {});
+       // tree_header_factory.teardown.connect (() => {});
 
         // scrolled_window = new Gtk.ScrolledWindow () {
         //     child = list_view,
@@ -97,10 +98,26 @@ public sealed class Code.TreeList : Granite.Bin {
     protected virtual void create_listitem_child (Gtk.ListItem item) {
         var label = new Gtk.Label ("") {
            halign = START,
+           hexpand = true
         };
         // label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
-        label.add_css_class ("menu-item");
-        item.child = label;
+        label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
+        var primary_image = new Gtk.Image.from_icon_name (null);
+        var secondary_image = new Gtk.Image.from_icon_name (null);
+        var badge_label = new Gtk.Label ("");
+        badge_label.add_css_class (Granite.STYLE_CLASS_MENUITEM);
+        var box = new Gtk.Box (HORIZONTAL, 6) {
+            hexpand = true
+        };
+        box.append (primary_image);
+        box.append (label);
+        box.append (secondary_image);
+        box.append (badge_label);
+        badge_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
+        var expander = new Gtk.TreeExpander () {
+            child = box
+        };
+        item.child = expander;
     }
     protected virtual void teardown_listitem_child (Gtk.ListItem item) {
         // Must be paired with create_listitem child
@@ -110,8 +127,18 @@ public sealed class Code.TreeList : Granite.Bin {
         Gtk.TreeListRow row,
         Gtk.ListItem item) {
         // Must be matched with create item widget when overriding
-        var label = (Gtk.Label)(item.child);
-        label.label = data.text;
+        var expander = (Gtk.TreeExpander) (item.child);
+        expander.set_list_row (row);
+        expander.hide_expander = !data.is_expandable;
+        var box = (Gtk.Box)(expander.child); //TODO use expander?
+        var primary_image = (Gtk.Image)(box.get_first_child ());
+        var name_label = (Gtk.Label)(primary_image.get_next_sibling ());
+        var secondary_image = (Gtk.Image) (name_label.get_next_sibling ());
+        var badge_label = (Gtk.Label) secondary_image.get_next_sibling ();
+        primary_image.icon_name = data.is_expandable ? "folder" : "text-x-vala"; //TODO Icon based on file type
+        secondary_image.icon_name = "emblem-default"; //TODO Different icon
+        badge_label.label = "32"; //TODO Different icon
+        name_label.label = data.text;
     }
     protected virtual void unbind_data_from_row (
         TreeListItem data,

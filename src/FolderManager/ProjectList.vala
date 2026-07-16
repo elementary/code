@@ -102,6 +102,10 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
     // }
 
     construct {
+        actions = new SimpleActionGroup ();
+        actions.add_action_entries (ACTION_ENTRIES, this);
+        insert_action_group (ACTION_GROUP, actions);
+
         //For Code.PaneSwitcher iterface
         icon_name = "not-exist";
         title = "Projects";
@@ -109,11 +113,41 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         list_store = new ListStore (typeof (ProjectFolderItem));
         selection_model = new Gtk.NoSelection (list_store);
         list_box = new Gtk.ListBox ();
-        list_box.bind_model (selection_model, create_widget);
+        list_box.add_css_class (Granite.STYLE_CLASS_SIDEBAR);
+        list_box.bind_model (
+            selection_model,
+            (obj) => {
+                var project_item = (ProjectFolderItem) obj;
+                var label = new Granite.HeaderLabel ("") {
+                    label = project_item.name,
+                    secondary_text = "Branch name goes here",
+                    hexpand = true
+                };
 
-        actions = new SimpleActionGroup ();
-        actions.add_action_entries (ACTION_ENTRIES, this);
-        insert_action_group (ACTION_GROUP, actions);
+                var close_button = new Gtk.Button () {
+                    action_name = ACTION_PREFIX + ACTION_CLOSE_PROJECT_FOLDER,
+                    action_target = project_item.path,
+                    icon_name = "process-stop",
+                    valign = START,
+                    margin_top = 12
+                };
+
+                var box = new Gtk.Box (HORIZONTAL, 6) {
+                    hexpand = true
+                };
+                var expander = new Gtk.Expander ("") {
+                    label_widget = label,
+                    child = project_item.folder_tree,
+                    hexpand = true
+                };
+
+                box.prepend (expander);
+                box.append (close_button);
+
+
+                return box;
+            }
+        );
 
         Scratch.saved_state.changed["order-folders"].connect (() => {
             order_folders ();
@@ -815,21 +849,5 @@ warning ("Project list find path %s", path);
         do {
             item = (ProjectFolderItem?) (list_store.get_object (pos++));
         } while (item != null && cb (item));
-    }
-
-    private Gtk.Widget create_widget (Object obj) {
-        var project_item = (ProjectFolderItem) obj;
-        var label = new Granite.HeaderLabel ("") {
-            label = project_item.name,
-            secondary_text = "Branch name goes here"
-            // secondary_text = project_item.secondary_text
-        };
-
-        var expander = new Gtk.Expander ("") {
-            label_widget = label,
-            child = project_item.folder_tree
-        };
-
-        return expander;
     }
 }

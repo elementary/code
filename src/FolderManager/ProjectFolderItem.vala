@@ -44,12 +44,12 @@ public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderM
     public GLib.File gfile { get { return file.file; }}
     public string secondary_text { get; private set; }
 
-    private static Icon added_icon;
-    private static Icon modified_icon;
-    static construct {
-        added_icon = new ThemedIcon ("emblem-git-new-symbolic");
-        modified_icon = new ThemedIcon ("emblem-git-modified-symbolic");
-    }
+    // private static Icon added_icon;
+    // private static Icon modified_icon;
+    // static construct {
+    //     added_icon = new ThemedIcon ("emblem-git-new-symbolic");
+    //     modified_icon = new ThemedIcon ("emblem-git-modified-symbolic");
+    // }
 
     private struct VisibleItem {
         public string rel_path;
