@@ -124,28 +124,36 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
                     hexpand = true
                 };
 
-                var close_button = new Gtk.Button () {
-                    action_name = ACTION_PREFIX + ACTION_CLOSE_PROJECT_FOLDER,
-                    action_target = project_item.path,
-                    icon_name = "process-stop",
-                    valign = START,
-                    margin_top = 12
-                };
+                // var close_button = new Gtk.Button () {
+                //     action_name = ACTION_PREFIX + ACTION_CLOSE_PROJECT_FOLDER,
+                //     action_target = project_item.path,
+                //     icon_name = "process-stop",
+                //     valign = START,
+                //     margin_top = 12
+                // };
 
-                var box = new Gtk.Box (HORIZONTAL, 6) {
-                    hexpand = true
-                };
+                var grid = new Gtk.Grid ();
                 var expander = new Gtk.Expander ("") {
-                    label_widget = label,
-                    child = project_item.folder_tree,
-                    hexpand = true
+                    // label_widget = label,
+                    // child = project_item.folder_tree,
+                    hexpand = false,
+                    valign = CENTER
                 };
 
-                box.prepend (expander);
-                box.append (close_button);
+                var revealer = new Gtk.Revealer () {
+                    child = project_item.folder_tree,
+                    reveal_child = false
+                };
+                expander.notify["expanded"].connect (() => {
+                    revealer.reveal_child = expander.expanded;
+                });
+
+                grid.attach (label, 0, 0);
+                grid.attach (expander, 1, 0);
+                grid.attach (revealer, 0, 1, 2, 1);
 
 
-                return box;
+                return grid;
             }
         );
 
