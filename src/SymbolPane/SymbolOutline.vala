@@ -80,6 +80,8 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
     protected Gee.HashMap<SymbolType, SimpleAction> checks;
     protected Gtk.SearchEntry search_entry;
     protected Code.TreeList tree_list;
+    protected Gtk.ScrolledWindow scrolled_window;
+    protected Gtk.Adjustment vadj { get { return scrolled_window.vadjustment; }}
     protected Code.TreeListItem root;
     protected Gtk.CssProvider source_list_style_provider;
     protected bool took_too_long;
@@ -119,6 +121,9 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
 
     construct {
         tree_list = new Code.TreeList ();
+        scrolled_window = new Gtk.ScrolledWindow () {
+            child = tree_list
+        };
         symbol_action_group = new SimpleActionGroup ();
         insert_action_group (ACTION_GROUP, symbol_action_group);
 
@@ -182,7 +187,7 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         tool_box.append (search_entry);
         tool_box.append (stack);
         append (tool_box);
-        append (tree_list);
+        append (scrolled_window);
         set_up_css ();
 
         realize.connect (() => {

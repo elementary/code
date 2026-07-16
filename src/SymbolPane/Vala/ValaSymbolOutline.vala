@@ -104,7 +104,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
 
             if (!cancellable.is_cancelled () || took_too_long) {
                 Idle.add (() => {
-                    double adjustment_value = tree_list.vadjustment.value;
+                    double adjustment_value = vadj.value;
                     // var root_children = root.children; // Keep reference to children for later destruction
                     // tree_list.clear (); // This does not destroy children but disconnects signals - avoids terminal warnings
                     // foreach (var child in root_children) { // Destroy items after clearing list to avoid memory leak
@@ -127,7 +127,7 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
 
                     tree_list.expand_all (null);
                     add_tooltips (root);
-                    tree_list.vadjustment.set_value (adjustment_value);
+                    vadj.set_value (adjustment_value);
                     return Source.REMOVE;
                 });
             }

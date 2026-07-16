@@ -263,11 +263,11 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
         }
 
         Idle.add (() => {
-            double adjustment_value = tree_list.vadjustment.value;
+            double adjustment_value = vadj.value;
             tree_list.remove_all ();
             tree_list.add_root_item (new_root);
             // store.root.expand_all ();
-            tree_list.vadjustment.set_value (adjustment_value);
+            vadj.set_value (adjustment_value);
 
             destroy_root (root);
             root = new_root;

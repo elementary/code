@@ -92,6 +92,15 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
         });
 
         child = tree_list;
+
+        var cfile = new Code.File (root_path);
+        foreach (var child_file in cfile.children) {
+            if (child_file.is_valid_directory) {
+                tree_list.add_root_item (new FolderItem (child_file, this));
+            } else if (child_file.is_valid_textfile) {
+                tree_list.add_root_item (new FileItem (child_file, this));
+            }
+        }
     }
 
     public bool contains_file (GLib.File gfile) {

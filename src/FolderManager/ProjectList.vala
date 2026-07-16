@@ -119,7 +119,10 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
             order_folders ();
         });
 
-        child = list_box;
+        scrolled_window = new Gtk.ScrolledWindow () {
+            child = list_box,
+        };
+        child = scrolled_window;
     }
 
     public async void restore_saved_state () {

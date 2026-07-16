@@ -51,6 +51,7 @@ public class Code.ChooseProjectButton : Gtk.Box {
         box.append (label_widget);
         box.append (cloning_spinner);
         menu_button = new Gtk.MenuButton () {
+            hexpand = true,
             child = box
         };
         menu_button.set_parent (this);

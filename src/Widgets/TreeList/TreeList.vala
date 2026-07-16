@@ -7,17 +7,17 @@ public sealed class Code.TreeList : Granite.Bin {
 
     public signal void item_activated (TreeListItem item);
 
-    public Gtk.Adjustment vadjustment {
-        get {
-            return scrolled_window.vadjustment;
-        }
-    }
+    // public Gtk.Adjustment vadjustment {
+    //     get {
+    //         return scrolled_window.vadjustment;
+    //     }
+    // }
 
     public bool activate_on_single_click { get; set; default = true;}
 
     // public TreeListItem? selected { get; set; } // Selection handled by SelectionModel
 
-    private Gtk.ScrolledWindow scrolled_window;
+    // private Gtk.ScrolledWindow scrolled_window;
     private Gtk.ListView list_view;
     private GLib.ListStore root_model;
     private Gtk.TreeListModel tree_model;
@@ -33,12 +33,14 @@ public sealed class Code.TreeList : Granite.Bin {
         });
         var tree_list_factory = new Gtk.SignalListItemFactory ();
         var tree_header_factory = new Gtk.SignalListItemFactory ();
-        list_view = new Gtk.ListView (selection_model, tree_list_factory) {
-            header_factory = tree_header_factory
-        };
+        // list_view = new Gtk.ListView (selection_model, tree_list_factory) {
+        //     header_factory = tree_header_factory
+        // };
+        list_view = new Gtk.ListView (selection_model, tree_list_factory);
 
         bind_property ("activate-on-single-click", list_view, "single-click-activate", BIDIRECTIONAL | SYNC_CREATE);
         list_view.activate.connect ((pos) => {
+        warning ("list view activate %u", pos);
             item_activated ((TreeListItem) selection_model.get_item (pos));
         });
          // LIST ITEM FACTORY HANDLERS
@@ -83,6 +85,12 @@ public sealed class Code.TreeList : Granite.Bin {
        tree_header_factory.unbind.connect (() => {});
        tree_header_factory.teardown.connect (() => {});
 
+        // scrolled_window = new Gtk.ScrolledWindow () {
+        //     child = list_view,
+        //     min_content_height = 400
+        // };
+
+       // child = scrolled_window;
        child = list_view;
     }
 
@@ -90,7 +98,8 @@ public sealed class Code.TreeList : Granite.Bin {
         var label = new Gtk.Label ("") {
            halign = START,
         };
-        label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
+        // label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
+        label.add_css_class ("menu-item");
         item.child = label;
     }
     protected virtual void teardown_listitem_child (Gtk.ListItem item) {
