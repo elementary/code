@@ -38,6 +38,47 @@ public interface Code.FolderInterface : Object {
         }
     }
 
+    public virtual GLib.MenuItem create_submenu_for_new (string file_path) {
+        var new_folder_item = new GLib.MenuItem (
+            _("Folder"),
+            GLib.Action.print_detailed_name (
+                FolderTree.ACTION_PREFIX + FolderTree.ACTION_NEW_FOLDER,
+                new Variant.string (file_path)
+            )
+        );
+
+        var new_file_item = new GLib.MenuItem (
+            _("Empty File"),
+            GLib.Action.print_detailed_name (
+                FolderTree.ACTION_PREFIX + FolderTree.ACTION_NEW_FILE,
+                new Variant.string (file_path)
+            )
+        );
+
+        var new_menu = new GLib.Menu ();
+        new_menu.append_item (new_folder_item);
+        new_menu.append_item (new_file_item);
+
+        // //Append any templates/template folders.
+        // unowned string? template_path = GLib.Environment.get_user_special_dir (GLib.UserDirectory.TEMPLATES);
+        // if (template_path != null) {
+        //     var template_submenu = new Menu ();
+        //     uint template_count = load_templates_from_folder (GLib.File.new_for_path (template_path), template_submenu);
+        //     if (template_count > 0) {
+        //         if (template_count > MAX_TEMPLATES) {
+        //             template_submenu.append_item (new MenuItem (_("…too many templates"), null));
+        //         }
+
+        //         new_menu.append_submenu (_("Templates"), template_submenu);
+        //     }
+        // }
+
+        var new_item = new GLib.MenuItem.submenu (_("New"), new_menu);
+        new_item.set_submenu (new_menu);
+
+        return new_item;
+    }
+
     public delegate bool IterateChildrenCallback (Object obj);
     public virtual void iterate_children (IterateChildrenCallback cb) {}
 }
@@ -150,7 +191,6 @@ public class Code.FolderItem : FolderManagerItem, Code.FolderInterface { // Ulti
     }
 
     private void on_toggled () {
-        warning ("%s - expanded %s", this.name, this.is_expanded.to_string ());
         // if (is_expanded) {
         //     warning ("load children");
         //     load_children_async.begin ();
@@ -207,7 +247,7 @@ public class Code.FolderItem : FolderManagerItem, Code.FolderInterface { // Ulti
         }
 
         var direct_actions_section = new GLib.Menu ();
-        direct_actions_section.append_item (create_submenu_for_new ());
+        direct_actions_section.append_item (create_submenu_for_new (file.path));
         direct_actions_section.append_item (rename_menu_item);
         direct_actions_section.append_item (delete_item);
 
@@ -257,46 +297,46 @@ public class Code.FolderItem : FolderManagerItem, Code.FolderInterface { // Ulti
         return open_in_menu_item;
     }
 
-    protected GLib.MenuItem create_submenu_for_new () {
-        var new_folder_item = new GLib.MenuItem (
-            _("Folder"),
-            GLib.Action.print_detailed_name (
-                FolderTree.ACTION_PREFIX + FolderTree.ACTION_NEW_FOLDER,
-                new Variant.string (file.path)
-            )
-        );
+    // protected GLib.MenuItem create_submenu_for_new () {
+    //     var new_folder_item = new GLib.MenuItem (
+    //         _("Folder"),
+    //         GLib.Action.print_detailed_name (
+    //             FolderTree.ACTION_PREFIX + FolderTree.ACTION_NEW_FOLDER,
+    //             new Variant.string (file.path)
+    //         )
+    //     );
 
-        var new_file_item = new GLib.MenuItem (
-            _("Empty File"),
-            GLib.Action.print_detailed_name (
-                FolderTree.ACTION_PREFIX + FolderTree.ACTION_NEW_FILE,
-                new Variant.string (file.path)
-            )
-        );
+    //     var new_file_item = new GLib.MenuItem (
+    //         _("Empty File"),
+    //         GLib.Action.print_detailed_name (
+    //             FolderTree.ACTION_PREFIX + FolderTree.ACTION_NEW_FILE,
+    //             new Variant.string (file.path)
+    //         )
+    //     );
 
-        var new_menu = new GLib.Menu ();
-        new_menu.append_item (new_folder_item);
-        new_menu.append_item (new_file_item);
+    //     var new_menu = new GLib.Menu ();
+    //     new_menu.append_item (new_folder_item);
+    //     new_menu.append_item (new_file_item);
 
-        //Append any templates/template folders.
-        unowned string? template_path = GLib.Environment.get_user_special_dir (GLib.UserDirectory.TEMPLATES);
-        if (template_path != null) {
-            var template_submenu = new Menu ();
-            uint template_count = load_templates_from_folder (GLib.File.new_for_path (template_path), template_submenu);
-            if (template_count > 0) {
-                if (template_count > MAX_TEMPLATES) {
-                    template_submenu.append_item (new MenuItem (_("…too many templates"), null));
-                }
+    //     //Append any templates/template folders.
+    //     unowned string? template_path = GLib.Environment.get_user_special_dir (GLib.UserDirectory.TEMPLATES);
+    //     if (template_path != null) {
+    //         var template_submenu = new Menu ();
+    //         uint template_count = load_templates_from_folder (GLib.File.new_for_path (template_path), template_submenu);
+    //         if (template_count > 0) {
+    //             if (template_count > MAX_TEMPLATES) {
+    //                 template_submenu.append_item (new MenuItem (_("…too many templates"), null));
+    //             }
 
-                new_menu.append_submenu (_("Templates"), template_submenu);
-            }
-        }
+    //             new_menu.append_submenu (_("Templates"), template_submenu);
+    //         }
+    //     }
 
-        var new_item = new GLib.MenuItem.submenu (_("New"), new_menu);
-        new_item.set_submenu (new_menu);
+    //     var new_item = new GLib.MenuItem.submenu (_("New"), new_menu);
+    //     new_item.set_submenu (new_menu);
 
-        return new_item;
-    }
+    //     return new_item;
+    // }
 
     // Recursively load templates from folder and subfolders keeping count of total menuitems
     const int MAX_TEMPLATES = 2048;

@@ -133,7 +133,6 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
 
         list_box.activate_on_single_click = true;
         list_box.row_activated.connect ((row) => {
-            warning ("Project row activated");
             var project_widget = (ProjectListRowWidget) (row.child);
             project_widget.toggle_expanded ();
         });
@@ -827,7 +826,7 @@ warning ("Project list find path %s", path);
         } while (item != null && cb (item));
     }
 
-    private class ProjectListRowWidget : Gtk.Grid {
+    private class ProjectListRowWidget : Gtk.Box {
         public ProjectFolderItem project_item { get; construct; }
 
         private Gtk.Expander expander;
@@ -848,9 +847,6 @@ warning ("Project list find path %s", path);
                 hexpand = true
             };
 
-            // We want expander arrow on right so separate expander and revealer
-            var grid = new Gtk.Grid ();
-
             expander = new Gtk.Expander ("") {
                 hexpand = false,
                 expanded = false,
@@ -858,14 +854,44 @@ warning ("Project list find path %s", path);
                 valign = CENTER
             };
 
+            var label_box = new Gtk.Box (HORIZONTAL, 6);
+            label_box.append (label);
+            label_box.append (expander);
+
             revealer = new Gtk.Revealer () {
                 child = project_item.folder_tree,
                 reveal_child = false
             };
 
-            attach (label, 0, 0);
-            attach (expander, 1, 0);
-            attach (revealer, 0, 1, 2, 1);
+            // We want expander arrow on right so separate expander and revealer
+            // We put the label and the expander in one box (horizontal) which also
+            // receives menu requests.  The revealer with folder tree goes below
+            orientation = VERTICAL;
+            append (label_box);
+            append (revealer);
+
+            var button_controller = new Gtk.GestureClick () {
+                propagation_phase = CAPTURE,
+                button = 0
+            };
+
+            var menu_model = project_item.get_context_menu ();
+            var menu = new Gtk.PopoverMenu.from_model (menu_model) {
+                position = BOTTOM
+            };
+
+            this.append (menu);
+
+            label_box.add_controller (button_controller);
+            button_controller.pressed.connect ((n_press, x, y) => {
+                var event = button_controller.get_last_event (null);
+                if (event.triggers_context_menu ()) { // Only true for press events
+                    warning ("triggers_context_menu");
+
+                    menu.pointing_to = Gdk.Rectangle () {x = (int)x, y = (int)y, height = 1, width = 1};
+                    menu.popup ();
+                }
+            });
         }
 
         public void toggle_expanded () {

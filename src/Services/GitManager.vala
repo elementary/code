@@ -134,6 +134,7 @@ warning ("not found");
                 build_path = build_file.get_path ();
             } else {
                 warning ("build path not found %s", build_file.get_path ());
+                // Just returns the project path
             }
 
             return build_path;

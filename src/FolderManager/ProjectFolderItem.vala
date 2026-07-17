@@ -125,54 +125,56 @@ public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderM
         // }
     }
 
+    // warning ("returns a menu model");
     public override Menu? get_context_menu () {
-        // string file_type = "";
-        // try {
-        //     var info = gfile.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
-        //     if (info.has_attribute (GLib.FileAttribute.STANDARD_CONTENT_TYPE)) {
-        //         file_type = info.get_content_type ();
-        //     }
-        // } catch (Error e) {
-        //     warning (e.message);
-        // }
+warning ("get project menu");
+        string file_type = "";
+        try {
+            var info = gfile.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
+            if (info.has_attribute (GLib.FileAttribute.STANDARD_CONTENT_TYPE)) {
+                file_type = info.get_content_type ();
+            }
+        } catch (Error e) {
+            warning (e.message);
+        }
 
-        // MenuItem set_active_folder_item;
-        // if (is_git_repo) {
-        //     set_active_folder_item = new GLib.MenuItem (
-        //         _("Set as Active Project"),
-        //         GLib.Action.print_detailed_name (
-        //             Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT,
-        //             new Variant.string (file.path)
-        //         )
-        //     );
-        // } else {
-        //     set_active_folder_item = new GLib.MenuItem (
-        //         _("Open in Terminal Pane"),
-        //         GLib.Action.print_detailed_name (
-        //             Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_IN_TERMINAL,
-        //             new Variant.string (
-        //                 Services.GitManager.get_instance ().get_default_build_dir (path)
-        //             )
-        //         )
-        //     );
-        // }
+        MenuItem set_active_folder_item;
+        if (is_git_repo) {
+            set_active_folder_item = new GLib.MenuItem (
+                _("Set as Active Project"),
+                GLib.Action.print_detailed_name (
+                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT,
+                    new Variant.string (file.path)
+                )
+            );
+        } else {
+            set_active_folder_item = new GLib.MenuItem (
+                _("Open in Terminal Pane"),
+                GLib.Action.print_detailed_name (
+                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_IN_TERMINAL,
+                    new Variant.string (
+                        Scratch.Services.GitManager.get_instance ().get_default_build_dir (path)
+                    )
+                )
+            );
+        }
 
-        // set_active_folder_item.set_attribute_value (
-        //     "accel",
-        //     Scratch.Utils.get_accel_for_action (
-        //         GLib.Action.print_detailed_name (
-        //             Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_IN_TERMINAL,
-        //             ""
-        //         )
-        //     )
-        // );
+        set_active_folder_item.set_attribute_value (
+            "accel",
+            Scratch.Utils.get_accel_for_action (
+                GLib.Action.print_detailed_name (
+                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_IN_TERMINAL,
+                    ""
+                )
+            )
+        );
 
-        // var external_actions_section = new GLib.Menu ();
-        // external_actions_section.append_item (set_active_folder_item);
+        var external_actions_section = new GLib.Menu ();
+        external_actions_section.append_item (set_active_folder_item);
         // // external_actions_section.append_item (create_submenu_for_open_in (file_type));
 
         // var folder_actions_section = new GLib.Menu ();
-        // folder_actions_section.append_item (create_submenu_for_new ());
+        // folder_actions_section.append_item (create_submenu_for_new (path));
         // if (monitored_repo != null) {
         //     var branch_action_item = new MenuItem (
         //         _("Branch Actions…"),
@@ -199,11 +201,11 @@ public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderM
         //         new Variant.string (file.path)
         //     )
         // );
-        // // var close_other_folders_action = Scratch.Utils.action_from_group (
-        // //     ProjectList.ACTION_CLOSE_OTHER_PROJECT_FOLDERS,
-        // //     view.actions
-        // // );
-        // // close_other_folders_action.set_enabled (!view.is_empty);
+        // var close_other_folders_action = Scratch.Utils.action_from_group (
+        //     ProjectList.ACTION_CLOSE_OTHER_PROJECT_FOLDERS,
+        //     view.actions
+        // );
+        // close_other_folders_action.set_enabled (!view.is_empty);
 
         // var close_actions_section = new GLib.Menu ();
         // close_actions_section.append_item (close_folder_item);
@@ -298,16 +300,16 @@ public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderM
         // var search_actions_section = new GLib.Menu ();
         // search_actions_section.append_item (search_item);
 
-        // var menu_model = new GLib.Menu ();
-        // menu_model.append_section (null, external_actions_section);
+        var menu_model = new GLib.Menu ();
+        menu_model.append_section (null, external_actions_section);
         // menu_model.append_section (null, folder_actions_section);
         // menu_model.append_section (null, close_actions_section);
         // menu_model.append_section (null, direct_actions_section);
         // menu_model.append_section (null, search_actions_section);
 
-        // return menu_model;
+        return menu_model;
 
-        return null;
+        // return null;
     }
 
     public void update_item_status () {

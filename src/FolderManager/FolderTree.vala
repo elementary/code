@@ -110,6 +110,7 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
         return false;
     }
 
+
     // private void action_close_folder (SimpleAction action, GLib.Variant? parameter) {
     //     var path = parameter.get_string ();
     //     if (path == null || path == "") {
