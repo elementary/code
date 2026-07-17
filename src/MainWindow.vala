@@ -1455,21 +1455,23 @@ namespace Scratch {
         }
 
         private void action_set_active_project (SimpleAction action, Variant? param) {
-        //     var project_path = param.get_string ();
-        //     if (folder_manager_view.project_is_open (project_path)) {
-        //         git_manager.active_project_path = project_path;
-        //         folder_manager_view.collapse_other_projects ();
-        //         //The opened folders are not changed so no need to update "opened-folders" setting
-        //     } else {
-        //         warning ("Attempt to set folder path %s which is not opened as active project ignored", project_path);
-        //         //TODO Handle this by opening the folder
-        //     }
+warning ("set active project");
+            var project_path = param.get_string ();
+            Code.ProjectFolderItem? project = null;
+            if (folder_manager_view.is_existing_project_path (project_path, out project)) {
+                git_manager.active_project_path = project_path;
+                folder_manager_view.collapse_other_projects (project_path);
+                //The opened folders are not changed so no need to update "opened-folders" setting
+            } else {
+                warning ("Attempt to set folder path %s which is not opened as active project ignored", project_path);
+                //TODO Handle this by opening the folder
+            }
 
-        //     var new_build_dir = Services.GitManager.get_instance ().get_default_build_dir (null);
-        //     terminal.change_location (new_build_dir);
-        //     if (terminal.visible) {
-        //         terminal.terminal.grab_focus ();
-        //     }
+            var new_build_dir = Services.GitManager.get_instance ().get_default_build_dir (null);
+            terminal.change_location (new_build_dir);
+            if (terminal.visible) {
+                terminal.terminal.grab_focus ();
+            }
         }
 
         private void action_toggle_outline (SimpleAction action) {

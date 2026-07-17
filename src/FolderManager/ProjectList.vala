@@ -684,7 +684,7 @@ warning ("Project list find path %s", path);
         // order_folders (); //TODO do later
     }
 
-    private bool is_existing_project_path (string path, out ProjectFolderItem? list_item) {
+    public bool is_existing_project_path (string path, out ProjectFolderItem? list_item) {
         bool open = false;
         list_item = null;
         ProjectFolderItem? matched_item = null;
@@ -875,6 +875,7 @@ warning ("Project list find path %s", path);
                 button = 0
             };
 
+            // Assume menu is static for now
             var menu_model = project_item.get_context_menu ();
             var menu = new Gtk.PopoverMenu.from_model (menu_model) {
                 position = BOTTOM
@@ -886,8 +887,6 @@ warning ("Project list find path %s", path);
             button_controller.pressed.connect ((n_press, x, y) => {
                 var event = button_controller.get_last_event (null);
                 if (event.triggers_context_menu ()) { // Only true for press events
-                    warning ("triggers_context_menu");
-
                     menu.pointing_to = Gdk.Rectangle () {x = (int)x, y = (int)y, height = 1, width = 1};
                     menu.popup ();
                 }
