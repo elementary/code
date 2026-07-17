@@ -45,7 +45,6 @@ namespace Scratch.Services {
         }
 
         construct {
-        warning ("git manager construct");
             // Used to populate the ChooseProject popover in sorted order
             //TODO This seems to duplicate the sidebar store - can we combine?
             project_liststore = new ListStore (typeof (Code.ProjectFolderItem));
@@ -53,7 +52,6 @@ namespace Scratch.Services {
         }
 
         public MonitoredRepository? add_project (Code.ProjectFolderItem root_folder) {
-        warning ("add project to git, root folder path %s", root_folder == null ? "Null" : root_folder.path);
             var root_path = root_folder.path;
             MonitoredRepository? monitored_repo = null;
             uint position;

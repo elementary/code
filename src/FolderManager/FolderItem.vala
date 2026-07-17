@@ -18,6 +18,7 @@
  * Authored by: Julien Spautz <spautz.julien@gmail.com>, Andrei-Costin Zisu <matzipan@gmail.com>
  */
 
+// Folder interface shared with Project folder items used in ListBox
 public interface Code.FolderInterface : Object {
     public abstract bool is_expanded { get; set; }
     public abstract ListStore? child_model { get; set; }
@@ -39,13 +40,6 @@ public interface Code.FolderInterface : Object {
 
     public delegate bool IterateChildrenCallback (Object obj);
     public virtual void iterate_children (IterateChildrenCallback cb) {}
-    //  {
-    //     uint pos = 0;
-    //     Object child;
-    //     do {
-    //         child = list_model.get_object (pos++);
-    //     } while (child != null && cb (child));
-    // }
 }
 
 public class Code.FolderItem : FolderManagerItem, Code.FolderInterface { // Ultimately a Code.TreeListItem
@@ -58,7 +52,7 @@ public class Code.FolderItem : FolderManagerItem, Code.FolderInterface { // Ulti
     }
 
     // Code.FolderInterface
-    public bool is_expanded { get; set; }
+    // protected bool is_expanded { get; set; }
     protected FileMonitor monitor { get; set; }
 
     private const uint RENAME_AFTER_NEW_DELAY_MSEC = 500;
@@ -87,6 +81,7 @@ public class Code.FolderItem : FolderManagerItem, Code.FolderInterface { // Ulti
         has_dummy = true;
 
         init_monitor_directory (file.file);
+
         // Signal when expanded
         notify["is-expanded"].connect (on_toggled);
     }
@@ -146,18 +141,21 @@ public class Code.FolderItem : FolderManagerItem, Code.FolderInterface { // Ulti
 
     private void after_children_loaded () {
         children_loaded = true;
-        var root = get_root_folder ();
-        if (root != null) {
-            root.after_child_folder_loaded (this); //Updates child status emblens
-        }
+        // var root = get_root_folder ();
+        // if (root != null) {
+        //     root.after_child_folder_loaded (this); //Updates child status emblens
+        // }
 
         children_finished_loading ();
     }
 
     private void on_toggled () {
+        warning ("%s - expanded %s", this.name, this.is_expanded.to_string ());
         // if (is_expanded) {
+        //     warning ("load children");
         //     load_children_async.begin ();
-        // } else {
+        // }
+        //  else {
         //     var root = get_root_folder ();
         //     if (root != null) {
         //         //When toggled closed, update status to reflect hidden contents
@@ -546,6 +544,7 @@ public class Code.FolderItem : FolderManagerItem, Code.FolderInterface { // Ulti
     }
 
     public void on_add_template (string template_path) {
+    warning ("add template");
         // Expand folder before trying to copy template so that child appears for renaming
         if (!is_expanded) {
             is_expanded = true;  // causes async loading of children
@@ -611,6 +610,7 @@ public class Code.FolderItem : FolderManagerItem, Code.FolderInterface { // Ulti
     }
 
     public void on_add_new (bool is_folder) {
+    warning ("add new");
         if (!file.is_executable) {
             // This is necessary to avoid infinite loop below
             warning ("Unable to open parent folder");

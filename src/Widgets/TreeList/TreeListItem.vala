@@ -118,4 +118,13 @@ public class Code.TreeListItem : Object {
             level--;
         }
     }
+
+    public delegate bool IterateChildrenCallback (Object obj);
+    public void iterate_children  (IterateChildrenCallback cb) {
+        uint pos = 0;
+        Object? child = null;
+        do {
+            child = child_model.get_object (pos++);
+        } while (child != null && cb (child));
+    }
 }

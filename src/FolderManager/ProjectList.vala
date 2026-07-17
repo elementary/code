@@ -124,18 +124,8 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
                     hexpand = true
                 };
 
-                // var close_button = new Gtk.Button () {
-                //     action_name = ACTION_PREFIX + ACTION_CLOSE_PROJECT_FOLDER,
-                //     action_target = project_item.path,
-                //     icon_name = "process-stop",
-                //     valign = START,
-                //     margin_top = 12
-                // };
-
                 var grid = new Gtk.Grid ();
                 var expander = new Gtk.Expander ("") {
-                    // label_widget = label,
-                    // child = project_item.folder_tree,
                     hexpand = false,
                     valign = CENTER
                 };
@@ -151,7 +141,6 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
                 grid.attach (label, 0, 0);
                 grid.attach (expander, 1, 0);
                 grid.attach (revealer, 0, 1, 2, 1);
-
 
                 return grid;
             }
@@ -627,7 +616,6 @@ warning ("Project list find path %s", path);
 
     // Only call when path is known to be a new project
     private async void add_new_project_folder (string path, bool expand, bool restoring = false) {
-    warning ("add new project folder async");
         var folder = new File (path);
         if (!folder.is_valid_directory) {
             warning ("Cannot open invalid directory.");
@@ -652,9 +640,7 @@ warning ("Project list find path %s", path);
             return Code.TreeList.ITERATE_CONTINUE;
         });
 
-        warning ("done iterate children");
         if (parents.length () > 0 || children.length () > 0) {
-        warning ("oarent or children");
             assert (parents.length () <= 1);
             assert (parents.length () == 0 || children.length () == 0);
             var dialog = new Scratch.Dialogs.CloseProjectsConfirmationDialog (
@@ -691,11 +677,9 @@ warning ("Project list find path %s", path);
             }
         }
 
-        warning ("before open folder in idle");
         // Process any closed signals emitted before proceeding
         Idle.add (() => {
             var new_item = new ProjectFolderItem (folder, this);
-            warning ("appending item to store");
             list_store.append (new_item);
             if (expand) {
                 new_item.expand ();
