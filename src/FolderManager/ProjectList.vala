@@ -118,31 +118,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
             selection_model,
             (obj) => {
                 var project_item = (ProjectFolderItem) obj;
-                var label = new Granite.HeaderLabel ("") {
-                    label = project_item.name,
-                    secondary_text = "Branch name goes here",
-                    hexpand = true
-                };
-
-                var grid = new Gtk.Grid ();
-                var expander = new Gtk.Expander ("") {
-                    hexpand = false,
-                    valign = CENTER
-                };
-
-                var revealer = new Gtk.Revealer () {
-                    child = project_item.folder_tree,
-                    reveal_child = false
-                };
-                expander.notify["expanded"].connect (() => {
-                    revealer.reveal_child = expander.expanded;
-                });
-
-                grid.attach (label, 0, 0);
-                grid.attach (expander, 1, 0);
-                grid.attach (revealer, 0, 1, 2, 1);
-
-                return grid;
+                return new ProjectListRowWidget (project_item);
             }
         );
 
@@ -154,6 +130,13 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
             child = list_box,
         };
         child = scrolled_window;
+
+        list_box.activate_on_single_click = true;
+        list_box.row_activated.connect ((row) => {
+            warning ("Project row activated");
+            var project_widget = (ProjectListRowWidget) (row.child);
+            project_widget.toggle_expanded ();
+        });
     }
 
     public async void restore_saved_state () {
@@ -835,6 +818,7 @@ warning ("Project list find path %s", path);
     // }
 
     delegate bool ProjectListIteratorCallback (ProjectFolderItem item);
+    // This iterates the model objects not the listrows
     private void iterate_children (ProjectListIteratorCallback cb) {
         ProjectFolderItem? item = null;
         uint pos = 0;
@@ -842,4 +826,53 @@ warning ("Project list find path %s", path);
             item = (ProjectFolderItem?) (list_store.get_object (pos++));
         } while (item != null && cb (item));
     }
+
+    private class ProjectListRowWidget : Gtk.Grid {
+        public ProjectFolderItem project_item { get; construct; }
+
+        private Gtk.Expander expander;
+        private bool expander_locked = false;
+        private Gtk.Revealer revealer;
+
+        public ProjectListRowWidget (ProjectFolderItem project) {
+            Object (
+                project_item: project
+            );
+
+        }
+
+        construct {
+            var label = new Granite.HeaderLabel ("") {
+                label = project_item.name,
+                secondary_text = "Branch name goes here",
+                hexpand = true
+            };
+
+            // We want expander arrow on right so separate expander and revealer
+            var grid = new Gtk.Grid ();
+
+            expander = new Gtk.Expander ("") {
+                hexpand = false,
+                expanded = false,
+                sensitive = false, // We do not want expander interfering with listboxrow activate
+                valign = CENTER
+            };
+
+            revealer = new Gtk.Revealer () {
+                child = project_item.folder_tree,
+                reveal_child = false
+            };
+
+            attach (label, 0, 0);
+            attach (expander, 1, 0);
+            attach (revealer, 0, 1, 2, 1);
+        }
+
+        public void toggle_expanded () {
+            var show = !revealer.child_revealed;
+            revealer.reveal_child = show;
+            expander.expanded = show;
+        }
+    }
+
 }

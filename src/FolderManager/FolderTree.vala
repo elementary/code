@@ -86,12 +86,9 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
 
         // Convert ListView signal into file_activate
         tree_list.item_activated.connect ((item) => {
-            warning ("item activated");
             if (item is FileItem) {
                 file_activate (((FileItem) item).file);
             } else if (item.is_expandable) {
-            warning ("toggle");
-                // Toggle folder
                 item.is_expanded = !item.is_expanded;
             }
         });

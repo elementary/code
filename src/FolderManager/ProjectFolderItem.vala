@@ -56,7 +56,6 @@ public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderM
         public FolderManagerItem item;
     }
 
-
     private Scratch.Services.GitManager git_manager;
 
     // Cache the visible item in the project. (Excludes items loaded but in collapsed folder)
