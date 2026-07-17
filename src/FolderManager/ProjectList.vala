@@ -870,6 +870,9 @@ warning ("Project list find path %s", path);
             append (label_box);
             append (revealer);
 
+            project_item.bind_property ("is-expanded", revealer, "reveal-child", BIDIRECTIONAL | SYNC_CREATE);
+            revealer.bind_property ("reveal-child", expander, "expanded", BIDIRECTIONAL | SYNC_CREATE);
+
             var button_controller = new Gtk.GestureClick () {
                 propagation_phase = CAPTURE,
                 button = 0
@@ -896,7 +899,6 @@ warning ("Project list find path %s", path);
         public void toggle_expanded () {
             var show = !revealer.child_revealed;
             revealer.reveal_child = show;
-            expander.expanded = show;
         }
     }
 
