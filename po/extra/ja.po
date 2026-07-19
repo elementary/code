@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-27 17:20+0000\n"
-"PO-Revision-Date: 2026-02-12 03:55+0000\n"
+"PO-Revision-Date: 2026-07-20 03:58+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/extra/"
 "ja/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9
@@ -150,23 +150,27 @@ msgstr "改善点:"
 
 #: data/code.metainfo.xml.in:75
 msgid "The sidebar can now be focused using a keyboard shortcut"
-msgstr ""
+msgstr "キーボードショートカットでサイドバーにフォーカスできるように修正"
 
 #: data/code.metainfo.xml.in:76
 msgid ""
 "Closing a second window by headerbar or shortcut only closes that window, "
 "saving its documents"
 msgstr ""
+"ヘッダーバーやショートカットで2個目のウィンドウを閉じた場合、ドキュメントを保"
+"存したうえでそのウィンドウだけを閉じるように修正"
 
 #: data/code.metainfo.xml.in:77
 msgid "The system font is shown and can be selected in the Preferences dialog"
-msgstr ""
+msgstr "設定ダイアログでシステムフォントを表示・選択する機能を追加"
 
 #: data/code.metainfo.xml.in:78
 msgid ""
 "Improved desktop consistency and contrast by using user accent color for "
 "selections"
 msgstr ""
+"選択範囲にユーザーのアクセントカラーを使うことで、デスクトップ環境における一"
+"貫性やコントラストを改善"
 
 #: data/code.metainfo.xml.in:80 data/code.metainfo.xml.in:111
 #: data/code.metainfo.xml.in:132 data/code.metainfo.xml.in:161
@@ -181,20 +185,26 @@ msgstr "マイナーアップデート:"
 #: data/code.metainfo.xml.in:82
 msgid "Closing all windows by shortcut now correctly saves all documents"
 msgstr ""
+"ショートカットですべてのウィンドウを閉じた際に、すべてのドキュメントを適切に"
+"保存するように修正"
 
 #: data/code.metainfo.xml.in:83
 msgid ""
 "Filetypes excluded from stripping trailing whitespace are shown in the "
 "application menu"
 msgstr ""
+"“保存時に行末の空白を削除”の対象外となるファイル種別をアプリケーションの"
+"メニューから確認できるように修正"
 
 #: data/code.metainfo.xml.in:84
 msgid "Stripping trailing whitespace now correctly excludes string literals"
-msgstr ""
+msgstr "文字列リテラルが“保存時に行末の空白を削除”の対象外になるように修正"
 
 #: data/code.metainfo.xml.in:85
 msgid "Fuzzy searching for project files now correctly searches active project"
 msgstr ""
+"プロジェクトファイルに対するあいまい検索がアクティブなプロジェクトに対して実"
+"行されるように修正"
 
 #: data/code.metainfo.xml.in:86 data/code.metainfo.xml.in:114
 #: data/code.metainfo.xml.in:140 data/code.metainfo.xml.in:167
@@ -211,6 +221,8 @@ msgid ""
 "Trailing spaces are now removed when the document focuses out (subject to "
 "setting)"
 msgstr ""
+"ドキュメントのフォーカスが外れた場合に行末の空白を削除するように修正 (設定に"
+"よる)"
 
 #: data/code.metainfo.xml.in:107
 msgid "Focus following is implemented between textview and terminal pane"
