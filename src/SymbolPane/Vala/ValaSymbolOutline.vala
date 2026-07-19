@@ -48,13 +48,8 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         parser = new Vala.Parser ();
         resolver = new Code.Plugins.ValaSymbolResolver ();
 
-        store.item_selected.connect ((selected) => {
-            if (selected == null) {
-                return;
-            }
-
-            doc.goto (((ValaSymbolItem)selected).symbol.source_reference.begin.line);
-            store.selected = null;
+        tree_list.item_activated.connect ((item) => {
+            doc.goto (((ValaSymbolItem)item).symbol.source_reference.begin.line);
         });
 
         doc.doc_closed.connect (doc_closed);
@@ -109,33 +104,32 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
 
             if (!cancellable.is_cancelled () || took_too_long) {
                 Idle.add (() => {
-                    double adjustment_value = store.vadjustment.value;
-                    var root_children = store.root.children; // Keep reference to children for later destruction
-                    store.root.clear (); // This does not destroy children but disconnects signals - avoids terminal warnings
-                    foreach (var child in root_children) { // Destroy items after clearing list to avoid memory leak
-                        destroy_all_children ((Code.Widgets.SourceList.ExpandableItem)child);
-                    }
+                    double adjustment_value = vadj.value;
+                    // var root_children = root.children; // Keep reference to children for later destruction
+                    // tree_list.clear (); // This does not destroy children but disconnects signals - avoids terminal warnings
+                    // foreach (var child in root_children) { // Destroy items after clearing list to avoid memory leak
+                    //     destroy_all_children ((Code.TreeListItem)child);
+                    // }
 
-                    if (took_too_long) {
-                        var warning_item = new Code.Widgets.SourceList.Item () {
-                            icon = new ThemedIcon ("dialog-warning"),
-                            markup = "<big>%s</big>".printf (_("Too Many Symbols")),
-                            tooltip = _("%s contains too many Vala symbols.\nParsing and showing them took too long.").printf (doc.file.get_basename ()),
-                            selectable = false
-                        };
+                    tree_list.remove_all ();
+                    // if (took_too_long) {
+                    //     var warning_item = new Code.Widgets.SourceList.Item () {
+                    //         icon = new ThemedIcon ("dialog-warning"),
+                    //         markup = "<big>%s</big>".printf (_("Too Many Symbols")),
+                    //         tooltip = _("%s contains too many Vala symbols.\nParsing and showing them took too long.").printf (doc.file.get_basename ()),
+                    //         selectable = false
+                    //     };
 
-                        store.root.add (warning_item);
-                    } else {
-                        store.root.add (new_root);
-                    }
+                    //     root.add (warning_item);
+                    // } else {
+                        tree_list.add_root_item (new_root);
+                    // }
 
-                    store.root.expand_all ();
-                    add_tooltips (store.root);
-                    store.vadjustment.set_value (adjustment_value);
+                    tree_list.expand_all (null);
+                    add_tooltips (root);
+                    vadj.set_value (adjustment_value);
                     return Source.REMOVE;
                 });
-            } else {
-                destroy_all_children (new_root);
             }
 
             after_parse ();
@@ -143,15 +137,14 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         });
     }
 
-    protected override void add_tooltips (Code.Widgets.SourceList.ExpandableItem root) {
-        foreach (var parent in root.children) {
-            if (parent is Code.Widgets.SourceList.ExpandableItem) {
-                add_tooltip ((Code.Widgets.SourceList.ExpandableItem) parent);
-            }
-        }
+    protected override void add_tooltips (Code.TreeListItem? root = null) {
+        tree_list.iterate_children (root, (child) => {
+            add_tooltip ((Code.TreeListItem) parent);
+            return Code.TreeList.ITERATE_CONTINUE;
+        });
     }
 
-    private void add_tooltip (Code.Widgets.SourceList.ExpandableItem parent) {
+    private void add_tooltip (Code.TreeListItem parent) {
         if (parent is ValaSymbolItem) {
             var item = ((ValaSymbolItem)parent);
             var symbol = item.symbol;
@@ -169,28 +162,29 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
         add_tooltips (parent);
     }
 
-    private void destroy_all_children (Code.Widgets.SourceList.ExpandableItem parent) {
-        foreach (var child in parent.children) {
-            remove (child, parent);
-        }
-    }
+    // private void destroy_all_children (Code.TreeListItem parent) {
+    //     foreach (var child in parent.children) {
+    //         remove (child, parent);
+    //     }
+    // }
 
-    private new void remove (Code.Widgets.SourceList.Item item, Code.Widgets.SourceList.ExpandableItem parent) {
-        if (item is Code.Widgets.SourceList.ExpandableItem) {
-            destroy_all_children ((Code.Widgets.SourceList.ExpandableItem)item);
-        }
+    // private new void remove (Code.Widgets.SourceList.Item item, Code.TreeListItem parent) {
+    //     if (item is Code.TreeListItem) {
+    //         destroy_all_children ((Code.TreeListItem)item);
+    //     }
 
-        parent.remove (item);
-    }
+    //     parent.remove (item);
+    // }
 
     // Called from separate thread
-    private Code.Widgets.SourceList.ExpandableItem construct_tree (GLib.Cancellable cancellable) {
+    private Code.TreeListItem construct_tree (GLib.Cancellable cancellable) {
+    warning ("construct tree");
         var fields = resolver.get_properties_fields ();
         var symbols = resolver.get_symbols ();
         // Remove fake fields created by the vala parser.
         symbols.remove_all (fields);
 
-        var new_root = new Code.Widgets.SourceList.ExpandableItem (_("Symbols"));
+        var new_root = new Code.TreeListItem () { text = _("Construct Tree Symbols") };
         new_root.tooltip = _("Vala symbols found in %s").printf (doc.file.get_basename ());
         foreach (var symbol in symbols) {
             if (cancellable.is_cancelled ())
@@ -211,48 +205,55 @@ public class Scratch.Services.ValaSymbolOutline : Scratch.Services.SymbolOutline
 
     private ValaSymbolItem construct_child (
         Vala.Symbol symbol,
-        Code.Widgets.SourceList.ExpandableItem given_parent,
+        Code.TreeListItem given_parent,
         GLib.Cancellable cancellable
     ) {
-
-        Code.Widgets.SourceList.ExpandableItem parent;
-        if (symbol.scope.parent_scope.owner.name == null)
+warning ("construct child");
+        Code.TreeListItem parent;
+        if (symbol.scope.parent_scope.owner.name == null) {
             parent = given_parent;
-        else
+        } else {
             parent = find_existing (symbol.scope.parent_scope.owner, given_parent, cancellable);
+        }
 
         if (parent == null) {
             parent = construct_child (symbol.scope.parent_scope.owner, given_parent, cancellable);
         }
 
-
         var tree_child = new ValaSymbolItem (
             symbol,
             ""
         );
-        parent.add (tree_child);
+
+        parent.add_child (tree_child);
         return tree_child;
     }
 
-    ValaSymbolItem? find_existing (Vala.Symbol symbol, Code.Widgets.SourceList.ExpandableItem parent, GLib.Cancellable cancellable) {
+    ValaSymbolItem? find_existing (Vala.Symbol symbol, Code.TreeListItem parent, GLib.Cancellable cancellable) {
         ValaSymbolItem match = null;
-        foreach (var _child in parent.children) {
-            if (cancellable.is_cancelled ())
-                break;
+        tree_list.iterate_children (null, (_child) => {
+            if (cancellable.is_cancelled ()) {
+                return Code.TreeList.ITERATE_STOP;
+            }
 
             var child = _child as ValaSymbolItem;
-            if (child == null)
-                continue;
+            if (child == null) {
+                return Code.TreeList.ITERATE_CONTINUE;
+            }
 
             if (child.symbol == symbol) {
                 match = child;
-                break;
+                return Code.TreeList.ITERATE_STOP;
             } else {
                 var res = find_existing (symbol, child, cancellable);
-                if (res != null)
-                    return res;
+                if (res != null) {
+                    match = res;
+                    return Code.TreeList.ITERATE_STOP;
+                }
             }
-        }
+
+            return Code.TreeList.ITERATE_CONTINUE;
+        });
 
         return match;
     }

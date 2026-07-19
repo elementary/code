@@ -46,24 +46,39 @@ namespace Scratch.Services {
 
         construct {
             // Used to populate the ChooseProject popover in sorted order
-            project_liststore = new ListStore (typeof (FolderManager.ProjectFolderItem));
+            //TODO This seems to duplicate the sidebar store - can we combine?
+            project_liststore = new ListStore (typeof (Code.ProjectFolderItem));
             settings.bind ("active-project-path", this, "active-project-path", DEFAULT);
         }
 
-        public MonitoredRepository? add_project (FolderManager.ProjectFolderItem root_folder) {
+        public MonitoredRepository? add_project (Code.ProjectFolderItem root_folder) {
             var root_path = root_folder.path;
             MonitoredRepository? monitored_repo = null;
             uint position;
             if (project_liststore.find_with_equal_func (
                     root_folder,
-                    (a, b) => { return ((FolderManager.Item) a).equal ((FolderManager.Item) b); },
+                    (oa, ob) => {
+                        warning ("compare");
+                        if (oa == null || ob == null) {
+                            return false;
+                        }
+
+                        warning ("neither null");
+                        var a = (Code.ProjectFolderItem) oa;
+                        var b = (Code.ProjectFolderItem) ob;
+
+                        warning ("a.name %s", a.name);
+                        warning ("b.name %s", b.name);
+                        return str_equal (a.name, b.name);
+                    },
                     out position
                 )) {
 
+warning ("found");
                 var repo = project_gitrepo_map.@get (root_path);
                 return repo;
             }
-
+warning ("not found");
             try {
                 var git_repo = Ggit.Repository.open (root_folder.file.file);
                 if (!project_gitrepo_map.has_key (root_path)) {
@@ -89,13 +104,13 @@ namespace Scratch.Services {
         }
 
         [CCode (instance_pos = -1)]
-        private int project_sort_func (FolderManager.ProjectFolderItem a, FolderManager.ProjectFolderItem b) {
+        private int project_sort_func (Code.ProjectFolderItem a, Code.ProjectFolderItem b) {
             GLib.File file_a = a.file.file;
             GLib.File file_b = b.file.file;
             return Path.get_basename (file_a.get_path ()).collate (Path.get_basename (file_b.get_path ()));
         }
 
-        public void remove_project (FolderManager.ProjectFolderItem root_folder) {
+        public void remove_project (Code.ProjectFolderItem root_folder) {
             var root_path = root_folder.file.file.get_path ();
 
             uint position;
@@ -119,6 +134,7 @@ namespace Scratch.Services {
                 build_path = build_file.get_path ();
             } else {
                 warning ("build path not found %s", build_file.get_path ());
+                // Just returns the project path
             }
 
             return build_path;

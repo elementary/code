@@ -314,43 +314,46 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     public void new_document () {
-        var file = File.new_for_path (unsaved_file_path_builder ());
+        var path = unsaved_file_path_builder ();
+        var file = File.new_for_path (path);
         try {
             file.create (FileCreateFlags.PRIVATE);
-
-            var doc = new Services.Document (window.actions, file);
             // Must open document in order to unlock it.
-            open_document.begin (doc);
+            open_document.begin (path);
         } catch (Error e) {
             critical (e.message);
         }
     }
 
     public void new_document_from_clipboard (string clipboard) {
-        var file = File.new_for_path (unsaved_file_path_builder ());
+        var path = unsaved_file_path_builder ();
+        var file = File.new_for_path (path);
 
         // Set clipboard content
         try {
             file.create (FileCreateFlags.PRIVATE);
             file.replace_contents (clipboard.data, null, false, 0, null);
-            var doc = new Services.Document (window.actions, file);
-
-            open_document.begin (doc);
-
-
+            open_document.begin (path);
         } catch (Error e) {
             critical ("Cannot insert clipboard: %s", clipboard);
         }
     }
 
-    public async void open_document (Services.Document doc, bool focus = true, int cursor_position = 0, SelectionRange range = SelectionRange.EMPTY) {
+    // public async void open_document (Services.Document doc, bool focus = true, int cursor_position = 0, SelectionRange range = SelectionRange.EMPTY) {
+    public async void open_document (
+        string doc_path,
+        bool focus = true,
+        int cursor_position = 0,
+        SelectionRange range = SelectionRange.EMPTY
+    ) {
        for (int n = 0; n <= docs.length (); n++) {
             var nth_doc = docs.nth_data (n);
             if (nth_doc == null) {
                 continue;
             }
 
-            if (nth_doc.file != null && nth_doc.file.get_uri () == doc.file.get_uri ()) {
+            // if (nth_doc.file != null && nth_doc.file.get_uri () == doc.file.get_uri ()) {
+            if (nth_doc.file != null && nth_doc.file.get_uri () == doc_path) {
                 if (focus) {
                     current_document = nth_doc;
                 }
@@ -369,6 +372,10 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             }
         }
 
+        var doc = new Scratch.Services.Document (
+            window.actions,
+            GLib.File.new_for_path (doc_path)
+        );
         insert_document (doc, (int) docs.length ());
         if (focus) {
             current_document = doc;
@@ -538,8 +545,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
     public void restore_closed_tab (string path) {
         var file = File.new_for_path (path);
-        var doc = new Services.Document (window.actions, file);
-        open_document.begin (doc);
+        open_document.begin (path);
 
         var menu = (Menu) tab_history_button.menu_model;
         for (var i = 0; i < menu.get_n_items (); i++) {

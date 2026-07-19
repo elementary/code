@@ -40,13 +40,10 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
             SymbolType.CONSTANT
         };
     }
+
     construct {
-        store.item_selected.connect ((selected) => {
-            if (selected == null) {
-                return;
-            }
-            doc.goto (((CtagsSymbol)selected).line);
-            store.selected = null;
+        tree_list.item_activated.connect ((item) => {
+            doc.goto (((CtagsSymbol)item).line);
         });
     }
 
@@ -75,8 +72,8 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
     }
 
     private async void parse_output (GLib.Subprocess subprocess) {
-        var parent_dependent = new Gee.LinkedList<CtagsSymbolIter> ();
-        var new_root = new Code.Widgets.SourceList.ExpandableItem (_("Symbols"));
+        var symboliter_list = new Gee.LinkedList<CtagsSymbolIter> ();
+        var new_root = new Code.TreeListItem () { text = _("Symbols") };
 
         var datainput = new GLib.DataInputStream (subprocess.get_stdout_pipe ());
         try {
@@ -174,9 +171,9 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
                         icon,
                         s_type
                     );
-                    new_root.add (s);
+                    new_root.add_child (s);
                 } else {
-                    parent_dependent.add (new CtagsSymbolIter (
+                    symboliter_list.add (new CtagsSymbolIter (
                         name,
                         parent,
                         line,
@@ -191,9 +188,9 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
         }
 
         var found_something = true;
-        while (found_something && parent_dependent.size > 0) {
+        while (found_something && symboliter_list.size > 0) {
             found_something = false;
-            var iter = parent_dependent.iterator ();
+            var iter = symboliter_list.iterator ();
             while (iter.has_next ()) {
                 iter.next ();
                 var i = iter.get ();
@@ -201,7 +198,7 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
                 var parent = find_existing (i.parent, new_root);
                 if (parent != null) {
                     found_something = true;
-                    parent.add (new CtagsSymbol (
+                    parent.add_child (new CtagsSymbol (
                         doc,
                         i.name,
                         i.line,
@@ -214,7 +211,7 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
                         var parent_parts = i.parent.split (":", 2);
                         parent = find_existing (parent_parts[1], new_root);
                         if (parent != null) {
-                            parent.name = i.name;
+                            parent.text = i.name;
                             switch (parent_parts[0]) {
                                 case "class":
                                     parent.icon = new ThemedIcon ("lang-class");
@@ -239,9 +236,9 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
                             new ThemedIcon ("lang-enum"),
                             SymbolType.ENUM
                         );
-                        new_root.add (e);
+                        new_root.add_child (e);
 
-                        e.add (new CtagsSymbol (
+                        e.add_child (new CtagsSymbol (
                             doc,
                             i.name,
                             i.line,
@@ -255,8 +252,8 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
         }
 
         // just add the rest
-        foreach (var symbol in parent_dependent) {
-            new_root.add (new CtagsSymbol (
+        foreach (var symbol in symboliter_list) {
+            new_root.add_child (new CtagsSymbol (
                 doc,
                 symbol.name,
                 symbol.line,
@@ -266,29 +263,28 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
         }
 
         Idle.add (() => {
-            double adjustment_value = store.vadjustment.value;
-            store.root.clear ();
-            store.root.add (new_root);
-            store.root.expand_all ();
-            store.vadjustment.set_value (adjustment_value);
+            double adjustment_value = vadj.value;
+            tree_list.remove_all ();
+            tree_list.add_root_item (new_root);
+            // store.root.expand_all ();
+            vadj.set_value (adjustment_value);
 
             destroy_root (root);
             root = new_root;
 
-            add_tooltips (store.root);
+            add_tooltips (null);
             return false;
         });
     }
 
-    protected override void add_tooltips (Code.Widgets.SourceList.ExpandableItem root) {
-        foreach (var parent in root.children) {
-            if (parent is Code.Widgets.SourceList.ExpandableItem) {
-                add_tooltip ((Code.Widgets.SourceList.ExpandableItem) parent);
-            }
-        }
+    protected override void add_tooltips (Code.TreeListItem? root) {
+        tree_list.iterate_children (root, (child) => {
+            add_tooltip (child);
+            return Code.TreeList.ITERATE_CONTINUE;
+        });
     }
 
-    private void add_tooltip (Code.Widgets.SourceList.ExpandableItem parent) {
+    private void add_tooltip (Code.TreeListItem parent) {
         if (parent is CtagsSymbol) {
             var item = ((CtagsSymbol)parent);
             var start = item.line;
@@ -311,39 +307,45 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
         add_tooltips (parent);
     }
 
-    private void destroy_root (Code.Widgets.SourceList.ExpandableItem to_destroy) {
-        var children = iterate_children (to_destroy);
-        to_destroy.clear ();
+    private void destroy_root (Code.TreeListItem to_destroy) {
+        var children = collect_children (to_destroy);
+        to_destroy.remove_all_children ();
         foreach (var item in children) {
-            item.clear ();
+            item.remove_all_children ();
             var parent = item.parent;
             if (parent != null) {
-                parent.remove (item);
+                parent.remove_child (item);
             }
         }
     }
 
-    private Gee.TreeSet<CtagsSymbol> iterate_children (Code.Widgets.SourceList.ExpandableItem parent) {
+    private Gee.TreeSet<CtagsSymbol> collect_children (Code.TreeListItem? parent) {
         var result = new Gee.TreeSet<CtagsSymbol> ();
-        foreach (var child in parent.children) {
-            result.add_all (iterate_children ((CtagsSymbol)child));
-        }
+        tree_list.iterate_children (parent, (child) => {
+            result.add_all (collect_children ((CtagsSymbol)child));
+            return Code.TreeList.ITERATE_CONTINUE;
+        });
         return result;
     }
 
-    CtagsSymbol? find_existing (string name, Code.Widgets.SourceList.ExpandableItem parent) {
+    CtagsSymbol? find_existing (string name, Code.TreeListItem parent) {
         CtagsSymbol match = null;
-        foreach (var child in parent.children) {
-            var child_symbol = child as CtagsSymbol;
-            if (child_symbol.name == name) {
+        // foreach (var child in parent.children) {
+        tree_list.iterate_children (parent, (child) => {
+            var child_symbol = (CtagsSymbol) child;
+            if (child_symbol.text == name) {
                 match = child_symbol;
-                break;
+                return Code.TreeList.ITERATE_STOP;
             } else {
                 var res = find_existing (name, child_symbol);
-                if (res != null)
-                    return res;
+                if (res != null) {
+                    match = res;
+                    return Code.TreeList.ITERATE_STOP;
+                }
             }
-        }
+
+            return Code.TreeList.ITERATE_CONTINUE;
+        });
 
         return match;
     }

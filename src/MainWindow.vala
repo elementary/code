@@ -39,17 +39,18 @@ namespace Scratch {
             }
         }
 
-        public Scratch.Widgets.DocumentView document_view;
+        public Scratch.Widgets.DocumentView document_view { get; private set; }
 
-        // Widgets
+        // These Widgets may be accessed by plugins so public
         public Scratch.HeaderBar toolbar;
         public Scratch.Widgets.SearchBar search_bar;
+        // Not available to plugins
         private Code.WelcomeView welcome_view;
         private Code.Terminal terminal;
-        private FolderManager.FileView folder_manager_view;
+        private Code.ProjectList folder_manager_view;
         private Scratch.Services.DocumentManager document_manager;
         // Plugins
-        private Scratch.Services.PluginsManager plugins;
+        public Scratch.Services.PluginsManager plugins { get; private set;}
 
         // Widgets for Plugins
         public Code.Sidebar sidebar;
@@ -73,6 +74,7 @@ namespace Scratch {
         public const string ACTION_FIND_PREVIOUS = "action-find-previous";
         public const string ACTION_FIND_GLOBAL = "action-find-global";
         public const string ACTION_OPEN = "action-open";
+        public const string ACTION_SHOW_OR_OPEN_DOCUMENT = "action-document";
         public const string ACTION_OPEN_FOLDER = "action-open-folder";
         public const string ACTION_OPEN_PROJECT = "action-open-project";
         public const string ACTION_COLLAPSE_ALL_FOLDERS = "action-collapse-all-folders";
@@ -132,7 +134,8 @@ namespace Scratch {
             { ACTION_FIND_PREVIOUS, action_find_previous },
             { ACTION_FIND_GLOBAL, action_find_global, "s" },
             { ACTION_OPEN, action_open },
-            { ACTION_OPEN_FOLDER, action_open_folder, "s" },
+            { ACTION_SHOW_OR_OPEN_DOCUMENT,action_document, "s" },
+            { ACTION_OPEN_FOLDER, action_open_folder_as_project, "s" },
             { ACTION_OPEN_PROJECT, action_open_project },
             { ACTION_COLLAPSE_ALL_FOLDERS, action_collapse_all_folders },
             { ACTION_PREFERENCES, action_preferences },
@@ -463,36 +466,38 @@ namespace Scratch {
 
             sidebar = new Code.Sidebar ();
 
-            folder_manager_view = new FolderManager.FileView (plugins);
+            folder_manager_view = new Code.ProjectList ();
 
             sidebar.add_tab (folder_manager_view);
+            // sidebar.add_tab (new Granite.HeaderLabel ("Dummy Sidebar"));
 
-            folder_manager_view.file_activate.connect ((file) => {
-                // var file = new Scratch.FolderManager.File (a);
-                var doc = new Scratch.Services.Document (actions, file.file);
+            // folder_manager_view.file_activate.connect ((file) => {
+            //     warning ("file activate %s", file.path);
+            //     // var file = new Code.File (a);
+            //     var doc = new Scratch.Services.Document (actions, file.file);
 
-                if (file.is_valid_textfile) {
-                    open_document.begin (doc);
-                } else {
-                    open_binary (file.file);
-                }
-            });
+            //     if (file.is_valid_textfile) {
+            //         open_document.begin (doc);
+            //     } else {
+            //         open_binary (file.file);
+            //     }
+            // });
 
-            folder_manager_view.rename_request.connect ((file) => {
-                var allow = true;
-                foreach (var window in app.get_windows ()) {
-                    var win = (MainWindow)window;
-                    foreach (var doc in win.document_view.docs) {
-                        if (doc.file.equal (file.file)) {
-                            // Only allow sidebar to rename docs that are in sync with their file in
-                            // all windows
-                            allow = allow && !doc.locked && doc.saved;
-                        }
-                    }
-                }
+            // folder_manager_view.rename_request.connect ((file) => {
+            //     var allow = true;
+            //     foreach (var window in app.get_windows ()) {
+            //         var win = (MainWindow)window;
+            //         foreach (var doc in win.document_view.docs) {
+            //             if (doc.file.equal (file.file)) {
+            //                 // Only allow sidebar to rename docs that are in sync with their file in
+            //                 // all windows
+            //                 allow = allow && !doc.locked && doc.saved;
+            //             }
+            //         }
+            //     }
 
-                return allow;
-            });
+            //     return allow;
+            // });
 
             terminal = new Code.Terminal () {
                 visible = false
@@ -582,7 +587,7 @@ namespace Scratch {
 
             document_view.tab_removed.connect ((doc) => {
                 update_find_actions ();
-                folder_manager_view.unselect_file (doc.file);
+                // folder_manager_view.unselect_file (doc.file);
             });
 
             document_view.document_change.connect ((doc) => {
@@ -594,7 +599,7 @@ namespace Scratch {
 
                     toolbar.set_document_focus (doc);
 
-                    folder_manager_view.select_path (doc.file.get_path ());
+                    // folder_manager_view.select_path (doc.file.get_path ());
 
                     // Must follow setting focus document for editorconfig plug
                     plugins.hook_document (doc);
@@ -611,6 +616,7 @@ namespace Scratch {
 
             set_widgets_sensitive (false);
         }
+
 
         private void open_binary (File file) {
             if (!file.query_exists ()) {
@@ -647,18 +653,26 @@ namespace Scratch {
                         if (file.query_exists ()) {
                             var is_focused = uri == focused_uri;
                             if (is_focused) {
-                                focused_file = file;
+                                focused_file = file; // remember focused file for focusing after all docs loaded
                             }
                             //TODO Check files valid (settings could have been manually altered)
-                            var doc = new Scratch.Services.Document (actions, file);
-                            if (doc.exists () || !doc.is_file_temporary) {
-                                if (restore_override != null && (file.get_path () == restore_override.file.get_path ())) {
-                                    yield open_document_at_selected_range (doc, true, restore_override.range, true);
+                            // var doc = new Scratch.Services.Document (actions, file);
+                            // if (doc.exists () || !doc.is_file_temporary) {
+                                if (restore_override != null &&
+                                    (file.get_path () == restore_override.file.get_path ())) {
+
+                                    // yield open_document_at_selected_range (doc, true, restore_override.range, true);
+                                    yield document_view.open_document (uri, true, 0, restore_override.range);
                                     was_restore_overriden = true;
                                 } else {
-                                    yield open_document (doc, was_restore_overriden ? false : is_focused, pos);
+                                    yield document_view.open_document (
+                                        uri,
+                                        //Prevent focus being grabbed if there was an override
+                                        was_restore_overriden ? false : is_focused,
+                                        pos
+                                    );
                                 }
-                            }
+                            // }
                         }
                     }
                 }
@@ -668,7 +682,7 @@ namespace Scratch {
             document_view.update_outline_visible ();
             restore_override = null;
             if (focused_file != null) {
-                folder_manager_view.expand_to_path (focused_file.get_path ());
+                // folder_manager_view.expand_to_path (focused_file.get_path ());
             }
         }
 
@@ -743,31 +757,36 @@ namespace Scratch {
             return search_bar.search_occurrences > 0;
         }
 
-        public void open_folder (File folder) {
-            var foldermanager_file = new FolderManager.File (folder.get_path ());
-            folder_manager_view.open_folder (foldermanager_file);
+        public void open_folder_as_project (File folder) {
+            warning ("opening %s as project", folder.get_path ());
+            var foldermanager_file = new Code.File (folder.get_path ());
+            folder_manager_view.open_project_folder (foldermanager_file);
         }
 
-        public async void open_document (Scratch.Services.Document doc,
-                                   bool focus = true,
-                                   int cursor_position = 0) {
+        // public async void open_document (
+        //     string path,
+        //     bool focus = true,
+        //     int cursor_position = 0
+        // ) {
+        //     // Code.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
+        //     // doc.source_view.project = project;
+        //     yield document_view.open_document (path, focus, cursor_position);
+        // }
 
-            FolderManager.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
-            doc.source_view.project = project;
-            yield document_view.open_document (doc, focus, cursor_position);
-        }
+        // public async void open_document_at_selected_range (
+        //     // Scratch.Services.Document doc,
+        //     string doc_path,
+        //     bool focus = true,
+        //     SelectionRange range = SelectionRange.EMPTY,
+        //     bool is_override = false
+        // ) {
+        //     if (restore_override != null && is_override == false) {
+        //         return;
+        //     }
 
-        public async void open_document_at_selected_range (Scratch.Services.Document doc,
-                                                     bool focus = true,
-                                                     SelectionRange range = SelectionRange.EMPTY,
-                                                     bool is_override = false) {
-            if (restore_override != null && is_override == false) {
-                return;
-            }
-
-            doc.source_view.project = folder_manager_view.get_project_for_file (doc.file);
-            yield document_view.open_document (doc, focus, 0, range);
-        }
+        //     // doc.source_view.project = folder_manager_view.get_project_for_file (doc.file);
+        //     yield document_view.open_document (doc_path, focus, 0, range);
+        // }
 
         // Close a document
         public void close_document (Scratch.Services.Document doc) {
@@ -938,6 +957,7 @@ namespace Scratch {
         }
 
         private void action_open () {
+        warning ("action open");
             var all_files_filter = new Gtk.FileFilter ();
             all_files_filter.set_filter_name (_("All files"));
             all_files_filter.add_pattern ("*");
@@ -966,25 +986,33 @@ namespace Scratch {
             }
 
             file_chooser.response.connect ((res) => {
+            warning ("got response %s", res.to_string ());
                 var files = file_chooser.get_files (); // Returns ListModel of GFile objects
                 // var uris = file_chooser.get_uris ();
                 file_chooser.destroy (); // Close now so it does not stay open during lengthy or failed loading
                 if (res == Gtk.ResponseType.ACCEPT) {
+                    warning ("ACCEPT");
                     var index = 0;
                     var obj = files.get_item (index++);
                     while (obj != null) {
-                        var file = (GLib.File) obj;
+                        var gfile = (GLib.File) obj;
                         // Update last visited path
-                        Utils.last_path = Path.get_dirname (file.get_uri ());
+                        var path = gfile.get_uri ();
+                        Utils.last_path = Path.get_dirname (path);
                         // Open the file
-                        var doc = new Scratch.Services.Document (actions, file);
-                        open_document.begin (doc);
+                        // var doc = new Scratch.Services.Document (actions, gfile);
+                        document_view.open_document.begin (path);
                         obj = files.get_item (index++);
                     }
                 }
             });
 
             file_chooser.show ();
+        }
+
+        // Shows document if alreadu open else open it
+        private void action_document (SimpleAction action, Variant? param) requires (param != null) {
+            document_view.open_document.begin (param.get_string ());
         }
 
         private void action_open_in_new_window (SimpleAction action, Variant? param) {
@@ -995,9 +1023,9 @@ namespace Scratch {
 
             var new_window = new MainWindow (false);
             var file = File.new_for_path (path);
-            var doc = new Scratch.Services.Document (new_window.actions, file);
+            // var doc = new Scratch.Services.Document (new_window.actions, file);
 
-            new_window.open_document.begin (doc, true);
+            new_window.document_view.open_document.begin (path, true);
         }
 
 
@@ -1006,6 +1034,7 @@ namespace Scratch {
         }
 
         private void choose_folder () {
+            warning ("choose folder");
             var chooser = new Gtk.FileChooserNative (
                 "Select a folder.", this, Gtk.FileChooserAction.SELECT_FOLDER,
                 _("_Open"),
@@ -1013,17 +1042,16 @@ namespace Scratch {
             );
 
             chooser.select_multiple = true;
-
             chooser.response.connect ((res) => {
                 var files = chooser.get_files ();
                 chooser.destroy ();
                 if (res == Gtk.ResponseType.ACCEPT) {
-var index = 0;
+                    var index = 0;
                     var obj = files.get_item (index++);
                     while (obj != null) {
                         var file = (GLib.File) obj;
-                        var foldermanager_file = new FolderManager.File (file.get_path ());
-                        folder_manager_view.open_folder (foldermanager_file);
+                        var foldermanager_file = new Code.File (file.get_path ());
+                        folder_manager_view.open_project_folder (foldermanager_file);
                         obj = files.get_item (index++);
                     }
                 }
@@ -1032,12 +1060,12 @@ var index = 0;
             chooser.show ();
         }
 
-        private void action_open_folder (SimpleAction action, Variant? param) {
+        private void action_open_folder_as_project (SimpleAction action, Variant? param) {
             var path = param.get_string ();
             if (path == "") {
                 choose_folder ();
             } else {
-                folder_manager_view.open_folder (new FolderManager.File (path));
+                folder_manager_view.open_project_folder (new Code.File (path));
             }
         }
 
@@ -1080,7 +1108,7 @@ var index = 0;
                     sidebar.cloning_in_progress = false;
 
                     if (success) {
-                        open_folder (workdir);
+                        open_folder_as_project (workdir);
                         if (this.is_active) {
                             sidebar.notify_cloning_success ();
                         } else {
@@ -1252,8 +1280,7 @@ var index = 0;
 
         private void restore_project_docs (string project_path) {
             document_manager.take_restorable_paths (project_path).@foreach ((doc_path) => {
-                var doc = new Scratch.Services.Document (actions, File.new_for_path (doc_path));
-                open_document.begin (doc); // Use this to reassociate project and document.
+                document_view.open_document.begin (doc_path); // Use this to reassociate project and document.
                 return true;
             });
         }
@@ -1319,7 +1346,7 @@ var index = 0;
             }
 
             if (search_path != "") {
-                folder_manager_view.search_global (search_path, search_bar.entry_text);
+                // folder_manager_view.search_global (search_path, search_bar.entry_text);
             } else {
                 // Fallback to standard search
                 warning ("Unable to perform global search - search document instead");
@@ -1450,10 +1477,12 @@ var index = 0;
         }
 
         private void action_set_active_project (SimpleAction action, Variant? param) {
+warning ("set active project");
             var project_path = param.get_string ();
-            if (folder_manager_view.project_is_open (project_path)) {
+            Code.ProjectFolderItem? project = null;
+            if (folder_manager_view.is_existing_project_path (project_path, out project)) {
                 git_manager.active_project_path = project_path;
-                folder_manager_view.collapse_other_projects ();
+                folder_manager_view.collapse_other_projects (project_path);
                 //The opened folders are not changed so no need to update "opened-folders" setting
             } else {
                 warning ("Attempt to set folder path %s which is not opened as active project ignored", project_path);
@@ -1490,7 +1519,7 @@ var index = 0;
         }
 
         private void action_branch_actions (SimpleAction action, Variant? param) {
-            folder_manager_view.branch_actions (get_target_path_for_actions (param));
+            // folder_manager_view.branch_actions (get_target_path_for_actions (param));
         }
 
         private void action_move_tab_to_new_window () {

@@ -30,17 +30,18 @@ public class Scratch.Services.Interface : GLib.Object {
         );
     }
 
-    public Scratch.Services.Document open_file (File file) {
-        var doc = new Scratch.Services.Document (manager.window.actions, file);
-        manager.window.open_document.begin (doc);
-        return doc;
-    }
+    // public Scratch.Services.Document open_file (File file) {
+    //     var doc = new Scratch.Services.Document (manager.window.actions, file);
+    //     manager.window.open_document.begin (doc);
+    //     return doc;
+    // }
 
     public void close_document (Scratch.Services.Document doc) {
         manager.window.close_document (doc);
     }
 }
 
+//TODO Make singleton
 public class Scratch.Services.PluginsManager : GLib.Object {
     public signal void hook_window (Scratch.MainWindow window);
     public signal void hook_share_menu (GLib.MenuModel menu);
