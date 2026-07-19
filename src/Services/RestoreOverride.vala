@@ -9,6 +9,7 @@ public class RestoreOverride : GLib.Object {
     public GLib.File file { get; construct; }
     public SelectionRange range { get; construct; }
 
+    // This is used to override the cursor position that may be restored from settings
     public RestoreOverride (GLib.File file, SelectionRange range) {
         Object (
             file: file,

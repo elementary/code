@@ -35,7 +35,8 @@ public class Code.FolderTree : Gtk.Box, Code.PaneSwitcher {
         { ACTION_EXECUTE_CONTRACT_WITH_FILE_PATH, action_execute_contract_with_file_path, "as" },
         { ACTION_NEW_FILE, add_new_file, "s" },
         { ACTION_NEW_FROM_TEMPLATE, add_new_from_template, "(ss)" },
-        { ACTION_NEW_FOLDER, add_new_folder, "s"}
+        { ACTION_NEW_FOLDER, add_new_folder, "s"},
+
     };
 
     private Code.TreeList tree_list;
@@ -79,6 +80,11 @@ public class Code.FolderTree : Gtk.Box, Code.PaneSwitcher {
         // Convert ListView signal into file_activate
         tree_list.item_activated.connect ((item) => {
             if (item is FileItem) {
+                tree_list.activate_action (
+                    "win.show-document",
+                    "s",
+                    item.path
+                );
                 file_activate (((FileItem) item).file);
             } else if (item.is_expandable) {
                 item.is_expanded = !item.is_expanded;
