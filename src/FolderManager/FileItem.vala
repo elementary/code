@@ -18,7 +18,7 @@
  * Authored by: Julien Spautz <spautz.julien@gmail.com>, Andrei-Costin Zisu <matzipan@gmail.com>
  */
 
-public class Code.FileItem : FolderManagerItem {
+public class Code.FileItem : FolderManagerItem, Code.FolderManagerItemInterface {
     public FileItem (File file, FolderTree view) {
         Object (file: file, view: view);
     }
@@ -28,87 +28,94 @@ public class Code.FileItem : FolderManagerItem {
     //     view.activate (file.path);
     // }
 
-    public override GLib.Menu? get_context_menu () {
-        GLib.FileInfo info = null;
+    // public override GLib.Menu? get_context_menu () {
+        // GLib.FileInfo info = null;
 
-        try {
-            info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, 0);
-        } catch (Error e) {
-            warning (e.message);
-        }
+        // try {
+        //     info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, 0);
+        // } catch (Error e) {
+        //     warning (e.message);
+        // }
 
-        var file_type = info.get_attribute_string (GLib.FileAttribute.STANDARD_CONTENT_TYPE);
-        var contractor_items = Scratch.Utils.create_contract_items_for_file (file.file);
-        var external_actions_section = new GLib.Menu ();
-        external_actions_section.append_item (create_submenu_for_open_in (file_type));
-        if (contractor_items.get_n_items () > 0) {
-            external_actions_section.append_submenu (
-                _("Other Actions"),
-                contractor_items
-            );
-        }
+        // var file_type = info.get_attribute_string (GLib.FileAttribute.STANDARD_CONTENT_TYPE);
+        // var contractor_items = create_contract_items_for_file (file.file); // Interface method
+        // var external_actions_section = new GLib.Menu ();
+        // external_actions_section.append_item (create_submenu_for_open_item_in (file_type));
+        // if (contractor_items.get_n_items () > 0) {
+        //     external_actions_section.append_submenu (
+        //         _("Other Actions"),
+        //         contractor_items
+        //     );
+        // }
 
-        var rename_item = new GLib.MenuItem (
-            _("Rename"),
-            GLib.Action.print_detailed_name (
-                FolderTree.ACTION_PREFIX + FolderTree.ACTION_RENAME_FILE,
-                new Variant.string (file.path)
-            )
-        );
-        var rename_action = Scratch.Utils.action_from_group (FolderTree.ACTION_RENAME_FILE, view.actions);
-        rename_action.set_enabled (view.rename_request (file));
+        // var rename_item = new GLib.MenuItem (
+        //     _("Rename"),
+        //     GLib.Action.print_detailed_name (
+        //         ITEM_ACTION_PREFIX + ACTION_RENAME_FILE,
+        //         new Variant.string (file.path)
+        //     )
+        // );
+        // var rename_action = Scratch.Utils.action_from_group (ACTION_RENAME_FILE, view.actions);
+        // var app = (Scratch.Application) (Application.get_default ());
+        // rename_action.set_enabled (app.can_rename_file (file));
+        // rename_action.set_enabled (view.rename_request (file));
 
-        var delete_item = new GLib.MenuItem (
-            _("Move to Trash"),
-            GLib.Action.print_detailed_name (
-                FolderTree.ACTION_PREFIX + FolderTree.ACTION_DELETE,
-                new Variant.string (file.path)
-            )
-        );
+        // var delete_item = new GLib.MenuItem (
+        //     _("Move to Trash"),
+        //     GLib.Action.print_detailed_name (
+        //         ITEM_ACTION_PREFIX + ACTION_DELETE,
+        //         new Variant.string (file.path)
+        //     )
+        // );
 
-        var direct_actions_section = new GLib.Menu ();
-        direct_actions_section.append_item (rename_item);
-        direct_actions_section.append_item (delete_item);
+        // var direct_actions_section = new GLib.Menu ();
+        // direct_actions_section.append_item (rename_item);
+        // direct_actions_section.append_item (delete_item);
 
-        var menu_model = new GLib.Menu ();
-        menu_model.append_section (null, external_actions_section);
-        menu_model.append_section (null, direct_actions_section);
+        // var menu_model = new GLib.Menu ();
+        // menu_model.append_section (null, external_actions_section);
+        // menu_model.append_section (null, direct_actions_section);
 
-        return menu_model;
-    }
+        // return menu_model;
+    // }
 
-    private GLib.MenuItem create_submenu_for_open_in (string? file_type) {
-        var new_window_menu_item = new GLib.MenuItem (
-            _("New Window"),
-            GLib.Action.print_detailed_name (
-                Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_IN_NEW_WINDOW,
-                file.path
-            )
-        );
+    public override GLib.MenuItem create_submenu_for_open_item_in (GLib.File gfile, string? file_type) {
+        var menu_item = base.create_submenu_for_open_item_in (gfile, file_type);
+        var sub_menu = (GLib.Menu) (menu_item.get_link ("submenu"));
 
-        var top_section = new GLib.Menu ();
         if (file.is_valid_textfile) {
+            var top_section = new GLib.Menu ();
+            var new_window_menu_item = new GLib.MenuItem (
+                _("New Window"),
+                GLib.Action.print_detailed_name (
+                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_IN_NEW_WINDOW,
+                    path
+                )
+            );
             top_section.append_item (new_window_menu_item);
+            sub_menu.prepend_section (null, top_section);
         }
 
-        var other_menu_item = new GLib.MenuItem (
-            _("Other Application…"),
-            GLib.Action.print_detailed_name (
-                FolderTree.ACTION_PREFIX + FolderTree.ACTION_SHOW_APP_CHOOSER,
-                file.path
-            )
-        );
+        //TODO Add section for regular file only actions
 
-        var extra_section = new GLib.Menu ();
-        extra_section.append_item (other_menu_item);
+        // var other_menu_item = new GLib.MenuItem (
+        //     _("Other Application…"),
+        //     GLib.Action.print_detailed_name (
+        //         ITEM_ACTION_PREFIX + ACTION_SHOW_APP_CHOOSER,
+        //         file.path
+        //     )
+        // );
 
-        var open_in_menu = new GLib.Menu ();
-        open_in_menu.append_section (null, top_section);
-        open_in_menu.append_section (null, Scratch.Utils.create_executable_app_items_for_file (file.file, file_type));
-        open_in_menu.append_section (null, extra_section);
+        // var extra_section = new GLib.Menu ();
+        // extra_section.append_item (other_menu_item);
 
-        var open_in_menu_item = new GLib.MenuItem.submenu (_("Open In"), open_in_menu);
-        return open_in_menu_item;
+        // var open_in_menu = new GLib.Menu ();
+        // open_in_menu.append_section (null, top_section);
+        // open_in_menu.append_section (null, create_executable_app_items_for_file (file.file, file_type));
+        // open_in_menu.append_section (null, extra_section);
+
+        // var open_in_menu_item = new GLib.MenuItem.submenu (_("Open In"), open_in_menu);
+        return menu_item;
     }
 }
 

@@ -613,6 +613,7 @@ namespace Scratch {
             set_widgets_sensitive (false);
         }
 
+
         private void open_binary (File file) {
             if (!file.query_exists ()) {
                 return;

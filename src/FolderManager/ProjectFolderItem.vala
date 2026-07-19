@@ -169,12 +169,21 @@ warning ("get project menu");
             )
         );
 
+        var new_window_menu_item = new GLib.MenuItem (
+            _("Open in New Window"),
+            GLib.Action.print_detailed_name (
+                Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_IN_NEW_WINDOW,
+                path
+            )
+        );
+
         var external_actions_section = new GLib.Menu ();
         external_actions_section.append_item (set_active_folder_item);
-        // // external_actions_section.append_item (create_submenu_for_open_in (file_type));
+        external_actions_section.append_item (new_window_menu_item);
 
-        // var folder_actions_section = new GLib.Menu ();
-        // folder_actions_section.append_item (create_submenu_for_new (path));
+        var folder_actions_section = new GLib.Menu ();
+        folder_actions_section.append_item (create_submenu_for_new (path));
+
         // if (monitored_repo != null) {
         //     var branch_action_item = new MenuItem (
         //         _("Branch Actions…"),
@@ -186,30 +195,30 @@ warning ("get project menu");
         //     folder_actions_section.append_item (branch_action_item);
         // }
 
-        // var close_folder_item = new GLib.MenuItem (
-        //     _("Close Folder"),
-        //     GLib.Action.print_detailed_name (
-        //         ProjectList.ACTION_PREFIX + ProjectList.ACTION_CLOSE_PROJECT_FOLDER,
-        //         new Variant.string (file.path)
-        //     )
-        // );
+        var close_folder_item = new GLib.MenuItem (
+            _("Close Folder"),
+            GLib.Action.print_detailed_name (
+                PROJECT_ACTION_PREFIX + ACTION_CLOSE_PROJECT_FOLDER,
+                new Variant.string (file.path)
+            )
+        );
 
-        // var close_all_except_item = new GLib.MenuItem (
-        //     _("Close Other Folders"),
-        //     GLib.Action.print_detailed_name (
-        //         ProjectList.ACTION_PREFIX + ProjectList.ACTION_CLOSE_OTHER_PROJECT_FOLDERS,
-        //         new Variant.string (file.path)
-        //     )
-        // );
-        // var close_other_folders_action = Scratch.Utils.action_from_group (
-        //     ProjectList.ACTION_CLOSE_OTHER_PROJECT_FOLDERS,
-        //     view.actions
-        // );
-        // close_other_folders_action.set_enabled (!view.is_empty);
+        var close_all_except_item = new GLib.MenuItem (
+            _("Close Other Folders"),
+            GLib.Action.print_detailed_name (
+                PROJECT_ACTION_PREFIX + ACTION_CLOSE_OTHER_PROJECT_FOLDERS,
+                new Variant.string (file.path)
+            )
+        );
+        var close_other_folders_action = Scratch.Utils.action_from_group (
+            ACTION_CLOSE_OTHER_PROJECT_FOLDERS,
+            view.actions
+        );
+        close_other_folders_action.set_enabled (!view.is_empty);
 
-        // var close_actions_section = new GLib.Menu ();
-        // close_actions_section.append_item (close_folder_item);
-        // close_actions_section.append_item (close_all_except_item);
+        var close_actions_section = new GLib.Menu ();
+        close_actions_section.append_item (close_folder_item);
+        close_actions_section.append_item (close_all_except_item);
 
         // var n_open = Scratch.Services.DocumentManager.get_instance ().open_for_project (path);
         // var open_text = ngettext ("Close %u Open Document",
@@ -302,8 +311,8 @@ warning ("get project menu");
 
         var menu_model = new GLib.Menu ();
         menu_model.append_section (null, external_actions_section);
-        // menu_model.append_section (null, folder_actions_section);
-        // menu_model.append_section (null, close_actions_section);
+        menu_model.append_section (null, folder_actions_section);
+        menu_model.append_section (null, close_actions_section);
         // menu_model.append_section (null, direct_actions_section);
         // menu_model.append_section (null, search_actions_section);
 

@@ -38,11 +38,12 @@ public interface Code.FolderInterface : Object {
         }
     }
 
+    // Used by both ProjectListItem and FolderItem
     public virtual GLib.MenuItem create_submenu_for_new (string file_path) {
         var new_folder_item = new GLib.MenuItem (
             _("Folder"),
             GLib.Action.print_detailed_name (
-                FolderTree.ACTION_PREFIX + FolderTree.ACTION_NEW_FOLDER,
+                ITEM_ACTION_PREFIX + ACTION_NEW_FOLDER,
                 new Variant.string (file_path)
             )
         );
@@ -50,7 +51,7 @@ public interface Code.FolderInterface : Object {
         var new_file_item = new GLib.MenuItem (
             _("Empty File"),
             GLib.Action.print_detailed_name (
-                FolderTree.ACTION_PREFIX + FolderTree.ACTION_NEW_FILE,
+                ITEM_ACTION_PREFIX + ACTION_NEW_FILE,
                 new Variant.string (file_path)
             )
         );
@@ -60,30 +61,116 @@ public interface Code.FolderInterface : Object {
         new_menu.append_item (new_file_item);
 
         // //Append any templates/template folders.
-        // unowned string? template_path = GLib.Environment.get_user_special_dir (GLib.UserDirectory.TEMPLATES);
-        // if (template_path != null) {
-        //     var template_submenu = new Menu ();
-        //     uint template_count = load_templates_from_folder (GLib.File.new_for_path (template_path), template_submenu);
-        //     if (template_count > 0) {
-        //         if (template_count > MAX_TEMPLATES) {
-        //             template_submenu.append_item (new MenuItem (_("…too many templates"), null));
-        //         }
+        unowned string? template_path = GLib.Environment.get_user_special_dir (GLib.UserDirectory.TEMPLATES);
+        if (template_path != null) {
+            var template_submenu = new Menu ();
+            uint template_count = load_templates_from_folder (file_path, GLib.File.new_for_path (template_path), template_submenu);
+            if (template_count > 0) {
+                if (template_count > MAX_TEMPLATES) {
+                    template_submenu.append_item (new MenuItem (_("…too many templates"), null));
+                }
 
-        //         new_menu.append_submenu (_("Templates"), template_submenu);
-        //     }
-        // }
+                new_menu.append_submenu (_("Templates"), template_submenu);
+            }
+        }
 
-        var new_item = new GLib.MenuItem.submenu (_("New"), new_menu);
+        var new_item = new GLib.MenuItem.submenu (_("Add New"), new_menu);
         new_item.set_submenu (new_menu);
 
         return new_item;
     }
 
+
     public delegate bool IterateChildrenCallback (Object obj);
     public virtual void iterate_children (IterateChildrenCallback cb) {}
+
+        // Recursively load templates from folder and subfolders keeping count of total menuitems
+    const int MAX_TEMPLATES = 2048;
+    private uint load_templates_from_folder (
+        string target_path,
+        GLib.File template_folder,
+        Menu template_submenu
+    ) {
+        GLib.List<GLib.File> template_list = null;
+        GLib.List<GLib.File> folder_list = null;
+
+        GLib.FileEnumerator enumerator;
+        var flags = GLib.FileQueryInfoFlags.NOFOLLOW_SYMLINKS;
+        uint count = 0;
+        try {
+            enumerator = template_folder.enumerate_children ("standard::*", flags, null);
+            GLib.File location;
+            GLib.FileInfo? info = enumerator.next_file (null);
+
+            while (count < MAX_TEMPLATES && (info != null)) {
+                if (!info.get_attribute_boolean (GLib.FileAttribute.STANDARD_IS_BACKUP)) {
+                    location = template_folder.get_child (info.get_name ());
+                    if (info.get_file_type () == GLib.FileType.DIRECTORY) {
+                        folder_list.prepend (location);
+                    } else {
+                        template_list.prepend (location);
+                    }
+
+                    count ++;
+                }
+
+                info = enumerator.next_file (null);
+            }
+        } catch (GLib.Error error) {
+            return 0;
+        }
+
+        folder_list.sort ((a, b) => {
+            return strcmp (a.get_basename ().down (), b.get_basename ().down ());
+        });
+
+        unowned List<GLib.File> fl = folder_list;
+        while (fl != null && count < MAX_TEMPLATES) {
+            var folder = fl.data;
+            var folder_submenu = new Menu ();
+            var folder_submenuitem = new MenuItem.submenu (
+                folder.get_basename (),
+                folder_submenu
+            );
+
+            var sub_count = load_templates_from_folder (target_path, folder, folder_submenu);
+            if (sub_count > 0) {
+                template_submenu.append_item (folder_submenuitem);
+                count += sub_count;
+            } else {
+                count -= 1;  // Adjust count for ignored folder
+            }
+
+            fl = fl.next;
+        }
+
+        if (count > MAX_TEMPLATES) {
+            warning ("too many templates! %u", count);
+            return count;
+        }
+
+        template_list.sort ((a, b) => {
+            return strcmp (a.get_basename ().down (), b.get_basename ().down ());
+        });
+
+        template_list.@foreach ((template) => {
+            var template_menuitem = new MenuItem (
+                template.get_basename (),
+                GLib.Action.print_detailed_name (
+                    ITEM_ACTION_PREFIX + ACTION_NEW_FROM_TEMPLATE,
+                    new Variant ("(ss)", target_path, template.get_path ())
+                )
+            );
+
+            template_submenu.append_item (template_menuitem);
+        });
+
+        return count;
+    }
+
 }
 
-public class Code.FolderItem : FolderManagerItem, Code.FolderInterface { // Ultimately a Code.TreeListItem
+public class Code.FolderItem : FolderManagerItem, Code.FolderInterface, Code.FolderManagerItemInterface { // Ultimately a Code.TreeListItem
     public signal void children_finished_loading ();
 
     public bool loading_required {
@@ -205,33 +292,9 @@ public class Code.FolderItem : FolderManagerItem, Code.FolderInterface { // Ulti
     }
 
     public override GLib.Menu? get_context_menu () {
-        GLib.FileInfo info = null;
-        try {
-            info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
-        } catch (Error e) {
-            warning (e.message);
-        }
+        var menu_model = base.get_context_menu ();
 
-        var file_type = info.get_content_type ();
-
-        var contractor_items = Scratch.Utils.create_contract_items_for_file (file.file);
-
-        var rename_menu_item = new GLib.MenuItem (
-            _("Rename"),
-            GLib.Action.print_detailed_name (
-                FolderTree.ACTION_PREFIX + FolderTree.ACTION_RENAME_FOLDER,
-                new Variant.string (file.path)
-            )
-        );
-
-        var delete_item = new GLib.MenuItem (
-            _("Move to Trash"),
-            GLib.Action.print_detailed_name (
-                FolderTree.ACTION_PREFIX + FolderTree.ACTION_DELETE,
-                new Variant.string (file.path)
-            )
-        );
-
+        // Add items related only to folders
         var search_item = new GLib.MenuItem (
             _("Find in Folder…"),
             GLib.Action.print_detailed_name (
@@ -239,187 +302,21 @@ public class Code.FolderItem : FolderManagerItem, Code.FolderInterface { // Ulti
                 new Variant.string (file.file.get_path ())
             )
         );
-
-        var external_actions_section = new GLib.Menu ();
-        external_actions_section.append_item (create_submenu_for_open_in (file_type));
-        if (contractor_items.get_n_items () > 0) {
-            external_actions_section.append_submenu (_("Other Actions"), contractor_items);
-        }
+        var search_section = new GLib.Menu ();
+        search_section.append_item (search_item);
+        menu_model.append_section (null, search_section);
+        // var external_actions_section = new GLib.Menu ();
+        // external_actions_section.append_item (create_submenu_for_open_item_in (file.path, file_type));
 
         var direct_actions_section = new GLib.Menu ();
         direct_actions_section.append_item (create_submenu_for_new (file.path));
-        direct_actions_section.append_item (rename_menu_item);
-        direct_actions_section.append_item (delete_item);
-
-        var search_section = new GLib.Menu ();
-        search_section.append_item (search_item);
-
-        var menu_model = new GLib.Menu ();
-        menu_model.append_section (null, external_actions_section);
-        menu_model.append_section (null, direct_actions_section);
-        menu_model.append_section (null, search_section);
+        menu_model.prepend_section (null, direct_actions_section);
+        // direct_actions_section.append_item (rename_menu_item);
+        // direct_actions_section.append_item (delete_item);
 
         return menu_model;
     }
 
-    protected GLib.MenuItem create_submenu_for_open_in (string? file_type) {
-        var open_in_terminal_pane_item = new GLib.MenuItem (
-            (_("Terminal Pane")),
-            GLib.Action.print_detailed_name (
-                Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_IN_TERMINAL,
-                new Variant.string (file.path)
-            )
-        );
-        open_in_terminal_pane_item.set_icon (new ThemedIcon ("panel-bottom-symbolic"));
-
-        var other_menu_item = new GLib.MenuItem (
-            _("Other Application…"),
-            GLib.Action.print_detailed_name (
-                FolderTree.ACTION_PREFIX + FolderTree.ACTION_SHOW_APP_CHOOSER,
-                file.path
-            )
-        );
-
-        var extra_section = new GLib.Menu ();
-        extra_section.append_item (other_menu_item);
-
-        var terminal_pane_section = new Menu ();
-        terminal_pane_section.append_item (open_in_terminal_pane_item);
-
-        file_type = file_type ?? "inode/directory";
-
-        var open_in_menu = new GLib.Menu ();
-        open_in_menu.append_section (null, terminal_pane_section);
-        open_in_menu.append_section (null, Scratch.Utils.create_executable_app_items_for_file (file.file, file_type));
-        open_in_menu.append_section (null, extra_section);
-
-        var open_in_menu_item = new GLib.MenuItem.submenu (_("Open In"), open_in_menu);
-        return open_in_menu_item;
-    }
-
-    // protected GLib.MenuItem create_submenu_for_new () {
-    //     var new_folder_item = new GLib.MenuItem (
-    //         _("Folder"),
-    //         GLib.Action.print_detailed_name (
-    //             FolderTree.ACTION_PREFIX + FolderTree.ACTION_NEW_FOLDER,
-    //             new Variant.string (file.path)
-    //         )
-    //     );
-
-    //     var new_file_item = new GLib.MenuItem (
-    //         _("Empty File"),
-    //         GLib.Action.print_detailed_name (
-    //             FolderTree.ACTION_PREFIX + FolderTree.ACTION_NEW_FILE,
-    //             new Variant.string (file.path)
-    //         )
-    //     );
-
-    //     var new_menu = new GLib.Menu ();
-    //     new_menu.append_item (new_folder_item);
-    //     new_menu.append_item (new_file_item);
-
-    //     //Append any templates/template folders.
-    //     unowned string? template_path = GLib.Environment.get_user_special_dir (GLib.UserDirectory.TEMPLATES);
-    //     if (template_path != null) {
-    //         var template_submenu = new Menu ();
-    //         uint template_count = load_templates_from_folder (GLib.File.new_for_path (template_path), template_submenu);
-    //         if (template_count > 0) {
-    //             if (template_count > MAX_TEMPLATES) {
-    //                 template_submenu.append_item (new MenuItem (_("…too many templates"), null));
-    //             }
-
-    //             new_menu.append_submenu (_("Templates"), template_submenu);
-    //         }
-    //     }
-
-    //     var new_item = new GLib.MenuItem.submenu (_("New"), new_menu);
-    //     new_item.set_submenu (new_menu);
-
-    //     return new_item;
-    // }
-
-    // Recursively load templates from folder and subfolders keeping count of total menuitems
-    const int MAX_TEMPLATES = 2048;
-    private uint load_templates_from_folder (
-        GLib.File template_folder,
-        Menu template_submenu
-    ) {
-        GLib.List<GLib.File> template_list = null;
-        GLib.List<GLib.File> folder_list = null;
-
-        GLib.FileEnumerator enumerator;
-        var flags = GLib.FileQueryInfoFlags.NOFOLLOW_SYMLINKS;
-        uint count = 0;
-        try {
-            enumerator = template_folder.enumerate_children ("standard::*", flags, null);
-            GLib.File location;
-            GLib.FileInfo? info = enumerator.next_file (null);
-
-            while (count < MAX_TEMPLATES && (info != null)) {
-                if (!info.get_attribute_boolean (GLib.FileAttribute.STANDARD_IS_BACKUP)) {
-                    location = template_folder.get_child (info.get_name ());
-                    if (info.get_file_type () == GLib.FileType.DIRECTORY) {
-                        folder_list.prepend (location);
-                    } else {
-                        template_list.prepend (location);
-                    }
-
-                    count ++;
-                }
-
-                info = enumerator.next_file (null);
-            }
-        } catch (GLib.Error error) {
-            return 0;
-        }
-
-        folder_list.sort ((a, b) => {
-            return strcmp (a.get_basename ().down (), b.get_basename ().down ());
-        });
-
-        unowned List<GLib.File> fl = folder_list;
-        while (fl != null && count < MAX_TEMPLATES) {
-            var folder = fl.data;
-            var folder_submenu = new Menu ();
-            var folder_submenuitem = new MenuItem.submenu (
-                folder.get_basename (),
-                folder_submenu
-            );
-
-            var sub_count = load_templates_from_folder (folder, folder_submenu);
-            if (sub_count > 0) {
-                template_submenu.append_item (folder_submenuitem);
-                count += sub_count;
-            } else {
-                count -= 1;  // Adjust count for ignored folder
-            }
-
-            fl = fl.next;
-        }
-
-        if (count > MAX_TEMPLATES) {
-            warning ("too many templates! %u", count);
-            return count;
-        }
-
-        template_list.sort ((a, b) => {
-            return strcmp (a.get_basename ().down (), b.get_basename ().down ());
-        });
-
-        template_list.@foreach ((template) => {
-            var template_menuitem = new MenuItem (
-                template.get_basename (),
-                GLib.Action.print_detailed_name (
-                    FolderTree.ACTION_PREFIX + FolderTree.ACTION_NEW_FROM_TEMPLATE,
-                    new Variant ("(ss)", this.path, template.get_path ())
-                )
-            );
-
-            template_submenu.append_item (template_menuitem);
-        });
-
-        return count;
-    }
 
     // public void remove_all_badges () {
     //     view.iterate_children (this, (child) => {
@@ -637,7 +534,7 @@ public class Code.FolderItem : FolderManagerItem, Code.FolderInterface { // Ulti
             // Still need to wait for sourcelist to become stable and editable
             //TODO Find a better way
             Timeout.add (RENAME_AFTER_NEW_DELAY_MSEC, () => {
-                var rename_action = Scratch.Utils.action_from_group (FolderTree.ACTION_RENAME_FILE, view.actions);
+                var rename_action = Scratch.Utils.action_from_group (ACTION_RENAME_FILE, view.actions);
                 if (rename_action != null && rename_action.enabled) {
                     rename_action.activate (path);
                 } else {

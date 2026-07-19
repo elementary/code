@@ -70,13 +70,38 @@
 //     }
 // }
 
-/* ProjectList is a flat list of FolderTrees each representing a single project */
-public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
-    public const string ACTION_GROUP = "project-list";
-    public const string ACTION_PREFIX = ACTION_GROUP + ".";
+namespace Code {
+    // All project related actions handled in ProjectFolderItem
+    public const string PROJECT_ACTION_GROUP = "project";
+    public const string PROJECT_ACTION_PREFIX = "project.";
     public const string ACTION_CLOSE_PROJECT_FOLDER = "close-project-folder";
     public const string ACTION_CLOSE_OTHER_PROJECT_FOLDERS = "close-other-project-folders";
+    public const string ACTION_EXECUTE_CONTRACT_WITH_FILE_PATH = "execute-contract-with-file-path";
+    public const string ACTION_NEW_FILE = "new-file";
+    public const string ACTION_NEW_FROM_TEMPLATE = "new-from-template";
+    public const string ACTION_NEW_FOLDER = "new-folder";
+
+    // All fileitem related actions handled in FolderTree
+    public const string ITEM_ACTION_GROUP = "item";
+    public const string ITEM_ACTION_PREFIX = "item.";
+    public const string ACTION_RENAME_FILE = "rename-file";
+    public const string ACTION_RENAME_FOLDER = "rename-folder";
+    public const string ACTION_LAUNCH_APP_WITH_FILE_PATH = "launch-app-with-file-path";
+    public const string ACTION_SHOW_APP_CHOOSER = "show-app-chooser";
+    public const string ACTION_DELETE = "delete";
+}
+/* ProjectList is a flat list of FolderTrees each representing a single project */
+public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
+    // Moved from folder tree to shared top widget
+    // public signal bool rename_request (Code.File file);
+
+    private const ActionEntry[] ACTION_ENTRIES = {
+        { ACTION_CLOSE_PROJECT_FOLDER, action_close_project_folder, "s"},
+        { ACTION_CLOSE_OTHER_PROJECT_FOLDERS, action_close_other_project_folders, "s"}
+    };
+
     public const string CLOSE_PROJECT_DOCS_ACTION_NAME = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_CLOSE_PROJECT_DOCS;
+
     public SimpleActionGroup actions { get; private set; }
     public bool is_empty { get { return list_store.n_items == 0; } }
 
@@ -92,10 +117,6 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
     private GLib.Settings settings;
     private Scratch.Services.PluginsManager plugins;
 
-    private const ActionEntry[] ACTION_ENTRIES = {
-        { ACTION_CLOSE_PROJECT_FOLDER, action_close_project_folder, "s"},
-        { ACTION_CLOSE_OTHER_PROJECT_FOLDERS, action_close_other_project_folders, "s"}
-    };
 
     // public ProjectList (Scratch.Services.PluginsManager plugins_manager) {
     //     plugins = plugins_manager;
@@ -104,7 +125,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
     construct {
         actions = new SimpleActionGroup ();
         actions.add_action_entries (ACTION_ENTRIES, this);
-        insert_action_group (ACTION_GROUP, actions);
+        insert_action_group (PROJECT_ACTION_GROUP, actions);
 
         //For Code.PaneSwitcher iterface
         icon_name = "not-exist";
@@ -363,95 +384,6 @@ warning ("Project list find path %s", path);
         remove_project_item (listitem);
     }
 
-    // This only works when the list is stable (nothing being added, expanded etc)
-    private void rename_file (string path) {
-        // this.select_path (path);
-        // if (this.start_editing_item (selected)) {
-        //     ulong once = 0;
-        //     once = selected.edited.connect ((new_name) => {
-        //         selected.disconnect (once);
-        //         var new_path = Path.get_dirname (path) + Path.DIR_SEPARATOR_S + new_name;
-        //         activate_action (
-        //             Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_CLOSE_TAB,
-        //             "s",
-        //             path
-        //         );
-
-        //         // RecentManager requires valid URI
-        //         var new_uri = "file://" + new_path; // Code only edits local files
-        //         Gtk.RecentManager.get_default ().add_item (new_uri);
-
-        //         activate (new_path);
-        //     });
-        // }
-
-        // // Handle cancelled rename (which does not produce signal)
-        // Timeout.add (200, () => {
-        //     if (this.editing) {
-        //         return Source.CONTINUE;
-        //     } else {
-        //         // Avoid selected but unopened item if rename cancelled (they would not open if clicked on)
-        //         this.unselect_all ();
-        //         return Source.REMOVE;
-        //     }
-        // });
-    }
-
-    private void rename_folder (string path) {
-        // var folder_to_rename = find_path (null, path) as FolderItem;
-        // if (folder_to_rename == null) {
-        //     critical ("Could not find folder from given path to rename: %s", path);
-        //     return;
-        // }
-
-        // folder_to_rename.selectable = true;
-        // if (start_editing_item (folder_to_rename)) {
-        //     // Need to poll view as no signal emited when editing cancelled and need to set
-        //     // selectable to false anyway.
-        //     Timeout.add (200, () => {
-        //         if (editing) {
-        //             return Source.CONTINUE;
-        //         } else {
-        //             unselect_all ();
-        //             // Must do this *after* unselecting all else sourcelist breaks
-        //             folder_to_rename.selectable = false;
-        //         }
-
-        //         return Source.REMOVE;
-        //     });
-        // } else {
-        //     critical ("Could not rename %s", path);
-        //     folder_to_rename.selectable = false;
-        // }
-    }
-
-    private void rename_items_with_same_name (FolderManagerItem item) {
-        // string item_name = item.file.name;
-        // tree_list.iterate_children (null, (child) => {
-        //     string new_other_item_name, new_item_name;
-        //     var other_item = (ProjectFolderItem) child;
-
-        //     if (Utils.find_unique_path (
-        //             item.file.file,
-        //             other_item.file.file,
-        //             out new_item_name,
-        //             out new_other_item_name
-        //         )
-        //     ) {
-        //         if (item_name.length < new_item_name.length) {
-        //             item_name = new_item_name;
-        //         }
-
-        //         if (other_item.name.length < new_other_item_name.length) {
-        //             other_item.name = new_other_item_name;
-        //         }
-        //     }
-
-        //     return Code.TreeList.ITERATE_CONTINUE;
-        // });
-
-        // item.name = item_name;
-    }
 
     // private void add_new_folder (SimpleAction action, Variant? param) {
     //     // Using "path" of parent folder from params, call `on_add_new (true)` on `FolderItem`
@@ -537,39 +469,21 @@ warning ("Project list find path %s", path);
     // }
 
     // private void action_execute_contract_with_file_path (SimpleAction action, Variant? param) {
-    //     var params = param.get_strv ();
-    //     var path = params[0];
-    //     if (path == null || path == "") {
-    //         return;
-    //     }
+        // var params = param.get_strv ();
+        // var path = params[0];
+        // if (path == null || path == "") {
+        //     return;
+        // }
 
-    //     var contract_name = params[1];
-    //     if (contract_name == null || contract_name == "") {
-    //         return;
-    //     }
+        // var contract_name = params[1];
+        // if (contract_name == null || contract_name == "") {
+        //     return;
+        // }
 
-    //     Utils.execute_contract_with_file_path (path, contract_name);
+        // Utils.execute_contract_with_file_path (path, contract_name);
     // }
 
-    // private void action_rename_file (SimpleAction action, Variant? param) {
-    //     var path = param.get_string ();
 
-    //     if (path == null || path == "") {
-    //         return;
-    //     }
-
-    //     rename_file (path);
-    // }
-
-    // private void action_rename_folder (SimpleAction action, Variant? param) {
-    //     var path = param.get_string ();
-
-    //     if (path == null || path == "") {
-    //         return;
-    //     }
-
-    //     rename_folder (path);
-    // }
 
 
     // private void action_delete (SimpleAction action, Variant? param) {
@@ -824,6 +738,24 @@ warning ("Project list find path %s", path);
         do {
             item = (ProjectFolderItem?) (list_store.get_object (pos++));
         } while (item != null && cb (item));
+    }
+
+    private void execute_contract_with_file_path (string path, string contract_name) {
+        var file = GLib.File.new_for_path (path);
+
+        try {
+            var contracts = Granite.Services.ContractorProxy.get_contracts_for_file (file);
+            int length = contracts.size;
+            for (int i = 0; i < length; i++) {
+                var contract = contracts[i];
+                if (contract.get_display_name () == contract_name) {
+                    contract.execute_with_file (file);
+                    break;
+                }
+            }
+        } catch (Error e) {
+            warning (e.message);
+        }
     }
 
     private class ProjectListRowWidget : Gtk.Box {

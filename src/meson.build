@@ -85,30 +85,30 @@ executable(
     install: true
 )
 
-codecore = library(
-    'codecore',
-    code_files,
-    config_header,
-    dependencies: dependencies,
-    install: true,
-    install_dir: [true, true, true],
-    version: '0.0'
-)
+# codecore = library(
+#     'codecore',
+#     code_files,
+#     config_header,
+#     dependencies: dependencies,
+#     install: true,
+#     install_dir: [true, true, true],
+#     version: '0.0'
+# )
 
-pkg = import('pkgconfig')
+# pkg = import('pkgconfig')
 
-pkg.generate(
-    version: '0.1',
-    libraries: codecore,
-    description: 'elementary Code headers',
-    name: 'codecore',
-    filebase: 'codecore'
-)
+# pkg.generate(
+#     version: '0.1',
+#     libraries: codecore,
+#     description: 'elementary Code headers',
+#     name: 'codecore',
+#     filebase: 'codecore'
+# )
 
-install_data ('codecore.deps', install_dir: get_option('prefix') / get_option('datadir') / 'vala' / 'vapi')
+# install_data ('codecore.deps', install_dir: get_option('prefix') / get_option('datadir') / 'vala' / 'vapi')
 
-codecore_dep = declare_dependency(
-    link_with: codecore,
-    dependencies: dependencies,
-    include_directories: [include_directories('.')]
-)
+# codecore_dep = declare_dependency(
+#     link_with: codecore,
+#     dependencies: dependencies,
+#     include_directories: [include_directories('.')]
+# )

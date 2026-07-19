@@ -18,38 +18,25 @@ public class Code.FolderTreeItem : Code.TreeListItem {
 
 public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
     public signal void file_activate (File file);
-    public signal bool rename_request (File file);
-
-    public const string ACTION_GROUP = "file-view";
-    public const string ACTION_PREFIX = ACTION_GROUP + ".";
-    public const string ACTION_LAUNCH_APP_WITH_FILE_PATH = "launch-app-with-file-path";
-    public const string ACTION_SHOW_APP_CHOOSER = "show-app-chooser";
-    public const string ACTION_EXECUTE_CONTRACT_WITH_FILE_PATH = "execute-contract-with-file-path";
-    public const string ACTION_RENAME_FILE = "rename-file";
-    public const string ACTION_RENAME_FOLDER = "rename-folder";
-    public const string ACTION_DELETE = "delete";
-    public const string ACTION_NEW_FILE = "new-file";
-    public const string ACTION_NEW_FROM_TEMPLATE = "new-from-template";
-    public const string ACTION_NEW_FOLDER = "new-folder";
-
-    private const ActionEntry[] ACTION_ENTRIES = {
-        { ACTION_LAUNCH_APP_WITH_FILE_PATH, action_launch_app_with_file_path, "as" },
-        { ACTION_SHOW_APP_CHOOSER, action_show_app_chooser, "s" },
-        { ACTION_EXECUTE_CONTRACT_WITH_FILE_PATH, action_execute_contract_with_file_path, "as" },
-        { ACTION_RENAME_FILE, action_rename_file, "s" },
-        { ACTION_RENAME_FOLDER, action_rename_folder, "s" },
-        { ACTION_DELETE, action_delete, "s" },
-        { ACTION_NEW_FILE, add_new_file, "s" },
-        { ACTION_NEW_FROM_TEMPLATE, add_new_from_template, "(ss)" },
-        { ACTION_NEW_FOLDER, add_new_folder, "s"},
-    };
-
+    // All file related actions handled here
 
     public SimpleActionGroup actions { get; private set; }
     public string icon_name { get; set; }
     public string title { get; set; }
     public string root_path { get; construct; }
     public bool is_empty { get { return tree_list.n_root_items () == 0; } }
+
+    private const ActionEntry[] ACTION_ENTRIES = {
+        { ACTION_RENAME_FILE, action_rename_file, "s" },
+        { ACTION_RENAME_FOLDER, action_rename_folder, "s" },
+        { ACTION_LAUNCH_APP_WITH_FILE_PATH, action_launch_app_with_file_path, "as" },
+        { ACTION_SHOW_APP_CHOOSER, action_show_app_chooser, "s" },
+        { ACTION_DELETE, action_delete, "s" },
+        { ACTION_EXECUTE_CONTRACT_WITH_FILE_PATH, action_execute_contract_with_file_path, "as" },
+        { ACTION_NEW_FILE, add_new_file, "s" },
+        { ACTION_NEW_FROM_TEMPLATE, add_new_from_template, "(ss)" },
+        { ACTION_NEW_FOLDER, add_new_folder, "s"}
+    };
 
     private Code.TreeList tree_list;
     // private GLib.Settings settings;
@@ -68,6 +55,10 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
     }
 
     construct {
+        actions = new SimpleActionGroup ();
+        actions.add_action_entries (ACTION_ENTRIES, this);
+        insert_action_group (ITEM_ACTION_GROUP, actions);
+
         tree_list = new Code.TreeList ();
         // icon_name = "folder-symbolic";
         // title = _("Folders");
@@ -78,7 +69,7 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
 
         actions = new SimpleActionGroup ();
         actions.add_action_entries (ACTION_ENTRIES, this);
-        insert_action_group (ACTION_GROUP, actions);
+        insert_action_group (ITEM_ACTION_PREFIX, actions);
 
         // Scratch.saved_state.changed["order-folders"].connect (() => {
         //     order_folders ();
@@ -109,7 +100,6 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
         //TODO Fill out
         return false;
     }
-
 
     // private void action_close_folder (SimpleAction action, GLib.Variant? parameter) {
     //     var path = parameter.get_string ();

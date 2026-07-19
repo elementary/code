@@ -231,6 +231,24 @@ namespace Scratch {
             return true;
         }
 
+        public bool can_rename_file (Code.File file) {
+            // folder_manager_view.rename_request.connect ((file) => {
+            var allow = true;
+            foreach (var window in get_windows ()) {
+                var win = (MainWindow)window;
+                foreach (var doc in win.document_view.docs) {
+                    if (doc.file.equal (file.file)) {
+                        // Only allow sidebar to rename docs that are in sync with their file in
+                        // all windows
+                        allow = allow && !doc.locked && doc.saved;
+                    }
+                }
+            }
+
+            return allow;
+            // });
+        }
+
         public static int main (string[] args) {
 // By default, profile whole app when profiling is enabled in meson_options.txt
 // These conditional statements can be moved to profile sections of code
