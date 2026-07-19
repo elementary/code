@@ -60,11 +60,15 @@ public interface Code.FolderInterface : Object {
         new_menu.append_item (new_folder_item);
         new_menu.append_item (new_file_item);
 
-        // //Append any templates/template folders.
+        // Append any templates/template folders.
         unowned string? template_path = GLib.Environment.get_user_special_dir (GLib.UserDirectory.TEMPLATES);
         if (template_path != null) {
             var template_submenu = new Menu ();
-            uint template_count = load_templates_from_folder (file_path, GLib.File.new_for_path (template_path), template_submenu);
+            uint template_count = load_templates_from_folder (
+                file_path,
+                GLib.File.new_for_path (template_path),
+                template_submenu
+            );
             if (template_count > 0) {
                 if (template_count > MAX_TEMPLATES) {
                     template_submenu.append_item (new MenuItem (_("…too many templates"), null));
@@ -292,6 +296,7 @@ public class Code.FolderItem : FolderManagerItem, Code.FolderInterface, Code.Fol
     }
 
     public override GLib.Menu? get_context_menu () {
+    warning ("Folder item get context menu");
         var menu_model = base.get_context_menu ();
 
         // Add items related only to folders

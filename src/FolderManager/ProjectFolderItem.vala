@@ -18,6 +18,7 @@
 */
 
 // Top level items for ProjectList not derived from TreeListItem but sharing some interfaces
+// public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderManagerItemInterface {
 public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderManagerItemInterface {
     public signal void deleted ();
     public Scratch.Services.MonitoredRepository? monitored_repo { get; private set; default = null; }
@@ -127,7 +128,6 @@ public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderM
 
     // warning ("returns a menu model");
     public override Menu? get_context_menu () {
-warning ("get project menu");
         string file_type = "";
         try {
             var info = gfile.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);

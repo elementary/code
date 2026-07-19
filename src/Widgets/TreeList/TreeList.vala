@@ -6,6 +6,8 @@
 public sealed class Code.TreeList : Granite.Bin {
 
     public signal void item_activated (TreeListItem item);
+    // Signals context menu button event giving coords on list view and the associated treelistitem
+    public signal void popup_context_menu (Graphene.Point view_point, Code.TreeListItem treelistitem);
 
     // public Gtk.Adjustment vadjustment {
     //     get {
@@ -41,7 +43,6 @@ public sealed class Code.TreeList : Granite.Bin {
 
         bind_property ("activate-on-single-click", list_view, "single-click-activate", BIDIRECTIONAL | SYNC_CREATE);
         list_view.activate.connect ((pos) => {
-        warning ("list view activate %u", pos);
             var tree_row = ((Gtk.TreeListRow) selection_model.get_item (pos));
             var data = (Code.TreeListItem) (tree_row.item);
              //Always activate regardless of whether expandable - symbol pane works differently to foldermanager
@@ -73,7 +74,7 @@ public sealed class Code.TreeList : Granite.Bin {
        child = list_view;
     }
 
-    protected virtual void create_listitem_child (Gtk.ListItem item) {
+    protected virtual void create_listitem_child (Gtk.ListItem listitem) {
         var label = new Gtk.Label ("") {
            halign = START,
            hexpand = true
@@ -96,10 +97,30 @@ public sealed class Code.TreeList : Granite.Bin {
             child = box
         };
 
-        item.child = expander;
+        listitem.child = expander;
+
+        var button_controller = new Gtk.GestureClick () {
+            propagation_phase = CAPTURE,
+            button = 0
+        };
+
+        box.add_controller (button_controller);
+        button_controller.pressed.connect ((n_press, bx, by) => {
+            var event = button_controller.get_last_event (null);
+            if (event.triggers_context_menu ()) { // Only true for press events
+                var treelistrow = (Gtk.TreeListRow) (listitem.get_item ());
+                var data = (Code.TreeListItem) (treelistrow.get_item ());
+                var button_point = Graphene.Point () {x = (float) bx, y = (float) by};
+                var view_point = Graphene.Point ();
+                listitem.get_child ().compute_point (list_view, button_point, out view_point);
+                popup_context_menu (view_point, data);
+            }
+        });
     }
+
     protected virtual void teardown_listitem_child (Gtk.ListItem item) {
         // Must be paired with create_listitem child
+        // Assuming controller will be removed automatically on teardown
     }
     protected virtual void bind_data_to_row (
         TreeListItem data,
@@ -119,6 +140,8 @@ public sealed class Code.TreeList : Granite.Bin {
         secondary_image.icon_name = "emblem-default"; //TODO Different icon
         badge_label.label = "32"; //TODO Different icon
         name_label.label = data.text;
+
+
     }
     protected virtual void unbind_data_from_row (
         TreeListItem data,

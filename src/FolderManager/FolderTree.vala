@@ -16,7 +16,7 @@ public class Code.FolderTreeItem : Code.TreeListItem {
     }
 }
 
-public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
+public class Code.FolderTree : Gtk.Box, Code.PaneSwitcher {
     public signal void file_activate (File file);
     // All file related actions handled here
 
@@ -39,6 +39,7 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
     };
 
     private Code.TreeList tree_list;
+    private Gtk.PopoverMenu context_menu;
     // private GLib.Settings settings;
     // private Scratch.Services.GitManager git_manager;
     // private Scratch.Services.PluginsManager plugins;
@@ -84,7 +85,13 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
             }
         });
 
-        child = tree_list;
+        context_menu = new Gtk.PopoverMenu.from_model (null) {
+            position = BOTTOM
+        };
+        this.append (context_menu);
+        tree_list.popup_context_menu.connect (on_popup_context_menu);
+
+        append (tree_list);
 
         var cfile = new Code.File (root_path);
         foreach (var child_file in cfile.children) {
@@ -232,6 +239,13 @@ public class Code.FolderTree : Granite.Bin, Code.PaneSwitcher {
         tree_list.remove_all ();
     }
 
+    private void on_popup_context_menu (Graphene.Point vp, Code.TreeListItem treelistitem) {
+        var foldermanageritem = (Code.FolderManagerItem) treelistitem;
+        var model = foldermanageritem.get_context_menu ();
+        context_menu.menu_model = model;
+        context_menu.pointing_to = Gdk.Rectangle () {x = (int) vp.x, y = (int) vp.y, height = 1, width = 1};
+        context_menu.popup ();
+    }
     // public void collapse_other_projects () {
     //     unowned string path;
     //     path = git_manager.active_project_path;

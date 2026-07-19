@@ -277,19 +277,30 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
 
     //TODO do we need to return anything?
     // Call to find top level foldertree and then call find path on that.
-    private FolderManagerItemInterface? find_path (
+    private Object? find_path (
         string path, // File path to search fod
         bool expand = false // Whether to expsnd to show found item
         // GLib.File? target_file = null // Alternatively find this file
     ) {
 warning ("Project list find path %s", path);
         // var target = target_file ?? GLib.File.new_for_path (path);
-        FolderManagerItemInterface? matched_item = null;
+        ProjectFolderItem? matched_project = null;
         iterate_children ((listitem) => {
             if (listitem.path == path) {
-                matched_item = listitem;
+                matched_project = listitem;
                 return Code.TreeList.ITERATE_STOP;
-            } else if (path.has_prefix (listitem.path)) { //TODO Ensure paths are compatible
+            }
+
+            return Code.TreeList.ITERATE_CONTINUE;
+        });
+
+        if (matched_project != null) {
+            return matched_project;
+        }
+
+        FolderManagerItem? matched_item = null;
+        iterate_children ((listitem) => {
+            if (path.has_prefix (listitem.path)) { //TODO Ensure paths are compatible
                 matched_item = listitem.find_path (path, expand);
                 return Code.TreeList.ITERATE_STOP;
             }
@@ -343,14 +354,18 @@ warning ("Project list find path %s", path);
     //     return matched_project_item;
     // }
 
-    public FolderManagerItemInterface? expand_to_path (string path) {
-    warning ("expand to path");
-         return find_path (path, true);
+    public FolderManagerItem? expand_to_path (string path) {
+        var object = find_path (path, true);
+        if (object is FolderManagerItem) {
+            return (FolderManagerItem) object;
+        }
+
+        return null;
     }
 
     /* Do global search on project containing the file path supplied in parameter */
     public void search_global (string path, string? term = null) {
-        var item_for_path = (FolderManagerItem?)(expand_to_path (path));
+        var item_for_path = expand_to_path (path);
         if (item_for_path != null) {
             var search_root = item_for_path.get_root_folder ();
             if (search_root is ProjectFolderItem) {
