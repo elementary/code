@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-27 17:20+0000\n"
-"PO-Revision-Date: 2026-05-21 14:56+0000\n"
+"PO-Revision-Date: 2026-07-19 13:01+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/code/ja/"
-">\n"
+"Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/code/"
+"ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -240,7 +240,7 @@ msgstr "保存時に行末の空白を削除"
 
 #: src/Dialogs/PreferencesDialog.vala:29
 msgid "Except Plain Text, Markdown and YAML"
-msgstr ""
+msgstr "プレーンテキスト、Markdown、YAML は除きます"
 
 #: src/Dialogs/PreferencesDialog.vala:32
 msgid "Smart cut/copy lines"
