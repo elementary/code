@@ -105,6 +105,18 @@ public class Code.FormatBar : Gtk.Box {
             return (((LangEntry) row).lang_name.down ().contains (lang_selection_filter.text.down ().strip ()));
         });
 
+        unowned SList<Gtk.RadioButton> group = null;
+        foreach (unowned string id in manager.get_language_ids ()) {
+            weak Gtk.SourceLanguage lang = manager.get_language (id);
+            var entry = new LangEntry (id, lang.name, group);
+            group = entry.get_radio_group ();
+            lang_selection_listbox.add (entry);
+        }
+
+        normal_entry = new LangEntry (null, _("Plain Text"), group);
+
+        lang_selection_listbox.add (normal_entry);
+
         var lang_scrolled = new Gtk.ScrolledWindow (null, null) {
             child = lang_selection_listbox,
             hscrollbar_policy = NEVER,
@@ -131,8 +143,30 @@ public class Code.FormatBar : Gtk.Box {
             tooltip_text = _("Document language")
         };
 
+        goto_entry = new Gtk.Entry ();
+
+        var goto_label = new Gtk.Label (_("Go To Line:")) {
+            mnemonic_widget = goto_entry
+        };
+
+        var line_box = new Gtk.Box (HORIZONTAL, 12) {
+            margin_top = 12,
+            margin_bottom = 12,
+            margin_start = 12,
+            margin_end = 12
+        };
+        line_box.add (goto_label);
+        line_box.add (goto_entry);
+        line_box.show_all ();
+
+        var line_popover = new Gtk.Popover (null) {
+            position = BOTTOM,
+            child = line_box
+        };
+
         line_menubutton = new FormatButton () {
-            icon = new ThemedIcon ("view-continuous-symbolic")
+            icon = new ThemedIcon ("view-continuous-symbolic"),
+            popover = line_popover
         };
         line_menubutton.tooltip_markup = Granite.markup_accel_tooltip (
             ((Scratch.Application) GLib.Application.get_default ()).get_accels_for_action (
@@ -145,21 +179,6 @@ public class Code.FormatBar : Gtk.Box {
         add (tab_menubutton);
         add (lang_menubutton);
         add (line_menubutton);
-
-        create_line_popover ();
-
-        unowned string[]? ids = manager.get_language_ids ();
-        unowned SList<Gtk.RadioButton> group = null;
-        foreach (unowned string id in ids) {
-            weak Gtk.SourceLanguage lang = manager.get_language (id);
-            var entry = new LangEntry (id, lang.name, group);
-            group = entry.get_radio_group ();
-            lang_selection_listbox.add (entry);
-        }
-
-        normal_entry = new LangEntry (null, _("Plain Text"), group);
-
-        lang_selection_listbox.add (normal_entry);
 
         lang_selection_listbox.row_activated.connect ((row) => {
             var lang_entry = ((LangEntry) row);
@@ -187,6 +206,16 @@ public class Code.FormatBar : Gtk.Box {
                     space_tab_modelbutton.active
                 );
             }
+        });
+
+        // We need to connect_after because otherwise, the text isn't parsed into the "value" property and we only get the previous value
+        goto_entry.activate.connect_after (() => {
+            int line, column;
+            goto_entry.text = goto_entry.text.replace (":", ".");
+            goto_entry.text.scanf ("%i.%i", out line, out column);
+            doc.source_view.go_to_line (line, column - 1);
+            // Focuses parent to the source view, so that the cursor, which indicates line and column is actually visible.
+            doc.source_view.grab_focus ();
         });
 
         Scratch.settings.changed["indent-width"].connect (format_tab_header_from_global_settings);
@@ -232,40 +261,6 @@ public class Code.FormatBar : Gtk.Box {
         var line = iter.get_line () + 1;
         line_menubutton.text = "%d.%d".printf (line, iter.get_line_offset () + 1);
         goto_entry.text = "%d.%d".printf (line, iter.get_line_offset () + 1);
-    }
-
-    private void create_line_popover () {
-        var goto_label = new Gtk.Label (_("Go To Line:"));
-        goto_label.xalign = 1;
-
-        goto_entry = new Gtk.Entry ();
-
-        var line_grid = new Gtk.Grid () {
-            margin_top = 12,
-            margin_bottom = 12,
-            margin_start = 12,
-            margin_end = 12
-        };
-        line_grid.column_spacing = 12;
-        line_grid.attach (goto_label, 0, 0, 1, 1);
-        line_grid.attach (goto_entry, 1, 0, 1, 1);
-        line_grid.show_all ();
-
-        var line_popover = new Gtk.Popover (line_menubutton) {
-            position = Gtk.PositionType.BOTTOM,
-            child = line_grid
-        };
-        line_menubutton.popover = line_popover;
-
-        // We need to connect_after because otherwise, the text isn't parsed into the "value" property and we only get the previous value
-        goto_entry.activate.connect_after (() => {
-            int line, column;
-            goto_entry.text = goto_entry.text.replace (":", ".");
-            goto_entry.text.scanf ("%i.%i", out line, out column);
-            doc.source_view.go_to_line (line, column - 1);
-            // Focuses parent to the source view, so that the cursor, which indicates line and column is actually visible.
-            doc.source_view.grab_focus ();
-        });
     }
 
     public void set_document (Scratch.Services.Document doc) {
