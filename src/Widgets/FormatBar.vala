@@ -30,7 +30,6 @@ public class Code.FormatBar : Gtk.Box {
     private Granite.SwitchModelButton space_tab_modelbutton;
     private Gtk.Entry goto_entry;
     private Gtk.ListBox lang_selection_listbox;
-    private Gtk.SearchEntry lang_selection_filter;
     private Gtk.SourceLanguageManager manager;
     private LangEntry normal_entry;
 
@@ -45,8 +44,48 @@ public class Code.FormatBar : Gtk.Box {
             icon = new ThemedIcon ("format-indent-more-symbolic")
         };
 
+        var lang_selection_filter = new Gtk.SearchEntry () {
+            margin_top = 12,
+            margin_bottom = 6,
+            margin_start = 12,
+            margin_end = 12,
+            placeholder_text = _("Filter languages")
+        };
+
+        lang_selection_listbox = new Gtk.ListBox () {
+            selection_mode = SINGLE
+        };
+        lang_selection_listbox.set_sort_func ((row1, row2) => {
+            return ((LangEntry) row1).lang_name.collate (((LangEntry) row2).lang_name);
+        });
+        lang_selection_listbox.set_filter_func ((row) => {
+            //Both are lowercased so that the case doesn't matter when comparing.
+            return (((LangEntry) row).lang_name.down ().contains (lang_selection_filter.text.down ().strip ()));
+        });
+
+        var lang_scrolled = new Gtk.ScrolledWindow (null, null) {
+            child = lang_selection_listbox,
+            hscrollbar_policy = NEVER,
+            height_request = 350,
+            hexpand = true,
+            vexpand = true,
+            margin_top = 3,
+            margin_bottom = 3
+        };
+
+        var popover_content = new Gtk.Box (VERTICAL, 0);
+        popover_content.add (lang_selection_filter);
+        popover_content.add (lang_scrolled);
+        popover_content.show_all ();
+
+        var lang_popover = new Gtk.Popover (lang_menubutton) {
+            position = BOTTOM,
+            child = popover_content
+        };
+
         lang_menubutton = new FormatButton () {
             icon = new ThemedIcon ("application-x-class-file-symbolic"),
+            popover = lang_popover,
             tooltip_text = _("Document language")
         };
 
@@ -66,46 +105,7 @@ public class Code.FormatBar : Gtk.Box {
         add (line_menubutton);
 
         create_tabulation_popover ();
-        create_language_popover ();
         create_line_popover ();
-    }
-
-    public void activate_line_menubutton () {
-        line_menubutton.active = true;
-    }
-
-    private void create_language_popover () {
-        lang_selection_listbox = new Gtk.ListBox ();
-        lang_selection_listbox.selection_mode = Gtk.SelectionMode.SINGLE;
-        lang_selection_listbox.set_sort_func ((row1, row2) => {
-            return ((LangEntry) row1).lang_name.collate (((LangEntry) row2).lang_name);
-        });
-        lang_selection_listbox.set_filter_func ((row) => {
-            //Both are lowercased so that the case doesn't matter when comparing.
-            return (((LangEntry) row).lang_name.down ().contains (lang_selection_filter.text.down ().strip ()));
-        });
-
-        lang_selection_filter = new Gtk.SearchEntry () {
-            margin_top = 12,
-            margin_bottom = 6,
-            margin_start = 12,
-            margin_end = 12,
-            placeholder_text = _("Filter languages")
-        };
-
-        lang_selection_filter.changed.connect (() => {
-            lang_selection_listbox.invalidate_filter ();
-        });
-
-        var lang_scrolled = new Gtk.ScrolledWindow (null, null) {
-            hscrollbar_policy = Gtk.PolicyType.NEVER,
-            height_request = 350,
-            hexpand = true,
-            vexpand = true,
-            margin_top = 3,
-            margin_bottom = 3,
-            child = lang_selection_listbox
-        };
 
         unowned string[]? ids = manager.get_language_ids ();
         unowned SList<Gtk.RadioButton> group = null;
@@ -117,24 +117,21 @@ public class Code.FormatBar : Gtk.Box {
         }
 
         normal_entry = new LangEntry (null, _("Plain Text"), group);
+
         lang_selection_listbox.add (normal_entry);
-
-        var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        popover_content.add (lang_selection_filter);
-        popover_content.add (lang_scrolled);
-
-        popover_content.show_all ();
-
-        var lang_popover = new Gtk.Popover (lang_menubutton) {
-            position = Gtk.PositionType.BOTTOM,
-            child = popover_content
-        };
-        lang_menubutton.popover = lang_popover;
 
         lang_selection_listbox.row_activated.connect ((row) => {
             var lang_entry = ((LangEntry) row);
             select_language (lang_entry);
         });
+
+        lang_selection_filter.changed.connect (() => {
+            lang_selection_listbox.invalidate_filter ();
+        });
+    }
+
+    public void activate_line_menubutton () {
+        line_menubutton.active = true;
     }
 
     private void select_language (LangEntry lang, bool update_source_view = true) {
