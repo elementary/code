@@ -20,17 +20,16 @@
 public class Code.FormatBar : Gtk.Box {
     public bool tab_style_set_by_editor_config { get; set; default = false; }
     public bool tab_width_set_by_editor_config { get; set; default = false; }
-    public Gtk.InfoBar editorconfig_infobar { get; set construct; }
-    public Gtk.Box tab_box { get; set construct; }
-    public Gtk.SpinButton width_spinbutton { get; set construct; }
 
     private FormatButton line_menubutton;
     private FormatButton lang_menubutton;
     private FormatButton tab_menubutton;
     private Granite.SwitchModelButton space_tab_modelbutton;
     private Gtk.Entry goto_entry;
+    private Gtk.InfoBar editorconfig_infobar;
     private Gtk.ListBox lang_selection_listbox;
     private Gtk.SourceLanguageManager manager;
+    private Gtk.SpinButton width_spinbutton;
     private LangEntry normal_entry;
 
     private unowned Scratch.Services.Document? doc = null;
@@ -40,8 +39,51 @@ public class Code.FormatBar : Gtk.Box {
 
         manager = Gtk.SourceLanguageManager.get_default ();
 
+        editorconfig_infobar = new Gtk.InfoBar () {
+            margin_top = 9,
+            margin_end = 9,
+            margin_start = 9
+        };
+        editorconfig_infobar.get_content_area ().add (new Gtk.Label (_("Some settings set by EditorConfig file")));
+        editorconfig_infobar.get_style_context ().add_class (Gtk.STYLE_CLASS_FRAME);
+
+        var autoindent_modelbutton = new Granite.SwitchModelButton (_("Automatic Indentation"));
+
+        space_tab_modelbutton = new Granite.SwitchModelButton (_("Insert Spaces Instead Of Tabs"));
+
+        width_spinbutton = new Gtk.SpinButton.with_range (2, 16, 1);
+
+        var width_label = new Gtk.Label (_("Tab width")) {
+            halign = START,
+            hexpand = true,
+            mnemonic_widget = width_spinbutton
+        };
+
+        var tab_box = new Gtk.Box (HORIZONTAL, 12) {
+            margin_top = 6,
+            margin_end = 12,
+            margin_start = 12,
+        };
+        tab_box.add (width_label);
+        tab_box.add (width_spinbutton);
+
+        var box = new Gtk.Box (VERTICAL, 0) {
+            margin_bottom = 12
+        };
+        box.add (editorconfig_infobar);
+        box.add (autoindent_modelbutton);
+        box.add (space_tab_modelbutton);
+        box.add (tab_box);
+        box.show_all ();
+
+        var tab_popover = new Gtk.Popover (null) {
+            position = BOTTOM,
+            child = box
+        };
+
         tab_menubutton = new FormatButton () {
-            icon = new ThemedIcon ("format-indent-more-symbolic")
+            icon = new ThemedIcon ("format-indent-more-symbolic"),
+            popover = tab_popover
         };
 
         var lang_selection_filter = new Gtk.SearchEntry () {
@@ -78,7 +120,7 @@ public class Code.FormatBar : Gtk.Box {
         popover_content.add (lang_scrolled);
         popover_content.show_all ();
 
-        var lang_popover = new Gtk.Popover (lang_menubutton) {
+        var lang_popover = new Gtk.Popover (null) {
             position = BOTTOM,
             child = popover_content
         };
@@ -104,7 +146,6 @@ public class Code.FormatBar : Gtk.Box {
         add (lang_menubutton);
         add (line_menubutton);
 
-        create_tabulation_popover ();
         create_line_popover ();
 
         unowned string[]? ids = manager.get_language_ids ();
@@ -128,69 +169,6 @@ public class Code.FormatBar : Gtk.Box {
         lang_selection_filter.changed.connect (() => {
             lang_selection_listbox.invalidate_filter ();
         });
-    }
-
-    public void activate_line_menubutton () {
-        line_menubutton.active = true;
-    }
-
-    private void select_language (LangEntry lang, bool update_source_view = true) {
-        lang_selection_listbox.select_row (lang);
-        lang_menubutton.text = lang.lang_name;
-        if (update_source_view) {
-            lang.active = true;
-            doc.source_view.language = lang.lang_id != null ? manager.get_language (lang.lang_id) : null;
-        } else {
-            lang.selected = true;
-        }
-    }
-
-    private void create_tabulation_popover () {
-        editorconfig_infobar = new Gtk.InfoBar () {
-            margin_top = 9,
-            margin_end = 9,
-            margin_start = 9
-        };
-        editorconfig_infobar.get_content_area ().add (new Gtk.Label (_("Some settings set by EditorConfig file")));
-        editorconfig_infobar.get_style_context ().add_class (Gtk.STYLE_CLASS_FRAME);
-
-        var autoindent_modelbutton = new Granite.SwitchModelButton (_("Automatic Indentation"));
-
-        space_tab_modelbutton = new Granite.SwitchModelButton (_("Insert Spaces Instead Of Tabs"));
-
-        var width_label = new Gtk.Label (_("Tab width")) {
-            halign = Gtk.Align.START,
-            hexpand = true
-        };
-
-        width_spinbutton = new Gtk.SpinButton.with_range (2, 16, 1);
-
-        tab_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12) {
-            margin_top = 6,
-            margin_end = 12,
-            margin_start = 12,
-        };
-        tab_box.add (width_label);
-        tab_box.add (width_spinbutton);
-
-        var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
-            margin_bottom = 12
-        };
-        box.add (editorconfig_infobar);
-        box.add (autoindent_modelbutton);
-        box.add (space_tab_modelbutton);
-        box.add (tab_box);
-        box.show_all ();
-
-        var tab_popover = new Gtk.Popover (tab_menubutton) {
-            position = Gtk.PositionType.BOTTOM,
-            child = box
-        };
-        tab_menubutton.popover = tab_popover;
-
-        Scratch.settings.changed["indent-width"].connect (format_tab_header_from_global_settings);
-        Scratch.settings.changed["spaces-instead-of-tabs"].connect (format_tab_header_from_global_settings);
-        Scratch.settings.bind ("auto-indent", autoindent_modelbutton, "active", SettingsBindFlags.DEFAULT);
 
         format_tab_header_from_global_settings ();
         width_spinbutton.value_changed.connect (() => {
@@ -210,6 +188,27 @@ public class Code.FormatBar : Gtk.Box {
                 );
             }
         });
+
+        Scratch.settings.changed["indent-width"].connect (format_tab_header_from_global_settings);
+        Scratch.settings.changed["spaces-instead-of-tabs"].connect (format_tab_header_from_global_settings);
+        Scratch.settings.bind ("auto-indent", autoindent_modelbutton, "active", DEFAULT);
+
+        bind_property ("tab-width-set-by-editor-config", tab_box, "sensitive", INVERT_BOOLEAN | SYNC_CREATE);
+    }
+
+    public void activate_line_menubutton () {
+        line_menubutton.active = true;
+    }
+
+    private void select_language (LangEntry lang, bool update_source_view = true) {
+        lang_selection_listbox.select_row (lang);
+        lang_menubutton.text = lang.lang_name;
+        if (update_source_view) {
+            lang.active = true;
+            doc.source_view.language = lang.lang_id != null ? manager.get_language (lang.lang_id) : null;
+        } else {
+            lang.selected = true;
+        }
     }
 
     private void format_tab_header_from_global_settings () {
@@ -223,7 +222,6 @@ public class Code.FormatBar : Gtk.Box {
 
         editorconfig_infobar.revealed = tab_style_set_by_editor_config || tab_width_set_by_editor_config;
         space_tab_modelbutton.sensitive = !tab_style_set_by_editor_config;
-        tab_box.sensitive = !tab_width_set_by_editor_config;
     }
 
     private void format_line_header () {
