@@ -21,11 +21,13 @@
 public class Scratch.MainWindow : Hdy.Window {
     public const int FONT_SIZE_MAX = 72;
     public const int FONT_SIZE_MIN = 7;
-    private const uint MAX_SEARCH_TEXT_LENGTH = 255;
 
-    public Scratch.Application app { get; private set; }
+    private const uint MAX_SEARCH_TEXT_LENGTH = 255;
+    private static string base_title;
+
     public bool restore_docs { get; construct; }
     public RestoreOverride restore_override { get; construct set; }
+
     public string default_globalsearch_path {
         owned get {
             if (document_view.current_document != null) {
@@ -38,32 +40,10 @@ public class Scratch.MainWindow : Hdy.Window {
         }
     }
 
-    public Scratch.Widgets.DocumentView document_view;
-
-    // Widgets
-    public Scratch.HeaderBar toolbar;
-    public Scratch.Widgets.SearchBar search_bar;
-    private Code.WelcomeView welcome_view;
-    private Code.Terminal terminal;
-    private FolderManager.FileView folder_manager_view;
-    private Scratch.Services.DocumentManager document_manager;
-    private Gtk.EventControllerKey key_controller;
-    // Plugins
-    private Scratch.Services.PluginsManager plugins;
-
-    // Widgets for Plugins
-    public Code.Sidebar sidebar;
-
-    private Gtk.Paned hp1;
-    private Gtk.Paned vp;
-    private Gtk.Stack content_stack;
-
-    public Gtk.Clipboard clipboard;
-
-    // Delegates
-    delegate void HookFunc ();
-
-    public SimpleActionGroup actions { get; construct; }
+    public Code.Sidebar sidebar { get; private set; }
+    public Scratch.Application app { get; private set; }
+    public Scratch.Widgets.DocumentView document_view { get; private set; }
+    public SimpleActionGroup actions { get; private set; }
 
     public const string ACTION_GROUP = "win";
     public const string ACTION_PREFIX = ACTION_GROUP + ".";
@@ -120,12 +100,6 @@ public class Scratch.MainWindow : Hdy.Window {
     public const string ACTION_OPEN_IN_NEW_WINDOW = "action-open-in-new-window";
 
     public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
-    private static string base_title;
-
-    private ulong color_scheme_listener_handler_id = 0;
-
-    private Services.GitManager git_manager;
-    private bool is_first_window;
 
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_CLONE_REPO, action_clone_repo },
@@ -180,6 +154,25 @@ public class Scratch.MainWindow : Hdy.Window {
         { ACTION_RESTORE_CLOSED_TAB, action_restore_closed_tab, "s" },
         { ACTION_OPEN_IN_NEW_WINDOW, action_open_in_new_window, "s" },
     };
+
+    private bool is_first_window;
+    private ulong color_scheme_listener_handler_id = 0;
+
+    private Code.Terminal terminal;
+    private Code.WelcomeView welcome_view;
+    private FolderManager.FileView folder_manager_view;
+    private Gtk.Clipboard clipboard;
+    private Gtk.EventControllerKey key_controller;
+    private Gtk.Paned hp1;
+    private Gtk.Paned vp;
+    private Gtk.Stack content_stack;
+    private Scratch.HeaderBar toolbar;
+    private Scratch.Services.DocumentManager document_manager;
+    private Scratch.Services.PluginsManager plugins;
+    private Scratch.Widgets.SearchBar search_bar;
+    private Services.GitManager git_manager;
+
+    private delegate void HookFunc ();
 
     public MainWindow (bool restore_docs) {
         Object (
