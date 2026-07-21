@@ -102,10 +102,8 @@ public class Code.ChooseProjectButton : Gtk.Bin {
         var src = git_manager.project_liststore;
         for (int index = 0; index < src.n_items; index++) {
             var item = src.get_object (index);
-            if (item is Scratch.FolderManager.ProjectFolderItem) {
-                var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item);
-                project_listbox.insert (row, index);
-            }
+            var row = create_project_row ((GLib.File)item);
+            project_listbox.insert (row, index);
         }
 
         git_manager.project_liststore.items_changed.connect ((src, pos, n_removed, n_added) => {
@@ -117,10 +115,8 @@ public class Code.ChooseProjectButton : Gtk.Bin {
 
             for (int index = (int)pos; index < pos + n_added; index++) {
                 var item = src.get_object (index);
-                if (item is Scratch.FolderManager.ProjectFolderItem) {
-                    var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item);
-                    project_listbox.insert (row, index);
-                }
+                var row = create_project_row ((GLib.File)item);
+                project_listbox.insert (row, index);
             }
         });
 
@@ -151,11 +147,10 @@ public class Code.ChooseProjectButton : Gtk.Bin {
         }
     }
 
-    private Gtk.Widget create_project_row (Scratch.FolderManager.ProjectFolderItem project_folder) {
-        var project_path = project_folder.file.file.get_path ();
+    private Gtk.Widget create_project_row (GLib.File project_folder) {
+        var project_path = project_folder.get_path ();
         var project_row = new ProjectRow (project_path);
         // Project folder items cannot be renamed in UI, no need to handle
-
         return project_row;
     }
 
