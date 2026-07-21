@@ -27,10 +27,9 @@ public class Code.FormatBar : Gtk.Box {
     private Granite.SwitchModelButton space_tab_modelbutton;
     private Gtk.Entry goto_entry;
     private Gtk.InfoBar editorconfig_infobar;
-    private Gtk.ListBox lang_selection_listbox;
     private Gtk.SourceLanguageManager manager;
     private Gtk.SpinButton width_spinbutton;
-    private LangEntry normal_entry;
+    private SimpleAction language_action;
 
     private unowned Scratch.Services.Document? doc = null;
 
@@ -94,7 +93,7 @@ public class Code.FormatBar : Gtk.Box {
             placeholder_text = _("Filter languages")
         };
 
-        lang_selection_listbox = new Gtk.ListBox () {
+        var lang_selection_listbox = new Gtk.ListBox () {
             selection_mode = SINGLE
         };
         lang_selection_listbox.set_sort_func ((row1, row2) => {
@@ -105,16 +104,13 @@ public class Code.FormatBar : Gtk.Box {
             return (((LangEntry) row).lang_name.down ().contains (lang_selection_filter.text.down ().strip ()));
         });
 
-        unowned SList<Gtk.RadioButton> group = null;
         foreach (unowned string id in manager.get_language_ids ()) {
             weak Gtk.SourceLanguage lang = manager.get_language (id);
-            var entry = new LangEntry (id, lang.name, group);
-            group = entry.get_radio_group ();
+            var entry = new LangEntry (id, lang.name);
             lang_selection_listbox.add (entry);
         }
 
-        normal_entry = new LangEntry (null, _("Plain Text"), group);
-
+        var normal_entry = new LangEntry ("", _("Plain Text"));
         lang_selection_listbox.add (normal_entry);
 
         var lang_scrolled = new Gtk.ScrolledWindow (null, null) {
@@ -180,9 +176,29 @@ public class Code.FormatBar : Gtk.Box {
         add (lang_menubutton);
         add (line_menubutton);
 
+        language_action = new SimpleAction.stateful ("language", VariantType.STRING, new Variant.string (""));
+        language_action.change_state.connect ((parameter) => {
+            language_action.set_state (parameter);
+
+            var lang_id = parameter.get_string ();
+            if (lang_id != "") {
+                unowned var lang = manager.get_language (lang_id);
+                lang_menubutton.text = lang.name;
+            } else {
+                lang_menubutton.text = _("Plain Text");
+            }
+
+            doc.source_view.language = lang_id != "" ? manager.get_language (lang_id) : null;
+        });
+
+        var action_group = new SimpleActionGroup ();
+        action_group.add_action (language_action);
+
+        insert_action_group ("format", action_group);
+
         lang_selection_listbox.row_activated.connect ((row) => {
             var lang_entry = ((LangEntry) row);
-            select_language (lang_entry);
+            language_action.set_state (new Variant.string (lang_entry.lang_id));
         });
 
         lang_selection_filter.changed.connect (() => {
@@ -227,17 +243,6 @@ public class Code.FormatBar : Gtk.Box {
 
     public void activate_line_menubutton () {
         line_menubutton.active = true;
-    }
-
-    private void select_language (LangEntry lang, bool update_source_view = true) {
-        lang_selection_listbox.select_row (lang);
-        lang_menubutton.text = lang.lang_name;
-        if (update_source_view) {
-            lang.active = true;
-            doc.source_view.language = lang.lang_id != null ? manager.get_language (lang.lang_id) : null;
-        } else {
-            lang.selected = true;
-        }
     }
 
     private void format_tab_header_from_global_settings () {
@@ -299,15 +304,9 @@ public class Code.FormatBar : Gtk.Box {
     private void update_current_lang () {
         var language = doc.source_view.language;
         if (language != null) {
-            var lang_id = language.id;
-            lang_selection_listbox.get_children ().foreach ((child) => {
-                var lang_entry = ((LangEntry) child);
-                if (lang_entry.lang_id == lang_id) {
-                    select_language (lang_entry, false);
-                }
-            });
+            language_action.set_state (new Variant.string (language.id));
         } else {
-            select_language (normal_entry, false);
+            language_action.set_state (new Variant.string (""));
         }
     }
 
@@ -350,35 +349,11 @@ public class Code.FormatBar : Gtk.Box {
     }
 
     private class LangEntry : Gtk.ListBoxRow {
-        public string? lang_id { get; construct; }
+        public string lang_id { get; construct; }
         public string lang_name { get; construct; }
-        public unowned SList<Gtk.RadioButton> group { get; construct; }
 
-        public bool active {
-            get {
-                return lang_radio.active;
-            }
-
-            set {
-                lang_radio.active = value;
-            }
-        }
-
-        public bool selected {
-            get {
-                return lang_radio.active;
-            }
-
-            set {
-                lang_radio.toggled.disconnect (radio_toggled);
-                lang_radio.active = value;
-                lang_radio.toggled.connect (radio_toggled);
-            }
-        }
-
-        private Gtk.RadioButton lang_radio;
-        public LangEntry (string? lang_id, string lang_name, SList<Gtk.RadioButton> group) {
-            Object (group: group, lang_id: lang_id, lang_name: lang_name);
+        public LangEntry (string lang_id, string lang_name) {
+            Object (lang_id: lang_id, lang_name: lang_name);
         }
 
         class construct {
@@ -386,20 +361,12 @@ public class Code.FormatBar : Gtk.Box {
         }
 
         construct {
-            lang_radio = new Gtk.RadioButton.with_label (group, lang_name);
+            var lang_radio = new Gtk.RadioButton.with_label (null, lang_name) {
+                action_name = "format.language",
+                action_target = new Variant.string (lang_id)
+            };
 
-            add (lang_radio);
-            lang_radio.toggled.connect (radio_toggled);
-        }
-
-        private void radio_toggled () {
-            if (lang_radio.active) {
-                activate ();
-            }
-        }
-
-        public unowned SList<Gtk.RadioButton> get_radio_group () {
-            return lang_radio.get_group ();
+            child = lang_radio;
         }
     }
 }
