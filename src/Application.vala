@@ -179,16 +179,16 @@ namespace Scratch {
             var window = get_last_window ();
             foreach (var file in files) {
                 bool is_folder;
+                string path = file.get_uri ();
                 if (Scratch.Services.FileHandler.can_open_file (file, out is_folder)) {
                     if (is_folder) {
                         window.open_folder (file);
                     } else {
                         debug ("Files length: %d\n", files.length);
-                        var doc = new Scratch.Services.Document (window.actions, file);
                         if (location_jump_manager.has_selection_range != null && files.length == 1) {
-                            window.open_document_at_selected_range.begin (doc, true, location_jump_manager.range);
+                            window.document_view.open_document.begin (path, true, -2, location_jump_manager.range);
                         } else {
-                            window.open_document.begin (doc);
+                            window.document_view.open_document.begin (path);
                         }
                     }
                 }
