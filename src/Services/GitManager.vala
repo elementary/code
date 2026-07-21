@@ -46,17 +46,17 @@ namespace Scratch.Services {
 
         construct {
             // Used to populate the ChooseProject popover in sorted order
-            project_liststore = new ListStore (typeof (FolderManager.ProjectFolderItem));
+            project_liststore = new ListStore (typeof (GLib.File));
             settings.bind ("active-project-path", this, "active-project-path", DEFAULT);
         }
 
-        public MonitoredRepository? add_project (FolderManager.ProjectFolderItem root_folder) {
-            var root_path = root_folder.path;
+        public MonitoredRepository? add_project (GLib.File root_folder) {
+            var root_path = root_folder.get_path ();
             MonitoredRepository? monitored_repo = null;
             uint position;
             if (project_liststore.find_with_equal_func (
                     root_folder,
-                    (a, b) => { return ((FolderManager.Item) a).equal ((FolderManager.Item) b); },
+                    (a, b) => { return ((GLib.File) a).equal ((GLib.File) b); },
                     out position
                 )) {
 
@@ -65,7 +65,7 @@ namespace Scratch.Services {
             }
 
             try {
-                var git_repo = Ggit.Repository.open (root_folder.file.file);
+                var git_repo = Ggit.Repository.open (root_folder);
                 if (!project_gitrepo_map.has_key (root_path)) {
                     monitored_repo = new MonitoredRepository (git_repo);
                     project_gitrepo_map.@set (root_path, monitored_repo);
@@ -89,14 +89,14 @@ namespace Scratch.Services {
         }
 
         [CCode (instance_pos = -1)]
-        private int project_sort_func (FolderManager.ProjectFolderItem a, FolderManager.ProjectFolderItem b) {
-            GLib.File file_a = a.file.file;
-            GLib.File file_b = b.file.file;
-            return Path.get_basename (file_a.get_path ()).collate (Path.get_basename (file_b.get_path ()));
+        private int project_sort_func (GLib.File file_a, GLib.File file_b) {
+            var basename_a = Path.get_basename (file_a.get_path ());
+            var basename_b = Path.get_basename (file_b.get_path ());
+            return basename_a.collate (basename_b);
         }
 
-        public void remove_project (FolderManager.ProjectFolderItem root_folder) {
-            var root_path = root_folder.file.file.get_path ();
+        public void remove_project (GLib.File root_folder) {
+            var root_path = root_folder.get_path ();
 
             uint position;
             if (project_liststore.find (root_folder, out position)) {
