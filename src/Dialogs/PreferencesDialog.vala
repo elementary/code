@@ -182,6 +182,8 @@ public class Scratch.Dialogs.Preferences : Granite.Dialog {
         realize.connect (() => {
             stack.set_visible_child_name ("behavior");
         });
+
+        show_all ();
     }
 
     private class SettingSwitch : Gtk.Grid {

@@ -78,14 +78,10 @@ namespace Scratch {
         public const string ACTION_OPEN_PROJECT = "action-open-project";
         public const string ACTION_COLLAPSE_ALL_FOLDERS = "action-collapse-all-folders";
         public const string ACTION_GO_TO = "action-go-to";
-        public const string ACTION_SORT_LINES = "action-sort-lines";
         public const string ACTION_NEW_TAB = "action-new-tab";
         public const string ACTION_NEW_FROM_CLIPBOARD = "action-new-from-clipboard";
         public const string ACTION_DUPLICATE_TAB = "action-duplicate-tab";
         public const string ACTION_PREFERENCES = "preferences";
-        public const string ACTION_ADD_MARK = "action_add_mark";
-        public const string ACTION_PREVIOUS_MARK = "action_previous_mark";
-        public const string ACTION_NEXT_MARK = "action_next_mark";
 
         public const string ACTION_UNDO = "action-undo";
         public const string ACTION_REDO = "action-redo";
@@ -102,7 +98,6 @@ namespace Scratch {
         public const string ACTION_ZOOM_DEFAULT = "action-zoom-default";
         public const string ACTION_ZOOM_IN = "action-zoom-in";
         public const string ACTION_ZOOM_OUT = "action-zoom-out";
-        public const string ACTION_TOGGLE_COMMENT = "action-toggle-comment";
         public const string ACTION_TOGGLE_SHOW_FIND = "action-toggle_show-find";
         public const string ACTION_TOGGLE_SIDEBAR = "action-toggle-sidebar";
         public const string ACTION_FOCUS_SIDEBAR = "action-focus-sidebar";
@@ -149,7 +144,6 @@ namespace Scratch {
             { ACTION_SAVE_AS, action_save_as },
             { ACTION_TOGGLE_SHOW_FIND, action_toggle_show_find, null, "false" },
             { ACTION_GO_TO, action_go_to },
-            { ACTION_SORT_LINES, action_sort_lines },
             { ACTION_NEW_TAB, action_new_tab },
             { ACTION_NEW_FROM_CLIPBOARD, action_new_tab_from_clipboard },
             { ACTION_DUPLICATE_TAB, action_duplicate_tab },
@@ -166,7 +160,6 @@ namespace Scratch {
             { ACTION_ZOOM_DEFAULT, action_set_default_zoom },
             { ACTION_ZOOM_IN, action_zoom_in },
             { ACTION_ZOOM_OUT, action_zoom_out},
-            { ACTION_TOGGLE_COMMENT, action_toggle_comment },
             { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar, null, "true" },
             { ACTION_FOCUS_SIDEBAR, action_focus_sidebar },
             { ACTION_FOCUS_DOCUMENT, action_focus_document },
@@ -178,9 +171,6 @@ namespace Scratch {
             { ACTION_PREVIOUS_TAB, action_previous_tab },
             { ACTION_CLEAR_LINES, action_clear_lines },
             { ACTION_BRANCH_ACTIONS, action_branch_actions, "s" },
-            { ACTION_ADD_MARK, action_add_mark},
-            { ACTION_PREVIOUS_MARK, action_previous_mark},
-            { ACTION_NEXT_MARK, action_next_mark},
             { ACTION_CLOSE_TAB, action_close_tab, "s" },
             { ACTION_CLOSE_TABS_TO_RIGHT, action_close_tabs_to_right },
             { ACTION_CLOSE_OTHER_TABS, action_close_other_tabs },
@@ -218,7 +208,6 @@ namespace Scratch {
             action_accelerators.set (ACTION_SAVE, "<Control>s");
             action_accelerators.set (ACTION_SAVE_AS, "<Control><shift>s");
             action_accelerators.set (ACTION_GO_TO, "<Control>i");
-            action_accelerators.set (ACTION_SORT_LINES, "F5");
             action_accelerators.set (ACTION_NEW_TAB, "<Control>n");
             action_accelerators.set (ACTION_DUPLICATE_TAB, "<Control><Shift>k" );
             action_accelerators.set (ACTION_UNDO, "<Control>z");
@@ -237,8 +226,6 @@ namespace Scratch {
             action_accelerators.set (ACTION_ZOOM_IN, "<Control>KP_Add");
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>minus");
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>KP_Subtract");
-            action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>m");
-            action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>slash");
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "F9"); // GNOME
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "<Control>backslash"); // Atom
             action_accelerators.set (ACTION_FOCUS_SIDEBAR, "<Control><Alt>Left");
@@ -253,26 +240,15 @@ namespace Scratch {
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control>Page_Up");
             action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
             action_accelerators.set (ACTION_BRANCH_ACTIONS + "::", "<Control>B");
-            action_accelerators.set (ACTION_ADD_MARK, "<Alt>equal");
-            action_accelerators.set (ACTION_PREVIOUS_MARK, "<Alt>Left");
-            action_accelerators.set (ACTION_NEXT_MARK, "<Alt>Right");
             action_accelerators.set (ACTION_HIDE_PROJECT_DOCS + "::", "<Control><Shift>h");
             action_accelerators.set (ACTION_MOVE_TAB_TO_NEW_WINDOW, "<Control><Alt>n");
             action_accelerators.set (ACTION_RESTORE_PROJECT_DOCS + "::", "<Control><Shift>r");
-
-            var provider = new Gtk.CssProvider ();
-            provider.load_from_resource ("io/elementary/code/Application.css");
-            Gtk.StyleContext.add_provider_for_screen (
-                Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-            );
 
             if (Constants.BRANCH != "") {
                 base_title = _("Code (%s)").printf (Constants.BRANCH);
             } else {
                 base_title = _("Code");
             }
-
-            Hdy.init ();
         }
 
         construct {
@@ -280,9 +256,6 @@ namespace Scratch {
             app = (Scratch.Application)application;
             is_first_window = application.get_windows ().length () == 1;
             title = base_title;
-
-            weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
-            default_theme.add_resource_path ("/io/elementary/code");
 
             document_manager = Scratch.Services.DocumentManager.get_instance ();
             git_manager = Services.GitManager.get_instance ();
@@ -314,7 +287,7 @@ namespace Scratch {
 
             clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
 
-            plugins = new Scratch.Services.PluginsManager (this);
+            plugins = new Scratch.Services.PluginsManager ();
 
             key_controller = new Gtk.EventControllerKey (this) {
                 propagation_phase = TARGET
@@ -572,6 +545,12 @@ namespace Scratch {
                     plugins.hook_window (this);
                     plugins.hook_toolbar (toolbar);
                     plugins.hook_share_menu (toolbar.share_menu);
+                    // Ensure new plugin active on any existing current doc
+                    var doc = get_current_document ();
+                    if (doc != null) {
+                        plugins.hook_document (doc);
+                    }
+
                 };
 
                 plugins.extension_added.connect (() => {
@@ -961,13 +940,12 @@ namespace Scratch {
 
         private void action_preferences () {
             var preferences_dialog = new Scratch.Dialogs.Preferences (this, plugins);
-            preferences_dialog.show_all ();
 
             preferences_dialog.response.connect (() => {
                 preferences_dialog.destroy ();
             });
 
-            preferences_dialog.present ();
+            preferences_dialog.show ();
         }
 
         private void action_close_window () {
@@ -999,19 +977,22 @@ namespace Scratch {
             file_chooser.select_multiple = true;
             file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
 
-            var response = file_chooser.run ();
-            file_chooser.destroy (); // Close now so it does not stay open during lengthy or failed loading
-
-            if (response == Gtk.ResponseType.ACCEPT) {
-                foreach (string uri in file_chooser.get_uris ()) {
-                    // Update last visited path
-                    Utils.last_path = Path.get_dirname (uri);
-                    // Open the file
-                    var file = File.new_for_uri (uri);
-                    var doc = new Scratch.Services.Document (actions, file);
-                    open_document.begin (doc);
+            file_chooser.response.connect ((res) => {
+                var uris = file_chooser.get_uris ();
+                file_chooser.destroy (); // Close now so it does not stay open during lengthy or failed loading
+                if (res == Gtk.ResponseType.ACCEPT) {
+                    foreach (string uri in uris) {
+                        // Update last visited path
+                        Utils.last_path = Path.get_dirname (uri);
+                        // Open the file
+                        var file = File.new_for_uri (uri);
+                        var doc = new Scratch.Services.Document (actions, file);
+                        open_document.begin (doc);
+                    }
                 }
-            }
+            });
+
+            file_chooser.show ();
         }
 
         private void action_open_in_new_window (SimpleAction action, Variant? param) {
@@ -1041,14 +1022,18 @@ namespace Scratch {
 
             chooser.select_multiple = true;
 
-            if (chooser.run () == Gtk.ResponseType.ACCEPT) {
-                chooser.get_files ().foreach ((glib_file) => {
-                    var foldermanager_file = new FolderManager.File (glib_file.get_path ());
-                    folder_manager_view.open_folder (foldermanager_file);
-                });
-            }
+            chooser.response.connect ((res) => {
+                var files = chooser.get_files ();
+                chooser.destroy ();
+                if (res == Gtk.ResponseType.ACCEPT) {
+                    files.foreach ((glib_file) => {
+                        var foldermanager_file = new FolderManager.File (glib_file.get_path ());
+                        folder_manager_view.open_folder (foldermanager_file);
+                    });
+                }
+            });
 
-            chooser.destroy ();
+            chooser.show ();
         }
 
         private void action_open_folder (SimpleAction action, Variant? param) {
@@ -1061,6 +1046,10 @@ namespace Scratch {
         }
 
         private void action_clone_repo (SimpleAction action, Variant? param) {
+            clone_repo.begin ();
+        }
+
+        private async void clone_repo () {
             var default_projects_folder = Scratch.settings.get_string ("default-projects-folder");
             if (default_projects_folder == "" && git_manager.active_project_path != "") {
                 default_projects_folder = Path.get_dirname (git_manager.active_project_path);
@@ -1068,63 +1057,66 @@ namespace Scratch {
 
             var default_remote = Scratch.settings.get_string ("default-remote");
             var clone_dialog = new Dialogs.CloneRepositoryDialog (default_projects_folder, default_remote);
-            clone_dialog.response.connect ((res) => {
-                // Persist last entries (not necessarily valid)
-                Scratch.settings.set_string ("default-remote", clone_dialog.get_remote ());
-                Scratch.settings.set_string ("default-projects-folder", clone_dialog.get_projects_folder ());
-                //TODO Show more information re progress using Ggit callbacks
-                if (res == Gtk.ResponseType.APPLY && clone_dialog.can_clone) {
-                    sidebar.cloning_in_progress = true;
-                    clone_dialog.hide ();
-                    var uri = clone_dialog.get_valid_source_repository_uri ();
-                    var target = clone_dialog.get_valid_target ();
-                    git_manager.clone_repository.begin (
-                        uri,
-                        target,
-                        (obj, res) => {
-                            sidebar.cloning_in_progress = false;
-                            File? workdir = null;
-                            string? error = null;
-                            if (git_manager.clone_repository.end (res, out workdir, out error)) {
-                                open_folder (workdir);
-                                clone_dialog.destroy ();
-                                if (this.is_active) {
-                                    sidebar.notify_cloning_success ();
-                                } else {
-                                    var notification = new Notification (_("Cloning completed"));
-                                    notification.set_body (_("Clone successfully created in %s").printf (target));
-                                    notification.set_icon (new ThemedIcon ("process-completed-symbolic"));
-                                    app.send_notification ("cloning-finished-%s".printf (target), notification);
-                                }
-                            } else {
-                                var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                                    _("Unable to clone %s").printf (uri),
-                                    error,
-                                    "dialog-error",
-                                    Gtk.ButtonsType.CLOSE
-                                ) {
-                                    transient_for = this
-                                };
-                                message_dialog.add_button (_("Retry"), 1);
-                                message_dialog.response.connect ((res) => {
-                                    if (res == 1) {
-                                        clone_dialog.show ();
-                                    } else {
-                                        clone_dialog.destroy ();
-                                    }
 
-                                    message_dialog.destroy ();
-                                });
-                                message_dialog.present ();
-                            }
-                        }
-                    );
-                } else {
-                    clone_dialog.destroy ();
-                }
+            var action_complete = false;
+            clone_dialog.response.connect ((res) => {
+                action_complete = (res != Gtk.ResponseType.APPLY || !clone_dialog.can_clone);
+                clone_repo.callback ();
             });
 
-            clone_dialog.present ();
+            while (!action_complete) {
+                clone_dialog.show ();
+                yield;
+
+                if (!action_complete) {
+                    Scratch.settings.set_string ("default-remote", clone_dialog.get_remote ());
+                    Scratch.settings.set_string ("default-projects-folder", clone_dialog.get_projects_folder ());
+                    //TODO Show more information re progress using Ggit callbacks
+                    clone_dialog.hide ();
+
+                    var uri = clone_dialog.get_valid_source_repository_uri ();
+                    var target = clone_dialog.get_valid_target ();
+                    sidebar.cloning_in_progress = true;
+                    File? workdir = null;
+                    string? error = null;
+                    var success = yield git_manager.clone_repository (uri, target, out workdir, out error);
+                    sidebar.cloning_in_progress = false;
+
+                    if (success) {
+                        open_folder (workdir);
+                        if (this.is_active) {
+                            sidebar.notify_cloning_success ();
+                        } else {
+                            var notification = new Notification (_("Cloning completed"));
+                            notification.set_body (_("Clone successfully created in %s").printf (target));
+                            notification.set_icon (new ThemedIcon ("process-completed-symbolic"));
+                            app.send_notification ("cloning-finished-%s".printf (target), notification);
+                        }
+
+                        action_complete = true;
+                    } else {
+                        var message_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                            _("Unable to clone %s").printf (uri),
+                            error,
+                            "dialog-error",
+                            Gtk.ButtonsType.CLOSE
+                        ) {
+                            transient_for = this,
+                            modal = true
+                        };
+                        message_dialog.add_button (_("Retry"), 1);
+                        message_dialog.response.connect ((res) => {
+                            action_complete = res != 1;
+                            message_dialog.destroy ();
+                            clone_repo.callback ();
+                        });
+                        message_dialog.show ();
+                        yield;
+                    }
+                }
+            }
+
+            clone_dialog.destroy ();
         }
 
         private void action_collapse_all_folders () {
@@ -1165,13 +1157,18 @@ namespace Scratch {
 
         private void action_revert () {
             var confirmation_dialog = new Scratch.Dialogs.RestoreConfirmationDialog (this);
-            if (confirmation_dialog.run () == Gtk.ResponseType.ACCEPT) {
-                var doc = get_current_document ();
-                if (doc != null) {
-                    doc.revert ();
+            confirmation_dialog.response.connect ((res) => {
+                if (res == Gtk.ResponseType.ACCEPT) {
+                    var doc = get_current_document ();
+                    if (doc != null) {
+                        doc.revert ();
+                    }
                 }
-            }
-            confirmation_dialog.destroy ();
+
+                confirmation_dialog.destroy ();
+            });
+
+            confirmation_dialog.show ();
         }
 
         private void action_duplicate () {
@@ -1370,9 +1367,8 @@ namespace Scratch {
         }
 
         private void action_go_to () {
-            toolbar.format_bar.line_menubutton.active = true;
+            toolbar.format_bar.activate_line_menubutton ();
         }
-
 
         private void action_to_lower_case () {
             var doc = document_view.current_document;
@@ -1402,27 +1398,6 @@ namespace Scratch {
 
             buffer.delete (ref start, ref end);
             buffer.insert (ref start, selected.up (), -1);
-        }
-
-        private void action_toggle_comment () {
-            var doc = get_focused_document ();
-            if (doc == null) {
-                return;
-            }
-
-            var buffer = doc.source_view.buffer;
-            if (buffer is Gtk.SourceBuffer) {
-                CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
-            }
-        }
-
-        private void action_sort_lines () {
-            var doc = get_focused_document ();
-            if (doc == null) {
-                return;
-            }
-
-            doc.source_view.sort_selected_lines ();
         }
 
         private void action_toggle_sidebar (SimpleAction action) {
@@ -1523,33 +1498,6 @@ namespace Scratch {
 
         private void action_branch_actions (SimpleAction action, Variant? param) {
             folder_manager_view.branch_actions (get_target_path_for_actions (param));
-        }
-
-        private void action_previous_mark () {
-            var doc = get_focused_document ();
-            if (doc == null) {
-                return;
-            }
-
-            doc.source_view.goto_previous_mark ();
-        }
-
-        private void action_next_mark () {
-            var doc = get_focused_document ();
-            if (doc == null) {
-                return;
-            }
-
-            doc.source_view.goto_next_mark ();
-        }
-
-        private void action_add_mark () {
-            var doc = get_focused_document ();
-            if (doc == null) {
-                return;
-            }
-
-            doc.source_view.add_mark_at_cursor ();
         }
 
         private void action_move_tab_to_new_window () {

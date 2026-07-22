@@ -9,7 +9,6 @@ public class Scratch.Widgets.NavMarkGutterRenderer : Gtk.SourceGutterRendererPix
     public Gtk.TextBuffer buffer { get; construct; }
     public bool has_marks {
         get {
-            purge_and_sort_mark_list ();
             return mark_list.size > 0;
         }
     }
@@ -101,6 +100,8 @@ public class Scratch.Widgets.NavMarkGutterRenderer : Gtk.SourceGutterRendererPix
         }
 
         sorted_line_list.sort ();
+
+        notify_property ("has-marks");
     }
 
     public void delete_mark_at_line (int line) {
