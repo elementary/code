@@ -244,19 +244,11 @@ namespace Scratch {
             action_accelerators.set (ACTION_MOVE_TAB_TO_NEW_WINDOW, "<Control><Alt>n");
             action_accelerators.set (ACTION_RESTORE_PROJECT_DOCS + "::", "<Control><Shift>r");
 
-            var provider = new Gtk.CssProvider ();
-            provider.load_from_resource ("io/elementary/code/Application.css");
-            Gtk.StyleContext.add_provider_for_screen (
-                Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-            );
-
             if (Constants.BRANCH != "") {
                 base_title = _("Code (%s)").printf (Constants.BRANCH);
             } else {
                 base_title = _("Code");
             }
-
-            Hdy.init ();
         }
 
         construct {
@@ -264,9 +256,6 @@ namespace Scratch {
             app = (Scratch.Application)application;
             is_first_window = application.get_windows ().length () == 1;
             title = base_title;
-
-            weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
-            default_theme.add_resource_path ("/io/elementary/code");
 
             document_manager = Scratch.Services.DocumentManager.get_instance ();
             git_manager = Services.GitManager.get_instance ();
