@@ -351,7 +351,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             // Document not already open, create and insert it now
             doc = new Scratch.Services.Document (
                 window.actions,
-                GLib.File.new_for_path (doc_path)
+                GLib.File.new_for_commandline_arg (doc_path)
             );
             insert_document (doc, (int) docs.length ());
             // Load contents before proceeding
