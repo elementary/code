@@ -333,7 +333,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         Scratch.Services.Document? doc = null; // The document to be created and/or focused
         // Check whether document already open
         bool found = false;
-        for (int n = 0; n <= docs.length (); n++) {
+        for (int n = 0; n < docs.length (); n++) {
             doc = docs.nth_data (n);
             //TODO Is this check necessary?
             if (doc == null || doc.file == null) {
