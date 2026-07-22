@@ -35,7 +35,6 @@ namespace Scratch.Services {
 
         // The parent window's actions
         public unowned SimpleActionGroup actions { get; set construct; }
-        public GLib.File start_location { get; construct; }
 
         // The TabPage that this document is a child of
         public unowned Hdy.TabPage tab { get; private set; }
@@ -197,12 +196,12 @@ namespace Scratch.Services {
         private double total_delta = 0;
         private const double SCROLL_THRESHOLD = 1.0;
 
-        public Document (SimpleActionGroup actions, GLib.File file) {
+        public Document (SimpleActionGroup actions, File file) {
             Object (
-                actions: actions,
-                start_location: file
+                actions: actions
             );
 
+            this.file = file;
         }
 
         static construct {
@@ -223,10 +222,7 @@ namespace Scratch.Services {
         construct {
             locked_icon = new ThemedIcon ("emblem-readonly-symbolic");
             main_stack = new Gtk.Stack ();
-            source_view = new Scratch.Widgets.SourceView () {
-                location = start_location
-            };
-
+            source_view = new Scratch.Widgets.SourceView ();
 
             scroll = new Gtk.ScrolledWindow (null, null) {
                 hexpand = true,
@@ -256,10 +252,7 @@ namespace Scratch.Services {
                 Gtk.propagate_event (scroll, Gtk.get_current_event ());
             });
 
-            source_file = new Gtk.SourceFile () {
-                location = start_location
-            };
-
+            source_file = new Gtk.SourceFile ();
             source_map = new Gtk.SourceMap ();
             outline_widget_pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
 
@@ -341,6 +334,8 @@ namespace Scratch.Services {
                     source_view.grab_focus ();
                 }
             });
+
+            loaded = file == null;
 
             add (main_stack);
             this.show_all ();
