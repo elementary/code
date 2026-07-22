@@ -41,6 +41,8 @@ public class Scratch.MainWindow : Hdy.Window {
     }
 
     public Code.Sidebar sidebar { get; private set; }
+    // Temporary fix to make get_project_for_file function accessible.
+    public FolderManager.FileView folder_manager_view;
     public Scratch.Application app { get; private set; }
     public Scratch.Widgets.DocumentView document_view { get; private set; }
     public SimpleActionGroup actions { get; private set; }
@@ -160,7 +162,6 @@ public class Scratch.MainWindow : Hdy.Window {
 
     private Code.Terminal terminal;
     private Code.WelcomeView welcome_view;
-    private FolderManager.FileView folder_manager_view;
     private Gtk.Clipboard clipboard;
     private Gtk.EventControllerKey key_controller;
     private Gtk.Paned hp1;

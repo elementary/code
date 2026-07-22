@@ -353,6 +353,10 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
                 window.actions,
                 GLib.File.new_for_commandline_arg (doc_path)
             );
+            // Temporary fix, the get_project_for_file function is intended to be moved
+            // to GitManager instance.
+            var project = window.folder_manager_view.get_project_for_file (doc.file);
+            doc.source_view.project = project;
             insert_document (doc, (int) docs.length ());
             // Load contents before proceeding
             yield doc.open (false);
