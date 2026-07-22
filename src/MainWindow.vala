@@ -655,8 +655,6 @@ public class Scratch.MainWindow : Hdy.Window {
                             focused_file = file;
                         }
                         //TODO Check files valid (settings could have been manually altered)
-                        // var doc = new Scratch.Services.Document (actions, file);
-                        // if (doc.exists () || !doc.is_file_temporary) {
                         if (restore_override != null &&
                             (file.get_path () == restore_override.file.get_path ())) {
 
@@ -674,7 +672,6 @@ public class Scratch.MainWindow : Hdy.Window {
                                 pos
                             );
                         }
-                        // }
                     }
                 }
             }
