@@ -67,11 +67,8 @@ namespace Scratch.Services {
 
         public string project_path {
             owned get {
-                if (source_view.project != null) {
-                    return source_view.project.path;
-                } else {
-                    return "";
-                }
+                var project_file = GitManager.get_instance ().get_project_file_for_file (file);
+                return project_file != null ? project_file.get_path () : "";
             }
         }
 

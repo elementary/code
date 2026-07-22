@@ -172,5 +172,37 @@ namespace Scratch.Services {
 
             return new_repo != null;
         }
+        // Given the path of a file, return the path to the root folder of an open project
+        // that is a parent of that file
+        public GLib.File? get_project_file_for_file (GLib.File file) {
+            for (int n = 0; n < project_liststore.n_items; n++) {
+                var nth_file = (GLib.File) (project_liststore.get_object (n));
+                warning ("relative path for nth file %s is %s", nth_file.get_path (), nth_file.get_relative_path (file));
+                if (nth_file.get_relative_path (file) != null) {
+                    warning ("returning project file %s", nth_file.get_path ());
+                    return nth_file;
+                }
+            }
+
+            return null;
+        }
+
+        public bool is_git_repo (GLib.File project_file) {
+            return get_monitored_repository (project_file.get_path ()) != null;
+        }
+
+        // Returns true if line_status_map was updated otherwise false
+        public bool refresh_diff (GLib.File file, ref Gee.HashMap<int, VCStatus> line_status_map) {
+            var project_file = get_project_file_for_file (file);
+            if (project_file == null) {
+                return false;
+            }
+            var monitored_repo = get_monitored_repository (project_file.get_path ());
+            if (monitored_repo == null) {
+                return false;
+            }
+
+            return monitored_repo.refresh_diff (file.get_path (), ref line_status_map);
+        }
     }
 }

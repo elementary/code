@@ -37,23 +37,25 @@
     }
 
     public void make_restorable (Document doc) {
-        project_restorable_docs_map.@set (doc.source_view.project.path, doc.file.get_path ());
+        project_restorable_docs_map.@set (doc.project_path, doc.file.get_path ());
     }
 
     public void add_open_document (Document doc) {
-        if (doc.source_view.project == null) {
+        var project_path = doc.project_path;
+        if (project_path == "") {
             return;
         }
 
-        project_open_docs_map.@set (doc.source_view.project.path, doc.file.get_path ());
+        project_open_docs_map.@set (project_path, doc.file.get_path ());
     }
 
     public void remove_open_document (Document doc) {
-        if (doc.source_view.project == null) {
+        var project_path = doc.project_path;
+        if (project_path == "") {
             return;
         }
 
-        project_open_docs_map.remove (doc.source_view.project.path, doc.file.get_path ());
+        project_open_docs_map.remove (doc.project_path, doc.file.get_path ());
     }
 
     public void remove_project (string project_path) {
