@@ -68,13 +68,11 @@ namespace Scratch.FolderManager {
                         name, monitored_repo.branch_name
                     );
                 }
-
-
             }
         }
 
         construct {
-            monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (this);
+            monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (this.file.file);
             notify["name"].connect (branch_or_name_changed);
             if (monitored_repo != null) {
                 monitored_repo.branch_changed.connect (branch_or_name_changed);

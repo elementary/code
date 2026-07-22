@@ -122,7 +122,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                     new Variant.string (project_folder_item.path)
                 );
                 root.remove (project_folder_item);
-                git_manager.remove_project (project_folder_item);
+                git_manager.remove_project (project_folder_item.file.file);
             }
         }
         //Make remaining project the active one
@@ -661,7 +661,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                         rename_items_with_same_name (child_folder);
                     }
                 }
-                Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
+                Scratch.Services.GitManager.get_instance ().remove_project (folder_root.file.file);
                 write_settings ();
             });
 

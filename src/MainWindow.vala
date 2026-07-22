@@ -765,12 +765,12 @@ namespace Scratch {
             folder_manager_view.open_folder (foldermanager_file);
         }
 
+        // The following two functions are planned to be removed and document_view function
+        // called directly
         public async void open_document (Scratch.Services.Document doc,
                                    bool focus = true,
                                    int cursor_position = 0) {
 
-            FolderManager.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
-            doc.source_view.project = project;
             yield document_view.open_document (doc, focus, cursor_position);
         }
 
@@ -782,7 +782,6 @@ namespace Scratch {
                 return;
             }
 
-            doc.source_view.project = folder_manager_view.get_project_for_file (doc.file);
             yield document_view.open_document (doc, focus, 0, range);
         }
 

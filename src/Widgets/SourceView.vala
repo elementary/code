@@ -28,7 +28,6 @@ namespace Scratch.Widgets {
         public Gtk.TextTag error_tag;
 
         public GLib.File location { get; set; }
-        public FolderManager.ProjectFolderItem project { get; set; default = null; }
         public SimpleActionGroup actions { get; construct; }
 
         private string font;
@@ -736,9 +735,12 @@ namespace Scratch.Widgets {
 
             refresh_timeout_id = Timeout.add (250, () => {
                 refresh_timeout_id = 0;
-                if (project != null && project.is_git_repo) {
-                    git_diff_gutter_renderer.line_status_map.clear ();
-                    project.refresh_diff (ref git_diff_gutter_renderer.line_status_map, location.get_path ());
+                var git_manager = Scratch.Services.GitManager.get_instance ();
+                git_diff_gutter_renderer.line_status_map.clear ();
+                if (git_manager.refresh_diff (
+                    location,
+                    ref git_diff_gutter_renderer.line_status_map
+                )) {
                     git_diff_gutter_renderer.queue_draw ();
                 }
 

@@ -463,9 +463,9 @@ namespace Scratch.Services {
 
 
         private bool refreshing = false;
-        public void refresh_diff (string file_path, ref Gee.HashMap<int, VCStatus> line_status_map) {
+        public bool refresh_diff (string file_path, ref Gee.HashMap<int, VCStatus> line_status_map) {
             if (refreshing) {
-                return;
+                return false;
             } else {
                 refreshing = true;
             }
@@ -511,6 +511,7 @@ namespace Scratch.Services {
             }
 
             line_status_map = status_map;
+            return true;
         }
 
         private void process_diff_line (Ggit.DiffLineType line_type, int new_line_no, int old_line_no,
