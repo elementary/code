@@ -177,9 +177,7 @@ namespace Scratch.Services {
         public GLib.File? get_project_file_for_file (GLib.File file) {
             for (int n = 0; n < project_liststore.n_items; n++) {
                 var nth_file = (GLib.File) (project_liststore.get_object (n));
-                warning ("relative path for nth file %s is %s", nth_file.get_path (), nth_file.get_relative_path (file));
                 if (nth_file.get_relative_path (file) != null) {
-                    warning ("returning project file %s", nth_file.get_path ());
                     return nth_file;
                 }
             }
