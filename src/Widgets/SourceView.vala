@@ -67,17 +67,20 @@ namespace Scratch.Widgets {
             }
 
             set {
-                if (value > -1) {
-                    Gtk.TextIter iter;
-                    // values off -1 and greater than number of characters in buffer place the cursor
-                    // at the end of the buffer.
-                    buffer.get_iter_at_offset (out iter, value);
-                    buffer.place_cursor (iter); //Assume invalid offset handled correctly for now
-                    Idle.add (() => {
-                        scroll_to_iter (iter, 0.25, false, 0, 0);
-                        return Source.REMOVE;
-                    });
+                // Values of -1 and greater than number of characters
+                // in the buffer place the cursor at the end of the buffer.
+                // Ignore lower values
+                if (value <= -2) {
+                    return;
                 }
+
+                Gtk.TextIter iter;
+                buffer.get_iter_at_offset (out iter, value);
+                buffer.place_cursor (iter);
+                Idle.add (() => {
+                    scroll_to_iter (iter, 0.25, false, 0, 0);
+                    return Source.REMOVE;
+                });
             }
         }
 
