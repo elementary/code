@@ -293,76 +293,96 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     public void new_document () {
-        var file = File.new_for_path (unsaved_file_path_builder ());
+        var new_doc_path = unsaved_file_path_builder ();
+        var file = File.new_for_path (new_doc_path);
         try {
             file.create (FileCreateFlags.PRIVATE);
-
-            var doc = new Services.Document (window.actions, file);
             // Must open document in order to unlock it.
-            open_document.begin (doc);
+            open_document.begin (new_doc_path);
         } catch (Error e) {
             critical (e.message);
         }
     }
 
     public void new_document_from_clipboard (string clipboard) {
-        var file = File.new_for_path (unsaved_file_path_builder ());
+        var new_doc_path = unsaved_file_path_builder ();
+        var file = File.new_for_path (new_doc_path);
 
         // Set clipboard content
         try {
             file.create (FileCreateFlags.PRIVATE);
             file.replace_contents (clipboard.data, null, false, 0, null);
-            var doc = new Services.Document (window.actions, file);
-
-            open_document.begin (doc);
-
-
+            open_document.begin (new_doc_path);
         } catch (Error e) {
             critical ("Cannot insert clipboard: %s", clipboard);
         }
     }
 
-    public async void open_document (Services.Document doc, bool focus = true, int cursor_position = 0, SelectionRange range = SelectionRange.EMPTY) {
-       for (int n = 0; n <= docs.length (); n++) {
-            var nth_doc = docs.nth_data (n);
-            if (nth_doc == null) {
+    // Open document from path to avoid unnecessarily creating Document objects and
+    // to confine Document creation to this class.
+    // Documents are treated the same regarding the focus, cursor_position and range parameters
+    // whether already open or not.
+    // Cursor position may have any value > -2 to set cursor. Lower values are ignored (default)
+    // Specifying a valid non-empty selection range overrides the cursor position
+    public async void open_document (
+        string doc_path,
+        bool focus = true,
+        int cursor_position = -2,
+        SelectionRange range = SelectionRange.EMPTY
+    ) {
+        Scratch.Services.Document? doc = null; // The document to be created and/or focused
+        // Check whether document already open
+        bool found = false;
+        for (int n = 0; n < docs.length (); n++) {
+            doc = docs.nth_data (n);
+            //TODO Is this check necessary?
+            if (doc == null || doc.file == null) {
+                critical ("Invalid document at position %i. %s", n, doc == null ? "Null document" : "Null document file");
                 continue;
             }
 
-            if (nth_doc.file != null && nth_doc.file.get_uri () == doc.file.get_uri ()) {
-                if (focus) {
-                    current_document = nth_doc;
-                }
-
-                debug ("This Document was already opened! Not opening a duplicate!");
-                if (range != SelectionRange.EMPTY) {
-                    Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
-                        current_document.source_view.select_range (range);
-                        update_opened_files_setting ();
-
-                        return false;
-                    });
-                }
-
-                return;
+            if (doc.file.get_uri () == doc_path) {
+                found = true;
+                break;
             }
         }
 
-        insert_document (doc, (int) docs.length ());
-        if (focus) {
+        if (!found) {
+            // Document not already open, create and insert it now
+            doc = new Scratch.Services.Document (
+                window.actions,
+                GLib.File.new_for_commandline_arg (doc_path)
+            );
+            // Temporary fix, the get_project_for_file function is intended to be moved
+            // to GitManager instance.
+            var project = window.folder_manager_view.get_project_for_file (doc.file);
+            doc.source_view.project = project;
+            insert_document (doc, (int) docs.length ());
+            // Load contents before proceeding
+            yield doc.open (false);
+            doc.source_view.cursor_position = cursor_position;
+        } else {
+            debug ("This Document was already opened! Not opening a duplicate!");
+        }
+
+        // @doc must have been assigned at this point
+        assert (doc != null);
+        // If we need to select a range we have to focus document anyway
+        if (focus || range != SelectionRange.EMPTY) {
+            doc.focus ();
             current_document = doc;
         }
 
-        yield doc.open (false);
-
-        if (focus && doc == current_document) {
-            doc.focus ();
+        if (cursor_position > -2) {
+            doc.source_view.cursor_position = cursor_position;
         }
 
         if (range != SelectionRange.EMPTY) {
-            doc.source_view.select_range (range);
-        } else if (cursor_position > 0) {
-            doc.source_view.cursor_position = cursor_position;
+            Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
+                current_document.source_view.select_range (range);
+                update_opened_files_setting (); //Records changed cursor position
+                return false;
+            });
         }
 
         update_opened_files_setting ();
@@ -517,9 +537,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     public void restore_closed_tab (string path) {
-        var file = File.new_for_path (path);
-        var doc = new Services.Document (window.actions, file);
-        open_document.begin (doc);
+        open_document.begin (path);
 
         var menu = (Menu) tab_history_button.menu_model;
         for (var i = 0; i < menu.get_n_items (); i++) {
@@ -634,9 +652,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         if (info == TargetType.URI_LIST) {
             var uris = sel.get_uris ();
             foreach (var filename in uris) {
-                var file = File.new_for_uri (filename);
-                var doc = new Services.Document (window.actions, file);
-                open_document.begin (doc);
+                open_document.begin (filename);
             }
 
             Gtk.drag_finish (ctx, true, false, time);
