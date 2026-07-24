@@ -20,11 +20,14 @@ public class Code.FolderTree : Gtk.Box, Code.PaneSwitcher {
     public signal void file_activate (File file);
     // All file related actions handled here
 
-    public SimpleActionGroup actions { get; private set; }
+    //PaneSwitcher properties (not currently used)
     public string icon_name { get; set; }
     public string title { get; set; }
-    public string root_path { get; construct; }
+
+    public SimpleActionGroup actions { get; private set; }
+    public string root_path { get { return project.path; } }
     public bool is_empty { get { return tree_list.n_root_items () == 0; } }
+    public ProjectFolderItem project { get; construct; }
 
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_RENAME_FILE, action_rename_file, "s" },
@@ -41,9 +44,9 @@ public class Code.FolderTree : Gtk.Box, Code.PaneSwitcher {
 
     private Granite.TreeList tree_list;
     private Gtk.PopoverMenu context_menu;
-    public FolderTree (string root_path) {
+    public FolderTree (ProjectFolderItem project) {
         Object (
-            root_path: root_path
+            project: project
         );
     }
 

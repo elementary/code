@@ -96,6 +96,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
 
         // Connect managers signals to interface's signals
         this.hook_window.connect ((w) => {
+            warning ("manager calling hook window on interface");
             plugin_iface.hook_window (w);
         });
 

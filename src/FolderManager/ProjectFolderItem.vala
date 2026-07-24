@@ -78,7 +78,7 @@ public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderM
         name = file.name;
         monitored_repo = Scratch.Services.GitManager.get_instance ().add_project (this);
         git_manager = Scratch.Services.GitManager.get_instance ();
-        folder_tree = new Code.FolderTree (path);
+        folder_tree = new Code.FolderTree (this);
         file.notify["name"].connect (branch_or_name_changed);
         if (monitored_repo != null) {
             monitored_repo.branch_changed.connect (branch_or_name_changed);

@@ -551,6 +551,7 @@ namespace Scratch {
                     hook_func ();
                 });
 
+                warning ("window realize sidebar is %s null", sidebar != null ? "NOT" : "");
                 hook_func ();
 
                 // Allow secondary windows to have a different pane state

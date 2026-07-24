@@ -58,27 +58,22 @@ namespace Scratch.Services {
             if (project_liststore.find_with_equal_func (
                     root_folder,
                     (oa, ob) => {
-                        warning ("compare");
                         if (oa == null || ob == null) {
                             return false;
                         }
 
-                        warning ("neither null");
                         var a = (Code.ProjectFolderItem) oa;
                         var b = (Code.ProjectFolderItem) ob;
 
-                        warning ("a.name %s", a.name);
-                        warning ("b.name %s", b.name);
                         return str_equal (a.name, b.name);
                     },
                     out position
                 )) {
 
-warning ("found");
                 var repo = project_gitrepo_map.@get (root_path);
                 return repo;
             }
-warning ("not found");
+
             try {
                 var git_repo = Ggit.Repository.open (root_folder.file.file);
                 if (!project_gitrepo_map.has_key (root_path)) {
