@@ -184,7 +184,7 @@ public class Code.Sidebar : Gtk.Box {
     }
 
     public void focus_sidebar () {
-        // if (stack.visible_child is Code.TreeList) {
+        // if (stack.visible_child is Granite.TreeList) {
         //     ((Code.Widgets.SourceList) stack.visible_child).grab_focus ();
         // }
     }

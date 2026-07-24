@@ -181,7 +181,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
         iterate_children ((listitem) => {
             // For now just collapse the top level
             listitem.is_expanded = false;
-            return Code.TreeList.ITERATE_CONTINUE;
+            return Granite.TreeList.ITERATE_CONTINUE;
         });
     }
 
@@ -225,7 +225,7 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
                 );
             }
 
-            return Code.TreeList.ITERATE_CONTINUE;
+            return Granite.TreeList.ITERATE_CONTINUE;
         });
     }
 
@@ -288,10 +288,10 @@ warning ("Project list find path %s", path);
         iterate_children ((listitem) => {
             if (listitem.path == path) {
                 matched_project = listitem;
-                return Code.TreeList.ITERATE_STOP;
+                return Granite.TreeList.ITERATE_STOP;
             }
 
-            return Code.TreeList.ITERATE_CONTINUE;
+            return Granite.TreeList.ITERATE_CONTINUE;
         });
 
         if (matched_project != null) {
@@ -302,10 +302,10 @@ warning ("Project list find path %s", path);
         iterate_children ((listitem) => {
             if (path.has_prefix (listitem.path)) { //TODO Ensure paths are compatible
                 matched_item = listitem.find_path (path, expand);
-                return Code.TreeList.ITERATE_STOP;
+                return Granite.TreeList.ITERATE_STOP;
             }
 
-            return Code.TreeList.ITERATE_CONTINUE;
+            return Granite.TreeList.ITERATE_CONTINUE;
         });
 
 
@@ -314,7 +314,7 @@ warning ("Project list find path %s", path);
         //         var folder = item as FolderItem;
         //         var folder_root = folder.file.file;
         //         if (folder_root.get_relative_path (target) == null) {
-        //             return Code.TreeList.ITERATE_CONTINUE;
+        //             return Granite.TreeList.ITERATE_CONTINUE;
         //         }
 
         //         if (!folder.is_expanded) {
@@ -322,18 +322,18 @@ warning ("Project list find path %s", path);
         //                  folder.load_children (); //Synchronous
         //                  folder.is_expanded = true;
         //              } else {
-        //                  return Code.TreeList.ITERATE_CONTINUE;
+        //                  return Granite.TreeList.ITERATE_CONTINUE;
         //              }
         //          }
 
         //         var recurse_item = find_path (folder, path, expand, target);
         //         if (recurse_item != null) {
         //             matched_item = recurse_item;
-        //             return Code.TreeList.ITERATE_STOP;
+        //             return Granite.TreeList.ITERATE_STOP;
         //         }
         //     }
 
-        //     return Code.TreeList.ITERATE_CONTINUE;
+        //     return Granite.TreeList.ITERATE_CONTINUE;
         // });
 
     }
@@ -345,10 +345,10 @@ warning ("Project list find path %s", path);
     //     iterate_children ((listitem) => {
     //         if (listitem.is_or_contains_file (file)) {
     //             matched_project_item = listitem;
-    //             return Code.TreeList.ITERATE_STOP;
+    //             return Granite.TreeList.ITERATE_STOP;
     //         }
 
-    //         return Code.TreeList.ITERATE_CONTINUE;
+    //         return Granite.TreeList.ITERATE_CONTINUE;
     //     });
 
     //     return matched_project_item;
@@ -385,7 +385,7 @@ warning ("Project list find path %s", path);
     //             ((FolderItem)child).remove_all_badges ();
     //         }
 
-    //         return Code.TreeList.ITERATE_CONTINUE;
+    //         return Granite.TreeList.ITERATE_CONTINUE;
     //     });
     // }
 
@@ -548,7 +548,7 @@ warning ("Project list find path %s", path);
                 parents.append (listitem);
             }
 
-            return Code.TreeList.ITERATE_CONTINUE;
+            return Granite.TreeList.ITERATE_CONTINUE;
         });
 
         if (parents.length () > 0 || children.length () > 0) {
@@ -622,10 +622,10 @@ warning ("Project list find path %s", path);
             if (path == listitem.path) {
                 open = true;
                 matched_item = listitem;
-                return Code.TreeList.ITERATE_STOP;
+                return Granite.TreeList.ITERATE_STOP;
             }
 
-            return Code.TreeList.ITERATE_CONTINUE;
+            return Granite.TreeList.ITERATE_CONTINUE;
         });
 
         list_item = matched_item;
@@ -648,7 +648,7 @@ warning ("Project list find path %s", path);
                 to_save += listitem.path;
             }
 
-            return Code.TreeList.ITERATE_CONTINUE;
+            return Granite.TreeList.ITERATE_CONTINUE;
         });
 
         settings.set_strv ("opened-folders", to_save);
@@ -676,10 +676,10 @@ warning ("Project list find path %s", path);
             if (listitem.path == path) {
                 listitem.close ();
                 remove_project_item (listitem); // OK to remove as we stop iterating
-                return TreeList.ITERATE_STOP;
+                return Granite.TreeList.ITERATE_STOP;
             }
 
-            return TreeList.ITERATE_CONTINUE;
+            return Granite.TreeList.ITERATE_CONTINUE;
         });
     }
 
@@ -696,10 +696,10 @@ warning ("Project list find path %s", path);
                 to_remove.prepend (listitem); // Delay removal during iteration
             }
 
-            return TreeList.ITERATE_CONTINUE;
+            return Granite.TreeList.ITERATE_CONTINUE;
         });
 
-        // List<Code.TreeListItem> to_remove = null;
+        // List<Granite.TreeListItem> to_remove = null;
         // tree_list.iterate_children (null, (child) => {
         //     var project_folder_item = (ProjectFolderItem) child;
         //     if (project_folder_item != folder_root) {
@@ -712,7 +712,7 @@ warning ("Project list find path %s", path);
         //         git_manager.remove_project (project_folder_item);
         //     }
 
-        //     return Code.TreeList.ITERATE_CONTINUE;
+        //     return Granite.TreeList.ITERATE_CONTINUE;
         // });
 
         foreach (ProjectFolderItem listitem in to_remove) {

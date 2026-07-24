@@ -4,7 +4,7 @@
  */
 
 /* FolderTree shows a single folder and its children as a tree */
-public class Code.FolderTreeItem : Code.TreeListItem {
+public class Code.FolderTreeItem : Granite.TreeListItem {
     public FolderManagerItem? item { get; construct; } //Either File or Folder Item
 
     public FolderTreeItem (FolderManagerItem item) {
@@ -39,17 +39,8 @@ public class Code.FolderTree : Gtk.Box, Code.PaneSwitcher {
 
     };
 
-    private Code.TreeList tree_list;
+    private Granite.TreeList tree_list;
     private Gtk.PopoverMenu context_menu;
-    // private GLib.Settings settings;
-    // private Scratch.Services.GitManager git_manager;
-    // private Scratch.Services.PluginsManager plugins;
-
-    // public FolderTree (Scratch.Services.PluginsManager plugins_manager) {
-    //     plugins = plugins_manager;
-    // }
-
-    // Root_path is path of the associated //TODO Needed?
     public FolderTree (string root_path) {
         Object (
             root_path: root_path
@@ -61,21 +52,10 @@ public class Code.FolderTree : Gtk.Box, Code.PaneSwitcher {
         actions.add_action_entries (ACTION_ENTRIES, this);
         insert_action_group (ITEM_ACTION_GROUP, actions);
 
-        tree_list = new Code.TreeList ();
-        // icon_name = "folder-symbolic";
-        // title = _("Folders");
-
-        // settings = new GLib.Settings ("io.elementary.code.folder-manager");
-
-        // git_manager = Scratch.Services.GitManager.get_instance ();
-
+        tree_list = new Granite.TreeList ();
         actions = new SimpleActionGroup ();
         actions.add_action_entries (ACTION_ENTRIES, this);
         insert_action_group (ITEM_ACTION_PREFIX, actions);
-
-        // Scratch.saved_state.changed["order-folders"].connect (() => {
-        //     order_folders ();
-        // });
 
         // Convert ListView signal into file_activate
         tree_list.item_activated.connect ((item) => {
@@ -114,120 +94,35 @@ public class Code.FolderTree : Gtk.Box, Code.PaneSwitcher {
         return false;
     }
 
-    // private void action_close_folder (SimpleAction action, GLib.Variant? parameter) {
-    //     var path = parameter.get_string ();
-    //     if (path == null || path == "") {
-    //         return;
-    //     }
+    private void action_close_folder (SimpleAction action, GLib.Variant? parameter) {
+    }
 
-    //     var project_item = find_path (null, path) as ProjectFolderItem;
-    //     if (project_item == null) {
-    //         return;
-    //     }
+    private void action_close_other_folders (SimpleAction action, GLib.Variant? parameter) {
+    }
 
-    //     project_item.closed ();
-    // }
+    private void action_set_active_project (SimpleAction action, GLib.Variant? parameter) {
+    }
 
-    // private void action_close_other_folders (SimpleAction action, GLib.Variant? parameter) {
-    //     var path = parameter.get_string ();
-    //     if (path == null || path == "") {
-    //         return;
-    //     }
+    private ProjectFolderItem? set_active_project (string path) {
+        //TODO complete
+        return null;
+    }
 
-    //     var folder_root = find_path (null, path) as ProjectFolderItem;
-    //     if (folder_root == null) {
-    //         return;
-    //     }
+    private void set_project_active (string path) {
+    }
 
-    //     List<Code.TreeListItem> to_remove = null;
-    //     tree_list.iterate_children (null, (child) => {
-    //         var project_folder_item = (ProjectFolderItem) child;
-    //         if (project_folder_item != folder_root) {
-    //             activate_action (
-    //                 MainWindow.ACTION_PREFIX + MainWindow.ACTION_CLOSE_PROJECT_DOCS,
-    //                 "s",
-    //                 project_folder_item.path
-    //             );
-    //             to_remove.prepend (project_folder_item);
-    //             git_manager.remove_project (project_folder_item);
-    //         }
+    public async void restore_saved_state () {
+    }
 
-    //         return Code.TreeList.ITERATE_CONTINUE;
-    //     });
-
-    //     tree_list.remove_root_children (to_remove);
-    //     //Make remaining project the active one
-    //     set_project_active (path);
-    // }
-
-    // private void action_set_active_project (SimpleAction action, GLib.Variant? parameter) {
-    //     var path = parameter.get_string ();
-    //     if (path == null || path == "") {
-    //         return;
-    //     }
-
-    //     set_active_project (path);
-    // }
-
-    // private ProjectFolderItem? set_active_project (string path) {
-    //     var folder_root = find_path (null, path) as ProjectFolderItem;
-    //     if (folder_root == null) {
-    //         return null;
-    //     }
-
-    //     git_manager.active_project_path = path;
-
-    //     write_settings ();
-
-    //     return folder_root;
-    // }
-
-    // private void set_project_active (string path) {
-    //     activate_action (
-    //         MainWindow.ACTION_PREFIX + MainWindow.ACTION_SET_ACTIVE_PROJECT,
-    //         "s",
-    //         path
-    //     );
-    // }
-
-    // public async void restore_saved_state () {
-    //     foreach (unowned string path in settings.get_strv ("opened-folders")) {
-    //         yield add_folder (new File (path), false, true);
-    //     }
-    // }
-
-    // public void open_folder (File folder) {
-    //     if (is_open (folder)) {
-    //         var existing = find_path (null, folder.path);
-    //         if (existing is Code.TreeListItem) {
-    //             ((Code.TreeListItem)existing).is_expanded = true;
-    //         }
-
-    //         return;
-    //     }
-
-    //     add_folder.begin (folder, true);
-    // }
+    public void open_folder (File folder) {
+    }
 
     public void collapse_all () {
         tree_list.iterate_children (null, (child) => {
             child.collapse_all (true, true);
-            return Code.TreeList.ITERATE_CONTINUE;
+            return Granite.TreeList.ITERATE_CONTINUE;
         });
     }
-
-    // public void order_folders () {
-    //     if (!Scratch.saved_state.get_boolean ("order-folders")) {
-    //         return;
-    //     }
-
-    //     tree_list.sort_root_children ((a, b) => {
-    //         return strcmp (
-    //             ((ProjectFolderItem)a).name.down (),
-    //             ((ProjectFolderItem)b).name.down ()
-    //         );
-    //     });
-    // }
 
     public void select_path (string path) {
         // find_path (null, path);
@@ -245,39 +140,18 @@ public class Code.FolderTree : Gtk.Box, Code.PaneSwitcher {
         tree_list.remove_all ();
     }
 
-    private void on_popup_context_menu (Graphene.Point vp, Code.TreeListItem treelistitem) {
+    private void on_popup_context_menu (Graphene.Point vp, Granite.TreeListItem treelistitem) {
         var foldermanageritem = (Code.FolderManagerItem) treelistitem;
         var model = foldermanageritem.get_context_menu ();
         context_menu.menu_model = model;
         context_menu.pointing_to = Gdk.Rectangle () {x = (int) vp.x, y = (int) vp.y, height = 1, width = 1};
         context_menu.popup ();
     }
-    // public void collapse_other_projects () {
-    //     unowned string path;
-    //     path = git_manager.active_project_path;
 
-    //     tree_list.iterate_children (null, (child) => {
-    //         var project_folder = ((ProjectFolderItem) child);
-    //         if (project_folder.path != path) {
-    //             project_folder.is_expanded = false;
-    //             activate_action (
-    //                 Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_HIDE_PROJECT_DOCS,
-    //                 "s",
-    //                 project_folder.path
-    //             );
-    //         } else if (project_folder.path == path) {
-    //             project_folder.is_expanded = true;
-    //             activate_action (
-    //                 MainWindow.ACTION_PREFIX + MainWindow.ACTION_RESTORE_PROJECT_DOCS,
-    //                 "s",
-    //                 project_folder.path
-    //             );
-    //         }
+    public void collapse_other_projects () {
+    }
 
-    //         return Code.TreeList.ITERATE_CONTINUE;
-    //     });
-    // }
-
+    // Move to MainWindow??
     // public void branch_actions (string path) {
     //     // Must only carry out branch actions on active project so switch if necessary.
     //     //TODO Warn before switching active project?
@@ -299,6 +173,7 @@ public class Code.FolderTree : Gtk.Box, Code.PaneSwitcher {
     //     dialog.present ();
     // }
 
+    //TODO Move to Dialog or MainWindow
     // private void perform_branch_action (
     //     Scratch.Dialogs.BranchActionDialog dialog
     // ) {
@@ -325,7 +200,7 @@ public class Code.FolderTree : Gtk.Box, Code.PaneSwitcher {
     // }
 
     public FolderManagerItem? find_path (
-        Code.TreeListItem? start,
+        Granite.TreeListItem? start,
         string path, // File path to search fod
         bool expand = false // Whether to expsnd to show found item
     ) {
@@ -337,14 +212,14 @@ warning ("Folder tree find path");
         tree_list.iterate_children (start, (item) => {
             if ((item is FolderManagerItem) && item.path == path) {
                 matched_item = (FolderManagerItem) item;
-                return Code.TreeList.ITERATE_STOP;
+                return Granite.TreeList.ITERATE_STOP;
             }
 
             if (item is FolderItem) {
                 var folder = item as FolderItem;
                 var folder_root = folder.file.file;
                 if (folder_root.get_relative_path (target) == null) {
-                    return Code.TreeList.ITERATE_CONTINUE;
+                    return Granite.TreeList.ITERATE_CONTINUE;
                 }
 
                 if (!folder.is_expanded) {
@@ -352,18 +227,18 @@ warning ("Folder tree find path");
                          folder.load_children (); //Synchronous
                          folder.is_expanded = true;
                      } else {
-                         return Code.TreeList.ITERATE_CONTINUE;
+                         return Granite.TreeList.ITERATE_CONTINUE;
                      }
                  }
 
                 var recurse_item = find_path (folder, path, expand);
                 if (recurse_item != null) {
                     matched_item = recurse_item;
-                    return Code.TreeList.ITERATE_STOP;
+                    return Granite.TreeList.ITERATE_STOP;
                 }
             }
 
-            return Code.TreeList.ITERATE_CONTINUE;
+            return Granite.TreeList.ITERATE_CONTINUE;
         });
 
         return matched_item;
@@ -380,17 +255,17 @@ warning ("Folder tree find path");
     //             var folder = (ProjectFolderItem) item;
     //             if (folder.file.file.equal (file) || folder.contains_file (file)) {
     //                 matched_project = folder;
-    //                 return Code.TreeList.ITERATE_STOP;
+    //                 return Granite.TreeList.ITERATE_STOP;
     //             }
     //         }
 
-    //         return Code.TreeList.ITERATE_CONTINUE;
+    //         return Granite.TreeList.ITERATE_CONTINUE;
     //     });
 
     //     return matched_project;
     // }
 
-    public Code.TreeListItem? expand_to_path (string path) {
+    public Granite.TreeListItem? expand_to_path (string path) {
          return find_path (null, path, true);
     }
 
@@ -416,7 +291,7 @@ warning ("Folder tree find path");
         //         ((FolderItem)child).remove_all_badges ();
         //     }
 
-        //     return Code.TreeList.ITERATE_CONTINUE;
+        //     return Granite.TreeList.ITERATE_CONTINUE;
         // });
     }
 
@@ -425,7 +300,7 @@ warning ("Folder tree find path");
         //TODO Make plugins a singleton
     }
 
-    private void iterate_children (Code.TreeListItem? start, Code.TreeList.ListIteratorCallback cb) {
+    private void iterate_children (Granite.TreeListItem? start, Granite.TreeList.ListIteratorCallback cb) {
         tree_list.iterate_children (start, cb);
     }
 
@@ -513,7 +388,7 @@ warning ("Folder tree find path");
         //         }
         //     }
 
-        //     return Code.TreeList.ITERATE_CONTINUE;
+        //     return Granite.TreeList.ITERATE_CONTINUE;
         // });
 
         // item.name = item_name;
@@ -685,7 +560,7 @@ warning ("Folder tree find path");
     //             parents.append (item);
     //         }
 
-    //         return Code.TreeList.ITERATE_CONTINUE;
+    //         return Granite.TreeList.ITERATE_CONTINUE;
     //     });
 
     //     if (parents.length () > 0 || children.length () > 0) {
@@ -745,7 +620,7 @@ warning ("Folder tree find path");
     //                     rename_items_with_same_name (child_folder);
     //                 }
 
-    //                 return Code.TreeList.ITERATE_CONTINUE;
+    //                 return Granite.TreeList.ITERATE_CONTINUE;
     //             });
 
     //             Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
@@ -773,10 +648,10 @@ warning ("Folder tree find path");
     //     tree_list.iterate_children (null, (child) => {
     //         if (folder.path == ((FolderManagerItem) child).path) {
     //             open = true;
-    //             return Code.TreeList.ITERATE_STOP;
+    //             return Granite.TreeList.ITERATE_STOP;
     //         }
 
-    //         return Code.TreeList.ITERATE_CONTINUE;
+    //         return Granite.TreeList.ITERATE_CONTINUE;
     //     });
 
     //     return open;
@@ -800,7 +675,7 @@ warning ("Folder tree find path");
     //             to_save += folder_path;
     //         }
 
-    //         return Code.TreeList.ITERATE_CONTINUE;
+    //         return Granite.TreeList.ITERATE_CONTINUE;
     //     });
 
     //     settings.set_strv ("opened-folders", to_save);

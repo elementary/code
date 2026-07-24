@@ -20,21 +20,21 @@ public class Scratch.Services.CtagsSymbolIter : Object {
     public string name { get; construct set; }
     public string parent { get; construct set; }
     public int line { get; construct set; }
-    public Icon? icon { get; construct set; }
+    public string? icon_name { get; construct set; }
     public SymbolType? symbol_type;
 
     public CtagsSymbolIter (
         string name,
         string parent,
         int line,
-        Icon? icon,
+        string? _icon_name,
         SymbolType? s_type = SymbolType.OTHER) {
 
         Object (
             name: name,
             parent: parent,
             line: line,
-            icon: icon
+            icon_name: _icon_name
         );
 
         symbol_type = s_type;

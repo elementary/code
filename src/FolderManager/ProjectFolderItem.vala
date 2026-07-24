@@ -17,7 +17,7 @@
 * Authored by: David Hewitt <davidmhewitt@gmail.com>
 */
 
-// Top level items for ProjectList not derived from TreeListItem but sharing some interfaces
+// Top level items for ProjectList not derived from Granite.TreeListItem but sharing some interfaces
 // public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderManagerItemInterface {
 public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderManagerItemInterface {
     public signal void deleted ();
@@ -115,7 +115,7 @@ public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderM
         //         }
         //     }
 
-        //     return Code.TreeList.ITERATE_CONTINUE;
+        //     return Granite.TreeList.ITERATE_CONTINUE;
         // });
 
 

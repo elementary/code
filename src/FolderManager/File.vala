@@ -88,6 +88,8 @@ public class Code.File : GLib.Object {
         }
     }
 
+    //TODO Only keep icon name to match Granite.TreeListItem?
+    public string icon_name { owned get { return _icon.to_string (); }}
     // checks if file exists
     public bool exists {
         get { return file.query_exists (); }

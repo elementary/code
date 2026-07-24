@@ -59,7 +59,7 @@ public enum Scratch.Services.SymbolType {
     }
 }
 
-public interface Scratch.Services.SymbolItem : Code.TreeListItem {
+public interface Scratch.Services.SymbolItem : Granite.TreeListItem {
     public abstract SymbolType symbol_type { get; set; default = SymbolType.OTHER;}
 }
 
@@ -74,15 +74,15 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
     }
 
     public virtual void parse_symbols () {}
-    public virtual void add_tooltips (Code.TreeListItem? root) {}
+    public virtual void add_tooltips (Granite.TreeListItem? root) {}
 
     protected static SymbolType[] filters; //Initialized by derived classes
     protected Gee.HashMap<SymbolType, SimpleAction> checks;
     protected Gtk.SearchEntry search_entry;
-    protected Code.TreeList tree_list;
+    protected Granite.TreeList tree_list;
     protected Gtk.ScrolledWindow scrolled_window;
     protected Gtk.Adjustment vadj { get { return scrolled_window.vadjustment; }}
-    protected Code.TreeListItem root;
+    protected Granite.TreeListItem root;
     protected Gtk.CssProvider source_list_style_provider;
     protected bool took_too_long;
     protected void before_parse () {
@@ -120,7 +120,7 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
     SimpleActionGroup symbol_action_group;
 
     construct {
-        tree_list = new Code.TreeList ();
+        tree_list = new Granite.TreeList ();
         scrolled_window = new Gtk.ScrolledWindow () {
             child = tree_list
         };
@@ -128,8 +128,8 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         insert_action_group (ACTION_GROUP, symbol_action_group);
 
         checks = new Gee.HashMap<SymbolType, SimpleAction> ();
-        // store = new Code.TreeList ();
-        // root = new Code.TreeListItem () {
+        // store = new Granite.TreeList ();
+        // root = new Granite.TreeListItem () {
         //     text = _("Symbols")
         // };
 
@@ -237,8 +237,8 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
 
         // Do not exclude text search misses on Item with children as may
         // hide hits on its children
-        if (item is Code.TreeListItem) {
-            var expandable = (Code.TreeListItem) item;
+        if (item is Granite.TreeListItem) {
+            var expandable = (Granite.TreeListItem) item;
             if (expandable.n_children > 0) {
                 return true;
             }

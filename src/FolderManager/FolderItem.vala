@@ -174,7 +174,7 @@ public interface Code.FolderInterface : Object {
 
 }
 
-public class Code.FolderItem : FolderManagerItem, Code.FolderInterface, Code.FolderManagerItemInterface { // Ultimately a Code.TreeListItem
+public class Code.FolderItem : FolderManagerItem, Code.FolderInterface, Code.FolderManagerItemInterface { // Ultimately a Granite.TreeListItem
     public signal void children_finished_loading ();
 
     public bool loading_required {
@@ -190,12 +190,13 @@ public class Code.FolderItem : FolderManagerItem, Code.FolderInterface, Code.Fol
     private const uint RENAME_AFTER_NEW_DELAY_MSEC = 500;
     private bool children_loaded = false;
     private bool has_dummy;
-    private Code.TreeListItem dummy; /* Blank item for expanded empty folders */
+    // private Granite.TreeListItem dummy; /* Blank item for expanded empty folders */
 
     public FolderItem (File file, FolderTree view) {
         Object (
             file: file,
-            view: view
+            view: view,
+            is_expandable: true
         );
     }
 
@@ -205,12 +206,11 @@ public class Code.FolderItem : FolderManagerItem, Code.FolderInterface, Code.Fol
 
     construct {
         is_selectable = false;
-        is_expandable = true;
 
-        dummy = new Code.TreeListItem.dummy ();
-        // Must add dummy on unexpanded folders else expander will not show
-        add_child (dummy);
-        has_dummy = true;
+        // dummy = new Granite.TreeListItem.dummy ();
+        // // Must add dummy on unexpanded folders else expander will not show
+        // add_child (dummy);
+        // has_dummy = true;
 
         init_monitor_directory (file.file);
 
@@ -259,7 +259,7 @@ public class Code.FolderItem : FolderManagerItem, Code.FolderInterface, Code.Fol
     }
 
     private void add_file (File child) {
-        Code.TreeListItem item = null;
+        Granite.TreeListItem item = null;
         if (child.is_valid_directory) {
             item = new FolderItem (child, view);
         } else if (child.is_valid_textfile) {
@@ -326,11 +326,11 @@ public class Code.FolderItem : FolderManagerItem, Code.FolderInterface, Code.Fol
     // public void remove_all_badges () {
     //     view.iterate_children (this, (child) => {
     //         remove_badge (child);
-    //         return Code.TreeList.ITERATE_CONTINUE;
+    //         return Granite.TreeList.ITERATE_CONTINUE;
     //     });
     // }
 
-    // private void remove_badge (Code.TreeListItem item) {
+    // private void remove_badge (Granite.TreeListItem item) {
 
     //     if (item is FolderItem) {
     //         ((FolderItem) item).remove_all_badges ();
@@ -339,30 +339,30 @@ public class Code.FolderItem : FolderManagerItem, Code.FolderInterface, Code.Fol
     //     item.badge = "";
     // }
 
-    public override void add_child (Code.TreeListItem item) {
-        if (has_dummy) {
-            base.remove_child (dummy);
-            has_dummy = false;
-        }
+    // public override void add_child (Granite.TreeListItem item) {
+    //     if (has_dummy) {
+    //         base.remove_child (dummy);
+    //         has_dummy = false;
+    //     }
 
-        base.add_child (item);
-    }
+    //     base.add_child (item);
+    // }
 
-    // Only for removing "real" items; dummy is added/removed directly
-    public override void remove_child (Code.TreeListItem item) requires (has_dummy == false) {
-        if (item is FolderItem) {
-            var folder = (FolderItem) item;
-            folder.remove_all_children ();
-        }
+    // // Only for removing "real" items; dummy is added/removed directly
+    // public override void remove_child (Granite.TreeListItem item) requires (has_dummy == false) {
+    //     if (item is FolderItem) {
+    //         var folder = (FolderItem) item;
+    //         folder.remove_all_children ();
+    //     }
 
-        base.remove_child (item);
+    //     base.remove_child (item);
 
-        // Add back dummy if empty
-        if (has_no_children ()) {
-            base.add_child (dummy);
-            has_dummy = true;
-        }
-    }
+    //     // Add back dummy if empty
+    //     if (has_no_children ()) {
+    //         base.add_child (dummy);
+    //         has_dummy = true;
+    //     }
+    // }
 
     // public new void clear () {
     //     ((Code.Widgets.SourceList.ExpandableItem)this).clear ();
@@ -475,11 +475,11 @@ public class Code.FolderItem : FolderManagerItem, Code.FolderInterface, Code.Fol
                 var child = (Code.FolderManagerItem) obj;
                 if (child.path == path) {
                     found_item = child;
-                    return Code.TreeList.ITERATE_STOP;
+                    return Granite.TreeList.ITERATE_STOP;
                 }
             }
 
-            return Code.TreeList.ITERATE_CONTINUE;
+            return Granite.TreeList.ITERATE_CONTINUE;
         });
 
         return found_item;

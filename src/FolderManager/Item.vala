@@ -190,7 +190,7 @@ public interface Code.FolderManagerItemInterface : Object {
     }
 }
 
-public abstract class Code.FolderManagerItem: Code.TreeListItem, Code.FolderManagerItemInterface {
+public abstract class Code.FolderManagerItem: Granite.TreeListItem, Code.FolderManagerItemInterface {
     public signal void edited (string new_name);
 
     public Code.File file { get; construct; }
@@ -215,7 +215,7 @@ public abstract class Code.FolderManagerItem: Code.TreeListItem, Code.FolderMana
         is_selectable = true;
         is_editable = true;
         text = file.name;
-        icon = file.icon;
+        icon_name = file.icon_name;
         edited.connect (rename);
         tooltip = Scratch.Utils.replace_home_with_tilde (file.path);
 
@@ -241,7 +241,7 @@ public abstract class Code.FolderManagerItem: Code.TreeListItem, Code.FolderMana
         file.trash ();
     }
 
-    public int compare (Code.TreeListItem a, Code.TreeListItem  b) {
+    public int compare (Granite.TreeListItem a, Granite.TreeListItem  b) {
         // if (a is RenameItem) {
         //     return -1;
         // } else
@@ -264,7 +264,7 @@ public abstract class Code.FolderManagerItem: Code.TreeListItem, Code.FolderMana
         return false;
     }
 
-    public ProjectFolderItem? get_root_folder (Code.TreeListItem start = null) {
+    public ProjectFolderItem? get_root_folder (Granite.TreeListItem start = null) {
         if (start == null) {
             start = this;
         }
@@ -280,7 +280,7 @@ public abstract class Code.FolderManagerItem: Code.TreeListItem, Code.FolderMana
         }
     }
 
-    // protected class RenameItem : Code.TreeListItem {
+    // protected class RenameItem : Granite.TreeListItem {
     //     public bool is_folder { get; construct; }
     //     public string name { get; set construct; }
 
