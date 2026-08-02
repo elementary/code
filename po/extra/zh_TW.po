@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-21 10:12+0000\n"
-"PO-Revision-Date: 2026-03-02 12:55+0000\n"
+"PO-Revision-Date: 2026-08-03 14:41+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
 "l10n.elementaryos.org/projects/code/extra/zh_TW/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9
@@ -140,23 +140,23 @@ msgstr "改善："
 
 #: data/code.metainfo.xml.in:75
 msgid "The sidebar can now be focused using a keyboard shortcut"
-msgstr ""
+msgstr "讓側邊欄可以使用鍵盤快捷鍵來聚焦"
 
 #: data/code.metainfo.xml.in:76
 msgid ""
 "Closing a second window by headerbar or shortcut only closes that window, "
 "saving its documents"
-msgstr ""
+msgstr "確保用標頭列或快捷鍵關閉第二個視窗的時候只會關閉該視窗並儲存它的文件"
 
 #: data/code.metainfo.xml.in:77
 msgid "The system font is shown and can be selected in the Preferences dialog"
-msgstr ""
+msgstr "新增在偏好設定對話框顯示或選取系統字型的功能"
 
 #: data/code.metainfo.xml.in:78
 msgid ""
 "Improved desktop consistency and contrast by using user accent color for "
 "selections"
-msgstr ""
+msgstr "為選取範圍使用使用者的強調色，以改善桌面環境的一致性與對比"
 
 #: data/code.metainfo.xml.in:80 data/code.metainfo.xml.in:111
 #: data/code.metainfo.xml.in:132 data/code.metainfo.xml.in:161
@@ -170,7 +170,7 @@ msgstr "小型更新："
 
 #: data/code.metainfo.xml.in:82
 msgid "Closing all windows by shortcut now correctly saves all documents"
-msgstr ""
+msgstr "確保用快捷鍵關閉所有視窗時所有文件皆會正確儲存"
 
 #: data/code.metainfo.xml.in:83
 msgid ""
@@ -241,7 +241,7 @@ msgstr "新增讓專案資料夾維持持續排序的選項"
 
 #: data/code.metainfo.xml.in:134
 msgid "Absence of Terminal or Gnome settings no longer causes a crash"
-msgstr "修正沒有《終端機》或 GNOME 設定值時會崩潰的問題"
+msgstr "修正沒有《終端機》或 GNOME 設定時會崩潰的問題"
 
 #: data/code.metainfo.xml.in:135
 msgid "The terminal pane now handles the shell exiting gracefully"
