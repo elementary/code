@@ -159,6 +159,11 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
         };
         style_color_button (color_button_dark, STYLE_SCHEME_DARK);
 
+        var embolden_switch = new Granite.SwitchModelButton (_("Use Bold Font")) {
+            margin_bottom = 6
+        };
+
+
         var color_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 3) {
             homogeneous = true,
             margin_top = 6,
@@ -168,8 +173,11 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
         color_box.add (color_button_light);
         color_box.add (color_button_dark);
 
+        var theme_box = new Gtk.Box (VERTICAL, 0);
+        theme_box.add (color_box);
+
         var color_revealer = new Gtk.Revealer ();
-        color_revealer.add (color_box);
+        color_revealer.add (theme_box);
 
         var menu_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
             margin_bottom = 3,
@@ -220,6 +228,7 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
         menu_box.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
         menu_box.add (follow_system_switchmodelbutton);
         menu_box.add (color_revealer);
+        menu_box.add (embolden_switch);
         menu_box.add (panels_box);
         menu_box.add (menu_separator);
         menu_box.add (preferences_menuitem);
@@ -272,9 +281,17 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
             GLib.BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN
         );
 
+
         Scratch.settings.bind (
             "follow-system-style",
             follow_system_switchmodelbutton,
+            "active",
+            SettingsBindFlags.DEFAULT
+        );
+
+        Scratch.settings.bind (
+            "embolden-highcontrast",
+            embolden_switch,
             "active",
             SettingsBindFlags.DEFAULT
         );

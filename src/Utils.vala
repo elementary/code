@@ -29,7 +29,7 @@ namespace Scratch.Utils {
     /* Ported (with corrections and improvements) from libdazzle
      * (https://gitlab.gnome.org/GNOME/libdazzle/-/blob/master/src/util/dzl-pango.c)
      */
-    public string pango_font_description_to_css (Pango.FontDescription font_descr) {
+    public string pango_font_description_to_css (Pango.FontDescription font_descr, bool embolden = false) {
         var sb = new StringBuilder ("");
         var mask = font_descr.get_set_fields ();
         if (Pango.FontMask.FAMILY in mask) {
@@ -75,7 +75,7 @@ namespace Scratch.Utils {
         }
 
         if (Pango.FontMask.WEIGHT in mask) {
-            var weight = ((int)(font_descr.get_weight () / 100 * 100)).clamp (100, 900);
+            var weight = ((int)((font_descr.get_weight () + (embolden ? 500 : 0)) / 100 * 100)).clamp (100, 900);
 
             sb.append_printf ("font-weight: %i;", weight);
         }
