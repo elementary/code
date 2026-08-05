@@ -29,10 +29,10 @@ namespace Scratch.Services {
     }
 
     public class FileHandler : GLib.Object {
-        public static bool can_open_file (File file, out bool is_folder) {
+        public static bool can_open_file (GLib.File file, out bool is_folder) {
             is_folder = false;
-            if (file == null || file.get_path () == null) {
-                warning ("Ignoring  file %s. Cannot determine path",
+            if (file == null || file.get_path () == null || !file.query_exists ()) {
+                warning ("Ignoring  file %s. Cannot determine path or does not exist",
                     file != null ? file.get_uri () ?? "null" : "null"
                 );
 

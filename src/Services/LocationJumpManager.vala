@@ -7,9 +7,13 @@
 
 namespace Scratch {
     public class LocationJumpManager : GLib.Object {
+        // This is created by the Application and manages parsing of commandline for a range
+        // and creating a restoreoverride object to be passed to the MainWindow
+        // for a particular file
         public GLib.File file { get; set; }
         public SelectionRange range { get; set; }
 
+        // Check the settings to see whether file was previously open and will be restored
         public bool has_override_target () {
             if (file == null) {
                 return false;

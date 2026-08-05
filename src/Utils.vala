@@ -201,62 +201,6 @@ namespace Scratch.Utils {
         return false;
     }
 
-    public GLib.Menu? create_executable_app_items_for_file (GLib.File file, string file_type) {
-        var scratch_app = (Scratch.Application) (GLib.Application.get_default ());
-        var this_id = scratch_app.application_id + ".desktop";
-        var menu = new GLib.Menu ();
-
-        if (scratch_app.is_running_in_flatpak) {
-            var menu_item = new MenuItem (
-                ///TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
-                _("Show '%s' with default app").printf (file.get_basename ()),
-                GLib.Action.print_detailed_name (
-                    Scratch.FolderManager.FileView.ACTION_PREFIX
-                    + Scratch.FolderManager.FileView.ACTION_LAUNCH_APP_WITH_FILE_PATH,
-                    new GLib.Variant.array (
-                        GLib.VariantType.STRING,
-                        { file.get_path (), "" }
-                    )
-                )
-            );
-            menu.append_item (menu_item);
-        } else {
-            List<AppInfo> external_apps = null;
-            if (file_type == "") {
-                var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
-                external_apps.prepend (files_appinfo);
-            } else {
-                external_apps = GLib.AppInfo.get_all_for_type (file_type);
-                external_apps.sort ((a, b) => {
-                    return a.get_name ().collate (b.get_name ());
-                });
-            }
-
-            foreach (AppInfo app_info in external_apps) {
-                string app_id = app_info.get_id ();
-                if (app_id == this_id) {
-                    continue;
-                }
-
-                var menu_item = new MenuItem (
-                    app_info.get_name (),
-                    GLib.Action.print_detailed_name (
-                        Scratch.FolderManager.FileView.ACTION_PREFIX
-                        + Scratch.FolderManager.FileView.ACTION_LAUNCH_APP_WITH_FILE_PATH,
-                        new GLib.Variant.array (
-                            GLib.VariantType.STRING,
-                            { file.get_path (), app_id }
-                        )
-                    )
-                );
-                menu_item.set_icon (app_info.get_icon ());
-                menu.append_item (menu_item);
-            }
-        }
-
-        return menu;
-    }
-
     public void launch_app_with_file (string app_id, string path) {
         var scratch_app = (Scratch.Application) (GLib.Application.get_default ());
         if (scratch_app.is_running_in_flatpak || app_id == "") {
@@ -281,51 +225,51 @@ namespace Scratch.Utils {
         }
     }
 
-    public GLib.Menu create_contract_items_for_file (GLib.File file) {
-        var menu = new GLib.Menu ();
+    // public GLib.Menu create_contract_items_for_file (GLib.File file) {
+    //     var menu = new GLib.Menu ();
 
-        try {
-            var contracts = Granite.Services.ContractorProxy.get_contracts_for_file (file);
-            foreach (var contract in contracts) {
-                string contract_name = contract.get_display_name ();
-                var menu_item = new GLib.MenuItem (
-                    contract_name,
-                    GLib.Action.print_detailed_name (
-                        Scratch.FolderManager.FileView.ACTION_PREFIX
-                        + Scratch.FolderManager.FileView.ACTION_EXECUTE_CONTRACT_WITH_FILE_PATH,
-                        new GLib.Variant.array (
-                            GLib.VariantType.STRING,
-                            { file.get_path (), contract_name }
-                        )
-                    )
-                );
+    //     try {
+    //         var contracts = Granite.Services.ContractorProxy.get_contracts_for_file (file);
+    //         foreach (var contract in contracts) {
+    //             string contract_name = contract.get_display_name ();
+    //             var menu_item = new GLib.MenuItem (
+    //                 contract_name,
+    //                 GLib.Action.print_detailed_name (
+    //                     Code.FolderTree.ACTION_PREFIX
+    //                     + Code.ProjectList.ACTION_EXECUTE_CONTRACT_WITH_FILE_PATH,
+    //                     new GLib.Variant.array (
+    //                         GLib.VariantType.STRING,
+    //                         { file.get_path (), contract_name }
+    //                     )
+    //                 )
+    //             );
 
-                menu.append_item (menu_item);
-            }
-        } catch (Error e) {
-            warning (e.message);
-        }
+    //             menu.append_item (menu_item);
+    //         }
+    //     } catch (Error e) {
+    //         warning (e.message);
+    //     }
 
-        return menu;
-    }
+    //     return menu;
+    // }
 
-    public void execute_contract_with_file_path (string path, string contract_name) {
-        var file = GLib.File.new_for_path (path);
+    // public void execute_contract_with_file_path (string path, string contract_name) {
+    //     var file = GLib.File.new_for_path (path);
 
-        try {
-            var contracts = Granite.Services.ContractorProxy.get_contracts_for_file (file);
-            int length = contracts.size;
-            for (int i = 0; i < length; i++) {
-                var contract = contracts[i];
-                if (contract.get_display_name () == contract_name) {
-                    contract.execute_with_file (file);
-                    break;
-                }
-            }
-        } catch (Error e) {
-            warning (e.message);
-        }
-    }
+    //     try {
+    //         var contracts = Granite.Services.ContractorProxy.get_contracts_for_file (file);
+    //         int length = contracts.size;
+    //         for (int i = 0; i < length; i++) {
+    //             var contract = contracts[i];
+    //             if (contract.get_display_name () == contract_name) {
+    //                 contract.execute_with_file (file);
+    //                 break;
+    //             }
+    //         }
+    //     } catch (Error e) {
+    //         warning (e.message);
+    //     }
+    // }
 
     public string get_accel_for_action (string detailed_action_name) {
         var app_instance = (Gtk.Application) GLib.Application.get_default ();

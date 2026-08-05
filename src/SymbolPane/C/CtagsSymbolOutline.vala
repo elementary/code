@@ -40,13 +40,10 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
             SymbolType.CONSTANT
         };
     }
+
     construct {
-        store.item_selected.connect ((selected) => {
-            if (selected == null) {
-                return;
-            }
-            doc.goto (((CtagsSymbol)selected).line);
-            store.selected = null;
+        tree_list.item_activated.connect ((item) => {
+            doc.goto (((CtagsSymbol)item).line);
         });
     }
 
@@ -75,8 +72,8 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
     }
 
     private async void parse_output (GLib.Subprocess subprocess) {
-        var parent_dependent = new Gee.LinkedList<CtagsSymbolIter> ();
-        var new_root = new Code.Widgets.SourceList.ExpandableItem (_("Symbols"));
+        var symboliter_list = new Gee.LinkedList<CtagsSymbolIter> ();
+        var new_root = new Granite.TreeListItem () { text = _("Symbols") };
 
         var datainput = new GLib.DataInputStream (subprocess.get_stdout_pipe ());
         try {
@@ -96,72 +93,72 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
                 var type = parts[3];
                 int line = int.parse (parts[4].offset ("line:".length));
                 string? parent = null;
-                GLib.Icon? parent_icon = null;
+                string? parent_icon_name = null;
                 SymbolType? parent_s_type = null;
                 if (parts.length > 5 && parts[5] != null) {
                     if ("typeref:" in parts[5]) {
                         parent = parts[5].offset ("typeref:".length);
                     } else if ("class:" in parts[5]) {
                         parent = parts[5].offset ("class:".length);
-                        parent_icon = new ThemedIcon ("lang-class");
+                        parent_icon_name = "lang-class";
                         parent_s_type = SymbolType.CLASS;
                     } else if ("struct:" in parts[5]) {
                         parent = parts[5].offset ("struct:".length);
-                        parent_icon = new ThemedIcon ("lang-struct");
+                        parent_icon_name = "lang-struct";
                         parent_s_type = SymbolType.STRUCT;
                     } else if ("enum:" in parts[5]) {
                         parent = parts[5].offset ("enum:".length);
-                        parent_icon = new ThemedIcon ("lang-enum");
+                        parent_icon_name = "lang-enum";
                         parent_s_type = SymbolType.ENUM;
                     }
                 }
 
-                Icon? icon = null;
+                string? icon_name = null;
                 SymbolType? s_type = null;
                 switch (type) {
                     case "class":
-                        icon = new ThemedIcon ("lang-class");
+                        icon_name = "lang-class";
                         s_type = SymbolType.CLASS;
                         break;
                     case "struct":
-                        icon = new ThemedIcon ("lang-struct");
+                        icon_name = "lang-struct";
                         s_type = SymbolType.STRUCT;
                         break;
                     case "field":
                     case "member":
                     case "variable":
-                        icon = new ThemedIcon ("lang-property");
+                        icon_name = "lang-property";
                         s_type = SymbolType.PROPERTY;
                         break;
                     case "enum":
                     case "enumerator":
-                        icon = new ThemedIcon ("lang-enum");
+                        icon_name = "lang-enum";
                         s_type = SymbolType.ENUM;
                         break;
                     case "macro":
                     case "constant":
                     case "typedef":
-                        icon = new ThemedIcon ("lang-constant");
+                        icon_name = "lang-constant";
                         s_type = SymbolType.CONSTANT;
                         break;
                     case "constructor":
-                        icon = new ThemedIcon ("lang-constructor");
+                        icon_name = "lang-constructor";
                         s_type = SymbolType.CONSTRUCTOR;
                         break;
                     case "destructor":
                     case "method":
                     case "function":
-                        icon = new ThemedIcon ("lang-method");
+                        icon_name = "lang-method";
                         s_type = SymbolType.METHOD;
                         break;
                     case "namespace":
-                        icon = new ThemedIcon ("lang-namespace");
+                        icon_name = "lang-namespace";
                         s_type = SymbolType.NAMESPACE;
                         break;
                     case "package":
                         break;
                     case "property":
-                        icon = new ThemedIcon ("lang-property");
+                        icon_name = "lang-property";
                         s_type = SymbolType.PROPERTY;
                         break;
                 }
@@ -171,16 +168,16 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
                         doc,
                         name,
                         line,
-                        icon,
+                        icon_name,
                         s_type
                     );
-                    new_root.add (s);
+                    new_root.add_child (s);
                 } else {
-                    parent_dependent.add (new CtagsSymbolIter (
+                    symboliter_list.add (new CtagsSymbolIter (
                         name,
                         parent,
                         line,
-                        parent_icon,
+                        parent_icon_name,
                         parent_s_type
                     ));
                 }
@@ -191,9 +188,9 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
         }
 
         var found_something = true;
-        while (found_something && parent_dependent.size > 0) {
+        while (found_something && symboliter_list.size > 0) {
             found_something = false;
-            var iter = parent_dependent.iterator ();
+            var iter = symboliter_list.iterator ();
             while (iter.has_next ()) {
                 iter.next ();
                 var i = iter.get ();
@@ -201,11 +198,11 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
                 var parent = find_existing (i.parent, new_root);
                 if (parent != null) {
                     found_something = true;
-                    parent.add (new CtagsSymbol (
+                    parent.add_child (new CtagsSymbol (
                         doc,
                         i.name,
                         i.line,
-                        i.icon,
+                        i.icon_name,
                         i.symbol_type
                     ));
                     iter.remove ();
@@ -214,16 +211,16 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
                         var parent_parts = i.parent.split (":", 2);
                         parent = find_existing (parent_parts[1], new_root);
                         if (parent != null) {
-                            parent.name = i.name;
+                            parent.text = i.name;
                             switch (parent_parts[0]) {
                                 case "class":
-                                    parent.icon = new ThemedIcon ("lang-class");
+                                    parent.icon_name = "lang-class";
                                     break;
                                 case "struct":
-                                    parent.icon = new ThemedIcon ("lang-struct");
+                                    parent.icon_name = "lang-struct";
                                     break;
                                 case "enum":
-                                    parent.icon = new ThemedIcon ("lang-enum");
+                                    parent.icon_name = "lang-enum";
                                     break;
                             }
                             iter.remove ();
@@ -236,16 +233,16 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
                             doc,
                             i.parent,
                             i.line - 1,
-                            new ThemedIcon ("lang-enum"),
+                            "lang-enum",
                             SymbolType.ENUM
                         );
-                        new_root.add (e);
+                        new_root.add_child (e);
 
-                        e.add (new CtagsSymbol (
+                        e.add_child (new CtagsSymbol (
                             doc,
                             i.name,
                             i.line,
-                            i.icon,
+                            i.icon_name,
                             i.symbol_type
                         ));
                         iter.remove ();
@@ -255,40 +252,39 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
         }
 
         // just add the rest
-        foreach (var symbol in parent_dependent) {
-            new_root.add (new CtagsSymbol (
+        foreach (var symbol in symboliter_list) {
+            new_root.add_child (new CtagsSymbol (
                 doc,
                 symbol.name,
                 symbol.line,
-                symbol.icon,
+                symbol.icon_name,
                 symbol.symbol_type
             ));
         }
 
         Idle.add (() => {
-            double adjustment_value = store.vadjustment.value;
-            store.root.clear ();
-            store.root.add (new_root);
-            store.root.expand_all ();
-            store.vadjustment.set_value (adjustment_value);
+            double adjustment_value = vadj.value;
+            tree_list.remove_all ();
+            tree_list.add_root_item (new_root);
+            // store.root.expand_all ();
+            vadj.set_value (adjustment_value);
 
             destroy_root (root);
             root = new_root;
 
-            add_tooltips (store.root);
+            add_tooltips (null);
             return false;
         });
     }
 
-    protected override void add_tooltips (Code.Widgets.SourceList.ExpandableItem root) {
-        foreach (var parent in root.children) {
-            if (parent is Code.Widgets.SourceList.ExpandableItem) {
-                add_tooltip ((Code.Widgets.SourceList.ExpandableItem) parent);
-            }
-        }
+    protected override void add_tooltips (Granite.TreeListItem? root) {
+        tree_list.iterate_children (root, (child) => {
+            add_tooltip (child);
+            return Granite.TreeList.ITERATE_CONTINUE;
+        });
     }
 
-    private void add_tooltip (Code.Widgets.SourceList.ExpandableItem parent) {
+    private void add_tooltip (Granite.TreeListItem parent) {
         if (parent is CtagsSymbol) {
             var item = ((CtagsSymbol)parent);
             var start = item.line;
@@ -311,39 +307,45 @@ public class Scratch.Services.CtagsSymbolOutline : Scratch.Services.SymbolOutlin
         add_tooltips (parent);
     }
 
-    private void destroy_root (Code.Widgets.SourceList.ExpandableItem to_destroy) {
-        var children = iterate_children (to_destroy);
-        to_destroy.clear ();
+    private void destroy_root (Granite.TreeListItem to_destroy) {
+        var children = collect_children (to_destroy);
+        to_destroy.remove_all_children ();
         foreach (var item in children) {
-            item.clear ();
+            item.remove_all_children ();
             var parent = item.parent;
             if (parent != null) {
-                parent.remove (item);
+                parent.remove_child (item);
             }
         }
     }
 
-    private Gee.TreeSet<CtagsSymbol> iterate_children (Code.Widgets.SourceList.ExpandableItem parent) {
+    private Gee.TreeSet<CtagsSymbol> collect_children (Granite.TreeListItem? parent) {
         var result = new Gee.TreeSet<CtagsSymbol> ();
-        foreach (var child in parent.children) {
-            result.add_all (iterate_children ((CtagsSymbol)child));
-        }
+        tree_list.iterate_children (parent, (child) => {
+            result.add_all (collect_children ((CtagsSymbol)child));
+            return Granite.TreeList.ITERATE_CONTINUE;
+        });
         return result;
     }
 
-    CtagsSymbol? find_existing (string name, Code.Widgets.SourceList.ExpandableItem parent) {
+    CtagsSymbol? find_existing (string name, Granite.TreeListItem parent) {
         CtagsSymbol match = null;
-        foreach (var child in parent.children) {
-            var child_symbol = child as CtagsSymbol;
-            if (child_symbol.name == name) {
+        // foreach (var child in parent.children) {
+        tree_list.iterate_children (parent, (child) => {
+            var child_symbol = (CtagsSymbol) child;
+            if (child_symbol.text == name) {
                 match = child_symbol;
-                break;
+                return Granite.TreeList.ITERATE_STOP;
             } else {
                 var res = find_existing (name, child_symbol);
-                if (res != null)
-                    return res;
+                if (res != null) {
+                    match = res;
+                    return Granite.TreeList.ITERATE_STOP;
+                }
             }
-        }
+
+            return Granite.TreeList.ITERATE_CONTINUE;
+        });
 
         return match;
     }

@@ -283,7 +283,7 @@ namespace Scratch.Services {
             var fc = new Gtk.EventControllerFocus ();
             source_view.add_controller (fc);
             fc.enter.connect (() => {
-                return_if_fail (!locked);
+                if (locked) { return; } // Not an error
                 if (fc.is_focus) {
                     if (!is_file_temporary) {
                         check_undoable_actions ();

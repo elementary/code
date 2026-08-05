@@ -40,6 +40,11 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Scratch.Services.A
         plugins = (Scratch.Services.Interface) object;
 
         plugins.hook_window.connect ((w) => {
+            if (w.sidebar == null) {
+                warning ("sidebar is NULL");
+                return;
+            }
+
             if (window != null) {
                 return;
             }
@@ -89,6 +94,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Scratch.Services.A
 
         fuzzy_menuitem = new GLib.MenuItem (_("Find Project Files"), ACTION_PREFIX + ACTION_SHOW );
 
+        warning ("get sidebar project_model.sidebar is %s null", window.sidebar != null ? "NOT" : "");
         var menu = window.sidebar.project_menu_model as GLib.Menu;
         menu.append_item (fuzzy_menuitem);
     }
@@ -126,10 +132,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Scratch.Services.A
 
         var popover = new Scratch.FuzzySearchPopover (indexer, window);
         popover.open_file.connect ((filepath) => {
-            var file = new Scratch.FolderManager.File (filepath);
-            var doc = new Scratch.Services.Document (window.actions, file.file);
-
-            window.open_document.begin (doc);
+            window.document_view.open_document.begin (filepath);
             popover.popdown ();
         });
 

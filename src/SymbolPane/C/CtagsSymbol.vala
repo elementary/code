@@ -16,7 +16,7 @@
  *
  */
 
-public class Scratch.Services.CtagsSymbol : Code.Widgets.SourceList.ExpandableItem, Scratch.Services.SymbolItem {
+public class Scratch.Services.CtagsSymbol : Granite.TreeListItem, Scratch.Services.SymbolItem {
     public Scratch.Services.Document doc { get; construct set; }
     public SymbolType symbol_type { get; set; default = SymbolType.OTHER; }
     public int line { get; construct set; }
@@ -25,16 +25,16 @@ public class Scratch.Services.CtagsSymbol : Code.Widgets.SourceList.ExpandableIt
         Scratch.Services.Document doc,
         string name,
         int line,
-        Icon? _icon,
+        string _icon_name,
         SymbolType? s_type = null) {
 
         Object (
             doc: doc,
-            name: name,
+            text: name,
             line: line
         );
 
-        icon = _icon;
+        icon_name = _icon_name;
         if (s_type != null) {
             symbol_type = s_type;
         }

@@ -43,11 +43,11 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
     }
 
     public bool can_apply { get; set; default = false; }
-    public FolderManager.ProjectFolderItem project { get; construct; }
+    public Code.ProjectFolderItem project { get; construct; }
 
     private Gtk.Stack stack;
 
-    public BranchActionDialog (FolderManager.ProjectFolderItem project) {
+    public BranchActionDialog (Code.ProjectFolderItem project) {
         Object (
             project: project,
             modal: true

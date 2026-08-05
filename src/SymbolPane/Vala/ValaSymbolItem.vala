@@ -16,7 +16,7 @@
  *
  */
 
-public class Scratch.Services.ValaSymbolItem : Code.Widgets.SourceList.ExpandableItem, Code.Widgets.SourceListSortable, Scratch.Services.SymbolItem {
+public class Scratch.Services.ValaSymbolItem : Granite.TreeListItem, Scratch.Services.SymbolItem {
     public Vala.Symbol symbol { get; construct; }
     public SymbolType symbol_type { get; set; default = SymbolType.OTHER; }
     public ValaSymbolItem (Vala.Symbol symbol, string _tooltip) {
@@ -30,82 +30,86 @@ public class Scratch.Services.ValaSymbolItem : Code.Widgets.SourceList.Expandabl
         if (symbol is Vala.CreationMethod) {
             var klass = ((Vala.CreationMethod)symbol).class_name;
             if (symbol.name == ".new") {
-                name = klass;
+                text = klass;
             } else {
-                name = "%s.%s".printf (klass, symbol.name);
+                text = "%s.%s".printf (klass, symbol.name);
             }
         } else {
-            name = symbol.name;
+            text = symbol.name;
         }
 
         if (symbol is Vala.Struct) {
-            icon = new ThemedIcon ("lang-struct");
+            icon_name = "lang-struct";
+            // icon_name = "lang-struct");
             symbol_type = SymbolType.STRUCT;
         } else if (symbol is Vala.Class) {
             if (((Vala.Class) symbol).is_abstract) {
-                icon = new ThemedIcon ("lang-class-abstract");
+                // icon_name = "lang-class-abstract");
+                icon_name = "lang-class-abstract";
             } else {
-                icon = new ThemedIcon ("lang-class");
+                icon_name = "lang-class";
             }
 
             symbol_type = SymbolType.CLASS;
         } else if (symbol is Vala.Constant) {
-            icon = new ThemedIcon ("lang-constant");
+            icon_name = "lang-constant";
             symbol_type = SymbolType.CONSTANT;
         } else if (symbol is Vala.Enum) {
-            icon = new ThemedIcon ("lang-enum");
+            icon_name = "lang-enum";
             symbol_type = SymbolType.ENUM;
         } else if (symbol is Vala.Field) {
-            icon = new ThemedIcon ("lang-property");
+            icon_name = "lang-property";
             symbol_type = SymbolType.PROPERTY;
         } else if (symbol is Vala.Interface) {
-            icon = new ThemedIcon ("lang-interface");
+            icon_name = "lang-interface";
             symbol_type = SymbolType.INTERFACE;
         } else if (symbol is Vala.Property) {
             if (((Vala.Property) symbol).is_abstract) {
-                icon = new ThemedIcon ("lang-property-abstract");
+                icon_name = "lang-property-abstract";
             } else if (((Vala.Property) symbol).is_virtual) {
-                icon = new ThemedIcon ("lang-property-virtual");
+                icon_name = "lang-property-virtual";
             } else {
-                icon = new ThemedIcon ("lang-property");
+                icon_name = "lang-property";
             }
 
             symbol_type = SymbolType.PROPERTY;
         } else if (symbol is Vala.Signal) {
-            icon = new ThemedIcon ("lang-signal");
+            icon_name = "lang-signal";
             symbol_type = SymbolType.SIGNAL;
         } else if (symbol is Vala.CreationMethod) {
-            icon = new ThemedIcon ("lang-constructor");
+            icon_name = "lang-constructor";
             symbol_type = SymbolType.CONSTRUCTOR;
         } else if (symbol is Vala.Method) {
             if (((Vala.Method) symbol).is_abstract) {
-                icon = new ThemedIcon ("lang-method-abstract");
+                icon_name = "lang-method-abstract";
             } else if (((Vala.Method) symbol).is_virtual) {
-                icon = new ThemedIcon ("lang-method-virtual");
+                icon_name = "lang-method-virtual";
             } else if (((Vala.Method) symbol).binding == Vala.MemberBinding.STATIC) {
-                icon = new ThemedIcon ("lang-method-static");
+                icon_name = "lang-method-static";
             } else {
-                icon = new ThemedIcon ("lang-method");
+                icon_name = "lang-method";
             }
 
             symbol_type = SymbolType.METHOD;
         } else if (symbol is Vala.Namespace) {
-            icon = new ThemedIcon ("lang-namespace");
+            icon_name = "lang-namespace";
             symbol_type = SymbolType.NAMESPACE;
         } else if (symbol is Vala.ErrorDomain) {
-            icon = new ThemedIcon ("lang-errordomain");
+            icon_name = "lang-errordomain";
         } else if (symbol is Vala.Delegate) {
-            icon = new ThemedIcon ("lang-delegate");
+            icon_name = "lang-delegate";
         } else {
             warning (symbol.type_name);
         }
+
+        warning ("new symbol text %s", text);
     }
 
     ~ValaSymbolItem () {
         debug ("Destroy Vala symbol");
     }
 
-    public int compare (Code.Widgets.SourceList.Item a, Code.Widgets.SourceList.Item b) {
+    public int compare (Granite.TreeListItem a, Granite.TreeListItem b) {
         return ValaComparison.sort_function (a, b);
     }
 

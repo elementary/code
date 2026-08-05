@@ -178,16 +178,18 @@ namespace Scratch {
             var window = get_last_window ();
             foreach (var file in files) {
                 bool is_folder;
+                var path = file.get_uri ();
                 if (Scratch.Services.FileHandler.can_open_file (file, out is_folder)) {
                     if (is_folder) {
-                        window.open_folder (file);
+                        window.open_folder_as_project (file); // Opens in sidebar not as documents
                     } else {
                         debug ("Files length: %d\n", files.length);
-                        var doc = new Scratch.Services.Document (window.actions, file);
+                        // var doc = new Scratch.Services.Document (window.actions, file);
                         if (location_jump_manager.has_selection_range != null && files.length == 1) {
-                            window.open_document_at_selected_range.begin (doc, true, location_jump_manager.range);
+                            // We know file exists so we do not need to check again
+                            window.document_view.open_document.begin (path, true, 0, location_jump_manager.range);
                         } else {
-                            window.open_document.begin (doc);
+                            window.document_view.open_document.begin (path);
                         }
                     }
                 }
@@ -229,6 +231,24 @@ namespace Scratch {
             remove_window (window_to_close);
             window_to_close.destroy ();
             return true;
+        }
+
+        public bool can_rename_file (Code.File file) {
+            // folder_manager_view.rename_request.connect ((file) => {
+            var allow = true;
+            foreach (var window in get_windows ()) {
+                var win = (MainWindow)window;
+                foreach (var doc in win.document_view.docs) {
+                    if (doc.file.equal (file.file)) {
+                        // Only allow sidebar to rename docs that are in sync with their file in
+                        // all windows
+                        allow = allow && !doc.locked && doc.saved;
+                    }
+                }
+            }
+
+            return allow;
+            // });
         }
 
         public static int main (string[] args) {

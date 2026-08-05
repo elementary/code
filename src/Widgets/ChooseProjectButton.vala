@@ -51,6 +51,7 @@ public class Code.ChooseProjectButton : Gtk.Box {
         box.append (label_widget);
         box.append (cloning_spinner);
         menu_button = new Gtk.MenuButton () {
+            hexpand = true,
             child = box
         };
         menu_button.set_parent (this);
@@ -115,8 +116,8 @@ public class Code.ChooseProjectButton : Gtk.Box {
         var src = git_manager.project_liststore;
         for (int index = 0; index < src.n_items; index++) {
             var item = src.get_object (index);
-            if (item is Scratch.FolderManager.ProjectFolderItem) {
-                var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item);
+            if (item is Code.ProjectFolderItem) {
+                var row = create_project_row ((Code.ProjectFolderItem)item);
                 project_listbox.insert (row, index);
             }
         }
@@ -125,8 +126,8 @@ public class Code.ChooseProjectButton : Gtk.Box {
             project_listbox.remove_all ();
             for (int index = (int)pos; index < pos + n_added; index++) {
                 var item = src.get_object (index);
-                if (item is Scratch.FolderManager.ProjectFolderItem) {
-                    var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item);
+                if (item is Code.ProjectFolderItem) {
+                    var row = create_project_row ((Code.ProjectFolderItem)item);
                     project_listbox.insert (row, index);
                 }
             }
@@ -161,7 +162,7 @@ public class Code.ChooseProjectButton : Gtk.Box {
         }
     }
 
-    private Gtk.Widget create_project_row (Scratch.FolderManager.ProjectFolderItem project_folder) {
+    private Gtk.Widget create_project_row (Code.ProjectFolderItem project_folder) {
         var project_path = project_folder.file.file.get_path ();
         return new ProjectRow (project_path);
     }
