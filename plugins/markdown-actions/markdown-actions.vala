@@ -95,24 +95,26 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         if (keyval == Gdk.Key.Return) {
             char ul_marker;
             int indent_spaces, ol_number;
+            string prefix;
             string item_text;
             var line = get_current_line ();
-            if (parse_unordered_list_item (line, out ul_marker, out indent_spaces)) {
+
+            if (parse_ordered_list_item (line, out ol_number, out item_text, out prefix, null)) {
+                if (item_text.length == 0) {
+                    delete_empty_item ();
+                } else {
+                    string to_insert = "\n%s%d. ".printf (prefix, ++ol_number);
+                    current_source.buffer.insert_at_cursor (to_insert, to_insert.length);
+                    // Check following lines to see if renumbering required
+                    fix_ordered_list_numbering (prefix.length, ol_number);
+                }
+                return true;
+            } else if (parse_unordered_list_item (line, out ul_marker, out indent_spaces)) {
                 if (line.length <= 3) { // empty item
                     delete_empty_item ();
                 } else {
                     string to_insert = "\n%s%c ".printf (string.nfill (indent_spaces, ' '), ul_marker);
                     current_source.buffer.insert_at_cursor (to_insert, to_insert.length);
-                }
-                return true;
-            } else if (parse_ordered_list_item (line, out ol_number, out item_text, out indent_spaces, null)) {
-                if (item_text.length == 0) {
-                    delete_empty_item ();
-                } else {
-                    string to_insert = "\n%s%d. ".printf (string.nfill (indent_spaces, ' '), ++ol_number);
-                    current_source.buffer.insert_at_cursor (to_insert, to_insert.length);
-                    // Check following lines to see if renumbering required
-                    fix_ordered_list_numbering (indent_spaces, ol_number);
                 }
                 return true;
             }
@@ -139,27 +141,27 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         var current_buffer = current_source.buffer;
 
         current_buffer.get_iter_at_offset (out next, current_buffer.cursor_position);
-        int point_offset = 0, next_indent_spaces = 0, count = inserted_number, next_count = 0;
-        string item_text = "";
+        int point_offset = 0, count = inserted_number, next_count = 0;
+        string item_text = "", next_prefix = "";
         // Search for ordered list lines at the same level until level falls below or end of doc
         while (next.forward_line () &&
                parse_ordered_list_item (
                     get_current_line (next),
                     out next_count,
                     out item_text,
-                    out next_indent_spaces,
+                    out next_prefix,
                     out point_offset
                 ) &&
-               next_indent_spaces >= indent_spaces
+               next_prefix.length >= indent_spaces
         ) {
             // Only update lines at same indent within same block
-            if (next_indent_spaces == indent_spaces) {
+            if (next_prefix.length == indent_spaces) {
                 count++;
                 next.forward_chars (indent_spaces);
                 var next_mark = current_buffer.create_mark (null, next, true);
                 var start = next;
                 var end = start;
-                end.forward_chars (point_offset);
+                end.forward_chars (point_offset - indent_spaces);
 
                 current_buffer.delete (ref start, ref end);
                 current_buffer.get_iter_at_mark (out next, next_mark);
@@ -182,19 +184,19 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         end = start;
         end.forward_to_line_end ();
 
-        return current_buffer.get_text (start, end, false);
+        var cl = current_buffer.get_text (start, end, false);
+        return cl;
     }
 
     private bool parse_ordered_list_item (
         string line,
         out int current_number,
         out string item_text,
-        out int indent_spaces,
+        out string prefix,
         out int first_point_pos
     ) {
-
         item_text = "";
-        indent_spaces = -1;
+        prefix = "";
         current_number = -1;
         first_point_pos = line.index_of_char ('.'); //TODO Handle ")"  Ignored escaped?
 
@@ -206,12 +208,13 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         item_text = line.substring (first_point_pos + 1).strip ();
 
         var line_start = line.substring (0, first_point_pos);
-        indent_spaces = line_start.last_index_of_char (' ') + 1;
+        line_start = line_start.replace ("-", " ").replace ("*", " ");
+        prefix = line.substring (0, line_start.last_index_of_char (' ') + 1);
         if (!int.try_parse (line_start, out current_number)) {
             return false;
         }
 
-        return indent_spaces >= 0 && current_number >= 1;
+        return current_number >= 1;
     }
 
     private bool parse_unordered_list_item (string line, out char ul_marker, out int indent_spaces) {
