@@ -3,73 +3,6 @@
  * SPDX-FileCopyrightText: 2026 elementary, Inc. <https://elementary.io>
  */
 
-// //TODO Can we just use ProjectFolderItems direct?
-// public class Code.ProjectListItem : Object {
-//     public ProjectFolderItem project_folder { get; set construct; }
-//     public ProjectList view { get; set construct; } // Needed to activate actions
-//     public string path { get; construct; }
-//     public GLib.File gfile { get { return project_folder.file.file; }}
-
-//     private Code.FolderTree folder_tree;
-//     private Scratch.Services.GitManager git_manager;
-//     private bool is_expanded { get; set; }
-//     private bool is_active_project { get { return git_manager.active_project_path == path; } }
-
-//     public ProjectListItem (string path, ProjectList view) {
-//         Object (
-//             path: path,
-//             view: view
-//         );
-//     }
-
-//     construct {
-//         folder_tree = new FolderTree (path);
-//         git_manager = Scratch.Services.GitManager.get_instance ();
-
-//         // ProjectFolderItem constructor adds project to GitManager
-//         var project_folder = new ProjectFolderItem (new Code.File (path), folder_tree);
-
-//         // Closed signal emitted when project folder is externally deleted
-//         project_folder.deleted.connect (() => {
-//             folder_tree.remove_all ();
-//             view.item_deleted (this);
-//         });
-
-//     }
-
-//     public bool is_or_contains_file (GLib.File gfile) {
-//         return path == gfile.get_path () || folder_tree.contains_file (gfile);
-//     }
-
-//     public void collapse_all () {
-//         // folder_tree.collapse_all ();
-//         is_expanded = false;
-//     }
-
-//     public void expand_all () {
-//         // folder_tree.expand_all ();
-//         is_expanded = true;
-//     }
-
-//     // Does not remove from liststore - that is up to ProjectList
-//     public void close () {
-//         folder_tree.remove_all ();
-//         git_manager.remove_project (project_folder); // Takes care of active_project?
-//     }
-
-//     public void set_as_active_project () {
-//         git_manager.active_project_path = path;
-//     }
-
-//     public FolderManagerItem? find_path (
-//         string path, // File path to search fod
-//         bool expand = false // Whether to expsnd to show found item
-//         // GLib.File? target_file = null // Alternatively find this file
-//     ) {
-//         return folder_tree.find_path (null, path, expand);
-//     }
-// }
-
 namespace Code {
     // All project related actions handled in ProjectFolderItem
     public const string PROJECT_ACTION_GROUP = "project";
@@ -92,15 +25,15 @@ namespace Code {
 }
 /* ProjectList is a flat list of FolderTrees each representing a single project */
 public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
-    // Moved from folder tree to shared top widget
-    // public signal bool rename_request (Code.File file);
-
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_CLOSE_PROJECT_FOLDER, action_close_project_folder, "s"},
         { ACTION_CLOSE_OTHER_PROJECT_FOLDERS, action_close_other_project_folders, "s"}
     };
 
-    public const string CLOSE_PROJECT_DOCS_ACTION_NAME = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_CLOSE_PROJECT_DOCS;
+    public const string CLOSE_PROJECT_DOCS_ACTION_NAME =
+        Scratch.MainWindow.ACTION_PREFIX +
+        Scratch.MainWindow.ACTION_CLOSE_PROJECT_DOCS
+    ;
 
     public SimpleActionGroup actions { get; private set; }
     public bool is_empty { get { return list_store.n_items == 0; } }
@@ -116,7 +49,6 @@ public class Code.ProjectList : Granite.Bin, Code.PaneSwitcher {
 
     private GLib.Settings settings;
     private Scratch.Services.PluginsManager plugins;
-
 
     // public ProjectList (Scratch.Services.PluginsManager plugins_manager) {
     //     plugins = plugins_manager;

@@ -45,13 +45,6 @@ public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderM
     public GLib.File gfile { get { return file.file; }}
     public string secondary_text { get; private set; }
 
-    // private static Icon added_icon;
-    // private static Icon modified_icon;
-    // static construct {
-    //     added_icon = new ThemedIcon ("emblem-git-new-symbolic");
-    //     modified_icon = new ThemedIcon ("emblem-git-modified-symbolic");
-    // }
-
     private struct VisibleItem {
         public string rel_path;
         public FolderManagerItem item;
@@ -82,8 +75,6 @@ public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderM
         file.notify["name"].connect (branch_or_name_changed);
         if (monitored_repo != null) {
             monitored_repo.branch_changed.connect (branch_or_name_changed);
-            // monitored_repo.ignored_changed.connect ((deprioritize_git_ignored));
-            // monitored_repo.file_status_change.connect (() => update_item_status (null));
             monitored_repo.update_status_map ();
             monitored_repo.branch_changed ();
         }
@@ -102,28 +93,6 @@ public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderM
         if (monitored_repo != null) {
             monitored_repo.update_status_map ();
         }
-    }
-
-    //TODO Move to FolderTree
-    public void after_child_folder_loaded (FolderItem folder) {
-        // view.iterate_children (folder, (child) => {
-        //     if (child is FolderManagerItem) {
-        //         var item = (FolderManagerItem)child;
-        //         var rel_path = this.file.file.get_relative_path (item.file.file);
-        //         if (rel_path != null && rel_path != "") {
-        //             visible_item_list.prepend ({rel_path, item});
-        //         }
-        //     }
-
-        //     return Granite.TreeList.ITERATE_CONTINUE;
-        // });
-
-
-        // if (monitored_repo != null) {
-        //     monitored_repo.update_status_map ();
-        //     update_item_status (folder);
-        //     deprioritize_git_ignored ();
-        // }
     }
 
     // warning ("returns a menu model");
@@ -321,69 +290,17 @@ public class Code.ProjectFolderItem : Object, Code.FolderInterface, Code.FolderM
         // return null;
     }
 
-    public void update_item_status () {
-        // var status = folder_tree.update_status ();
-        //TODO update appearance according to global status
-    }
-    // public void update_item_status (FolderItem? start_folder) {
-    //     if (monitored_repo == null) {
-    //         debug ("Ignore non-git folders");
-    //         return;
-    //     }
-    //     bool is_new = false;
-    //     string start_path = start_folder != null ? start_folder.path : "";
-    //     visible_item_list.@foreach ((visible_item) => {
-    //         if (start_path.has_prefix (visible_item.rel_path)) {
-    //             return; //Only need to update status for start_folder and its children
-    //         }
-
-    //         var item = visible_item.item;
-    //         // item.secondary_icon = null;
-    //         monitored_repo.non_current_entries.@foreach ((entry) => {
-    //             // Match non_current_path with parent folder as well as itself
-    //             var match = entry.key.has_prefix (visible_item.rel_path);
-    //             if (match) {
-    //                 is_new = (entry.@value & (Ggit.StatusFlags.WORKING_TREE_NEW | Ggit.StatusFlags.INDEX_NEW)) > 0;
-    //                 // Only mark folders new if only contains new items otherwise mark modified
-    //                 if (item is FolderItem &&
-    //                     is_new && item.secondary_icon == null) {
-
-    //                     item.secondary_icon = added_icon;
-    //                     item.secondary_icon_tooltip = _("New");
-    //                     return true;  // scan all children
-    //                 }
-
-    //                 if (!(item is FolderItem) || !item.is_expanded) { //No need to show status when children shown
-    //                     item.secondary_icon = is_new ? added_icon : modified_icon;
-    //                     item.secondary_icon_tooltip = is_new ? _("New") : _("Modified");
-    //                 }
-    //                 return false;
-    //             } else {
-    //                 return true;
-    //             }
-    //         });
-    //     });
+    // public void update_item_status () {
+    //     // var status = folder_tree.update_status ();
+    //     //TODO update appearance according to global status
     // }
+
+
 
     // This assumes the descendant exists
     public bool contains_file (GLib.File descendant) {
         return file.file.get_relative_path (descendant) != null;
     }
-
-    // private void deprioritize_git_ignored () requires (monitored_repo != null) {
-    //     visible_item_list.@foreach ((visible_item) => {
-    //         var item = visible_item.item;
-    //         try {
-    //             if (monitored_repo.path_is_ignored (visible_item.rel_path)) {
-    //                 deprioritize = true;
-    //             } else {
-
-    //             }
-    //         } catch (Error e) {
-    //             warning ("An error occurred while checking if item '%s' is git-ignored: %s", item.name, e.message);
-    //         }
-    //     });
-    // }
 
     public bool checkout_branch_ref (Ggit.Ref branch_ref) {
         if (branch_ref.is_branch ()) {

@@ -18,7 +18,9 @@ public class Code.FolderTreeItem : Granite.TreeListItem {
 
 public class Code.FolderTree : Gtk.Box, Code.PaneSwitcher {
     public signal void file_activate (File file);
-    // All file related actions handled here
+
+    private static string ADDED_ICON_NAME = "emblem-git-new-symbolic";
+    private static string MODIFIED_ICON_NAME = "emblem-git-modified-symbolic";
 
     //PaneSwitcher properties (not currently used)
     public string icon_name { get; set; }
@@ -28,6 +30,11 @@ public class Code.FolderTree : Gtk.Box, Code.PaneSwitcher {
     public string root_path { get { return project.path; } }
     public bool is_empty { get { return tree_list.n_root_items () == 0; } }
     public ProjectFolderItem project { get; construct; }
+    private Scratch.Services.MonitoredRepository monitored_repo {
+        get {
+            return project.monitored_repo;
+        }
+    }
 
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_RENAME_FILE, action_rename_file, "s" },
@@ -89,6 +96,84 @@ public class Code.FolderTree : Gtk.Box, Code.PaneSwitcher {
             } else if (child_file.is_valid_textfile) {
                 tree_list.add_root_item (new FileItem (child_file, this));
             }
+        }
+
+        if (monitored_repo != null) {
+            monitored_repo.ignored_changed.connect (() => update_item_status (null));
+            monitored_repo.file_status_change.connect (() => update_item_status (null));
+        }
+    }
+
+    //TODO Move to FolderTree
+    public void after_child_folder_loaded (FolderItem folder) {
+    warning ("after child folder loaded");
+        //TODO Do we need to maintain list if visible children?
+        // iterate_children (folder, (child) => {
+        //     if (child is FolderManagerItem) {
+        //         var item = (FolderManagerItem)child;
+        //         var rel_path = this.file.file.get_relative_path (item.file.file);
+        //         if (rel_path != null && rel_path != "") {
+        //             visible_item_list.prepend ({rel_path, item});
+        //         }
+        //     }
+
+        //     return Granite.TreeList.ITERATE_CONTINUE;
+        // });
+
+        if (project.monitored_repo != null) {
+            project.monitored_repo.update_status_map ();
+            update_item_status (folder);
+            // deprioritize_git_ignored ();
+        }
+    }
+
+    //TODO For now just get status of non-folder items not closed folders
+    private void update_item_status (FolderItem? start_folder, uint level = 0)
+    requires (project.monitored_repo != null && start_folder.is_expanded)
+    {
+warning ("update status level %u", level);
+        tree_list.iterate_children (start_folder, (item) => {
+            var child_item = (FolderManagerItem) item;
+            if (child_item is FolderItem && child_item.is_expanded) {
+                update_item_status ((FolderItem) child_item, ++level);
+            } else if (!(child_item is FolderItem)) {
+                check_child_file_status (child_item);
+            }
+
+            deprioritize_git_ignored (child_item);
+            return Granite.TreeList.ITERATE_CONTINUE;
+        });
+    }
+
+    private void check_child_file_status (FolderManagerItem child_item) requires (!(child_item is FolderItem)) {
+        project.monitored_repo.non_current_entries.@foreach ((entry) => {
+            // Match non_current_path with parent folder as well as itself
+            var match = entry.key == child_item.path;
+            if (match) {
+                var is_new = (
+                    entry.@value & (Ggit.StatusFlags.WORKING_TREE_NEW | Ggit.StatusFlags.INDEX_NEW)) > 0
+                ;
+                child_item.secondary_icon_name = is_new ? ADDED_ICON_NAME : MODIFIED_ICON_NAME;
+                child_item.secondary_icon_tooltip = is_new ? _("New") : _("Modified");
+                return false;
+            } else {
+                return true;
+            }
+        });
+    }
+
+    //TODO Move to folder tree
+    private void deprioritize_git_ignored (FolderManagerItem child_item)
+    requires (project.monitored_repo != null)
+    {
+
+        try {
+            child_item.deprioritize = project.monitored_repo.path_is_ignored (child_item.path);
+            if (child_item.deprioritize) {
+                warning ("%s deprioritised", child_item.text);
+            }
+        } catch (Error e) {
+            warning ("An error occurred while checking if item '%s' is git-ignored: %s", child_item.name, e.message);
         }
     }
 
