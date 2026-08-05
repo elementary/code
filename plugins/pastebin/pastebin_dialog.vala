@@ -379,9 +379,9 @@ namespace Scratch.Dialogs {
                 hscrollbar_policy = Gtk.PolicyType.NEVER,
                 height_request = 250,
                 hexpand = true,
-                vexpand = true
+                vexpand = true,
+                child = languages_listbox
             };
-            languages_scrolled.add (languages_listbox);
 
             var cancel_button = (Gtk.Button)format_dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 

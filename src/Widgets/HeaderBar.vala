@@ -225,8 +225,9 @@ public class Scratch.HeaderBar : Hdy.HeaderBar {
         menu_box.add (preferences_menuitem);
         menu_box.show_all ();
 
-        var menu = new Gtk.Popover (null);
-        menu.add (menu_box);
+        var menu = new Gtk.Popover (null) {
+            child = menu_box
+        };
 
         var app_menu = new Gtk.MenuButton () {
             image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR),

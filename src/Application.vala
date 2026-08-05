@@ -152,6 +152,21 @@ namespace Scratch {
             return Posix.EXIT_SUCCESS;
         }
 
+        protected override void startup () {
+            base.startup ();
+
+            Hdy.init ();
+
+            var provider = new Gtk.CssProvider ();
+            provider.load_from_resource ("io/elementary/code/Application.css");
+            Gtk.StyleContext.add_provider_for_screen (
+                Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+            );
+
+            weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
+            default_theme.add_resource_path ("/io/elementary/code");
+        }
+
         protected override void activate () {
             if (active_window == null) {
                 if (location_jump_manager.has_selection_range () && location_jump_manager.has_override_target ()) {

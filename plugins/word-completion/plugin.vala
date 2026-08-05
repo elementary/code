@@ -25,13 +25,12 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.A
     public Object object { owned get; set construct; }
 
     private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
-    public Euclide.Completion.Parser parser {get; private set;}
+    private Gtk.EventControllerKey key_controller;
     public Gtk.SourceView? current_view {get; private set;}
     public Scratch.Services.Document current_document {get; private set;}
 
     private MainWindow main_window;
     private Scratch.Services.Interface plugins;
-    private bool completion_in_progress = false;
 
     private const uint [] ACTIVATE_KEYS = {
         Gdk.Key.Return,
@@ -48,7 +47,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.A
 
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
-        parser = new Euclide.Completion.Parser ();
         plugins.hook_window.connect ((w) => {
             this.main_window = w;
         });
@@ -69,8 +67,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.A
             if (current_view == doc.source_view)
                 return;
 
-            parser.cancel_parsing ();
-
             if (timeout_id > 0)
                 GLib.Source.remove (timeout_id);
 
@@ -79,87 +75,23 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.A
 
         current_document = doc;
         current_view = doc.source_view;
-        current_view.key_press_event.connect (on_key_press);
-        current_view.completion.show.connect (() => {
-            completion_in_progress = true;
-        });
-        current_view.completion.hide.connect (() => {
-            completion_in_progress = false;
-        });
-
 
         if (text_view_list.find (current_view) == null)
             text_view_list.append (current_view);
 
-        var comp_provider = new Scratch.Plugins.CompletionProvider (parser, doc);
+        var comp_provider = new Gtk.SourceCompletionWords (
+            provider_name_from_document (doc),
+            null
+        );
+        comp_provider.register (current_view.buffer);
 
         try {
             current_view.completion.add_provider (comp_provider);
             current_view.completion.show_headers = true;
             current_view.completion.show_icons = true;
-            /* Wait a bit to allow text to load then run parser*/
-            timeout_id = Timeout.add (1000, on_timeout_update);
-
         } catch (Error e) {
             warning (e.message);
         }
-    }
-
-    private bool on_timeout_update () {
-        try {
-            new Thread<void*>.try ("word-completion-thread", () => {
-                if (current_view != null)
-                    parser.parse_text_view (current_view as Gtk.TextView);
-
-                return null;
-            });
-        } catch (Error e) {
-            warning (e.message);
-        }
-
-        timeout_id = 0;
-        return false;
-    }
-
-    private bool on_key_press (Gtk.Widget view, Gdk.EventKey event) {
-        var kv = event.keyval;
-        /* Pass through any modified keypress except Shift or Capslock */
-        Gdk.ModifierType mods = event.state & Gdk.ModifierType.MODIFIER_MASK
-                                            & ~Gdk.ModifierType.SHIFT_MASK
-                                            & ~Gdk.ModifierType.LOCK_MASK;
-        if (mods > 0 ) {
-            /* Default key for USER_REQUESTED completion is ControlSpace
-             * but this is trapped elsewhere. Control + USER_REQUESTED_KEY acts as an
-             * alternative and also purges spelling mistakes and unused words from the list.
-             * If used when a word or part of a word is selected, the selection will be
-             * used as the word to find. */
-
-            if ((mods & Gdk.ModifierType.CONTROL_MASK) > 0 &&
-                (kv == REFRESH_SHORTCUT)) {
-
-                parser.rebuild_word_list (current_view);
-                current_view.show_completion ();
-                return true;
-            }
-        }
-
-        var uc = (unichar)(Gdk.keyval_to_unicode (kv));
-        if (!completion_in_progress && Euclide.Completion.Parser.is_delimiter (uc) &&
-            (uc.isprint () || uc.isspace ())) {
-
-            var buffer = current_view.buffer;
-            var mark = buffer.get_insert ();
-            Gtk.TextIter cursor_iter;
-            buffer.get_iter_at_mark (out cursor_iter, mark);
-
-            var word_start = cursor_iter;
-            Euclide.Completion.Parser.back_to_word_start (ref word_start);
-
-            string word = buffer.get_text (word_start, cursor_iter, false);
-            parser.add_word (word);
-        }
-
-        return false;
     }
 
     private string provider_name_from_document (Scratch.Services.Document doc) {
@@ -167,8 +99,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Scratch.Services.A
     }
 
     private void cleanup (Gtk.SourceView view) {
-        current_view.key_press_event.disconnect (on_key_press);
-
         current_view.completion.get_providers ().foreach ((p) => {
             try {
                 /* Only remove provider added by this plug in */
