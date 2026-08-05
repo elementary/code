@@ -101,7 +101,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
 
             if (parse_ordered_list_item (line, out ol_number, out item_text, out prefix, null)) {
                 if (item_text.length == 0) {
-                    delete_empty_item ();
+                    delete_empty_item (prefix);
                 } else {
                     string to_insert = "\n%s%d. ".printf (prefix, ++ol_number);
                     current_source.buffer.insert_at_cursor (to_insert, to_insert.length);
@@ -123,7 +123,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         return false;
     }
 
-    private void delete_empty_item () {
+    private void delete_empty_item (string prefix = "") {
         Gtk.TextIter start, end;
         var current_buffer = current_source.buffer;
         current_buffer.get_iter_at_offset (out start, current_buffer.cursor_position);
@@ -131,7 +131,12 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         end = start;
         end.forward_to_line_end ();
         current_buffer.delete (ref start, ref end);
-        current_buffer.insert_at_cursor ("\n", 1);
+        if (prefix != "") {
+            current_buffer.insert_at_cursor ("%s".printf (prefix), prefix.length);
+        } else {
+            current_buffer.insert_at_cursor ("\n", 1);
+        }
+
         current_buffer.get_iter_at_offset (out start, current_buffer.cursor_position);
     }
 
@@ -200,16 +205,16 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         current_number = -1;
         first_point_pos = line.index_of_char ('.'); //TODO Handle ")"  Ignored escaped?
 
-        if (first_point_pos < 0) {
-            return false;
-        }
-
-
         item_text = line.substring (first_point_pos + 1).strip ();
 
         var line_start = line.substring (0, first_point_pos);
         line_start = line_start.replace ("-", " ").replace ("*", " ");
         prefix = line.substring (0, line_start.last_index_of_char (' ') + 1);
+
+        // if (first_point_pos < 0) {
+        //     return false;
+        // }
+
         if (!int.try_parse (line_start, out current_number)) {
             return false;
         }
