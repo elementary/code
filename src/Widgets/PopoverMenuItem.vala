@@ -1,6 +1,6 @@
 /*
 * SPDX-License-Identifier: GPL-2.0-or-later
-* SPDX-FileCopyrightText: 2017-2023 elementary, Inc. (https://elementary.io)
+* SPDX-FileCopyrightText: 2017-2025 elementary, Inc. (https://elementary.io)
 */
 
 public class Code.PopoverMenuItem : Gtk.Button {

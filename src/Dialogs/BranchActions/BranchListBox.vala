@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 elementary, Inc. <https://elementary.io>
+ * Copyright 2025-2026 elementary, Inc. <https://elementary.io>
  * SPDX-License-Identifier: GPL-3.0-or-later
 *
 * Authored by: Jeremy Wootten <jeremywootten@gmail.com>
@@ -42,9 +42,9 @@ private class Scratch.Dialogs.BranchListBox : Gtk.Box {
             hscrollbar_policy = NEVER,
             vscrollbar_policy = AUTOMATIC,
             min_content_height = 200,
-            vexpand = true
+            vexpand = true,
+            child = list_box
         };
-        scrolled_window.child = list_box;
 
         search_entry = new Gtk.SearchEntry () {
             placeholder_text = _("Enter search term")

@@ -4,6 +4,7 @@
 
   Copyright (C) 2013 Mario Guerriero <mario@elementaryos.org>
                 2024 Colin Kiama <colinkiama@gmail.com>
+                2025-2026 elementary LLC. (https://elementary.io),
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -26,7 +27,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         URI_LIST
     }
 
-    public signal void document_change (Services.Document? document, DocumentView parent);
+    public signal void document_change (Services.Document? document);
     public signal void request_placeholder ();
     public signal void tab_added (Services.Document document);
     public signal void tab_removed (Services.Document document);
@@ -39,12 +40,12 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             return _current_document;
         }
         set {
-            if (is_closing) {
+            if (is_closing || _current_document == value) {
                 return;
             }
 
             _current_document = value;
-            document_change (_current_document, this);
+            document_change (_current_document);
             _current_document.focus ();
             save_focused_document_uri (current_document);
             if (tab_view.selected_page != value.tab && value.tab != null) {
@@ -503,7 +504,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         tab_removed (doc);
         Scratch.Services.DocumentManager.get_instance ().remove_open_document (doc);
 
-        doc.source_view.focus_in_event.disconnect (on_focus_in_event);
 
         if (docs.length () > 0) {
             if (!doc.is_file_temporary) {
@@ -564,19 +564,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
            rename_tabs_with_same_title (doc);
         }
 
-        doc.source_view.focus_in_event.connect_after (on_focus_in_event);
         tab_added (doc);
-    }
-
-    private bool on_focus_in_event () {
-        var doc = current_document;
-        if (doc == null) {
-            warning ("Focus event callback cannot get current document");
-        } else {
-            document_change (doc, this);
-        }
-
-        return false;
     }
 
     private void rename_tabs_with_same_title (Services.Document doc) {
