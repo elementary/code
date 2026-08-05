@@ -97,11 +97,11 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
             int indent_spaces, ol_number;
             string item_text;
             var line = get_current_line ();
-            if (parse_unordered_list_item (line, out ul_marker)) {
+            if (parse_unordered_list_item (line, out ul_marker, out indent_spaces)) {
                 if (line.length <= 3) { // empty item
                     delete_empty_item ();
                 } else {
-                    string to_insert = "\n%c ".printf (ul_marker);
+                    string to_insert = "\n%s%c ".printf (string.nfill (indent_spaces, ' '), ul_marker);
                     current_source.buffer.insert_at_cursor (to_insert, to_insert.length);
                 }
                 return true;
@@ -214,10 +214,12 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         return indent_spaces >= 0 && current_number >= 1;
     }
 
-    private bool parse_unordered_list_item (string line, out char ul_marker) {
-        line.chug (); // Remove leading spaces
-        if ((line[0] == '*' || line[0] == '-') && line[1] == ' ') {
-            ul_marker = line[0];
+    private bool parse_unordered_list_item (string line, out char ul_marker, out int indent_spaces) {
+        indent_spaces = -1;
+        var _line = line.chug (); // Remove leading spaces
+        if ((_line[0] == '*' || _line[0] == '-') && _line[1] == ' ') {
+            ul_marker = _line[0];
+            indent_spaces = line.index_of_char (ul_marker);
             return true;
         }
 
