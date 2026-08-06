@@ -663,12 +663,14 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                 }
                 Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
                 write_settings ();
+                update_recently_closed_projects (folder_root);
             });
 
             // We do not want to rewrite settings while restoring from settings
             // This interferes with fuzzy-finder plugins_manager
             // See https://github.com/elementary/code/issues/1533
             if (!restoring) {
+                // Add opened folder to settings
                 write_settings ();
             }
 
@@ -708,5 +710,30 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         }
 
         settings.set_strv ("opened-folders", to_save);
+    }
+
+    private void update_recently_closed_projects (ProjectFolderItem closed_folder) {
+        string[] recently_closed = settings.get_strv ("closed-folders");
+        var closed_path = closed_folder.path;
+        bool found = false;
+        foreach (string path in recently_closed) {
+            if (path == closed_path) {
+                found = true;
+                break;
+            }
+        }
+
+        if (found) {
+            return;
+        }
+
+        if (recently_closed.length < 10) {
+            recently_closed += closed_path;
+        } else {
+            recently_closed.move (1, 0, 9);
+            recently_closed[9] = closed_path;
+        }
+
+        settings.set_strv ("closed-folders", recently_closed);
     }
 }
