@@ -131,16 +131,11 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         end = start;
         end.forward_to_line_end ();
         current_buffer.delete (ref start, ref end);
-        if (prefix != "") {
-            current_buffer.insert_at_cursor ("%s".printf (prefix), prefix.length);
-        } else {
-            current_buffer.insert_at_cursor ("\n", 1);
-        }
-
+        current_buffer.insert_at_cursor ("%s".printf (prefix), prefix.length);
         current_buffer.get_iter_at_offset (out start, current_buffer.cursor_position);
     }
 
-    // Starting on the line where a numered list item was inserted, check if renumbering required
+    // Starting on the line where a numbered list item was inserted, check if renumbering required
     private void fix_ordered_list_numbering (int indent_spaces, int inserted_number) {
         Gtk.TextIter next;
         var current_buffer = current_source.buffer;
