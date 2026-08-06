@@ -117,7 +117,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         foreach (var child in root.children) {
             var project_folder_item = (ProjectFolderItem) child;
             if (project_folder_item != folder_root) {
-                project_folder_item.closed ();
+                project_folder_item.closed (); // Signal not processed 'til loop complete
             }
         }
         //Make remaining project the active one
@@ -658,7 +658,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                 }
                 Scratch.Services.GitManager.get_instance ().remove_project (folder_root);
                 write_settings ();
-                update_recently_closed_projects (folder_root);
+                update_recently_closed_projects (folder_root, true);
             });
 
             // We do not want to rewrite settings while restoring from settings
@@ -667,6 +667,9 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             if (!restoring) {
                 // Add opened folder to settings
                 write_settings ();
+                // Remove folder from recently closed if present
+                update_recently_closed_projects (folder_root, false);
+
             }
 
             add_folder.callback ();
@@ -707,26 +710,44 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         settings.set_strv ("opened-folders", to_save);
     }
 
-    private void update_recently_closed_projects (ProjectFolderItem closed_folder) {
+    private void update_recently_closed_projects (
+        ProjectFolderItem closed_folder,
+        bool to_be_added
+    ) {
         string[] recently_closed = settings.get_strv ("closed-folders");
         var closed_path = closed_folder.path;
         bool found = false;
+        int index = 0;
         foreach (string path in recently_closed) {
             if (path == closed_path) {
                 found = true;
                 break;
             }
+
+            index++;
         }
 
-        if (found) {
+        if ((to_be_added && found) || (!to_be_added && !found)) {
             return;
         }
 
-        if (recently_closed.length < 10) {
-            recently_closed += closed_path;
+        if (to_be_added) {
+            if (recently_closed.length < 10) {
+                recently_closed += closed_path;
+            } else {
+                recently_closed.move (1, 0, 9);
+                recently_closed[9] = closed_path;
+            }
         } else {
-            recently_closed.move (1, 0, 9);
-            recently_closed[9] = closed_path;
+            var size = recently_closed.length;
+            if (index < size - 1) {
+                recently_closed.move (index + 1, index, size - index);
+            } else {
+                recently_closed[index] = null; // Need to use null for resize to work
+            }
+
+
+            recently_closed.resize (size - 1);
         }
 
         settings.set_strv ("closed-folders", recently_closed);
