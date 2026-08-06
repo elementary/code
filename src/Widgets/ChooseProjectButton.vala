@@ -54,9 +54,9 @@ public class Code.ChooseProjectButton : Gtk.Bin {
 
         project_listbox.set_header_func ((row, before) => {
             if (before == null && ((ProjectRow) row).is_open) {
-                row.set_header (new Granite.HeaderLabel ("Open Projects") { halign = START });
+                row.set_header (new Granite.HeaderLabel (_("Open Projects")) { halign = START });
             } else if (!((ProjectRow) row).is_open && (before == null || ((ProjectRow) before).is_open)) {
-                row.set_header (new Granite.HeaderLabel ("Recent Closed Projects") { halign = START });
+                row.set_header (new Granite.HeaderLabel (_("Recently Closed Projects")) { halign = START });
             }
         });
 
