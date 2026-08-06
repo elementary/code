@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2013-2018 elementary LLC. (https://elementary.io)
+ * Copyright (c) 2013-2025 elementary LLC. (https://elementary.io)
  * Copyright (C) 2013 Tom Beckmann <tomjonabc@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify

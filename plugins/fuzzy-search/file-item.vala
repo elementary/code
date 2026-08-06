@@ -1,19 +1,20 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>
+ * SPDX-FileCopyrightText: 2023-2026 elementary, Inc. <https://elementary.io>
  *
  * Authored by: Marvin Ahlgrimm
  *              Colin Kiama <colinkiama@gmail.com>
  */
 
 public class FileItem : Gtk.ListBoxRow {
-    private SearchResult result;
+    public SearchResult result { get; private set; }
 
     public string filepath {
         get {
             return result.full_path;
         }
     }
+
     public FileItem (SearchResult res, bool should_distinguish_project = false) {
         this.get_style_context ().add_class ("fuzzy-item");
         this.get_style_context ().add_class ("flat");

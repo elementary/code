@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2018 elementary LLC. (https://elementary.io),
+ * Copyright (c) 2018-2026 elementary LLC. (https://elementary.io),
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
@@ -397,13 +397,14 @@ namespace Scratch.FolderManager {
                     new ThemedIcon ("git"),
                     Gtk.ButtonsType.CLOSE
                 ) {
-                    badge_icon = new ThemedIcon ("dialog-error")
+                    badge_icon = new ThemedIcon ("dialog-error"),
+                    modal = true
                 };
                 dialog.transient_for = (Gtk.Window)(view.get_toplevel ());
                 dialog.response.connect (() => {
                     dialog.destroy ();
                 });
-                dialog.run ();
+                dialog.show ();
             }
         }
 
@@ -449,7 +450,7 @@ namespace Scratch.FolderManager {
         // via a context menu on an explicitly chosen folder, in which case everything in that
         // folder will be searched, or whether the hot-key was used in which case the search will
         // take place on the active project and will omit certain folders
-        public void global_search (
+        public async void global_search (
             GLib.File start_folder = this.file.file,
             string? term = null,
             bool is_explicit = false
@@ -510,9 +511,11 @@ namespace Scratch.FolderManager {
                 }
 
                 dialog.destroy ();
+                global_search.callback ();
             });
 
-            dialog.run ();
+            dialog.show ();
+            yield;
 
             if (search_term != null) {
                 // Remove results of previous search before attempting a new one

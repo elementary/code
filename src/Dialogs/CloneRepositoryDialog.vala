@@ -41,7 +41,8 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
     public CloneRepositoryDialog (string _suggested_local_folder, string _suggested_remote) {
         Object (
             suggested_local_folder: _suggested_local_folder,
-            suggested_remote: _suggested_remote
+            suggested_remote: _suggested_remote,
+            modal: true
         );
     }
 
@@ -49,7 +50,6 @@ public class Scratch.Dialogs.CloneRepositoryDialog : Granite.MessageDialog {
         transient_for = ((Gtk.Application)(GLib.Application.get_default ())).get_active_window ();
         image_icon = new ThemedIcon ("git");
         badge_icon = new ThemedIcon ("emblem-downloads");
-        modal = true;
 
         ///TRANSLATORS "Git" is a proper name and must not be translated
         primary_text = _("Create a local clone of a Git repository");
