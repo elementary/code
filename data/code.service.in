@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=io.elementary.code
+Exec=@BINDIR@/io.elementary.code --gapplication-service
