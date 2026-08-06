@@ -29,16 +29,6 @@ public class Scratch.Services.Interface : GLib.Object {
             manager: _manager
         );
     }
-
-    public Scratch.Services.Document open_file (File file) {
-        var doc = new Scratch.Services.Document (manager.window.actions, file);
-        manager.window.open_document.begin (doc);
-        return doc;
-    }
-
-    public void close_document (Scratch.Services.Document doc) {
-        manager.window.close_document (doc);
-    }
 }
 
 public class Scratch.Services.PluginsManager : GLib.Object {
@@ -56,11 +46,7 @@ public class Scratch.Services.PluginsManager : GLib.Object {
     private Peas.ExtensionSet extension_set;
 
     public Scratch.Services.Interface plugin_iface { get; private set; }
-    public weak Scratch.MainWindow window { get; construct; }
 
-    public PluginsManager (Scratch.MainWindow _window) {
-        Object (window: _window);
-    }
 
     construct {
         plugin_iface = new Scratch.Services.Interface (this);

@@ -68,6 +68,21 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
+      <release version="8.3.2" date="2026-08-04" urgency="medium">
+      <description>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/code/issues/851">Word completion retains deleted words</issue>
+        <issue url="https://github.com/elementary/code/issues/1527">Word completion omits first word in document until refreshed</issue>
+        <issue url="https://github.com/elementary/code/issues/1737">Changing pane visibility in one window affects all windows</issue>
+        <issue url="https://github.com/elementary/code/issues/1750">Code uses system document font instead of monospace font by default</issue>
+      </issues>
+    </release>
+
     <release version="8.3.1" date="2026-06-19" urgency="medium">
       <description>
         <p>Improvements:</p>

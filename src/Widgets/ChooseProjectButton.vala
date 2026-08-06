@@ -1,22 +1,9 @@
-/*-
- * Copyright (c) 2021-2026 elementary Inc. (https://elementary.io)
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2021-2026 elementary Inc. (https://elementary.io)
  */
 
-public class Code.ChooseProjectButton : Gtk.MenuButton {
+public class Code.ChooseProjectButton : Gtk.Bin {
     public bool cloning_in_progress { get; set; }
 
     private const string NO_PROJECT_SELECTED = N_("No Project Selected");
@@ -24,22 +11,13 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
     private Gtk.Label label_widget;
     private Gtk.ListBox project_listbox;
 
-    public ActionGroup toplevel_action_group { get; construct; }
     public signal void project_chosen ();
 
     construct {
-        realize.connect (() => {
-            toplevel_action_group = get_action_group (Scratch.MainWindow.ACTION_GROUP);
-            assert_nonnull (toplevel_action_group);
-        });
-
-        var img = new Gtk.Image () {
-            gicon = new ThemedIcon ("git-symbolic"),
-            icon_size = Gtk.IconSize.SMALL_TOOLBAR
-        };
+        var img = new Gtk.Image.from_icon_name ("git-symbolic", SMALL_TOOLBAR);
 
         label_widget = new Gtk.Label (_(NO_PROJECT_SELECTED)) {
-            ellipsize = Pango.EllipsizeMode.MIDDLE,
+            ellipsize = MIDDLE,
             xalign = 0.0f,
             hexpand = true
         };
@@ -56,11 +34,11 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         box.add (img);
         box.add (label_widget);
         box.add (cloning_spinner);
-        add (box);
 
         project_listbox = new Gtk.ListBox () {
-            selection_mode = Gtk.SelectionMode.SINGLE
+            selection_mode = SINGLE
         };
+
         var project_filter = new Gtk.SearchEntry () {
             margin_top = 12,
             margin_bottom = 6,
@@ -79,7 +57,8 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
         });
 
         var project_scrolled = new Gtk.ScrolledWindow (null, null) {
-            hscrollbar_policy = Gtk.PolicyType.NEVER,
+            child = project_listbox,
+            hscrollbar_policy = NEVER,
             hexpand = true,
             vexpand = true,
             margin_top = 3,
@@ -87,8 +66,6 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             max_content_height = 350,
             propagate_natural_height = true
         };
-
-        project_scrolled.add (project_listbox);
 
         var add_folder_button = new PopoverMenuItem (_("Open Folder…")) {
             action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_PROJECT,
@@ -100,22 +77,25 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             icon_name = "git-symbolic"
         };
 
-        var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        var popover_content = new Gtk.Box (VERTICAL, 0);
         popover_content.add (project_filter);
         popover_content.add (project_scrolled);
         popover_content.add (new Gtk.Separator (HORIZONTAL));
         popover_content.add (add_folder_button);
         popover_content.add (clone_button);
-
         popover_content.show_all ();
 
-        var project_popover = new Gtk.Popover (this) {
-            position = Gtk.PositionType.BOTTOM
+        var project_popover = new Gtk.Popover (null) {
+            position = BOTTOM,
+            child = popover_content
         };
 
-        project_popover.add (popover_content);
+        var menu_button = new Gtk.MenuButton () {
+            child = box,
+            popover = project_popover
+        };
 
-        popover = project_popover;
+        child = menu_button;
 
         // Initialise with any pre-existing projects (needed for second and subsequent window)
         var git_manager = Scratch.Services.GitManager.get_instance ();
@@ -144,25 +124,8 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             }
         });
 
-        project_listbox.remove.connect ((row) => {
-            var project_row = row as ProjectRow;
-            var current_project = Scratch.Services.GitManager.get_instance ().active_project_path;
-            if (project_row.project_path == current_project) {
-                Scratch.Services.GitManager.get_instance ().active_project_path = "";
-                // Label and active_path will be updated automatically
-            }
-        });
-
-        project_listbox.row_activated.connect ((row) => {
-            var project_entry = ((ProjectRow) row);
-            toplevel_action_group.activate_action (
-                Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT,
-                new Variant.string (project_entry.project_path)
-            );
-        });
-
-        toggled.connect (() => {
-            if (active) {
+        menu_button.activate.connect (() => {
+            if (menu_button.active) {
                 unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
                 foreach (var child in project_listbox.get_children ()) {
                     var project_row = ((ProjectRow) child);
@@ -204,7 +167,7 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             }
 
             set {
-                    check_button.active = value;
+                check_button.active = value;
             }
         }
 
@@ -221,16 +184,29 @@ public class Code.ChooseProjectButton : Gtk.MenuButton {
             );
         }
 
+        private Gtk.GestureMultiPress button_controller;
+
         class construct {
             set_css_name (Gtk.STYLE_CLASS_MENUITEM);
         }
 
         construct {
-            check_button = new Gtk.CheckButton.with_label (Path.get_basename (project_path));
-            add (check_button);
-            check_button.button_release_event.connect (() => {
+            can_focus = true;
+            action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT;
+            action_target = new Variant.string (project_path);
+
+            check_button = new Gtk.CheckButton.with_label (Path.get_basename (project_path)) {
+                can_focus = false
+            };
+
+            child = check_button;
+
+            button_controller = new Gtk.GestureMultiPress (check_button) {
+                propagation_phase = CAPTURE,
+                button = 0
+            };
+            button_controller.released.connect (() => {
                 activate ();
-                return Gdk.EVENT_PROPAGATE;
             });
 
             show_all ();
