@@ -117,12 +117,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         foreach (var child in root.children) {
             var project_folder_item = (ProjectFolderItem) child;
             if (project_folder_item != folder_root) {
-                toplevel_action_group.activate_action (
-                    MainWindow.ACTION_CLOSE_PROJECT_DOCS,
-                    new Variant.string (project_folder_item.path)
-                );
-                root.remove (project_folder_item);
-                git_manager.remove_project (project_folder_item);
+                project_folder_item.closed ();
             }
         }
         //Make remaining project the active one
