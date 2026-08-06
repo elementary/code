@@ -94,13 +94,13 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
 
         if (keyval == Gdk.Key.Return) {
             char ul_marker;
-            int indent_spaces, ol_number;
+            int ol_number;
             string prefix;
             string item_text;
             var line = get_current_line ();
 
             if (parse_ordered_list_item (line, out ol_number, out item_text, out prefix, null)) {
-                if (item_text.length == 0) {
+                if (item_text.strip () == "") {
                     delete_empty_item (prefix);
                 } else {
                     string to_insert = "\n%s%d. ".printf (prefix, ++ol_number);
@@ -109,13 +109,14 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
                     fix_ordered_list_numbering (prefix.length, ol_number);
                 }
                 return true;
-            } else if (parse_unordered_list_item (line, out ul_marker, out indent_spaces)) {
-                if (line.length <= 3) { // empty item
-                    delete_empty_item ();
-                } else {
-                    string to_insert = "\n%s%c ".printf (string.nfill (indent_spaces, ' '), ul_marker);
+            } else if (parse_unordered_list_item (line, out ul_marker, out item_text, out prefix)) {
+                if (item_text.strip () == "") {
+                    delete_empty_item (prefix);
+                } else { // ul_marker is not null here
+                    string to_insert = "\n%s%c ".printf (prefix, ul_marker);
                     current_source.buffer.insert_at_cursor (to_insert, to_insert.length);
                 }
+
                 return true;
             }
         }
@@ -131,7 +132,11 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         end = start;
         end.forward_to_line_end ();
         current_buffer.delete (ref start, ref end);
-        current_buffer.insert_at_cursor ("%s".printf (prefix), prefix.length);
+        var _prefix = prefix;
+        if (prefix.strip () == "") {
+            _prefix = "";
+        }
+        current_buffer.insert_at_cursor ("%s".printf (_prefix), _prefix.length);
         current_buffer.get_iter_at_offset (out start, current_buffer.cursor_position);
     }
 
@@ -198,6 +203,8 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         item_text = "";
         prefix = "";
         current_number = -1;
+        // Github does not automatically handle sublists in numbered lists so neither do we for now
+        // We assume the first number point is the only one.
         first_point_pos = line.index_of_char ('.'); //TODO Handle ")"  Ignored escaped?
 
         item_text = line.substring (first_point_pos + 1).strip ();
@@ -206,10 +213,6 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         line_start = line_start.replace ("-", " ").replace ("*", " ");
         prefix = line.substring (0, line_start.last_index_of_char (' ') + 1);
 
-        // if (first_point_pos < 0) {
-        //     return false;
-        // }
-
         if (!int.try_parse (line_start, out current_number)) {
             return false;
         }
@@ -217,17 +220,53 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
         return current_number >= 1;
     }
 
-    private bool parse_unordered_list_item (string line, out char ul_marker, out int indent_spaces) {
-        indent_spaces = -1;
-        var _line = line.chug (); // Remove leading spaces
-        if ((_line[0] == '*' || _line[0] == '-') && _line[1] == ' ') {
-            ul_marker = _line[0];
-            indent_spaces = line.index_of_char (ul_marker);
-            return true;
+    private bool parse_unordered_list_item (
+        string line,
+        out char ul_marker,
+        out string item_text,
+        out string prefix
+    ) {
+        prefix = "";
+        item_text = "";
+        ul_marker = ' ';
+
+        // Scan line for last unordered list marker
+        unichar uc = 0;
+        int index = 0;
+        uint spaces = 0;
+        char? last_marker = null;
+        while (line.get_next_char (ref index, out uc)) {
+            string buf = "      ";
+            var i = uc.to_utf8 (buf);
+            if (i != 1) {
+                break;
+            }
+
+            var c = buf[0];
+            if (c.isspace ()) {
+                spaces++;
+                // Only allow one space between or after markers but any number before the first
+                if (last_marker != null && spaces > 1) {
+                    break;
+                }
+            } else if (c == '-' || c == '*') {
+                spaces = 0;
+                last_marker = c;
+            } else { // text item starts here
+                break;
+            }
         }
 
-        ul_marker = '\0';
-        return false;
+        if (last_marker == null) {
+            return false;
+        }
+
+        ul_marker = last_marker;
+        item_text = line.substring (index - 1);
+        // The item text might contain marker characters so take care to ignore those
+        prefix = line.substring (0, index - 1);
+        prefix = prefix.substring (0, prefix.last_index_of_char (ul_marker));
+        return true;
     }
 
     private void insert_link () {
