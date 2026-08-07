@@ -41,6 +41,8 @@ public class Scratch.MainWindow : Hdy.Window {
     }
 
     public Code.Sidebar sidebar { get; private set; }
+    // Temporary fix to make get_project_for_file function accessible.
+    public FolderManager.FileView folder_manager_view;
     public Scratch.Application app { get; private set; }
     public Scratch.Widgets.DocumentView document_view { get; private set; }
     public SimpleActionGroup actions { get; private set; }
@@ -160,7 +162,6 @@ public class Scratch.MainWindow : Hdy.Window {
 
     private Code.Terminal terminal;
     private Code.WelcomeView welcome_view;
-    private FolderManager.FileView folder_manager_view;
     private Gtk.Clipboard clipboard;
     private Gtk.EventControllerKey key_controller;
     private Gtk.Paned hp1;
@@ -444,8 +445,7 @@ public class Scratch.MainWindow : Hdy.Window {
                     bool is_folder;
                     //TODO Handle folders dropped here
                     if (Scratch.Services.FileHandler.can_open_file (file, out is_folder) && !is_folder) {
-                        Scratch.Services.Document doc = new Scratch.Services.Document (actions, file);
-                        document_view.open_document.begin (doc);
+                        document_view.open_document.begin (filename);
                     }
                 }
 
@@ -460,12 +460,10 @@ public class Scratch.MainWindow : Hdy.Window {
         sidebar.add_tab (folder_manager_view);
         folder_manager_view.show_all ();
 
-        folder_manager_view.activate.connect ((a) => {
-            var file = new Scratch.FolderManager.File (a);
-            var doc = new Scratch.Services.Document (actions, file.file);
-
+        folder_manager_view.activate.connect ((path) => {
+            var file = new Scratch.FolderManager.File (path);
             if (file.is_valid_textfile) {
-                open_document.begin (doc);
+                document_view.open_document.begin (path);
             } else {
                 open_binary (file.file);
             }
@@ -657,14 +655,22 @@ public class Scratch.MainWindow : Hdy.Window {
                             focused_file = file;
                         }
                         //TODO Check files valid (settings could have been manually altered)
-                        var doc = new Scratch.Services.Document (actions, file);
-                        if (doc.exists () || !doc.is_file_temporary) {
-                            if (restore_override != null && (file.get_path () == restore_override.file.get_path ())) {
-                                yield open_document_at_selected_range (doc, true, restore_override.range, true);
-                                was_restore_overriden = true;
-                            } else {
-                                yield open_document (doc, was_restore_overriden ? false : is_focused, pos);
-                            }
+                        if (restore_override != null &&
+                            (file.get_path () == restore_override.file.get_path ())) {
+
+                            yield document_view.open_document (
+                                uri,
+                                true,
+                                -2,
+                                restore_override.range
+                            );
+                            was_restore_overriden = true;
+                        } else {
+                            yield document_view.open_document (
+                                uri,
+                                was_restore_overriden ? false : is_focused,
+                                pos
+                            );
                         }
                     }
                 }
@@ -755,27 +761,6 @@ public class Scratch.MainWindow : Hdy.Window {
     public void open_folder (File folder) {
         var foldermanager_file = new FolderManager.File (folder.get_path ());
         folder_manager_view.open_folder (foldermanager_file);
-    }
-
-    public async void open_document (Scratch.Services.Document doc,
-                               bool focus = true,
-                               int cursor_position = 0) {
-
-        FolderManager.ProjectFolderItem? project = folder_manager_view.get_project_for_file (doc.file);
-        doc.source_view.project = project;
-        yield document_view.open_document (doc, focus, cursor_position);
-    }
-
-    public async void open_document_at_selected_range (Scratch.Services.Document doc,
-                                                 bool focus = true,
-                                                 SelectionRange range = SelectionRange.EMPTY,
-                                                 bool is_override = false) {
-        if (restore_override != null && is_override == false) {
-            return;
-        }
-
-        doc.source_view.project = folder_manager_view.get_project_for_file (doc.file);
-        yield document_view.open_document (doc, focus, 0, range);
     }
 
     // Close a document
@@ -977,9 +962,7 @@ public class Scratch.MainWindow : Hdy.Window {
                     // Update last visited path
                     Utils.last_path = Path.get_dirname (uri);
                     // Open the file
-                    var file = File.new_for_uri (uri);
-                    var doc = new Scratch.Services.Document (actions, file);
-                    open_document.begin (doc);
+                    document_view.open_document.begin (uri);
                 }
             }
         });
@@ -994,10 +977,7 @@ public class Scratch.MainWindow : Hdy.Window {
         }
 
         var new_window = new MainWindow (false);
-        var file = File.new_for_path (path);
-        var doc = new Scratch.Services.Document (new_window.actions, file);
-
-        new_window.open_document.begin (doc, true);
+        new_window.document_view.open_document.begin (path, true);
     }
 
 
@@ -1252,8 +1232,7 @@ public class Scratch.MainWindow : Hdy.Window {
 
     private void restore_project_docs (string project_path) {
         document_manager.take_restorable_paths (project_path).@foreach ((doc_path) => {
-            var doc = new Scratch.Services.Document (actions, File.new_for_path (doc_path));
-            open_document.begin (doc); // Use this to reassociate project and document.
+            document_view.open_document.begin (doc_path); // Use this to reassociate project and document.
             return true;
         });
     }
