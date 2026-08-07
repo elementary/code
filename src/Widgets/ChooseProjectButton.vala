@@ -52,6 +52,14 @@ public class Code.ChooseProjectButton : Gtk.Bin {
             return (((ProjectRow) row).project_name.down ().contains (project_filter.text.down ().strip ()));
         });
 
+        project_listbox.set_header_func ((row, before) => {
+            if (before == null && ((ProjectRow) row).is_open) {
+                row.set_header (new Granite.HeaderLabel (_("Open Projects")) { halign = START });
+            } else if (!((ProjectRow) row).is_open && (before == null || ((ProjectRow) before).is_open)) {
+                row.set_header (new Granite.HeaderLabel (_("Recently Closed Projects")) { halign = START });
+            }
+        });
+
         project_filter.changed.connect (() => {
             project_listbox.invalidate_filter ();
         });
@@ -98,30 +106,13 @@ public class Code.ChooseProjectButton : Gtk.Bin {
         child = menu_button;
 
         // Initialise with any pre-existing projects (needed for second and subsequent window)
+        insert_project_rows ();
+
+        // Update the list when projects added to or deleted from git manager
         var git_manager = Scratch.Services.GitManager.get_instance ();
-        var src = git_manager.project_liststore;
-        for (int index = 0; index < src.n_items; index++) {
-            var item = src.get_object (index);
-            if (item is Scratch.FolderManager.ProjectFolderItem) {
-                var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item);
-                project_listbox.insert (row, index);
-            }
-        }
-
-        git_manager.project_liststore.items_changed.connect ((src, pos, n_removed, n_added) => {
-            var rows = project_listbox.get_children ();
-            for (int index = (int)pos; index < pos + n_removed; index++) {
-                var row = rows.nth_data (index);
-                row.destroy ();
-            }
-
-            for (int index = (int)pos; index < pos + n_added; index++) {
-                var item = src.get_object (index);
-                if (item is Scratch.FolderManager.ProjectFolderItem) {
-                    var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item);
-                    project_listbox.insert (row, index);
-                }
-            }
+        git_manager.project_liststore.items_changed.connect (() => {
+            // Inserting is delayed so the settings should have been updated when runs
+            insert_project_rows ();
         });
 
         menu_button.activate.connect (() => {
@@ -139,6 +130,51 @@ public class Code.ChooseProjectButton : Gtk.Bin {
         update_button ();
     }
 
+    // Throttle rebuilding the list as gitmanager emits multiple changed signals on startup
+    // and we need to wait for settings to update
+    uint insert_timeout_id = 0;
+    bool insert_wait = false;
+    private void insert_project_rows () {
+        if (insert_timeout_id == 0) {
+            insert_wait = false;
+            Timeout.add (20, () => {
+                if (insert_wait) {
+                    insert_wait = false;
+                    return Source.CONTINUE;
+                }
+
+                var rows = project_listbox.get_children ();
+                foreach (var row in rows) {
+                    row.destroy ();
+                }
+
+                var git_manager = Scratch.Services.GitManager.get_instance ();
+                var src = git_manager.project_liststore;
+                int index = 0;
+                for (index = 0; index < src.n_items; index++) {
+                    var item = src.get_object (index);
+                    if (item is Scratch.FolderManager.ProjectFolderItem) {
+                        var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item, true);
+                        project_listbox.insert (row, index);
+                    }
+                }
+
+                var settings = new GLib.Settings ("io.elementary.code.folder-manager");
+                var recently_closed = settings.get_strv ("closed-folders");
+                var size = recently_closed.length;
+                // List in reverse order so most recently closed appears first
+                for (int idx = size - 1; idx >= 0; idx--) {
+                    var row = new ProjectRow (recently_closed[idx], false);
+                    project_listbox.insert (row, index++);
+                }
+
+                return Source.REMOVE;
+            });
+        } else {
+            insert_wait = true;
+        }
+    }
+
     // Set appearance (only) of project chooser button and list according to active path
     private void update_button () {
         unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
@@ -151,9 +187,12 @@ public class Code.ChooseProjectButton : Gtk.Bin {
         }
     }
 
-    private Gtk.Widget create_project_row (Scratch.FolderManager.ProjectFolderItem project_folder) {
+    private Gtk.Widget create_project_row (
+        Scratch.FolderManager.ProjectFolderItem project_folder,
+        bool is_open = true
+    ) {
         var project_path = project_folder.file.file.get_path ();
-        var project_row = new ProjectRow (project_path);
+        var project_row = new ProjectRow (project_path, is_open);
         // Project folder items cannot be renamed in UI, no need to handle
 
         return project_row;
@@ -172,15 +211,18 @@ public class Code.ChooseProjectButton : Gtk.Bin {
         }
 
         public string project_path { get; construct; }
+        public bool is_open { get; construct; }
+
         public string project_name {
             get {
                 return check_button.label;
             }
         }
 
-        public ProjectRow (string project_path) {
+        public ProjectRow (string project_path, bool is_open) {
             Object (
-                project_path: project_path
+                project_path: project_path,
+                is_open: is_open
             );
         }
 
@@ -192,8 +234,13 @@ public class Code.ChooseProjectButton : Gtk.Bin {
 
         construct {
             can_focus = true;
-            action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT;
+            action_name = Scratch.MainWindow.ACTION_PREFIX;
             action_target = new Variant.string (project_path);
+            if (is_open) {
+                action_name += Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT;
+            } else {
+                action_name += Scratch.MainWindow.ACTION_OPEN_FOLDER;
+            }
 
             check_button = new Gtk.CheckButton.with_label (Path.get_basename (project_path)) {
                 can_focus = false
@@ -206,7 +253,7 @@ public class Code.ChooseProjectButton : Gtk.Bin {
                 button = 0
             };
             button_controller.released.connect (() => {
-                activate ();
+                activate (); // Trigger the linked action
             });
 
             show_all ();
