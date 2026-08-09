@@ -1,7 +1,7 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /*
 * Copyright (c) 2013 Mario Guerriero <mefrio.g@gmail.com>
-*               2017–2020 elementary, Inc. <https://elementary.io>
+*               2017–2026 elementary, Inc. <https://elementary.io>
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -29,6 +29,7 @@ namespace Scratch.Widgets {
 
         public GLib.File location { get; set; }
         public FolderManager.ProjectFolderItem project { get; set; default = null; }
+        public SimpleActionGroup actions { get; construct; }
 
         private string font;
         private uint selection_changed_timer = 0;
@@ -38,10 +39,9 @@ namespace Scratch.Widgets {
         private string selected_text = "";
         private GitGutterRenderer git_diff_gutter_renderer;
         private NavMarkGutterRenderer navmark_gutter_renderer;
+        private Gtk.EventControllerKey key_controller;
 
         private const uint THROTTLE_MS = 400;
-        private double total_delta = 0;
-        private const double SCROLL_THRESHOLD = 1.0;
 
         protected static Scratch.Application application;
 
@@ -55,6 +55,7 @@ namespace Scratch.Widgets {
             set {
                 ((Gtk.SourceBuffer) buffer).language = value;
             }
+
             get {
                 return ((Gtk.SourceBuffer) buffer).language;
             }
@@ -89,7 +90,8 @@ namespace Scratch.Widgets {
             application = (Scratch.Application) (GLib.Application.get_default ());
             space_drawer.enable_matrix = true;
 
-            expand = true;
+            hexpand = true;
+            vexpand = true;
             manager = Gtk.SourceLanguageManager.get_default ();
             style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
 
@@ -135,23 +137,6 @@ namespace Scratch.Widgets {
             var granite_settings = Granite.Settings.get_default ();
             granite_settings.notify["prefers-color-scheme"].connect (restore_settings);
 
-            scroll_event.connect ((key_event) => {
-                var handled = false;
-                if (Gdk.ModifierType.CONTROL_MASK in key_event.state) {
-                    total_delta += key_event.delta_y;
-                    if (total_delta < -SCROLL_THRESHOLD) {
-                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_IN, null);
-                        total_delta = 0.0;
-                    } else if (total_delta > SCROLL_THRESHOLD) {
-                        get_action_group (MainWindow.ACTION_GROUP).activate_action (MainWindow.ACTION_ZOOM_OUT, null);
-                        total_delta = 0.0;
-                    }
-
-                    return true;
-                }
-
-                return false;
-            });
 
             cut_clipboard.connect (() => {
                 if (!Scratch.settings.get_boolean ("smart-cut-copy")) {
@@ -192,7 +177,111 @@ namespace Scratch.Widgets {
                 }
             });
 
-            populate_popup.connect_after (on_context_menu);
+            // Actions and menumodel for additional context menu items
+            var sort_action = new SimpleAction ("sort-lines", null);
+            var mark_action = new SimpleAction ("mark", null);
+            var next_mark_action = new SimpleAction ("next-mark", null);
+            var prev_mark_action = new SimpleAction ("prev-mark", null);
+            var toggle_comment_action = new SimpleAction ("toggle-comment", null);
+            var go_to_matching_action = new SimpleAction ("action-go-to-matching", null);
+
+            actions = new SimpleActionGroup ();
+            actions.add_action (sort_action);
+            actions.add_action (mark_action);
+            actions.add_action (next_mark_action);
+            actions.add_action (prev_mark_action);
+            actions.add_action (toggle_comment_action);
+            actions.add_action (go_to_matching_action);
+
+            insert_action_group ("sourceview", actions);
+            sort_action.activate.connect (sort_selected_lines);
+            mark_action.activate.connect (add_mark_at_cursor);
+            next_mark_action.activate.connect (goto_next_mark);
+            prev_mark_action.activate.connect (goto_previous_mark);
+            toggle_comment_action.activate.connect (() => {
+                CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
+            });
+            go_to_matching_action.activate.connect (() => {
+                goto_matching ();
+            });
+
+            var extra_menu = new Menu ();
+            extra_menu.append (_("Sort Lines"), "sort-lines");
+            extra_menu.append (_("Mark Line"), "mark");
+            extra_menu.append (_("Previous Mark"), "next-mark");
+            extra_menu.append (_("Next Mark"), "prev-mark");
+            extra_menu.append (_("Toggle Comment"), "toggle-comment");
+
+            // enable/disable action depending on changes to language, selection, marks in document
+            buffer.notify["has-selection"].connect (() => {
+                sort_action.set_enabled (buffer.has_selection);
+            });
+            buffer.notify["language"].connect (() => {
+                toggle_comment_action.set_enabled (CommentToggler.language_has_comments (((Gtk.SourceBuffer)buffer).language));
+            });
+            buffer.notify_property ("has-selection");
+            buffer.notify_property ("language");
+
+            navmark_gutter_renderer.notify["has-marks"].connect (() => {
+                next_mark_action.set_enabled (navmark_gutter_renderer.has_marks);
+                prev_mark_action.set_enabled (next_mark_action.get_enabled ());
+            });
+            navmark_gutter_renderer.notify_property ("has-marks");
+
+            // For Gtk3 we need to convert extra_menu to additional Gtk.MenuItems. This is omitted in Gtk4
+            populate_popup.connect_after ((menu) => {
+                scroll_mark_onscreen (buffer.get_mark ("insert")); //TODO Check if still needed in Gtk4
+                for (int i = 0; i < extra_menu.get_n_items (); i++) {
+                    var name = extra_menu.get_item_attribute_value (i, "label", VariantType.STRING).get_string ();
+                    var action = extra_menu.get_item_attribute_value (i, "action", VariantType.STRING).get_string ();
+                    // warning ("adding menuitem name %s, action_name %s", name, action);
+                    menu.add (
+                        new Gtk.MenuItem.with_label (name) {
+                            action_name = "sourceview." + action
+                        }
+                    );
+                }
+                menu.show_all ();
+            });
+
+            // Handle context menu shortcuts here.
+            // In Gtk3 we use a EventControllerKey but after porting to Gtk4 we can replace with Gtk.Shortcuts
+            key_controller = new Gtk.EventControllerKey (application.get_active_window ()) {
+                propagation_phase = CAPTURE
+            };
+            key_controller.key_pressed.connect ((kv, kc, state) => {
+                if (!this.is_focus || !Gtk.accelerator_valid (kv, state)) {
+                    return false;
+                }
+
+                var mods = (state & Gtk.accelerator_get_default_mod_mask ());
+                var accel = Gtk.accelerator_name (kv, mods);
+                switch (accel) {
+                    case "F5":
+                        sort_selected_lines ();
+                        return true;
+                    case "<Alt>equal":
+                            add_mark_at_cursor ();
+                            return true;
+                    case "<Alt>Left":
+                            goto_next_mark ();
+                            return true;
+                    case "<Alt>Right":
+                            goto_previous_mark ();
+                            return true;
+                    case "<Primary>m":
+                    case "<Primary>slash":
+                            CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
+                            return true;
+                    case "<Primary><Shift>i":
+                            goto_matching ();
+                            return true;
+                    default:
+                        break;
+                }
+
+                return false;
+            });
 
             size_allocate.connect ((allocation) => {
                 // Throttle for performance
@@ -205,7 +294,7 @@ namespace Scratch.Widgets {
                 }
             });
 
-            application.notify["system-document-font"].connect (() => {
+            application.notify["system-monospace-font"].connect (() => {
                 if (Scratch.settings.get_boolean ("use-system-font")) {
                     update_font ();
                 }
@@ -307,7 +396,7 @@ namespace Scratch.Widgets {
 
         private void update_font () {
             if (Scratch.settings.get_boolean ("use-system-font")) {
-                font = application.system_document_font;
+                font = application.system_monospace_font;
             } else {
                 font = Scratch.settings.get_string ("font");
             }
@@ -585,62 +674,6 @@ namespace Scratch.Widgets {
                 get_current_line (out start, out end)) {
 
                     buffer.apply_tag_by_name ("draw_spaces", start, end);
-            }
-        }
-
-        private void on_context_menu (Gtk.Menu menu) {
-            scroll_mark_onscreen (buffer.get_mark ("insert"));
-
-            var sort_item = new Gtk.MenuItem.with_label (_("Sort Lines")) {
-                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SORT_LINES
-            };
-
-            var add_edit_item = new Gtk.MenuItem.with_label (_("Mark Line")) {
-                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ADD_MARK
-            };
-
-            var previous_edit_item = new Gtk.MenuItem.with_label (_("Previous Mark")) {
-                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREVIOUS_MARK
-            };
-
-            var next_edit_item = new Gtk.MenuItem.with_label (_("Next Mark")) {
-                action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEXT_MARK
-            };
-
-            menu.add (sort_item);
-            menu.add (add_edit_item);
-            menu.add (previous_edit_item);
-            menu.add (next_edit_item);
-
-            if (buffer is Gtk.SourceBuffer) {
-                var comment_item = new Gtk.MenuItem.with_label (_("Toggle Comment")) {
-                    action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_COMMENT
-                };
-
-                var can_comment = CommentToggler.language_has_comments (((Gtk.SourceBuffer) buffer).get_language ());
-                if (!can_comment) {
-                    comment_item.action_name = "";
-                }
-
-                menu.add (comment_item);
-
-                if (true) {//TODO Check preceding char is bracket
-                    var match_item = new Gtk.MenuItem.with_label (_("Goto Matching Bracket")) {
-                        action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_GO_TO_MATCHING
-                    };
-                    menu.add (match_item);
-                }
-            }
-
-            menu.show_all ();
-
-            if (!(get_selected_line_count () > 1)) {
-                sort_item.action_name = "";
-            }
-
-            if (!navmark_gutter_renderer.has_marks) {
-                previous_edit_item.action_name = "";
-                next_edit_item.action_name = "";
             }
         }
 

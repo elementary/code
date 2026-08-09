@@ -2,7 +2,8 @@
 /***
   BEGIN LICENSE
 
-  Copyright (C) 2020 Igor Montagner <igordsm@gmail.com>
+  Copyright (c) 2022-2025 elementary LLC. (https://elementary.io)
+  Copyright (C) 2020-2021 Igor Montagner <igordsm@gmail.com>
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -26,11 +27,13 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
 
     public void update_state () {}
 
+    private Gtk.EventControllerKey key_controller;
+    private bool is_markdown = false;
+
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
             if (current_source != null) {
-                current_source.key_press_event.disconnect (shortcut_handler);
                 current_source.notify["language"].disconnect (configure_shortcuts);
             }
 
@@ -39,30 +42,44 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
 
             current_source.notify["language"].connect (configure_shortcuts);
         });
+        plugins.hook_window.connect ((w) => {
+            key_controller = new Gtk.EventControllerKey (w) {
+                propagation_phase = CAPTURE
+            };
+            key_controller.key_pressed.connect (shortcut_handler);
+        });
     }
 
     private void configure_shortcuts () {
         var lang = current_source.language;
-        if (lang != null && lang.id == "markdown") {
-            current_source.key_press_event.connect (shortcut_handler);
-        } else {
-            current_source.key_press_event.disconnect (shortcut_handler);
-        }
+        is_markdown = (lang != null && lang.id == "markdown");
     }
 
-    private bool shortcut_handler (Gdk.EventKey evt) {
-        var control = (evt.state & Gdk.ModifierType.CONTROL_MASK) != 0;
-        var shift = (evt.state & Gdk.ModifierType.SHIFT_MASK) != 0;
-        var other_mods = (evt.state & Gtk.accelerator_get_default_mod_mask () &
-                          ~Gdk.ModifierType.SHIFT_MASK &
-                          ~Gdk.ModifierType.CONTROL_MASK) != 0;
+    private bool shortcut_handler (
+        Gtk.EventController controller,
+        uint keyval,
+        uint keycode,
+        Gdk.ModifierType state
+    ) requires (current_source != null) {
 
-        if (evt.is_modifier == 1 || other_mods == true) {
+        if (!current_source.is_focus) {
             return false;
         }
 
+        if (!is_markdown || !Gtk.accelerator_valid (keyval, state)) {
+            return false;
+        }
+
+        var mods = (state & Gtk.accelerator_get_default_mod_mask ());
+        if (((mods & ~Gdk.ModifierType.SHIFT_MASK) & ~Gdk.ModifierType.CONTROL_MASK) != 0) {
+            // A modifier other than Control or Shift is down
+            return false;
+        }
+
+        var control = (mods & Gdk.ModifierType.CONTROL_MASK) != 0;
+        var shift = (mods & Gdk.ModifierType.SHIFT_MASK) != 0;
         if (control && shift) {
-            switch (evt.keyval) {
+            switch (keyval) {
                 case Gdk.Key.B:
                     add_markdown_tag ("**");
                     return true;
@@ -75,7 +92,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
             }
         }
 
-        if (evt.keyval == Gdk.Key.Return) {
+        if (keyval == Gdk.Key.Return) {
             char ul_marker;
             int ol_number = 1;
             string item_text;
@@ -99,6 +116,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
                 return true;
             }
         }
+
         return false;
     }
 
@@ -233,7 +251,6 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
 
     public void deactivate () {
         if (current_source != null) {
-            current_source.key_press_event.disconnect (shortcut_handler);
             current_source.notify["language"].disconnect (configure_shortcuts);
         }
     }

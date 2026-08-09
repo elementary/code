@@ -2,7 +2,9 @@
 /***
   BEGIN LICENSE
 
-  Copyright (C) 2013 Madelynn May <madelynnmay@madelynnmay.com>
+  Copyright (C) 2013-2014 Madelynn May <madelynnmay@madelynnmay.com>
+                2015-2025 elementary, Inc. (https://elementary.io)
+
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.

@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 elementary, Inc. <https://elementary.io>
+ * Copyright 2025-2026 elementary, Inc. <https://elementary.io>
  * SPDX-License-Identifier: GPL-3.0-or-later
 *
 * Authored by: Jeremy Wootten <jeremywootten@gmail.com>
@@ -49,7 +49,8 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
 
     public BranchActionDialog (FolderManager.ProjectFolderItem project) {
         Object (
-            project: project
+            project: project,
+            modal: true
         );
     }
 
