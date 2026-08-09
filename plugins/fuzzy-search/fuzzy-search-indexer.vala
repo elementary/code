@@ -75,7 +75,7 @@ public class Scratch.Services.FuzzySearchIndexer : GLib.Object {
         processing_queue = new Gee.ConcurrentList<IndexerMessage> ();
         project_paths = new Gee.HashMap<string, Services.SearchProject> ();
 
-        folder_settings = new GLib.Settings ("io.elementary.code.folder-manager");
+        folder_settings = new GLib.Settings (Constants.PROJECT_NAME + ".folder-manager");
         folder_settings.changed["opened-folders"].connect (handle_opened_projects_change);
     }
 

@@ -159,7 +159,7 @@ public class Code.ChooseProjectButton : Gtk.Bin {
                     }
                 }
 
-                var settings = new GLib.Settings ("io.elementary.code.folder-manager");
+                var settings = new GLib.Settings (Constants.PROJECT_NAME + ".folder-manager");
                 var recently_closed = settings.get_strv ("closed-folders");
                 var size = recently_closed.length;
                 // List in reverse order so most recently closed appears first
