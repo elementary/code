@@ -183,7 +183,7 @@ namespace Scratch.Widgets {
             var next_mark_action = new SimpleAction ("next-mark", null);
             var prev_mark_action = new SimpleAction ("prev-mark", null);
             var toggle_comment_action = new SimpleAction ("toggle-comment", null);
-            var go_to_matching_action = new SimpleAction ("action-go-to-matching", null);
+            var go_to_matching_action = new SimpleAction ("go-to-matching", null);
 
             actions = new SimpleActionGroup ();
             actions.add_action (sort_action);
@@ -211,6 +211,7 @@ namespace Scratch.Widgets {
             extra_menu.append (_("Previous Mark"), "next-mark");
             extra_menu.append (_("Next Mark"), "prev-mark");
             extra_menu.append (_("Toggle Comment"), "toggle-comment");
+            extra_menu.append (_("Goto Matching Bracket"), "go-to-matching");
 
             // enable/disable action depending on changes to language, selection, marks in document
             buffer.notify["has-selection"].connect (() => {
