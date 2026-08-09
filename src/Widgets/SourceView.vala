@@ -783,11 +783,13 @@ namespace Scratch.Widgets {
 
         private uint get_indent_spaces (Gtk.TextIter t) {
             var indent_iter = t.copy ();
+            // Move to beginning of line
             if (indent_iter.backward_line ()) {
                 indent_iter.forward_line ();
             };
+
             uint spaces = 0;
-            while (indent_iter.forward_char () && indent_iter.get_char ().isspace ()) {
+            while (indent_iter.get_char ().isspace () && indent_iter.forward_char ()) {
                 spaces++;
             }
 
@@ -795,15 +797,15 @@ namespace Scratch.Widgets {
         }
 
         // Return index of next uncommented, not empty line
-        private bool skip_commented_lines (out int new_index, int start_index, int step = 1) {
-            new_index = start_index;
+        private bool skip_commented_lines (out int new_line, int start_line, int step = 1) {
+            new_line = start_line;
             while (CommentToggler.line_is_commented_or_empty (
-                (Gtk.SourceBuffer)buffer, new_index, language
+                (Gtk.SourceBuffer)buffer, new_line, language
             )) {
-                new_index += step;
+                new_line += step;
             }
 
-            return new_index != start_index;
+            return new_line != start_line;
         }
 
         public void goto_matching () {
@@ -813,37 +815,42 @@ namespace Scratch.Widgets {
             bool found = false;
             var insert_mark = buffer.get_mark ("insert");
             Gtk.TextIter insert_iter, start_iter, end_iter;
-            buffer.get_iter_at_mark (out insert_iter, insert_mark);
-            start_line = insert_iter.get_line ();
+
+           // Ignore action if starting bracket is commented out
             if (skip_commented_lines (out new_line, start_line)) {
                 return;
             }
 
+            buffer.get_iter_at_mark (out insert_iter, insert_mark);
+            start_line = insert_iter.get_line ();
             start_line++; // Change from index to visible number
             insert_iter.backward_char ();
             var insert_char = insert_iter.get_char ();
             var end = insert_iter.copy ();
             unichar matching;
             if (is_open_bracket (insert_char, out matching)) {
+                // matching is closing bracket matching the open one
                 start_indent = get_indent_spaces (insert_iter);
-                end_line = buffer.get_line_count ();
+                end_line = buffer.get_line_count () - 1;
                 while (end.forward_char ()) {
+                    // Skip commented lines
                     if (end.starts_line () && skip_commented_lines (out new_line, end.get_line ())) {
                         end.set_line (new_line);
+                        end.backward_char ();
                         continue;
                     }
-                    c = end.get_char ();
 
+                    c = end.get_char ();
                     if (is_open_bracket (c, out matching)) {
-                        same++;
+                        same++; // Keep track of nested brackets (we do not distinguish type at this stage)
                     } else if (is_close_bracket (c, out matching)) {
                         if (same > 0) {
                             same--;
-                        } else {
+                        } else {  // This matches the first bracket so is what we want
                             end_indent = get_indent_spaces (end);
-                            end_line = end.get_line () + 1;
-                            warning ("end line %i", end_line);
+                            end_line = end.get_line () + 1; // get end line number
                             end.forward_char ();
+                            // Move cursor and scroll to desired point
                             buffer.place_cursor (end);
                             scroll_to_iter (end, 0.1, false, 0.0, 0.0);
                             found = true;
@@ -855,11 +862,13 @@ namespace Scratch.Widgets {
                 start_indent = get_indent_spaces (insert_iter);
                 end_line = 0;
                 while (end.backward_char ()) {
+                    // Skip commented lines
                     if (end.ends_line () && skip_commented_lines (out new_line, end.get_line (), -1)) {
                         end.set_line (new_line);
                         end.forward_to_line_end ();
                         continue;
                     }
+
                     c = end.get_char ();
                     if (is_close_bracket (c, out matching)) {
                         same++;
@@ -873,6 +882,7 @@ namespace Scratch.Widgets {
                             buffer.place_cursor (end);
                             scroll_to_iter (end, 0.1, false, 0.0, 0.0);
                             found = true;
+                            // warning ("break found");
                             break;
                         }
                     }
@@ -886,8 +896,8 @@ namespace Scratch.Widgets {
                 var max_line = int.max (start_line, end_line);
                 var parent_window = get_toplevel () as Gtk.Window;
                 var dialog = new Granite.MessageDialog (
-                    found ? _("Matching bracket has incorrect indent") : _("No matching bracket found"),
-                    _("You may have omitted a required bracket or inserted an extra bracket between lines %i and %i").printf (min_line, max_line),
+                    found ? _("Matching bracket has different indent") : _("No matching bracket found"),
+                    _("You may have omitted a required bracket or inserted extra brackets between lines %i and %i, or you may need to adjust the indents").printf (min_line, max_line),
                     new ThemedIcon ("dialog-warning"),
                     Gtk.ButtonsType.CLOSE
                 );
