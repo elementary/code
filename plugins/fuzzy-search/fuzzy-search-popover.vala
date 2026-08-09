@@ -181,8 +181,6 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
                         bool first = true;
 
-
-
                         foreach (var c in search_result_container.get_children ()) {
                             search_result_container.remove (c);
                         }
