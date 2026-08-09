@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-03 14:41+0000\n"
-"PO-Revision-Date: 2026-01-31 08:55+0000\n"
+"PO-Revision-Date: 2026-08-07 01:01+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/code/code/"
 "uk/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:41 src/Widgets/DocumentView.vala:100
@@ -322,10 +322,9 @@ msgid "Line width guide"
 msgstr "Довжина рядка"
 
 #: src/Dialogs/PreferencesDialog.vala:128
-#, fuzzy, c-format
-#| msgid "Use system font"
+#, c-format
 msgid "Use system font (%s)"
-msgstr "Використовувати системний шрифт"
+msgstr "Використовувати системний шрифт (%s)"
 
 #: src/Dialogs/PreferencesDialog.vala:138
 msgid "Font"
@@ -502,10 +501,8 @@ msgid "Open in Terminal Pane"
 msgstr "Відкрити у панелі Термінала"
 
 #: src/FolderManager/ProjectFolderItem.vala:171
-#, fuzzy
-#| msgid "Other Actions"
 msgid "Branch Actions…"
-msgstr "Інші дії"
+msgstr "Дії гілки…"
 
 #: src/FolderManager/ProjectFolderItem.vala:181
 msgid "Close Folder"
