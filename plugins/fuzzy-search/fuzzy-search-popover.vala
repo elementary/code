@@ -99,10 +99,8 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
             switch (keyval) {
                 case Gdk.Key.Down:
                     if (search_list_store.n_items > 0) {
-                    // if (items.size > 0) {
                         var old_index = preselected_index;
                         var item = search_list_store.get_item (preselected_index++);
-                        // var item = items.get (preselected_index++);
                         if (preselected_index >= search_list_store.n_items) {
                             preselected_index = 0;
                         }
