@@ -26,7 +26,9 @@ public class FileItem : Gtk.ListBoxRow {
 
         var path_label = new Gtk.Label (
             @"$(should_distinguish_project ? result.project + " • " : "")$(result.relative_path)"
-        );
+        ) {
+            ellipsize = MIDDLE
+        };
 
         path_label.halign = Gtk.Align.START;
 
