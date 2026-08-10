@@ -360,7 +360,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             insert_document (doc, (int) docs.length ());
             // Load contents before proceeding
             yield doc.open (false);
-            doc.source_view.cursor_position = cursor_position;
         } else {
             debug ("This Document was already opened! Not opening a duplicate!");
         }
