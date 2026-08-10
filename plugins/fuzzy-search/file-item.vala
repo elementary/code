@@ -27,6 +27,8 @@ public class FileItem : Gtk.ListBoxRow {
         var path_label = new Gtk.Label (
             @"$(should_distinguish_project ? result.project + " • " : "")$(result.relative_path)"
         );
+        path_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+        path_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
 
         path_label.halign = Gtk.Align.START;
 
