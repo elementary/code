@@ -34,11 +34,6 @@ textview.scrubber {
    background-color: @theme_unfocused_selected_bg_color;
 }
 
-.fuzzy-item.preselect-fuzzy {
-   background-color: @selected_bg_color;
-   color: @selected_fg_color;
-}
-
 .symbol-outline > box.horizontal {
     margin: 1em;
 }

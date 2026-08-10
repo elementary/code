@@ -53,7 +53,8 @@ public class FileItem : Gtk.ListBoxRow {
         container_box.add (path_box);
 
         get_style_context ().add_class ("fuzzy-item");
-        get_style_context ().add_class ("flat");
         child = container_box;
+
+        show_all ();
     }
 }
