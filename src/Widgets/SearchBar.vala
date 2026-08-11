@@ -16,31 +16,6 @@ namespace Scratch.Widgets {
 
         public weak MainWindow window { get; construct; }
 
-
-        private Gtk.Button tool_arrow_up;
-        private Gtk.Button tool_arrow_down;
-
-        /**
-         * Is the search cyclic? e.g., when you are at the bottom, if you press
-         * "Down", it will go at the start of the file to search for the content
-         * of the search entry.
-         **/
-        private Granite.SwitchModelButton cycle_search_button ;
-        private Gtk.ComboBoxText case_sensitive_search_button;
-        private Granite.SwitchModelButton regex_search_button;
-        private Granite.SwitchModelButton whole_word_search_button;
-        private Gtk.SearchEntry search_entry;
-        private Gtk.SearchEntry replace_entry;
-        private Gtk.Label search_occurence_count_label;
-        private Gtk.Button replace_tool_button;
-        private Gtk.Button replace_all_tool_button;
-        private Scratch.Widgets.SourceView? text_view = null;
-        private Gtk.TextBuffer? text_buffer = null;
-        private Gtk.SourceSearchContext? search_context;
-        private uint update_search_label_timeout_id = 0;
-        private Gtk.Revealer revealer;
-        private Gtk.EventControllerKey key_controller;
-
         public bool is_focused {
             get {
                 return search_is_focused || replace_is_focused;
@@ -94,6 +69,30 @@ namespace Scratch.Widgets {
                 return revealer.transition_duration + 10;
             }
         }
+
+        private Gtk.Button tool_arrow_up;
+        private Gtk.Button tool_arrow_down;
+
+        /**
+         * Is the search cyclic? e.g., when you are at the bottom, if you press
+         * "Down", it will go at the start of the file to search for the content
+         * of the search entry.
+         **/
+        private Granite.SwitchModelButton cycle_search_button ;
+        private Gtk.ComboBoxText case_sensitive_search_button;
+        private Granite.SwitchModelButton regex_search_button;
+        private Granite.SwitchModelButton whole_word_search_button;
+        private Gtk.SearchEntry search_entry;
+        private Gtk.SearchEntry replace_entry;
+        private Gtk.Label search_occurence_count_label;
+        private Gtk.Button replace_tool_button;
+        private Gtk.Button replace_all_tool_button;
+        private Scratch.Widgets.SourceView? text_view = null;
+        private Gtk.TextBuffer? text_buffer = null;
+        private Gtk.SourceSearchContext? search_context;
+        private uint update_search_label_timeout_id = 0;
+        private Gtk.Revealer revealer;
+        private Gtk.EventControllerKey key_controller;
 
         public SearchBar (MainWindow window) {
             Object (window: window);
