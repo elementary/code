@@ -25,7 +25,8 @@ public class FileItem : Gtk.ListBoxRow {
         path_box.valign = Gtk.Align.CENTER;
 
         var path_label = new Gtk.Label (get_path_label (should_distinguish_project)) {
-            halign = START
+            halign = START,
+            ellipsize = MIDDLE
         };
 
         var filename_label = new Gtk.Label (Path.get_basename (result.relative_path));
