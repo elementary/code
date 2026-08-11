@@ -296,78 +296,6 @@ namespace Scratch.Widgets {
             on_text_buffer_changed ();
         }
 
-        private void on_text_buffer_changed () {
-            update_search_widgets ();
-        }
-
-        private void on_replace_entry_activate () {
-            if (text_buffer == null) {
-                warning ("No valid buffer to replace");
-                return;
-            }
-
-            Gtk.TextIter? start_iter, end_iter;
-            text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
-
-            if (search_for_iter (start_iter, out end_iter)) {
-                string replace_string = replace_entry.text;
-                try {
-                    cancel_update_search_widgets ();
-                    search_context.replace (start_iter, end_iter, replace_string, replace_string.length);
-                    update_search_widgets ();
-                    debug ("Replaced \"%s\" with \"%s\"", search_entry.text, replace_entry.text);
-                } catch (Error e) {
-                    critical (e.message);
-                }
-            }
-        }
-
-        private void on_replace_all_entry_activate () {
-            if (text_buffer == null || this.window.get_current_document () == null) {
-                debug ("No valid buffer to replace");
-                return;
-            }
-
-            string replace_string = replace_entry.text;
-            this.window.get_current_document ().toggle_changed_handlers (false);
-            try {
-                cancel_update_search_widgets ();
-                search_context.replace_all (replace_string, replace_string.length);
-                update_search_widgets ();
-            } catch (Error e) {
-                critical (e.message);
-            }
-
-            this.window.get_current_document ().toggle_changed_handlers (true);
-        }
-
-        // Called when one of the settings buttons or the search term changes
-        private void on_search_parameters_changed () {
-            if (search_context != null) {
-                var search_string = search_entry.text;
-                search_context.settings.search_text = search_string;
-                var case_mode = (CaseSensitiveMode)(case_sensitive_search_button.active);
-                switch (case_mode) {
-                    case CaseSensitiveMode.NEVER:
-                        search_context.settings.case_sensitive = false;
-                        break;
-                    case CaseSensitiveMode.MIXED:
-                        search_context.settings.case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
-                        break;
-                    case CaseSensitiveMode.ALWAYS:
-                        search_context.settings.case_sensitive = true;
-                        break;
-                    default:
-                        assert_not_reached ();
-                }
-
-                search_context.settings.at_word_boundaries = whole_word_search_button.active;
-                search_context.settings.regex_enabled = regex_search_button.active;
-            }
-
-            update_search_widgets ();
-        }
-
         public bool search () {
             search_entry.grab_focus ();
             if (search_context == null) {
@@ -411,62 +339,6 @@ namespace Scratch.Widgets {
             if (search_context != null) {
                 search_context.highlight = false;
             }
-        }
-
-        private bool has_matches () {
-            if (text_buffer == null || search_entry.text == "") {
-                return false;
-            }
-
-            bool has_wrapped_around;
-            Gtk.TextIter? start_iter, end_iter;
-            text_buffer.get_start_iter (out start_iter);
-            return search_context.forward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
-        }
-
-        private bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
-            end_iter = start_iter;
-
-            if (search_context == null) {
-                critical ("Trying to search forwards with no search context");
-                return false;
-            }
-
-            bool has_wrapped_around;
-            bool found = search_context.forward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
-            if (found) {
-                text_buffer.select_range (start_iter, end_iter);
-                if (has_wrapped_around) {
-                    start_iter.backward_lines (3);
-                } else {
-                    start_iter.forward_lines (3);
-                }
-                text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
-            }
-
-            return found;
-        }
-
-        private bool search_for_iter_backward (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
-            end_iter = start_iter;
-
-            if (search_context == null) {
-                critical ("Trying to search backwards with no search context");
-                return false;
-            }
-
-            bool has_wrapped_around;
-            bool found = search_context.backward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
-            if (found) {
-                text_buffer.select_range (start_iter, end_iter);
-                if (has_wrapped_around) {
-                    start_iter.forward_lines (3);
-                } else {
-                    start_iter.backward_lines (3);
-                }
-                text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
-            }
-            return found;
         }
 
         public void search_previous () {
@@ -562,6 +434,134 @@ namespace Scratch.Widgets {
             }
 
             return false;
+        }
+
+        private void on_text_buffer_changed () {
+            update_search_widgets ();
+        }
+
+        private void on_replace_entry_activate () {
+            if (text_buffer == null) {
+                warning ("No valid buffer to replace");
+                return;
+            }
+
+            Gtk.TextIter? start_iter, end_iter;
+            text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
+
+            if (search_for_iter (start_iter, out end_iter)) {
+                string replace_string = replace_entry.text;
+                try {
+                    cancel_update_search_widgets ();
+                    search_context.replace (start_iter, end_iter, replace_string, replace_string.length);
+                    update_search_widgets ();
+                    debug ("Replaced \"%s\" with \"%s\"", search_entry.text, replace_entry.text);
+                } catch (Error e) {
+                    critical (e.message);
+                }
+            }
+        }
+
+        private void on_replace_all_entry_activate () {
+            if (text_buffer == null || this.window.get_current_document () == null) {
+                debug ("No valid buffer to replace");
+                return;
+            }
+
+            string replace_string = replace_entry.text;
+            this.window.get_current_document ().toggle_changed_handlers (false);
+            try {
+                cancel_update_search_widgets ();
+                search_context.replace_all (replace_string, replace_string.length);
+                update_search_widgets ();
+            } catch (Error e) {
+                critical (e.message);
+            }
+
+            this.window.get_current_document ().toggle_changed_handlers (true);
+        }
+
+        // Called when one of the settings buttons or the search term changes
+        private void on_search_parameters_changed () {
+            if (search_context != null) {
+                var search_string = search_entry.text;
+                search_context.settings.search_text = search_string;
+                var case_mode = (CaseSensitiveMode)(case_sensitive_search_button.active);
+                switch (case_mode) {
+                    case CaseSensitiveMode.NEVER:
+                        search_context.settings.case_sensitive = false;
+                        break;
+                    case CaseSensitiveMode.MIXED:
+                        search_context.settings.case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
+                        break;
+                    case CaseSensitiveMode.ALWAYS:
+                        search_context.settings.case_sensitive = true;
+                        break;
+                    default:
+                        assert_not_reached ();
+                }
+
+                search_context.settings.at_word_boundaries = whole_word_search_button.active;
+                search_context.settings.regex_enabled = regex_search_button.active;
+            }
+
+            update_search_widgets ();
+        }
+
+        private bool has_matches () {
+            if (text_buffer == null || search_entry.text == "") {
+                return false;
+            }
+
+            bool has_wrapped_around;
+            Gtk.TextIter? start_iter, end_iter;
+            text_buffer.get_start_iter (out start_iter);
+            return search_context.forward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
+        }
+
+        private bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
+            end_iter = start_iter;
+
+            if (search_context == null) {
+                critical ("Trying to search forwards with no search context");
+                return false;
+            }
+
+            bool has_wrapped_around;
+            bool found = search_context.forward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
+            if (found) {
+                text_buffer.select_range (start_iter, end_iter);
+                if (has_wrapped_around) {
+                    start_iter.backward_lines (3);
+                } else {
+                    start_iter.forward_lines (3);
+                }
+                text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
+            }
+
+            return found;
+        }
+
+        private bool search_for_iter_backward (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
+            end_iter = start_iter;
+
+            if (search_context == null) {
+                critical ("Trying to search backwards with no search context");
+                return false;
+            }
+
+            bool has_wrapped_around;
+            bool found = search_context.backward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
+            if (found) {
+                text_buffer.select_range (start_iter, end_iter);
+                if (has_wrapped_around) {
+                    start_iter.forward_lines (3);
+                } else {
+                    start_iter.backward_lines (3);
+                }
+                text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
+            }
+            return found;
         }
 
         private void cancel_update_search_widgets () {
