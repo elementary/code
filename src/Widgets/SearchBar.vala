@@ -178,15 +178,25 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         whole_word_search_button.toggled.connect (on_search_parameters_changed);
         regex_search_button.toggled.connect (on_search_parameters_changed);
 
-        Scratch.settings.bind ("cyclic-search", cycle_search_button, "active", DEFAULT);
-        Scratch.settings.bind ("wholeword-search", whole_word_search_button, "active", DEFAULT);
-        Scratch.settings.bind ("case-sensitive-search", case_sensitive_search_button, "active-id", DEFAULT);
-        Scratch.settings.bind ("regex-search", regex_search_button, "active", DEFAULT);
+        // Bind some application settings
+        settings.bind ("cyclic-search", cycle_search_button, "active", DEFAULT);
+        settings.bind ("wholeword-search", whole_word_search_button, "active", DEFAULT);
+        settings.bind ("case-sensitive-search", case_sensitive_search_button, "active-id", DEFAULT);
+        settings.bind ("regex-search", regex_search_button, "active", DEFAULT);
+
         // These settings are ignored when regex searching
-        regex_search_button.bind_property ("active", cycle_search_button, "sensitive", SYNC_CREATE | INVERT_BOOLEAN);
-        regex_search_button.bind_property ("active", whole_word_search_button, "sensitive", SYNC_CREATE | INVERT_BOOLEAN);
-        regex_search_button.bind_property ("active", case_sensitive_search_label, "sensitive", SYNC_CREATE | INVERT_BOOLEAN);
-        regex_search_button.bind_property ("active", case_sensitive_search_button, "sensitive", SYNC_CREATE | INVERT_BOOLEAN);
+        regex_search_button.bind_property (
+            "active", cycle_search_button, "sensitive", SYNC_CREATE | INVERT_BOOLEAN
+        );
+        regex_search_button.bind_property (
+            "active", whole_word_search_button, "sensitive", SYNC_CREATE | INVERT_BOOLEAN
+        );
+        regex_search_button.bind_property (
+            "active", case_sensitive_search_label, "sensitive", SYNC_CREATE | INVERT_BOOLEAN
+        );
+        regex_search_button.bind_property (
+            "active", case_sensitive_search_button, "sensitive", SYNC_CREATE | INVERT_BOOLEAN
+        );
 
         var search_box = new Gtk.Box (HORIZONTAL, 0) {
             margin_top = 3,
