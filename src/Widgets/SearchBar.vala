@@ -113,7 +113,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
             sensitive = false,
             tooltip_markup = Granite.markup_accel_tooltip (
                 app_instance.get_accels_for_action (
-                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_NEXT
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_NEXT
                 ),
                 _("Search next")
             )
@@ -124,7 +124,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
             sensitive = false,
             tooltip_markup = Granite.markup_accel_tooltip (
                 app_instance.get_accels_for_action (
-                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_PREVIOUS
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_PREVIOUS
                 ),
                 _("Search previous")
             )
