@@ -110,7 +110,7 @@ namespace Scratch.Widgets {
 
             var app_instance = (Scratch.Application) GLib.Application.get_default ();
 
-            tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+            tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic", SMALL_TOOLBAR) {
                 sensitive = false,
                 tooltip_markup = Granite.markup_accel_tooltip (
                     app_instance.get_accels_for_action (
@@ -121,7 +121,7 @@ namespace Scratch.Widgets {
             };
             tool_arrow_down.clicked.connect (search_next);
 
-            tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+            tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", SMALL_TOOLBAR) {
                 sensitive = false,
                 tooltip_markup = Granite.markup_accel_tooltip (
                     app_instance.get_accels_for_action (
@@ -142,7 +142,7 @@ namespace Scratch.Widgets {
 
             var case_sensitive_search_label = new Gtk.Label (_("Case Sensitive"));
 
-            var case_sensitive_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
+            var case_sensitive_box = new Gtk.Box (HORIZONTAL, 12);
             case_sensitive_box.add (case_sensitive_search_label);
             case_sensitive_box.add (case_sensitive_search_button);
             case_sensitive_box.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
@@ -150,7 +150,7 @@ namespace Scratch.Widgets {
             regex_search_button = new Granite.SwitchModelButton (_("Use Regular Expressions"));
             whole_word_search_button = new Granite.SwitchModelButton (_("Match Whole Words"));
 
-            var search_option_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+            var search_option_box = new Gtk.Box (VERTICAL, 0) {
                 margin_top = 3,
                 margin_bottom = 3
             };
@@ -164,9 +164,9 @@ namespace Scratch.Widgets {
             };
             search_popover.show_all ();
 
-            var search_buttonbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
+            var search_buttonbox = new Gtk.Box (HORIZONTAL, 6);
             search_buttonbox.add (search_occurence_count_label);
-            search_buttonbox.add (new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.SMALL_TOOLBAR));
+            search_buttonbox.add (new Gtk.Image.from_icon_name ("pan-down-symbolic", SMALL_TOOLBAR));
 
             var search_menubutton = new Gtk.MenuButton () {
                 popover = search_popover,
@@ -179,17 +179,17 @@ namespace Scratch.Widgets {
             whole_word_search_button.toggled.connect (on_search_parameters_changed);
             regex_search_button.toggled.connect (on_search_parameters_changed);
 
-            Scratch.settings.bind ("cyclic-search", cycle_search_button, "active", SettingsBindFlags.DEFAULT);
-            Scratch.settings.bind ("wholeword-search", whole_word_search_button, "active", SettingsBindFlags.DEFAULT);
-            Scratch.settings.bind ("case-sensitive-search", case_sensitive_search_button, "active-id", SettingsBindFlags.DEFAULT);
-            Scratch.settings.bind ("regex-search", regex_search_button, "active", SettingsBindFlags.DEFAULT);
+            Scratch.settings.bind ("cyclic-search", cycle_search_button, "active", DEFAULT);
+            Scratch.settings.bind ("wholeword-search", whole_word_search_button, "active", DEFAULT);
+            Scratch.settings.bind ("case-sensitive-search", case_sensitive_search_button, "active-id", DEFAULT);
+            Scratch.settings.bind ("regex-search", regex_search_button, "active", DEFAULT);
             // These settings are ignored when regex searching
             regex_search_button.bind_property ("active", cycle_search_button, "sensitive", SYNC_CREATE | INVERT_BOOLEAN);
             regex_search_button.bind_property ("active", whole_word_search_button, "sensitive", SYNC_CREATE | INVERT_BOOLEAN);
             regex_search_button.bind_property ("active", case_sensitive_search_label, "sensitive", SYNC_CREATE | INVERT_BOOLEAN);
             regex_search_button.bind_property ("active", case_sensitive_search_button, "sensitive", SYNC_CREATE | INVERT_BOOLEAN);
 
-            var search_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+            var search_box = new Gtk.Box (HORIZONTAL, 0) {
                 margin_top = 3,
                 margin_end = 3,
                 margin_bottom = 3,
