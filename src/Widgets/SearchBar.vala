@@ -292,6 +292,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         this.text_buffer = text_view.get_buffer ();
         this.text_buffer.changed.connect (on_text_buffer_changed);
         this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
+        search_context.highlight = true; // There are no circumstances where we do not highlight
         search_context.settings.wrap_around = cycle_search_button.active;
         search_context.settings.regex_enabled = regex_search_button.active;
         search_context.settings.search_text = search_entry.text;
@@ -300,47 +301,9 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
 
     public bool search () {
         search_entry.grab_focus ();
-        if (search_context == null) {
-            return false;
-        }
-
-        search_context.highlight = false;
-
-        if (!has_matches ()) {
-            debug ("Can't search anything in a non-existent buffer and/or without anything to search.");
-            return false;
-        }
-
-        search_context.highlight = true;
-
-        Gtk.TextIter? start_iter, end_iter;
-        text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
-
-        if (search_for_iter (start_iter, out end_iter)) {
-            search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
-            search_entry.primary_icon_name = "edit-find-symbolic";
-        } else {
-            text_buffer.get_start_iter (out start_iter);
-            if (search_for_iter (start_iter, out end_iter)) {
-                search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
-                search_entry.primary_icon_name = "edit-find-symbolic";
-            } else {
-                debug ("Not found: \"%s\"", search_entry.text);
-                start_iter.set_offset (-1);
-                text_buffer.select_range (start_iter, start_iter);
-                search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
-                search_entry.primary_icon_name = "dialog-error-symbolic";
-                return false;
-            }
-        }
+        update_search_widgets ();
 
         return true;
-    }
-
-    public void highlight_none () {
-        if (search_context != null) {
-            search_context.highlight = false;
-        }
     }
 
     public void search_previous () {
@@ -508,17 +471,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         }
 
         update_search_widgets ();
-    }
-
-    private bool has_matches () {
-        if (text_buffer == null || search_entry.text == "") {
-            return false;
-        }
-
-        bool has_wrapped_around;
-        Gtk.TextIter? start_iter, end_iter;
-        text_buffer.get_start_iter (out start_iter);
-        return search_context.forward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
     }
 
     private bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
