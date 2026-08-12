@@ -110,25 +110,27 @@ namespace Scratch.Widgets {
 
             var app_instance = (Scratch.Application) GLib.Application.get_default ();
 
-            tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+                sensitive = false,
+                tooltip_markup = Granite.markup_accel_tooltip (
+                    app_instance.get_accels_for_action (
+                        Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_NEXT
+                    ),
+                    _("Search next")
+                )
+            };
             tool_arrow_down.clicked.connect (search_next);
-            tool_arrow_down.sensitive = false;
-            tool_arrow_down.tooltip_markup = Granite.markup_accel_tooltip (
-                app_instance.get_accels_for_action (
-                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_NEXT
-                ),
-                _("Search next")
-            );
 
-            tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+                sensitive = false,
+                tooltip_markup = Granite.markup_accel_tooltip (
+                    app_instance.get_accels_for_action (
+                        Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_PREVIOUS
+                    ),
+                    _("Search previous")
+                )
+            };
             tool_arrow_up.clicked.connect (search_previous);
-            tool_arrow_up.sensitive = false;
-            tool_arrow_up.tooltip_markup = Granite.markup_accel_tooltip (
-                app_instance.get_accels_for_action (
-                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_PREVIOUS
-                ),
-                _("Search previous")
-            );
 
             cycle_search_button = new Granite.SwitchModelButton (_("Cyclic Search"));
 
@@ -203,10 +205,11 @@ namespace Scratch.Widgets {
             search_flow_box_child.can_focus = false;
             search_flow_box_child.add (search_box);
 
-            replace_entry = new Gtk.SearchEntry ();
-            replace_entry.hexpand = true;
-            replace_entry.placeholder_text = _("Replace With");
-            replace_entry.set_icon_from_icon_name (Gtk.EntryIconPosition.PRIMARY, "edit-symbolic");
+            replace_entry = new Gtk.SearchEntry () {
+                hexpand = true,
+                placeholder_text = _("Replace With"),
+                primary_icon_name = "edit-symbolic"
+            };
 
             replace_tool_button = new Gtk.Button.with_label (_("Replace"));
             replace_tool_button.clicked.connect (on_replace_entry_activate);
