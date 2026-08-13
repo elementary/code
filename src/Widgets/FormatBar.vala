@@ -261,22 +261,35 @@ public class Code.FormatBar : Gtk.Box {
             });
         } else {
             update_widgets ();
-    private void format_tab_header_from_global_settings () {
-        if (!tab_style_set_by_editor_config) {
-            set_insert_spaces_instead_of_tabs (Scratch.settings.get_boolean ("spaces-instead-of-tabs"));
         }
     }
 
-        if (!tab_width_set_by_editor_config) {
-            set_tab_width (Scratch.settings.get_int ("indent-width"));
-        }
-
-        editorconfig_infobar.revealed = tab_style_set_by_editor_config || tab_width_set_by_editor_config;
-        space_tab_modelbutton.sensitive = !tab_style_set_by_editor_config;
+    public void set_insert_spaces_instead_of_tabs (bool use_spaces) requires (current_doc != null) {
+        space_tab_modelbutton.active = use_spaces;
+        current_doc.source_view.insert_spaces_instead_of_tabs = use_spaces;
     }
 
-    private void format_line_header () {
-        var buffer = doc.source_view.buffer;
+    public void set_tab_width (int indent_width) requires (current_doc != null) {
+        width_spinbutton.@value = indent_width;
+        if (space_tab_modelbutton.active) {
+            tab_formatbox.text = ngettext ("%d Space", "%d Spaces", indent_width).printf (indent_width);
+        } else {
+            tab_formatbox.text = ngettext ("%d Tab", "%d Tabs", indent_width).printf (indent_width);
+        }
+
+        current_doc.source_view.indent_width = indent_width;
+        current_doc.source_view.tab_width = indent_width;
+    }
+
+    private void update_widgets () requires (current_doc != null) {
+        update_current_lang ();
+        format_tab_header_from_global_settings ();
+        format_line_header ();
+        current_doc.source_view.buffer.notify["cursor-position"].connect (format_line_header);
+    }
+
+    private void format_line_header () requires (current_doc != null) {
+        var buffer = current_doc.source_view.buffer;
         var position = buffer.cursor_position;
         Gtk.TextIter iter;
         buffer.get_iter_at_offset (out iter, position);
@@ -285,35 +298,26 @@ public class Code.FormatBar : Gtk.Box {
         goto_entry.text = "%d.%d".printf (line, iter.get_line_offset () + 1);
     }
 
-
-    public void set_insert_spaces_instead_of_tabs (bool use_spaces) {
-        space_tab_modelbutton.active = use_spaces;
-        if (doc != null) {
-            doc.source_view.insert_spaces_instead_of_tabs = use_spaces;
-        }
-    }
-
-    public void set_tab_width (int indent_width) {
-        width_spinbutton.@value = indent_width;
-        if (space_tab_modelbutton.active) {
-            tab_formatbox.text = ngettext ("%d Space", "%d Spaces", indent_width).printf (indent_width);
-        } else {
-            tab_formatbox.text = ngettext ("%d Tab", "%d Tabs", indent_width).printf (indent_width);
-        }
-
-        if (doc != null) {
-            doc.source_view.indent_width = indent_width;
-            doc.source_view.tab_width = indent_width;
-        }
-    }
-
-    private void update_current_lang () {
-        var language = doc.source_view.language;
+    private void update_current_lang () requires (current_doc != null) {
+        var language = current_doc.source_view.language;
         if (language != null) {
-            language_action.set_state (new Variant.string (language.id));
+            language_action.change_state (new Variant.string (language.id));
         } else {
-            language_action.set_state (new Variant.string (""));
+            language_action.change_state (new Variant.string (""));
         }
+    }
+
+    private void format_tab_header_from_global_settings () {
+        if (!tab_style_set_by_editor_config) {
+            set_insert_spaces_instead_of_tabs (Scratch.settings.get_boolean ("spaces-instead-of-tabs"));
+        }
+
+        if (!tab_width_set_by_editor_config) {
+            set_tab_width (Scratch.settings.get_int ("indent-width"));
+        }
+
+        editorconfig_infobar.revealed = tab_style_set_by_editor_config || tab_width_set_by_editor_config;
+        space_tab_modelbutton.sensitive = !tab_style_set_by_editor_config;
     }
 
     private class FormatBox : Gtk.Box {
