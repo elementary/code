@@ -186,7 +186,6 @@ public class Code.FormatBar : Gtk.Box {
         language_action = new SimpleAction.stateful ("language", VariantType.STRING, new Variant.string (""));
         language_action.change_state.connect ((parameter) => {
             language_action.set_state (parameter);
-
             var lang_id = parameter.get_string ();
             if (lang_id != "") {
                 unowned var lang = manager.get_language (lang_id);
@@ -196,6 +195,8 @@ public class Code.FormatBar : Gtk.Box {
             }
 
             current_doc.source_view.language = lang_id != "" ? manager.get_language (lang_id) : null;
+
+            lang_popover.popdown ();
         });
 
         var action_group = new SimpleActionGroup ();
