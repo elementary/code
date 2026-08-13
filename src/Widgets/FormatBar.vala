@@ -200,7 +200,6 @@ public class Code.FormatBar : Gtk.Box {
 
         var action_group = new SimpleActionGroup ();
         action_group.add_action (language_action);
-
         insert_action_group ("format", action_group);
 
         lang_selection_filter.changed.connect (() => {
@@ -226,7 +225,8 @@ public class Code.FormatBar : Gtk.Box {
             }
         });
 
-        // We need to connect_after because otherwise, the text isn't parsed into the "value" property and we only get the previous value
+        // We need to connect_after because otherwise, the text isn't parsed into the "value" property
+        // and we only get the previous value
         goto_entry.activate.connect_after (() => {
             int line, column;
             goto_entry.text = goto_entry.text.replace (":", ".");
