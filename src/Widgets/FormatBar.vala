@@ -203,11 +203,6 @@ public class Code.FormatBar : Gtk.Box {
 
         insert_action_group ("format", action_group);
 
-        lang_selection_listbox.row_activated.connect ((row) => {
-            var lang_entry = ((LangEntry) row);
-            language_action.set_state (new Variant.string (lang_entry.lang_id));
-        });
-
         lang_selection_filter.changed.connect (() => {
             lang_selection_listbox.invalidate_filter ();
         });
