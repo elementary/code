@@ -187,14 +187,18 @@ public class Code.FormatBar : Gtk.Box {
         language_action.change_state.connect ((parameter) => {
             language_action.set_state (parameter);
             var lang_id = parameter.get_string ();
+
+            if (current_doc.source_view.language.id != lang_id) { // Avoids loop
+                current_doc.source_view.language = lang_id != "" ? manager.get_language (lang_id) : null;
+            }
+
             if (lang_id != "") {
                 unowned var lang = manager.get_language (lang_id);
                 lang_formatbox.text = lang.name;
             } else {
                 lang_formatbox.text = _("Plain Text");
+                current_doc.source_view.language = null;
             }
-
-            current_doc.source_view.language = lang_id != "" ? manager.get_language (lang_id) : null;
         });
 
         var action_group = new SimpleActionGroup ();
