@@ -195,8 +195,6 @@ public class Code.FormatBar : Gtk.Box {
             }
 
             current_doc.source_view.language = lang_id != "" ? manager.get_language (lang_id) : null;
-
-            lang_popover.popdown ();
         });
 
         var action_group = new SimpleActionGroup ();
