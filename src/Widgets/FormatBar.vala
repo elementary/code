@@ -31,6 +31,8 @@ public class Code.FormatBar : Gtk.Box {
     private Gtk.SourceLanguageManager manager;
     private Gtk.SpinButton width_spinbutton;
     private SimpleAction language_action;
+    private ulong cursor_handler = 0;
+    private ulong language_handler = 0;
 
     private unowned Scratch.Services.Document? current_doc = null;
 
@@ -288,8 +290,6 @@ public class Code.FormatBar : Gtk.Box {
         current_doc.source_view.tab_width = indent_width;
     }
 
-    private ulong cursor_handler = 0;
-    private ulong language_handler = 0;
     private void update_widgets () requires (current_doc != null) {
         format_tab_header_from_global_settings ();
         update_current_lang ();
