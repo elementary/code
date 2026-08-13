@@ -251,6 +251,11 @@ public class Code.FormatBar : Gtk.Box {
     }
 
     public void set_document (Scratch.Services.Document doc) requires (doc != null) {
+        if (current_doc != null) {
+            SignalHandler.disconnect (current_doc, cursor_handler);
+            SignalHandler.disconnect (current_doc, language_handler);
+        }
+
         current_doc = doc;
         if (doc.loading) {
             Timeout.add (200, () => {
@@ -283,12 +288,20 @@ public class Code.FormatBar : Gtk.Box {
         current_doc.source_view.tab_width = indent_width;
     }
 
+    private ulong cursor_handler = 0;
+    private ulong language_handler = 0;
     private void update_widgets () requires (current_doc != null) {
         format_tab_header_from_global_settings ();
         update_current_lang ();
         format_tab_header_from_global_settings ();
         format_line_header ();
-        current_doc.source_view.buffer.notify["cursor-position"].connect (format_line_header);
+        if (cursor_handler == 0) {
+            cursor_handler = current_doc.source_view.buffer.notify["cursor-position"].connect (format_line_header);
+        }
+
+        if (language_handler == 0) {
+            language_handler = current_doc.source_view.notify["language"].connect (update_current_lang);
+        }
     }
 
     private void format_line_header () requires (current_doc != null) {
@@ -304,6 +317,7 @@ public class Code.FormatBar : Gtk.Box {
     private void update_current_lang () requires (current_doc != null) {
         var language = current_doc.source_view.language;
         var lang_id = language != null ? language.id : "";
+        // Should not directly modify action state
         language_action.change_state (new Variant.string (lang_id));
     }
 
