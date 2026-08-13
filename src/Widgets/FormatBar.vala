@@ -209,7 +209,6 @@ public class Code.FormatBar : Gtk.Box {
             lang_selection_listbox.invalidate_filter ();
         });
 
-        format_tab_header_from_global_settings ();
         width_spinbutton.value_changed.connect (() => {
             if (!tab_width_set_by_editor_config) {
                 Scratch.settings.set_int (
@@ -285,6 +284,7 @@ public class Code.FormatBar : Gtk.Box {
     }
 
     private void update_widgets () requires (current_doc != null) {
+        format_tab_header_from_global_settings ();
         update_current_lang ();
         format_tab_header_from_global_settings ();
         format_line_header ();
