@@ -359,12 +359,12 @@ public class Code.FormatBar : Gtk.Box {
         }
 
         construct {
-            var lang_radio = new Gtk.RadioButton.with_label (null, lang_name) {
+            var lang_checkbutton = new Gtk.CheckButton.with_label (lang_name) {
                 action_name = "format.language",
                 action_target = new Variant.string (lang_id)
             };
 
-            child = lang_radio;
+            child = lang_checkbutton;
         }
     }
 }
