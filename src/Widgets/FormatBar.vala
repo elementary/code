@@ -300,11 +300,8 @@ public class Code.FormatBar : Gtk.Box {
 
     private void update_current_lang () requires (current_doc != null) {
         var language = current_doc.source_view.language;
-        if (language != null) {
-            language_action.change_state (new Variant.string (language.id));
-        } else {
-            language_action.change_state (new Variant.string (""));
-        }
+        var lang_id = language != null ? language.id : "";
+        language_action.change_state (new Variant.string (lang_id));
     }
 
     private void format_tab_header_from_global_settings () {
