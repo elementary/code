@@ -253,10 +253,24 @@ public class Code.FormatBar : Gtk.Box {
         line_menubutton.active = true;
     }
 
+    public void set_document (Scratch.Services.Document doc) requires (doc != null) {
+        current_doc = doc;
+        if (doc.loading) {
+            Timeout.add (200, () => {
+                if (doc.loading) {
+                    return Source.CONTINUE;
+                } else {
+                    update_widgets ();
+                    return Source.REMOVE;
+                }
+            });
+        } else {
+            update_widgets ();
     private void format_tab_header_from_global_settings () {
         if (!tab_style_set_by_editor_config) {
             set_insert_spaces_instead_of_tabs (Scratch.settings.get_boolean ("spaces-instead-of-tabs"));
         }
+    }
 
         if (!tab_width_set_by_editor_config) {
             set_tab_width (Scratch.settings.get_int ("indent-width"));
@@ -276,17 +290,6 @@ public class Code.FormatBar : Gtk.Box {
         goto_entry.text = "%d.%d".printf (line, iter.get_line_offset () + 1);
     }
 
-    public void set_document (Scratch.Services.Document doc) {
-        if (this.doc != null) {
-            this.doc.source_view.buffer.notify["cursor-position"].disconnect (format_line_header);
-        }
-
-        this.doc = doc;
-        update_current_lang ();
-        format_tab_header_from_global_settings ();
-        format_line_header ();
-        this.doc.source_view.buffer.notify["cursor-position"].connect (format_line_header);
-    }
 
     public void set_insert_spaces_instead_of_tabs (bool use_spaces) {
         space_tab_modelbutton.active = use_spaces;
