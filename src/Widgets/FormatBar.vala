@@ -21,9 +21,10 @@ public class Code.FormatBar : Gtk.Box {
     public bool tab_style_set_by_editor_config { get; set; default = false; }
     public bool tab_width_set_by_editor_config { get; set; default = false; }
 
-    private FormatButton line_menubutton;
-    private FormatButton lang_menubutton;
-    private FormatButton tab_menubutton;
+    private FormatBox line_formatbox;
+    private Gtk.MenuButton line_menubutton;
+    private FormatBox lang_formatbox;
+    private FormatBox tab_formatbox;
     private Granite.SwitchModelButton space_tab_modelbutton;
     private Gtk.Entry goto_entry;
     private Gtk.InfoBar editorconfig_infobar;
@@ -80,8 +81,10 @@ public class Code.FormatBar : Gtk.Box {
             child = box
         };
 
-        tab_menubutton = new FormatButton () {
-            icon = new ThemedIcon ("format-indent-more-symbolic"),
+        tab_formatbox = new FormatBox ("format-indent-more-symbolic");
+
+        var tab_menubutton = new Gtk.MenuButton () {
+            child = tab_formatbox,
             popover = tab_popover
         };
 
@@ -133,8 +136,10 @@ public class Code.FormatBar : Gtk.Box {
             child = popover_content
         };
 
-        lang_menubutton = new FormatButton () {
-            icon = new ThemedIcon ("application-x-class-file-symbolic"),
+        lang_formatbox = new FormatBox ("application-x-class-file-symbolic");
+
+        var lang_menubutton = new Gtk.MenuButton () {
+            child = lang_formatbox,
             popover = lang_popover,
             tooltip_text = _("Document language")
         };
@@ -160,8 +165,10 @@ public class Code.FormatBar : Gtk.Box {
             child = line_box
         };
 
-        line_menubutton = new FormatButton () {
-            icon = new ThemedIcon ("view-continuous-symbolic"),
+        line_formatbox = new FormatBox ("view-continuous-symbolic");
+
+        line_menubutton = new Gtk.MenuButton () {
+            child = line_formatbox,
             popover = line_popover
         };
         line_menubutton.tooltip_markup = Granite.markup_accel_tooltip (
@@ -183,9 +190,9 @@ public class Code.FormatBar : Gtk.Box {
             var lang_id = parameter.get_string ();
             if (lang_id != "") {
                 unowned var lang = manager.get_language (lang_id);
-                lang_menubutton.text = lang.name;
+                lang_formatbox.text = lang.name;
             } else {
-                lang_menubutton.text = _("Plain Text");
+                lang_formatbox.text = _("Plain Text");
             }
 
             doc.source_view.language = lang_id != "" ? manager.get_language (lang_id) : null;
@@ -264,7 +271,7 @@ public class Code.FormatBar : Gtk.Box {
         Gtk.TextIter iter;
         buffer.get_iter_at_offset (out iter, position);
         var line = iter.get_line () + 1;
-        line_menubutton.text = "%d.%d".printf (line, iter.get_line_offset () + 1);
+        line_formatbox.text = "%d.%d".printf (line, iter.get_line_offset () + 1);
         goto_entry.text = "%d.%d".printf (line, iter.get_line_offset () + 1);
     }
 
@@ -290,9 +297,9 @@ public class Code.FormatBar : Gtk.Box {
     public void set_tab_width (int indent_width) {
         width_spinbutton.@value = indent_width;
         if (space_tab_modelbutton.active) {
-            tab_menubutton.text = ngettext ("%d Space", "%d Spaces", indent_width).printf (indent_width);
+            tab_formatbox.text = ngettext ("%d Space", "%d Spaces", indent_width).printf (indent_width);
         } else {
-            tab_menubutton.text = ngettext ("%d Tab", "%d Tabs", indent_width).printf (indent_width);
+            tab_formatbox.text = ngettext ("%d Tab", "%d Tabs", indent_width).printf (indent_width);
         }
 
         if (doc != null) {
@@ -310,41 +317,32 @@ public class Code.FormatBar : Gtk.Box {
         }
     }
 
-    private class FormatButton : Gtk.MenuButton {
+    private class FormatBox : Gtk.Box {
         public unowned string text {
             set {
                 label_widget.label = "<span font-features='tnum'>%s</span>".printf (value);
             }
         }
-        public unowned GLib.Icon? icon {
-            owned get {
-                return img.gicon;
-            }
-            set {
-                img.gicon = value;
-            }
-        }
 
-        private Gtk.Image img;
+        public string icon_name { get; construct; }
+
         private Gtk.Label label_widget;
 
+        public FormatBox (string icon_name) {
+            Object (icon_name: icon_name);
+        }
+
         construct {
-            img = new Gtk.Image () {
-                icon_size = Gtk.IconSize.SMALL_TOOLBAR
-            };
+            var img = new Gtk.Image.from_icon_name (icon_name, SMALL_TOOLBAR);
 
             label_widget = new Gtk.Label (null) {
-                ellipsize = Pango.EllipsizeMode.END,
+                ellipsize = END,
                 use_markup = true
             };
 
-            var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
-                halign = Gtk.Align.CENTER
-            };
-            box.add (img);
-            box.add (label_widget);
-
-            add (box);
+            halign = CENTER;
+            add (img);
+            add (label_widget);
         }
     }
 
