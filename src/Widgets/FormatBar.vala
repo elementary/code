@@ -32,7 +32,7 @@ public class Code.FormatBar : Gtk.Box {
     private Gtk.SpinButton width_spinbutton;
     private SimpleAction language_action;
 
-    private unowned Scratch.Services.Document? doc = null;
+    private unowned Scratch.Services.Document? current_doc = null;
 
     construct {
         get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
@@ -195,7 +195,7 @@ public class Code.FormatBar : Gtk.Box {
                 lang_formatbox.text = _("Plain Text");
             }
 
-            doc.source_view.language = lang_id != "" ? manager.get_language (lang_id) : null;
+            current_doc.source_view.language = lang_id != "" ? manager.get_language (lang_id) : null;
         });
 
         var action_group = new SimpleActionGroup ();
@@ -236,9 +236,10 @@ public class Code.FormatBar : Gtk.Box {
             int line, column;
             goto_entry.text = goto_entry.text.replace (":", ".");
             goto_entry.text.scanf ("%i.%i", out line, out column);
-            doc.source_view.go_to_line (line, column - 1);
-            // Focuses parent to the source view, so that the cursor, which indicates line and column is actually visible.
-            doc.source_view.grab_focus ();
+            current_doc.source_view.go_to_line (line, column - 1);
+            // Focuses parent to the source view, so that the cursor, which indicates line and column
+            // is actually visible.
+            current_doc.source_view.grab_focus ();
         });
 
         Scratch.settings.changed["indent-width"].connect (format_tab_header_from_global_settings);
