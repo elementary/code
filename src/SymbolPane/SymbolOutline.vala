@@ -163,11 +163,10 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
     protected void before_parse () {
         tool_box_sensitive = true;
         took_too_long = false;
-        show_spinner_timeout_id = Timeout.add (SPINNER_DELAY_MSEC, () => {
+        show_spinner_timeout_id = Timeout.add_once (SPINNER_DELAY_MSEC, () => {
             show_spinner_timeout_id = 0;
             stack.visible_child = spinner;
             spinner.start ();
-            return Source.REMOVE;
         });
     }
 
@@ -294,9 +293,8 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         }
         schedule_refilter ();
         // Keep menu open
-        Idle.add (() => {
+        Idle.add_once (() => {
             filter_button.set_active (true);
-            return Source.REMOVE;
         });
     }
 
