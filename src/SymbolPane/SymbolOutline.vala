@@ -52,21 +52,13 @@ public interface Scratch.Services.SymbolItem : Code.Widgets.SourceList.Expandabl
 }
 
 public class Scratch.Services.SymbolOutline : Gtk.Box {
-    protected static SymbolType[] filters; //Initialized by derived classes
     const string ACTION_GROUP = "symbol";
     const string ACTION_PREFIX = ACTION_GROUP + ".";
     const string ACTION_SELECT = "action-select";
     const string ACTION_TOGGLE = "toggle-";
     const uint SPINNER_DELAY_MSEC = 300;
-    SimpleActionGroup symbol_action_group;
 
     public Scratch.Services.Document doc { get; construct; }
-
-    protected Gee.HashMap<SymbolType, SimpleAction> checks;
-    protected Gtk.SearchEntry search_entry;
-    protected Code.Widgets.SourceList store;
-    protected Code.Widgets.SourceList.ExpandableItem root;
-    protected Gtk.CssProvider source_list_style_provider;
     public Gtk.Widget get_widget () { return this; }
     public bool tool_box_sensitive {
         set {
@@ -75,36 +67,21 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         }
     }
 
+    protected static SymbolType[] filters; //Initialized by derived classes
+    protected Gee.HashMap<SymbolType, SimpleAction> checks;
+    protected Gtk.SearchEntry search_entry;
+    protected Code.Widgets.SourceList store;
+    protected Code.Widgets.SourceList.ExpandableItem root;
+    protected Gtk.CssProvider source_list_style_provider;
     protected bool took_too_long;
-    private uint show_spinner_timeout_id = 0;
-    protected void before_parse () {
-        tool_box_sensitive = true;
-        took_too_long = false;
-        show_spinner_timeout_id = Timeout.add (SPINNER_DELAY_MSEC, () => {
-            show_spinner_timeout_id = 0;
-            stack.visible_child = spinner;
-            spinner.start ();
-            return Source.REMOVE;
-        });
-    }
-
-    protected void after_parse () {
-        if (show_spinner_timeout_id > 0) {
-            Source.remove (show_spinner_timeout_id);
-            show_spinner_timeout_id = 0;
-        }
-
-        spinner.stop ();
-        stack.visible_child = filter_button;
-        tool_box_sensitive = !took_too_long;
-    }
-
-    public virtual void parse_symbols () {}
-    public virtual void add_tooltips (Code.Widgets.SourceList.ExpandableItem root) {}
 
     private Gtk.MenuButton filter_button;
+    private uint refilter_timeout_id = 0;
+    private bool delay_refilter = false;
     private Gtk.Spinner spinner;
+    private uint show_spinner_timeout_id = 0;
     private Gtk.Stack stack;
+    private SimpleActionGroup symbol_action_group;
 
     construct {
         symbol_action_group = new SimpleActionGroup ();
@@ -180,61 +157,31 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         });
     }
 
-    private void add_filter_menuitem (Menu menu, SymbolType filter) {
-        var filter_action = new SimpleAction.stateful (
-            ACTION_TOGGLE + ((uint)filter).to_string (),
-            null,
-            new Variant.boolean (true)
-        );
+    public virtual void parse_symbols () {}
+    public virtual void add_tooltips (Code.Widgets.SourceList.ExpandableItem root) {}
 
-        checks[filter] = filter_action;
-        filter_action.activate.connect (action_toggle_filter);
-        symbol_action_group.add_action (filter_action);
-
-        var filter_item = new MenuItem (
-            filter.to_string (),
-            ACTION_PREFIX + filter_action.get_name ()
-        );
-
-        menu.append_item (filter_item);
+    protected void before_parse () {
+        tool_box_sensitive = true;
+        took_too_long = false;
+        show_spinner_timeout_id = Timeout.add (SPINNER_DELAY_MSEC, () => {
+            show_spinner_timeout_id = 0;
+            stack.visible_child = spinner;
+            spinner.start ();
+            return Source.REMOVE;
+        });
     }
 
-    protected bool filter_func (Object item) {
-        if (!(item is SymbolItem)) {
-            return true;
+    protected void after_parse () {
+        if (show_spinner_timeout_id > 0) {
+            Source.remove (show_spinner_timeout_id);
+            show_spinner_timeout_id = 0;
         }
 
-        var symbol_type = ((SymbolItem)item).symbol_type;
-        if (symbol_type == SymbolType.NAMESPACE) {
-            return true;
-        }
-
-        if (checks[symbol_type] == null) {
-            symbol_type = SymbolType.OTHER;
-        }
-
-        var filter_action = checks[symbol_type];
-
-        if (!filter_action.get_state ().get_boolean ()) {
-            return false;
-        }
-
-        // Do not exclude text search misses on Item with children as may
-        // hide hits on its children
-        if (item is Code.Widgets.SourceList.ExpandableItem) {
-            var expandable = (Code.Widgets.SourceList.ExpandableItem)item;
-            if (expandable.n_children > 0) {
-                return true;
-            }
-
-            return ((SymbolItem)item).name.contains (search_entry.text);
-        }
-
-        return true;
+        spinner.stop ();
+        stack.visible_child = filter_button;
+        tool_box_sensitive = !took_too_long;
     }
 
-    uint refilter_timeout_id = 0;
-    bool delay_refilter = false;
     protected void schedule_refilter () {
         // Ensure a refilter happens at least 500mS later if not already
         // delayed.
@@ -286,6 +233,59 @@ public class Scratch.Services.SymbolOutline : Gtk.Box {
         } catch (Error e) {
             critical ("Unable to sourcelist styling, going back to classic styling");
         }
+    }
+
+    protected bool filter_func (Object item) {
+        if (!(item is SymbolItem)) {
+            return true;
+        }
+
+        var symbol_type = ((SymbolItem)item).symbol_type;
+        if (symbol_type == SymbolType.NAMESPACE) {
+            return true;
+        }
+
+        if (checks[symbol_type] == null) {
+            symbol_type = SymbolType.OTHER;
+        }
+
+        var filter_action = checks[symbol_type];
+
+        if (!filter_action.get_state ().get_boolean ()) {
+            return false;
+        }
+
+        // Do not exclude text search misses on Item with children as may
+        // hide hits on its children
+        if (item is Code.Widgets.SourceList.ExpandableItem) {
+            var expandable = (Code.Widgets.SourceList.ExpandableItem)item;
+            if (expandable.n_children > 0) {
+                return true;
+            }
+
+            return ((SymbolItem)item).name.contains (search_entry.text);
+        }
+
+        return true;
+    }
+
+    private void add_filter_menuitem (Menu menu, SymbolType filter) {
+        var filter_action = new SimpleAction.stateful (
+            ACTION_TOGGLE + ((uint)filter).to_string (),
+            null,
+            new Variant.boolean (true)
+        );
+
+        checks[filter] = filter_action;
+        filter_action.activate.connect (action_toggle_filter);
+        symbol_action_group.add_action (filter_action);
+
+        var filter_item = new MenuItem (
+            filter.to_string (),
+            ACTION_PREFIX + filter_action.get_name ()
+        );
+
+        menu.append_item (filter_item);
     }
 
     private void action_select_filters (SimpleAction action, Variant? param) {
