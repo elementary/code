@@ -183,6 +183,7 @@ namespace Scratch.Widgets {
             var next_mark_action = new SimpleAction ("next-mark", null);
             var prev_mark_action = new SimpleAction ("prev-mark", null);
             var toggle_comment_action = new SimpleAction ("toggle-comment", null);
+            var go_to_matching_action = new SimpleAction ("go-to-matching", null);
 
             actions = new SimpleActionGroup ();
             actions.add_action (sort_action);
@@ -190,6 +191,7 @@ namespace Scratch.Widgets {
             actions.add_action (next_mark_action);
             actions.add_action (prev_mark_action);
             actions.add_action (toggle_comment_action);
+            actions.add_action (go_to_matching_action);
 
             insert_action_group ("sourceview", actions);
             sort_action.activate.connect (sort_selected_lines);
@@ -199,6 +201,9 @@ namespace Scratch.Widgets {
             toggle_comment_action.activate.connect (() => {
                 CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
             });
+            go_to_matching_action.activate.connect (() => {
+                goto_matching ();
+            });
 
             var extra_menu = new Menu ();
             extra_menu.append (_("Sort Lines"), "sort-lines");
@@ -206,6 +211,7 @@ namespace Scratch.Widgets {
             extra_menu.append (_("Previous Mark"), "next-mark");
             extra_menu.append (_("Next Mark"), "prev-mark");
             extra_menu.append (_("Toggle Comment"), "toggle-comment");
+            extra_menu.append (_("Goto Matching Bracket"), "go-to-matching");
 
             // enable/disable action depending on changes to language, selection, marks in document
             buffer.notify["has-selection"].connect (() => {
@@ -267,6 +273,9 @@ namespace Scratch.Widgets {
                     case "<Primary>m":
                     case "<Primary>slash":
                             CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
+                            return true;
+                    case "<Primary><Shift>i":
+                            goto_matching ();
                             return true;
                     default:
                         break;
@@ -748,6 +757,154 @@ namespace Scratch.Widgets {
 
                 return Source.REMOVE;
             });
+        }
+
+        private const string OPEN_BRACKETS = "{([";
+        private const string CLOSE_BRACKETS = "})]";
+        private bool is_open_bracket (unichar c, out unichar matching) {
+            var index = OPEN_BRACKETS.index_of_char (c);
+            if (index >= 0) {
+                matching = CLOSE_BRACKETS[index];
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool is_close_bracket (unichar c, out unichar matching) {
+            var index = CLOSE_BRACKETS.index_of_char (c);
+            if (index >= 0) {
+                matching = OPEN_BRACKETS[index];
+                return true;
+            }
+
+            return false;
+        }
+
+        private uint get_indent_spaces (Gtk.TextIter t) {
+            var indent_iter = t.copy ();
+            // Move to beginning of line
+            if (indent_iter.backward_line ()) {
+                indent_iter.forward_line ();
+            };
+
+            uint spaces = 0;
+            while (indent_iter.get_char ().isspace () && indent_iter.forward_char ()) {
+                spaces++;
+            }
+
+            return spaces;
+        }
+
+        // Return index of next uncommented, not empty line
+        private bool skip_commented_lines (out int new_line, int start_line, int step = 1) {
+            new_line = start_line;
+            while (CommentToggler.line_is_commented_or_empty (
+                (Gtk.SourceBuffer)buffer, new_line, language
+            )) {
+                new_line += step;
+            }
+
+            return new_line != start_line;
+        }
+
+        public void goto_matching () {
+            uint start_indent = 0, end_indent = 0, same = 0;
+            int start_line = -1, end_line = -1, new_line = -1;
+            unichar c;
+            bool found = false;
+            var insert_mark = buffer.get_mark ("insert");
+            Gtk.TextIter insert_iter, start_iter, end_iter;
+
+           // Ignore action if starting bracket is commented out
+            if (skip_commented_lines (out new_line, start_line)) {
+                return;
+            }
+
+            buffer.get_iter_at_mark (out insert_iter, insert_mark);
+            start_line = insert_iter.get_line ();
+            start_line++; // Change from index to visible number
+            insert_iter.backward_char ();
+            var insert_char = insert_iter.get_char ();
+            var end = insert_iter.copy ();
+            unichar matching;
+            if (is_open_bracket (insert_char, out matching)) {
+                // matching is closing bracket matching the open one
+                start_indent = get_indent_spaces (insert_iter);
+                end_line = buffer.get_line_count () - 1;
+                while (end.forward_char ()) {
+                    // Skip commented lines
+                    if (end.starts_line () && skip_commented_lines (out new_line, end.get_line ())) {
+                        end.set_line (new_line);
+                        end.backward_char ();
+                        continue;
+                    }
+
+                    c = end.get_char ();
+                    if (is_open_bracket (c, out matching)) {
+                        same++; // Keep track of nested brackets (we do not distinguish type at this stage)
+                    } else if (is_close_bracket (c, out matching)) {
+                        if (same > 0) {
+                            same--;
+                        } else {  // This matches the first bracket so is what we want
+                            end_indent = get_indent_spaces (end);
+                            end_line = end.get_line () + 1; // get end line number
+                            end.forward_char ();
+                            // Move cursor and scroll to desired point
+                            buffer.place_cursor (end);
+                            scroll_to_iter (end, 0.1, false, 0.0, 0.0);
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+            } else if (is_close_bracket (insert_char, out matching)) {
+                start_indent = get_indent_spaces (insert_iter);
+                end_line = 0;
+                while (end.backward_char ()) {
+                    // Skip commented lines
+                    if (end.ends_line () && skip_commented_lines (out new_line, end.get_line (), -1)) {
+                        end.set_line (new_line);
+                        end.forward_to_line_end ();
+                        continue;
+                    }
+
+                    c = end.get_char ();
+                    if (is_close_bracket (c, out matching)) {
+                        same++;
+                    } else if (is_open_bracket (c, out matching)) {
+                        if (same > 0) {
+                            same--;
+                        } else {
+                            end_indent = get_indent_spaces (end);
+                            end_line = end.get_line () + 1;
+                            end.forward_char ();
+                            buffer.place_cursor (end);
+                            scroll_to_iter (end, 0.1, false, 0.0, 0.0);
+                            found = true;
+                            // warning ("break found");
+                            break;
+                        }
+                    }
+                }
+            } else {
+                return;
+            }
+
+            if (start_indent != end_indent || !found) {
+                var min_line = int.min (start_line, end_line);
+                var max_line = int.max (start_line, end_line);
+                var parent_window = get_toplevel () as Gtk.Window;
+                var dialog = new Granite.MessageDialog (
+                    found ? _("Matching bracket has different indent") : _("No matching bracket found"),
+                    _("You may have omitted a required bracket or inserted extra brackets between lines %i and %i, or you may need to adjust the indents").printf (min_line, max_line),
+                    new ThemedIcon ("dialog-warning"),
+                    Gtk.ButtonsType.CLOSE
+                );
+                dialog.transient_for = parent_window;
+                dialog.response.connect (dialog.destroy);
+                dialog.present ();
+            }
         }
     }
 }
