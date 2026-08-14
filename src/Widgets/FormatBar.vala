@@ -270,16 +270,45 @@ public class Code.FormatBar : Gtk.Box {
         goto_entry.text = "%d.%d".printf (line, iter.get_line_offset () + 1);
     }
 
-    public void set_document (Scratch.Services.Document doc) {
-        if (this.doc != null) {
-            this.doc.source_view.buffer.notify["cursor-position"].disconnect (format_line_header);
+    private ulong cursor_handler = 0;
+    private ulong language_handler = 0;
+    public void set_document (Scratch.Services.Document set_doc) requires (set_doc != null) {
+        if (doc != null) {
+            SignalHandler.disconnect (doc, cursor_handler);
+            SignalHandler.disconnect (doc, language_handler);
         }
 
-        this.doc = doc;
+        doc = set_doc;
+        if (doc.loading) {
+            Timeout.add (200, () => {
+                if (doc.loading) {
+                    return Source.CONTINUE;
+                } else {
+                    update_widgets ();
+                    return Source.REMOVE;
+                }
+            });
+        } else {
+            update_widgets ();
+        }
+    }
+
+    private void update_widgets () requires (this.doc != null) {
+        // Cannot be sure when language will be identified on new doc so update when it changes
+        if (language_handler == 0) {
+            language_handler = this.doc.source_view.notify["language"].connect (update_current_lang);
+        }
+        // Also update here in case already identified.
         update_current_lang ();
+
+        if (cursor_handler == 0) {
+            cursor_handler = this.doc.source_view.buffer.notify["cursor-position"].connect (format_line_header);
+        }
+
+        format_tab_header_from_global_settings ();
         format_tab_header_from_global_settings ();
         format_line_header ();
-        this.doc.source_view.buffer.notify["cursor-position"].connect (format_line_header);
+
     }
 
     public void set_insert_spaces_instead_of_tabs (bool use_spaces) {
