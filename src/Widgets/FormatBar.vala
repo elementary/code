@@ -272,7 +272,6 @@ public class Code.FormatBar : Gtk.Box {
 
     public void set_document (Scratch.Services.Document set_doc) requires (set_doc != null) {
          if (doc != null) {
-            warning ("disconnect %s", doc.file.get_basename ());
             doc.source_view.notify["language"].disconnect (update_current_lang);
             doc.source_view.buffer.notify["cursor-position"].disconnect (format_line_header);
         }
