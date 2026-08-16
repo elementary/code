@@ -18,7 +18,7 @@ public class Scratch.Dialogs.BranchDeletePage : Gtk.Box, BranchActionPage {
         }
     }
 
-    public string target_branch_name {
+    public string new_branch_name {
         get {
             return "";
         }
