@@ -10,6 +10,9 @@ public class Code.ChooseProjectButton : Gtk.Bin {
     private const string PROJECT_TOOLTIP = N_("Active Git Project: %s");
     private Gtk.Label label_widget;
     private Gtk.ListBox project_listbox;
+    private Gtk.SearchEntry project_filter;
+    private ListStore project_liststore;
+    private Scratch.Services.GitManager git_manager;
 
     public signal void project_chosen ();
 
@@ -35,11 +38,14 @@ public class Code.ChooseProjectButton : Gtk.Bin {
         box.add (label_widget);
         box.add (cloning_spinner);
 
+        project_liststore = new ListStore (typeof (ProjectRow));
         project_listbox = new Gtk.ListBox () {
             selection_mode = SINGLE
         };
 
-        var project_filter = new Gtk.SearchEntry () {
+        project_listbox.bind_model (project_liststore, (obj) => (ProjectRow) obj);
+
+        project_filter = new Gtk.SearchEntry () {
             margin_top = 12,
             margin_bottom = 6,
             margin_start = 12,
@@ -47,13 +53,8 @@ public class Code.ChooseProjectButton : Gtk.Bin {
             placeholder_text = _("Filter projects")
         };
 
-        project_listbox.set_filter_func ((row) => {
-            //Both are lowercased so that the case doesn't matter when comparing.
-            return (((ProjectRow) row).project_name.down ().contains (project_filter.text.down ().strip ()));
-        });
-
         project_filter.changed.connect (() => {
-            project_listbox.invalidate_filter ();
+            insert_project_rows ();
         });
 
         var project_scrolled = new Gtk.ScrolledWindow (null, null) {
@@ -98,50 +99,25 @@ public class Code.ChooseProjectButton : Gtk.Bin {
         child = menu_button;
 
         // Initialise with any pre-existing projects (needed for second and subsequent window)
-        var git_manager = Scratch.Services.GitManager.get_instance ();
-        var src = git_manager.project_liststore;
-        for (int index = 0; index < src.n_items; index++) {
-            var item = src.get_object (index);
-            if (item is Scratch.FolderManager.ProjectFolderItem) {
-                var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item);
-                project_listbox.insert (row, index);
-            }
-        }
-
+        insert_project_rows ();
+        git_manager = Scratch.Services.GitManager.get_instance ();
         git_manager.project_liststore.items_changed.connect ((src, pos, n_removed, n_added) => {
-            var rows = project_listbox.get_children ();
-            for (int index = (int)pos; index < pos + n_removed; index++) {
-                var row = rows.nth_data (index);
-                row.destroy ();
-            }
-
-            for (int index = (int)pos; index < pos + n_added; index++) {
-                var item = src.get_object (index);
-                if (item is Scratch.FolderManager.ProjectFolderItem) {
-                    var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item);
-                    project_listbox.insert (row, index);
-                }
-            }
+            insert_project_rows ();
         });
 
-        menu_button.activate.connect (() => {
-            if (menu_button.active) {
-                unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
-                foreach (var child in project_listbox.get_children ()) {
-                    var project_row = ((ProjectRow) child);
-                    // All paths must not end in directory separator so can be compared directly
-                    project_row.active = active_path == project_row.project_path;
-                }
-            }
-        });
+        git_manager.notify["active-project-path"].connect (update_active_project);
+        update_active_project ();
+    }
 
-        git_manager.notify["active-project-path"].connect (update_button);
-        update_button ();
+    private bool filter_func (Scratch.FolderManager.ProjectFolderItem project) {
+        var project_name = Path.get_basename (project.path);
+        //Both are lowercased so that the case doesn't matter when comparing.
+        return project_name.down ().contains (project_filter.text.down ().strip ());
     }
 
     // Set appearance (only) of project chooser button and list according to active path
-    private void update_button () {
-        unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
+    private void update_active_project () {
+        unowned var active_path = git_manager.active_project_path;
         if (active_path != "") {
             label_widget.label = Path.get_basename (active_path);
             tooltip_text = _(PROJECT_TOOLTIP).printf (Scratch.Utils.replace_home_with_tilde (active_path));
@@ -149,42 +125,59 @@ public class Code.ChooseProjectButton : Gtk.Bin {
             label_widget.label = Path.get_basename (_(NO_PROJECT_SELECTED));
             tooltip_text = _(PROJECT_TOOLTIP).printf (_(NO_PROJECT_SELECTED));
         }
+
+        for (int index = 0; index < project_liststore.n_items; index++) {
+            var project_row = (ProjectRow) project_liststore.get_item (index);
+            project_row.update_active (active_path);
+        }
     }
 
-    private Gtk.Widget create_project_row (Scratch.FolderManager.ProjectFolderItem project_folder) {
-        var project_path = project_folder.file.file.get_path ();
-        var project_row = new ProjectRow (project_path);
-        // Project folder items cannot be renamed in UI, no need to handle
+    // Throttle rebuilding the list as gitmanager emits multiple changed signals on startup
+    uint insert_timeout_id = 0;
+    bool insert_wait = false;
+    private void insert_project_rows () {
+        if (insert_timeout_id == 0) {
+            insert_wait = false;
+            Timeout.add (200, () => {
+                if (insert_wait) {
+                    insert_wait = false;
+                    return Source.CONTINUE;
+                }
 
-        return project_row;
+                project_liststore.remove_all ();
+
+                var src = git_manager.project_liststore;
+                unowned var active_path = git_manager.active_project_path;
+                for (int index = 0; index < src.n_items; index++) {
+                    var item = src.get_object (index);
+                    if (item is Scratch.FolderManager.ProjectFolderItem) {
+                        var project = (Scratch.FolderManager.ProjectFolderItem) item;
+                        if (filter_func (project)) {
+                            var row = new ProjectRow (project.path);
+                            // The GitManager project store is already sorted so just add.
+                            project_liststore.append (row);
+                            row.update_active (active_path);
+                        }
+                    }
+                }
+
+                return Source.REMOVE;
+            });
+        } else {
+            insert_wait = true;
+        }
     }
 
     public class ProjectRow : Gtk.ListBoxRow {
-        private Gtk.CheckButton check_button;
-        public bool active {
-            get {
-                return check_button.active;
-            }
-
-            set {
-                check_button.active = value;
-            }
-        }
-
         public string project_path { get; construct; }
-        public string project_name {
-            get {
-                return check_button.label;
-            }
-        }
+        private Gtk.CheckButton check_button;
+        private Gtk.GestureMultiPress button_controller;
 
         public ProjectRow (string project_path) {
             Object (
                 project_path: project_path
             );
         }
-
-        private Gtk.GestureMultiPress button_controller;
 
         class construct {
             set_css_name (Gtk.STYLE_CLASS_MENUITEM);
@@ -210,6 +203,10 @@ public class Code.ChooseProjectButton : Gtk.Bin {
             });
 
             show_all ();
+        }
+
+        public void update_active (string active_path) {
+            check_button.active = active_path == project_path;
         }
     }
 }
