@@ -21,7 +21,6 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     private int preselected_index;
     private Gtk.ScrolledWindow scrolled;
     private Scratch.Services.FuzzySearchIndexer indexer;
-    private int window_height;
     private int max_items;
     private Gee.LinkedList<GLib.Cancellable> cancellables;
     private Gtk.EventControllerKey search_term_entry_key_controller;
@@ -51,9 +50,8 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
         search_list_store = new ListStore (typeof (FileItem));
         search_result_container = new Gtk.ListBox () {
-            selection_mode = NONE,
-            activate_on_single_click = true,
-            can_focus = false
+            selection_mode = BROWSE,
+            activate_on_single_click = true
         };
         search_result_container.get_style_context ().add_class ("fuzzy-list");
         search_result_container.bind_model (search_list_store, (obj) => (FileItem)obj);
@@ -68,7 +66,8 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
             propagate_natural_height = true,
             hexpand = true,
             vexpand = true,
-            child = search_result_container
+            child = search_result_container,
+            hscrollbar_policy = NEVER
         };
 
         var box = new Gtk.Box (VERTICAL, 0);
@@ -95,44 +94,16 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
         search_term_entry_key_controller = new Gtk.EventControllerKey (search_term_entry);
         search_term_entry_key_controller.key_pressed.connect ((keyval, keycode, state) => {
-            // Handle key up/down to select other files found by fuzzy search
             switch (keyval) {
-                case Gdk.Key.Down:
-                    if (search_list_store.n_items > 0) {
-                        var old_index = preselected_index;
-                        var item = search_list_store.get_item (preselected_index++);
-                        if (preselected_index >= search_list_store.n_items) {
-                            preselected_index = 0;
-                        }
-
-                        var next_item = search_list_store.get_item (preselected_index);
-                        preselect_new_item ((FileItem) item, (FileItem) next_item);
-                        calculate_scroll_offset (old_index, preselected_index);
-                    }
-
-                    return true;
-                case Gdk.Key.Up:
-                    if (search_list_store.n_items > 0) {
-                        var old_index = preselected_index;
-                        var item = search_list_store.get_item (preselected_index--);
-                        if (preselected_index < 0) {
-                            preselected_index = (int) search_list_store.n_items - 1;
-                        }
-
-                        var next_item = search_list_store.get_item (preselected_index);
-                        preselect_new_item ((FileItem) item, (FileItem) next_item);
-                        calculate_scroll_offset (old_index, preselected_index);
-                    }
-                    return true;
+                // Handle seperately, otherwise it takes 2 escape hits to close the modal
                 case Gdk.Key.Escape:
-                    // Handle seperately, otherwise it takes 2 escape hits to close the modal
                     close_search ();
-                    return true;
+                    return Gdk.EVENT_STOP;
                 default:
                     break;
             }
 
-            return false;
+            return Gdk.EVENT_PROPAGATE;
         });
 
         search_term_entry.activate.connect (() => {
@@ -188,11 +159,9 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
                             foreach (var result in results) {
                                 var file_item = new FileItem (result, indexer.project_paths.size > 1);
-                                file_item.can_focus = false;
 
                                 if (first) {
                                     first = false;
-                                    file_item.get_style_context ().add_class ("preselect-fuzzy");
                                     preselected_index = 0;
                                 }
 
@@ -231,6 +200,9 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
 
             current_doc_project = get_current_project (); // This will not change while popover is showing
         });
+
+        search_result_container.move_cursor.connect (move_cursor);
+        search_result_container.move_cursor.connect_after (move_cursor_after);
     }
 
     private int sort_func (Object a, Object b) {
@@ -251,42 +223,33 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
         }
     }
 
-    private void calculate_scroll_offset (int old_position, int new_position) {
-        // Shortcut if jumping from first to last or the other way round
-        if (new_position == 0 && old_position > new_position) {
-            scrolled.vadjustment.value = 0;
-            return;
-        } else if (old_position == 0 && new_position == search_list_store.n_items - 1) {
-            scrolled.vadjustment.value = scrolled.vadjustment.get_upper ();
+    /* focus_child not selected_row because selected_row sometimes lags behind focus
+     * wrap in connect_after otherwise cursor will move after refocus
+     */
+    private bool wrap_cursor = false;
+    private void move_cursor (Gtk.ListBox list_box, Gtk.MovementStep step, int count) requires (step == DISPLAY_LINES) {
+        // Move up to the searchbar
+        if (list_box.get_focus_child () == list_box.get_row_at_index (0) && count == -1) {
+            move_focus (TAB_BACKWARD);
             return;
         }
 
-        var size_box = scrolled.vadjustment.get_upper () / search_list_store.n_items;
-        var current_top = scrolled.vadjustment.value;
-        var current_bottom = current_top + size_box * (max_items - 2);
-        if (old_position < new_position) {
-            // Down movement
-            var new_adjust = size_box * (preselected_index);
-            if (new_adjust >= current_bottom) {
-                scrolled.vadjustment.value = size_box * (preselected_index - (max_items - 1));
-            }
-        } else if (old_position > new_position) {
-            // Up movement
-            var new_adjust = size_box * (preselected_index);
-            if (new_adjust < current_top) {
-                scrolled.vadjustment.value = new_adjust;
-            }
+        if (list_box.get_focus_child () == list_box.get_row_at_index ((int) search_list_store.n_items - 1) && count == 1) {
+            wrap_cursor = true;
         }
+    }
+
+    private void move_cursor_after (Gtk.ListBox list_box, Gtk.MovementStep step, int count) {
+        if (!wrap_cursor) {
+            return;
+        }
+
+        list_box.get_row_at_index (0).grab_focus ();
+        wrap_cursor = false;
     }
 
     private void handle_item_selection (FileItem item) {
         open_file (item.filepath.strip ());
-    }
-
-    private void preselect_new_item (FileItem old_item, FileItem new_item) {
-        var class_name = "preselect-fuzzy";
-        old_item.get_style_context ().remove_class (class_name);
-        new_item.get_style_context ().add_class (class_name);
     }
 
     private string get_current_project () {
