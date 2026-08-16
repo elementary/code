@@ -70,10 +70,12 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
 
             var checkout_page = new BranchCheckoutPage (this);
             var create_page = new BranchCreatePage (this);
+            var delete_page = new BranchDeletePage (this);
 
             stack = new Gtk.Stack ();
             stack.add_titled (checkout_page, BranchAction.CHECKOUT.to_string (), _("Checkout"));
             stack.add_titled (create_page, BranchAction.CREATE.to_string (), _("New"));
+            stack.add_titled (delete_page, BranchAction.DELETE.to_string (), _("Delete"));
 
             var sidebar = new Gtk.StackSidebar () {
                 stack = stack
