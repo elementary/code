@@ -118,9 +118,7 @@ public class Scratch.Plugins.FuzzySearch: Peas.ExtensionBase, Scratch.Services.A
     }
 
     private void fuzzy_find () {
-        var settings = new GLib.Settings ("io.elementary.code.folder-manager");
-
-        string[] opened_folders = settings.get_strv ("opened-folders");
+        string[] opened_folders = folder_settings.get_strv ("opened-folders");
         if (opened_folders == null || opened_folders.length < 1) {
             return;
         }
