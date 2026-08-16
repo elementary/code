@@ -72,5 +72,6 @@ public class Scratch.Dialogs.BranchDeletePage : Gtk.Box, BranchActionPage {
         var is_current = dialog.project.get_current_branch_name () == text;
         var is_merged = dialog.project.branch_name_is_merged (text);
         dialog.can_apply = exists && !is_current && (is_merged || delete_unmerged_check.active);
+        dialog.is_destructive = delete_unmerged_check.active;
     }
 }
