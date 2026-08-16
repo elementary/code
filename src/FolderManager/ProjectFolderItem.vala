@@ -450,7 +450,11 @@ namespace Scratch.FolderManager {
             return is_git_repo ? monitored_repo.is_valid_new_local_branch_name (new_name) : false;
         }
 
-        public bool branch_name_is_merged (string branch_name) {
+        public bool branch_name_is_merged (string branch_name, Ggit.Ref? target = null) {
+            //TODO Implement checking whether one branch merged into another (target) branch
+            // A null target is to be treated as the default branch.
+            // It is not obvious how to do this with Ggit; moreover merging of a remote branch
+            // into a remote target will not be detectable anyway. So return false for now
             return false;
         }
 
