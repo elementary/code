@@ -124,7 +124,7 @@ public class Code.ChooseProjectButton : Gtk.Bin {
             }
         });
 
-        menu_button.activate.connect (() => {
+        menu_button.toggled.connect (() => {
             if (menu_button.active) {
                 unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
                 foreach (var child in project_listbox.get_children ()) {
