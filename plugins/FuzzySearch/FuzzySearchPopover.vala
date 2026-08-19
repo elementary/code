@@ -11,10 +11,9 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     public signal void close_search ();
 
     public Scratch.MainWindow current_window { get; construct; }
-    public Scratch.Services.FuzzySearchIndexer search_indexer { get; construct; }
+    public Scratch.Services.FuzzySearchIndexer indexer { get; construct; }
 
     private ListStore search_list_store;
-    private Scratch.Services.FuzzySearchIndexer indexer;
     private Gee.LinkedList<GLib.Cancellable> cancellables;
     private Gtk.EventControllerKey search_term_entry_key_controller;
     private string current_doc_project;
@@ -22,7 +21,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
     public FuzzySearchPopover (Scratch.Services.FuzzySearchIndexer search_indexer, Scratch.MainWindow window) {
         Object (
             current_window: window,
-            search_indexer: search_indexer
+            indexer: search_indexer
         );
     }
 
@@ -69,8 +68,7 @@ public class Scratch.FuzzySearchPopover : Gtk.Popover {
         box.show_all ();
         child = box;
 
-        var fuzzy_finder = new Services.FuzzyFinder (search_indexer.project_paths);
-        indexer = search_indexer;
+        var fuzzy_finder = new Services.FuzzyFinder (indexer.project_paths);
         cancellables = new Gee.LinkedList<GLib.Cancellable> ();
 
         search_result_container.row_activated.connect ((row) => {
