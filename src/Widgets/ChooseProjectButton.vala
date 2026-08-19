@@ -124,13 +124,13 @@ public class Code.ChooseProjectButton : Gtk.Bin {
             }
         });
 
-        menu_button.activate.connect (() => {
+        menu_button.toggled.connect (() => {
             if (menu_button.active) {
                 unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
                 foreach (var child in project_listbox.get_children ()) {
                     var project_row = ((ProjectRow) child);
                     // All paths must not end in directory separator so can be compared directly
-                    project_row.active = active_path == project_row.project_path;
+                    project_row.is_active_project = active_path == project_row.project_path;
                 }
             }
         });
@@ -161,7 +161,7 @@ public class Code.ChooseProjectButton : Gtk.Bin {
 
     public class ProjectRow : Gtk.ListBoxRow {
         private Gtk.CheckButton check_button;
-        public bool active {
+        public bool is_active_project {
             get {
                 return check_button.active;
             }
