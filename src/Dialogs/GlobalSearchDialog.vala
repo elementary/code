@@ -1,5 +1,5 @@
 /*
-* Copyright 2021 elementary, Inc. (https://elementary.io)
+* Copyright 2021-2025 elementary, Inc. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -44,7 +44,8 @@ public class Scratch.Dialogs.GlobalSearchDialog : Granite.MessageDialog {
             is_repo: is_repo,
             case_sensitive: case_sensitive,
             wholeword: wholeword,
-            use_regex: use_regex
+            use_regex: use_regex,
+            modal: true
         );
     }
 

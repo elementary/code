@@ -21,7 +21,8 @@ public class Scratch.Dialogs.RestoreConfirmationDialog : Granite.MessageDialog {
     public RestoreConfirmationDialog (MainWindow parent) {
         Object (
             buttons: Gtk.ButtonsType.NONE,
-            transient_for: parent
+            transient_for: parent,
+            modal: true
         );
     }
 

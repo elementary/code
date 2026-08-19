@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2023 elementary, Inc. <https://elementary.io>
+ * SPDX-FileCopyrightText: 2023-2026 elementary, Inc. <https://elementary.io>
  *
  * Authored by: Marvin Ahlgrimm
  *              Colin Kiama <colinkiama@gmail.com>
@@ -24,11 +24,12 @@ public class FileItem : Gtk.ListBoxRow {
         var path_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 1);
         path_box.valign = Gtk.Align.CENTER;
 
-        var path_label = new Gtk.Label (
-            @"$(should_distinguish_project ? result.project + " • " : "")$(result.relative_path)"
-        );
-
-        path_label.halign = Gtk.Align.START;
+        var path_label = new Gtk.Label (get_path_label (should_distinguish_project)) {
+            halign = START,
+            ellipsize = MIDDLE
+        };
+        path_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+        path_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
 
         var filename_label = new Gtk.Label (Path.get_basename (result.relative_path));
         filename_label.halign = Gtk.Align.START;
@@ -55,5 +56,17 @@ public class FileItem : Gtk.ListBoxRow {
         container_box.add (path_box);
 
         this.child = container_box;
+    }
+
+    private string get_path_label (bool show_project) {
+        if (!show_project) {
+            return result.relative_path;
+        }
+
+        if (Gtk.StateFlags.DIR_RTL in get_state_flags ()) {
+            return "%s ← %s".printf (result.relative_path, result.project);
+        }
+
+        return "%s → %s".printf (result.project, result.relative_path);
     }
 }

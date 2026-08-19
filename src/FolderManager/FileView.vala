@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2017 - 2024 elementary LLC. (https://elementary.io),
+ * Copyright (c) 2017-2026 elementary LLC. (https://elementary.io),
  *               2013 Julien Spautz <spautz.julien@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -11,7 +11,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranties of
  * MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
  * PURPOSE. See the GNU General Public License for more details.
- 
+
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
@@ -348,7 +348,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
                     : search_root.file.file;
 
                 bool is_explicit = !(item_for_path is ProjectFolderItem);
-                search_root.global_search (start_folder, term, is_explicit);
+                search_root.global_search.begin (start_folder, term, is_explicit);
             }
         }
     }
@@ -511,14 +511,18 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
         var dialog = new Gtk.AppChooserDialog (new Gtk.Window (), Gtk.DialogFlags.MODAL, file);
         dialog.deletable = false;
 
-        if (dialog.run () == Gtk.ResponseType.OK) {
-            var app_info = dialog.get_app_info ();
-            if (app_info != null) {
-                Utils.launch_app_with_file (app_info.get_id (), path);
+        dialog.response.connect ((res) => {
+            if (res == Gtk.ResponseType.OK) {
+                var app_info = dialog.get_app_info ();
+                if (app_info != null) {
+                    Utils.launch_app_with_file (app_info.get_id (), path);
+                }
             }
-        }
 
-        dialog.destroy ();
+            dialog.destroy ();
+        });
+
+        dialog.show ();
     }
 
     private void action_execute_contract_with_file_path (SimpleAction action, Variant? param) {
@@ -617,13 +621,16 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
 
             var close_projects = false;
             dialog.response.connect ((res) => {
-                dialog.destroy ();
                 if (res == Gtk.ResponseType.ACCEPT) {
                     close_projects = true;
                 }
+
+                dialog.destroy ();
+                add_folder.callback ();
             });
 
-            dialog.run ();
+            dialog.show ();
+            yield;
 
             if (close_projects) {
                 foreach (var item in parents) {

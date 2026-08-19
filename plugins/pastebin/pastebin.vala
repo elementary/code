@@ -2,7 +2,9 @@
 /***
   BEGIN LICENSE
 
-  Copyright (C) 2011-2012 Giulio Collura <random.cpp@gmail.com>
+  Copyright (C) 2011-2014 Giulio Collura <random.cpp@gmail.com>
+                2015-2026 elementary Inc. (https://elementary.io)
+
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -84,6 +86,8 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Scratch.Services.Act
     Scratch.Services.Document? doc = null;
     Scratch.Services.Interface plugins;
 
+    private MainWindow? window = null;
+
     const string ACTION_GROUP = "pastebin";
     const string ACTION_PREFIX = ACTION_GROUP + ".";
     const string ACTION_SHOW = "action-show";
@@ -98,6 +102,13 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Scratch.Services.Act
 
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
+
+        plugins.hook_window.connect ((w) => {
+            // For simplicity, only the first window has share menu button
+            if (window == null) {
+                window = w;
+            }
+        });
 
         plugins.hook_document.connect ((doc) => {
             this.doc = doc;
@@ -118,9 +129,12 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Scratch.Services.Act
         if (actions == null) {
             actions = new SimpleActionGroup ();
             actions.add_action_entries (ACTION_ENTRIES, this);
+        } else {
+            // Only insert action group once
+            return;
         }
 
-        plugins.manager.window.insert_action_group (ACTION_GROUP, actions);
+        window.insert_action_group (ACTION_GROUP, actions);
         share_menu = (GLib.Menu) menu;
         menuitem = new GLib.MenuItem (_("Upload to Pastebin"), ACTION_PREFIX + ACTION_SHOW);
         share_menu.append_item (menuitem);
@@ -139,14 +153,13 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Scratch.Services.Act
             }
         }
 
-        plugins.manager.window.insert_action_group (ACTION_GROUP, null);
+        window.insert_action_group (ACTION_GROUP, null);
     }
 
     void show_paste_bin_upload_dialog () {
         if (pastebin_dialog != null) {
             pastebin_dialog.present ();
         } else {
-            MainWindow window = plugins.manager.window;
             pastebin_dialog = new Dialogs.PasteBinDialog (window, doc);
             pastebin_dialog.destroy.connect (() => {
                 pastebin_dialog = null;
