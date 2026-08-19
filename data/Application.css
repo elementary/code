@@ -45,7 +45,7 @@ textview.scrubber {
     background-color: transparent;
 }
 
-.fuzzy-item:focused,
+.fuzzy-item:focus,
 .fuzzy-item:hover {
     border-radius: 0.5rem;
 }
@@ -54,7 +54,7 @@ textview.scrubber {
     background-color: @theme_unfocused_selected_bg_color;
 }
 
-.fuzzy-item:focused {
+.fuzzy-item:focus {
     background-color: @selected_bg_color;
     color: @selected_fg_color;
 }
