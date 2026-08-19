@@ -503,7 +503,6 @@ public class Scratch.MainWindow : Hdy.Window {
         view_grid.add (search_bar);
         view_grid.add (document_view);
 
-
         content_stack = new Gtk.Stack () {
             hexpand = true,
             vexpand = true,
