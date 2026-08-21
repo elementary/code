@@ -229,6 +229,7 @@ public class Scratch.MainWindow : Hdy.Window {
         action_accelerators.set (ACTION_NEXT_TAB, "<Control>Tab");
         action_accelerators.set (ACTION_NEXT_TAB, "<Control>Page_Down");
         action_accelerators.set (ACTION_CLOSE_TAB + "::", "<Control>w");
+        action_accelerators.set (ACTION_CLOSE_OTHER_TABS, "<Shift><Control>w");
         action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
         action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control>Page_Up");
         action_accelerators.set (ACTION_CLEAR_LINES, "<Control>K"); //Geany
