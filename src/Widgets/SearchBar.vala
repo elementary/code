@@ -69,9 +69,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         }
     }
 
-    private Gtk.Button tool_arrow_up;
-    private Gtk.Button tool_arrow_down;
-
     /**
      * Is the search cyclic? e.g., when you are at the bottom, if you press
      * "Down", it will go at the start of the file to search for the content
@@ -109,8 +106,8 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
 
         var app_instance = (Scratch.Application) GLib.Application.get_default ();
 
-        tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic", SMALL_TOOLBAR) {
-            sensitive = false,
+        var tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic", SMALL_TOOLBAR) {
+            action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_NEXT,
             tooltip_markup = Granite.markup_accel_tooltip (
                 app_instance.get_accels_for_action (
                     MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_NEXT
@@ -118,10 +115,9 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
                 _("Search next")
             )
         };
-        tool_arrow_down.clicked.connect (search_next);
 
-        tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", SMALL_TOOLBAR) {
-            sensitive = false,
+        var tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", SMALL_TOOLBAR) {
+            action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_PREVIOUS,
             tooltip_markup = Granite.markup_accel_tooltip (
                 app_instance.get_accels_for_action (
                     MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_PREVIOUS
@@ -129,7 +125,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
                 _("Search previous")
             )
         };
-        tool_arrow_up.clicked.connect (search_previous);
 
         cycle_search_button = new Granite.SwitchModelButton (_("Cyclic Search"));
 
@@ -588,6 +583,9 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
 
     // Update search occurrence label, tool arrows and replace buttons in sync
     private void update_search_widgets () {
+        var find_next_action = Utils.action_from_group (MainWindow.ACTION_FIND_NEXT, window.actions);
+        var find_previous_action = Utils.action_from_group (MainWindow.ACTION_FIND_PREVIOUS, window.actions);
+
         cancel_update_search_widgets ();
         update_search_label_timeout_id = Timeout.add (100, () => {
             update_search_label_timeout_id = 0;
@@ -595,8 +593,8 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
                 debug ("update occurrence with null context");
                 replace_tool_button.sensitive = false;
                 replace_all_tool_button.sensitive = false;
-                tool_arrow_up.sensitive = false;
-                tool_arrow_down.sensitive = false;
+                find_next_action.set_enabled (false);
+                find_previous_action.set_enabled (false);
                 return Source.REMOVE;
             }
 
@@ -630,12 +628,12 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
                 search_entry.text == "" ||
                 count_of_search == 0) {
 
-                tool_arrow_up.sensitive = false;
-                tool_arrow_down.sensitive = false;
+                find_previous_action.set_enabled (false);
+                find_next_action.set_enabled (false);
             } else {
                 if (cycle_search_button.active) {
-                    tool_arrow_down.sensitive = true;
-                    tool_arrow_up.sensitive =true;
+                    find_next_action.set_enabled (true);
+                    find_previous_action.set_enabled (true);
                 } else {
                     Gtk.TextIter? tmp_start_iter, tmp_end_iter;
 
@@ -650,19 +648,19 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
                     is_in_end = end_iter.compare (tmp_end_iter) == 0;
 
                     if (!is_in_end) {
-                        tool_arrow_down.sensitive = search_context.forward (
+                        find_next_action.set_enabled (search_context.forward (
                             end_iter, out tmp_start_iter, out tmp_end_iter, null
-                        );
+                        ));
                     } else {
-                        tool_arrow_down.sensitive = false;
+                        find_next_action.set_enabled (false);
                     }
 
                     if (!is_in_start) {
-                        tool_arrow_up.sensitive = search_context.backward (
+                        find_previous_action.set_enabled (search_context.backward (
                             start_iter, out tmp_start_iter, out end_iter, null
-                        );
+                        ));
                     } else {
-                        tool_arrow_up.sensitive = false;
+                        find_next_action.set_enabled (false);
                     }
                 }
             }
