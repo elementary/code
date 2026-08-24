@@ -1,16 +1,19 @@
-src/Application.vala
-src/MainWindow.vala
-src/Utils.vala
+plugins/fuzzy-search/FuzzySearch.vala
+plugins/fuzzy-search/FuzzySearchPopover.vala
+plugins/pastebin/pastebin.vala
+plugins/pastebin/pastebin_dialog.vala
+plugins/spell/spell.vala
+plugins/word-completion/plugin.vala
+src/Dialogs/BranchActions/BranchActionDialog.vala
+src/Dialogs/BranchActions/BranchCheckoutPage.vala
+src/Dialogs/BranchActions/BranchCreatePage.vala
+src/Dialogs/BranchActions/BranchListBox.vala
 src/Dialogs/CloneRepositoryDialog.vala
 src/Dialogs/CloseProjectsConfirmationDialog.vala
 src/Dialogs/GlobalSearchDialog.vala
 src/Dialogs/OverwriteUncommittedConfirmationDialog.vala
 src/Dialogs/PreferencesDialog.vala
 src/Dialogs/RestoreConfirmationDialog.vala
-src/BranchActions/BranchActionDialog.vala
-src/BranchActions/BranchCheckoutPage.vala
-src/BranchActions/BranchCreatePage.vala
-src/BranchActions/BranchListBox.vala
 src/FolderManager/FileItem.vala
 src/FolderManager/FileView.vala
 src/FolderManager/FolderItem.vala
@@ -18,9 +21,9 @@ src/FolderManager/ProjectFolderItem.vala
 src/Services/Document.vala
 src/Services/MonitoredRepository.vala
 src/Services/PluginManager.vala
-src/SymbolPane/SymbolOutline.vala
 src/SymbolPane/C/CtagsSymbolOutline.vala
 src/SymbolPane/Vala/ValaSymbolOutline.vala
+src/SymbolPane/SymbolOutline.vala
 src/Widgets/ChooseProjectButton.vala
 src/Widgets/DocumentView.vala
 src/Widgets/FormatBar.vala
@@ -30,11 +33,8 @@ src/Widgets/Sidebar.vala
 src/Widgets/SourceView.vala
 src/Widgets/Terminal.vala
 src/Widgets/WelcomeView.vala
-plugins/fuzzy-search/FuzzySearch.vala
-plugins/fuzzy-search/FuzzySearchPopover.vala
-plugins/pastebin/pastebin.vala
-plugins/pastebin/pastebin_dialog.vala
-plugins/spell/spell.vala
-plugins/word-completion/plugin.vala
+src/Application.vala
+src/MainWindow.vala
+src/Utils.vala
 
 
