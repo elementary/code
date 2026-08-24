@@ -7,6 +7,10 @@ src/Dialogs/PreferencesDialog.vala
 src/Dialogs/RestoreConfirmationDialog.vala
 src/Dialogs/CloseProjectsConfirmationDialog.vala
 src/Dialogs/OverwriteUncommittedConfirmationDialog.vala
+src/BranchActions/BranchActionDialog.vala
+src/BranchActions/BranchCheckoutPage.vala
+src/BranchActions/BranchCreatePage.vala
+src/BranchActions/BranchListBox.vala
 src/FolderManager/File.vala
 src/FolderManager/FileItem.vala
 src/FolderManager/FileView.vala
