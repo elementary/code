@@ -91,11 +91,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
     }
 
     construct {
-        var cyclic_search_action = settings.create_action ("cyclic-search");
-        var wholeword_search_action = settings.create_action ("wholeword-search");
-        var case_sensitive_search_action = settings.create_action ("case-sensitive-search");
-        var regex_search_action = settings.create_action ("regex-search");
-
         var replace_action = new SimpleAction ("replace", null);
         replace_action.activate.connect (action_replace);
 
@@ -103,12 +98,8 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         replace_all_action.activate.connect (action_replace_all);
 
         action_group = new SimpleActionGroup ();
-        action_group.add_action (case_sensitive_search_action);
-        action_group.add_action (cyclic_search_action);
-        action_group.add_action (regex_search_action);
         action_group.add_action (replace_action);
         action_group.add_action (replace_all_action);
-        action_group.add_action (wholeword_search_action);
 
         insert_action_group ("search", action_group);
 
@@ -143,9 +134,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
             )
         };
 
-        var cycle_search_button = new Granite.SwitchModelButton (_("Cyclic Search")) {
-            action_name = "search.cyclic-search"
-        };
+        var cycle_search_button = new Granite.SwitchModelButton (_("Cyclic Search"));
 
         var case_sensitive_search_button = new Gtk.ComboBoxText ();
         case_sensitive_search_button.append ("never", _("Never"));
@@ -160,13 +149,9 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         case_sensitive_box.add (case_sensitive_search_button);
         case_sensitive_box.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
 
-        var regex_search_button = new Granite.SwitchModelButton (_("Use Regular Expressions")) {
-            action_name = "search.regex-search"
-        };
+        var regex_search_button = new Granite.SwitchModelButton (_("Use Regular Expressions"));
 
-        var whole_word_search_button = new Granite.SwitchModelButton (_("Match Whole Words")) {
-            action_name = "search.wholeword-search"
-        };
+        var whole_word_search_button = new Granite.SwitchModelButton (_("Match Whole Words"));
 
         var search_option_box = new Gtk.Box (VERTICAL, 0) {
             margin_top = 3,
@@ -199,6 +184,10 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
 
         // Bind some application settings
         settings.bind ("case-sensitive-search", case_sensitive_search_button, "active-id", DEFAULT);
+        settings.bind ("case-sensitive-search", cycle_search_button, "active", DEFAULT);
+        settings.bind ("cyclic-search", cycle_search_button, "active", DEFAULT);
+        settings.bind ("regex-search", regex_search_button, "active", DEFAULT);
+        settings.bind ("wholeword-search", whole_word_search_button, "active", DEFAULT);
 
         // These settings are ignored when regex searching
         settings.bind ("regex-search", cycle_search_button, "sensitive", INVERT_BOOLEAN);
