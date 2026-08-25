@@ -278,7 +278,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         this.text_view = text_view;
         this.text_buffer = text_view.get_buffer ();
         this.text_buffer.changed.connect (update_search_widgets);
-
         search_context = new Gtk.SourceSearchContext ((Gtk.SourceBuffer) text_buffer, search_settings);
 
         update_search_widgets ();
