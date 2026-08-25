@@ -54,8 +54,10 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         }
     }
 
-    private const string ACTION_GROUP = "search";
-    private const string ACTION_PREFIX = ACTION_GROUP + ".";
+    public const string ACTION_GROUP = "find";
+    public const string ACTION_PREFIX = ACTION_GROUP + ".";
+    public const string ACTION_FIND_NEXT = "action-find-next";
+    public const string ACTION_FIND_PREVIOUS = "action-find-previous";
     private const string ACTION_REPLACE = "replace";
     private const string ACTION_REPLACE_ALL = "replace-all";
 
@@ -74,6 +76,8 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
     private Gtk.Revealer revealer;
     private Gtk.EventControllerKey key_controller;
 
+    private SimpleAction find_next_action;
+    private SimpleAction find_previous_action;
     private SimpleAction replace_action;
     private SimpleAction replace_all_action;
 
@@ -82,6 +86,12 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
     }
 
     construct {
+        find_next_action = new SimpleAction (ACTION_FIND_NEXT, null);
+        find_next_action.activate.connect (action_find_next);
+
+        find_previous_action = new SimpleAction (ACTION_FIND_PREVIOUS, null);
+        find_previous_action.activate.connect (action_find_previous);
+
         replace_action = new SimpleAction (ACTION_REPLACE, null);
         replace_action.activate.connect (action_replace);
 
@@ -89,10 +99,16 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         replace_all_action.activate.connect (action_replace_all);
 
         var action_group = new SimpleActionGroup ();
+        action_group.add_action (find_next_action);
+        action_group.add_action (find_previous_action);
         action_group.add_action (replace_action);
         action_group.add_action (replace_all_action);
 
         insert_action_group (ACTION_GROUP, action_group);
+
+        var app_instance = (Scratch.Application) GLib.Application.get_default ();
+        app_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FIND_NEXT, {"<Control>g"});
+        app_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FIND_PREVIOUS, {"<Control><shift>g"});
 
         this.orientation = HORIZONTAL;
         search_entry = new Gtk.SearchEntry () {
@@ -103,24 +119,18 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         search_occurence_count_label = new Gtk.Label (_("No Results"));
         search_occurence_count_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
 
-        var app_instance = (Scratch.Application) GLib.Application.get_default ();
-
         var tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic", SMALL_TOOLBAR) {
-            action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_NEXT,
+            action_name = ACTION_PREFIX + ACTION_FIND_NEXT,
             tooltip_markup = Granite.markup_accel_tooltip (
-                app_instance.get_accels_for_action (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_NEXT
-                ),
+                app_instance.get_accels_for_action (ACTION_PREFIX + ACTION_FIND_NEXT),
                 _("Search next")
             )
         };
 
         var tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", SMALL_TOOLBAR) {
-            action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_PREVIOUS,
+            action_name = ACTION_PREFIX + ACTION_FIND_PREVIOUS,
             tooltip_markup = Granite.markup_accel_tooltip (
-                app_instance.get_accels_for_action (
-                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_PREVIOUS
-                ),
+                app_instance.get_accels_for_action (ACTION_PREFIX + ACTION_FIND_PREVIOUS),
                 _("Search previous")
             )
         };
@@ -243,7 +253,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         });
         search_entry.icon_release.connect ((p0, p1) => {
             if (p0 == Gtk.EntryIconPosition.PRIMARY) {
-                search_next ();
+                action_find_next ();
             }
         });
         replace_entry.activate.connect (action_replace);
@@ -336,7 +346,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         return true;
     }
 
-    public void search_previous () {
+    private void action_find_previous () {
         /* Get selection range */
         Gtk.TextIter? start_iter, end_iter;
         if (text_buffer != null) {
@@ -350,7 +360,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         }
     }
 
-    public void search_next () {
+    private void action_find_next () {
         /* Get selection range */
         Gtk.TextIter? start_iter, end_iter, end_iter_tmp;
         if (text_buffer != null) {
@@ -390,11 +400,11 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
             switch (key) {
                 case "<Shift>Return":
                 case "Up":
-                    search_previous ();
+                    action_find_previous ();
                     return true;
                 case "Return":
                 case "Down":
-                    search_next ();
+                    action_find_next ();
                     return true;
                 case "Tab":
                     focus_replace_entry ();
@@ -403,10 +413,10 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         } else {
             switch (Gdk.keyval_name (keyval)) {
                 case "Up":
-                    search_previous ();
+                    action_find_previous ();
                     return true;
                 case "Down":
-                    search_next ();
+                    action_find_next ();
                     return true;
                 case "Tab":
                     focus_search_entry ();
@@ -557,9 +567,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
     private void update_search_widgets () {
         cancel_update_search_widgets ();
         update_search_label_timeout_id = Timeout.add (100, () => {
-            var find_next_action = Utils.action_from_group (MainWindow.ACTION_FIND_NEXT, window.actions);
-            var find_previous_action = Utils.action_from_group (MainWindow.ACTION_FIND_PREVIOUS, window.actions);
-
             var is_current_doc = window.get_current_document () != null;
             find_next_action.set_enabled (is_current_doc);
             find_previous_action.set_enabled (is_current_doc);
