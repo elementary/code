@@ -74,20 +74,21 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
     private Gtk.Revealer revealer;
     private Gtk.EventControllerKey key_controller;
 
-    private SimpleActionGroup action_group;
+    private SimpleAction replace_action;
+    private SimpleAction replace_all_action;
 
     public SearchBar (MainWindow window) {
         Object (window: window);
     }
 
     construct {
-        var replace_action = new SimpleAction (ACTION_REPLACE, null);
+        replace_action = new SimpleAction (ACTION_REPLACE, null);
         replace_action.activate.connect (action_replace);
 
-        var replace_all_action = new SimpleAction (ACTION_REPLACE_ALL, null);
+        replace_all_action = new SimpleAction (ACTION_REPLACE_ALL, null);
         replace_all_action.activate.connect (action_replace_all);
 
-        action_group = new SimpleActionGroup ();
+        var action_group = new SimpleActionGroup ();
         action_group.add_action (replace_action);
         action_group.add_action (replace_all_action);
 
@@ -554,16 +555,16 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
 
     // Update search occurrence label, tool arrows and replace buttons in sync
     private void update_search_widgets () {
-        var find_next_action = Utils.action_from_group (MainWindow.ACTION_FIND_NEXT, window.actions);
-        var find_previous_action = Utils.action_from_group (MainWindow.ACTION_FIND_PREVIOUS, window.actions);
-
         cancel_update_search_widgets ();
         update_search_label_timeout_id = Timeout.add (100, () => {
+            var find_next_action = Utils.action_from_group (MainWindow.ACTION_FIND_NEXT, window.actions);
+            var find_previous_action = Utils.action_from_group (MainWindow.ACTION_FIND_PREVIOUS, window.actions);
+
             update_search_label_timeout_id = 0;
             if (search_context == null) {
                 debug ("update occurrence with null context");
-                ((SimpleAction) action_group.lookup_action (ACTION_REPLACE)).set_enabled (false);
-                ((SimpleAction) action_group.lookup_action (ACTION_REPLACE_ALL)).set_enabled (false);
+                replace_action.set_enabled (false);
+                replace_all_action.set_enabled (false);
                 find_next_action.set_enabled (false);
                 find_previous_action.set_enabled (false);
                 return Source.REMOVE;
@@ -591,8 +592,8 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
                 }
             }
 
-            ((SimpleAction) action_group.lookup_action (ACTION_REPLACE)).set_enabled (location_of_search > 0);
-            ((SimpleAction) action_group.lookup_action (ACTION_REPLACE_ALL)).set_enabled (count_of_search > 0);
+            replace_action.set_enabled (location_of_search > 0);
+            replace_all_action.set_enabled (count_of_search > 0);
 
             // Update tool arrows
             if (text_buffer == null ||
