@@ -356,7 +356,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         Gtk.TextIter? start_iter, end_iter;
         if (text_buffer != null) {
             text_buffer.get_selection_bounds (out start_iter, out end_iter);
-            if (!search_for_iter_backward (start_iter, out end_iter) && settings.get_boolean ("cyclic-search")) {
+            if (!search_for_iter_backward (start_iter, out end_iter) && cycle_search_button.active) {
                 text_buffer.get_end_iter (out start_iter);
                 search_for_iter_backward (start_iter, out end_iter);
             }
@@ -370,7 +370,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         Gtk.TextIter? start_iter, end_iter, end_iter_tmp;
         if (text_buffer != null) {
             text_buffer.get_selection_bounds (out start_iter, out end_iter);
-            if (!search_for_iter (end_iter, out end_iter_tmp) && settings.get_boolean ("cyclic-search")) {
+            if (!search_for_iter (end_iter, out end_iter_tmp) && cycle_search_button.active) {
                 text_buffer.get_start_iter (out start_iter);
                 search_for_iter (start_iter, out end_iter);
             }
@@ -451,7 +451,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
                     assert_not_reached ();
             }
 
-            search_context.settings.at_word_boundaries = settings.get_boolean ("wholeword-search");
+            search_context.settings.at_word_boundaries = whole_word_search_button.active;
             search_context.settings.regex_enabled = regex_search_button.active;
         }
 
@@ -572,7 +572,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
                 find_previous_action.set_enabled (false);
                 find_next_action.set_enabled (false);
             } else {
-                if (settings.get_boolean ("cyclic-search")) {
+                if (cycle_search_button.active) {
                     find_next_action.set_enabled (true);
                     find_previous_action.set_enabled (true);
                 } else {
