@@ -378,7 +378,7 @@ public class Scratch.MainWindow : Hdy.Window {
                     );
                 }
 
-                search_bar.reveal (new_state);
+                search_bar.search_mode_enabled = new_state;
 
                 break;
             case ACTION_TOGGLE_SIDEBAR:
@@ -714,7 +714,7 @@ public class Scratch.MainWindow : Hdy.Window {
     private bool on_key_pressed (uint keyval, uint keycode, Gdk.ModifierType state) {
         switch (Gdk.keyval_name (keyval)) {
             case "Escape":
-                if (search_bar.is_revealed) {
+                if (search_bar.search_mode_enabled) {
                     var action = Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions);
                     action.set_state (false);
                     document_view.current_document.source_view.grab_focus ();
@@ -776,7 +776,7 @@ public class Scratch.MainWindow : Hdy.Window {
         }
 
         if (search_term != "") {
-            search_bar.set_search_entry_text (search_term);
+            search_bar.search_text = search_term;
         }
     }
 
@@ -1271,12 +1271,12 @@ public class Scratch.MainWindow : Hdy.Window {
     private void find (string search_term = "") {
         // Set search term before focusing search bar else maybe ineffective
         if (search_term != "") {
-            search_bar.set_search_entry_text (search_term);
+            search_bar.search_text = search_term;
         } else {
             set_selected_text_for_search ();
         }
 
-        if (!search_bar.is_revealed) {
+        if (!search_bar.search_mode_enabled) {
             var show_find_action = Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions);
             if (show_find_action.enabled) {
                 // This focuses the search bar
@@ -1291,10 +1291,10 @@ public class Scratch.MainWindow : Hdy.Window {
         find ();
         // May have to wait for the search bar to be revealed before we can grab focus
 
-        if (search_bar.is_revealed) {
+        if (search_bar.search_mode_enabled) {
             search_bar.focus_replace_entry ();
         } else {
-            search_bar.reveal (true);
+            search_bar.search_mode_enabled = true;
             Idle.add (() => {
                 search_bar.focus_replace_entry ();
                 return Source.REMOVE;
@@ -1312,7 +1312,7 @@ public class Scratch.MainWindow : Hdy.Window {
 
 
     private void action_find_global (SimpleAction action, Variant? param) {
-        if (!search_bar.is_focused || search_bar.entry_text == "") {
+        if (!search_bar.is_focused || search_bar.search_text == "") {
             set_selected_text_for_search ();
         }
 
@@ -1324,7 +1324,7 @@ public class Scratch.MainWindow : Hdy.Window {
         }
 
         if (search_path != "") {
-            folder_manager_view.search_global (search_path, search_bar.entry_text);
+            folder_manager_view.search_global (search_path, search_bar.search_text);
         } else {
             // Fallback to standard search
             warning ("Unable to perform global search - search document instead");
@@ -1354,10 +1354,10 @@ public class Scratch.MainWindow : Hdy.Window {
         var action = Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions);
         var to_show = !action.get_state ().get_boolean ();
         action.set_state (to_show);
-        search_bar.reveal (to_show);
+        search_bar.search_mode_enabled = to_show;
         if (to_show) {
             search_bar.focus_search_entry ();
-            if (search_bar.entry_text == "") {
+            if (search_bar.search_text == "") {
                 set_selected_text_for_search ();
             }
         }
