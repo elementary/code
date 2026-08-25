@@ -450,34 +450,15 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
     private void on_settings_changed (string key) {
         switch (key) {
             case "case-sensitive-search":
-                switch (settings.get_enum (key)) {
-                    case CaseSensitiveMode.NEVER:
-                        search_settings.case_sensitive = false;
-                        break;
-                    case CaseSensitiveMode.MIXED:
-                        var found = (
-                            search_entry.text.up () == search_entry.text ||
-                            search_entry.text.down () == search_entry.text
-                        );
-                        search_settings.case_sensitive = !found;
-                        break;
-                    case CaseSensitiveMode.ALWAYS:
-                        search_settings.case_sensitive = true;
-                        break;
-                    default:
-                        assert_not_reached ();
-                }
-                break;
             case "cyclic-search":
             case "regex-search":
             case "wholeword-search":
+                update_search_widgets ();
                 break;
             default:
                 // Don't update widgets for non-search settings change
                 return;
         }
-
-        update_search_widgets ();
     }
 
     private bool has_matches () {
@@ -622,6 +603,23 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
                         tool_arrow_up.sensitive = false;
                     }
                 }
+            }
+
+            switch (settings.get_enum ("case-sensitive-search")) {
+                case CaseSensitiveMode.NEVER:
+                    search_settings.case_sensitive = false;
+                    break;
+                case CaseSensitiveMode.MIXED:
+                    search_settings.case_sensitive = !(
+                        search_entry.text.up () == search_entry.text ||
+                        search_entry.text.down () == search_entry.text
+                    );
+                    break;
+                case CaseSensitiveMode.ALWAYS:
+                    search_settings.case_sensitive = true;
+                    break;
+                default:
+                    assert_not_reached ();
             }
 
             // Update appearance of search entry
