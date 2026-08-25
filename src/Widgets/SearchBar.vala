@@ -110,7 +110,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         insert_action_group (ACTION_GROUP, action_group);
 
         var app_instance = (Scratch.Application) GLib.Application.get_default ();
-        app_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FIND_NEXT, {"Return", "Down"});
+        app_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FIND_NEXT, {"Down"});
         app_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FIND_PREVIOUS, {"<Shift>Return", "Up"});
 
         this.orientation = HORIZONTAL;
@@ -272,6 +272,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
                 action_find_next ();
             }
         });
+        search_entry.activate.connect (action_find_next);
         replace_entry.activate.connect (action_replace);
 
         var flowbox = new Gtk.FlowBox () {
