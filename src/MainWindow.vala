@@ -51,6 +51,8 @@ public class Scratch.MainWindow : Hdy.Window {
     public const string ACTION_PREFIX = ACTION_GROUP + ".";
     public const string ACTION_FIND = "action-find";
     public const string ACTION_CLONE_REPO = "action-clone-repo";
+    public const string ACTION_FIND_NEXT = "action-find-next";
+    public const string ACTION_FIND_PREVIOUS = "action-find-previous";
     public const string ACTION_FIND_GLOBAL = "action-find-global";
     public const string ACTION_OPEN = "action-open";
     public const string ACTION_OPEN_FOLDER = "action-open-folder";
@@ -104,6 +106,8 @@ public class Scratch.MainWindow : Hdy.Window {
     private const ActionEntry[] ACTION_ENTRIES = {
         { ACTION_CLONE_REPO, action_clone_repo },
         { ACTION_FIND, action_find, "s"},
+        { ACTION_FIND_NEXT, action_find_next },
+        { ACTION_FIND_PREVIOUS, action_find_previous },
         { ACTION_FIND_GLOBAL, action_find_global, "s" },
         { ACTION_OPEN, action_open },
         { ACTION_OPEN_FOLDER, action_open_folder, "s" },
@@ -188,6 +192,8 @@ public class Scratch.MainWindow : Hdy.Window {
 
     static construct {
         action_accelerators.set (ACTION_FIND + "::", "<Control>f");
+        action_accelerators.set (ACTION_FIND_NEXT, "<Control>g");
+        action_accelerators.set (ACTION_FIND_PREVIOUS, "<Control><shift>g");
         action_accelerators.set (ACTION_FIND_GLOBAL + "::", "<Control><shift>f");
         action_accelerators.set (ACTION_OPEN, "<Control>o");
         action_accelerators.set (ACTION_OPEN_PROJECT, "<Control><Shift>o");
@@ -1294,6 +1300,14 @@ public class Scratch.MainWindow : Hdy.Window {
                 return Source.REMOVE;
             });
         }
+    }
+
+    private void action_find_next () {
+        search_bar.action_find_next ();
+    }
+
+    private void action_find_previous () {
+        search_bar.action_find_previous ();
     }
 
     private void action_find_global (SimpleAction action, Variant? param) {

@@ -74,7 +74,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
     private Gtk.SourceSearchContext? search_context;
     private uint update_search_label_timeout_id = 0;
     private Gtk.Revealer revealer;
-    private Gtk.EventControllerKey key_controller;
 
     private SimpleAction find_next_action;
     private SimpleAction find_previous_action;
@@ -107,8 +106,8 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         insert_action_group (ACTION_GROUP, action_group);
 
         var app_instance = (Scratch.Application) GLib.Application.get_default ();
-        app_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FIND_NEXT, {"<Control>g"});
-        app_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FIND_PREVIOUS, {"<Control><shift>g"});
+        app_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FIND_NEXT, {"Return", "Down"});
+        app_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FIND_PREVIOUS, {"<Shift>Return", "Up"});
 
         this.orientation = HORIZONTAL;
         search_entry = new Gtk.SearchEntry () {
@@ -122,7 +121,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         var tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic", SMALL_TOOLBAR) {
             action_name = ACTION_PREFIX + ACTION_FIND_NEXT,
             tooltip_markup = Granite.markup_accel_tooltip (
-                app_instance.get_accels_for_action (ACTION_PREFIX + ACTION_FIND_NEXT),
+                {"<Control>g"},
                 _("Search next")
             )
         };
@@ -130,7 +129,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         var tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", SMALL_TOOLBAR) {
             action_name = ACTION_PREFIX + ACTION_FIND_PREVIOUS,
             tooltip_markup = Granite.markup_accel_tooltip (
-                app_instance.get_accels_for_action (ACTION_PREFIX + ACTION_FIND_PREVIOUS),
+                {"<Control><shift>g"},
                 _("Search previous")
             )
         };
@@ -151,7 +150,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         case_sensitive_box.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
 
         var regex_search_button = new Granite.SwitchModelButton (_("Use Regular Expressions"));
-
         var whole_word_search_button = new Granite.SwitchModelButton (_("Match Whole Words"));
 
         var search_option_box = new Gtk.Box (VERTICAL, 0) {
@@ -274,11 +272,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
 
         add (revealer);
         update_search_widgets ();
-
-        key_controller = new Gtk.EventControllerKey (window) {
-            propagation_phase = CAPTURE
-        };
-        key_controller.key_pressed.connect (on_key_pressed);
     }
 
     public void set_text_view (Scratch.Widgets.SourceView? text_view) {
@@ -346,7 +339,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         return true;
     }
 
-    private void action_find_previous () {
+    public void action_find_previous () {
         /* Get selection range */
         Gtk.TextIter? start_iter, end_iter;
         if (text_buffer != null) {
@@ -360,7 +353,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         }
     }
 
-    private void action_find_next () {
+    public void action_find_next () {
         /* Get selection range */
         Gtk.TextIter? start_iter, end_iter, end_iter_tmp;
         if (text_buffer != null) {
@@ -380,53 +373,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
 
     public void focus_replace_entry () {
         replace_entry.grab_focus ();
-    }
-
-    private bool on_key_pressed (uint keyval, uint keycode, Gdk.ModifierType state) {
-        if (!(search_entry.has_focus || replace_entry.has_focus)) {
-            return false;
-        }
-       /* We don't need to perform search if there is nothing to search... */
-        if (search_entry.text == "") {
-            return false;
-        }
-
-        string key = Gdk.keyval_name (keyval);
-        if (Gdk.ModifierType.SHIFT_MASK in state) {
-            key = "<Shift>" + key;
-        }
-
-        if (search_entry.has_focus) {
-            switch (key) {
-                case "<Shift>Return":
-                case "Up":
-                    action_find_previous ();
-                    return true;
-                case "Return":
-                case "Down":
-                    action_find_next ();
-                    return true;
-                case "Tab":
-                    focus_replace_entry ();
-                    return true;
-            }
-        } else {
-            switch (Gdk.keyval_name (keyval)) {
-                case "Up":
-                    action_find_previous ();
-                    return true;
-                case "Down":
-                    action_find_next ();
-                    return true;
-                case "Tab":
-                    focus_search_entry ();
-                    return true;
-            }
-
-            return false;
-        }
-
-        return false;
     }
 
     private void action_replace () {
