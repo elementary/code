@@ -125,7 +125,9 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         var tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic", SMALL_TOOLBAR) {
             action_name = ACTION_PREFIX + ACTION_FIND_NEXT,
             tooltip_markup = Granite.markup_accel_tooltip (
-                {"<Control>g"},
+                app_instance.get_accels_for_action (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_NEXT
+                ),
                 _("Search next")
             )
         };
@@ -133,7 +135,9 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         var tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", SMALL_TOOLBAR) {
             action_name = ACTION_PREFIX + ACTION_FIND_PREVIOUS,
             tooltip_markup = Granite.markup_accel_tooltip (
-                {"<Control><shift>g"},
+                app_instance.get_accels_for_action (
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_PREVIOUS
+                ),
                 _("Search previous")
             )
         };
