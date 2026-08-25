@@ -12,42 +12,33 @@ public enum Scratch.CaseSensitiveMode {
 }
 
 public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayout Widget
-
     public weak MainWindow window { get; construct; }
 
     public bool is_focused {
         get {
-            return search_is_focused || replace_is_focused;
+            return search_entry.has_focus || replace_entry.has_focus;
         }
     }
 
-    public bool search_is_focused {
-        get {
-            return search_entry.has_focus;
-        }
-    }
-
-    public bool replace_is_focused {
-        get {
-            return replace_entry.has_focus;
-        }
-    }
-
-    public bool is_revealed {
+    public bool search_mode_enabled {
         get {
             return revealer.child_revealed;
         }
-    }
-
-    public string entry_text {
-        get {
-            return search_entry.text;
+        set {
+            revealer.reveal_child = value;
+            // Clear entry when searchbar is hidden
+            if (!value) {
+                search_entry.text = "";
+            }
         }
     }
 
-    public bool has_search_term {
+    public string search_text {
         get {
-            return search_entry.text != "";
+            return search_entry.text;
+        }
+        set {
+            search_entry.text = value;
         }
     }
 
@@ -60,12 +51,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
             } else {
                 return search_context.get_occurrences_count ();
             }
-        }
-    }
-
-    public uint transition_time_msec {
-        get {
-            return revealer.transition_duration + 10;
         }
     }
 
@@ -295,17 +280,17 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
             search_context = null;
             return;
         } else if (this.text_buffer != null) {
-            this.text_buffer.changed.disconnect (on_text_buffer_changed);
+            this.text_buffer.changed.disconnect (update_search_widgets);
         }
 
         this.text_view = text_view;
         this.text_buffer = text_view.get_buffer ();
-        this.text_buffer.changed.connect (on_text_buffer_changed);
+        this.text_buffer.changed.connect (update_search_widgets);
         this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
         search_context.settings.wrap_around = cycle_search_button.active;
         search_context.settings.regex_enabled = regex_search_button.active;
         search_context.settings.search_text = search_entry.text;
-        on_text_buffer_changed ();
+        update_search_widgets ();
     }
 
     public bool search () {
@@ -347,12 +332,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         return true;
     }
 
-    public void highlight_none () {
-        if (search_context != null) {
-            search_context.highlight = false;
-        }
-    }
-
     public void search_previous () {
         /* Get selection range */
         Gtk.TextIter? start_iter, end_iter;
@@ -389,24 +368,12 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         replace_entry.grab_focus ();
     }
 
-    public void reveal (bool to_reveal) {
-        revealer.reveal_child = to_reveal;
-        // Clear entry when searchbar is hidden
-        if (is_revealed && !to_reveal) {
-            set_search_entry_text ("");
-        }
-    }
-
-    public void set_search_entry_text (string text) {
-        search_entry.text = text;
-    }
-
     private bool on_key_pressed (uint keyval, uint keycode, Gdk.ModifierType state) {
-        if (!(search_is_focused || replace_is_focused)) {
+        if (!(search_entry.has_focus || replace_entry.has_focus)) {
             return false;
         }
        /* We don't need to perform search if there is nothing to search... */
-        if (!has_search_term) {
+        if (search_entry.text == "") {
             return false;
         }
 
@@ -415,7 +382,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
             key = "<Shift>" + key;
         }
 
-        if (search_is_focused) {
+        if (search_entry.has_focus) {
             switch (key) {
                 case "<Shift>Return":
                 case "Up":
@@ -446,10 +413,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         }
 
         return false;
-    }
-
-    private void on_text_buffer_changed () {
-        update_search_widgets ();
     }
 
     private void on_replace_entry_activate () {
