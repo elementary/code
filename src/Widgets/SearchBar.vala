@@ -183,11 +183,11 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         settings.changed["wholeword-search"].connect (on_search_parameters_changed);
 
         // Bind some application settings
-        settings.bind ("case-sensitive-search", case_sensitive_search_button, "active-id", DEFAULT);
-        settings.bind ("case-sensitive-search", cycle_search_button, "active", DEFAULT);
         settings.bind ("cyclic-search", cycle_search_button, "active", DEFAULT);
-        settings.bind ("regex-search", regex_search_button, "active", DEFAULT);
         settings.bind ("wholeword-search", whole_word_search_button, "active", DEFAULT);
+        settings.bind ("case-sensitive-search", case_sensitive_search_button, "active-id", DEFAULT);
+        settings.bind ("regex-search", regex_search_button, "active", DEFAULT);
+
 
         // These settings are ignored when regex searching
         settings.bind ("regex-search", cycle_search_button, "sensitive", INVERT_BOOLEAN);
