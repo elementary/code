@@ -70,6 +70,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
     private Scratch.Widgets.SourceView? text_view = null;
     private Gtk.TextBuffer? text_buffer = null;
     private Gtk.SourceSearchContext? search_context;
+    private Gtk.SourceSearchSettings search_settings;
     private uint update_search_label_timeout_id = 0;
     private Gtk.Revealer revealer;
     private Gtk.EventControllerKey key_controller;
@@ -154,20 +155,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         };
         search_menubutton.add (search_buttonbox);
 
-        settings.changed.connect (on_settings_changed);
-
-        // Bind some application settings
-        settings.bind ("cyclic-search", cycle_search_button, "active", DEFAULT);
-        settings.bind ("wholeword-search", whole_word_search_button, "active", DEFAULT);
-        settings.bind ("case-sensitive-search", case_sensitive_search_button, "active-id", DEFAULT);
-        settings.bind ("regex-search", regex_search_button, "active", DEFAULT);
-
-        // These settings are ignored when regex searching
-        settings.bind ("regex-search", cycle_search_button, "sensitive", INVERT_BOOLEAN);
-        settings.bind ("regex-search", whole_word_search_button, "sensitive", INVERT_BOOLEAN);
-        settings.bind ("regex-search", case_sensitive_search_button, "sensitive", INVERT_BOOLEAN);
-        settings.bind ("regex-search", case_sensitive_search_label, "sensitive", INVERT_BOOLEAN);
-
         var search_box = new Gtk.Box (HORIZONTAL, 0) {
             margin_top = 3,
             margin_end = 3,
@@ -211,8 +198,28 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         replace_flow_box_child.can_focus = false;
         replace_flow_box_child.add (replace_grid);
 
+        search_settings = new Gtk.SourceSearchSettings ();
+
+        // Bind some application settings
+        settings.bind ("case-sensitive-search", case_sensitive_search_button, "active-id", DEFAULT);
+        settings.bind ("cyclic-search", cycle_search_button, "active", DEFAULT);
+        settings.bind ("cyclic-search", search_settings, "wrap-around", DEFAULT);
+        settings.bind ("regex-search", regex_search_button, "active", DEFAULT);
+        settings.bind ("regex-search", search_settings, "regex-enabled", DEFAULT);
+        settings.bind ("wholeword-search", search_settings, "at-word-boundaries", DEFAULT);
+        settings.bind ("wholeword-search", whole_word_search_button, "active", DEFAULT);
+
+        // These settings are ignored when regex searching
+        settings.bind ("regex-search", cycle_search_button, "sensitive", INVERT_BOOLEAN);
+        settings.bind ("regex-search", whole_word_search_button, "sensitive", INVERT_BOOLEAN);
+        settings.bind ("regex-search", case_sensitive_search_button, "sensitive", INVERT_BOOLEAN);
+        settings.bind ("regex-search", case_sensitive_search_label, "sensitive", INVERT_BOOLEAN);
+
+        settings.changed.connect (on_settings_changed);
+
         // Connecting to some signals
-        search_entry.changed.connect (on_search_entry_changed);
+        search_entry.bind_property ("text", search_settings, "search-text", SYNC_CREATE);
+        search_entry.changed.connect (update_search_widgets);
         search_entry.notify["is-focus"].connect (() => {
             if (search_entry.is_focus && text_buffer != null) {
                 Idle.add (() => {
@@ -271,10 +278,9 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         this.text_view = text_view;
         this.text_buffer = text_view.get_buffer ();
         this.text_buffer.changed.connect (update_search_widgets);
-        this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
-        search_context.settings.wrap_around = settings.get_boolean ("cyclic-search");
-        search_context.settings.regex_enabled = settings.get_boolean ("regex-search");
-        search_context.settings.search_text = search_entry.text;
+
+        search_context = new Gtk.SourceSearchContext ((Gtk.SourceBuffer) text_buffer, search_settings);
+
         update_search_widgets ();
     }
 
@@ -441,44 +447,34 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         this.window.get_current_document ().toggle_changed_handlers (true);
     }
 
-    private void on_settings_changed (string key) requires (search_context != null) {
+    private void on_settings_changed (string key) {
         switch (key) {
             case "case-sensitive-search":
                 switch (settings.get_enum (key)) {
                     case CaseSensitiveMode.NEVER:
-                        search_context.settings.case_sensitive = false;
+                        search_settings.case_sensitive = false;
                         break;
                     case CaseSensitiveMode.MIXED:
                         var found = (
                             search_entry.text.up () == search_entry.text ||
                             search_entry.text.down () == search_entry.text
                         );
-                        search_context.settings.case_sensitive = !found;
+                        search_settings.case_sensitive = !found;
                         break;
                     case CaseSensitiveMode.ALWAYS:
-                        search_context.settings.case_sensitive = true;
+                        search_settings.case_sensitive = true;
                         break;
                     default:
                         assert_not_reached ();
                 }
                 break;
+            case "cyclic-search":
             case "regex-search":
-                search_context.settings.regex_enabled = settings.get_boolean (key);
-                break;
             case "wholeword-search":
-                search_context.settings.at_word_boundaries = settings.get_boolean (key);
                 break;
             default:
                 // Don't update widgets for non-search settings change
                 return;
-        }
-
-        update_search_widgets ();
-    }
-
-    private void on_search_entry_changed () {
-        if (search_context != null) {
-            search_context.settings.search_text = search_entry.text;
         }
 
         update_search_widgets ();
