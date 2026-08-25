@@ -126,6 +126,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
             action_name = ACTION_PREFIX + ACTION_FIND_NEXT,
             tooltip_markup = Granite.markup_accel_tooltip (
                 app_instance.get_accels_for_action (
+                    // Accels for window, not accels for when this is focused
                     MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_NEXT
                 ),
                 _("Search next")
@@ -136,6 +137,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
             action_name = ACTION_PREFIX + ACTION_FIND_PREVIOUS,
             tooltip_markup = Granite.markup_accel_tooltip (
                 app_instance.get_accels_for_action (
+                    // Accels for window, not accels for when this is focused
                     MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_PREVIOUS
                 ),
                 _("Search previous")
