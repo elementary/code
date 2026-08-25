@@ -1339,6 +1339,8 @@ public class Scratch.MainWindow : Hdy.Window {
             var is_current_doc = get_current_document () != null;
             Utils.action_from_group (ACTION_FIND, actions).set_enabled (is_current_doc);
             Utils.action_from_group (ACTION_TOGGLE_SHOW_FIND, actions).set_enabled (is_current_doc);
+            Utils.action_from_group (ACTION_FIND_NEXT, actions).set_enabled (is_current_doc);
+            Utils.action_from_group (ACTION_FIND_PREVIOUS, actions).set_enabled (is_current_doc);
             var can_global_search = is_current_doc || git_manager.active_project_path != null;
             Utils.action_from_group (ACTION_FIND_GLOBAL, actions).set_enabled (can_global_search);
 

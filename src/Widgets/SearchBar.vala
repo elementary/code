@@ -529,10 +529,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
     private void update_search_widgets () {
         cancel_update_search_widgets ();
         update_search_label_timeout_id = Timeout.add (100, () => {
-            var is_current_doc = window.get_current_document () != null;
-            find_next_action.set_enabled (is_current_doc);
-            find_previous_action.set_enabled (is_current_doc);
-
             update_search_label_timeout_id = 0;
             if (search_context == null) {
                 debug ("update occurrence with null context");
