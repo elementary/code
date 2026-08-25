@@ -54,6 +54,11 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         }
     }
 
+    private const string ACTION_GROUP = "search";
+    private const string ACTION_PREFIX = ACTION_GROUP + ".";
+    private const string ACTION_REPLACE = "replace";
+    private const string ACTION_REPLACE_ALL = "replace-all";
+
     /**
      * Is the search cyclic? e.g., when you are at the bottom, if you press
      * "Down", it will go at the start of the file to search for the content
@@ -76,17 +81,17 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
     }
 
     construct {
-        var replace_action = new SimpleAction ("replace", null);
+        var replace_action = new SimpleAction (ACTION_REPLACE, null);
         replace_action.activate.connect (action_replace);
 
-        var replace_all_action = new SimpleAction ("replace-all", null);
+        var replace_all_action = new SimpleAction (ACTION_REPLACE_ALL, null);
         replace_all_action.activate.connect (action_replace_all);
 
         action_group = new SimpleActionGroup ();
         action_group.add_action (replace_action);
         action_group.add_action (replace_all_action);
 
-        insert_action_group ("search", action_group);
+        insert_action_group (ACTION_GROUP, action_group);
 
         this.orientation = HORIZONTAL;
         search_entry = new Gtk.SearchEntry () {
@@ -202,11 +207,11 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         };
 
         var replace_tool_button = new Gtk.Button.with_label (_("Replace")) {
-            action_name = "search.replace"
+            action_name = ACTION_PREFIX + ACTION_REPLACE
         };
 
         var replace_all_tool_button = new Gtk.Button.with_label (_("Replace all")) {
-            action_name = "search.replace-all"
+            action_name = ACTION_PREFIX + ACTION_REPLACE_ALL
         };
 
         var replace_grid = new Gtk.Grid () {
@@ -557,8 +562,8 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
             update_search_label_timeout_id = 0;
             if (search_context == null) {
                 debug ("update occurrence with null context");
-                ((SimpleAction) action_group.lookup_action ("replace")).set_enabled (false);
-                ((SimpleAction) action_group.lookup_action ("replace-all")).set_enabled (false);
+                ((SimpleAction) action_group.lookup_action (ACTION_REPLACE)).set_enabled (false);
+                ((SimpleAction) action_group.lookup_action (ACTION_REPLACE_ALL)).set_enabled (false);
                 find_next_action.set_enabled (false);
                 find_previous_action.set_enabled (false);
                 return Source.REMOVE;
@@ -586,8 +591,8 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
                 }
             }
 
-            ((SimpleAction) action_group.lookup_action ("replace")).set_enabled (location_of_search > 0);
-            ((SimpleAction) action_group.lookup_action ("replace-all")).set_enabled (count_of_search > 0);
+            ((SimpleAction) action_group.lookup_action (ACTION_REPLACE)).set_enabled (location_of_search > 0);
+            ((SimpleAction) action_group.lookup_action (ACTION_REPLACE_ALL)).set_enabled (count_of_search > 0);
 
             // Update tool arrows
             if (text_buffer == null ||
