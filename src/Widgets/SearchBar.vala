@@ -66,7 +66,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
      * "Down", it will go at the start of the file to search for the content
      * of the search entry.
      **/
-    private Granite.SwitchModelButton cycle_search_button;
+    private Granite.SwitchModelButton cycle_search_button ;
     private Gtk.ComboBoxText case_sensitive_search_button;
     private Granite.SwitchModelButton regex_search_button;
     private Granite.SwitchModelButton whole_word_search_button;
@@ -181,7 +181,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         search_menubutton.add (search_buttonbox);
 
         cycle_search_button.toggled.connect (on_search_parameters_changed);
-        case_sensitive_search_button.connect (on_search_parameters_changed);
+        case_sensitive_search_button.changed.connect (on_search_parameters_changed);
         whole_word_search_button.toggled.connect (on_search_parameters_changed);
         regex_search_button.toggled.connect (on_search_parameters_changed);
 
@@ -307,7 +307,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         this.text_buffer.changed.connect (update_search_widgets);
         this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
         search_context.settings.wrap_around = cycle_search_button.active;
-        search_context.settings.regex_enabled = settings.get_boolean ("regex-search");
+        search_context.settings.regex_enabled = regex_search_button.active;
         search_context.settings.search_text = search_entry.text;
         update_search_widgets ();
     }
@@ -433,7 +433,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         if (search_context != null) {
             var search_string = search_entry.text;
             search_context.settings.search_text = search_string;
-            var case_mode = settings.get_enum ("case-sensitive-search");
+            var case_mode = (CaseSensitiveMode)(case_sensitive_search_button.active);
             switch (case_mode) {
                 case CaseSensitiveMode.NEVER:
                     search_context.settings.case_sensitive = false;
@@ -452,7 +452,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
             }
 
             search_context.settings.at_word_boundaries = settings.get_boolean ("wholeword-search");
-            search_context.settings.regex_enabled = settings.get_boolean ("regex-search");
+            search_context.settings.regex_enabled = regex_search_button.active;
         }
 
         update_search_widgets ();
