@@ -54,8 +54,12 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         }
     }
 
-    private Gtk.Button tool_arrow_up;
-    private Gtk.Button tool_arrow_down;
+    public const string ACTION_GROUP = "find";
+    public const string ACTION_PREFIX = ACTION_GROUP + ".";
+    public const string ACTION_FIND_NEXT = "action-find-next";
+    public const string ACTION_FIND_PREVIOUS = "action-find-previous";
+    private const string ACTION_REPLACE = "replace";
+    private const string ACTION_REPLACE_ALL = "replace-all";
 
     /**
      * Is the search cyclic? e.g., when you are at the bottom, if you press
@@ -69,20 +73,46 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
     private Gtk.SearchEntry search_entry;
     private Gtk.SearchEntry replace_entry;
     private Gtk.Label search_occurence_count_label;
-    private Gtk.Button replace_tool_button;
-    private Gtk.Button replace_all_tool_button;
     private Scratch.Widgets.SourceView? text_view = null;
     private Gtk.TextBuffer? text_buffer = null;
     private Gtk.SourceSearchContext? search_context;
     private uint update_search_label_timeout_id = 0;
     private Gtk.Revealer revealer;
-    private Gtk.EventControllerKey key_controller;
+
+    private SimpleAction find_next_action;
+    private SimpleAction find_previous_action;
+    private SimpleAction replace_action;
+    private SimpleAction replace_all_action;
 
     public SearchBar (MainWindow window) {
         Object (window: window);
     }
 
     construct {
+        find_next_action = new SimpleAction (ACTION_FIND_NEXT, null);
+        find_next_action.activate.connect (action_find_next);
+
+        find_previous_action = new SimpleAction (ACTION_FIND_PREVIOUS, null);
+        find_previous_action.activate.connect (action_find_previous);
+
+        replace_action = new SimpleAction (ACTION_REPLACE, null);
+        replace_action.activate.connect (action_replace);
+
+        replace_all_action = new SimpleAction (ACTION_REPLACE_ALL, null);
+        replace_all_action.activate.connect (action_replace_all);
+
+        var action_group = new SimpleActionGroup ();
+        action_group.add_action (find_next_action);
+        action_group.add_action (find_previous_action);
+        action_group.add_action (replace_action);
+        action_group.add_action (replace_all_action);
+
+        insert_action_group (ACTION_GROUP, action_group);
+
+        var app_instance = (Scratch.Application) GLib.Application.get_default ();
+        app_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FIND_NEXT, {"Down"});
+        app_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FIND_PREVIOUS, {"<Shift>Return", "Up"});
+
         this.orientation = HORIZONTAL;
         search_entry = new Gtk.SearchEntry () {
             hexpand = true,
@@ -92,29 +122,27 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         search_occurence_count_label = new Gtk.Label (_("No Results"));
         search_occurence_count_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
 
-        var app_instance = (Scratch.Application) GLib.Application.get_default ();
-
-        tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic", SMALL_TOOLBAR) {
-            sensitive = false,
+        var tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic", SMALL_TOOLBAR) {
+            action_name = ACTION_PREFIX + ACTION_FIND_NEXT,
             tooltip_markup = Granite.markup_accel_tooltip (
                 app_instance.get_accels_for_action (
+                    // Accels for window, not accels for when this is focused
                     MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_NEXT
                 ),
                 _("Search next")
             )
         };
-        tool_arrow_down.clicked.connect (search_next);
 
-        tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", SMALL_TOOLBAR) {
-            sensitive = false,
+        var tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", SMALL_TOOLBAR) {
+            action_name = ACTION_PREFIX + ACTION_FIND_PREVIOUS,
             tooltip_markup = Granite.markup_accel_tooltip (
                 app_instance.get_accels_for_action (
+                    // Accels for window, not accels for when this is focused
                     MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_PREVIOUS
                 ),
                 _("Search previous")
             )
         };
-        tool_arrow_up.clicked.connect (search_previous);
 
         cycle_search_button = new Granite.SwitchModelButton (_("Cyclic Search"));
 
@@ -205,11 +233,13 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
             primary_icon_name = "edit-symbolic"
         };
 
-        replace_tool_button = new Gtk.Button.with_label (_("Replace"));
-        replace_tool_button.clicked.connect (on_replace_entry_activate);
+        var replace_tool_button = new Gtk.Button.with_label (_("Replace")) {
+            action_name = ACTION_PREFIX + ACTION_REPLACE
+        };
 
-        replace_all_tool_button = new Gtk.Button.with_label (_("Replace all"));
-        replace_all_tool_button.clicked.connect (on_replace_all_entry_activate);
+        var replace_all_tool_button = new Gtk.Button.with_label (_("Replace all")) {
+            action_name = ACTION_PREFIX + ACTION_REPLACE_ALL
+        };
 
         var replace_grid = new Gtk.Grid () {
             margin_top = 3,
@@ -239,10 +269,11 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         });
         search_entry.icon_release.connect ((p0, p1) => {
             if (p0 == Gtk.EntryIconPosition.PRIMARY) {
-                search_next ();
+                action_find_next ();
             }
         });
-        replace_entry.activate.connect (on_replace_entry_activate);
+        search_entry.activate.connect (action_find_next);
+        replace_entry.activate.connect (action_replace);
 
         var flowbox = new Gtk.FlowBox () {
             selection_mode = Gtk.SelectionMode.NONE,
@@ -260,11 +291,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
 
         add (revealer);
         update_search_widgets ();
-
-        key_controller = new Gtk.EventControllerKey (window) {
-            propagation_phase = CAPTURE
-        };
-        key_controller.key_pressed.connect (on_key_pressed);
     }
 
     public void set_text_view (Scratch.Widgets.SourceView? text_view) {
@@ -332,7 +358,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         return true;
     }
 
-    public void search_previous () {
+    public void action_find_previous () {
         /* Get selection range */
         Gtk.TextIter? start_iter, end_iter;
         if (text_buffer != null) {
@@ -346,7 +372,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         }
     }
 
-    public void search_next () {
+    public void action_find_next () {
         /* Get selection range */
         Gtk.TextIter? start_iter, end_iter, end_iter_tmp;
         if (text_buffer != null) {
@@ -368,54 +394,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         replace_entry.grab_focus ();
     }
 
-    private bool on_key_pressed (uint keyval, uint keycode, Gdk.ModifierType state) {
-        if (!(search_entry.has_focus || replace_entry.has_focus)) {
-            return false;
-        }
-       /* We don't need to perform search if there is nothing to search... */
-        if (search_entry.text == "") {
-            return false;
-        }
-
-        string key = Gdk.keyval_name (keyval);
-        if (Gdk.ModifierType.SHIFT_MASK in state) {
-            key = "<Shift>" + key;
-        }
-
-        if (search_entry.has_focus) {
-            switch (key) {
-                case "<Shift>Return":
-                case "Up":
-                    search_previous ();
-                    return true;
-                case "Return":
-                case "Down":
-                    search_next ();
-                    return true;
-                case "Tab":
-                    focus_replace_entry ();
-                    return true;
-            }
-        } else {
-            switch (Gdk.keyval_name (keyval)) {
-                case "Up":
-                    search_previous ();
-                    return true;
-                case "Down":
-                    search_next ();
-                    return true;
-                case "Tab":
-                    focus_search_entry ();
-                    return true;
-            }
-
-            return false;
-        }
-
-        return false;
-    }
-
-    private void on_replace_entry_activate () {
+    private void action_replace () {
         if (text_buffer == null) {
             warning ("No valid buffer to replace");
             return;
@@ -437,7 +416,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         }
     }
 
-    private void on_replace_all_entry_activate () {
+    private void action_replace_all () {
         if (text_buffer == null || this.window.get_current_document () == null) {
             debug ("No valid buffer to replace");
             return;
@@ -556,10 +535,10 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
             update_search_label_timeout_id = 0;
             if (search_context == null) {
                 debug ("update occurrence with null context");
-                replace_tool_button.sensitive = false;
-                replace_all_tool_button.sensitive = false;
-                tool_arrow_up.sensitive = false;
-                tool_arrow_down.sensitive = false;
+                replace_action.set_enabled (false);
+                replace_all_action.set_enabled (false);
+                find_next_action.set_enabled (false);
+                find_previous_action.set_enabled (false);
                 return Source.REMOVE;
             }
 
@@ -585,20 +564,20 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
                 }
             }
 
-            replace_tool_button.sensitive = location_of_search > 0;
-            replace_all_tool_button.sensitive = count_of_search > 0;
+            replace_action.set_enabled (location_of_search > 0);
+            replace_all_action.set_enabled (count_of_search > 0);
 
             // Update tool arrows
             if (text_buffer == null ||
                 search_entry.text == "" ||
                 count_of_search == 0) {
 
-                tool_arrow_up.sensitive = false;
-                tool_arrow_down.sensitive = false;
+                find_previous_action.set_enabled (false);
+                find_next_action.set_enabled (false);
             } else {
                 if (cycle_search_button.active) {
-                    tool_arrow_down.sensitive = true;
-                    tool_arrow_up.sensitive =true;
+                    find_next_action.set_enabled (true);
+                    find_previous_action.set_enabled (true);
                 } else {
                     Gtk.TextIter? tmp_start_iter, tmp_end_iter;
 
@@ -613,19 +592,19 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
                     is_in_end = end_iter.compare (tmp_end_iter) == 0;
 
                     if (!is_in_end) {
-                        tool_arrow_down.sensitive = search_context.forward (
+                        find_next_action.set_enabled (search_context.forward (
                             end_iter, out tmp_start_iter, out tmp_end_iter, null
-                        );
+                        ));
                     } else {
-                        tool_arrow_down.sensitive = false;
+                        find_next_action.set_enabled (false);
                     }
 
                     if (!is_in_start) {
-                        tool_arrow_up.sensitive = search_context.backward (
+                        find_previous_action.set_enabled (search_context.backward (
                             start_iter, out tmp_start_iter, out end_iter, null
-                        );
+                        ));
                     } else {
-                        tool_arrow_up.sensitive = false;
+                        find_next_action.set_enabled (false);
                     }
                 }
             }
