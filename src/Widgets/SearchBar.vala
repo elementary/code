@@ -68,6 +68,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
      **/
     private Gtk.SearchEntry search_entry;
     private Gtk.SearchEntry replace_entry;
+    private Granite.SwitchModelButton cycle_search_button;
     private Gtk.Label search_occurence_count_label;
     private Scratch.Widgets.SourceView? text_view = null;
     private Gtk.TextBuffer? text_buffer = null;
@@ -141,7 +142,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
             )
         };
 
-        var cycle_search_button = new Granite.SwitchModelButton (_("Cyclic Search"));
+        cycle_search_button = new Granite.SwitchModelButton (_("Cyclic Search"));
 
         var case_sensitive_search_button = new Gtk.ComboBoxText ();
         case_sensitive_search_button.append ("never", _("Never"));
