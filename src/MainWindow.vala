@@ -1303,13 +1303,12 @@ public class Scratch.MainWindow : Hdy.Window {
     }
 
     private void action_find_next () {
-        search_bar.search_next ();
+        search_bar.action_find_next ();
     }
 
     private void action_find_previous () {
-        search_bar.search_previous ();
+        search_bar.action_find_previous ();
     }
-
 
     private void action_find_global (SimpleAction action, Variant? param) {
         if (!search_bar.is_focused || search_bar.search_text == "") {
