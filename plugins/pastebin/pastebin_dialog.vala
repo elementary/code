@@ -451,11 +451,17 @@ namespace Scratch.Dialogs {
 
             if (submit_result) {
                 //paste successfully
-                var link_button = new Gtk.LinkButton (link);
-                box.pack_start (link_button, false, true, 25);
+                var link_button = new Gtk.LinkButton (link) {
+                    margin_start = 25,
+                    margin_end = 25,
+                    hexpand = false
+                };
+                box.add (link_button);
             } else {
-                var err_label = new Gtk.Label (link);
-                box.pack_start (err_label, false, true, 0);
+                var err_label = new Gtk.Label (link) {
+                    hexpand = false
+                };
+                box.add (err_label);
             }
 
             box.show_all ();
