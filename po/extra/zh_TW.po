@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-03 14:41+0000\n"
-"PO-Revision-Date: 2026-08-03 14:41+0000\n"
+"POT-Creation-Date: 2026-08-24 20:55+0000\n"
+"PO-Revision-Date: 2026-08-16 12:01+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
 "l10n.elementaryos.org/projects/code/extra/zh_TW/>\n"
@@ -186,40 +186,40 @@ msgstr "確保用快捷鍵關閉所有視窗時所有文件皆會正確儲存"
 msgid ""
 "Filetypes excluded from stripping trailing whitespace are shown in the "
 "application menu"
-msgstr ""
+msgstr "在應用程式選單裡面顯示已排除刪除行尾空白的檔案類型"
 
 #: data/code.metainfo.xml.in:99
 msgid "Stripping trailing whitespace now correctly excludes string literals"
-msgstr ""
+msgstr "刪除行尾空白時修正成正確排除字串字面值"
 
 #: data/code.metainfo.xml.in:100
 msgid "Fuzzy searching for project files now correctly searches active project"
-msgstr ""
+msgstr "專案檔案的模糊搜尋現在會正確搜尋作用中專案"
 
 #: data/code.metainfo.xml.in:121
 msgid ""
 "Trailing spaces are now removed when the document focuses out (subject to "
 "setting)"
-msgstr ""
+msgstr "焦點離開文件時刪除行尾空白（依設定）"
 
 #: data/code.metainfo.xml.in:122
 msgid "Focus following is implemented between textview and terminal pane"
-msgstr ""
+msgstr "實作在文字檢視與終端機面板之間的焦點跟隨"
 
 #: data/code.metainfo.xml.in:123
 msgid ""
 "A new dialog for branch actions (open, new) is implemented linked to hot-key "
 "Ctrl-B"
-msgstr ""
+msgstr "新增用來進行分支動作（開啟、新增）的新對話框，預設快捷鍵 Ctrl-B"
 
 #: data/code.metainfo.xml.in:124
 msgid "It is now possible to create a new document from a template"
-msgstr ""
+msgstr "新增從範本建立新文件的功能"
 
 #: data/code.metainfo.xml.in:128
 msgid ""
 "Restoring screen state no longer can get stuck always restoring full screen"
-msgstr ""
+msgstr "修正回復畫面狀態時會一直卡在回復成全螢幕的問題"
 
 #: data/code.metainfo.xml.in:142
 msgid ""
