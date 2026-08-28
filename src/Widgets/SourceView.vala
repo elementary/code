@@ -902,9 +902,10 @@ namespace Scratch.Widgets {
                 var min_line = int.min (start_line, end_line);
                 var max_line = int.max (start_line, end_line);
                 var parent_window = get_toplevel () as Gtk.Window;
+                var no_match_s = _("A required bracket is missing or there is an extra bracket between lines %i and %i");
                 var dialog = new Granite.MessageDialog (
                     found ? _("Matching bracket has different indent") : _("No matching bracket found"),
-                    _("You may have omitted a required bracket or inserted extra brackets between lines %i and %i, or you may need to adjust the indents").printf (min_line, max_line),
+                    found ? _("You may need to adjust the indents") : no_match_s.printf (min_line, max_line),
                     new ThemedIcon ("dialog-warning"),
                     Gtk.ButtonsType.CLOSE
                 );
