@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-29 16:05+0000\n"
-"PO-Revision-Date: 2026-07-25 20:01+0000\n"
+"PO-Revision-Date: 2026-08-30 19:01+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: Greek <https://l10n.elementaryos.org/projects/code/code/el/>\n"
 "Language: el\n"
@@ -20,16 +20,12 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: plugins/FuzzySearch/FuzzySearch.vala:91
-#, fuzzy
-#| msgid "Find in Project…"
 msgid "Find Project Files"
-msgstr "Εύρεση στο έργο…"
+msgstr "Εύρεση αρχείων έργου"
 
 #: plugins/FuzzySearch/FuzzySearchPopover.vala:44
-#, fuzzy
-#| msgid "Manage project folders…"
 msgid "Find project files"
-msgstr "Διαχείριση φακέλων έργου…"
+msgstr "Εύρεση αρχείων έργου"
 
 #: plugins/pastebin/pastebin.vala:139 plugins/pastebin/pastebin_dialog.vala:250
 #: plugins/pastebin/pastebin_dialog.vala:332
@@ -71,10 +67,8 @@ msgid "Available Formats"
 msgstr "Διαθέσιμες μορφές"
 
 #: plugins/pastebin/pastebin_dialog.vala:388
-#, fuzzy
-#| msgid "Select font:"
 msgid "Select Format"
-msgstr "Επιλέξτε γραμματοσειρά:"
+msgstr "Επιλογή μορφής"
 
 #: plugins/pastebin/pastebin_dialog.vala:444
 #: src/Dialogs/PreferencesDialog.vala:176
@@ -121,7 +115,7 @@ msgstr ""
 
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:68
 msgid "Apply"
-msgstr ""
+msgstr "Εφαρμογή"
 
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:75
 msgid "Checkout"
@@ -852,7 +846,7 @@ msgstr ""
 
 #: src/Widgets/ChooseProjectButton.vala:47
 msgid "Filter projects"
-msgstr ""
+msgstr "Φιλτράρισμα έργων"
 
 #: src/Widgets/ChooseProjectButton.vala:70
 msgid "Open Folder…"
@@ -1023,7 +1017,7 @@ msgstr "Εύρεση"
 
 #: src/Widgets/SearchBar.vala:123
 msgid "No Results"
-msgstr ""
+msgstr "Κανένα αποτέλεσμα"
 
 #: src/Widgets/SearchBar.vala:133
 msgid "Search next"
