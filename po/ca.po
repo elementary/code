@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-29 16:05+0000\n"
-"PO-Revision-Date: 2026-08-28 10:01+0000\n"
+"PO-Revision-Date: 2026-08-30 19:01+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/code/ca/"
-">\n"
+"Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/code/ca/>"
+"\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1078,10 +1078,8 @@ msgid "Toggle Comment"
 msgstr "Commuta el comentari"
 
 #: src/Widgets/SourceView.vala:221
-#, fuzzy
-#| msgid "Highlight matching brackets"
 msgid "Goto Matching Bracket"
-msgstr "Realça la parella de claudàtors"
+msgstr "Ves als claudàtors coincidents"
 
 #: src/Widgets/SourceView.vala:905
 #, c-format
@@ -1089,24 +1087,19 @@ msgid ""
 "A required bracket is missing or there is an extra bracket between lines %i "
 "and %i"
 msgstr ""
+"Falta un claudàtor obligatori o n'hi ha un de més entre les línies %i i %i."
 
 #: src/Widgets/SourceView.vala:907
-#, fuzzy
-#| msgid "Save this file with a different name"
 msgid "Matching bracket has different indent"
-msgstr "Desa aquest fitxer amb un nom diferent"
+msgstr "El claudàtor coincident té un sagnat diferent."
 
 #: src/Widgets/SourceView.vala:907
-#, fuzzy
-#| msgid "Highlight matching brackets"
 msgid "No matching bracket found"
-msgstr "Realça la parella de claudàtors"
+msgstr "No s'ha trobat cap claudàtor coincident."
 
 #: src/Widgets/SourceView.vala:908
-#, fuzzy
-#| msgid "You may not have permission to read the file."
 msgid "You may need to adjust the indents"
-msgstr "És possible que no tingueu permís per llegir el fitxer."
+msgstr "És possible que hàgiu d'ajustar els sagnats."
 
 #: src/Widgets/Terminal.vala:142
 msgid "Copy"
