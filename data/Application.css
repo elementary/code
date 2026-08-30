@@ -28,6 +28,7 @@ textview.scrubber {
 .fuzzy-popover entry {
     margin-left: 1rem;
     margin-right: 1rem;
+    margin-bottom: 1rem;
 }
 
 .fuzzy-popover scrolledwindow {
@@ -59,9 +60,9 @@ textview.scrubber {
     color: @selected_fg_color;
 }
 
-.fuzzy-item .fuzzy-file-icon {
-    margin-right: 0.5rem;
-}
+/*.fuzzy-item .fuzzy-file-icon {*/
+/*    margin-right: 0.5rem;*/
+/*}*/
 
 .symbol-outline > box.horizontal {
     margin: 1em;
