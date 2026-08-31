@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-24 20:55+0000\n"
+"POT-Creation-Date: 2026-08-29 16:05+0000\n"
 "PO-Revision-Date: 2020-11-28 22:16+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/code/code/mr/>\n"
@@ -57,7 +57,7 @@ msgstr "ही पेस्ट खाजगी ठेवा"
 #: src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:87 src/Services/Document.vala:529
-#: src/Services/Document.vala:738 src/MainWindow.vala:976
+#: src/Services/Document.vala:738 src/MainWindow.vala:985
 msgid "Cancel"
 msgstr "रद्द करा"
 
@@ -74,7 +74,7 @@ msgstr "स्वरूप निवडा"
 msgid "Close"
 msgstr "बंद करा"
 
-#: plugins/pastebin/pastebin_dialog.vala:483 src/Widgets/SearchBar.vala:137
+#: plugins/pastebin/pastebin_dialog.vala:483 src/Widgets/SearchBar.vala:151
 msgid "Never"
 msgstr "कधीही नाही"
 
@@ -637,11 +637,11 @@ msgstr "सेव्ह करा"
 msgid "Saving to “%s” failed."
 msgstr "\"%s\" बंद करण्याअगोदर बदल सेव्ह करायचे आहेत का?"
 
-#: src/Services/Document.vala:726 src/MainWindow.vala:964
+#: src/Services/Document.vala:726 src/MainWindow.vala:973
 msgid "All files"
 msgstr "सर्व फाईल्स"
 
-#: src/Services/Document.vala:730 src/MainWindow.vala:968
+#: src/Services/Document.vala:730 src/MainWindow.vala:977
 msgid "Text files"
 msgstr "टेक्स्ट फाईल्स"
 
@@ -1061,70 +1061,70 @@ msgstr ""
 msgid "Contrast"
 msgstr "जास्त कॉन्ट्रास्ट"
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:119
 msgid "Find"
 msgstr "शोधा"
 
-#: src/Widgets/SearchBar.vala:107
+#: src/Widgets/SearchBar.vala:123
 msgid "No Results"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:118
+#: src/Widgets/SearchBar.vala:133
 msgid "Search next"
 msgstr "पुढे शोधा"
 
-#: src/Widgets/SearchBar.vala:129
+#: src/Widgets/SearchBar.vala:144
 msgid "Search previous"
 msgstr "मागे शोधा"
 
-#: src/Widgets/SearchBar.vala:134
+#: src/Widgets/SearchBar.vala:148
 msgid "Cyclic Search"
 msgstr "चक्री शोध"
 
-#: src/Widgets/SearchBar.vala:138
+#: src/Widgets/SearchBar.vala:152
 msgid "Mixed Case"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:139
+#: src/Widgets/SearchBar.vala:153
 msgid "Always"
 msgstr "नेहमी"
 
-#: src/Widgets/SearchBar.vala:142
+#: src/Widgets/SearchBar.vala:156
 msgid "Case Sensitive"
 msgstr "केस संवेदनशील"
 
-#: src/Widgets/SearchBar.vala:149
+#: src/Widgets/SearchBar.vala:163
 msgid "Use Regular Expressions"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:150
+#: src/Widgets/SearchBar.vala:164
 msgid "Match Whole Words"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:172
+#: src/Widgets/SearchBar.vala:186
 #, fuzzy
 #| msgid "Search previous"
 msgid "Search Options"
 msgstr "मागे शोधा"
 
-#: src/Widgets/SearchBar.vala:219
+#: src/Widgets/SearchBar.vala:233
 msgid "Replace With"
 msgstr "च्या सोबत बदला"
 
-#: src/Widgets/SearchBar.vala:223
+#: src/Widgets/SearchBar.vala:237
 msgid "Replace"
 msgstr "बदला"
 
-#: src/Widgets/SearchBar.vala:226
+#: src/Widgets/SearchBar.vala:241
 msgid "Replace all"
 msgstr "सर्व ठिकाणी बदला"
 
-#: src/Widgets/SearchBar.vala:616
+#: src/Widgets/SearchBar.vala:559
 #, c-format
 msgid "%d of %d"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:621
+#: src/Widgets/SearchBar.vala:564
 msgid "no results"
 msgstr ""
 
@@ -1146,35 +1146,66 @@ msgstr ""
 msgid "Manage project folders…"
 msgstr "प्रोजेक्ट फोल्डर व्यवस्थापित करा"
 
-#: src/Widgets/SourceView.vala:211
+#: src/Widgets/SourceView.vala:216
 #, fuzzy
 #| msgid "Sort Selected Lines"
 msgid "Sort Lines"
 msgstr "निवडलेल्या ओळी क्रमबद्ध करा"
 
-#: src/Widgets/SourceView.vala:212
+#: src/Widgets/SourceView.vala:217
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Mark Line"
 msgstr "आत्ताची मांडणी काढून टाका"
 
-#: src/Widgets/SourceView.vala:213
+#: src/Widgets/SourceView.vala:218
 msgid "Previous Mark"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:214
+#: src/Widgets/SourceView.vala:219
 msgid "Next Mark"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:215
+#: src/Widgets/SourceView.vala:220
 msgid "Toggle Comment"
 msgstr "टिप्पणी टॉगल  करा"
 
-#: src/Widgets/Terminal.vala:134
+#: src/Widgets/SourceView.vala:221
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "Goto Matching Bracket"
+msgstr "सध्याची ओळ हायलाईट करा:"
+
+#: src/Widgets/SourceView.vala:905
+#, c-format
+msgid ""
+"A required bracket is missing or there is an extra bracket between lines %i "
+"and %i"
+msgstr ""
+
+#: src/Widgets/SourceView.vala:907
+#, fuzzy
+#| msgid "Save this file with a different name"
+msgid "Matching bracket has different indent"
+msgstr "ही फाईल अन्य नावाने सेव्ह करा"
+
+#: src/Widgets/SourceView.vala:907
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "No matching bracket found"
+msgstr "सध्याची ओळ हायलाईट करा:"
+
+#: src/Widgets/SourceView.vala:908
+#, fuzzy
+#| msgid "It may be corrupt or you don't have permission to read it."
+msgid "You may need to adjust the indents"
+msgstr "बहुतेक ही फाईल खराब आहे अथवा आपल्याला ही फाईल वाचण्याची अनुमती नाही."
+
+#: src/Widgets/Terminal.vala:142
 msgid "Copy"
 msgstr "कॉपी करा"
 
-#: src/Widgets/Terminal.vala:135
+#: src/Widgets/Terminal.vala:143
 msgid "Paste"
 msgstr "चिकटवा"
 
@@ -1273,37 +1304,37 @@ msgstr "टर्मिनल लपवा"
 msgid "%s - %s"
 msgstr ""
 
-#: src/MainWindow.vala:972
+#: src/MainWindow.vala:981
 msgid "Open some files"
 msgstr "काही फाईल्स उघडा"
 
-#: src/MainWindow.vala:975
+#: src/MainWindow.vala:984
 msgid "Open"
 msgstr "उघडा"
 
-#: src/MainWindow.vala:1017
+#: src/MainWindow.vala:1026
 msgid "_Open"
 msgstr "उघडा"
 
-#: src/MainWindow.vala:1018
+#: src/MainWindow.vala:1027
 msgid "_Cancel"
 msgstr "रद्द करा"
 
-#: src/MainWindow.vala:1088
+#: src/MainWindow.vala:1097
 msgid "Cloning completed"
 msgstr ""
 
-#: src/MainWindow.vala:1089
+#: src/MainWindow.vala:1098
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr ""
 
-#: src/MainWindow.vala:1097
+#: src/MainWindow.vala:1106
 #, c-format
 msgid "Unable to clone %s"
 msgstr ""
 
-#: src/MainWindow.vala:1105
+#: src/MainWindow.vala:1114
 msgid "Retry"
 msgstr ""
 

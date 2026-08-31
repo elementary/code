@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-24 20:55+0000\n"
+"POT-Creation-Date: 2026-08-29 16:05+0000\n"
 "PO-Revision-Date: 2023-05-20 16:06+0000\n"
 "Last-Translator: Mas Ahmad Muhammad <m.charly81@gmail.com>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/code/code/id/"
@@ -62,7 +62,7 @@ msgstr "Jaga kerahasiaan tempelan ini"
 #: src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:87 src/Services/Document.vala:529
-#: src/Services/Document.vala:738 src/MainWindow.vala:976
+#: src/Services/Document.vala:738 src/MainWindow.vala:985
 msgid "Cancel"
 msgstr "Batal"
 
@@ -79,7 +79,7 @@ msgstr "Pilih Format"
 msgid "Close"
 msgstr "Tutup"
 
-#: plugins/pastebin/pastebin_dialog.vala:483 src/Widgets/SearchBar.vala:137
+#: plugins/pastebin/pastebin_dialog.vala:483 src/Widgets/SearchBar.vala:151
 msgid "Never"
 msgstr "Jangan Pernah"
 
@@ -636,11 +636,11 @@ msgstr "Simpan"
 msgid "Saving to “%s” failed."
 msgstr "Menyimpan ke “%s” gagal."
 
-#: src/Services/Document.vala:726 src/MainWindow.vala:964
+#: src/Services/Document.vala:726 src/MainWindow.vala:973
 msgid "All files"
 msgstr "Semua berkas"
 
-#: src/Services/Document.vala:730 src/MainWindow.vala:968
+#: src/Services/Document.vala:730 src/MainWindow.vala:977
 msgid "Text files"
 msgstr "Berkas teks"
 
@@ -1030,68 +1030,68 @@ msgstr ""
 msgid "Contrast"
 msgstr "Kontras Tinggi"
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:119
 msgid "Find"
 msgstr "Temukan"
 
-#: src/Widgets/SearchBar.vala:107
+#: src/Widgets/SearchBar.vala:123
 msgid "No Results"
 msgstr "Tidak Ada Hasil"
 
-#: src/Widgets/SearchBar.vala:118
+#: src/Widgets/SearchBar.vala:133
 msgid "Search next"
 msgstr "Cari selanjutnya"
 
-#: src/Widgets/SearchBar.vala:129
+#: src/Widgets/SearchBar.vala:144
 msgid "Search previous"
 msgstr "Cari sebelumnya"
 
-#: src/Widgets/SearchBar.vala:134
+#: src/Widgets/SearchBar.vala:148
 msgid "Cyclic Search"
 msgstr "Pencarian Siklik"
 
-#: src/Widgets/SearchBar.vala:138
+#: src/Widgets/SearchBar.vala:152
 msgid "Mixed Case"
 msgstr "Abjad Campur"
 
-#: src/Widgets/SearchBar.vala:139
+#: src/Widgets/SearchBar.vala:153
 msgid "Always"
 msgstr "Selalu"
 
-#: src/Widgets/SearchBar.vala:142
+#: src/Widgets/SearchBar.vala:156
 msgid "Case Sensitive"
 msgstr "Abjad Kapital Sensitif"
 
-#: src/Widgets/SearchBar.vala:149
+#: src/Widgets/SearchBar.vala:163
 msgid "Use Regular Expressions"
 msgstr "Gunakan Ekspresi Regular"
 
-#: src/Widgets/SearchBar.vala:150
+#: src/Widgets/SearchBar.vala:164
 msgid "Match Whole Words"
 msgstr "Cocokkan Seluruh Kata"
 
-#: src/Widgets/SearchBar.vala:172
+#: src/Widgets/SearchBar.vala:186
 msgid "Search Options"
 msgstr "Opsi Pencarian"
 
-#: src/Widgets/SearchBar.vala:219
+#: src/Widgets/SearchBar.vala:233
 msgid "Replace With"
 msgstr "Ganti Dengan"
 
-#: src/Widgets/SearchBar.vala:223
+#: src/Widgets/SearchBar.vala:237
 msgid "Replace"
 msgstr "Ganti"
 
-#: src/Widgets/SearchBar.vala:226
+#: src/Widgets/SearchBar.vala:241
 msgid "Replace all"
 msgstr "Ganti semua"
 
-#: src/Widgets/SearchBar.vala:616
+#: src/Widgets/SearchBar.vala:559
 #, c-format
 msgid "%d of %d"
 msgstr "%d dari %d"
 
-#: src/Widgets/SearchBar.vala:621
+#: src/Widgets/SearchBar.vala:564
 msgid "no results"
 msgstr "tidak ada hasil"
 
@@ -1113,39 +1113,70 @@ msgstr ""
 msgid "Manage project folders…"
 msgstr "Kelola folder proyek"
 
-#: src/Widgets/SourceView.vala:211
+#: src/Widgets/SourceView.vala:216
 #, fuzzy
 #| msgid "Sort Selected Lines"
 msgid "Sort Lines"
 msgstr "Urutkan Baris yang Dipilih"
 
-#: src/Widgets/SourceView.vala:212
+#: src/Widgets/SourceView.vala:217
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Mark Line"
 msgstr "Singkirkan Tinjauan Tertampil"
 
-#: src/Widgets/SourceView.vala:213
+#: src/Widgets/SourceView.vala:218
 #, fuzzy
 #| msgid "Previous Tab"
 msgid "Previous Mark"
 msgstr "Tab Sebelumnya"
 
-#: src/Widgets/SourceView.vala:214
+#: src/Widgets/SourceView.vala:219
 #, fuzzy
 #| msgid "Next Tab"
 msgid "Next Mark"
 msgstr "Tab Selanjutnya"
 
-#: src/Widgets/SourceView.vala:215
+#: src/Widgets/SourceView.vala:220
 msgid "Toggle Comment"
 msgstr "Munculkan Komentar"
 
-#: src/Widgets/Terminal.vala:134
+#: src/Widgets/SourceView.vala:221
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "Goto Matching Bracket"
+msgstr "Sorot tanda kurung yang cocok:"
+
+#: src/Widgets/SourceView.vala:905
+#, c-format
+msgid ""
+"A required bracket is missing or there is an extra bracket between lines %i "
+"and %i"
+msgstr ""
+
+#: src/Widgets/SourceView.vala:907
+#, fuzzy
+#| msgid "Save this file with a different name"
+msgid "Matching bracket has different indent"
+msgstr "Simpan berkas ini dengan nama yang berbeda"
+
+#: src/Widgets/SourceView.vala:907
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "No matching bracket found"
+msgstr "Sorot tanda kurung yang cocok:"
+
+#: src/Widgets/SourceView.vala:908
+#, fuzzy
+#| msgid "You may not have permission to read the file."
+msgid "You may need to adjust the indents"
+msgstr "Anda mungkin tidak memiliki izin untuk membaca berkasnya."
+
+#: src/Widgets/Terminal.vala:142
 msgid "Copy"
 msgstr "Salin"
 
-#: src/Widgets/Terminal.vala:135
+#: src/Widgets/Terminal.vala:143
 msgid "Paste"
 msgstr "Tempel"
 
@@ -1237,37 +1268,37 @@ msgstr "Sembunyikan Terminal"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:972
+#: src/MainWindow.vala:981
 msgid "Open some files"
 msgstr "Buka beberapa berkas"
 
-#: src/MainWindow.vala:975
+#: src/MainWindow.vala:984
 msgid "Open"
 msgstr "Buka"
 
-#: src/MainWindow.vala:1017
+#: src/MainWindow.vala:1026
 msgid "_Open"
 msgstr "_Buka"
 
-#: src/MainWindow.vala:1018
+#: src/MainWindow.vala:1027
 msgid "_Cancel"
 msgstr "_Batal"
 
-#: src/MainWindow.vala:1088
+#: src/MainWindow.vala:1097
 msgid "Cloning completed"
 msgstr ""
 
-#: src/MainWindow.vala:1089
+#: src/MainWindow.vala:1098
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr ""
 
-#: src/MainWindow.vala:1097
+#: src/MainWindow.vala:1106
 #, c-format
 msgid "Unable to clone %s"
 msgstr ""
 
-#: src/MainWindow.vala:1105
+#: src/MainWindow.vala:1114
 msgid "Retry"
 msgstr ""
 

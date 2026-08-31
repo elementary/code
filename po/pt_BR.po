@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-24 20:55+0000\n"
+"POT-Creation-Date: 2026-08-29 16:05+0000\n"
 "PO-Revision-Date: 2025-05-17 17:55+0000\n"
 "Last-Translator: Max2020 <alcizmaxpereira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
@@ -63,7 +63,7 @@ msgstr "Mantenha essa pasta privada"
 #: src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:87 src/Services/Document.vala:529
-#: src/Services/Document.vala:738 src/MainWindow.vala:976
+#: src/Services/Document.vala:738 src/MainWindow.vala:985
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -80,7 +80,7 @@ msgstr "Selecionar formato"
 msgid "Close"
 msgstr "Fechar"
 
-#: plugins/pastebin/pastebin_dialog.vala:483 src/Widgets/SearchBar.vala:137
+#: plugins/pastebin/pastebin_dialog.vala:483 src/Widgets/SearchBar.vala:151
 msgid "Never"
 msgstr "Nunca"
 
@@ -621,11 +621,11 @@ msgstr "Salvar"
 msgid "Saving to “%s” failed."
 msgstr "Salvar para \"%s\" falhou."
 
-#: src/Services/Document.vala:726 src/MainWindow.vala:964
+#: src/Services/Document.vala:726 src/MainWindow.vala:973
 msgid "All files"
 msgstr "Todos os arquivos"
 
-#: src/Services/Document.vala:730 src/MainWindow.vala:968
+#: src/Services/Document.vala:730 src/MainWindow.vala:977
 msgid "Text files"
 msgstr "Arquivos de texto"
 
@@ -1003,68 +1003,68 @@ msgstr ""
 msgid "Contrast"
 msgstr "Alto Contraste"
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:119
 msgid "Find"
 msgstr "Localizar"
 
-#: src/Widgets/SearchBar.vala:107
+#: src/Widgets/SearchBar.vala:123
 msgid "No Results"
 msgstr "Sem resultados"
 
-#: src/Widgets/SearchBar.vala:118
+#: src/Widgets/SearchBar.vala:133
 msgid "Search next"
 msgstr "Procurar próximo"
 
-#: src/Widgets/SearchBar.vala:129
+#: src/Widgets/SearchBar.vala:144
 msgid "Search previous"
 msgstr "Procurar anterior"
 
-#: src/Widgets/SearchBar.vala:134
+#: src/Widgets/SearchBar.vala:148
 msgid "Cyclic Search"
 msgstr "Procura cíclica"
 
-#: src/Widgets/SearchBar.vala:138
+#: src/Widgets/SearchBar.vala:152
 msgid "Mixed Case"
 msgstr "Maiúsculas/minúsculas misturadas"
 
-#: src/Widgets/SearchBar.vala:139
+#: src/Widgets/SearchBar.vala:153
 msgid "Always"
 msgstr "Sempre"
 
-#: src/Widgets/SearchBar.vala:142
+#: src/Widgets/SearchBar.vala:156
 msgid "Case Sensitive"
 msgstr "Sensível a maiúsculas e minúsculas"
 
-#: src/Widgets/SearchBar.vala:149
+#: src/Widgets/SearchBar.vala:163
 msgid "Use Regular Expressions"
 msgstr "Usar expressões regulares"
 
-#: src/Widgets/SearchBar.vala:150
+#: src/Widgets/SearchBar.vala:164
 msgid "Match Whole Words"
 msgstr "Fazer correspondência de palavras inteiras"
 
-#: src/Widgets/SearchBar.vala:172
+#: src/Widgets/SearchBar.vala:186
 msgid "Search Options"
 msgstr "Opções de pesquisa"
 
-#: src/Widgets/SearchBar.vala:219
+#: src/Widgets/SearchBar.vala:233
 msgid "Replace With"
 msgstr "Substituir com"
 
-#: src/Widgets/SearchBar.vala:223
+#: src/Widgets/SearchBar.vala:237
 msgid "Replace"
 msgstr "Substituir"
 
-#: src/Widgets/SearchBar.vala:226
+#: src/Widgets/SearchBar.vala:241
 msgid "Replace all"
 msgstr "Substituir todos"
 
-#: src/Widgets/SearchBar.vala:616
+#: src/Widgets/SearchBar.vala:559
 #, c-format
 msgid "%d of %d"
 msgstr "%d de %d"
 
-#: src/Widgets/SearchBar.vala:621
+#: src/Widgets/SearchBar.vala:564
 msgid "no results"
 msgstr "sem resultados"
 
@@ -1086,39 +1086,70 @@ msgstr ""
 msgid "Manage project folders…"
 msgstr "Gerenciar pastas do projeto"
 
-#: src/Widgets/SourceView.vala:211
+#: src/Widgets/SourceView.vala:216
 #, fuzzy
 #| msgid "Sort Selected Lines"
 msgid "Sort Lines"
 msgstr "Ordenar Linhas Selecionadas"
 
-#: src/Widgets/SourceView.vala:212
+#: src/Widgets/SourceView.vala:217
 #, fuzzy
 #| msgid "Mark Current Line"
 msgid "Mark Line"
 msgstr "Marcar linha atual"
 
-#: src/Widgets/SourceView.vala:213
+#: src/Widgets/SourceView.vala:218
 #, fuzzy
 #| msgid "Previous Tab"
 msgid "Previous Mark"
 msgstr "Aba anterior"
 
-#: src/Widgets/SourceView.vala:214
+#: src/Widgets/SourceView.vala:219
 #, fuzzy
 #| msgid "Next Tab"
 msgid "Next Mark"
 msgstr "Próxima aba"
 
-#: src/Widgets/SourceView.vala:215
+#: src/Widgets/SourceView.vala:220
 msgid "Toggle Comment"
 msgstr "Alternar Comentário"
 
-#: src/Widgets/Terminal.vala:134
+#: src/Widgets/SourceView.vala:221
+#, fuzzy
+#| msgid "Highlight matching brackets"
+msgid "Goto Matching Bracket"
+msgstr "Destacar colchetes correspondentes"
+
+#: src/Widgets/SourceView.vala:905
+#, c-format
+msgid ""
+"A required bracket is missing or there is an extra bracket between lines %i "
+"and %i"
+msgstr ""
+
+#: src/Widgets/SourceView.vala:907
+#, fuzzy
+#| msgid "Save this file with a different name"
+msgid "Matching bracket has different indent"
+msgstr "Salvar este arquivo com um nome diferente"
+
+#: src/Widgets/SourceView.vala:907
+#, fuzzy
+#| msgid "Highlight matching brackets"
+msgid "No matching bracket found"
+msgstr "Destacar colchetes correspondentes"
+
+#: src/Widgets/SourceView.vala:908
+#, fuzzy
+#| msgid "You may not have permission to read the file."
+msgid "You may need to adjust the indents"
+msgstr "Você pode não ter permissão para ler o arquivo."
+
+#: src/Widgets/Terminal.vala:142
 msgid "Copy"
 msgstr "Copiar"
 
-#: src/Widgets/Terminal.vala:135
+#: src/Widgets/Terminal.vala:143
 msgid "Paste"
 msgstr "Colar"
 
@@ -1210,37 +1241,37 @@ msgstr "Esconder o Terminal"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:972
+#: src/MainWindow.vala:981
 msgid "Open some files"
 msgstr "Abrir alguns arquivos"
 
-#: src/MainWindow.vala:975
+#: src/MainWindow.vala:984
 msgid "Open"
 msgstr "Abrir"
 
-#: src/MainWindow.vala:1017
+#: src/MainWindow.vala:1026
 msgid "_Open"
 msgstr "_Abrir"
 
-#: src/MainWindow.vala:1018
+#: src/MainWindow.vala:1027
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: src/MainWindow.vala:1088
+#: src/MainWindow.vala:1097
 msgid "Cloning completed"
 msgstr ""
 
-#: src/MainWindow.vala:1089
+#: src/MainWindow.vala:1098
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr ""
 
-#: src/MainWindow.vala:1097
+#: src/MainWindow.vala:1106
 #, c-format
 msgid "Unable to clone %s"
 msgstr ""
 
-#: src/MainWindow.vala:1105
+#: src/MainWindow.vala:1114
 msgid "Retry"
 msgstr ""
 

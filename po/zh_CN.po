@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-24 20:55+0000\n"
+"POT-Creation-Date: 2026-08-29 16:05+0000\n"
 "PO-Revision-Date: 2025-09-11 00:55+0000\n"
 "Last-Translator: JieXu <xujie0739@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
@@ -63,7 +63,7 @@ msgstr "保持该粘帖为私有"
 #: src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:87 src/Services/Document.vala:529
-#: src/Services/Document.vala:738 src/MainWindow.vala:976
+#: src/Services/Document.vala:738 src/MainWindow.vala:985
 msgid "Cancel"
 msgstr "取消"
 
@@ -80,7 +80,7 @@ msgstr "选择格式"
 msgid "Close"
 msgstr "关闭"
 
-#: plugins/pastebin/pastebin_dialog.vala:483 src/Widgets/SearchBar.vala:137
+#: plugins/pastebin/pastebin_dialog.vala:483 src/Widgets/SearchBar.vala:151
 msgid "Never"
 msgstr "从不"
 
@@ -620,11 +620,11 @@ msgstr "保存"
 msgid "Saving to “%s” failed."
 msgstr "保存数据到 “%s” 失败。"
 
-#: src/Services/Document.vala:726 src/MainWindow.vala:964
+#: src/Services/Document.vala:726 src/MainWindow.vala:973
 msgid "All files"
 msgstr "所有文件"
 
-#: src/Services/Document.vala:730 src/MainWindow.vala:968
+#: src/Services/Document.vala:730 src/MainWindow.vala:977
 msgid "Text files"
 msgstr "文本文件"
 
@@ -993,68 +993,68 @@ msgstr ""
 msgid "Contrast"
 msgstr "高对比度"
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:119
 msgid "Find"
 msgstr "查找"
 
-#: src/Widgets/SearchBar.vala:107
+#: src/Widgets/SearchBar.vala:123
 msgid "No Results"
 msgstr "无结果"
 
-#: src/Widgets/SearchBar.vala:118
+#: src/Widgets/SearchBar.vala:133
 msgid "Search next"
 msgstr "下一个"
 
-#: src/Widgets/SearchBar.vala:129
+#: src/Widgets/SearchBar.vala:144
 msgid "Search previous"
 msgstr "上一个"
 
-#: src/Widgets/SearchBar.vala:134
+#: src/Widgets/SearchBar.vala:148
 msgid "Cyclic Search"
 msgstr "循环搜索"
 
-#: src/Widgets/SearchBar.vala:138
+#: src/Widgets/SearchBar.vala:152
 msgid "Mixed Case"
 msgstr "混合大小写"
 
-#: src/Widgets/SearchBar.vala:139
+#: src/Widgets/SearchBar.vala:153
 msgid "Always"
 msgstr "总是如此"
 
-#: src/Widgets/SearchBar.vala:142
+#: src/Widgets/SearchBar.vala:156
 msgid "Case Sensitive"
 msgstr "区分大小写"
 
-#: src/Widgets/SearchBar.vala:149
+#: src/Widgets/SearchBar.vala:163
 msgid "Use Regular Expressions"
 msgstr "使用正则表达式"
 
-#: src/Widgets/SearchBar.vala:150
+#: src/Widgets/SearchBar.vala:164
 msgid "Match Whole Words"
 msgstr "匹配整词"
 
-#: src/Widgets/SearchBar.vala:172
+#: src/Widgets/SearchBar.vala:186
 msgid "Search Options"
 msgstr "搜索选项"
 
-#: src/Widgets/SearchBar.vala:219
+#: src/Widgets/SearchBar.vala:233
 msgid "Replace With"
 msgstr "替换为"
 
-#: src/Widgets/SearchBar.vala:223
+#: src/Widgets/SearchBar.vala:237
 msgid "Replace"
 msgstr "替换"
 
-#: src/Widgets/SearchBar.vala:226
+#: src/Widgets/SearchBar.vala:241
 msgid "Replace all"
 msgstr "全部替换"
 
-#: src/Widgets/SearchBar.vala:616
+#: src/Widgets/SearchBar.vala:559
 #, c-format
 msgid "%d of %d"
 msgstr "%d/%d"
 
-#: src/Widgets/SearchBar.vala:621
+#: src/Widgets/SearchBar.vala:564
 msgid "no results"
 msgstr "无结果"
 
@@ -1076,39 +1076,70 @@ msgstr ""
 msgid "Manage project folders…"
 msgstr "管理项目文件夹"
 
-#: src/Widgets/SourceView.vala:211
+#: src/Widgets/SourceView.vala:216
 #, fuzzy
 #| msgid "Sort Selected Lines"
 msgid "Sort Lines"
 msgstr "整理选中文本"
 
-#: src/Widgets/SourceView.vala:212
+#: src/Widgets/SourceView.vala:217
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Mark Line"
 msgstr "删除此视图"
 
-#: src/Widgets/SourceView.vala:213
+#: src/Widgets/SourceView.vala:218
 #, fuzzy
 #| msgid "Previous Tab"
 msgid "Previous Mark"
 msgstr "上一个标签"
 
-#: src/Widgets/SourceView.vala:214
+#: src/Widgets/SourceView.vala:219
 #, fuzzy
 #| msgid "Next Tab"
 msgid "Next Mark"
 msgstr "下一个标签"
 
-#: src/Widgets/SourceView.vala:215
+#: src/Widgets/SourceView.vala:220
 msgid "Toggle Comment"
 msgstr "激活备注"
 
-#: src/Widgets/Terminal.vala:134
+#: src/Widgets/SourceView.vala:221
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "Goto Matching Bracket"
+msgstr "高亮匹配括号："
+
+#: src/Widgets/SourceView.vala:905
+#, c-format
+msgid ""
+"A required bracket is missing or there is an extra bracket between lines %i "
+"and %i"
+msgstr ""
+
+#: src/Widgets/SourceView.vala:907
+#, fuzzy
+#| msgid "Save this file with a different name"
+msgid "Matching bracket has different indent"
+msgstr "另存为"
+
+#: src/Widgets/SourceView.vala:907
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "No matching bracket found"
+msgstr "高亮匹配括号："
+
+#: src/Widgets/SourceView.vala:908
+#, fuzzy
+#| msgid "You may not have permission to read the file."
+msgid "You may need to adjust the indents"
+msgstr "您可能没有读取该文件的权限。"
+
+#: src/Widgets/Terminal.vala:142
 msgid "Copy"
 msgstr "复制"
 
-#: src/Widgets/Terminal.vala:135
+#: src/Widgets/Terminal.vala:143
 msgid "Paste"
 msgstr "粘贴"
 
@@ -1200,37 +1231,37 @@ msgstr "隐藏终端"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:972
+#: src/MainWindow.vala:981
 msgid "Open some files"
 msgstr "打开一些文件"
 
-#: src/MainWindow.vala:975
+#: src/MainWindow.vala:984
 msgid "Open"
 msgstr "打开"
 
-#: src/MainWindow.vala:1017
+#: src/MainWindow.vala:1026
 msgid "_Open"
 msgstr "打开(_O)"
 
-#: src/MainWindow.vala:1018
+#: src/MainWindow.vala:1027
 msgid "_Cancel"
 msgstr "取消(_C)"
 
-#: src/MainWindow.vala:1088
+#: src/MainWindow.vala:1097
 msgid "Cloning completed"
 msgstr ""
 
-#: src/MainWindow.vala:1089
+#: src/MainWindow.vala:1098
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr ""
 
-#: src/MainWindow.vala:1097
+#: src/MainWindow.vala:1106
 #, c-format
 msgid "Unable to clone %s"
 msgstr "无法克隆 %s"
 
-#: src/MainWindow.vala:1105
+#: src/MainWindow.vala:1114
 msgid "Retry"
 msgstr "重试"
 

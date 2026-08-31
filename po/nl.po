@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-24 20:55+0000\n"
+"POT-Creation-Date: 2026-08-29 16:05+0000\n"
 "PO-Revision-Date: 2025-12-06 18:55+0000\n"
 "Last-Translator: Bas Ernst <bas@ernstgenova.it>\n"
 "Language-Team: Dutch <https://l10n.elementaryos.org/projects/code/code/nl/>\n"
@@ -62,7 +62,7 @@ msgstr "Houd de geplakte tekst privé"
 #: src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
 #: src/Dialogs/GlobalSearchDialog.vala:87 src/Services/Document.vala:529
-#: src/Services/Document.vala:738 src/MainWindow.vala:976
+#: src/Services/Document.vala:738 src/MainWindow.vala:985
 msgid "Cancel"
 msgstr "Annuleer"
 
@@ -79,7 +79,7 @@ msgstr "Selecteer formaat"
 msgid "Close"
 msgstr "Sluiten"
 
-#: plugins/pastebin/pastebin_dialog.vala:483 src/Widgets/SearchBar.vala:137
+#: plugins/pastebin/pastebin_dialog.vala:483 src/Widgets/SearchBar.vala:151
 msgid "Never"
 msgstr "Nooit"
 
@@ -614,11 +614,11 @@ msgstr "Opslaan"
 msgid "Saving to “%s” failed."
 msgstr "Opslaan naar “%s” mislukt."
 
-#: src/Services/Document.vala:726 src/MainWindow.vala:964
+#: src/Services/Document.vala:726 src/MainWindow.vala:973
 msgid "All files"
 msgstr "Alle bestanden"
 
-#: src/Services/Document.vala:730 src/MainWindow.vala:968
+#: src/Services/Document.vala:730 src/MainWindow.vala:977
 msgid "Text files"
 msgstr "Tekstbestanden"
 
@@ -994,68 +994,68 @@ msgstr "Donker"
 msgid "Contrast"
 msgstr "Contrast"
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:119
 msgid "Find"
 msgstr "Zoek"
 
-#: src/Widgets/SearchBar.vala:107
+#: src/Widgets/SearchBar.vala:123
 msgid "No Results"
 msgstr "Geen resultaten"
 
-#: src/Widgets/SearchBar.vala:118
+#: src/Widgets/SearchBar.vala:133
 msgid "Search next"
 msgstr "Volgende zoeken"
 
-#: src/Widgets/SearchBar.vala:129
+#: src/Widgets/SearchBar.vala:144
 msgid "Search previous"
 msgstr "Vorige zoeken"
 
-#: src/Widgets/SearchBar.vala:134
+#: src/Widgets/SearchBar.vala:148
 msgid "Cyclic Search"
 msgstr "Cyclisch zoeken"
 
-#: src/Widgets/SearchBar.vala:138
+#: src/Widgets/SearchBar.vala:152
 msgid "Mixed Case"
 msgstr "Gemixte boven- en onderkast"
 
-#: src/Widgets/SearchBar.vala:139
+#: src/Widgets/SearchBar.vala:153
 msgid "Always"
 msgstr "Altijd"
 
-#: src/Widgets/SearchBar.vala:142
+#: src/Widgets/SearchBar.vala:156
 msgid "Case Sensitive"
 msgstr "Hoofdletter gevoelig"
 
-#: src/Widgets/SearchBar.vala:149
+#: src/Widgets/SearchBar.vala:163
 msgid "Use Regular Expressions"
 msgstr "Gebruik reguliere uitdrukkingen"
 
-#: src/Widgets/SearchBar.vala:150
+#: src/Widgets/SearchBar.vala:164
 msgid "Match Whole Words"
 msgstr "Hele woorden matchen"
 
-#: src/Widgets/SearchBar.vala:172
+#: src/Widgets/SearchBar.vala:186
 msgid "Search Options"
 msgstr "Zoekinstellingen"
 
-#: src/Widgets/SearchBar.vala:219
+#: src/Widgets/SearchBar.vala:233
 msgid "Replace With"
 msgstr "Vervangen met"
 
-#: src/Widgets/SearchBar.vala:223
+#: src/Widgets/SearchBar.vala:237
 msgid "Replace"
 msgstr "Vervang"
 
-#: src/Widgets/SearchBar.vala:226
+#: src/Widgets/SearchBar.vala:241
 msgid "Replace all"
 msgstr "Vervang alles"
 
-#: src/Widgets/SearchBar.vala:616
+#: src/Widgets/SearchBar.vala:559
 #, c-format
 msgid "%d of %d"
 msgstr "%d van %d"
 
-#: src/Widgets/SearchBar.vala:621
+#: src/Widgets/SearchBar.vala:564
 msgid "no results"
 msgstr "geen resultaten"
 
@@ -1075,31 +1075,62 @@ msgstr ""
 msgid "Manage project folders…"
 msgstr "Projectmappen beheren…"
 
-#: src/Widgets/SourceView.vala:211
+#: src/Widgets/SourceView.vala:216
 msgid "Sort Lines"
 msgstr "Regels sorteren"
 
-#: src/Widgets/SourceView.vala:212
+#: src/Widgets/SourceView.vala:217
 msgid "Mark Line"
 msgstr "Markeer regel"
 
-#: src/Widgets/SourceView.vala:213
+#: src/Widgets/SourceView.vala:218
 msgid "Previous Mark"
 msgstr "Vorige Markering"
 
-#: src/Widgets/SourceView.vala:214
+#: src/Widgets/SourceView.vala:219
 msgid "Next Mark"
 msgstr "Volgende markering"
 
-#: src/Widgets/SourceView.vala:215
+#: src/Widgets/SourceView.vala:220
 msgid "Toggle Comment"
 msgstr "Commentaar in- of uitschakelen"
 
-#: src/Widgets/Terminal.vala:134
+#: src/Widgets/SourceView.vala:221
+#, fuzzy
+#| msgid "Highlight matching brackets"
+msgid "Goto Matching Bracket"
+msgstr "Markeer overeenkomende haakjes"
+
+#: src/Widgets/SourceView.vala:905
+#, c-format
+msgid ""
+"A required bracket is missing or there is an extra bracket between lines %i "
+"and %i"
+msgstr ""
+
+#: src/Widgets/SourceView.vala:907
+#, fuzzy
+#| msgid "Save this file with a different name"
+msgid "Matching bracket has different indent"
+msgstr "Sla dit bestand op met een andere naam"
+
+#: src/Widgets/SourceView.vala:907
+#, fuzzy
+#| msgid "Highlight matching brackets"
+msgid "No matching bracket found"
+msgstr "Markeer overeenkomende haakjes"
+
+#: src/Widgets/SourceView.vala:908
+#, fuzzy
+#| msgid "You may not have permission to read the file."
+msgid "You may need to adjust the indents"
+msgstr "Mogelijk heeft u de rechten niet om dit bestand te lezen."
+
+#: src/Widgets/Terminal.vala:142
 msgid "Copy"
 msgstr "Kopiëren"
 
-#: src/Widgets/Terminal.vala:135
+#: src/Widgets/Terminal.vala:143
 msgid "Paste"
 msgstr "Plakken"
 
@@ -1191,37 +1222,37 @@ msgstr "Terminal verbergen"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: src/MainWindow.vala:972
+#: src/MainWindow.vala:981
 msgid "Open some files"
 msgstr "Open meerdere bestanden"
 
-#: src/MainWindow.vala:975
+#: src/MainWindow.vala:984
 msgid "Open"
 msgstr "Openen"
 
-#: src/MainWindow.vala:1017
+#: src/MainWindow.vala:1026
 msgid "_Open"
 msgstr "_Open"
 
-#: src/MainWindow.vala:1018
+#: src/MainWindow.vala:1027
 msgid "_Cancel"
 msgstr "_Annuleer"
 
-#: src/MainWindow.vala:1088
+#: src/MainWindow.vala:1097
 msgid "Cloning completed"
 msgstr "Klonen voltooid"
 
-#: src/MainWindow.vala:1089
+#: src/MainWindow.vala:1098
 #, c-format
 msgid "Clone successfully created in %s"
 msgstr "Succesvol kloon aangemaakt in %s"
 
-#: src/MainWindow.vala:1097
+#: src/MainWindow.vala:1106
 #, c-format
 msgid "Unable to clone %s"
 msgstr "Onmogelijk om %s te klonen"
 
-#: src/MainWindow.vala:1105
+#: src/MainWindow.vala:1114
 msgid "Retry"
 msgstr "Probeer opnieuw"
 

@@ -114,7 +114,8 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         this.orientation = HORIZONTAL;
         search_entry = new Gtk.SearchEntry () {
             hexpand = true,
-            placeholder_text = _("Find")
+            placeholder_text = _("Find"),
+            primary_icon_activatable = true,
         };
 
         search_occurence_count_label = new Gtk.Label (_("No Results"));
@@ -612,8 +613,8 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
                 search_entry.primary_icon_name = "edit-find-symbolic";
             }
 
+            search_entry.primary_icon_sensitive = !ctx.has_class (Gtk.STYLE_CLASS_ERROR);
             return Source.REMOVE;
         });
-
     }
 }
