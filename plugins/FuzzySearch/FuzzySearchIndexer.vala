@@ -252,7 +252,7 @@ public class Scratch.Services.FuzzySearchIndexer : GLib.Object {
 
     private async void add_project_async (ProjectUpdate message) {
         string path = message.source_path;
-        var monitor = Services.GitManager.get_monitored_repository (path);
+        var monitor = Services.GitManager.get_instance ().get_monitored_repository (path);
         var project_search = new Services.SearchProject (path, monitor);
         project_paths[path] = project_search;
 
@@ -290,7 +290,7 @@ public class Scratch.Services.FuzzySearchIndexer : GLib.Object {
         Gee.HashMap<string, Services.SearchProject> project_paths) {
         for (int i = 0; i < request_queue.size; i++) {
             var request = request_queue[i];
-            var monitor = Services.GitManager.get_monitored_repository (request.project_path);
+            var monitor = Services.GitManager.get_instance ().get_monitored_repository (request.project_path);
             var project_search = new Services.SearchProject (request.project_path, monitor);
 
             project_paths[request.project_path] = project_search;
