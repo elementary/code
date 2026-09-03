@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-03 14:41+0000\n"
+"POT-Creation-Date: 2026-08-29 16:05+0000\n"
 "PO-Revision-Date: 2018-05-26 07:39+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/code/code/"
@@ -13,141 +13,161 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.18\n"
 
-#: src/Application.vala:41 src/Widgets/DocumentView.vala:100
-msgid "New Tab"
-msgstr "Filă nouă"
-
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
-msgid "New Window"
-msgstr "Fereastră nouă"
-
-#: src/Application.vala:43
-msgid "Print version info and exit"
-msgstr "Imprimați versiunea și ieșiți"
-
-#: src/Application.vala:44
-msgid "Open file at specified selection range"
-msgstr ""
-
-#: src/Application.vala:44
-msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
-msgstr ""
-
-#: src/Application.vala:45
-msgid "[FILE…]"
-msgstr ""
-
-#: src/MainWindow.vala:240
-#, fuzzy, c-format
-#| msgid "Code"
-msgid "Code (%s)"
-msgstr "Cod"
-
-#: src/MainWindow.vala:242
-msgid "Code"
-msgstr "Cod"
-
-#: src/MainWindow.vala:370
-msgid "Hide search bar"
-msgstr "Ascundeți bara de căutare"
-
-#: src/MainWindow.vala:375 src/Widgets/HeaderBar.vala:117
+#: plugins/FuzzySearch/FuzzySearch.vala:91
 #, fuzzy
 #| msgid "Open a folder"
-msgid "Find on Page…"
+msgid "Find Project Files"
 msgstr "Deschideți un dosar"
 
-#: src/MainWindow.vala:386
+#: plugins/FuzzySearch/FuzzySearchPopover.vala:44
 #, fuzzy
-#| msgid "Hide search bar"
-msgid "Hide Projects Sidebar"
-msgstr "Ascundeți bara de căutare"
+#| msgid "Open a folder"
+msgid "Find project files"
+msgstr "Deschideți un dosar"
 
-#: src/MainWindow.vala:391
-#, fuzzy
-#| msgid "Show Preview"
-msgid "Show Projects Sidebar"
-msgstr "Afișați previzualizarea"
+#: plugins/pastebin/pastebin.vala:139 plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:332
+msgid "Upload to Pastebin"
+msgstr "Încărcați în Pastebin"
 
-#: src/MainWindow.vala:400
-msgid "Hide Symbol Outline"
+#: plugins/pastebin/pastebin_dialog.vala:259
+msgid "Name:"
+msgstr "Nume:"
+
+#: plugins/pastebin/pastebin_dialog.vala:263
+msgid "Format:"
+msgstr "Formatul:"
+
+#: plugins/pastebin/pastebin_dialog.vala:270
+msgid "Choose different format"
 msgstr ""
 
-#: src/MainWindow.vala:405
+#: plugins/pastebin/pastebin_dialog.vala:292
 #, fuzzy
-#| msgid "Symbols"
-msgid "Show Symbol Outline"
-msgstr "Simboluri"
+#| msgid "Expiry time:"
+msgid "Expiration:"
+msgstr "Data expirării:"
 
-#: src/MainWindow.vala:414
-msgid "Hide Terminal"
-msgstr "Ascundeți terminalul"
+#: plugins/pastebin/pastebin_dialog.vala:299
+msgid "Keep this paste private"
+msgstr "Păstrați această lipire privată"
 
-#: src/MainWindow.vala:419 src/Widgets/HeaderBar.vala:190
-msgid "Show Terminal"
-msgstr "Arătați terminalul"
-
-#. Update MainWindow title
-#. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:600
-#, c-format
-msgid "%s - %s"
-msgstr ""
-
-#: src/MainWindow.vala:953 src/Services/Document.vala:723
-msgid "All files"
-msgstr "Toate filele"
-
-#: src/MainWindow.vala:957 src/Services/Document.vala:727
-msgid "Text files"
-msgstr "Fișiere text"
-
-#: src/MainWindow.vala:961
-msgid "Open some files"
-msgstr "Deschideți fișiere"
-
-#: src/MainWindow.vala:964
-msgid "Open"
-msgstr "Deschide"
-
-#: src/MainWindow.vala:965 src/Dialogs/CloneRepositoryDialog.vala:58
-#: src/Dialogs/CloneRepositoryDialog.vala:97
-#: src/Dialogs/GlobalSearchDialog.vala:87 src/Services/Document.vala:526
-#: src/Services/Document.vala:735 plugins/pastebin/pastebin_dialog.vala:331
+#: plugins/pastebin/pastebin_dialog.vala:331
 #: plugins/pastebin/pastebin_dialog.vala:386
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:59
+#: src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/Dialogs/CloneRepositoryDialog.vala:97
+#: src/Dialogs/GlobalSearchDialog.vala:87 src/Services/Document.vala:529
+#: src/Services/Document.vala:738 src/MainWindow.vala:985
 msgid "Cancel"
 msgstr "Anulare"
 
-#: src/MainWindow.vala:1011
-msgid "_Open"
-msgstr "_Deschis"
-
-#: src/MainWindow.vala:1012
-msgid "_Cancel"
-msgstr "_Anulare"
-
-#: src/MainWindow.vala:1082
-msgid "Cloning completed"
+#: plugins/pastebin/pastebin_dialog.vala:358
+msgid "Available Formats"
 msgstr ""
 
-#: src/MainWindow.vala:1083
+#: plugins/pastebin/pastebin_dialog.vala:388
+#, fuzzy
+#| msgid "Format:"
+msgid "Select Format"
+msgstr "Formatul:"
+
+#: plugins/pastebin/pastebin_dialog.vala:444
+#: src/Dialogs/PreferencesDialog.vala:176
+msgid "Close"
+msgstr "Închide"
+
+#: plugins/pastebin/pastebin_dialog.vala:483 src/Widgets/SearchBar.vala:151
+msgid "Never"
+msgstr "Niciodată"
+
+#: plugins/pastebin/pastebin_dialog.vala:484
+msgid "Ten minutes"
+msgstr "Zece minute"
+
+#: plugins/pastebin/pastebin_dialog.vala:485
+msgid "One hour"
+msgstr "O oră"
+
+#: plugins/pastebin/pastebin_dialog.vala:486
+msgid "One day"
+msgstr "O zi"
+
+#: plugins/pastebin/pastebin_dialog.vala:487
+msgid "One month"
+msgstr "O lună"
+
+#: plugins/spell/spell.vala:79
+msgid "No Suitable Dictionaries Were Found"
+msgstr ""
+
+#: plugins/spell/spell.vala:80
+#, fuzzy
+msgid "Please install at least one [aspell] dictionary."
+msgstr ""
+"Nu au fost găsite dicționare adecvate.↵\n"
+"Instalați cel puțin un dicționar [aspell]"
+
+#: plugins/word-completion/plugin.vala:98
 #, c-format
-msgid "Clone successfully created in %s"
-msgstr ""
+msgid "%s - Word Completion"
+msgstr "%s - Finalizarea cuvintelor"
 
-#: src/MainWindow.vala:1091
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:61
 #, c-format
-msgid "Unable to clone %s"
+msgid "Perform branch action on project '%s'"
 msgstr ""
 
-#: src/MainWindow.vala:1099
-msgid "Retry"
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:68
+msgid "Apply"
 msgstr ""
 
-#. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
-#: src/Utils.vala:212
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:75
+msgid "Checkout"
+msgstr ""
+
+#. scan all children
+#. No need to show status when children shown
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:76
+#: src/FolderManager/FolderItem.vala:245
+#: src/FolderManager/ProjectFolderItem.vala:328
+#: src/FolderManager/ProjectFolderItem.vala:334
+msgid "New"
+msgstr "Nou"
+
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:89
 #, c-format
-msgid "Show '%s' with default app"
+msgid "'%s' is not a git repository"
+msgstr ""
+
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:92
+msgid "Unable to perform branch actions"
+msgstr ""
+
+#: src/Dialogs/BranchActions/BranchCreatePage.vala:44
+msgid "Name of branch to create"
+msgstr ""
+
+#: src/Dialogs/BranchActions/BranchCreatePage.vala:47
+msgid "Enter new branch name"
+msgstr ""
+
+#: src/Dialogs/BranchActions/BranchListBox.vala:50
+#, fuzzy
+#| msgid "Hide search bar"
+msgid "Enter search term"
+msgstr "Ascundeți bara de căutare"
+
+#: src/Dialogs/BranchActions/BranchListBox.vala:53
+msgid "Recent Branches"
+msgstr ""
+
+#: src/Dialogs/BranchActions/BranchListBox.vala:54
+msgid "Local Branches"
+msgstr ""
+
+#: src/Dialogs/BranchActions/BranchListBox.vala:55
+msgid "Remote Branches"
 msgstr ""
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
@@ -195,6 +215,40 @@ msgstr ""
 msgid "Cloning in progress"
 msgstr ""
 
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
+msgid "This folder is the parent of an open project"
+msgid_plural "This folder is the parent of open projects"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:47
+msgid "Opening this folder will close the child project"
+msgid_plural "Opening this folder will close all child projects"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:53
+msgid "Close Child Project"
+msgid_plural "Close Child Projects"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
+msgid "This folder is a child of an open project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
+msgid "Opening this folder will close the parent project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:60
+msgid "Close Parent Project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:63
+msgid "Don't Open"
+msgstr ""
+
 #: src/Dialogs/GlobalSearchDialog.vala:63
 msgid "The search term will be treated as a regex expression"
 msgstr ""
@@ -225,6 +279,29 @@ msgstr ""
 #| msgid "Search next"
 msgid "Search"
 msgstr "Căutați în continuare"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
+msgid "There are uncommitted changes in the current branch"
+msgstr ""
+
+#. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
+#, c-format
+msgid ""
+"Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
+"now.\n"
+"\n"
+"<i>It is recommended that uncommitted changes are stashed, committed, or "
+"reverted before proceeding.</i>"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
+msgid "Do not Checkout"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
+msgid "Checkout and Overwrite"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:212
 msgid "Preferences"
@@ -353,18 +430,13 @@ msgstr "Stil"
 msgid "Behavior"
 msgstr "Comportament"
 
-#: src/Dialogs/PreferencesDialog.vala:154 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:154 src/SymbolPane/SymbolOutline.vala:39
 msgid "Interface"
 msgstr "Interfață"
 
 #: src/Dialogs/PreferencesDialog.vala:170 src/Services/PluginManager.vala:111
 msgid "Extensions"
 msgstr "Extensii"
-
-#: src/Dialogs/PreferencesDialog.vala:176
-#: plugins/pastebin/pastebin_dialog.vala:444
-msgid "Close"
-msgstr "Închide"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Are You Sure You Want to Restore This File?"
@@ -383,63 +455,6 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr "Încărcați oricum"
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
-msgid "This folder is the parent of an open project"
-msgid_plural "This folder is the parent of open projects"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:47
-msgid "Opening this folder will close the child project"
-msgid_plural "Opening this folder will close all child projects"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:53
-msgid "Close Child Project"
-msgid_plural "Close Child Projects"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
-msgid "This folder is a child of an open project"
-msgstr ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
-msgid "Opening this folder will close the parent project"
-msgstr ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:60
-msgid "Close Parent Project"
-msgstr ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:63
-msgid "Don't Open"
-msgstr ""
-
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
-msgid "There are uncommitted changes in the current branch"
-msgstr ""
-
-#. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
-#, c-format
-msgid ""
-"Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
-"now.\n"
-"\n"
-"<i>It is recommended that uncommitted changes are stashed, committed, or "
-"reverted before proceeding.</i>"
-msgstr ""
-
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
-msgid "Do not Checkout"
-msgstr ""
-
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
-msgid "Checkout and Overwrite"
-msgstr ""
-
 #: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:156
 #, fuzzy
 msgid "Other Actions"
@@ -452,6 +467,10 @@ msgstr "Redenumiți"
 #: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:138
 msgid "Move to Trash"
 msgstr "Aruncă la gunoi"
+
+#: src/FolderManager/FileItem.vala:85 src/Application.vala:42
+msgid "New Window"
+msgstr "Fereastră nouă"
 
 #: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:186
 msgid "Other Application…"
@@ -492,14 +511,6 @@ msgstr ""
 #: src/FolderManager/FolderItem.vala:241
 msgid "Templates"
 msgstr "Șabloane"
-
-#. scan all children
-#. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:245
-#: src/FolderManager/ProjectFolderItem.vala:328
-#: src/FolderManager/ProjectFolderItem.vala:334
-msgid "New"
-msgstr "Nou"
 
 #: src/FolderManager/FolderItem.vala:546
 msgid "untitled folder"
@@ -570,98 +581,106 @@ msgid "Error while creating new branch: “%s”"
 msgstr ""
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:419
+#: src/Services/Document.vala:422
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s Nu este un fișier text"
 
-#: src/Services/Document.vala:420
+#: src/Services/Document.vala:423
 msgid "Code will not load this type of file."
 msgstr "Codul nu va încărca acest tip de fișier."
 
-#: src/Services/Document.vala:422
+#: src/Services/Document.vala:425
 msgid "Load Anyway"
 msgstr "Încărcați oricum"
 
-#: src/Services/Document.vala:443
+#: src/Services/Document.vala:446
 #, fuzzy, c-format
 #| msgid "Loading File \"%s\" Is Taking a Long Time"
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Încărcarea fișierului \"%s \"Are o lungă perioadă de timp"
 
-#: src/Services/Document.vala:444
+#: src/Services/Document.vala:447
 msgid "Please wait while Code is loading the file."
 msgstr "Vă rugăm să așteptați până când se încarcă fișierul."
 
-#: src/Services/Document.vala:446
+#: src/Services/Document.vala:449
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Anulați încărcarea"
 
-#: src/Services/Document.vala:514
+#: src/Services/Document.vala:517
 #, fuzzy, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Salvați modificările în document %s înainte de închidere?"
 
-#: src/Services/Document.vala:515
+#: src/Services/Document.vala:518
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Dacă nu salvați, modificările din ultimele 4 secunde vor fi pierdute "
 "definitiv."
 
-#: src/Services/Document.vala:523
+#: src/Services/Document.vala:526
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Închideți fără salvare"
 
-#: src/Services/Document.vala:527 src/Services/Document.vala:734
+#: src/Services/Document.vala:530 src/Services/Document.vala:737
 msgid "Save"
 msgstr "Salvează"
 
-#: src/Services/Document.vala:693
+#: src/Services/Document.vala:696
 #, fuzzy, c-format
 msgid "Saving to “%s” failed."
 msgstr "Salvați modificările în document %s înainte de închidere?"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:726 src/MainWindow.vala:973
+msgid "All files"
+msgstr "Toate filele"
+
+#: src/Services/Document.vala:730 src/MainWindow.vala:977
+msgid "Text files"
+msgstr "Fișiere text"
+
+#: src/Services/Document.vala:734
 msgid "Save File"
 msgstr "Salvează fișierul"
 
-#: src/Services/Document.vala:825 src/Services/Document.vala:843
+#: src/Services/Document.vala:828 src/Services/Document.vala:846
 msgid "New Document"
 msgstr "Document nou"
 
 #. No path for a new document
-#: src/Services/Document.vala:845
+#: src/Services/Document.vala:848
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr ""
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:936
+#: src/Services/Document.vala:939
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr ""
 
-#: src/Services/Document.vala:939
+#: src/Services/Document.vala:942
 #, fuzzy
 msgid "You may not have permission to read the file."
 msgstr "Poate că este corupt sau nu aveți permisiunile necesare pentru a citi."
 
-#: src/Services/Document.vala:941
+#: src/Services/Document.vala:944
 msgid "The file may be corrupt or may not be a text file"
 msgstr ""
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:947
+#: src/Services/Document.vala:950
 #, fuzzy
 #| msgid "Load Anyway"
 msgid "Show Anyway"
 msgstr "Încărcați oricum"
 
-#: src/Services/Document.vala:978
+#: src/Services/Document.vala:981
 #, fuzzy, c-format
 #| msgid ""
 #| "The location containing the file \"%s\" was unmounted. Do you want to "
@@ -673,7 +692,7 @@ msgstr ""
 "Locația care conține fișierul \"%s\" nu a fost montat. Doriți să salvați în "
 "altă parte?"
 
-#: src/Services/Document.vala:980
+#: src/Services/Document.vala:983
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -685,13 +704,13 @@ msgstr ""
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:994
+#: src/Services/Document.vala:997
 #, fuzzy, c-format
 #| msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgid "File “%s” does not have write permission."
 msgstr "Fișierul \"%s \" a fost șters. Vrei să o salvezi oricum?"
 
-#: src/Services/Document.vala:1044
+#: src/Services/Document.vala:1047
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" was modified by an external application. Do you want to load "
@@ -701,44 +720,44 @@ msgstr ""
 "Fișierul \"%s \" a fost modificat de o aplicație externă. Doriți să o "
 "încărcați din nou sau să continuați editarea?"
 
-#: src/Services/Document.vala:1049
+#: src/Services/Document.vala:1052
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
 
-#: src/Services/Document.vala:1053
+#: src/Services/Document.vala:1056
 msgid "The document changed externally since you last saved it."
 msgstr ""
 
-#: src/Services/Document.vala:1069
+#: src/Services/Document.vala:1072
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:1079
+#: src/Services/Document.vala:1082
 msgid "Ignore"
 msgstr ""
 
-#: src/Services/Document.vala:1081
+#: src/Services/Document.vala:1084
 msgid "Save Duplicate…"
 msgstr ""
 
-#: src/Services/Document.vala:1130
+#: src/Services/Document.vala:1133
 msgid "Continue"
 msgstr "Continuați"
 
-#: src/Services/Document.vala:1132
+#: src/Services/Document.vala:1135
 #, fuzzy
 #| msgid "Upload"
 msgid "Reload"
 msgstr "Încărcați"
 
-#: src/Services/Document.vala:1135
+#: src/Services/Document.vala:1138
 msgid "Overwrite"
 msgstr ""
 
-#: src/Services/Document.vala:1138
+#: src/Services/Document.vala:1141
 #, fuzzy
 #| msgid "Save changes elsewhere"
 msgid "Save Document elsewhere"
@@ -767,7 +786,7 @@ msgstr ""
 #. Remove fake fields created by the vala parser.
 #: src/SymbolPane/C/CtagsSymbolOutline.vala:79
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:193
-#: src/SymbolPane/SymbolOutline.vala:127
+#: src/SymbolPane/SymbolOutline.vala:92
 msgid "Symbols"
 msgstr "Simboluri"
 
@@ -789,64 +808,64 @@ msgstr ""
 msgid "Vala symbols found in %s"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:35
+#: src/SymbolPane/SymbolOutline.vala:23
 msgid "Class"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:37
+#: src/SymbolPane/SymbolOutline.vala:25
 msgid "Property"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:39
+#: src/SymbolPane/SymbolOutline.vala:27
 msgid "Signal"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:41
+#: src/SymbolPane/SymbolOutline.vala:29
 msgid "Method"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:43
+#: src/SymbolPane/SymbolOutline.vala:31
 msgid "Struct"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:45
+#: src/SymbolPane/SymbolOutline.vala:33
 msgid "Enum"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:47
+#: src/SymbolPane/SymbolOutline.vala:35
 msgid "Constant"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:49
+#: src/SymbolPane/SymbolOutline.vala:37
 msgid "Constructor"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:53
+#: src/SymbolPane/SymbolOutline.vala:41
 msgid "Namespace"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:55
+#: src/SymbolPane/SymbolOutline.vala:43
 #, fuzzy
 msgid "Other"
 msgstr "Alte..."
 
-#: src/SymbolPane/SymbolOutline.vala:131
+#: src/SymbolPane/SymbolOutline.vala:96
 #, fuzzy
 #| msgid "Symbols"
 msgid "Find Symbol"
 msgstr "Simboluri"
 
-#: src/SymbolPane/SymbolOutline.vala:140
+#: src/SymbolPane/SymbolOutline.vala:105
 msgid "Filter symbol type"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:160
+#: src/SymbolPane/SymbolOutline.vala:125
 #, fuzzy
 #| msgid "Format:"
 msgid "Select All"
 msgstr "Formatul:"
 
-#: src/SymbolPane/SymbolOutline.vala:166
+#: src/SymbolPane/SymbolOutline.vala:131
 msgid "Deselect All"
 msgstr ""
 
@@ -875,40 +894,44 @@ msgstr "Deschideți dosarul"
 msgid "Clone Git Repository…"
 msgstr ""
 
+#: src/Widgets/DocumentView.vala:100 src/Application.vala:41
+msgid "New Tab"
+msgstr "Filă nouă"
+
 #: src/Widgets/DocumentView.vala:110
 #, fuzzy
 #| msgid "Close"
 msgid "Closed Tabs"
 msgstr "Închide"
 
-#: src/Widgets/DocumentView.vala:450
+#: src/Widgets/DocumentView.vala:469
 #, fuzzy, c-format
 msgid "Text file from %s:%d"
 msgstr "Fișier text de la %s"
 
-#: src/Widgets/DocumentView.vala:613
+#: src/Widgets/DocumentView.vala:630
 msgid "Close Tabs to the Right"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:614
+#: src/Widgets/DocumentView.vala:631
 #, fuzzy
 #| msgid "Close Folder"
 msgid "Close Other Tabs"
 msgstr "Închideți dosarul"
 
-#: src/Widgets/DocumentView.vala:615
+#: src/Widgets/DocumentView.vala:632
 #, fuzzy
 #| msgid "Close"
 msgid "Close Tab"
 msgstr "Închide"
 
-#: src/Widgets/DocumentView.vala:618
+#: src/Widgets/DocumentView.vala:635
 #, fuzzy
 #| msgid "New Window"
 msgid "Open in New Window"
 msgstr "Fereastră nouă"
 
-#: src/Widgets/DocumentView.vala:619
+#: src/Widgets/DocumentView.vala:636
 msgid "Duplicate Tab"
 msgstr ""
 
@@ -956,14 +979,14 @@ msgstr "Du-te la linia:"
 msgid "Line number"
 msgstr "Numărul de linie"
 
-#: src/Widgets/FormatBar.vala:295
+#: src/Widgets/FormatBar.vala:300
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d Spațiu"
 msgstr[1] "%d Spații"
 
-#: src/Widgets/FormatBar.vala:297
+#: src/Widgets/FormatBar.vala:302
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -1002,9 +1025,19 @@ msgstr "Măriți 1: 1"
 msgid "Zoom In"
 msgstr "Mărește"
 
+#: src/Widgets/HeaderBar.vala:117 src/MainWindow.vala:377
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Find on Page…"
+msgstr "Deschideți un dosar"
+
 #: src/Widgets/HeaderBar.vala:140
 msgid "Follow System Style"
 msgstr ""
+
+#: src/Widgets/HeaderBar.vala:190 src/MainWindow.vala:421
+msgid "Show Terminal"
+msgstr "Arătați terminalul"
 
 #: src/Widgets/HeaderBar.vala:235
 msgid "Menu"
@@ -1024,25 +1057,7 @@ msgstr ""
 msgid "Contrast"
 msgstr "Contrast mare"
 
-#: src/Widgets/Sidebar.vala:54
-msgid "Cloning complete"
-msgstr ""
-
-#: src/Widgets/Sidebar.vala:82
-msgid "Collapse All"
-msgstr ""
-
-#: src/Widgets/Sidebar.vala:91
-msgid "Keep Sorted"
-msgstr ""
-
-#: src/Widgets/Sidebar.vala:100
-#, fuzzy
-#| msgid "Open a folder"
-msgid "Manage project folders…"
-msgstr "Deschideți un dosar"
-
-#: src/Widgets/SearchBar.vala:120
+#: src/Widgets/SearchBar.vala:119
 msgid "Find"
 msgstr "Găsește"
 
@@ -1050,21 +1065,17 @@ msgstr "Găsește"
 msgid "No Results"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:135
+#: src/Widgets/SearchBar.vala:133
 msgid "Search next"
 msgstr "Căutați în continuare"
 
-#: src/Widgets/SearchBar.vala:145
+#: src/Widgets/SearchBar.vala:144
 msgid "Search previous"
 msgstr "Căutați anterior"
 
 #: src/Widgets/SearchBar.vala:148
 msgid "Cyclic Search"
 msgstr "Clică căutați"
-
-#: src/Widgets/SearchBar.vala:151 plugins/pastebin/pastebin_dialog.vala:477
-msgid "Never"
-msgstr "Niciodată"
 
 #: src/Widgets/SearchBar.vala:152
 msgid "Mixed Case"
@@ -1092,55 +1103,103 @@ msgstr ""
 msgid "Search Options"
 msgstr "Căutați anterior"
 
-#: src/Widgets/SearchBar.vala:223
+#: src/Widgets/SearchBar.vala:233
 msgid "Replace With"
 msgstr "Înlocuiește cu"
 
-#: src/Widgets/SearchBar.vala:226
+#: src/Widgets/SearchBar.vala:237
 msgid "Replace"
 msgstr "Înlocuește"
 
-#: src/Widgets/SearchBar.vala:229
+#: src/Widgets/SearchBar.vala:241
 msgid "Replace all"
 msgstr "Înlocuiește-le pe toate"
 
-#: src/Widgets/SearchBar.vala:616
+#: src/Widgets/SearchBar.vala:559
 #, c-format
 msgid "%d of %d"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:621
+#: src/Widgets/SearchBar.vala:564
 msgid "no results"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:204
+#: src/Widgets/Sidebar.vala:54
+msgid "Cloning complete"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:82
+msgid "Collapse All"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:91
+msgid "Keep Sorted"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:100
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Manage project folders…"
+msgstr "Deschideți un dosar"
+
+#: src/Widgets/SourceView.vala:216
 #, fuzzy
 msgid "Sort Lines"
 msgstr "Pentru textul selectat"
 
-#: src/Widgets/SourceView.vala:205
+#: src/Widgets/SourceView.vala:217
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Mark Line"
 msgstr "Eliminați vizualizarea curentă"
 
-#: src/Widgets/SourceView.vala:206
+#: src/Widgets/SourceView.vala:218
 msgid "Previous Mark"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:207
+#: src/Widgets/SourceView.vala:219
 msgid "Next Mark"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:208
+#: src/Widgets/SourceView.vala:220
 msgid "Toggle Comment"
 msgstr ""
 
-#: src/Widgets/Terminal.vala:134
+#: src/Widgets/SourceView.vala:221
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "Goto Matching Bracket"
+msgstr "Evidențiați parantezele de potrivire:"
+
+#: src/Widgets/SourceView.vala:905
+#, c-format
+msgid ""
+"A required bracket is missing or there is an extra bracket between lines %i "
+"and %i"
+msgstr ""
+
+#: src/Widgets/SourceView.vala:907
+#, fuzzy
+#| msgid "Save this file with a different name"
+msgid "Matching bracket has different indent"
+msgstr "Salvați acest fișier cu un nume diferit"
+
+#: src/Widgets/SourceView.vala:907
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "No matching bracket found"
+msgstr "Evidențiați parantezele de potrivire:"
+
+#: src/Widgets/SourceView.vala:908
+#, fuzzy
+msgid "You may need to adjust the indents"
+msgstr "Poate că este corupt sau nu aveți permisiunile necesare pentru a citi."
+
+#: src/Widgets/Terminal.vala:142
 msgid "Copy"
 msgstr "Copie"
 
-#: src/Widgets/Terminal.vala:135
+#: src/Widgets/Terminal.vala:143
 msgid "Paste"
 msgstr "Lipește"
 
@@ -1176,74 +1235,108 @@ msgstr "Deschideți dosarul"
 msgid "Add a project folder to the sidebar."
 msgstr "Adăugați un director de proiect în bara laterală."
 
-#: plugins/pastebin/pastebin_dialog.vala:250
-#: plugins/pastebin/pastebin_dialog.vala:332 plugins/pastebin/pastebin.vala:139
-msgid "Upload to Pastebin"
-msgstr "Încărcați în Pastebin"
+#: src/Application.vala:43
+msgid "Print version info and exit"
+msgstr "Imprimați versiunea și ieșiți"
 
-#: plugins/pastebin/pastebin_dialog.vala:259
-msgid "Name:"
-msgstr "Nume:"
-
-#: plugins/pastebin/pastebin_dialog.vala:263
-msgid "Format:"
-msgstr "Formatul:"
-
-#: plugins/pastebin/pastebin_dialog.vala:270
-msgid "Choose different format"
+#: src/Application.vala:44
+msgid "Open file at specified selection range"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:292
+#: src/Application.vala:44
+msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
+msgstr ""
+
+#: src/Application.vala:45
+msgid "[FILE…]"
+msgstr ""
+
+#: src/MainWindow.vala:242
+#, fuzzy, c-format
+#| msgid "Code"
+msgid "Code (%s)"
+msgstr "Cod"
+
+#: src/MainWindow.vala:244
+msgid "Code"
+msgstr "Cod"
+
+#: src/MainWindow.vala:372
+msgid "Hide search bar"
+msgstr "Ascundeți bara de căutare"
+
+#: src/MainWindow.vala:388
 #, fuzzy
-#| msgid "Expiry time:"
-msgid "Expiration:"
-msgstr "Data expirării:"
+#| msgid "Hide search bar"
+msgid "Hide Projects Sidebar"
+msgstr "Ascundeți bara de căutare"
 
-#: plugins/pastebin/pastebin_dialog.vala:299
-msgid "Keep this paste private"
-msgstr "Păstrați această lipire privată"
-
-#: plugins/pastebin/pastebin_dialog.vala:358
-msgid "Available Formats"
-msgstr ""
-
-#: plugins/pastebin/pastebin_dialog.vala:388
+#: src/MainWindow.vala:393
 #, fuzzy
-#| msgid "Format:"
-msgid "Select Format"
-msgstr "Formatul:"
+#| msgid "Show Preview"
+msgid "Show Projects Sidebar"
+msgstr "Afișați previzualizarea"
 
-#: plugins/pastebin/pastebin_dialog.vala:478
-msgid "Ten minutes"
-msgstr "Zece minute"
-
-#: plugins/pastebin/pastebin_dialog.vala:479
-msgid "One hour"
-msgstr "O oră"
-
-#: plugins/pastebin/pastebin_dialog.vala:480
-msgid "One day"
-msgstr "O zi"
-
-#: plugins/pastebin/pastebin_dialog.vala:481
-msgid "One month"
-msgstr "O lună"
-
-#: plugins/spell/spell.vala:79
-msgid "No Suitable Dictionaries Were Found"
+#: src/MainWindow.vala:402
+msgid "Hide Symbol Outline"
 msgstr ""
 
-#: plugins/spell/spell.vala:80
+#: src/MainWindow.vala:407
 #, fuzzy
-msgid "Please install at least one [aspell] dictionary."
-msgstr ""
-"Nu au fost găsite dicționare adecvate.↵\n"
-"Instalați cel puțin un dicționar [aspell]"
+#| msgid "Symbols"
+msgid "Show Symbol Outline"
+msgstr "Simboluri"
 
-#: plugins/word-completion/plugin.vala:98
+#: src/MainWindow.vala:416
+msgid "Hide Terminal"
+msgstr "Ascundeți terminalul"
+
+#. Update MainWindow title
+#. / TRANSLATORS: First placeholder is document name, second placeholder is app name
+#: src/MainWindow.vala:603
 #, c-format
-msgid "%s - Word Completion"
-msgstr "%s - Finalizarea cuvintelor"
+msgid "%s - %s"
+msgstr ""
+
+#: src/MainWindow.vala:981
+msgid "Open some files"
+msgstr "Deschideți fișiere"
+
+#: src/MainWindow.vala:984
+msgid "Open"
+msgstr "Deschide"
+
+#: src/MainWindow.vala:1026
+msgid "_Open"
+msgstr "_Deschis"
+
+#: src/MainWindow.vala:1027
+msgid "_Cancel"
+msgstr "_Anulare"
+
+#: src/MainWindow.vala:1097
+msgid "Cloning completed"
+msgstr ""
+
+#: src/MainWindow.vala:1098
+#, c-format
+msgid "Clone successfully created in %s"
+msgstr ""
+
+#: src/MainWindow.vala:1106
+#, c-format
+msgid "Unable to clone %s"
+msgstr ""
+
+#: src/MainWindow.vala:1114
+msgid "Retry"
+msgstr ""
+
+#. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
+#: src/Utils.vala:212
+#, c-format
+msgid "Show '%s' with default app"
+msgstr ""
 
 #~ msgid "Project templates"
 #~ msgstr "Șabloane de proiect"

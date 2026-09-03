@@ -6,146 +6,174 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-03 14:41+0000\n"
-"PO-Revision-Date: 2023-05-20 16:06+0000\n"
-"Last-Translator: Mas Ahmad Muhammad <m.charly81@gmail.com>\n"
-"Language-Team: Indonesian <https://l10n.elementary.io/projects/code/code/id/"
-">\n"
+"POT-Creation-Date: 2026-08-29 16:05+0000\n"
+"PO-Revision-Date: 2026-09-02 06:59+0000\n"
+"Last-Translator: Aril Apria Susanto <awriel@gmail.com>\n"
+"Language-Team: Indonesian <https://l10n.elementaryos.org/projects/code/code/"
+"id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 2026.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:41 src/Widgets/DocumentView.vala:100
-msgid "New Tab"
-msgstr "Tab Baru"
+#: plugins/FuzzySearch/FuzzySearch.vala:91
+#, fuzzy
+#| msgid "Find in Project…"
+msgid "Find Project Files"
+msgstr "Temukan pada Proyek…"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
-msgid "New Window"
-msgstr "Jendela Baru"
+#: plugins/FuzzySearch/FuzzySearchPopover.vala:44
+#, fuzzy
+#| msgid "Filter projects"
+msgid "Find project files"
+msgstr "Saring proyek"
 
-#: src/Application.vala:43
-msgid "Print version info and exit"
-msgstr "Cetak info versi dan keluar"
+#: plugins/pastebin/pastebin.vala:139 plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:332
+msgid "Upload to Pastebin"
+msgstr "Unggah ke Pastebin"
 
-#: src/Application.vala:44
-msgid "Open file at specified selection range"
-msgstr ""
+#: plugins/pastebin/pastebin_dialog.vala:259
+msgid "Name:"
+msgstr "Nama:"
 
-#: src/Application.vala:44
-msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
-msgstr ""
+#: plugins/pastebin/pastebin_dialog.vala:263
+msgid "Format:"
+msgstr "Format:"
 
-#: src/Application.vala:45
-msgid "[FILE…]"
-msgstr "[BERKAS...]"
+#: plugins/pastebin/pastebin_dialog.vala:270
+msgid "Choose different format"
+msgstr "Pilih format berbeda"
 
-#: src/MainWindow.vala:240
-#, c-format
-msgid "Code (%s)"
-msgstr "Kode (%s)"
+#: plugins/pastebin/pastebin_dialog.vala:292
+msgid "Expiration:"
+msgstr "Kadaluarsa:"
 
-#: src/MainWindow.vala:242
-msgid "Code"
-msgstr "Kode"
+#: plugins/pastebin/pastebin_dialog.vala:299
+msgid "Keep this paste private"
+msgstr "Jaga kerahasiaan tempelan ini"
 
-#: src/MainWindow.vala:370
-msgid "Hide search bar"
-msgstr "Sembunyikan bilah pencarian"
-
-#: src/MainWindow.vala:375 src/Widgets/HeaderBar.vala:117
-msgid "Find on Page…"
-msgstr "Temukan pada Halaman…"
-
-#: src/MainWindow.vala:386
-msgid "Hide Projects Sidebar"
-msgstr "Sembunyikan Bilah Sisi Proyek"
-
-#: src/MainWindow.vala:391
-msgid "Show Projects Sidebar"
-msgstr "Tampilkan Bilah Sisi Proyek"
-
-#: src/MainWindow.vala:400
-msgid "Hide Symbol Outline"
-msgstr "Sembunyikan Simbol Garis Tepi Luar"
-
-#: src/MainWindow.vala:405
-msgid "Show Symbol Outline"
-msgstr "Tampikan Simbol Garis Tepi Luar"
-
-#: src/MainWindow.vala:414
-msgid "Hide Terminal"
-msgstr "Sembunyikan Terminal"
-
-#: src/MainWindow.vala:419 src/Widgets/HeaderBar.vala:190
-msgid "Show Terminal"
-msgstr "Tampilkan Terminal"
-
-#. Update MainWindow title
-#. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:600
-#, c-format
-msgid "%s - %s"
-msgstr "%s - %s"
-
-#: src/MainWindow.vala:953 src/Services/Document.vala:723
-msgid "All files"
-msgstr "Semua berkas"
-
-#: src/MainWindow.vala:957 src/Services/Document.vala:727
-msgid "Text files"
-msgstr "Berkas teks"
-
-#: src/MainWindow.vala:961
-msgid "Open some files"
-msgstr "Buka beberapa berkas"
-
-#: src/MainWindow.vala:964
-msgid "Open"
-msgstr "Buka"
-
-#: src/MainWindow.vala:965 src/Dialogs/CloneRepositoryDialog.vala:58
-#: src/Dialogs/CloneRepositoryDialog.vala:97
-#: src/Dialogs/GlobalSearchDialog.vala:87 src/Services/Document.vala:526
-#: src/Services/Document.vala:735 plugins/pastebin/pastebin_dialog.vala:331
+#: plugins/pastebin/pastebin_dialog.vala:331
 #: plugins/pastebin/pastebin_dialog.vala:386
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:59
+#: src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/Dialogs/CloneRepositoryDialog.vala:97
+#: src/Dialogs/GlobalSearchDialog.vala:87 src/Services/Document.vala:529
+#: src/Services/Document.vala:738 src/MainWindow.vala:985
 msgid "Cancel"
 msgstr "Batal"
 
-#: src/MainWindow.vala:1011
-msgid "_Open"
-msgstr "_Buka"
+#: plugins/pastebin/pastebin_dialog.vala:358
+msgid "Available Formats"
+msgstr "Format Tersedia"
 
-#: src/MainWindow.vala:1012
-msgid "_Cancel"
-msgstr "_Batal"
+#: plugins/pastebin/pastebin_dialog.vala:388
+msgid "Select Format"
+msgstr "Pilih Format"
 
-#: src/MainWindow.vala:1082
-msgid "Cloning completed"
-msgstr ""
+#: plugins/pastebin/pastebin_dialog.vala:444
+#: src/Dialogs/PreferencesDialog.vala:176
+msgid "Close"
+msgstr "Tutup"
 
-#: src/MainWindow.vala:1083
+#: plugins/pastebin/pastebin_dialog.vala:483 src/Widgets/SearchBar.vala:151
+msgid "Never"
+msgstr "Jangan Pernah"
+
+#: plugins/pastebin/pastebin_dialog.vala:484
+msgid "Ten minutes"
+msgstr "Sepuluh menit"
+
+#: plugins/pastebin/pastebin_dialog.vala:485
+msgid "One hour"
+msgstr "Satu jam"
+
+#: plugins/pastebin/pastebin_dialog.vala:486
+msgid "One day"
+msgstr "Satu hari"
+
+#: plugins/pastebin/pastebin_dialog.vala:487
+msgid "One month"
+msgstr "Satu bulan"
+
+#: plugins/spell/spell.vala:79
+msgid "No Suitable Dictionaries Were Found"
+msgstr "Tidak Ditemukan Kamus yang Cocok"
+
+#: plugins/spell/spell.vala:80
+msgid "Please install at least one [aspell] dictionary."
+msgstr "Harap pasang setidaknya satu kamus [aspell]."
+
+#: plugins/word-completion/plugin.vala:98
 #, c-format
-msgid "Clone successfully created in %s"
-msgstr ""
+msgid "%s - Word Completion"
+msgstr "%s - Pelengkapan Kata"
 
-#: src/MainWindow.vala:1091
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:61
 #, c-format
-msgid "Unable to clone %s"
+msgid "Perform branch action on project '%s'"
 msgstr ""
 
-#: src/MainWindow.vala:1099
-msgid "Retry"
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:68
+msgid "Apply"
 msgstr ""
 
-#. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
-#: src/Utils.vala:212
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:75
+msgid "Checkout"
+msgstr ""
+
+#. scan all children
+#. No need to show status when children shown
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:76
+#: src/FolderManager/FolderItem.vala:245
+#: src/FolderManager/ProjectFolderItem.vala:328
+#: src/FolderManager/ProjectFolderItem.vala:334
+msgid "New"
+msgstr "Baru"
+
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:89
 #, c-format
-msgid "Show '%s' with default app"
+msgid "'%s' is not a git repository"
 msgstr ""
+
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:92
+msgid "Unable to perform branch actions"
+msgstr ""
+
+#: src/Dialogs/BranchActions/BranchCreatePage.vala:44
+msgid "Name of branch to create"
+msgstr ""
+
+#: src/Dialogs/BranchActions/BranchCreatePage.vala:47
+msgid "Enter new branch name"
+msgstr ""
+
+#: src/Dialogs/BranchActions/BranchListBox.vala:50
+#, fuzzy
+#| msgid "Hide search bar"
+msgid "Enter search term"
+msgstr "Sembunyikan bilah pencarian"
+
+#: src/Dialogs/BranchActions/BranchListBox.vala:53
+#, fuzzy
+#| msgid "Create Branch"
+msgid "Recent Branches"
+msgstr "Buat Cabang"
+
+#: src/Dialogs/BranchActions/BranchListBox.vala:54
+#, fuzzy
+#| msgid "Branch"
+msgid "Local Branches"
+msgstr "Cabang"
+
+#: src/Dialogs/BranchActions/BranchListBox.vala:55
+#, fuzzy
+#| msgid "Create Branch"
+msgid "Remote Branches"
+msgstr "Buat Cabang"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
@@ -192,203 +220,6 @@ msgstr ""
 msgid "Cloning in progress"
 msgstr ""
 
-#: src/Dialogs/GlobalSearchDialog.vala:63
-#, fuzzy
-#| msgid "The search term must be at least 3 characters long."
-msgid "The search term will be treated as a regex expression"
-msgstr "Istilah pencarian harus setidaknya 3 karakter."
-
-#: src/Dialogs/GlobalSearchDialog.vala:65
-msgid "Search will be case sensitive"
-msgstr ""
-
-#: src/Dialogs/GlobalSearchDialog.vala:65
-msgid "Search will be case insensitive"
-msgstr ""
-
-#: src/Dialogs/GlobalSearchDialog.vala:66
-msgid "Search will match only whole words"
-msgstr ""
-
-#: src/Dialogs/GlobalSearchDialog.vala:69
-#, c-format
-msgid "Search for text in “%s”"
-msgstr "Cari kata pada \"%s\""
-
-#: src/Dialogs/GlobalSearchDialog.vala:70
-msgid "The search term must be at least 3 characters long."
-msgstr "Istilah pencarian harus setidaknya 3 karakter."
-
-#: src/Dialogs/GlobalSearchDialog.vala:89
-msgid "Search"
-msgstr "Cari"
-
-#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:212
-msgid "Preferences"
-msgstr "Preferensi"
-
-#: src/Dialogs/PreferencesDialog.vala:24
-msgid "General"
-msgstr "Umum"
-
-#: src/Dialogs/PreferencesDialog.vala:25
-#, fuzzy
-#| msgid "Save files when changed:"
-msgid "Save files when changed"
-msgstr "Simpan berkas ketika berubah:"
-
-#: src/Dialogs/PreferencesDialog.vala:27
-#, fuzzy
-#| msgid "Strip trailing whitespace:"
-msgid "Strip trailing whitespace on save"
-msgstr "Hapus spasi kosong di belakang:"
-
-#: src/Dialogs/PreferencesDialog.vala:29
-msgid "Except Plain Text, Markdown and YAML"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:32
-#, fuzzy
-#| msgid "Smart cut/copy lines:"
-msgid "Smart cut/copy lines"
-msgstr "Potong/salin pintar baris:"
-
-#: src/Dialogs/PreferencesDialog.vala:34
-msgid ""
-"Cutting or copying without an active selection will cut or copy the entire "
-"current line"
-msgstr ""
-"Memotong atau menyalin tanpa seleksi aktif akan memotong atau menyalin "
-"seluruh baris saat ini"
-
-#: src/Dialogs/PreferencesDialog.vala:40
-#, fuzzy
-#| msgid "Margin width:"
-msgid "Indentation width"
-msgstr "Lebar margin:"
-
-#: src/Dialogs/PreferencesDialog.vala:51
-#, fuzzy
-#| msgid "Automatic Indentation"
-msgid "Indentation"
-msgstr "Indentasi Otomatis"
-
-#: src/Dialogs/PreferencesDialog.vala:52
-#, fuzzy
-#| msgid "Automatic indentation:"
-msgid "Automatic indentation"
-msgstr "Indentasi otomatis:"
-
-#: src/Dialogs/PreferencesDialog.vala:53
-#, fuzzy
-#| msgid "Insert spaces instead of tabs:"
-msgid "Insert spaces instead of tabs"
-msgstr "Sisipkan spasi, bukan tab:"
-
-#: src/Dialogs/PreferencesDialog.vala:62
-msgid "Default build directory"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:72
-#, fuzzy
-#| msgid "Project"
-msgid "Projects"
-msgstr "Proyek"
-
-#: src/Dialogs/PreferencesDialog.vala:83
-msgid "None"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:84
-#, fuzzy
-#| msgid "Remove Current View"
-msgid "Current Line"
-msgstr "Singkirkan Tinjauan Tertampil"
-
-#: src/Dialogs/PreferencesDialog.vala:85
-msgid "All"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:101
-msgid "Whitespace visible when not selected"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:116
-msgid "Editor"
-msgstr "Penyunting"
-
-#: src/Dialogs/PreferencesDialog.vala:117
-#, fuzzy
-#| msgid "Highlight matching brackets:"
-msgid "Highlight matching brackets"
-msgstr "Sorot tanda kurung yang cocok:"
-
-#: src/Dialogs/PreferencesDialog.vala:118
-#, fuzzy
-#| msgid "Syntax Highlighting"
-msgid "Syntax highlighting"
-msgstr "Penyorotan Sintaks"
-
-#: src/Dialogs/PreferencesDialog.vala:120
-#, fuzzy
-#| msgid "Show Mini Map:"
-msgid "Mini Map"
-msgstr "Tampilkan Peta Mini:"
-
-#: src/Dialogs/PreferencesDialog.vala:121
-msgid "Wrap lines"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:122
-#, fuzzy
-#| msgid "Line width guide:"
-msgid "Line width guide"
-msgstr "Pedoman lebar baris:"
-
-#: src/Dialogs/PreferencesDialog.vala:128
-#, c-format
-msgid "Use system font (%s)"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:138
-msgid "Font"
-msgstr "Huruf"
-
-#: src/Dialogs/PreferencesDialog.vala:153
-msgid "Behavior"
-msgstr "Perilaku"
-
-#: src/Dialogs/PreferencesDialog.vala:154 src/SymbolPane/SymbolOutline.vala:51
-msgid "Interface"
-msgstr "Antarmuka"
-
-#: src/Dialogs/PreferencesDialog.vala:170 src/Services/PluginManager.vala:111
-msgid "Extensions"
-msgstr "Pengaya"
-
-#: src/Dialogs/PreferencesDialog.vala:176
-#: plugins/pastebin/pastebin_dialog.vala:444
-msgid "Close"
-msgstr "Tutup"
-
-#: src/Dialogs/RestoreConfirmationDialog.vala:32
-msgid "Are You Sure You Want to Restore This File?"
-msgstr "Apakah Anda Yakin Ingin Memulihkan Berkas Ini?"
-
-#: src/Dialogs/RestoreConfirmationDialog.vala:33
-msgid "Restoring a file will undo all changes made since opening it"
-msgstr ""
-"Memulihkan berkas akan membatalkan semua perubahan yang dibuat sejak "
-"membukanya"
-
-#: src/Dialogs/RestoreConfirmationDialog.vala:35
-msgid "Don't Restore"
-msgstr "Jangan Pulihkan"
-
-#: src/Dialogs/RestoreConfirmationDialog.vala:37
-msgid "Restore Anyway"
-msgstr "Pulihkan Saja"
-
 #: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
 msgid "This folder is the parent of an open project"
 msgid_plural "This folder is the parent of open projects"
@@ -422,6 +253,37 @@ msgstr ""
 msgid "Don't Open"
 msgstr "Jangan Pulihkan"
 
+#: src/Dialogs/GlobalSearchDialog.vala:63
+#, fuzzy
+#| msgid "The search term must be at least 3 characters long."
+msgid "The search term will be treated as a regex expression"
+msgstr "Istilah pencarian harus setidaknya 3 karakter."
+
+#: src/Dialogs/GlobalSearchDialog.vala:65
+msgid "Search will be case sensitive"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:65
+msgid "Search will be case insensitive"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:66
+msgid "Search will match only whole words"
+msgstr ""
+
+#: src/Dialogs/GlobalSearchDialog.vala:69
+#, c-format
+msgid "Search for text in “%s”"
+msgstr "Cari kata pada \"%s\""
+
+#: src/Dialogs/GlobalSearchDialog.vala:70
+msgid "The search term must be at least 3 characters long."
+msgstr "Istilah pencarian harus setidaknya 3 karakter."
+
+#: src/Dialogs/GlobalSearchDialog.vala:89
+msgid "Search"
+msgstr "Cari"
+
 #: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
 #, fuzzy
 #| msgid "There are unsaved changes in Scratch!"
@@ -447,6 +309,143 @@ msgstr ""
 msgid "Checkout and Overwrite"
 msgstr ""
 
+#: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:212
+msgid "Preferences"
+msgstr "Preferensi"
+
+#: src/Dialogs/PreferencesDialog.vala:24
+msgid "General"
+msgstr "Umum"
+
+#: src/Dialogs/PreferencesDialog.vala:25
+msgid "Save files when changed"
+msgstr "Simpan berkas ketika berubah"
+
+#: src/Dialogs/PreferencesDialog.vala:27
+msgid "Strip trailing whitespace on save"
+msgstr "Hapus spasi kosong di belakang"
+
+#: src/Dialogs/PreferencesDialog.vala:29
+msgid "Except Plain Text, Markdown and YAML"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:32
+msgid "Smart cut/copy lines"
+msgstr "Potong/salin pintar baris"
+
+#: src/Dialogs/PreferencesDialog.vala:34
+msgid ""
+"Cutting or copying without an active selection will cut or copy the entire "
+"current line"
+msgstr ""
+"Memotong atau menyalin tanpa seleksi aktif akan memotong atau menyalin "
+"seluruh baris saat ini"
+
+#: src/Dialogs/PreferencesDialog.vala:40
+msgid "Indentation width"
+msgstr "Lebar indentasi"
+
+#: src/Dialogs/PreferencesDialog.vala:51
+msgid "Indentation"
+msgstr "Indentasi"
+
+#: src/Dialogs/PreferencesDialog.vala:52
+msgid "Automatic indentation"
+msgstr "Indentasi otomatis"
+
+#: src/Dialogs/PreferencesDialog.vala:53
+msgid "Insert spaces instead of tabs"
+msgstr "Sisipkan spasi, bukan tab"
+
+#: src/Dialogs/PreferencesDialog.vala:62
+msgid "Default build directory"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:72
+msgid "Projects"
+msgstr "Proyek"
+
+#: src/Dialogs/PreferencesDialog.vala:83
+msgid "None"
+msgstr "Tidak ada"
+
+#: src/Dialogs/PreferencesDialog.vala:84
+msgid "Current Line"
+msgstr "Baris saat ini"
+
+#: src/Dialogs/PreferencesDialog.vala:85
+msgid "All"
+msgstr "Semua"
+
+#: src/Dialogs/PreferencesDialog.vala:101
+msgid "Whitespace visible when not selected"
+msgstr "Spasi terlihat saat tidak dipilih"
+
+#: src/Dialogs/PreferencesDialog.vala:116
+msgid "Editor"
+msgstr "Penyunting"
+
+#: src/Dialogs/PreferencesDialog.vala:117
+msgid "Highlight matching brackets"
+msgstr "Sorot tanda kurung yang cocok"
+
+#: src/Dialogs/PreferencesDialog.vala:118
+#, fuzzy
+#| msgid "Syntax Highlighting"
+msgid "Syntax highlighting"
+msgstr "Penyorotan Sintaks"
+
+#: src/Dialogs/PreferencesDialog.vala:120
+msgid "Mini Map"
+msgstr "Peta Mini"
+
+#: src/Dialogs/PreferencesDialog.vala:121
+msgid "Wrap lines"
+msgstr "Lipat baris"
+
+#: src/Dialogs/PreferencesDialog.vala:122
+msgid "Line width guide"
+msgstr "Pedoman lebar baris"
+
+#: src/Dialogs/PreferencesDialog.vala:128
+#, c-format
+msgid "Use system font (%s)"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:138
+msgid "Font"
+msgstr "Huruf"
+
+#: src/Dialogs/PreferencesDialog.vala:153
+msgid "Behavior"
+msgstr "Perilaku"
+
+#: src/Dialogs/PreferencesDialog.vala:154 src/SymbolPane/SymbolOutline.vala:39
+msgid "Interface"
+msgstr "Antarmuka"
+
+#: src/Dialogs/PreferencesDialog.vala:170 src/Services/PluginManager.vala:111
+msgid "Extensions"
+msgstr "Pengaya"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:32
+msgid "Are You Sure You Want to Restore This File?"
+msgstr "Apakah Anda Yakin Ingin Memulihkan Berkas Ini?"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:33
+msgid "Restoring a file will undo all changes made since opening it"
+msgstr ""
+"Memulihkan berkas akan membatalkan semua perubahan yang dibuat sejak "
+"membukanya"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:35
+msgid "Don't Restore"
+msgstr "Jangan Pulihkan"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:37
+msgid "Restore Anyway"
+msgstr "Pulihkan Saja"
+
 #: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:156
 msgid "Other Actions"
 msgstr "Aksi Lain"
@@ -458,6 +457,10 @@ msgstr "Ubah Nama"
 #: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:138
 msgid "Move to Trash"
 msgstr "Pindahkan ke Keranjang Sampah"
+
+#: src/FolderManager/FileItem.vala:85 src/Application.vala:42
+msgid "New Window"
+msgstr "Jendela Baru"
 
 #: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:186
 msgid "Other Application…"
@@ -497,14 +500,6 @@ msgstr ""
 msgid "Templates"
 msgstr "Templat"
 
-#. scan all children
-#. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:245
-#: src/FolderManager/ProjectFolderItem.vala:328
-#: src/FolderManager/ProjectFolderItem.vala:334
-msgid "New"
-msgstr "Baru"
-
 #: src/FolderManager/FolderItem.vala:546
 msgid "untitled folder"
 msgstr "folder tanpa judul"
@@ -521,7 +516,7 @@ msgstr "Proyek Git aktif: %s"
 
 #: src/FolderManager/ProjectFolderItem.vala:143
 msgid "Open in Terminal Pane"
-msgstr ""
+msgstr "Buka di Panel Terminal"
 
 #: src/FolderManager/ProjectFolderItem.vala:171
 #, fuzzy
@@ -569,89 +564,97 @@ msgid "Error while creating new branch: “%s”"
 msgstr "Kesalahan saat membuat cabang baru: “%s”"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:419
+#: src/Services/Document.vala:422
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s Bukan sebuah Berkas Teks"
 
-#: src/Services/Document.vala:420
+#: src/Services/Document.vala:423
 msgid "Code will not load this type of file."
 msgstr "Kode tidak akan memuat jenis berkas ini."
 
-#: src/Services/Document.vala:422
+#: src/Services/Document.vala:425
 msgid "Load Anyway"
 msgstr "Muat Saja"
 
-#: src/Services/Document.vala:443
+#: src/Services/Document.vala:446
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "Memuat Berkas “%s” Memakan Waktu Lama"
 
-#: src/Services/Document.vala:444
+#: src/Services/Document.vala:447
 msgid "Please wait while Code is loading the file."
 msgstr "Silakan tunggu sementara Kode memuat berkas."
 
-#: src/Services/Document.vala:446
+#: src/Services/Document.vala:449
 msgid "Cancel Loading"
 msgstr "Batal Memuat"
 
-#: src/Services/Document.vala:514
+#: src/Services/Document.vala:517
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "Simpan perubahan ke “%s” sebelum menutup?"
 
-#: src/Services/Document.vala:515
+#: src/Services/Document.vala:518
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Jika tidak Anda simpan, perubahan akan hilang permanen."
 
-#: src/Services/Document.vala:523
+#: src/Services/Document.vala:526
 msgid "Close Without Saving"
 msgstr "Tutup Tanpa Menyimpan"
 
-#: src/Services/Document.vala:527 src/Services/Document.vala:734
+#: src/Services/Document.vala:530 src/Services/Document.vala:737
 msgid "Save"
 msgstr "Simpan"
 
-#: src/Services/Document.vala:693
+#: src/Services/Document.vala:696
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "Menyimpan ke “%s” gagal."
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:726 src/MainWindow.vala:973
+msgid "All files"
+msgstr "Semua berkas"
+
+#: src/Services/Document.vala:730 src/MainWindow.vala:977
+msgid "Text files"
+msgstr "Berkas teks"
+
+#: src/Services/Document.vala:734
 msgid "Save File"
 msgstr "Simpan Berkas"
 
-#: src/Services/Document.vala:825 src/Services/Document.vala:843
+#: src/Services/Document.vala:828 src/Services/Document.vala:846
 msgid "New Document"
 msgstr "Dokumen Baru"
 
 #. No path for a new document
-#: src/Services/Document.vala:845
+#: src/Services/Document.vala:848
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "Tidak dapat menyimpan dokumen ini ke %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:936
+#: src/Services/Document.vala:939
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "Tidak dapat membaca teks pada berkas “%s”"
 
-#: src/Services/Document.vala:939
+#: src/Services/Document.vala:942
 msgid "You may not have permission to read the file."
 msgstr "Anda mungkin tidak memiliki izin untuk membaca berkasnya."
 
-#: src/Services/Document.vala:941
+#: src/Services/Document.vala:944
 msgid "The file may be corrupt or may not be a text file"
 msgstr "Berkas mungkin rusak atau mungkin bukan berkas teks"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:947
+#: src/Services/Document.vala:950
 msgid "Show Anyway"
 msgstr "Tampilkan Saja"
 
-#: src/Services/Document.vala:978
+#: src/Services/Document.vala:981
 #, fuzzy, c-format
 #| msgid "The location containing the file “%s” was unmounted."
 msgid ""
@@ -659,7 +662,7 @@ msgid ""
 "changes."
 msgstr "Lokasi yang berisi berkas “%s” telah dilepas."
 
-#: src/Services/Document.vala:980
+#: src/Services/Document.vala:983
 #, fuzzy, c-format
 #| msgid "File “%s” was modified by an external application."
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
@@ -667,53 +670,53 @@ msgstr "Berkas “%s” telah dimodifikasi oleh aplikasi eksternal."
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:994
+#: src/Services/Document.vala:997
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "Berkas “%s” tidak memiliki izin tulis."
 
-#: src/Services/Document.vala:1044
+#: src/Services/Document.vala:1047
 #, fuzzy, c-format
 #| msgid "File “%s” was modified by an external application."
 msgid "File “%s” was modified by an external application"
 msgstr "Berkas “%s” telah dimodifikasi oleh aplikasi eksternal."
 
-#: src/Services/Document.vala:1049
+#: src/Services/Document.vala:1052
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr ""
 
-#: src/Services/Document.vala:1053
+#: src/Services/Document.vala:1056
 msgid "The document changed externally since you last saved it."
 msgstr ""
 
-#: src/Services/Document.vala:1069
+#: src/Services/Document.vala:1072
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "“%s” tidak bisa disimpan di sini. Simpan duplikat di tempat lain?"
 
-#: src/Services/Document.vala:1079
+#: src/Services/Document.vala:1082
 msgid "Ignore"
 msgstr "Hiraukan"
 
-#: src/Services/Document.vala:1081
+#: src/Services/Document.vala:1084
 msgid "Save Duplicate…"
 msgstr "Simpan Duplikat…"
 
-#: src/Services/Document.vala:1130
+#: src/Services/Document.vala:1133
 msgid "Continue"
 msgstr "Lanjutkan"
 
-#: src/Services/Document.vala:1132
+#: src/Services/Document.vala:1135
 msgid "Reload"
 msgstr "Muat Ulang"
 
-#: src/Services/Document.vala:1135
+#: src/Services/Document.vala:1138
 msgid "Overwrite"
 msgstr ""
 
-#: src/Services/Document.vala:1138
+#: src/Services/Document.vala:1141
 #, fuzzy
 #| msgid "Save the current file"
 msgid "Save Document elsewhere"
@@ -742,7 +745,7 @@ msgstr ""
 #. Remove fake fields created by the vala parser.
 #: src/SymbolPane/C/CtagsSymbolOutline.vala:79
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:193
-#: src/SymbolPane/SymbolOutline.vala:127
+#: src/SymbolPane/SymbolOutline.vala:92
 msgid "Symbols"
 msgstr "Simbol"
 
@@ -764,65 +767,65 @@ msgstr ""
 msgid "Vala symbols found in %s"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:35
+#: src/SymbolPane/SymbolOutline.vala:23
 msgid "Class"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:37
+#: src/SymbolPane/SymbolOutline.vala:25
 msgid "Property"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:39
+#: src/SymbolPane/SymbolOutline.vala:27
 msgid "Signal"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:41
+#: src/SymbolPane/SymbolOutline.vala:29
 msgid "Method"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:43
+#: src/SymbolPane/SymbolOutline.vala:31
 msgid "Struct"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:45
+#: src/SymbolPane/SymbolOutline.vala:33
 msgid "Enum"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:47
+#: src/SymbolPane/SymbolOutline.vala:35
 msgid "Constant"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:49
+#: src/SymbolPane/SymbolOutline.vala:37
 msgid "Constructor"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:53
+#: src/SymbolPane/SymbolOutline.vala:41
 msgid "Namespace"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:55
+#: src/SymbolPane/SymbolOutline.vala:43
 #, fuzzy
 #| msgid "Others…"
 msgid "Other"
 msgstr "Lainnya…"
 
-#: src/SymbolPane/SymbolOutline.vala:131
+#: src/SymbolPane/SymbolOutline.vala:96
 #, fuzzy
 #| msgid "Symbols"
 msgid "Find Symbol"
 msgstr "Simbol"
 
-#: src/SymbolPane/SymbolOutline.vala:140
+#: src/SymbolPane/SymbolOutline.vala:105
 msgid "Filter symbol type"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:160
+#: src/SymbolPane/SymbolOutline.vala:125
 #, fuzzy
 #| msgid "Select Format"
 msgid "Select All"
 msgstr "Pilih Format"
 
-#: src/SymbolPane/SymbolOutline.vala:166
+#: src/SymbolPane/SymbolOutline.vala:131
 msgid "Deselect All"
 msgstr ""
 
@@ -848,40 +851,44 @@ msgstr "Buka Folder…"
 msgid "Clone Git Repository…"
 msgstr ""
 
+#: src/Widgets/DocumentView.vala:100 src/Application.vala:41
+msgid "New Tab"
+msgstr "Tab Baru"
+
 #: src/Widgets/DocumentView.vala:110
 #, fuzzy
 #| msgid "Close"
 msgid "Closed Tabs"
 msgstr "Tutup"
 
-#: src/Widgets/DocumentView.vala:450
+#: src/Widgets/DocumentView.vala:469
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Berkas teks dari %s:%d"
 
-#: src/Widgets/DocumentView.vala:613
+#: src/Widgets/DocumentView.vala:630
 msgid "Close Tabs to the Right"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:614
+#: src/Widgets/DocumentView.vala:631
 #, fuzzy
 #| msgid "Close Other Folders"
 msgid "Close Other Tabs"
 msgstr "Tutup Folder Lainnya"
 
-#: src/Widgets/DocumentView.vala:615
+#: src/Widgets/DocumentView.vala:632
 #, fuzzy
 #| msgid "Close"
 msgid "Close Tab"
 msgstr "Tutup"
 
-#: src/Widgets/DocumentView.vala:618
+#: src/Widgets/DocumentView.vala:635
 #, fuzzy
 #| msgid "New Window"
 msgid "Open in New Window"
 msgstr "Jendela Baru"
 
-#: src/Widgets/DocumentView.vala:619
+#: src/Widgets/DocumentView.vala:636
 #, fuzzy
 #| msgid "Save Duplicate…"
 msgid "Duplicate Tab"
@@ -925,13 +932,13 @@ msgstr "Tuju Baris:"
 msgid "Line number"
 msgstr "Nomor baris"
 
-#: src/Widgets/FormatBar.vala:295
+#: src/Widgets/FormatBar.vala:300
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d Spasi"
 
-#: src/Widgets/FormatBar.vala:297
+#: src/Widgets/FormatBar.vala:302
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -969,9 +976,17 @@ msgstr "Perbesar 1:1"
 msgid "Zoom In"
 msgstr "Perbesar"
 
+#: src/Widgets/HeaderBar.vala:117 src/MainWindow.vala:377
+msgid "Find on Page…"
+msgstr "Temukan pada Halaman…"
+
 #: src/Widgets/HeaderBar.vala:140
 msgid "Follow System Style"
 msgstr "Ikuti Gaya Sistem"
+
+#: src/Widgets/HeaderBar.vala:190 src/MainWindow.vala:421
+msgid "Show Terminal"
+msgstr "Tampilkan Terminal"
 
 #: src/Widgets/HeaderBar.vala:235
 msgid "Menu"
@@ -991,25 +1006,7 @@ msgstr ""
 msgid "Contrast"
 msgstr "Kontras Tinggi"
 
-#: src/Widgets/Sidebar.vala:54
-msgid "Cloning complete"
-msgstr ""
-
-#: src/Widgets/Sidebar.vala:82
-msgid "Collapse All"
-msgstr "Tutup Semua"
-
-#: src/Widgets/Sidebar.vala:91
-msgid "Keep Sorted"
-msgstr ""
-
-#: src/Widgets/Sidebar.vala:100
-#, fuzzy
-#| msgid "Manage project folders"
-msgid "Manage project folders…"
-msgstr "Kelola folder proyek"
-
-#: src/Widgets/SearchBar.vala:120
+#: src/Widgets/SearchBar.vala:119
 msgid "Find"
 msgstr "Temukan"
 
@@ -1017,21 +1014,17 @@ msgstr "Temukan"
 msgid "No Results"
 msgstr "Tidak Ada Hasil"
 
-#: src/Widgets/SearchBar.vala:135
+#: src/Widgets/SearchBar.vala:133
 msgid "Search next"
 msgstr "Cari selanjutnya"
 
-#: src/Widgets/SearchBar.vala:145
+#: src/Widgets/SearchBar.vala:144
 msgid "Search previous"
 msgstr "Cari sebelumnya"
 
 #: src/Widgets/SearchBar.vala:148
 msgid "Cyclic Search"
 msgstr "Pencarian Siklik"
-
-#: src/Widgets/SearchBar.vala:151 plugins/pastebin/pastebin_dialog.vala:477
-msgid "Never"
-msgstr "Jangan Pernah"
 
 #: src/Widgets/SearchBar.vala:152
 msgid "Mixed Case"
@@ -1057,60 +1050,109 @@ msgstr "Cocokkan Seluruh Kata"
 msgid "Search Options"
 msgstr "Opsi Pencarian"
 
-#: src/Widgets/SearchBar.vala:223
+#: src/Widgets/SearchBar.vala:233
 msgid "Replace With"
 msgstr "Ganti Dengan"
 
-#: src/Widgets/SearchBar.vala:226
+#: src/Widgets/SearchBar.vala:237
 msgid "Replace"
 msgstr "Ganti"
 
-#: src/Widgets/SearchBar.vala:229
+#: src/Widgets/SearchBar.vala:241
 msgid "Replace all"
 msgstr "Ganti semua"
 
-#: src/Widgets/SearchBar.vala:616
+#: src/Widgets/SearchBar.vala:559
 #, c-format
 msgid "%d of %d"
 msgstr "%d dari %d"
 
-#: src/Widgets/SearchBar.vala:621
+#: src/Widgets/SearchBar.vala:564
 msgid "no results"
 msgstr "tidak ada hasil"
 
-#: src/Widgets/SourceView.vala:204
+#: src/Widgets/Sidebar.vala:54
+msgid "Cloning complete"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:82
+msgid "Collapse All"
+msgstr "Tutup Semua"
+
+#: src/Widgets/Sidebar.vala:91
+msgid "Keep Sorted"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:100
+#, fuzzy
+#| msgid "Manage project folders"
+msgid "Manage project folders…"
+msgstr "Kelola folder proyek"
+
+#: src/Widgets/SourceView.vala:216
 #, fuzzy
 #| msgid "Sort Selected Lines"
 msgid "Sort Lines"
 msgstr "Urutkan Baris yang Dipilih"
 
-#: src/Widgets/SourceView.vala:205
+#: src/Widgets/SourceView.vala:217
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Mark Line"
 msgstr "Singkirkan Tinjauan Tertampil"
 
-#: src/Widgets/SourceView.vala:206
+#: src/Widgets/SourceView.vala:218
 #, fuzzy
 #| msgid "Previous Tab"
 msgid "Previous Mark"
 msgstr "Tab Sebelumnya"
 
-#: src/Widgets/SourceView.vala:207
+#: src/Widgets/SourceView.vala:219
 #, fuzzy
 #| msgid "Next Tab"
 msgid "Next Mark"
 msgstr "Tab Selanjutnya"
 
-#: src/Widgets/SourceView.vala:208
+#: src/Widgets/SourceView.vala:220
 msgid "Toggle Comment"
 msgstr "Munculkan Komentar"
 
-#: src/Widgets/Terminal.vala:134
+#: src/Widgets/SourceView.vala:221
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "Goto Matching Bracket"
+msgstr "Sorot tanda kurung yang cocok:"
+
+#: src/Widgets/SourceView.vala:905
+#, c-format
+msgid ""
+"A required bracket is missing or there is an extra bracket between lines %i "
+"and %i"
+msgstr ""
+
+#: src/Widgets/SourceView.vala:907
+#, fuzzy
+#| msgid "Save this file with a different name"
+msgid "Matching bracket has different indent"
+msgstr "Simpan berkas ini dengan nama yang berbeda"
+
+#: src/Widgets/SourceView.vala:907
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "No matching bracket found"
+msgstr "Sorot tanda kurung yang cocok:"
+
+#: src/Widgets/SourceView.vala:908
+#, fuzzy
+#| msgid "You may not have permission to read the file."
+msgid "You may need to adjust the indents"
+msgstr "Anda mungkin tidak memiliki izin untuk membaca berkasnya."
+
+#: src/Widgets/Terminal.vala:142
 msgid "Copy"
 msgstr "Salin"
 
-#: src/Widgets/Terminal.vala:135
+#: src/Widgets/Terminal.vala:143
 msgid "Paste"
 msgstr "Tempel"
 
@@ -1146,67 +1188,101 @@ msgstr "Buka Folder"
 msgid "Add a project folder to the sidebar."
 msgstr "Tambahkan sebuah folder proyek ke bilah sisi."
 
-#: plugins/pastebin/pastebin_dialog.vala:250
-#: plugins/pastebin/pastebin_dialog.vala:332 plugins/pastebin/pastebin.vala:139
-msgid "Upload to Pastebin"
-msgstr "Unggah ke Pastebin"
+#: src/Application.vala:43
+msgid "Print version info and exit"
+msgstr "Cetak info versi dan keluar"
 
-#: plugins/pastebin/pastebin_dialog.vala:259
-msgid "Name:"
-msgstr "Nama:"
+#: src/Application.vala:44
+msgid "Open file at specified selection range"
+msgstr "Buka berkas pada rentang pilihan yang ditentukan"
 
-#: plugins/pastebin/pastebin_dialog.vala:263
-msgid "Format:"
-msgstr "Format:"
+#: src/Application.vala:44
+msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
+msgstr "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
 
-#: plugins/pastebin/pastebin_dialog.vala:270
-msgid "Choose different format"
-msgstr "Pilih format berbeda"
+#: src/Application.vala:45
+msgid "[FILE…]"
+msgstr "[BERKAS...]"
 
-#: plugins/pastebin/pastebin_dialog.vala:292
-msgid "Expiration:"
-msgstr "Kadaluarsa:"
-
-#: plugins/pastebin/pastebin_dialog.vala:299
-msgid "Keep this paste private"
-msgstr "Jaga kerahasiaan tempelan ini"
-
-#: plugins/pastebin/pastebin_dialog.vala:358
-msgid "Available Formats"
-msgstr "Format Tersedia"
-
-#: plugins/pastebin/pastebin_dialog.vala:388
-msgid "Select Format"
-msgstr "Pilih Format"
-
-#: plugins/pastebin/pastebin_dialog.vala:478
-msgid "Ten minutes"
-msgstr "Sepuluh menit"
-
-#: plugins/pastebin/pastebin_dialog.vala:479
-msgid "One hour"
-msgstr "Satu jam"
-
-#: plugins/pastebin/pastebin_dialog.vala:480
-msgid "One day"
-msgstr "Satu hari"
-
-#: plugins/pastebin/pastebin_dialog.vala:481
-msgid "One month"
-msgstr "Satu bulan"
-
-#: plugins/spell/spell.vala:79
-msgid "No Suitable Dictionaries Were Found"
-msgstr "Tidak Ditemukan Kamus yang Cocok"
-
-#: plugins/spell/spell.vala:80
-msgid "Please install at least one [aspell] dictionary."
-msgstr "Harap pasang setidaknya satu kamus [aspell]."
-
-#: plugins/word-completion/plugin.vala:98
+#: src/MainWindow.vala:242
 #, c-format
-msgid "%s - Word Completion"
-msgstr "%s - Pelengkapan Kata"
+msgid "Code (%s)"
+msgstr "Kode (%s)"
+
+#: src/MainWindow.vala:244
+msgid "Code"
+msgstr "Kode"
+
+#: src/MainWindow.vala:372
+msgid "Hide search bar"
+msgstr "Sembunyikan bilah pencarian"
+
+#: src/MainWindow.vala:388
+msgid "Hide Projects Sidebar"
+msgstr "Sembunyikan Bilah Sisi Proyek"
+
+#: src/MainWindow.vala:393
+msgid "Show Projects Sidebar"
+msgstr "Tampilkan Bilah Sisi Proyek"
+
+#: src/MainWindow.vala:402
+msgid "Hide Symbol Outline"
+msgstr "Sembunyikan Simbol Garis Tepi Luar"
+
+#: src/MainWindow.vala:407
+msgid "Show Symbol Outline"
+msgstr "Tampikan Simbol Garis Tepi Luar"
+
+#: src/MainWindow.vala:416
+msgid "Hide Terminal"
+msgstr "Sembunyikan Terminal"
+
+#. Update MainWindow title
+#. / TRANSLATORS: First placeholder is document name, second placeholder is app name
+#: src/MainWindow.vala:603
+#, c-format
+msgid "%s - %s"
+msgstr "%s - %s"
+
+#: src/MainWindow.vala:981
+msgid "Open some files"
+msgstr "Buka beberapa berkas"
+
+#: src/MainWindow.vala:984
+msgid "Open"
+msgstr "Buka"
+
+#: src/MainWindow.vala:1026
+msgid "_Open"
+msgstr "_Buka"
+
+#: src/MainWindow.vala:1027
+msgid "_Cancel"
+msgstr "_Batal"
+
+#: src/MainWindow.vala:1097
+msgid "Cloning completed"
+msgstr ""
+
+#: src/MainWindow.vala:1098
+#, c-format
+msgid "Clone successfully created in %s"
+msgstr ""
+
+#: src/MainWindow.vala:1106
+#, c-format
+msgid "Unable to clone %s"
+msgstr ""
+
+#: src/MainWindow.vala:1114
+msgid "Retry"
+msgstr ""
+
+#. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
+#: src/Utils.vala:212
+#, c-format
+msgid "Show '%s' with default app"
+msgstr ""
 
 #, c-format
 #~ msgid "Create a new branch of “%s/%s”"
@@ -1215,17 +1291,11 @@ msgstr "%s - Pelengkapan Kata"
 #~ msgid "The branch name must be unique and follow Git naming rules."
 #~ msgstr "Nama cabang harus unik dan mengikuti aturan penamaan Git."
 
-#~ msgid "Create Branch"
-#~ msgstr "Buat Cabang"
-
 #~ msgid "Project templates"
 #~ msgstr "Templat proyek"
 
 #~ msgid "New Branch…"
 #~ msgstr "Cabang Baru…"
-
-#~ msgid "Branch"
-#~ msgstr "Cabang"
 
 #~ msgid "Alphabetize"
 #~ msgstr "Alfabetis"

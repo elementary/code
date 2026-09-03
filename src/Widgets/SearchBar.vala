@@ -1,23 +1,9 @@
 /*
- * Copyright (C) 2011-2012 Lucas Baudin <xapantu@gmail.com>
- *               2013      Mario Guerriero <mario@elementaryos.org>
-                 2014-2026 elementary, Inc. (https://elementary.io)
- *
- * This file is part of Code.
- *
- * Code is free software: you can redistribute it and/or modify it
- * under the terms of the GNU General Public License as published by the
- * Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Code is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+* SPDX-License-Identifier: GPL-3.0-or-later
+* SPDX-FileCopyrightText:  2014-2026 elementary, Inc. (https://elementary.io)
+*                          2013 Mario Guerriero <mario@elementaryos.org>
+*                          2011-2012 Lucas Baudin <xapantu@gmail.com>
+*/
 
 public enum Scratch.CaseSensitiveMode {
     NEVER,
@@ -25,637 +11,601 @@ public enum Scratch.CaseSensitiveMode {
     ALWAYS
 }
 
-namespace Scratch.Widgets {
-    public class SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayout Widget
+public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayout Widget
+    public weak MainWindow window { get; construct; }
 
-        public weak MainWindow window { get; construct; }
+    public bool is_focused {
+        get {
+            return search_entry.has_focus || replace_entry.has_focus;
+        }
+    }
 
-
-        private Gtk.Button tool_arrow_up;
-        private Gtk.Button tool_arrow_down;
-
-        /**
-         * Is the search cyclic? e.g., when you are at the bottom, if you press
-         * "Down", it will go at the start of the file to search for the content
-         * of the search entry.
-         **/
-        private Granite.SwitchModelButton cycle_search_button ;
-        private Gtk.ComboBoxText case_sensitive_search_button;
-        private Granite.SwitchModelButton regex_search_button;
-        private Granite.SwitchModelButton whole_word_search_button;
-        private Gtk.SearchEntry search_entry;
-        private Gtk.SearchEntry replace_entry;
-        private Gtk.Label search_occurence_count_label;
-        private Gtk.Button replace_tool_button;
-        private Gtk.Button replace_all_tool_button;
-        private Scratch.Widgets.SourceView? text_view = null;
-        private Gtk.TextBuffer? text_buffer = null;
-        private Gtk.SourceSearchContext? search_context;
-        private uint update_search_label_timeout_id = 0;
-        private Gtk.Revealer revealer;
-        private Gtk.EventControllerKey key_controller;
-
-        public bool is_focused {
-            get {
-                return search_is_focused || replace_is_focused;
+    public bool search_mode_enabled {
+        get {
+            return revealer.child_revealed;
+        }
+        set {
+            revealer.reveal_child = value;
+            // Clear entry when searchbar is hidden
+            if (!value) {
+                search_entry.text = "";
             }
         }
+    }
 
-        public bool search_is_focused {
-            get {
-                return search_entry.has_focus;
+    public string search_text {
+        get {
+            return search_entry.text;
+        }
+        set {
+            search_entry.text = value;
+        }
+    }
+
+    public uint search_occurrences {
+        get {
+             if (search_context == null ||
+                 search_context.settings.search_text == "") {
+
+                return 0;
+            } else {
+                return search_context.get_occurrences_count ();
             }
         }
+    }
 
-        public bool replace_is_focused {
-            get {
-                return replace_entry.has_focus;
-            }
-        }
+    public const string ACTION_GROUP = "find";
+    public const string ACTION_PREFIX = ACTION_GROUP + ".";
+    public const string ACTION_FIND_NEXT = "action-find-next";
+    public const string ACTION_FIND_PREVIOUS = "action-find-previous";
+    private const string ACTION_REPLACE = "replace";
+    private const string ACTION_REPLACE_ALL = "replace-all";
 
-        public bool is_revealed {
-            get {
-                return revealer.child_revealed;
-            }
-        }
+    /**
+     * Is the search cyclic? e.g., when you are at the bottom, if you press
+     * "Down", it will go at the start of the file to search for the content
+     * of the search entry.
+     **/
+    private Gtk.SearchEntry search_entry;
+    private Gtk.SearchEntry replace_entry;
+    private Granite.SwitchModelButton cycle_search_button;
+    private Gtk.Label search_occurence_count_label;
+    private Scratch.Widgets.SourceView? text_view = null;
+    private Gtk.TextBuffer? text_buffer = null;
+    private Gtk.SourceSearchContext? search_context;
+    private Gtk.SourceSearchSettings search_settings;
+    private uint update_search_label_timeout_id = 0;
+    private Gtk.Revealer revealer;
 
-        public string entry_text {
-            get {
-                return search_entry.text;
-            }
-        }
+    private SimpleAction find_next_action;
+    private SimpleAction find_previous_action;
+    private SimpleAction replace_action;
+    private SimpleAction replace_all_action;
 
-        public bool has_search_term {
-            get {
-                return search_entry.text != "";
-            }
-        }
+    public SearchBar (MainWindow window) {
+        Object (window: window);
+    }
 
-        public uint search_occurrences {
-            get {
-                 if (search_context == null ||
-                     search_context.settings.search_text == "") {
+    construct {
+        find_next_action = new SimpleAction (ACTION_FIND_NEXT, null);
+        find_next_action.activate.connect (action_find_next);
 
-                    return 0;
-                } else {
-                    return search_context.get_occurrences_count ();
-                }
-            }
-        }
+        find_previous_action = new SimpleAction (ACTION_FIND_PREVIOUS, null);
+        find_previous_action.activate.connect (action_find_previous);
 
-        public uint transition_time_msec {
-            get {
-                return revealer.transition_duration + 10;
-            }
-        }
+        replace_action = new SimpleAction (ACTION_REPLACE, null);
+        replace_action.activate.connect (action_replace);
 
-        public SearchBar (MainWindow window) {
-            Object (window: window);
-        }
+        replace_all_action = new SimpleAction (ACTION_REPLACE_ALL, null);
+        replace_all_action.activate.connect (action_replace_all);
 
-        construct {
-            this.orientation = HORIZONTAL;
-            search_entry = new Gtk.SearchEntry () {
-                hexpand = true,
-                placeholder_text = _("Find")
-            };
+        var action_group = new SimpleActionGroup ();
+        action_group.add_action (find_next_action);
+        action_group.add_action (find_previous_action);
+        action_group.add_action (replace_action);
+        action_group.add_action (replace_all_action);
 
-            search_occurence_count_label = new Gtk.Label (_("No Results"));
-            search_occurence_count_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
+        insert_action_group (ACTION_GROUP, action_group);
 
-            var app_instance = (Scratch.Application) GLib.Application.get_default ();
+        var app_instance = (Scratch.Application) GLib.Application.get_default ();
+        app_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FIND_NEXT, {"Down"});
+        app_instance.set_accels_for_action (ACTION_PREFIX + ACTION_FIND_PREVIOUS, {"<Shift>Return", "Up"});
 
-            tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-            tool_arrow_down.clicked.connect (search_next);
-            tool_arrow_down.sensitive = false;
-            tool_arrow_down.tooltip_markup = Granite.markup_accel_tooltip (
+        this.orientation = HORIZONTAL;
+        search_entry = new Gtk.SearchEntry () {
+            hexpand = true,
+            placeholder_text = _("Find"),
+            primary_icon_activatable = true,
+        };
+
+        search_occurence_count_label = new Gtk.Label (_("No Results"));
+        search_occurence_count_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
+
+        var tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic", SMALL_TOOLBAR) {
+            action_name = ACTION_PREFIX + ACTION_FIND_NEXT,
+            tooltip_markup = Granite.markup_accel_tooltip (
                 app_instance.get_accels_for_action (
-                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_NEXT
+                    // Accels for window, not accels for when this is focused
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_NEXT
                 ),
                 _("Search next")
-            );
+            )
+        };
 
-            tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-            tool_arrow_up.clicked.connect (search_previous);
-            tool_arrow_up.sensitive = false;
-            tool_arrow_up.tooltip_markup = Granite.markup_accel_tooltip (
+        var tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", SMALL_TOOLBAR) {
+            action_name = ACTION_PREFIX + ACTION_FIND_PREVIOUS,
+            tooltip_markup = Granite.markup_accel_tooltip (
                 app_instance.get_accels_for_action (
-                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_PREVIOUS
+                    // Accels for window, not accels for when this is focused
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND_PREVIOUS
                 ),
                 _("Search previous")
-            );
+            )
+        };
 
-            cycle_search_button = new Granite.SwitchModelButton (_("Cyclic Search"));
+        cycle_search_button = new Granite.SwitchModelButton (_("Cyclic Search"));
 
-            case_sensitive_search_button = new Gtk.ComboBoxText ();
-            case_sensitive_search_button.append ("never", _("Never"));
-            case_sensitive_search_button.append ("mixed", _("Mixed Case"));
-            case_sensitive_search_button.append ("always", _("Always"));
-            case_sensitive_search_button.active = 1;
+        var case_sensitive_search_button = new Gtk.ComboBoxText ();
+        case_sensitive_search_button.append ("never", _("Never"));
+        case_sensitive_search_button.append ("mixed", _("Mixed Case"));
+        case_sensitive_search_button.append ("always", _("Always"));
+        case_sensitive_search_button.active = 1;
 
-            var case_sensitive_search_label = new Gtk.Label (_("Case Sensitive"));
+        var case_sensitive_search_label = new Gtk.Label (_("Case Sensitive"));
 
-            var case_sensitive_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
-            case_sensitive_box.add (case_sensitive_search_label);
-            case_sensitive_box.add (case_sensitive_search_button);
-            case_sensitive_box.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+        var case_sensitive_box = new Gtk.Box (HORIZONTAL, 12);
+        case_sensitive_box.add (case_sensitive_search_label);
+        case_sensitive_box.add (case_sensitive_search_button);
+        case_sensitive_box.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
 
-            regex_search_button = new Granite.SwitchModelButton (_("Use Regular Expressions"));
-            whole_word_search_button = new Granite.SwitchModelButton (_("Match Whole Words"));
+        var regex_search_button = new Granite.SwitchModelButton (_("Use Regular Expressions"));
+        var whole_word_search_button = new Granite.SwitchModelButton (_("Match Whole Words"));
 
-            var search_option_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
-                margin_top = 3,
-                margin_bottom = 3
-            };
-            search_option_box.add (cycle_search_button);
-            search_option_box.add (case_sensitive_box);
-            search_option_box.add (whole_word_search_button);
-            search_option_box.add (regex_search_button);
+        var search_option_box = new Gtk.Box (VERTICAL, 0) {
+            margin_top = 3,
+            margin_bottom = 3
+        };
+        search_option_box.add (cycle_search_button);
+        search_option_box.add (case_sensitive_box);
+        search_option_box.add (whole_word_search_button);
+        search_option_box.add (regex_search_button);
 
-            var search_popover = new Gtk.Popover (null) {
-                child = search_option_box
-            };
-            search_popover.show_all ();
+        var search_popover = new Gtk.Popover (null) {
+            child = search_option_box
+        };
+        search_popover.show_all ();
 
-            var search_buttonbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
-            search_buttonbox.add (search_occurence_count_label);
-            search_buttonbox.add (new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.SMALL_TOOLBAR));
+        var search_buttonbox = new Gtk.Box (HORIZONTAL, 6);
+        search_buttonbox.add (search_occurence_count_label);
+        search_buttonbox.add (new Gtk.Image.from_icon_name ("pan-down-symbolic", SMALL_TOOLBAR));
 
-            var search_menubutton = new Gtk.MenuButton () {
-                popover = search_popover,
-                tooltip_text = _("Search Options")
-            };
-            search_menubutton.add (search_buttonbox);
+        var search_menubutton = new Gtk.MenuButton () {
+            popover = search_popover,
+            tooltip_text = _("Search Options")
+        };
+        search_menubutton.add (search_buttonbox);
 
-            cycle_search_button.toggled.connect (on_search_parameters_changed);
-            case_sensitive_search_button.changed.connect (on_search_parameters_changed);
-            whole_word_search_button.toggled.connect (on_search_parameters_changed);
-            regex_search_button.toggled.connect (on_search_parameters_changed);
+        var search_box = new Gtk.Box (HORIZONTAL, 0) {
+            margin_top = 3,
+            margin_end = 3,
+            margin_bottom = 3,
+            margin_start = 6
+        };
+        search_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+        search_box.add (search_entry);
+        search_box.add (tool_arrow_down);
+        search_box.add (tool_arrow_up);
+        search_box.add (search_menubutton);
 
-            Scratch.settings.bind ("cyclic-search", cycle_search_button, "active", SettingsBindFlags.DEFAULT);
-            Scratch.settings.bind ("wholeword-search", whole_word_search_button, "active", SettingsBindFlags.DEFAULT);
-            Scratch.settings.bind ("case-sensitive-search", case_sensitive_search_button, "active-id", SettingsBindFlags.DEFAULT);
-            Scratch.settings.bind ("regex-search", regex_search_button, "active", SettingsBindFlags.DEFAULT);
-            // These settings are ignored when regex searching
-            regex_search_button.bind_property ("active", cycle_search_button, "sensitive", SYNC_CREATE | INVERT_BOOLEAN);
-            regex_search_button.bind_property ("active", whole_word_search_button, "sensitive", SYNC_CREATE | INVERT_BOOLEAN);
-            regex_search_button.bind_property ("active", case_sensitive_search_label, "sensitive", SYNC_CREATE | INVERT_BOOLEAN);
-            regex_search_button.bind_property ("active", case_sensitive_search_button, "sensitive", SYNC_CREATE | INVERT_BOOLEAN);
+        var search_flow_box_child = new Gtk.FlowBoxChild ();
+        search_flow_box_child.can_focus = false;
+        search_flow_box_child.add (search_box);
 
-            var search_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
-                margin_top = 3,
-                margin_end = 3,
-                margin_bottom = 3,
-                margin_start = 6
-            };
-            search_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
-            search_box.add (search_entry);
-            search_box.add (tool_arrow_down);
-            search_box.add (tool_arrow_up);
-            search_box.add (search_menubutton);
+        replace_entry = new Gtk.SearchEntry () {
+            hexpand = true,
+            placeholder_text = _("Replace With"),
+            primary_icon_name = "edit-symbolic"
+        };
 
-            var search_flow_box_child = new Gtk.FlowBoxChild ();
-            search_flow_box_child.can_focus = false;
-            search_flow_box_child.add (search_box);
+        var replace_tool_button = new Gtk.Button.with_label (_("Replace")) {
+            action_name = ACTION_PREFIX + ACTION_REPLACE
+        };
 
-            replace_entry = new Gtk.SearchEntry ();
-            replace_entry.hexpand = true;
-            replace_entry.placeholder_text = _("Replace With");
-            replace_entry.set_icon_from_icon_name (Gtk.EntryIconPosition.PRIMARY, "edit-symbolic");
+        var replace_all_tool_button = new Gtk.Button.with_label (_("Replace all")) {
+            action_name = ACTION_PREFIX + ACTION_REPLACE_ALL
+        };
 
-            replace_tool_button = new Gtk.Button.with_label (_("Replace"));
-            replace_tool_button.clicked.connect (on_replace_entry_activate);
+        var replace_grid = new Gtk.Grid () {
+            margin_top = 3,
+            margin_end = 6,
+            margin_bottom = 3,
+            margin_start = 3
+        };
+        replace_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+        replace_grid.add (replace_entry);
+        replace_grid.add (replace_tool_button);
+        replace_grid.add (replace_all_tool_button);
 
-            replace_all_tool_button = new Gtk.Button.with_label (_("Replace all"));
-            replace_all_tool_button.clicked.connect (on_replace_all_entry_activate);
+        var replace_flow_box_child = new Gtk.FlowBoxChild ();
+        replace_flow_box_child.can_focus = false;
+        replace_flow_box_child.add (replace_grid);
 
-            var replace_grid = new Gtk.Grid () {
-                margin_top = 3,
-                margin_end = 6,
-                margin_bottom = 3,
-                margin_start = 3
-            };
-            replace_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
-            replace_grid.add (replace_entry);
-            replace_grid.add (replace_tool_button);
-            replace_grid.add (replace_all_tool_button);
+        search_settings = new Gtk.SourceSearchSettings ();
 
-            var replace_flow_box_child = new Gtk.FlowBoxChild ();
-            replace_flow_box_child.can_focus = false;
-            replace_flow_box_child.add (replace_grid);
+        // Bind some application settings
+        settings.bind ("case-sensitive-search", case_sensitive_search_button, "active-id", DEFAULT);
+        settings.bind ("cyclic-search", cycle_search_button, "active", DEFAULT);
+        settings.bind ("cyclic-search", search_settings, "wrap-around", DEFAULT);
+        settings.bind ("regex-search", regex_search_button, "active", DEFAULT);
+        settings.bind ("regex-search", search_settings, "regex-enabled", DEFAULT);
+        settings.bind ("wholeword-search", search_settings, "at-word-boundaries", DEFAULT);
+        settings.bind ("wholeword-search", whole_word_search_button, "active", DEFAULT);
 
-            // Connecting to some signals
-            search_entry.changed.connect (on_search_parameters_changed);
-            search_entry.notify["is-focus"].connect (() => {
-                if (search_entry.is_focus && text_buffer != null) {
-                    Idle.add (() => {
-                        update_search_widgets ();
-                        search_entry.select_region (0, -1);
-                        return Source.REMOVE;
-                    });
-                }
-            });
-            search_entry.icon_release.connect ((p0, p1) => {
-                if (p0 == Gtk.EntryIconPosition.PRIMARY) {
-                    search_next ();
-                }
-            });
-            replace_entry.activate.connect (on_replace_entry_activate);
+        // These settings are ignored when regex searching
+        settings.bind ("regex-search", cycle_search_button, "sensitive", INVERT_BOOLEAN);
+        settings.bind ("regex-search", whole_word_search_button, "sensitive", INVERT_BOOLEAN);
+        settings.bind ("regex-search", case_sensitive_search_button, "sensitive", INVERT_BOOLEAN);
+        settings.bind ("regex-search", case_sensitive_search_label, "sensitive", INVERT_BOOLEAN);
 
-            var flowbox = new Gtk.FlowBox () {
-                selection_mode = Gtk.SelectionMode.NONE,
-                column_spacing = 6,
-                max_children_per_line = 2
-            };
-            flowbox.get_style_context ().add_class ("search-bar");
-            flowbox.add (search_flow_box_child);
-            flowbox.add (replace_flow_box_child);
+        settings.changed.connect (on_settings_changed);
 
-            revealer = new Gtk.Revealer () {
-                child = flowbox,
-                reveal_child = false
-            };
-
-            add (revealer);
-            update_search_widgets ();
-
-            key_controller = new Gtk.EventControllerKey (window) {
-                propagation_phase = CAPTURE
-            };
-            key_controller.key_pressed.connect (on_key_pressed);
-        }
-
-        public void set_text_view (Scratch.Widgets.SourceView? text_view) {
-            if (this.text_view == text_view) {
-                // Do not needlessly recreate SearchContext - may interfere with ongoing search
-                return;
-            }
-
-            cancel_update_search_widgets ();
-            this.text_view = text_view;
-            if (text_view == null) {
-                warning ("No SourceView is associated with SearchManager!");
-                search_context = null;
-                return;
-            } else if (this.text_buffer != null) {
-                this.text_buffer.changed.disconnect (on_text_buffer_changed);
-            }
-
-            this.text_view = text_view;
-            this.text_buffer = text_view.get_buffer ();
-            this.text_buffer.changed.connect (on_text_buffer_changed);
-            this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
-            search_context.highlight = true; // There are no circumstances where we do not highlight
-            search_context.settings.wrap_around = cycle_search_button.active;
-            search_context.settings.regex_enabled = regex_search_button.active;
-            search_context.settings.search_text = search_entry.text;
-            on_text_buffer_changed ();
-        }
-
-        private void on_text_buffer_changed () {
-            update_search_widgets ();
-        }
-
-        private void on_replace_entry_activate () {
-            if (text_buffer == null) {
-                warning ("No valid buffer to replace");
-                return;
-            }
-
-            Gtk.TextIter? start_iter, end_iter;
-            text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
-
-            if (search_for_iter (start_iter, out end_iter)) {
-                string replace_string = replace_entry.text;
-                try {
-                    cancel_update_search_widgets ();
-                    search_context.replace (start_iter, end_iter, replace_string, replace_string.length);
+        // Connecting to some signals
+        search_entry.bind_property ("text", search_settings, "search-text", SYNC_CREATE);
+        search_entry.changed.connect (update_search_widgets);
+        search_entry.notify["is-focus"].connect (() => {
+            if (search_entry.is_focus && text_buffer != null) {
+                Idle.add (() => {
                     update_search_widgets ();
-                    debug ("Replaced \"%s\" with \"%s\"", search_entry.text, replace_entry.text);
-                } catch (Error e) {
-                    critical (e.message);
-                }
+                    search_entry.select_region (0, -1);
+                    return Source.REMOVE;
+                });
             }
+        });
+        search_entry.icon_release.connect ((p0, p1) => {
+            if (p0 == Gtk.EntryIconPosition.PRIMARY) {
+                action_find_next ();
+            }
+        });
+        search_entry.activate.connect (action_find_next);
+        replace_entry.activate.connect (action_replace);
+
+        var flowbox = new Gtk.FlowBox () {
+            selection_mode = Gtk.SelectionMode.NONE,
+            column_spacing = 6,
+            max_children_per_line = 2
+        };
+        flowbox.get_style_context ().add_class ("search-bar");
+        flowbox.add (search_flow_box_child);
+        flowbox.add (replace_flow_box_child);
+
+        revealer = new Gtk.Revealer () {
+            child = flowbox,
+            reveal_child = false
+        };
+
+        add (revealer);
+        update_search_widgets ();
+    }
+
+    public void set_text_view (Scratch.Widgets.SourceView? text_view) {
+        if (this.text_view == text_view) {
+            // Do not needlessly recreate SearchContext - may interfere with ongoing search
+            return;
         }
 
-        private void on_replace_all_entry_activate () {
-            if (text_buffer == null || this.window.get_current_document () == null) {
-                debug ("No valid buffer to replace");
-                return;
-            }
-
-            string replace_string = replace_entry.text;
-            this.window.get_current_document ().toggle_changed_handlers (false);
-            try {
-                cancel_update_search_widgets ();
-                search_context.replace_all (replace_string, replace_string.length);
-                update_search_widgets ();
-            } catch (Error e) {
-                critical (e.message);
-            }
-
-            this.window.get_current_document ().toggle_changed_handlers (true);
+        cancel_update_search_widgets ();
+        this.text_view = text_view;
+        if (text_view == null) {
+            warning ("No SourceView is associated with SearchManager!");
+            search_context = null;
+            return;
+        } else if (this.text_buffer != null) {
+            this.text_buffer.changed.disconnect (update_search_widgets);
         }
 
-        // Called when one of the settings buttons or the search term changes
-        private void on_search_parameters_changed () {
-            if (search_context != null) {
-                var search_string = search_entry.text;
-                search_context.settings.search_text = search_string;
-                var case_mode = (CaseSensitiveMode)(case_sensitive_search_button.active);
-                switch (case_mode) {
-                    case CaseSensitiveMode.NEVER:
-                        search_context.settings.case_sensitive = false;
-                        break;
-                    case CaseSensitiveMode.MIXED:
-                        search_context.settings.case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
-                        break;
-                    case CaseSensitiveMode.ALWAYS:
-                        search_context.settings.case_sensitive = true;
-                        break;
-                    default:
-                        assert_not_reached ();
-                }
+        this.text_view = text_view;
+        this.text_buffer = text_view.get_buffer ();
+        this.text_buffer.changed.connect (update_search_widgets);
+        search_context = new Gtk.SourceSearchContext ((Gtk.SourceBuffer) text_buffer, search_settings);
 
-                search_context.settings.at_word_boundaries = whole_word_search_button.active;
-                search_context.settings.regex_enabled = regex_search_button.active;
-            }
+        update_search_widgets ();
+    }
 
-            update_search_widgets ();
+    public bool search () {
+        search_entry.grab_focus ();
+        if (search_context == null || text_buffer == null || search_entry.text == "") {
+            return false;
         }
 
-        public bool search () {
-            search_entry.grab_focus ();
-            if (search_context == null || text_buffer == null || search_entry.text == "") {
-                return false;
-            }
+        Gtk.TextIter? start_iter, end_iter;
+        text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
 
-            Gtk.TextIter? start_iter, end_iter;
-            text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
-
+        if (search_for_iter (start_iter, out end_iter)) {
+            search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
+            search_entry.primary_icon_name = "edit-find-symbolic";
+        } else {
+            text_buffer.get_start_iter (out start_iter);
             if (search_for_iter (start_iter, out end_iter)) {
                 search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
                 search_entry.primary_icon_name = "edit-find-symbolic";
             } else {
+                debug ("Not found: \"%s\"", search_entry.text);
+                start_iter.set_offset (-1);
+                text_buffer.select_range (start_iter, start_iter);
+                search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
+                search_entry.primary_icon_name = "dialog-error-symbolic";
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public void action_find_previous () {
+        /* Get selection range */
+        Gtk.TextIter? start_iter, end_iter;
+        if (text_buffer != null) {
+            text_buffer.get_selection_bounds (out start_iter, out end_iter);
+            if (!search_for_iter_backward (start_iter, out end_iter) && settings.get_boolean ("cyclic-search")) {
+                text_buffer.get_end_iter (out start_iter);
+                search_for_iter_backward (start_iter, out end_iter);
+            }
+
+            update_search_widgets ();
+        }
+    }
+
+    public void action_find_next () {
+        /* Get selection range */
+        Gtk.TextIter? start_iter, end_iter, end_iter_tmp;
+        if (text_buffer != null) {
+            text_buffer.get_selection_bounds (out start_iter, out end_iter);
+            if (!search_for_iter (end_iter, out end_iter_tmp) && settings.get_boolean ("cyclic-search")) {
                 text_buffer.get_start_iter (out start_iter);
-                if (search_for_iter (start_iter, out end_iter)) {
-                    search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
-                    search_entry.primary_icon_name = "edit-find-symbolic";
-                } else {
-                    debug ("Not found: \"%s\"", search_entry.text);
-                    start_iter.set_offset (-1);
-                    text_buffer.select_range (start_iter, start_iter);
-                    search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
-                    search_entry.primary_icon_name = "dialog-error-symbolic";
-                    return false;
-                }
+                search_for_iter (start_iter, out end_iter);
             }
 
-            return true;
+            update_search_widgets ();
+        }
+    }
+
+    public void focus_search_entry () {
+        search_entry.grab_focus ();
+    }
+
+    public void focus_replace_entry () {
+        replace_entry.grab_focus ();
+    }
+
+    private void action_replace () {
+        if (text_buffer == null) {
+            warning ("No valid buffer to replace");
+            return;
         }
 
-        private bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
-            end_iter = start_iter;
+        Gtk.TextIter? start_iter, end_iter;
+        text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
 
-            if (search_context == null) {
-                critical ("Trying to search forwards with no search context");
-                return false;
-            }
-
-            bool has_wrapped_around;
-            bool found = search_context.forward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
-            if (found) {
-                text_buffer.select_range (start_iter, end_iter);
-                if (has_wrapped_around) {
-                    start_iter.backward_lines (3);
-                } else {
-                    start_iter.forward_lines (3);
-                }
-                text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
-            }
-
-            return found;
-        }
-
-        private bool search_for_iter_backward (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
-            end_iter = start_iter;
-
-            if (search_context == null) {
-                critical ("Trying to search backwards with no search context");
-                return false;
-            }
-
-            bool has_wrapped_around;
-            bool found = search_context.backward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
-            if (found) {
-                text_buffer.select_range (start_iter, end_iter);
-                if (has_wrapped_around) {
-                    start_iter.forward_lines (3);
-                } else {
-                    start_iter.backward_lines (3);
-                }
-                text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
-            }
-            return found;
-        }
-
-        public void search_previous () {
-            /* Get selection range */
-            Gtk.TextIter? start_iter, end_iter;
-            if (text_buffer != null) {
-                text_buffer.get_selection_bounds (out start_iter, out end_iter);
-                if (!search_for_iter_backward (start_iter, out end_iter) && cycle_search_button.active) {
-                    text_buffer.get_end_iter (out start_iter);
-                    search_for_iter_backward (start_iter, out end_iter);
-                }
-
+        if (search_for_iter (start_iter, out end_iter)) {
+            string replace_string = replace_entry.text;
+            try {
+                cancel_update_search_widgets ();
+                search_context.replace (start_iter, end_iter, replace_string, replace_string.length);
                 update_search_widgets ();
+                debug ("Replaced \"%s\" with \"%s\"", search_entry.text, replace_entry.text);
+            } catch (Error e) {
+                critical (e.message);
             }
         }
+    }
 
-        public void search_next () {
-            /* Get selection range */
-            Gtk.TextIter? start_iter, end_iter, end_iter_tmp;
-            if (text_buffer != null) {
-                text_buffer.get_selection_bounds (out start_iter, out end_iter);
-                if (!search_for_iter (end_iter, out end_iter_tmp) && cycle_search_button.active) {
-                    text_buffer.get_start_iter (out start_iter);
-                    search_for_iter (start_iter, out end_iter);
-                }
+    private void action_replace_all () {
+        if (text_buffer == null || this.window.get_current_document () == null) {
+            debug ("No valid buffer to replace");
+            return;
+        }
 
+        string replace_string = replace_entry.text;
+        this.window.get_current_document ().toggle_changed_handlers (false);
+        try {
+            cancel_update_search_widgets ();
+            search_context.replace_all (replace_string, replace_string.length);
+            update_search_widgets ();
+        } catch (Error e) {
+            critical (e.message);
+        }
+
+        this.window.get_current_document ().toggle_changed_handlers (true);
+    }
+
+    private void on_settings_changed (string key) {
+        switch (key) {
+            case "case-sensitive-search":
+            case "cyclic-search":
+            case "regex-search":
+            case "wholeword-search":
                 update_search_widgets ();
-            }
+                break;
+            default:
+                // Don't update widgets for non-search settings change
+                return;
         }
+    }
 
-        public void focus_search_entry () {
-            search_entry.grab_focus ();
-        }
-
-        public void focus_replace_entry () {
-            replace_entry.grab_focus ();
-        }
-
-        public void reveal (bool to_reveal) {
-            revealer.reveal_child = to_reveal;
-            // Clear entry when searchbar is hidden
-            if (is_revealed && !to_reveal) {
-                set_search_entry_text ("");
-            }
-        }
-
-        public void set_search_entry_text (string text) {
-            search_entry.text = text;
-        }
-
-        private bool on_key_pressed (uint keyval, uint keycode, Gdk.ModifierType state) {
-            if (!(search_is_focused || replace_is_focused)) {
-                return false;
-            }
-           /* We don't need to perform search if there is nothing to search... */
-            if (!has_search_term) {
-                return false;
-            }
-
-            string key = Gdk.keyval_name (keyval);
-            if (Gdk.ModifierType.SHIFT_MASK in state) {
-                key = "<Shift>" + key;
-            }
-
-            if (search_is_focused) {
-                switch (key) {
-                    case "<Shift>Return":
-                    case "Up":
-                        search_previous ();
-                        return true;
-                    case "Return":
-                    case "Down":
-                        search_next ();
-                        return true;
-                    case "Tab":
-                        focus_replace_entry ();
-                        return true;
-                }
-            } else {
-                switch (Gdk.keyval_name (keyval)) {
-                    case "Up":
-                        search_previous ();
-                        return true;
-                    case "Down":
-                        search_next ();
-                        return true;
-                    case "Tab":
-                        focus_search_entry ();
-                        return true;
-                }
-
-                return false;
-            }
-
+    private bool has_matches () {
+        if (text_buffer == null || search_entry.text == "") {
             return false;
         }
 
-        private void cancel_update_search_widgets () {
-            if (update_search_label_timeout_id > 0) {
-                Source.remove (update_search_label_timeout_id);
-                update_search_label_timeout_id = 0;
+        bool has_wrapped_around;
+        Gtk.TextIter? start_iter, end_iter;
+        text_buffer.get_start_iter (out start_iter);
+        return search_context.forward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
+    }
+
+    private bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
+        end_iter = start_iter;
+
+        if (search_context == null) {
+            critical ("Trying to search forwards with no search context");
+            return false;
+        }
+
+        bool has_wrapped_around;
+        bool found = search_context.forward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
+        if (found) {
+            text_buffer.select_range (start_iter, end_iter);
+            if (has_wrapped_around) {
+                start_iter.backward_lines (3);
+            } else {
+                start_iter.forward_lines (3);
             }
+            text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
         }
 
-        // Update search occurrence label, tool arrows and replace buttons in sync
-        private void update_search_widgets () {
-            cancel_update_search_widgets ();
-            update_search_label_timeout_id = Timeout.add (100, () => {
-                update_search_label_timeout_id = 0;
-                if (search_context == null) {
-                    debug ("update occurrence with null context");
-                    replace_tool_button.sensitive = false;
-                    replace_all_tool_button.sensitive = false;
-                    tool_arrow_up.sensitive = false;
-                    tool_arrow_down.sensitive = false;
-                    return Source.REMOVE;
-                }
+        return found;
+    }
 
-                Gtk.TextIter? iter, start_iter, end_iter;
-                text_buffer.get_iter_at_offset (out iter, text_buffer.cursor_position);
+    private bool search_for_iter_backward (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
+        end_iter = start_iter;
 
-                int count_of_search = search_context.get_occurrences_count ();
+        if (search_context == null) {
+            critical ("Trying to search backwards with no search context");
+            return false;
+        }
 
-                int location_of_search = 0;
-                bool found = search_context.forward (iter, out start_iter, out end_iter, null);
-                if (count_of_search > 0 && found) {
-                    location_of_search = search_context.get_occurrence_position (start_iter, end_iter);
-                }
+        bool has_wrapped_around;
+        bool found = search_context.backward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
+        if (found) {
+            text_buffer.select_range (start_iter, end_iter);
+            if (has_wrapped_around) {
+                start_iter.forward_lines (3);
+            } else {
+                start_iter.backward_lines (3);
+            }
+            text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
+        }
+        return found;
+    }
 
-                if (count_of_search > -1) {
-                    if (count_of_search > 0) {
-                        search_occurence_count_label.label = _("%d of %d").printf (
-                            location_of_search,
-                            count_of_search
-                        );
-                    } else {
-                        search_occurence_count_label.label = _("no results");
-                    }
-                }
+    private void cancel_update_search_widgets () {
+        if (update_search_label_timeout_id > 0) {
+            Source.remove (update_search_label_timeout_id);
+            update_search_label_timeout_id = 0;
+        }
+    }
 
-                replace_tool_button.sensitive = location_of_search > 0;
-                replace_all_tool_button.sensitive = count_of_search > 0;
-
-                // Update tool arrows
-                if (text_buffer == null ||
-                    search_entry.text == "" ||
-                    count_of_search == 0) {
-
-                    tool_arrow_up.sensitive = false;
-                    tool_arrow_down.sensitive = false;
-                } else {
-                    if (cycle_search_button.active) {
-                        tool_arrow_down.sensitive = true;
-                        tool_arrow_up.sensitive =true;
-                    } else {
-                        Gtk.TextIter? tmp_start_iter, tmp_end_iter;
-
-                        bool is_in_start, is_in_end;
-
-                        text_buffer.get_start_iter (out tmp_start_iter);
-                        text_buffer.get_end_iter (out tmp_end_iter);
-
-                        text_buffer.get_selection_bounds (out start_iter, out end_iter);
-
-                        is_in_start = start_iter.compare (tmp_start_iter) == 0;
-                        is_in_end = end_iter.compare (tmp_end_iter) == 0;
-
-                        if (!is_in_end) {
-                            tool_arrow_down.sensitive = search_context.forward (
-                                end_iter, out tmp_start_iter, out tmp_end_iter, null
-                            );
-                        } else {
-                            tool_arrow_down.sensitive = false;
-                        }
-
-                        if (!is_in_start) {
-                            tool_arrow_up.sensitive = search_context.backward (
-                                start_iter, out tmp_start_iter, out end_iter, null
-                            );
-                        } else {
-                            tool_arrow_up.sensitive = false;
-                        }
-                    }
-                }
-
-                // Update appearance of search entry
-                var ctx = search_entry.get_style_context ();
-
-                if (search_entry.text != "" && count_of_search == 0) {
-                    ctx.add_class (Gtk.STYLE_CLASS_ERROR);
-                    search_entry.primary_icon_name = "dialog-error-symbolic";
-                } else if (ctx.has_class (Gtk.STYLE_CLASS_ERROR)) {
-                    ctx.remove_class (Gtk.STYLE_CLASS_ERROR);
-                    search_entry.primary_icon_name = "edit-find-symbolic";
-                }
-
+    // Update search occurrence label, tool arrows and replace buttons in sync
+    private void update_search_widgets () {
+        cancel_update_search_widgets ();
+        update_search_label_timeout_id = Timeout.add (100, () => {
+            update_search_label_timeout_id = 0;
+            if (search_context == null) {
+                debug ("update occurrence with null context");
+                replace_action.set_enabled (false);
+                replace_all_action.set_enabled (false);
+                find_next_action.set_enabled (false);
+                find_previous_action.set_enabled (false);
                 return Source.REMOVE;
-            });
+            }
 
-        }
+            Gtk.TextIter? iter, start_iter, end_iter;
+            text_buffer.get_iter_at_offset (out iter, text_buffer.cursor_position);
+
+            int count_of_search = search_context.get_occurrences_count ();
+
+            int location_of_search = 0;
+            bool found = search_context.forward (iter, out start_iter, out end_iter, null);
+            if (count_of_search > 0 && found) {
+                location_of_search = search_context.get_occurrence_position (start_iter, end_iter);
+            }
+
+            if (count_of_search > -1) {
+                if (count_of_search > 0) {
+                    search_occurence_count_label.label = _("%d of %d").printf (
+                        location_of_search,
+                        count_of_search
+                    );
+                } else {
+                    search_occurence_count_label.label = _("no results");
+                }
+            }
+
+            replace_action.set_enabled (location_of_search > 0);
+            replace_all_action.set_enabled (count_of_search > 0);
+
+            // Update tool arrows
+            if (text_buffer == null ||
+                search_entry.text == "" ||
+                count_of_search == 0) {
+
+                find_previous_action.set_enabled (false);
+                find_next_action.set_enabled (false);
+            } else {
+                if (cycle_search_button.active) {
+                    find_next_action.set_enabled (true);
+                    find_previous_action.set_enabled (true);
+                } else {
+                    Gtk.TextIter? tmp_start_iter, tmp_end_iter;
+
+                    bool is_in_start, is_in_end;
+
+                    text_buffer.get_start_iter (out tmp_start_iter);
+                    text_buffer.get_end_iter (out tmp_end_iter);
+
+                    text_buffer.get_selection_bounds (out start_iter, out end_iter);
+
+                    is_in_start = start_iter.compare (tmp_start_iter) == 0;
+                    is_in_end = end_iter.compare (tmp_end_iter) == 0;
+
+                    if (!is_in_end) {
+                        find_next_action.set_enabled (search_context.forward (
+                            end_iter, out tmp_start_iter, out tmp_end_iter, null
+                        ));
+                    } else {
+                        find_next_action.set_enabled (false);
+                    }
+
+                    if (!is_in_start) {
+                        find_previous_action.set_enabled (search_context.backward (
+                            start_iter, out tmp_start_iter, out end_iter, null
+                        ));
+                    } else {
+                        find_next_action.set_enabled (false);
+                    }
+                }
+            }
+
+            switch (settings.get_enum ("case-sensitive-search")) {
+                case CaseSensitiveMode.NEVER:
+                    search_settings.case_sensitive = false;
+                    break;
+                case CaseSensitiveMode.MIXED:
+                    search_settings.case_sensitive = !(
+                        search_entry.text.up () == search_entry.text ||
+                        search_entry.text.down () == search_entry.text
+                    );
+                    break;
+                case CaseSensitiveMode.ALWAYS:
+                    search_settings.case_sensitive = true;
+                    break;
+                default:
+                    assert_not_reached ();
+            }
+
+            // Update appearance of search entry
+            var ctx = search_entry.get_style_context ();
+
+            if (search_entry.text != "" && count_of_search == 0) {
+                ctx.add_class (Gtk.STYLE_CLASS_ERROR);
+                search_entry.primary_icon_name = "dialog-error-symbolic";
+            } else if (ctx.has_class (Gtk.STYLE_CLASS_ERROR)) {
+                ctx.remove_class (Gtk.STYLE_CLASS_ERROR);
+                search_entry.primary_icon_name = "edit-find-symbolic";
+            }
+
+            search_entry.primary_icon_sensitive = !ctx.has_class (Gtk.STYLE_CLASS_ERROR);
+            return Source.REMOVE;
+        });
     }
 }

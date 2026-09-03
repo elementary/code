@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-03 14:41+0000\n"
+"POT-Creation-Date: 2026-08-29 16:05+0000\n"
 "PO-Revision-Date: 2025-09-11 00:55+0000\n"
 "Last-Translator: JieXu <xujie0739@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
@@ -20,133 +20,161 @@ msgstr ""
 "X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-#: src/Application.vala:41 src/Widgets/DocumentView.vala:100
-msgid "New Tab"
-msgstr "新标签页"
+#: plugins/FuzzySearch/FuzzySearch.vala:91
+#, fuzzy
+#| msgid "Find in Project…"
+msgid "Find Project Files"
+msgstr "在项目中查找…"
 
-#: src/Application.vala:42 src/FolderManager/FileItem.vala:85
-msgid "New Window"
-msgstr "新窗口"
+#: plugins/FuzzySearch/FuzzySearchPopover.vala:44
+#, fuzzy
+#| msgid "Filter projects"
+msgid "Find project files"
+msgstr "筛选项目"
 
-#: src/Application.vala:43
-msgid "Print version info and exit"
-msgstr "打印版本信息并退出"
+#: plugins/pastebin/pastebin.vala:139 plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:332
+msgid "Upload to Pastebin"
+msgstr "上传到 Pastebin"
 
-#: src/Application.vala:44
-msgid "Open file at specified selection range"
-msgstr "打开文件中指定的选择范围"
+#: plugins/pastebin/pastebin_dialog.vala:259
+msgid "Name:"
+msgstr "名称："
 
-#: src/Application.vala:44
-msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
-msgstr ""
+#: plugins/pastebin/pastebin_dialog.vala:263
+msgid "Format:"
+msgstr "格式："
 
-#: src/Application.vala:45
-msgid "[FILE…]"
-msgstr "[文件…]"
+#: plugins/pastebin/pastebin_dialog.vala:270
+msgid "Choose different format"
+msgstr "选择不同格式"
 
-#: src/MainWindow.vala:240
-#, c-format
-msgid "Code (%s)"
-msgstr "代码 (%s)"
+#: plugins/pastebin/pastebin_dialog.vala:292
+msgid "Expiration:"
+msgstr "过期时间："
 
-#: src/MainWindow.vala:242
-msgid "Code"
-msgstr "代码"
+#: plugins/pastebin/pastebin_dialog.vala:299
+msgid "Keep this paste private"
+msgstr "保持该粘帖为私有"
 
-#: src/MainWindow.vala:370
-msgid "Hide search bar"
-msgstr "隐藏搜索栏"
-
-#: src/MainWindow.vala:375 src/Widgets/HeaderBar.vala:117
-msgid "Find on Page…"
-msgstr "在页面内查找…"
-
-#: src/MainWindow.vala:386
-msgid "Hide Projects Sidebar"
-msgstr "隐藏项目侧边栏"
-
-#: src/MainWindow.vala:391
-msgid "Show Projects Sidebar"
-msgstr "显示项目侧边栏"
-
-#: src/MainWindow.vala:400
-msgid "Hide Symbol Outline"
-msgstr "隐藏符号大纲"
-
-#: src/MainWindow.vala:405
-msgid "Show Symbol Outline"
-msgstr "显示符号大纲"
-
-#: src/MainWindow.vala:414
-msgid "Hide Terminal"
-msgstr "隐藏终端"
-
-#: src/MainWindow.vala:419 src/Widgets/HeaderBar.vala:190
-msgid "Show Terminal"
-msgstr "显示终端"
-
-#. Update MainWindow title
-#. / TRANSLATORS: First placeholder is document name, second placeholder is app name
-#: src/MainWindow.vala:600
-#, c-format
-msgid "%s - %s"
-msgstr "%s - %s"
-
-#: src/MainWindow.vala:953 src/Services/Document.vala:723
-msgid "All files"
-msgstr "所有文件"
-
-#: src/MainWindow.vala:957 src/Services/Document.vala:727
-msgid "Text files"
-msgstr "文本文件"
-
-#: src/MainWindow.vala:961
-msgid "Open some files"
-msgstr "打开一些文件"
-
-#: src/MainWindow.vala:964
-msgid "Open"
-msgstr "打开"
-
-#: src/MainWindow.vala:965 src/Dialogs/CloneRepositoryDialog.vala:58
-#: src/Dialogs/CloneRepositoryDialog.vala:97
-#: src/Dialogs/GlobalSearchDialog.vala:87 src/Services/Document.vala:526
-#: src/Services/Document.vala:735 plugins/pastebin/pastebin_dialog.vala:331
+#: plugins/pastebin/pastebin_dialog.vala:331
 #: plugins/pastebin/pastebin_dialog.vala:386
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:59
+#: src/Dialogs/CloneRepositoryDialog.vala:58
+#: src/Dialogs/CloneRepositoryDialog.vala:97
+#: src/Dialogs/GlobalSearchDialog.vala:87 src/Services/Document.vala:529
+#: src/Services/Document.vala:738 src/MainWindow.vala:985
 msgid "Cancel"
 msgstr "取消"
 
-#: src/MainWindow.vala:1011
-msgid "_Open"
-msgstr "打开(_O)"
+#: plugins/pastebin/pastebin_dialog.vala:358
+msgid "Available Formats"
+msgstr "可用格式"
 
-#: src/MainWindow.vala:1012
-msgid "_Cancel"
-msgstr "取消(_C)"
+#: plugins/pastebin/pastebin_dialog.vala:388
+msgid "Select Format"
+msgstr "选择格式"
 
-#: src/MainWindow.vala:1082
-msgid "Cloning completed"
+#: plugins/pastebin/pastebin_dialog.vala:444
+#: src/Dialogs/PreferencesDialog.vala:176
+msgid "Close"
+msgstr "关闭"
+
+#: plugins/pastebin/pastebin_dialog.vala:483 src/Widgets/SearchBar.vala:151
+msgid "Never"
+msgstr "从不"
+
+#: plugins/pastebin/pastebin_dialog.vala:484
+msgid "Ten minutes"
+msgstr "十分钟"
+
+#: plugins/pastebin/pastebin_dialog.vala:485
+msgid "One hour"
+msgstr "一小时"
+
+#: plugins/pastebin/pastebin_dialog.vala:486
+msgid "One day"
+msgstr "一天"
+
+#: plugins/pastebin/pastebin_dialog.vala:487
+msgid "One month"
+msgstr "一月"
+
+#: plugins/spell/spell.vala:79
+msgid "No Suitable Dictionaries Were Found"
+msgstr "未找到合适的词典"
+
+#: plugins/spell/spell.vala:80
+msgid "Please install at least one [aspell] dictionary."
+msgstr "请安装至少一个 [aspell] 词典。"
+
+#: plugins/word-completion/plugin.vala:98
+#, c-format
+msgid "%s - Word Completion"
+msgstr "%s - 词语补全"
+
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:61
+#, c-format
+msgid "Perform branch action on project '%s'"
 msgstr ""
 
-#: src/MainWindow.vala:1083
-#, c-format
-msgid "Clone successfully created in %s"
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:68
+msgid "Apply"
 msgstr ""
 
-#: src/MainWindow.vala:1091
-#, c-format
-msgid "Unable to clone %s"
-msgstr "无法克隆 %s"
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:75
+msgid "Checkout"
+msgstr ""
 
-#: src/MainWindow.vala:1099
-msgid "Retry"
-msgstr "重试"
+#. scan all children
+#. No need to show status when children shown
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:76
+#: src/FolderManager/FolderItem.vala:245
+#: src/FolderManager/ProjectFolderItem.vala:328
+#: src/FolderManager/ProjectFolderItem.vala:334
+msgid "New"
+msgstr "新建"
 
-#. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
-#: src/Utils.vala:212
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:89
 #, c-format
-msgid "Show '%s' with default app"
-msgstr "用默认应用程序来打开 '%s'"
+msgid "'%s' is not a git repository"
+msgstr ""
+
+#: src/Dialogs/BranchActions/BranchActionDialog.vala:92
+msgid "Unable to perform branch actions"
+msgstr ""
+
+#: src/Dialogs/BranchActions/BranchCreatePage.vala:44
+msgid "Name of branch to create"
+msgstr ""
+
+#: src/Dialogs/BranchActions/BranchCreatePage.vala:47
+msgid "Enter new branch name"
+msgstr ""
+
+#: src/Dialogs/BranchActions/BranchListBox.vala:50
+#, fuzzy
+#| msgid "Hide search bar"
+msgid "Enter search term"
+msgstr "隐藏搜索栏"
+
+#: src/Dialogs/BranchActions/BranchListBox.vala:53
+#, fuzzy
+#| msgid "Create Branch"
+msgid "Recent Branches"
+msgstr "创建分支"
+
+#: src/Dialogs/BranchActions/BranchListBox.vala:54
+#, fuzzy
+#| msgid "Branch"
+msgid "Local Branches"
+msgstr "分支"
+
+#: src/Dialogs/BranchActions/BranchListBox.vala:55
+#, fuzzy
+#| msgid "Create Branch"
+msgid "Remote Branches"
+msgstr "创建分支"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
@@ -191,6 +219,37 @@ msgstr ""
 msgid "Cloning in progress"
 msgstr ""
 
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
+msgid "This folder is the parent of an open project"
+msgid_plural "This folder is the parent of open projects"
+msgstr[0] ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:47
+msgid "Opening this folder will close the child project"
+msgid_plural "Opening this folder will close all child projects"
+msgstr[0] ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:53
+msgid "Close Child Project"
+msgid_plural "Close Child Projects"
+msgstr[0] ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
+msgid "This folder is a child of an open project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
+msgid "Opening this folder will close the parent project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:60
+msgid "Close Parent Project"
+msgstr ""
+
+#: src/Dialogs/CloseProjectsConfirmationDialog.vala:63
+msgid "Don't Open"
+msgstr "不要打开"
+
 #: src/Dialogs/GlobalSearchDialog.vala:63
 #, fuzzy
 #| msgid "The search term must be at least 3 characters long."
@@ -221,6 +280,31 @@ msgstr "搜索字段最低长度为3个字符。"
 #: src/Dialogs/GlobalSearchDialog.vala:89
 msgid "Search"
 msgstr "搜索"
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
+#, fuzzy
+#| msgid "There are unsaved changes in Scratch!"
+msgid "There are uncommitted changes in the current branch"
+msgstr "Scratch 中有未保存的更改！"
+
+#. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
+#, c-format
+msgid ""
+"Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
+"now.\n"
+"\n"
+"<i>It is recommended that uncommitted changes are stashed, committed, or "
+"reverted before proceeding.</i>"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
+msgid "Do not Checkout"
+msgstr ""
+
+#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
+msgid "Checkout and Overwrite"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:15 src/Widgets/HeaderBar.vala:212
 msgid "Preferences"
@@ -348,18 +432,13 @@ msgstr "字体"
 msgid "Behavior"
 msgstr "行为"
 
-#: src/Dialogs/PreferencesDialog.vala:154 src/SymbolPane/SymbolOutline.vala:51
+#: src/Dialogs/PreferencesDialog.vala:154 src/SymbolPane/SymbolOutline.vala:39
 msgid "Interface"
 msgstr "界面"
 
 #: src/Dialogs/PreferencesDialog.vala:170 src/Services/PluginManager.vala:111
 msgid "Extensions"
 msgstr "扩展"
-
-#: src/Dialogs/PreferencesDialog.vala:176
-#: plugins/pastebin/pastebin_dialog.vala:444
-msgid "Close"
-msgstr "关闭"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Are You Sure You Want to Restore This File?"
@@ -377,62 +456,6 @@ msgstr "停止恢复"
 msgid "Restore Anyway"
 msgstr "仍然恢复"
 
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:41
-msgid "This folder is the parent of an open project"
-msgid_plural "This folder is the parent of open projects"
-msgstr[0] ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:47
-msgid "Opening this folder will close the child project"
-msgid_plural "Opening this folder will close all child projects"
-msgstr[0] ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:53
-msgid "Close Child Project"
-msgid_plural "Close Child Projects"
-msgstr[0] ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:58
-msgid "This folder is a child of an open project"
-msgstr ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:59
-msgid "Opening this folder will close the parent project"
-msgstr ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:60
-msgid "Close Parent Project"
-msgstr ""
-
-#: src/Dialogs/CloseProjectsConfirmationDialog.vala:63
-msgid "Don't Open"
-msgstr "不要打开"
-
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:40
-#, fuzzy
-#| msgid "There are unsaved changes in Scratch!"
-msgid "There are uncommitted changes in the current branch"
-msgstr "Scratch 中有未保存的更改！"
-
-#. /TRANSLATORS '%s' is a placeholder for the name of the branch to be checked out
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:42
-#, c-format
-msgid ""
-"Uncommitted changes will be permanently lost if <b>'%s'</b> is checked out "
-"now.\n"
-"\n"
-"<i>It is recommended that uncommitted changes are stashed, committed, or "
-"reverted before proceeding.</i>"
-msgstr ""
-
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:44
-msgid "Do not Checkout"
-msgstr ""
-
-#: src/Dialogs/OverwriteUncommittedConfirmationDialog.vala:45
-msgid "Checkout and Overwrite"
-msgstr ""
-
 #: src/FolderManager/FileItem.vala:49 src/FolderManager/FolderItem.vala:156
 msgid "Other Actions"
 msgstr "其它动作"
@@ -444,6 +467,10 @@ msgstr "重命名"
 #: src/FolderManager/FileItem.vala:65 src/FolderManager/FolderItem.vala:138
 msgid "Move to Trash"
 msgstr "移至回收站"
+
+#: src/FolderManager/FileItem.vala:85 src/Application.vala:42
+msgid "New Window"
+msgstr "新窗口"
 
 #: src/FolderManager/FileItem.vala:98 src/FolderManager/FolderItem.vala:186
 msgid "Other Application…"
@@ -480,14 +507,6 @@ msgstr ""
 #: src/FolderManager/FolderItem.vala:241
 msgid "Templates"
 msgstr "模板"
-
-#. scan all children
-#. No need to show status when children shown
-#: src/FolderManager/FolderItem.vala:245
-#: src/FolderManager/ProjectFolderItem.vala:328
-#: src/FolderManager/ProjectFolderItem.vala:334
-msgid "New"
-msgstr "新建"
 
 #: src/FolderManager/FolderItem.vala:546
 msgid "untitled folder"
@@ -553,96 +572,104 @@ msgid "Error while creating new branch: “%s”"
 msgstr "创建新分支： “%s” 时发生错误"
 
 #. Empty files are valid text files
-#: src/Services/Document.vala:419
+#: src/Services/Document.vala:422
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s 不是文本文件"
 
-#: src/Services/Document.vala:420
+#: src/Services/Document.vala:423
 msgid "Code will not load this type of file."
 msgstr "无法打开此类型文件。"
 
-#: src/Services/Document.vala:422
+#: src/Services/Document.vala:425
 msgid "Load Anyway"
 msgstr "仍然载入"
 
-#: src/Services/Document.vala:443
+#: src/Services/Document.vala:446
 #, c-format
 msgid "Loading File “%s” Is Taking a Long Time"
 msgstr "载入文件 “%s” 花费的时间较长"
 
-#: src/Services/Document.vala:444
+#: src/Services/Document.vala:447
 msgid "Please wait while Code is loading the file."
 msgstr "请耐心等待文件载入。"
 
-#: src/Services/Document.vala:446
+#: src/Services/Document.vala:449
 msgid "Cancel Loading"
 msgstr "取消载入"
 
-#: src/Services/Document.vala:514
+#: src/Services/Document.vala:517
 #, c-format
 msgid "Save changes to “%s” before closing?"
 msgstr "关闭前保存数据到 “%s” 吗？"
 
-#: src/Services/Document.vala:515
+#: src/Services/Document.vala:518
 msgid "If you don't save, changes will be permanently lost."
 msgstr "若不保存，变更的内容将永久丢失。"
 
-#: src/Services/Document.vala:523
+#: src/Services/Document.vala:526
 msgid "Close Without Saving"
 msgstr "关闭且不保存"
 
-#: src/Services/Document.vala:527 src/Services/Document.vala:734
+#: src/Services/Document.vala:530 src/Services/Document.vala:737
 msgid "Save"
 msgstr "保存"
 
-#: src/Services/Document.vala:693
+#: src/Services/Document.vala:696
 #, c-format
 msgid "Saving to “%s” failed."
 msgstr "保存数据到 “%s” 失败。"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:726 src/MainWindow.vala:973
+msgid "All files"
+msgstr "所有文件"
+
+#: src/Services/Document.vala:730 src/MainWindow.vala:977
+msgid "Text files"
+msgstr "文本文件"
+
+#: src/Services/Document.vala:734
 msgid "Save File"
 msgstr "保存文件"
 
-#: src/Services/Document.vala:825 src/Services/Document.vala:843
+#: src/Services/Document.vala:828 src/Services/Document.vala:846
 msgid "New Document"
 msgstr "新文件"
 
 #. No path for a new document
-#: src/Services/Document.vala:845
+#: src/Services/Document.vala:848
 #, c-format
 msgid "Cannot save this document to %s"
 msgstr "无法将该文档保存至 %s"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:936
+#: src/Services/Document.vala:939
 #, c-format
 msgid "Cannot read text in file “%s”"
 msgstr "无法读取文件“%s”中的文本"
 
-#: src/Services/Document.vala:939
+#: src/Services/Document.vala:942
 msgid "You may not have permission to read the file."
 msgstr "您可能没有读取该文件的权限。"
 
-#: src/Services/Document.vala:941
+#: src/Services/Document.vala:944
 msgid "The file may be corrupt or may not be a text file"
 msgstr "该文件可能已经损坏，或者不是文本文件"
 
 #. Lack of read permission results in empty content string. Do not give option to open
 #. in new document in that case.
-#: src/Services/Document.vala:947
+#: src/Services/Document.vala:950
 msgid "Show Anyway"
 msgstr "仍然显示"
 
-#: src/Services/Document.vala:978
+#: src/Services/Document.vala:981
 #, c-format
 msgid ""
 "The location containing the file “%s” was unmounted and there are unsaved "
 "changes."
 msgstr "文件 “%s” 所在位置已被取消挂载，且仍有未保存更改。"
 
-#: src/Services/Document.vala:980
+#: src/Services/Document.vala:983
 #, fuzzy, c-format
 #| msgid "File “%s” was deleted and there are unsaved changes."
 msgid "File “%s” was deleted, renamed or moved and there are unsaved changes."
@@ -650,52 +677,52 @@ msgstr "文件 “%s” 已被删除，且仍有未保存更改。"
 
 #. Check external changes after loading
 #. The file has become unwritable while changes are pending
-#: src/Services/Document.vala:994
+#: src/Services/Document.vala:997
 #, c-format
 msgid "File “%s” does not have write permission."
 msgstr "文件 “%s” 没有写入权限。"
 
-#: src/Services/Document.vala:1044
+#: src/Services/Document.vala:1047
 #, c-format
 msgid "File “%s” was modified by an external application"
 msgstr "文件 “%s” 的内容已被其他外部程序更改"
 
-#: src/Services/Document.vala:1049
+#: src/Services/Document.vala:1052
 msgid ""
 "There are also unsaved changes. Reloading the document will overwrite the "
 "unsaved changes."
 msgstr "您仍有未保存的更改。重新载入本文档会覆盖未保存的更改。"
 
-#: src/Services/Document.vala:1053
+#: src/Services/Document.vala:1056
 msgid "The document changed externally since you last saved it."
 msgstr "在你上次保存后，该文档已被外部程序更改。"
 
-#: src/Services/Document.vala:1069
+#: src/Services/Document.vala:1072
 #, c-format
 msgid "“%s” can't be saved here. Save a duplicate somewhere else?"
 msgstr "“%s” 无法在此处保存。是否将该文件的副本保存到其他地方？"
 
-#: src/Services/Document.vala:1079
+#: src/Services/Document.vala:1082
 msgid "Ignore"
 msgstr "忽略"
 
-#: src/Services/Document.vala:1081
+#: src/Services/Document.vala:1084
 msgid "Save Duplicate…"
 msgstr "保存副本…"
 
-#: src/Services/Document.vala:1130
+#: src/Services/Document.vala:1133
 msgid "Continue"
 msgstr "继续"
 
-#: src/Services/Document.vala:1132
+#: src/Services/Document.vala:1135
 msgid "Reload"
 msgstr "重新载入"
 
-#: src/Services/Document.vala:1135
+#: src/Services/Document.vala:1138
 msgid "Overwrite"
 msgstr "覆写"
 
-#: src/Services/Document.vala:1138
+#: src/Services/Document.vala:1141
 msgid "Save Document elsewhere"
 msgstr "保存当前文件到其他文件夹"
 
@@ -722,7 +749,7 @@ msgstr ""
 #. Remove fake fields created by the vala parser.
 #: src/SymbolPane/C/CtagsSymbolOutline.vala:79
 #: src/SymbolPane/Vala/ValaSymbolOutline.vala:193
-#: src/SymbolPane/SymbolOutline.vala:127
+#: src/SymbolPane/SymbolOutline.vala:92
 msgid "Symbols"
 msgstr "符号"
 
@@ -743,59 +770,59 @@ msgstr ""
 msgid "Vala symbols found in %s"
 msgstr "未找到符号"
 
-#: src/SymbolPane/SymbolOutline.vala:35
+#: src/SymbolPane/SymbolOutline.vala:23
 msgid "Class"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:37
+#: src/SymbolPane/SymbolOutline.vala:25
 msgid "Property"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:39
+#: src/SymbolPane/SymbolOutline.vala:27
 msgid "Signal"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:41
+#: src/SymbolPane/SymbolOutline.vala:29
 msgid "Method"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:43
+#: src/SymbolPane/SymbolOutline.vala:31
 msgid "Struct"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:45
+#: src/SymbolPane/SymbolOutline.vala:33
 msgid "Enum"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:47
+#: src/SymbolPane/SymbolOutline.vala:35
 msgid "Constant"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:49
+#: src/SymbolPane/SymbolOutline.vala:37
 msgid "Constructor"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:53
+#: src/SymbolPane/SymbolOutline.vala:41
 msgid "Namespace"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:55
+#: src/SymbolPane/SymbolOutline.vala:43
 msgid "Other"
 msgstr "其它"
 
-#: src/SymbolPane/SymbolOutline.vala:131
+#: src/SymbolPane/SymbolOutline.vala:96
 msgid "Find Symbol"
 msgstr "寻找符号"
 
-#: src/SymbolPane/SymbolOutline.vala:140
+#: src/SymbolPane/SymbolOutline.vala:105
 msgid "Filter symbol type"
 msgstr ""
 
-#: src/SymbolPane/SymbolOutline.vala:160
+#: src/SymbolPane/SymbolOutline.vala:125
 msgid "Select All"
 msgstr "选择全部"
 
-#: src/SymbolPane/SymbolOutline.vala:166
+#: src/SymbolPane/SymbolOutline.vala:131
 msgid "Deselect All"
 msgstr ""
 
@@ -821,32 +848,36 @@ msgstr "打开文件夹…"
 msgid "Clone Git Repository…"
 msgstr ""
 
+#: src/Widgets/DocumentView.vala:100 src/Application.vala:41
+msgid "New Tab"
+msgstr "新标签页"
+
 #: src/Widgets/DocumentView.vala:110
 msgid "Closed Tabs"
 msgstr "已关闭的标签页"
 
-#: src/Widgets/DocumentView.vala:450
+#: src/Widgets/DocumentView.vala:469
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "来自 %s:%d 的文本文档"
 
-#: src/Widgets/DocumentView.vala:613
+#: src/Widgets/DocumentView.vala:630
 msgid "Close Tabs to the Right"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:614
+#: src/Widgets/DocumentView.vala:631
 msgid "Close Other Tabs"
 msgstr "关闭其他标签页"
 
-#: src/Widgets/DocumentView.vala:615
+#: src/Widgets/DocumentView.vala:632
 msgid "Close Tab"
 msgstr "关闭标签页"
 
-#: src/Widgets/DocumentView.vala:618
+#: src/Widgets/DocumentView.vala:635
 msgid "Open in New Window"
 msgstr "在新窗口打开"
 
-#: src/Widgets/DocumentView.vala:619
+#: src/Widgets/DocumentView.vala:636
 msgid "Duplicate Tab"
 msgstr "创建标签页副本"
 
@@ -888,13 +919,13 @@ msgstr "跳转至："
 msgid "Line number"
 msgstr "行号"
 
-#: src/Widgets/FormatBar.vala:295
+#: src/Widgets/FormatBar.vala:300
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d 空格"
 
-#: src/Widgets/FormatBar.vala:297
+#: src/Widgets/FormatBar.vala:302
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
@@ -932,9 +963,17 @@ msgstr "原始大小"
 msgid "Zoom In"
 msgstr "放大"
 
+#: src/Widgets/HeaderBar.vala:117 src/MainWindow.vala:377
+msgid "Find on Page…"
+msgstr "在页面内查找…"
+
 #: src/Widgets/HeaderBar.vala:140
 msgid "Follow System Style"
 msgstr "跟随系统样式"
+
+#: src/Widgets/HeaderBar.vala:190 src/MainWindow.vala:421
+msgid "Show Terminal"
+msgstr "显示终端"
 
 #: src/Widgets/HeaderBar.vala:235
 msgid "Menu"
@@ -954,25 +993,7 @@ msgstr ""
 msgid "Contrast"
 msgstr "高对比度"
 
-#: src/Widgets/Sidebar.vala:54
-msgid "Cloning complete"
-msgstr ""
-
-#: src/Widgets/Sidebar.vala:82
-msgid "Collapse All"
-msgstr "全部折叠"
-
-#: src/Widgets/Sidebar.vala:91
-msgid "Keep Sorted"
-msgstr ""
-
-#: src/Widgets/Sidebar.vala:100
-#, fuzzy
-#| msgid "Manage project folders"
-msgid "Manage project folders…"
-msgstr "管理项目文件夹"
-
-#: src/Widgets/SearchBar.vala:120
+#: src/Widgets/SearchBar.vala:119
 msgid "Find"
 msgstr "查找"
 
@@ -980,21 +1001,17 @@ msgstr "查找"
 msgid "No Results"
 msgstr "无结果"
 
-#: src/Widgets/SearchBar.vala:135
+#: src/Widgets/SearchBar.vala:133
 msgid "Search next"
 msgstr "下一个"
 
-#: src/Widgets/SearchBar.vala:145
+#: src/Widgets/SearchBar.vala:144
 msgid "Search previous"
 msgstr "上一个"
 
 #: src/Widgets/SearchBar.vala:148
 msgid "Cyclic Search"
 msgstr "循环搜索"
-
-#: src/Widgets/SearchBar.vala:151 plugins/pastebin/pastebin_dialog.vala:477
-msgid "Never"
-msgstr "从不"
 
 #: src/Widgets/SearchBar.vala:152
 msgid "Mixed Case"
@@ -1020,60 +1037,109 @@ msgstr "匹配整词"
 msgid "Search Options"
 msgstr "搜索选项"
 
-#: src/Widgets/SearchBar.vala:223
+#: src/Widgets/SearchBar.vala:233
 msgid "Replace With"
 msgstr "替换为"
 
-#: src/Widgets/SearchBar.vala:226
+#: src/Widgets/SearchBar.vala:237
 msgid "Replace"
 msgstr "替换"
 
-#: src/Widgets/SearchBar.vala:229
+#: src/Widgets/SearchBar.vala:241
 msgid "Replace all"
 msgstr "全部替换"
 
-#: src/Widgets/SearchBar.vala:616
+#: src/Widgets/SearchBar.vala:559
 #, c-format
 msgid "%d of %d"
 msgstr "%d/%d"
 
-#: src/Widgets/SearchBar.vala:621
+#: src/Widgets/SearchBar.vala:564
 msgid "no results"
 msgstr "无结果"
 
-#: src/Widgets/SourceView.vala:204
+#: src/Widgets/Sidebar.vala:54
+msgid "Cloning complete"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:82
+msgid "Collapse All"
+msgstr "全部折叠"
+
+#: src/Widgets/Sidebar.vala:91
+msgid "Keep Sorted"
+msgstr ""
+
+#: src/Widgets/Sidebar.vala:100
+#, fuzzy
+#| msgid "Manage project folders"
+msgid "Manage project folders…"
+msgstr "管理项目文件夹"
+
+#: src/Widgets/SourceView.vala:216
 #, fuzzy
 #| msgid "Sort Selected Lines"
 msgid "Sort Lines"
 msgstr "整理选中文本"
 
-#: src/Widgets/SourceView.vala:205
+#: src/Widgets/SourceView.vala:217
 #, fuzzy
 #| msgid "Remove Current View"
 msgid "Mark Line"
 msgstr "删除此视图"
 
-#: src/Widgets/SourceView.vala:206
+#: src/Widgets/SourceView.vala:218
 #, fuzzy
 #| msgid "Previous Tab"
 msgid "Previous Mark"
 msgstr "上一个标签"
 
-#: src/Widgets/SourceView.vala:207
+#: src/Widgets/SourceView.vala:219
 #, fuzzy
 #| msgid "Next Tab"
 msgid "Next Mark"
 msgstr "下一个标签"
 
-#: src/Widgets/SourceView.vala:208
+#: src/Widgets/SourceView.vala:220
 msgid "Toggle Comment"
 msgstr "激活备注"
 
-#: src/Widgets/Terminal.vala:134
+#: src/Widgets/SourceView.vala:221
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "Goto Matching Bracket"
+msgstr "高亮匹配括号："
+
+#: src/Widgets/SourceView.vala:905
+#, c-format
+msgid ""
+"A required bracket is missing or there is an extra bracket between lines %i "
+"and %i"
+msgstr ""
+
+#: src/Widgets/SourceView.vala:907
+#, fuzzy
+#| msgid "Save this file with a different name"
+msgid "Matching bracket has different indent"
+msgstr "另存为"
+
+#: src/Widgets/SourceView.vala:907
+#, fuzzy
+#| msgid "Highlight matching brackets:"
+msgid "No matching bracket found"
+msgstr "高亮匹配括号："
+
+#: src/Widgets/SourceView.vala:908
+#, fuzzy
+#| msgid "You may not have permission to read the file."
+msgid "You may need to adjust the indents"
+msgstr "您可能没有读取该文件的权限。"
+
+#: src/Widgets/Terminal.vala:142
 msgid "Copy"
 msgstr "复制"
 
-#: src/Widgets/Terminal.vala:135
+#: src/Widgets/Terminal.vala:143
 msgid "Paste"
 msgstr "粘贴"
 
@@ -1109,67 +1175,101 @@ msgstr "打开文件夹"
 msgid "Add a project folder to the sidebar."
 msgstr "侧边栏新建项目文件夹。"
 
-#: plugins/pastebin/pastebin_dialog.vala:250
-#: plugins/pastebin/pastebin_dialog.vala:332 plugins/pastebin/pastebin.vala:139
-msgid "Upload to Pastebin"
-msgstr "上传到 Pastebin"
+#: src/Application.vala:43
+msgid "Print version info and exit"
+msgstr "打印版本信息并退出"
 
-#: plugins/pastebin/pastebin_dialog.vala:259
-msgid "Name:"
-msgstr "名称："
+#: src/Application.vala:44
+msgid "Open file at specified selection range"
+msgstr "打开文件中指定的选择范围"
 
-#: plugins/pastebin/pastebin_dialog.vala:263
-msgid "Format:"
-msgstr "格式："
+#: src/Application.vala:44
+msgid "<START_LINE[.START_COLUMN][-END_LINE[.END_COLUMN]]>"
+msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:270
-msgid "Choose different format"
-msgstr "选择不同格式"
+#: src/Application.vala:45
+msgid "[FILE…]"
+msgstr "[文件…]"
 
-#: plugins/pastebin/pastebin_dialog.vala:292
-msgid "Expiration:"
-msgstr "过期时间："
-
-#: plugins/pastebin/pastebin_dialog.vala:299
-msgid "Keep this paste private"
-msgstr "保持该粘帖为私有"
-
-#: plugins/pastebin/pastebin_dialog.vala:358
-msgid "Available Formats"
-msgstr "可用格式"
-
-#: plugins/pastebin/pastebin_dialog.vala:388
-msgid "Select Format"
-msgstr "选择格式"
-
-#: plugins/pastebin/pastebin_dialog.vala:478
-msgid "Ten minutes"
-msgstr "十分钟"
-
-#: plugins/pastebin/pastebin_dialog.vala:479
-msgid "One hour"
-msgstr "一小时"
-
-#: plugins/pastebin/pastebin_dialog.vala:480
-msgid "One day"
-msgstr "一天"
-
-#: plugins/pastebin/pastebin_dialog.vala:481
-msgid "One month"
-msgstr "一月"
-
-#: plugins/spell/spell.vala:79
-msgid "No Suitable Dictionaries Were Found"
-msgstr "未找到合适的词典"
-
-#: plugins/spell/spell.vala:80
-msgid "Please install at least one [aspell] dictionary."
-msgstr "请安装至少一个 [aspell] 词典。"
-
-#: plugins/word-completion/plugin.vala:98
+#: src/MainWindow.vala:242
 #, c-format
-msgid "%s - Word Completion"
-msgstr "%s - 词语补全"
+msgid "Code (%s)"
+msgstr "代码 (%s)"
+
+#: src/MainWindow.vala:244
+msgid "Code"
+msgstr "代码"
+
+#: src/MainWindow.vala:372
+msgid "Hide search bar"
+msgstr "隐藏搜索栏"
+
+#: src/MainWindow.vala:388
+msgid "Hide Projects Sidebar"
+msgstr "隐藏项目侧边栏"
+
+#: src/MainWindow.vala:393
+msgid "Show Projects Sidebar"
+msgstr "显示项目侧边栏"
+
+#: src/MainWindow.vala:402
+msgid "Hide Symbol Outline"
+msgstr "隐藏符号大纲"
+
+#: src/MainWindow.vala:407
+msgid "Show Symbol Outline"
+msgstr "显示符号大纲"
+
+#: src/MainWindow.vala:416
+msgid "Hide Terminal"
+msgstr "隐藏终端"
+
+#. Update MainWindow title
+#. / TRANSLATORS: First placeholder is document name, second placeholder is app name
+#: src/MainWindow.vala:603
+#, c-format
+msgid "%s - %s"
+msgstr "%s - %s"
+
+#: src/MainWindow.vala:981
+msgid "Open some files"
+msgstr "打开一些文件"
+
+#: src/MainWindow.vala:984
+msgid "Open"
+msgstr "打开"
+
+#: src/MainWindow.vala:1026
+msgid "_Open"
+msgstr "打开(_O)"
+
+#: src/MainWindow.vala:1027
+msgid "_Cancel"
+msgstr "取消(_C)"
+
+#: src/MainWindow.vala:1097
+msgid "Cloning completed"
+msgstr ""
+
+#: src/MainWindow.vala:1098
+#, c-format
+msgid "Clone successfully created in %s"
+msgstr ""
+
+#: src/MainWindow.vala:1106
+#, c-format
+msgid "Unable to clone %s"
+msgstr "无法克隆 %s"
+
+#: src/MainWindow.vala:1114
+msgid "Retry"
+msgstr "重试"
+
+#. /TRANSLATORS '%s' represents the quoted basename of a uri to be opened with the default app
+#: src/Utils.vala:212
+#, c-format
+msgid "Show '%s' with default app"
+msgstr "用默认应用程序来打开 '%s'"
 
 #, c-format
 #~ msgid "Create a new branch of “%s/%s”"
@@ -1177,9 +1277,6 @@ msgstr "%s - 词语补全"
 
 #~ msgid "The branch name must be unique and follow Git naming rules."
 #~ msgstr "分支名称不能与其他分支相同，且必须遵循 Git 的命名规则。"
-
-#~ msgid "Create Branch"
-#~ msgstr "创建分支"
 
 #~ msgid "Project templates"
 #~ msgstr "项目模板"
@@ -1189,9 +1286,6 @@ msgstr "%s - 词语补全"
 
 #~ msgid "New Branch…"
 #~ msgstr "新分支…"
-
-#~ msgid "Branch"
-#~ msgstr "分支"
 
 #~ msgid "Alphabetize"
 #~ msgstr "字母顺序"
