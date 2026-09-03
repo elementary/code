@@ -432,18 +432,15 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
             case "case-sensitive-search":
                 switch (settings.get_enum ("case-sensitive-search")) {
                     case CaseSensitiveMode.NEVER:
-                        warning ("NEVER");
                         search_settings.case_sensitive = false;
                         break;
                     case CaseSensitiveMode.MIXED:
-                        warning ("MIXED");
                         search_settings.case_sensitive = !(
                             search_entry.text.up () == search_entry.text ||
                             search_entry.text.down () == search_entry.text
                         );
                         break;
                     case CaseSensitiveMode.ALWAYS:
-                        warning ("ALWAYS");
                         search_settings.case_sensitive = true;
                         break;
                     default:
