@@ -430,6 +430,25 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
     private void on_settings_changed (string key) {
         switch (key) {
             case "case-sensitive-search":
+                switch (settings.get_enum ("case-sensitive-search")) {
+                    case CaseSensitiveMode.NEVER:
+                        search_settings.case_sensitive = false;
+                        break;
+                    case CaseSensitiveMode.MIXED:
+                        search_settings.case_sensitive = !(
+                            search_entry.text.up () == search_entry.text ||
+                            search_entry.text.down () == search_entry.text
+                        );
+                        break;
+                    case CaseSensitiveMode.ALWAYS:
+                        search_settings.case_sensitive = true;
+                        break;
+                    default:
+                        assert_not_reached ();
+                }
+
+                update_search_widgets ();
+                break;
             case "cyclic-search":
             case "regex-search":
             case "wholeword-search":
@@ -583,23 +602,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
                         find_next_action.set_enabled (false);
                     }
                 }
-            }
-
-            switch (settings.get_enum ("case-sensitive-search")) {
-                case CaseSensitiveMode.NEVER:
-                    search_settings.case_sensitive = false;
-                    break;
-                case CaseSensitiveMode.MIXED:
-                    search_settings.case_sensitive = !(
-                        search_entry.text.up () == search_entry.text ||
-                        search_entry.text.down () == search_entry.text
-                    );
-                    break;
-                case CaseSensitiveMode.ALWAYS:
-                    search_settings.case_sensitive = true;
-                    break;
-                default:
-                    assert_not_reached ();
             }
 
             // Update appearance of search entry
