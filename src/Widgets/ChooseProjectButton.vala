@@ -13,6 +13,7 @@ public class Code.ChooseProjectButton : Gtk.Bin {
     private Gtk.SearchEntry project_filter;
     private ListStore project_liststore;
     private Scratch.Services.GitManager git_manager;
+    private Gtk.MenuButton menu_button;
 
     public signal void project_chosen ();
 
@@ -101,15 +102,17 @@ public class Code.ChooseProjectButton : Gtk.Bin {
             child = popover_content
         };
 
-        var menu_button = new Gtk.MenuButton () {
+        menu_button = new Gtk.MenuButton () {
             child = box,
             popover = project_popover
         };
 
         child = menu_button;
 
-        git_manager.notify["active-project-path"].connect (update_active_project);
-        update_active_project ();
+        git_manager.notify["active-project-path"].connect (menu_button.popover.popdown);
+        menu_button.clicked.connect (update_active_project);
+
+        update_active_project (); // Needed to update the menubutton label
     }
 
     private bool filter_func (Scratch.FolderManager.ProjectFolderItem project) {
@@ -154,6 +157,7 @@ public class Code.ChooseProjectButton : Gtk.Bin {
 
         construct {
             can_focus = true;
+            activatable = true;
             action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT;
             action_target = new Variant.string (project_path);
 
@@ -168,7 +172,7 @@ public class Code.ChooseProjectButton : Gtk.Bin {
                 button = 0
             };
             button_controller.released.connect (() => {
-                activate ();
+                activate (); // This activates the *action* (no "row-activated" signal sent)
             });
 
             show_all ();
@@ -176,6 +180,7 @@ public class Code.ChooseProjectButton : Gtk.Bin {
 
         public void update_active (string active_path) {
             check_button.active = active_path == project_path;
+            warning ("update active path %s - active %s", active_path, check_button.active.to_string ());
         }
     }
 }
