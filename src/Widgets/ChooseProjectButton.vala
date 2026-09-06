@@ -113,12 +113,6 @@ public class Code.ChooseProjectButton : Gtk.Bin {
         update_active_project (); // Needed to update the menubutton label
     }
 
-    private bool filter_func (Scratch.FolderManager.ProjectFolderItem project) {
-        var project_name = Path.get_basename (project.path);
-        //Both are lowercased so that the case doesn't matter when comparing.
-        return project_name.down ().contains (project_filter.text.down ().strip ());
-    }
-
     // Set appearance (only) of project chooser button and list according to active path
     private void update_active_project () {
         unowned var active_path = git_manager.active_project_path;
