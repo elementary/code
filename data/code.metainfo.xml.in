@@ -68,18 +68,28 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
-   <release version="8.3.3" date="2026-09-14" urgency="medium">
+   <release version="8.4.0" date="2026-09-14" urgency="medium">
      <description>
+       <p>New features:</p>
+       <ul>
+        <li>The font size in the terminal pane can now be changed independently of the document font size</li>
+        <li>The Close Other Tabs action now has the shortcut Shift + Ctrl + W </li>
+       </ul>
        <p>Minor updates:</p>
        <ul>
          <li>The syntax is now correctly displayed in the format bar when the document is first opened</li>
          <li>Opening a document from the command line with the `-g` option now scrolls to the selected range</li>
          <li>When entering an ordered list in markdown mode, inserted lines are now indented and numbered correctly </li>
+         <li>Several shortcuts are no longer intercepted by the main window when the terminal is focused </li>
          <li>Updated translations</li>
        </ul>
      </description>
      <issues>
       <issue url="https://github.com/elementary/code/issues/1475">Appending and inserting with indented ordered lists not handled correctly</issue>
+      <issue url="https://github.com/elementary/code/issues/1492">Independent font size for terminal</issue>
+      <issue url="https://github.com/elementary/code/issues/1612">Ctrl + R is intercepted when using the terminal pane</issue>
+      <issue url="https://github.com/elementary/code/issues/1658">Ctrl + U does not clear current line in embedded terminal</issue>
+      <issue url="https://github.com/elementary/code/issues/1658">Ctrl + K is intercepted when using e.g. nano in terminal pane</issue>
       <issue url="https://github.com/elementary/code/issues/1703">Document opened with range does not scroll to show selected range</issue>
       <issue url="https://github.com/elementary/code/issues/1798">Language shown in format bar incorrect when document first opened</issue>
      </issues>
