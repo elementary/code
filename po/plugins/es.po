@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-03 14:41+0000\n"
-"PO-Revision-Date: 2026-02-09 14:43+0000\n"
+"POT-Creation-Date: 2026-08-29 16:05+0000\n"
+"PO-Revision-Date: 2026-09-01 17:01+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
 "Language-Team: Spanish <https://l10n.elementaryos.org/projects/code/plugins/"
 "es/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:5
 msgid "Brackets Completion"
@@ -43,11 +43,11 @@ msgstr "EditorConfig"
 msgid "Load settings from an EditorConfig file"
 msgstr "Cargar configuraciones desde un archivo EditorConfig"
 
-#: plugins/fuzzy-search/fuzzy-search.plugin:5
+#: plugins/FuzzySearch/fuzzy-search.plugin:5
 msgid "Find Project Files"
-msgstr "Buscar archivos en proyecto"
+msgstr "Buscar en el proyecto"
 
-#: plugins/fuzzy-search/fuzzy-search.plugin:6
+#: plugins/FuzzySearch/fuzzy-search.plugin:6
 msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
 msgstr ""
 "Búsqueda aproximada de archivos en todos los proyectos abiertos (desplegar "

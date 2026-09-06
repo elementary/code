@@ -152,6 +152,12 @@
       <summary>Preferred Font</summary>
       <description>Set the preferred font.</description>
     </key>
+    <key name="terminal-fontscale" type="d">
+      <range min="0.5" max="2.0"/>
+      <default>1.0</default>
+      <summary>Terminal pane font scale</summary>
+      <description>The system terminal font is scaled by this factor in the terminal pane </description>
+    </key>
     <key name="style-scheme" type="s">
       <default>'elementary-light'</default>
       <summary>Preferred Style Scheme</summary>

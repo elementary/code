@@ -23,31 +23,27 @@ namespace Scratch.Services {
         public ListStore project_liststore { get; private set; }
         public string active_project_path { get; set; default = "";}
 
-        static Gee.HashMap<string, MonitoredRepository> project_gitrepo_map;
-        static GitManager? instance;
+        private static Once<GitManager> instance;
+        private Gee.HashMap<string, MonitoredRepository> project_gitrepo_map;
 
-        static construct {
-            Ggit.init ();
-            instance = null;
-            project_gitrepo_map = new Gee.HashMap<string, MonitoredRepository> ();
-        }
 
-        public static MonitoredRepository? get_monitored_repository (string root_path) {
-            return project_gitrepo_map[root_path];
-        }
 
-        public static GitManager get_instance () {
-            if (instance == null) {
-                instance = new GitManager ();
-            }
 
-            return instance;
-        }
 
         construct {
             // Used to populate the ChooseProject popover in sorted order
+            Ggit.init ();
+            project_gitrepo_map = new Gee.HashMap<string, MonitoredRepository> ();
             project_liststore = new ListStore (typeof (FolderManager.ProjectFolderItem));
             settings.bind ("active-project-path", this, "active-project-path", DEFAULT);
+        }
+
+        public static GitManager get_instance () {
+            return instance.once (() => new GitManager ());
+        }
+
+        public MonitoredRepository? get_monitored_repository (string root_path) {
+            return project_gitrepo_map[root_path];
         }
 
         public MonitoredRepository? add_project (FolderManager.ProjectFolderItem root_folder) {

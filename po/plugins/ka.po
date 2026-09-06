@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-03 14:41+0000\n"
-"PO-Revision-Date: 2026-04-19 00:13+0000\n"
+"POT-Creation-Date: 2026-08-29 16:05+0000\n"
+"PO-Revision-Date: 2026-09-02 06:59+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementaryos.org/projects/code/plugins/"
 "ka/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:5
 msgid "Brackets Completion"
@@ -43,11 +43,11 @@ msgstr "EditorConfig"
 msgid "Load settings from an EditorConfig file"
 msgstr "პარამეტრების ჩატვირთვა EditorConfig ფაილიდან"
 
-#: plugins/fuzzy-search/fuzzy-search.plugin:5
+#: plugins/FuzzySearch/fuzzy-search.plugin:5
 msgid "Find Project Files"
-msgstr "პროექტის ფაილების ძებნა"
+msgstr "პროექტის ფაილების პოვნა"
 
-#: plugins/fuzzy-search/fuzzy-search.plugin:6
+#: plugins/FuzzySearch/fuzzy-search.plugin:6
 msgid "Fuzzy search for files in all open projects (Show using ALT + F)"
 msgstr "ფაილების არაზუსტი ძებნა ყველა ღია პროექტში (ჩვენება ღილაკებით ALT + F)"
 

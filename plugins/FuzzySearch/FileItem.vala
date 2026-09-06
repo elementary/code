@@ -28,6 +28,8 @@ public class FileItem : Gtk.ListBoxRow {
             halign = START,
             ellipsize = MIDDLE
         };
+        path_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+        path_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
 
         var filename_label = new Gtk.Label (Path.get_basename (result.relative_path));
         filename_label.halign = Gtk.Align.START;
