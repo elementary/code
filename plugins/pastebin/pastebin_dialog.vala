@@ -20,7 +20,6 @@
   END LICENSE
 ***/
 
-using Scratch.Services;
 
 public class Scratch.Dialogs.PasteBinDialog : Granite.Dialog {
 
@@ -471,17 +470,17 @@ public class Scratch.Dialogs.PasteBinDialog : Granite.Dialog {
         string paste_code = this.doc.get_text ();
         string paste_name = name_entry.text;
         string paste_format = format_combo.get_active_id ();
-        string paste_private = private_check.get_active () == true ? PasteBin.PRIVATE : PasteBin.PUBLIC;
+        string paste_private = private_check.get_active () == true ? Scratch.Services.PasteBin.PRIVATE : Scratch.Services.PasteBin.PUBLIC;
         string paste_expire_date = expiry_combo.get_active_id ();
 
-        return PasteBin.submit (out link, paste_code, paste_name, paste_private, paste_expire_date, paste_format);
+        return Scratch.Services.PasteBin.submit (out link, paste_code, paste_name, paste_private, paste_expire_date, paste_format);
     }
 
     private void populate_expiry_combo () {
-        expiry_combo.append (PasteBin.NEVER, _("Never"));
-        expiry_combo.append (PasteBin.TEN_MINUTES, _("Ten minutes"));
-        expiry_combo.append (PasteBin.HOUR, _("One hour"));
-        expiry_combo.append (PasteBin.DAY, _("One day"));
-        expiry_combo.append (PasteBin.MONTH, _("One month"));
+        expiry_combo.append (Scratch.Services.PasteBin.NEVER, _("Never"));
+        expiry_combo.append (Scratch.Services.PasteBin.TEN_MINUTES, _("Ten minutes"));
+        expiry_combo.append (Scratch.Services.PasteBin.HOUR, _("One hour"));
+        expiry_combo.append (Scratch.Services.PasteBin.DAY, _("One day"));
+        expiry_combo.append (Scratch.Services.PasteBin.MONTH, _("One month"));
     }
  }
