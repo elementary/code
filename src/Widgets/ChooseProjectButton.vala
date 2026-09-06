@@ -38,12 +38,17 @@ public class Code.ChooseProjectButton : Gtk.Bin {
         box.add (label_widget);
         box.add (cloning_spinner);
 
-        project_liststore = new ListStore (typeof (ProjectRow));
+        git_manager = Scratch.Services.GitManager.get_instance ();
+        project_liststore = git_manager.project_liststore;
         project_listbox = new Gtk.ListBox () {
             selection_mode = SINGLE
         };
 
-        project_listbox.bind_model (project_liststore, (obj) => (ProjectRow) obj);
+        //TODO Use list of objects not widgets
+        project_listbox.bind_model (project_liststore, (obj) => {
+            var path = ((Scratch.FolderManager.Item) obj).path;
+            return new ProjectRow (path);
+        });
 
         project_filter = new Gtk.SearchEntry () {
             margin_top = 12,
@@ -53,8 +58,13 @@ public class Code.ChooseProjectButton : Gtk.Bin {
             placeholder_text = _("Filter projects")
         };
 
+        project_listbox.set_filter_func ((row) => {
+            var name = Path.get_basename (((ProjectRow) row).project_path);
+            return name.contains (project_filter.text);  //TODO Is "has_prefix" more useful?
+        });
+
         project_filter.changed.connect (() => {
-            insert_project_rows ();
+            project_listbox.invalidate_filter ();
         });
 
         var project_scrolled = new Gtk.ScrolledWindow (null, null) {
@@ -98,13 +108,6 @@ public class Code.ChooseProjectButton : Gtk.Bin {
 
         child = menu_button;
 
-        // Initialise with any pre-existing projects (needed for second and subsequent window)
-        insert_project_rows ();
-        git_manager = Scratch.Services.GitManager.get_instance ();
-        git_manager.project_liststore.items_changed.connect ((src, pos, n_removed, n_added) => {
-            insert_project_rows ();
-        });
-
         git_manager.notify["active-project-path"].connect (update_active_project);
         update_active_project ();
     }
@@ -126,45 +129,11 @@ public class Code.ChooseProjectButton : Gtk.Bin {
             tooltip_text = _(PROJECT_TOOLTIP).printf (_(NO_PROJECT_SELECTED));
         }
 
-        for (int index = 0; index < project_liststore.n_items; index++) {
-            var project_row = (ProjectRow) project_liststore.get_item (index);
-            project_row.update_active (active_path);
-        }
-    }
-
-    // Throttle rebuilding the list as gitmanager emits multiple changed signals on startup
-    uint insert_timeout_id = 0;
-    bool insert_wait = false;
-    private void insert_project_rows () {
-        if (insert_timeout_id == 0) {
-            insert_wait = false;
-            Timeout.add (200, () => {
-                if (insert_wait) {
-                    insert_wait = false;
-                    return Source.CONTINUE;
-                }
-
-                project_liststore.remove_all ();
-
-                var src = git_manager.project_liststore;
-                unowned var active_path = git_manager.active_project_path;
-                for (int index = 0; index < src.n_items; index++) {
-                    var item = src.get_object (index);
-                    if (item is Scratch.FolderManager.ProjectFolderItem) {
-                        var project = (Scratch.FolderManager.ProjectFolderItem) item;
-                        if (filter_func (project)) {
-                            var row = new ProjectRow (project.path);
-                            // The GitManager project store is already sorted so just add.
-                            project_liststore.append (row);
-                            row.update_active (active_path);
-                        }
-                    }
-                }
-
-                return Source.REMOVE;
-            });
-        } else {
-            insert_wait = true;
+        var index = 0;
+        var project_row = project_listbox.get_row_at_index (index);
+        while (project_row != null) {
+            ((ProjectRow) project_row).update_active (active_path);
+            project_row = project_listbox.get_row_at_index (++index);
         }
     }
 
