@@ -10,8 +10,10 @@ public class Code.ChooseProjectButton : Gtk.Bin {
     private const string PROJECT_TOOLTIP = N_("Active Git Project: %s");
     private Gtk.Label label_widget;
     private Gtk.ListBox project_listbox;
-
-    public signal void project_chosen ();
+    private Gtk.SearchEntry project_filter;
+    private ListStore project_liststore;
+    private Scratch.Services.GitManager git_manager;
+    private Gtk.MenuButton menu_button;
 
     construct {
         var img = new Gtk.Image.from_icon_name ("git-symbolic", SMALL_TOOLBAR);
@@ -35,11 +37,19 @@ public class Code.ChooseProjectButton : Gtk.Bin {
         box.add (label_widget);
         box.add (cloning_spinner);
 
+        git_manager = Scratch.Services.GitManager.get_instance ();
+        project_liststore = git_manager.project_liststore;
         project_listbox = new Gtk.ListBox () {
             selection_mode = SINGLE
         };
 
-        var project_filter = new Gtk.SearchEntry () {
+        //TODO Use list of objects not widgets
+        project_listbox.bind_model (project_liststore, (obj) => {
+            var path = ((Scratch.FolderManager.Item) obj).path;
+            return new ProjectRow (path);
+        });
+
+        project_filter = new Gtk.SearchEntry () {
             margin_top = 12,
             margin_bottom = 6,
             margin_start = 12,
@@ -48,8 +58,8 @@ public class Code.ChooseProjectButton : Gtk.Bin {
         };
 
         project_listbox.set_filter_func ((row) => {
-            //Both are lowercased so that the case doesn't matter when comparing.
-            return (((ProjectRow) row).project_name.down ().contains (project_filter.text.down ().strip ()));
+            var name = Path.get_basename (((ProjectRow) row).project_path);
+            return name.contains (project_filter.text);  //TODO Is "has_prefix" more useful?
         });
 
         project_filter.changed.connect (() => {
@@ -90,58 +100,28 @@ public class Code.ChooseProjectButton : Gtk.Bin {
             child = popover_content
         };
 
-        var menu_button = new Gtk.MenuButton () {
+        menu_button = new Gtk.MenuButton () {
             child = box,
             popover = project_popover
         };
 
         child = menu_button;
 
-        // Initialise with any pre-existing projects (needed for second and subsequent window)
-        var git_manager = Scratch.Services.GitManager.get_instance ();
-        var src = git_manager.project_liststore;
-        for (int index = 0; index < src.n_items; index++) {
-            var item = src.get_object (index);
-            if (item is Scratch.FolderManager.ProjectFolderItem) {
-                var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item);
-                project_listbox.insert (row, index);
-            }
-        }
+        git_manager.notify["active-project-path"].connect (menu_button.popover.popdown);
+        menu_button.clicked.connect (update_active_project);
 
-        git_manager.project_liststore.items_changed.connect ((src, pos, n_removed, n_added) => {
-            var rows = project_listbox.get_children ();
-            for (int index = (int)pos; index < pos + n_removed; index++) {
-                var row = rows.nth_data (index);
-                row.destroy ();
-            }
+        update_active_project (); // Needed to update the menubutton label
+    }
 
-            for (int index = (int)pos; index < pos + n_added; index++) {
-                var item = src.get_object (index);
-                if (item is Scratch.FolderManager.ProjectFolderItem) {
-                    var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item);
-                    project_listbox.insert (row, index);
-                }
-            }
-        });
-
-        menu_button.toggled.connect (() => {
-            if (menu_button.active) {
-                unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
-                foreach (var child in project_listbox.get_children ()) {
-                    var project_row = ((ProjectRow) child);
-                    // All paths must not end in directory separator so can be compared directly
-                    project_row.is_active_project = active_path == project_row.project_path;
-                }
-            }
-        });
-
-        git_manager.notify["active-project-path"].connect (update_button);
-        update_button ();
+    private bool filter_func (Scratch.FolderManager.ProjectFolderItem project) {
+        var project_name = Path.get_basename (project.path);
+        //Both are lowercased so that the case doesn't matter when comparing.
+        return project_name.down ().contains (project_filter.text.down ().strip ());
     }
 
     // Set appearance (only) of project chooser button and list according to active path
-    private void update_button () {
-        unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
+    private void update_active_project () {
+        unowned var active_path = git_manager.active_project_path;
         if (active_path != "") {
             label_widget.label = Path.get_basename (active_path);
             tooltip_text = _(PROJECT_TOOLTIP).printf (Scratch.Utils.replace_home_with_tilde (active_path));
@@ -149,34 +129,19 @@ public class Code.ChooseProjectButton : Gtk.Bin {
             label_widget.label = Path.get_basename (_(NO_PROJECT_SELECTED));
             tooltip_text = _(PROJECT_TOOLTIP).printf (_(NO_PROJECT_SELECTED));
         }
-    }
 
-    private Gtk.Widget create_project_row (Scratch.FolderManager.ProjectFolderItem project_folder) {
-        var project_path = project_folder.file.file.get_path ();
-        var project_row = new ProjectRow (project_path);
-        // Project folder items cannot be renamed in UI, no need to handle
-
-        return project_row;
+        var index = 0;
+        var project_row = project_listbox.get_row_at_index (index);
+        while (project_row != null) {
+            ((ProjectRow) project_row).update_active (active_path);
+            project_row = project_listbox.get_row_at_index (++index);
+        }
     }
 
     public class ProjectRow : Gtk.ListBoxRow {
-        private Gtk.CheckButton check_button;
-        public bool is_active_project {
-            get {
-                return check_button.active;
-            }
-
-            set {
-                check_button.active = value;
-            }
-        }
-
         public string project_path { get; construct; }
-        public string project_name {
-            get {
-                return check_button.label;
-            }
-        }
+        private Gtk.CheckButton check_button;
+        private Gtk.GestureMultiPress button_controller;
 
         public ProjectRow (string project_path) {
             Object (
@@ -184,14 +149,13 @@ public class Code.ChooseProjectButton : Gtk.Bin {
             );
         }
 
-        private Gtk.GestureMultiPress button_controller;
-
         class construct {
             set_css_name (Gtk.STYLE_CLASS_MENUITEM);
         }
 
         construct {
             can_focus = true;
+            activatable = true;
             action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT;
             action_target = new Variant.string (project_path);
 
@@ -206,10 +170,15 @@ public class Code.ChooseProjectButton : Gtk.Bin {
                 button = 0
             };
             button_controller.released.connect (() => {
-                activate ();
+                activate (); // This activates the *action* (no "row-activated" signal sent)
             });
 
             show_all ();
+        }
+
+        public void update_active (string active_path) {
+            check_button.active = active_path == project_path;
+            warning ("update active path %s - active %s", active_path, check_button.active.to_string ());
         }
     }
 }
