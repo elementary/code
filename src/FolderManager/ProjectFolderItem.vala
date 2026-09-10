@@ -408,6 +408,10 @@ namespace Scratch.FolderManager {
             }
         }
 
+        public bool delete_branch (Ggit.Ref bref) {
+            return monitored_repo.delete_branch (bref);
+        }
+
         public bool is_recent_ref (Ggit.Ref bref) {
             return monitored_repo.is_recent_ref (bref);
         }
@@ -444,6 +448,14 @@ namespace Scratch.FolderManager {
 
         public bool is_valid_new_branch_name (string new_name) {
             return is_git_repo ? monitored_repo.is_valid_new_local_branch_name (new_name) : false;
+        }
+
+        public bool branch_name_is_merged (string branch_name, Ggit.Ref? target = null) {
+            //TODO Implement checking whether one branch merged into another (target) branch
+            // A null target is to be treated as the default branch.
+            // It is not obvious how to do this with Ggit; moreover merging of a remote branch
+            // into a remote target will not be detectable anyway. So return false for now
+            return false;
         }
 
         // The parameter "is_explicit" indicates whether a global search was requested
