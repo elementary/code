@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-06 19:03+0000\n"
-"PO-Revision-Date: 2026-08-07 01:01+0000\n"
+"PO-Revision-Date: 2026-09-11 22:01+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/code/code/"
 "uk/>\n"
@@ -22,16 +22,12 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: plugins/FuzzySearch/FuzzySearch.vala:91
-#, fuzzy
-#| msgid "Find in Project…"
 msgid "Find Project Files"
-msgstr "Пошук у проєкті…"
+msgstr "Пошук файлу проєкту"
 
 #: plugins/FuzzySearch/FuzzySearchPopover.vala:44
-#, fuzzy
-#| msgid "Filter projects"
 msgid "Find project files"
-msgstr "Фільтрувати проєкти"
+msgstr "Знайти файли проєкту"
 
 #: plugins/pastebin/pastebin.vala:139 plugins/pastebin/pastebin_dialog.vala:247
 #: plugins/pastebin/pastebin_dialog.vala:329
@@ -121,7 +117,7 @@ msgstr ""
 
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:68
 msgid "Apply"
-msgstr ""
+msgstr "Застосувати"
 
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:75
 #, fuzzy
@@ -499,7 +495,7 @@ msgstr "Порожній файл"
 
 #: src/FolderManager/FolderItem.vala:238
 msgid "…too many templates"
-msgstr ""
+msgstr "…забагато шаблонів"
 
 #: src/FolderManager/FolderItem.vala:241
 msgid "Templates"
@@ -988,11 +984,11 @@ msgstr "Меню"
 
 #: src/Widgets/HeaderBar.vala:387
 msgid "Light"
-msgstr ""
+msgstr "Світла"
 
 #: src/Widgets/HeaderBar.vala:390
 msgid "Dark"
-msgstr ""
+msgstr "Темна"
 
 #: src/Widgets/HeaderBar.vala:393
 #, fuzzy
@@ -1067,7 +1063,7 @@ msgstr "нічого не знайдено"
 
 #: src/Widgets/Sidebar.vala:54
 msgid "Cloning complete"
-msgstr ""
+msgstr "Клонування завершено"
 
 #: src/Widgets/Sidebar.vala:82
 msgid "Collapse All"
@@ -1135,10 +1131,8 @@ msgid "No matching bracket found"
 msgstr "Виділяти відповідні дужки"
 
 #: src/Widgets/SourceView.vala:908
-#, fuzzy
-#| msgid "You may not have permission to read the file."
 msgid "You may need to adjust the indents"
-msgstr "Можливо, у вас немає дозволу на читання файлу."
+msgstr "Можливо, вам доведеться скорегувати відступи"
 
 #: src/Widgets/Terminal.vala:142
 msgid "Copy"
