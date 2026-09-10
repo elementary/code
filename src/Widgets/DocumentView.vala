@@ -340,8 +340,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
                 critical ("Invalid document at position %i. %s", n, doc == null ? "Null document" : "Null document file");
                 continue;
             }
-
-            if (doc.file.get_uri () == doc_path) {
+            if (doc.file.get_path () == doc_path) {
                 found = true;
                 break;
             }

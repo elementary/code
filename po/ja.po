@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-29 16:05+0000\n"
+"POT-Creation-Date: 2026-09-06 19:03+0000\n"
 "PO-Revision-Date: 2026-07-19 13:01+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/code/ja/"
@@ -32,33 +32,33 @@ msgstr "プロジェクト内を検索…"
 msgid "Find project files"
 msgstr "プロジェクトをフィルター"
 
-#: plugins/pastebin/pastebin.vala:139 plugins/pastebin/pastebin_dialog.vala:250
-#: plugins/pastebin/pastebin_dialog.vala:332
+#: plugins/pastebin/pastebin.vala:139 plugins/pastebin/pastebin_dialog.vala:247
+#: plugins/pastebin/pastebin_dialog.vala:329
 msgid "Upload to Pastebin"
 msgstr "Pastebin にアップロード"
 
-#: plugins/pastebin/pastebin_dialog.vala:259
+#: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
 msgstr "名前:"
 
-#: plugins/pastebin/pastebin_dialog.vala:263
+#: plugins/pastebin/pastebin_dialog.vala:260
 msgid "Format:"
 msgstr "形式:"
 
-#: plugins/pastebin/pastebin_dialog.vala:270
+#: plugins/pastebin/pastebin_dialog.vala:267
 msgid "Choose different format"
 msgstr "別の形式を選択します"
 
-#: plugins/pastebin/pastebin_dialog.vala:292
+#: plugins/pastebin/pastebin_dialog.vala:289
 msgid "Expiration:"
 msgstr "公開期間:"
 
-#: plugins/pastebin/pastebin_dialog.vala:299
+#: plugins/pastebin/pastebin_dialog.vala:296
 msgid "Keep this paste private"
 msgstr "公開しない"
 
-#: plugins/pastebin/pastebin_dialog.vala:331
-#: plugins/pastebin/pastebin_dialog.vala:386
+#: plugins/pastebin/pastebin_dialog.vala:328
+#: plugins/pastebin/pastebin_dialog.vala:383
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:59
 #: src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
@@ -67,36 +67,36 @@ msgstr "公開しない"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: plugins/pastebin/pastebin_dialog.vala:358
+#: plugins/pastebin/pastebin_dialog.vala:355
 msgid "Available Formats"
 msgstr "利用可能な書式"
 
-#: plugins/pastebin/pastebin_dialog.vala:388
+#: plugins/pastebin/pastebin_dialog.vala:385
 msgid "Select Format"
 msgstr "書式を選択"
 
-#: plugins/pastebin/pastebin_dialog.vala:444
+#: plugins/pastebin/pastebin_dialog.vala:441
 #: src/Dialogs/PreferencesDialog.vala:176
 msgid "Close"
 msgstr "閉じる"
 
-#: plugins/pastebin/pastebin_dialog.vala:483 src/Widgets/SearchBar.vala:151
+#: plugins/pastebin/pastebin_dialog.vala:480 src/Widgets/SearchBar.vala:149
 msgid "Never"
 msgstr "なし"
 
-#: plugins/pastebin/pastebin_dialog.vala:484
+#: plugins/pastebin/pastebin_dialog.vala:481
 msgid "Ten minutes"
 msgstr "10 分間"
 
-#: plugins/pastebin/pastebin_dialog.vala:485
+#: plugins/pastebin/pastebin_dialog.vala:482
 msgid "One hour"
 msgstr "1 時間"
 
-#: plugins/pastebin/pastebin_dialog.vala:486
+#: plugins/pastebin/pastebin_dialog.vala:483
 msgid "One day"
 msgstr "1 日"
 
-#: plugins/pastebin/pastebin_dialog.vala:487
+#: plugins/pastebin/pastebin_dialog.vala:484
 msgid "One month"
 msgstr "1 か月"
 
@@ -977,68 +977,68 @@ msgstr "ダーク"
 msgid "Contrast"
 msgstr "コントラスト"
 
-#: src/Widgets/SearchBar.vala:119
+#: src/Widgets/SearchBar.vala:117
 msgid "Find"
 msgstr "検索"
 
-#: src/Widgets/SearchBar.vala:123
+#: src/Widgets/SearchBar.vala:121
 msgid "No Results"
 msgstr "結果なし"
 
-#: src/Widgets/SearchBar.vala:133
+#: src/Widgets/SearchBar.vala:131
 msgid "Search next"
 msgstr "次を検索"
 
-#: src/Widgets/SearchBar.vala:144
+#: src/Widgets/SearchBar.vala:142
 msgid "Search previous"
 msgstr "前を検索"
 
-#: src/Widgets/SearchBar.vala:148
+#: src/Widgets/SearchBar.vala:146
 msgid "Cyclic Search"
 msgstr "循環検索"
 
-#: src/Widgets/SearchBar.vala:152
+#: src/Widgets/SearchBar.vala:150
 msgid "Mixed Case"
 msgstr "検索用語に大文字も小文字も含まれる場合"
 
-#: src/Widgets/SearchBar.vala:153
+#: src/Widgets/SearchBar.vala:151
 msgid "Always"
 msgstr "常に"
 
-#: src/Widgets/SearchBar.vala:156
+#: src/Widgets/SearchBar.vala:154
 msgid "Case Sensitive"
 msgstr "大文字と小文字を区別"
 
-#: src/Widgets/SearchBar.vala:163
+#: src/Widgets/SearchBar.vala:161
 msgid "Use Regular Expressions"
 msgstr "正規表現を使う"
 
-#: src/Widgets/SearchBar.vala:164
+#: src/Widgets/SearchBar.vala:162
 msgid "Match Whole Words"
 msgstr "完全一致"
 
-#: src/Widgets/SearchBar.vala:186
+#: src/Widgets/SearchBar.vala:184
 msgid "Search Options"
 msgstr "検索オプション"
 
-#: src/Widgets/SearchBar.vala:233
+#: src/Widgets/SearchBar.vala:206
 msgid "Replace With"
 msgstr "置換後の文字"
 
-#: src/Widgets/SearchBar.vala:237
+#: src/Widgets/SearchBar.vala:210
 msgid "Replace"
 msgstr "置換"
 
-#: src/Widgets/SearchBar.vala:241
+#: src/Widgets/SearchBar.vala:214
 msgid "Replace all"
 msgstr "すべて置換"
 
-#: src/Widgets/SearchBar.vala:559
+#: src/Widgets/SearchBar.vala:553
 #, c-format
 msgid "%d of %d"
 msgstr "%d / %d 件"
 
-#: src/Widgets/SearchBar.vala:564
+#: src/Widgets/SearchBar.vala:558
 msgid "no results"
 msgstr "結果なし"
 

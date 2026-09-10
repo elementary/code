@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-29 16:05+0000\n"
+"POT-Creation-Date: 2026-09-06 19:03+0000\n"
 "PO-Revision-Date: 2020-11-28 22:16+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/code/code/mr/>\n"
@@ -26,33 +26,33 @@ msgstr "प्रोजेक्ट फोल्डर जोडा…"
 msgid "Find project files"
 msgstr "प्रोजेक्ट फोल्डर व्यवस्थापित करा"
 
-#: plugins/pastebin/pastebin.vala:139 plugins/pastebin/pastebin_dialog.vala:250
-#: plugins/pastebin/pastebin_dialog.vala:332
+#: plugins/pastebin/pastebin.vala:139 plugins/pastebin/pastebin_dialog.vala:247
+#: plugins/pastebin/pastebin_dialog.vala:329
 msgid "Upload to Pastebin"
 msgstr "पेस्टबीन वर अपलोड करा"
 
-#: plugins/pastebin/pastebin_dialog.vala:259
+#: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
 msgstr "नाव:"
 
-#: plugins/pastebin/pastebin_dialog.vala:263
+#: plugins/pastebin/pastebin_dialog.vala:260
 msgid "Format:"
 msgstr "प्रारूप:"
 
-#: plugins/pastebin/pastebin_dialog.vala:270
+#: plugins/pastebin/pastebin_dialog.vala:267
 msgid "Choose different format"
 msgstr "भिन्न स्वरूप निवडा"
 
-#: plugins/pastebin/pastebin_dialog.vala:292
+#: plugins/pastebin/pastebin_dialog.vala:289
 msgid "Expiration:"
 msgstr "समाप्ती:"
 
-#: plugins/pastebin/pastebin_dialog.vala:299
+#: plugins/pastebin/pastebin_dialog.vala:296
 msgid "Keep this paste private"
 msgstr "ही पेस्ट खाजगी ठेवा"
 
-#: plugins/pastebin/pastebin_dialog.vala:331
-#: plugins/pastebin/pastebin_dialog.vala:386
+#: plugins/pastebin/pastebin_dialog.vala:328
+#: plugins/pastebin/pastebin_dialog.vala:383
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:59
 #: src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
@@ -61,36 +61,36 @@ msgstr "ही पेस्ट खाजगी ठेवा"
 msgid "Cancel"
 msgstr "रद्द करा"
 
-#: plugins/pastebin/pastebin_dialog.vala:358
+#: plugins/pastebin/pastebin_dialog.vala:355
 msgid "Available Formats"
 msgstr "उपलब्ध स्वरूप"
 
-#: plugins/pastebin/pastebin_dialog.vala:388
+#: plugins/pastebin/pastebin_dialog.vala:385
 msgid "Select Format"
 msgstr "स्वरूप निवडा"
 
-#: plugins/pastebin/pastebin_dialog.vala:444
+#: plugins/pastebin/pastebin_dialog.vala:441
 #: src/Dialogs/PreferencesDialog.vala:176
 msgid "Close"
 msgstr "बंद करा"
 
-#: plugins/pastebin/pastebin_dialog.vala:483 src/Widgets/SearchBar.vala:151
+#: plugins/pastebin/pastebin_dialog.vala:480 src/Widgets/SearchBar.vala:149
 msgid "Never"
 msgstr "कधीही नाही"
 
-#: plugins/pastebin/pastebin_dialog.vala:484
+#: plugins/pastebin/pastebin_dialog.vala:481
 msgid "Ten minutes"
 msgstr "दहा मिनिटे"
 
-#: plugins/pastebin/pastebin_dialog.vala:485
+#: plugins/pastebin/pastebin_dialog.vala:482
 msgid "One hour"
 msgstr "एक तास"
 
-#: plugins/pastebin/pastebin_dialog.vala:486
+#: plugins/pastebin/pastebin_dialog.vala:483
 msgid "One day"
 msgstr "एक दिवस"
 
-#: plugins/pastebin/pastebin_dialog.vala:487
+#: plugins/pastebin/pastebin_dialog.vala:484
 msgid "One month"
 msgstr "एक महीना"
 
@@ -1061,70 +1061,70 @@ msgstr ""
 msgid "Contrast"
 msgstr "जास्त कॉन्ट्रास्ट"
 
-#: src/Widgets/SearchBar.vala:119
+#: src/Widgets/SearchBar.vala:117
 msgid "Find"
 msgstr "शोधा"
 
-#: src/Widgets/SearchBar.vala:123
+#: src/Widgets/SearchBar.vala:121
 msgid "No Results"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:133
+#: src/Widgets/SearchBar.vala:131
 msgid "Search next"
 msgstr "पुढे शोधा"
 
-#: src/Widgets/SearchBar.vala:144
+#: src/Widgets/SearchBar.vala:142
 msgid "Search previous"
 msgstr "मागे शोधा"
 
-#: src/Widgets/SearchBar.vala:148
+#: src/Widgets/SearchBar.vala:146
 msgid "Cyclic Search"
 msgstr "चक्री शोध"
 
-#: src/Widgets/SearchBar.vala:152
+#: src/Widgets/SearchBar.vala:150
 msgid "Mixed Case"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:153
+#: src/Widgets/SearchBar.vala:151
 msgid "Always"
 msgstr "नेहमी"
 
-#: src/Widgets/SearchBar.vala:156
+#: src/Widgets/SearchBar.vala:154
 msgid "Case Sensitive"
 msgstr "केस संवेदनशील"
 
-#: src/Widgets/SearchBar.vala:163
+#: src/Widgets/SearchBar.vala:161
 msgid "Use Regular Expressions"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:164
+#: src/Widgets/SearchBar.vala:162
 msgid "Match Whole Words"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:186
+#: src/Widgets/SearchBar.vala:184
 #, fuzzy
 #| msgid "Search previous"
 msgid "Search Options"
 msgstr "मागे शोधा"
 
-#: src/Widgets/SearchBar.vala:233
+#: src/Widgets/SearchBar.vala:206
 msgid "Replace With"
 msgstr "च्या सोबत बदला"
 
-#: src/Widgets/SearchBar.vala:237
+#: src/Widgets/SearchBar.vala:210
 msgid "Replace"
 msgstr "बदला"
 
-#: src/Widgets/SearchBar.vala:241
+#: src/Widgets/SearchBar.vala:214
 msgid "Replace all"
 msgstr "सर्व ठिकाणी बदला"
 
-#: src/Widgets/SearchBar.vala:559
+#: src/Widgets/SearchBar.vala:553
 #, c-format
 msgid "%d of %d"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:564
+#: src/Widgets/SearchBar.vala:558
 msgid "no results"
 msgstr ""
 

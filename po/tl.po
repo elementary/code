@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-29 16:05+0000\n"
+"POT-Creation-Date: 2026-09-06 19:03+0000\n"
 "PO-Revision-Date: 2017-08-22 19:20+0000\n"
 "Last-Translator: anjelo del carmen <anjelo2009@live.com>\n"
 "Language-Team: Tagalog <https://weblate.elementary.io/projects/scratch/"
@@ -27,36 +27,36 @@ msgstr "Magbukas ng Polder"
 msgid "Find project files"
 msgstr "Magbukas ng Polder"
 
-#: plugins/pastebin/pastebin.vala:139 plugins/pastebin/pastebin_dialog.vala:250
-#: plugins/pastebin/pastebin_dialog.vala:332
+#: plugins/pastebin/pastebin.vala:139 plugins/pastebin/pastebin_dialog.vala:247
+#: plugins/pastebin/pastebin_dialog.vala:329
 msgid "Upload to Pastebin"
 msgstr "Iupload sa Pastebin"
 
-#: plugins/pastebin/pastebin_dialog.vala:259
+#: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
 msgstr "Pangalan:"
 
-#: plugins/pastebin/pastebin_dialog.vala:263
+#: plugins/pastebin/pastebin_dialog.vala:260
 #, fuzzy
 msgid "Format:"
 msgstr "Format: "
 
-#: plugins/pastebin/pastebin_dialog.vala:270
+#: plugins/pastebin/pastebin_dialog.vala:267
 msgid "Choose different format"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:292
+#: plugins/pastebin/pastebin_dialog.vala:289
 #, fuzzy
 #| msgid "Expiry time:"
 msgid "Expiration:"
 msgstr "Oras ng pageexpire:"
 
-#: plugins/pastebin/pastebin_dialog.vala:299
+#: plugins/pastebin/pastebin_dialog.vala:296
 msgid "Keep this paste private"
 msgstr "Panatilihing pribado ang file na ito"
 
-#: plugins/pastebin/pastebin_dialog.vala:331
-#: plugins/pastebin/pastebin_dialog.vala:386
+#: plugins/pastebin/pastebin_dialog.vala:328
+#: plugins/pastebin/pastebin_dialog.vala:383
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:59
 #: src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
@@ -65,38 +65,38 @@ msgstr "Panatilihing pribado ang file na ito"
 msgid "Cancel"
 msgstr "Ikansela"
 
-#: plugins/pastebin/pastebin_dialog.vala:358
+#: plugins/pastebin/pastebin_dialog.vala:355
 msgid "Available Formats"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:388
+#: plugins/pastebin/pastebin_dialog.vala:385
 #, fuzzy
 #| msgid "Select font:"
 msgid "Select Format"
 msgstr "Pumili ng font:"
 
-#: plugins/pastebin/pastebin_dialog.vala:444
+#: plugins/pastebin/pastebin_dialog.vala:441
 #: src/Dialogs/PreferencesDialog.vala:176
 msgid "Close"
 msgstr "Isara"
 
-#: plugins/pastebin/pastebin_dialog.vala:483 src/Widgets/SearchBar.vala:151
+#: plugins/pastebin/pastebin_dialog.vala:480 src/Widgets/SearchBar.vala:149
 msgid "Never"
 msgstr "Huwag kailanman"
 
-#: plugins/pastebin/pastebin_dialog.vala:484
+#: plugins/pastebin/pastebin_dialog.vala:481
 msgid "Ten minutes"
 msgstr "Sampung minuto"
 
-#: plugins/pastebin/pastebin_dialog.vala:485
+#: plugins/pastebin/pastebin_dialog.vala:482
 msgid "One hour"
 msgstr "Isang oras"
 
-#: plugins/pastebin/pastebin_dialog.vala:486
+#: plugins/pastebin/pastebin_dialog.vala:483
 msgid "One day"
 msgstr "Isang araw"
 
-#: plugins/pastebin/pastebin_dialog.vala:487
+#: plugins/pastebin/pastebin_dialog.vala:484
 msgid "One month"
 msgstr "Isang buwan"
 
@@ -1057,70 +1057,70 @@ msgstr ""
 msgid "Contrast"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:119
+#: src/Widgets/SearchBar.vala:117
 msgid "Find"
 msgstr "Hanapin"
 
-#: src/Widgets/SearchBar.vala:123
+#: src/Widgets/SearchBar.vala:121
 msgid "No Results"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:133
+#: src/Widgets/SearchBar.vala:131
 msgid "Search next"
 msgstr "Hanapin ang kasunod"
 
-#: src/Widgets/SearchBar.vala:144
+#: src/Widgets/SearchBar.vala:142
 msgid "Search previous"
 msgstr "Hanapin ang nakaraan"
 
-#: src/Widgets/SearchBar.vala:148
+#: src/Widgets/SearchBar.vala:146
 msgid "Cyclic Search"
 msgstr "Paikot na paghanap"
 
-#: src/Widgets/SearchBar.vala:152
+#: src/Widgets/SearchBar.vala:150
 msgid "Mixed Case"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:153
+#: src/Widgets/SearchBar.vala:151
 msgid "Always"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:156
+#: src/Widgets/SearchBar.vala:154
 msgid "Case Sensitive"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:163
+#: src/Widgets/SearchBar.vala:161
 msgid "Use Regular Expressions"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:164
+#: src/Widgets/SearchBar.vala:162
 msgid "Match Whole Words"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:186
+#: src/Widgets/SearchBar.vala:184
 #, fuzzy
 #| msgid "Search previous"
 msgid "Search Options"
 msgstr "Hanapin ang nakaraan"
 
-#: src/Widgets/SearchBar.vala:233
+#: src/Widgets/SearchBar.vala:206
 msgid "Replace With"
 msgstr "Palitan ng"
 
-#: src/Widgets/SearchBar.vala:237
+#: src/Widgets/SearchBar.vala:210
 msgid "Replace"
 msgstr "Palitan"
 
-#: src/Widgets/SearchBar.vala:241
+#: src/Widgets/SearchBar.vala:214
 msgid "Replace all"
 msgstr "Palitan lahat"
 
-#: src/Widgets/SearchBar.vala:559
+#: src/Widgets/SearchBar.vala:553
 #, c-format
 msgid "%d of %d"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:564
+#: src/Widgets/SearchBar.vala:558
 msgid "no results"
 msgstr ""
 
