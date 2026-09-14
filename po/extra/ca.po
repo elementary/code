@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-06 19:03+0000\n"
-"PO-Revision-Date: 2026-06-29 08:34+0000\n"
+"PO-Revision-Date: 2026-09-15 13:03+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/extra/ca/"
-">\n"
+"Language-Team: Catalan <https://l10n.elementaryos.org/projects/code/extra/"
+"ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -155,16 +155,20 @@ msgid ""
 "The font size in the terminal pane can now be changed independently of the "
 "document font size"
 msgstr ""
+"Ara es pot canviar la mida de la lletra del plafó del terminal "
+"independentment de la mida de la lletra del document."
 
 #: data/code.metainfo.xml.in:76
 msgid "The Close Other Tabs action now has the shortcut Shift + Ctrl + W"
-msgstr ""
+msgstr "L'acció Tanca altres pestanyes ara té la drecera Majúscules + Ctrl + W"
 
 #: data/code.metainfo.xml.in:77
 msgid ""
 "A Find Matching Bracket action that works over the whole document is "
 "introduced, with the shortcut Shift + Ctrl + I"
 msgstr ""
+"S'introdueix l'acció de cerca de parèntesis coincidents que funciona sobre "
+"tot el document, amb la drecera Majúscules + Ctrl + I"
 
 #: data/code.metainfo.xml.in:79 data/code.metainfo.xml.in:100
 #: data/code.metainfo.xml.in:122 data/code.metainfo.xml.in:153
@@ -182,24 +186,32 @@ msgid ""
 "The syntax is now correctly displayed in the format bar when the document is "
 "first opened"
 msgstr ""
+"La sintaxi es mostra ara correctament a la barra de format quan s'obre el "
+"document per primera vegada."
 
 #: data/code.metainfo.xml.in:82
 msgid ""
 "Opening a document from the command line with the `-g` option now scrolls to "
 "the selected range"
 msgstr ""
+"Obrir un document des de la línia d'ordres amb l'opció -g ara desplaça la "
+"visualització fins a l'interval seleccionat."
 
 #: data/code.metainfo.xml.in:83
 msgid ""
 "When entering an ordered list in markdown mode, inserted lines are now "
 "indented and numbered correctly"
 msgstr ""
+"En introduir una llista ordenada en mode Markdown, les línies inserides ara "
+"apareixen sagnades i numerades correctament."
 
 #: data/code.metainfo.xml.in:84
 msgid ""
 "Several shortcuts are no longer intercepted by the main window when the "
 "terminal is focused"
 msgstr ""
+"Diverses dreceres ja no són interceptades per la finestra principal quan el "
+"terminal té el focus."
 
 #: data/code.metainfo.xml.in:85 data/code.metainfo.xml.in:102
 #: data/code.metainfo.xml.in:128 data/code.metainfo.xml.in:156
