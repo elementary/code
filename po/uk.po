@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-06 19:03+0000\n"
-"PO-Revision-Date: 2026-09-11 22:01+0000\n"
+"PO-Revision-Date: 2026-09-22 00:03+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/code/code/"
 "uk/>\n"
@@ -113,17 +113,15 @@ msgstr "%s - завершення слів"
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:61
 #, c-format
 msgid "Perform branch action on project '%s'"
-msgstr ""
+msgstr "Виконати дію з гілкою у проєкті «%s»"
 
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:68
 msgid "Apply"
 msgstr "Застосувати"
 
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:75
-#, fuzzy
-#| msgid "Do not Checkout"
 msgid "Checkout"
-msgstr "Не вивантажувати"
+msgstr "Виконати Checkout"
 
 #. scan all children
 #. No need to show status when children shown
@@ -137,43 +135,35 @@ msgstr "Нова"
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:89
 #, c-format
 msgid "'%s' is not a git repository"
-msgstr ""
+msgstr "«%s» не є репозиторієм Git"
 
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:92
 msgid "Unable to perform branch actions"
-msgstr ""
+msgstr "Неможливо виконати дії з гілками"
 
 #: src/Dialogs/BranchActions/BranchCreatePage.vala:44
 msgid "Name of branch to create"
-msgstr ""
+msgstr "Назва гілки, яку потрібно створити"
 
 #: src/Dialogs/BranchActions/BranchCreatePage.vala:47
 msgid "Enter new branch name"
-msgstr ""
+msgstr "Введіть назву нової гілки"
 
 #: src/Dialogs/BranchActions/BranchListBox.vala:50
-#, fuzzy
-#| msgid "Hide search bar"
 msgid "Enter search term"
-msgstr "Сховати панель пошуку"
+msgstr "Введіть запит"
 
 #: src/Dialogs/BranchActions/BranchListBox.vala:53
-#, fuzzy
-#| msgid "Create Branch"
 msgid "Recent Branches"
-msgstr "Створити гілку"
+msgstr "Недавні гілки"
 
 #: src/Dialogs/BranchActions/BranchListBox.vala:54
-#, fuzzy
-#| msgid "Branch"
 msgid "Local Branches"
-msgstr "Гілка"
+msgstr "Локальні гілки"
 
 #: src/Dialogs/BranchActions/BranchListBox.vala:55
-#, fuzzy
-#| msgid "Create Branch"
 msgid "Remote Branches"
-msgstr "Створити гілку"
+msgstr "Віддалені гілки"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
@@ -263,15 +253,15 @@ msgstr "Пошуковий термін розглядатиметься як в
 
 #: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will be case sensitive"
-msgstr ""
+msgstr "Під час пошуку враховуватиметься регістр символів"
 
 #: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will be case insensitive"
-msgstr ""
+msgstr "Під час пошуку не враховуватиметься регістр символів"
 
 #: src/Dialogs/GlobalSearchDialog.vala:66
 msgid "Search will match only whole words"
-msgstr ""
+msgstr "Пошук буде знаходити лише цілі слова"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -332,7 +322,7 @@ msgstr "Вилучати пробіли в кінці рядків під час
 
 #: src/Dialogs/PreferencesDialog.vala:29
 msgid "Except Plain Text, Markdown and YAML"
-msgstr ""
+msgstr "За винятком простого тексту, Markdown та YAML"
 
 #: src/Dialogs/PreferencesDialog.vala:32
 msgid "Smart cut/copy lines"
@@ -395,8 +385,6 @@ msgid "Highlight matching brackets"
 msgstr "Виділяти відповідні дужки"
 
 #: src/Dialogs/PreferencesDialog.vala:118
-#, fuzzy
-#| msgid "Syntax Highlighting"
 msgid "Syntax highlighting"
 msgstr "Підсвічування синтаксису"
 
@@ -905,10 +893,8 @@ msgid "Plain Text"
 msgstr "Звичайний текст"
 
 #: src/Widgets/FormatBar.vala:148
-#, fuzzy
-#| msgid "Filter languages"
 msgid "Document language"
-msgstr "Фільтрувати мови"
+msgstr "Мова документа"
 
 #: src/Widgets/FormatBar.vala:153
 msgid "Go To Line:"
@@ -991,10 +977,8 @@ msgid "Dark"
 msgstr "Темна"
 
 #: src/Widgets/HeaderBar.vala:393
-#, fuzzy
-#| msgid "High Contrast"
 msgid "Contrast"
-msgstr "Висококонтрастна"
+msgstr "Контраст"
 
 #: src/Widgets/SearchBar.vala:117
 msgid "Find"
