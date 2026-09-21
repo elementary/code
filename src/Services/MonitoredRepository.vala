@@ -368,6 +368,17 @@ namespace Scratch.Services {
             return true;
         }
 
+        public bool delete_branch (Ggit.Ref bref) {
+            try {
+                bref.@delete ();
+            } catch (Error e) {
+                warning ("Error deleting branch %s.  %s", ((Ggit.Branch)bref).get_name (), e.message);
+                return false;
+            }
+
+            return true;
+        }
+
         private bool do_update = false;
         public void update_status_map () {
             if (update_timer_id == 0) {

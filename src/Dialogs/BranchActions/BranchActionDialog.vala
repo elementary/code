@@ -43,6 +43,7 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
     }
 
     public bool can_apply { get; set; default = false; }
+    public bool is_destructive { get; set; default = false; }
     public FolderManager.ProjectFolderItem project { get; construct; }
 
     private Gtk.Stack stack;
@@ -67,13 +68,24 @@ public class Scratch.Dialogs.BranchActionDialog : Granite.MessageDialog {
 
             var apply_button = add_button (_("Apply"), Gtk.ResponseType.APPLY);
             bind_property ("can-apply", apply_button, "sensitive", SYNC_CREATE);
+            notify["is-destructive"].connect (() => {
+                var ctx = apply_button.get_style_context ();
+                var scda = Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION;
+                if (is_destructive && !ctx.has_class (scda)) {
+                    ctx.add_class (scda);
+                } else if (!is_destructive && ctx.has_class (scda)) {
+                    ctx.remove_class (scda);
+                }
+            });
 
             var checkout_page = new BranchCheckoutPage (this);
             var create_page = new BranchCreatePage (this);
+            var delete_page = new BranchDeletePage (this);
 
             stack = new Gtk.Stack ();
             stack.add_titled (checkout_page, BranchAction.CHECKOUT.to_string (), _("Checkout"));
             stack.add_titled (create_page, BranchAction.CREATE.to_string (), _("New"));
+            stack.add_titled (delete_page, BranchAction.DELETE.to_string (), _("Delete"));
 
             var sidebar = new Gtk.StackSidebar () {
                 stack = stack
