@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-06 19:03+0000\n"
-"PO-Revision-Date: 2026-09-22 00:03+0000\n"
+"PO-Revision-Date: 2026-09-24 01:03+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/code/code/"
 "uk/>\n"
@@ -1055,64 +1055,50 @@ msgstr "Згорнути все"
 
 #: src/Widgets/Sidebar.vala:91
 msgid "Keep Sorted"
-msgstr ""
+msgstr "Лишити відсортованим"
 
 #: src/Widgets/Sidebar.vala:100
 msgid "Manage project folders…"
 msgstr "Керувати теками проєкту…"
 
 #: src/Widgets/SourceView.vala:216
-#, fuzzy
-#| msgid "Sort Selected Lines"
 msgid "Sort Lines"
-msgstr "Впорядкувати вибрані рядки"
+msgstr "Відсортувати рядки"
 
 #: src/Widgets/SourceView.vala:217
-#, fuzzy
-#| msgid "Mark Current Line"
 msgid "Mark Line"
-msgstr "Позначити поточний рядок"
+msgstr "Позначити рядок"
 
 #: src/Widgets/SourceView.vala:218
-#, fuzzy
-#| msgid "Previous Tab"
 msgid "Previous Mark"
-msgstr "Попередня вкладка"
+msgstr "Попередня позначка"
 
 #: src/Widgets/SourceView.vala:219
-#, fuzzy
-#| msgid "Next Tab"
 msgid "Next Mark"
-msgstr "Наступна вкладка"
+msgstr "Наступна позначка"
 
 #: src/Widgets/SourceView.vala:220
 msgid "Toggle Comment"
 msgstr "Закоментувати/розкоментувати"
 
 #: src/Widgets/SourceView.vala:221
-#, fuzzy
-#| msgid "Highlight matching brackets"
 msgid "Goto Matching Bracket"
-msgstr "Виділяти відповідні дужки"
+msgstr "Перейти до відповідної дужки"
 
 #: src/Widgets/SourceView.vala:905
 #, c-format
 msgid ""
 "A required bracket is missing or there is an extra bracket between lines %i "
 "and %i"
-msgstr ""
+msgstr "Відсутня необхідна дужка або між рядками %i та %i є зайва дужка"
 
 #: src/Widgets/SourceView.vala:907
-#, fuzzy
-#| msgid "Save this file with a different name"
 msgid "Matching bracket has different indent"
-msgstr "Зберегти цей файл під іншою назвою"
+msgstr "Відповідна дужка має інший рівень вкладеності"
 
 #: src/Widgets/SourceView.vala:907
-#, fuzzy
-#| msgid "Highlight matching brackets"
 msgid "No matching bracket found"
-msgstr "Виділяти відповідні дужки"
+msgstr "Відповідної дужки не знайдено"
 
 #: src/Widgets/SourceView.vala:908
 msgid "You may need to adjust the indents"
