@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-06 19:03+0000\n"
-"PO-Revision-Date: 2025-08-01 07:55+0000\n"
+"PO-Revision-Date: 2026-09-24 01:03+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/code/extra/"
 "uk/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9
@@ -148,16 +148,22 @@ msgid ""
 "The font size in the terminal pane can now be changed independently of the "
 "document font size"
 msgstr ""
+"Тепер розмір шрифту в панелі терміналу можна змінювати незалежно від розміру "
+"шрифту в документі"
 
 #: data/code.metainfo.xml.in:76
 msgid "The Close Other Tabs action now has the shortcut Shift + Ctrl + W"
 msgstr ""
+"Для дії Закрити інші вкладки тепер призначено комбінацію клавіш Shift + Ctrl "
+"+ W"
 
 #: data/code.metainfo.xml.in:77
 msgid ""
 "A Find Matching Bracket action that works over the whole document is "
 "introduced, with the shortcut Shift + Ctrl + I"
 msgstr ""
+"Введено дію Знайти відповідну дужку, яка діє на весь документ, з комбінацією "
+"клавіш Shift + Ctrl + I"
 
 #: data/code.metainfo.xml.in:79 data/code.metainfo.xml.in:100
 #: data/code.metainfo.xml.in:122 data/code.metainfo.xml.in:153
