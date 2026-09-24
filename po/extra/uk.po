@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-06 19:03+0000\n"
-"PO-Revision-Date: 2026-09-24 01:03+0000\n"
+"PO-Revision-Date: 2026-09-24 22:44+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/code/extra/"
 "uk/>\n"
@@ -181,24 +181,32 @@ msgid ""
 "The syntax is now correctly displayed in the format bar when the document is "
 "first opened"
 msgstr ""
+"Тепер синтаксис правильно показується у панелі форматування під час першого "
+"відкриття документа"
 
 #: data/code.metainfo.xml.in:82
 msgid ""
 "Opening a document from the command line with the `-g` option now scrolls to "
 "the selected range"
 msgstr ""
+"При відкритті документа з командного рядка з опцією `-g` тепер відбувається "
+"прокрутка до вибраного діапазону"
 
 #: data/code.metainfo.xml.in:83
 msgid ""
 "When entering an ordered list in markdown mode, inserted lines are now "
 "indented and numbered correctly"
 msgstr ""
+"Під час введення нумерованого списку в режимі Markdown вставлені рядки тепер "
+"правильно відступають і нумеруються"
 
 #: data/code.metainfo.xml.in:84
 msgid ""
 "Several shortcuts are no longer intercepted by the main window when the "
 "terminal is focused"
 msgstr ""
+"Деякі комбінації клавіш більше не перехоплюються головним вікном, коли фокус "
+"на терміналі"
 
 #: data/code.metainfo.xml.in:85 data/code.metainfo.xml.in:102
 #: data/code.metainfo.xml.in:128 data/code.metainfo.xml.in:156
@@ -221,23 +229,29 @@ msgstr "Удосконалення:"
 
 #: data/code.metainfo.xml.in:117
 msgid "The sidebar can now be focused using a keyboard shortcut"
-msgstr ""
+msgstr "Тепер можна активувати бічну панель за допомогою комбінації клавіш"
 
 #: data/code.metainfo.xml.in:118
 msgid ""
 "Closing a second window by headerbar or shortcut only closes that window, "
 "saving its documents"
 msgstr ""
+"Закриття другого вікна за допомогою панелі заголовка або комбінації клавіш "
+"призводить лише до закриття цього вікна, зберігаючи його документи"
 
 #: data/code.metainfo.xml.in:119
 msgid "The system font is shown and can be selected in the Preferences dialog"
 msgstr ""
+"Системний шрифт показано і його можна вибрати у діалоговому вікні "
+"Налаштування"
 
 #: data/code.metainfo.xml.in:120
 msgid ""
 "Improved desktop consistency and contrast by using user accent color for "
 "selections"
 msgstr ""
+"Покращено узгодженість та контрастність робочого столу завдяки використанню "
+"кольору, обраного користувачем, для виділення елементів"
 
 #: data/code.metainfo.xml.in:124
 msgid "Closing all windows by shortcut now correctly saves all documents"
