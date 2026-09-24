@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-06 19:03+0000\n"
-"PO-Revision-Date: 2026-08-14 08:01+0000\n"
+"PO-Revision-Date: 2026-09-22 00:03+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
-"Language-Team: Russian <https://l10n.elementaryos.org/projects/code/extra/ru/"
-">\n"
+"Language-Team: Russian <https://l10n.elementaryos.org/projects/code/extra/"
+"ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -150,16 +150,22 @@ msgid ""
 "The font size in the terminal pane can now be changed independently of the "
 "document font size"
 msgstr ""
+"Размер шрифта панели терминала теперь можно изменять независимо от размера "
+"шрифта документа"
 
 #: data/code.metainfo.xml.in:76
 msgid "The Close Other Tabs action now has the shortcut Shift + Ctrl + W"
 msgstr ""
+"Действие «Закрыть остальные вкладки» получило сочетание клавиш Shift + Ctrl "
+"+ W"
 
 #: data/code.metainfo.xml.in:77
 msgid ""
 "A Find Matching Bracket action that works over the whole document is "
 "introduced, with the shortcut Shift + Ctrl + I"
 msgstr ""
+"Добавлено действие «Найти парную скобку», работающее по всему документу и "
+"доступное по сочетанию клавиш Shift + Ctrl + I"
 
 #: data/code.metainfo.xml.in:79 data/code.metainfo.xml.in:100
 #: data/code.metainfo.xml.in:122 data/code.metainfo.xml.in:153
@@ -177,24 +183,32 @@ msgid ""
 "The syntax is now correctly displayed in the format bar when the document is "
 "first opened"
 msgstr ""
+"Корректное отображение синтаксиса в шкале форматирования при первом открытии "
+"документа"
 
 #: data/code.metainfo.xml.in:82
 msgid ""
 "Opening a document from the command line with the `-g` option now scrolls to "
 "the selected range"
 msgstr ""
+"Открытие документа из командной строки с опцией `-g` теперь выполняет "
+"прокрутку до указанного диапазона"
 
 #: data/code.metainfo.xml.in:83
 msgid ""
 "When entering an ordered list in markdown mode, inserted lines are now "
 "indented and numbered correctly"
 msgstr ""
+"Корректные отступы и нумерация при написании упорядоченного списка в режиме "
+"Markdown"
 
 #: data/code.metainfo.xml.in:84
 msgid ""
 "Several shortcuts are no longer intercepted by the main window when the "
 "terminal is focused"
 msgstr ""
+"Несколько сочетаний клавиш больше не перехватываются основным окном, если "
+"выполнена фокусировка на панели терминала"
 
 #: data/code.metainfo.xml.in:85 data/code.metainfo.xml.in:102
 #: data/code.metainfo.xml.in:128 data/code.metainfo.xml.in:156
