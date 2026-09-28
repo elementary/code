@@ -15,6 +15,8 @@ public class Code.ChooseProjectButton : Gtk.Bin {
     private Scratch.Services.GitManager git_manager;
     private Gtk.MenuButton menu_button;
 
+    public signal void project_chosen ();
+
     construct {
         var img = new Gtk.Image.from_icon_name ("git-symbolic", SMALL_TOOLBAR);
 

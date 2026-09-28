@@ -26,6 +26,10 @@ namespace Scratch.Services {
         private static Once<GitManager> instance;
         private Gee.HashMap<string, MonitoredRepository> project_gitrepo_map;
 
+
+
+
+
         construct {
             // Used to populate the ChooseProject popover in sorted order
             Ggit.init ();
