@@ -451,17 +451,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         }
     }
 
-    private bool has_matches () {
-        if (text_buffer == null || search_entry.text == "") {
-            return false;
-        }
-
-        bool has_wrapped_around;
-        Gtk.TextIter? start_iter, end_iter;
-        text_buffer.get_start_iter (out start_iter);
-        return search_context.forward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
-    }
-
     private bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
         end_iter = start_iter;
 
