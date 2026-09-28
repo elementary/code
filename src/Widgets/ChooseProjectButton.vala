@@ -125,7 +125,7 @@ public class Code.ChooseProjectButton : Gtk.Bin {
             }
         });
 
-        menu_button.toggled.connect (update_active_row);
+        menu_button.clicked.connect (update_active_row);
         git_manager.notify["active-project-path"].connect (update_button);
         update_button ();
     }
