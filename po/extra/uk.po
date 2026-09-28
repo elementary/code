@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-06 19:03+0000\n"
-"PO-Revision-Date: 2025-08-01 07:55+0000\n"
+"PO-Revision-Date: 2026-09-24 22:44+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/code/extra/"
 "uk/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9
@@ -148,16 +148,22 @@ msgid ""
 "The font size in the terminal pane can now be changed independently of the "
 "document font size"
 msgstr ""
+"Тепер розмір шрифту в панелі терміналу можна змінювати незалежно від розміру "
+"шрифту в документі"
 
 #: data/code.metainfo.xml.in:76
 msgid "The Close Other Tabs action now has the shortcut Shift + Ctrl + W"
 msgstr ""
+"Для дії Закрити інші вкладки тепер призначено комбінацію клавіш Shift + Ctrl "
+"+ W"
 
 #: data/code.metainfo.xml.in:77
 msgid ""
 "A Find Matching Bracket action that works over the whole document is "
 "introduced, with the shortcut Shift + Ctrl + I"
 msgstr ""
+"Введено дію Знайти відповідну дужку, яка діє на весь документ, з комбінацією "
+"клавіш Shift + Ctrl + I"
 
 #: data/code.metainfo.xml.in:79 data/code.metainfo.xml.in:100
 #: data/code.metainfo.xml.in:122 data/code.metainfo.xml.in:153
@@ -175,24 +181,32 @@ msgid ""
 "The syntax is now correctly displayed in the format bar when the document is "
 "first opened"
 msgstr ""
+"Тепер синтаксис правильно показується у панелі форматування під час першого "
+"відкриття документа"
 
 #: data/code.metainfo.xml.in:82
 msgid ""
 "Opening a document from the command line with the `-g` option now scrolls to "
 "the selected range"
 msgstr ""
+"При відкритті документа з командного рядка з опцією `-g` тепер відбувається "
+"прокрутка до вибраного діапазону"
 
 #: data/code.metainfo.xml.in:83
 msgid ""
 "When entering an ordered list in markdown mode, inserted lines are now "
 "indented and numbered correctly"
 msgstr ""
+"Під час введення нумерованого списку в режимі Markdown вставлені рядки тепер "
+"правильно відступають і нумеруються"
 
 #: data/code.metainfo.xml.in:84
 msgid ""
 "Several shortcuts are no longer intercepted by the main window when the "
 "terminal is focused"
 msgstr ""
+"Деякі комбінації клавіш більше не перехоплюються головним вікном, коли фокус "
+"на терміналі"
 
 #: data/code.metainfo.xml.in:85 data/code.metainfo.xml.in:102
 #: data/code.metainfo.xml.in:128 data/code.metainfo.xml.in:156
@@ -215,23 +229,29 @@ msgstr "Удосконалення:"
 
 #: data/code.metainfo.xml.in:117
 msgid "The sidebar can now be focused using a keyboard shortcut"
-msgstr ""
+msgstr "Тепер можна активувати бічну панель за допомогою комбінації клавіш"
 
 #: data/code.metainfo.xml.in:118
 msgid ""
 "Closing a second window by headerbar or shortcut only closes that window, "
 "saving its documents"
 msgstr ""
+"Закриття другого вікна за допомогою панелі заголовка або комбінації клавіш "
+"призводить лише до закриття цього вікна, зберігаючи його документи"
 
 #: data/code.metainfo.xml.in:119
 msgid "The system font is shown and can be selected in the Preferences dialog"
 msgstr ""
+"Системний шрифт показано і його можна вибрати у діалоговому вікні "
+"Налаштування"
 
 #: data/code.metainfo.xml.in:120
 msgid ""
 "Improved desktop consistency and contrast by using user accent color for "
 "selections"
 msgstr ""
+"Покращено узгодженість та контрастність робочого столу завдяки використанню "
+"кольору, обраного користувачем, для виділення елементів"
 
 #: data/code.metainfo.xml.in:124
 msgid "Closing all windows by shortcut now correctly saves all documents"

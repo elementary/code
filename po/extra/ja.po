@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-06 19:03+0000\n"
-"PO-Revision-Date: 2026-07-20 03:58+0000\n"
+"PO-Revision-Date: 2026-09-20 09:02+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/code/extra/"
 "ja/>\n"
@@ -35,10 +35,10 @@ msgid ""
 "files to ensure they're always up-to-date, and it remembers your tabs so you "
 "never lose your spot—even between sessions."
 msgstr ""
-"Markdown で文書を作成するときも、複雑なアプリのソースコードを管理するときも、"
-"軽量ながら高機能な“コード”はぴったりです。ファイルを自動保存して、常に最新の"
-"状態を維持します。また、タブを保存し次回起動時に復元するので、時間が経っても"
-"最後に編集した箇所を見失うことはありません。"
+"Markdown でドキュメントを作成するときも、複雑なアプリのソースコードを管理する"
+"ときも、軽量ながら高機能な“コード”はぴったりです。ファイルを自動保存して、常"
+"に最新の状態を維持します。また、タブを保存し次回起動時に復元するので、時間が"
+"経っても最後に編集した箇所を見失うことはありません。"
 
 #: data/code.metainfo.xml.in:13
 msgid ""
@@ -149,16 +149,20 @@ msgid ""
 "The font size in the terminal pane can now be changed independently of the "
 "document font size"
 msgstr ""
+"ターミナルペインのフォントサイズをドキュメントのフォントサイズとは別に変更で"
+"きるように修正"
 
 #: data/code.metainfo.xml.in:76
 msgid "The Close Other Tabs action now has the shortcut Shift + Ctrl + W"
-msgstr ""
+msgstr "“他のタブを閉じる”アクションにショートカットキー Shift + Ctrl + W を追加"
 
 #: data/code.metainfo.xml.in:77
 msgid ""
 "A Find Matching Bracket action that works over the whole document is "
 "introduced, with the shortcut Shift + Ctrl + I"
 msgstr ""
+"ドキュメント全体に対して利用可能な、“対となる括弧に移動”アクションを追加 "
+"(ショートカットキーは Shift + Ctrl + I)"
 
 #: data/code.metainfo.xml.in:79 data/code.metainfo.xml.in:100
 #: data/code.metainfo.xml.in:122 data/code.metainfo.xml.in:153
@@ -175,25 +179,31 @@ msgstr "マイナーアップデート:"
 msgid ""
 "The syntax is now correctly displayed in the format bar when the document is "
 "first opened"
-msgstr ""
+msgstr "ドキュメントが最初に開かれた時、書式バーに適切な言語名が表示されるように修正"
 
 #: data/code.metainfo.xml.in:82
 msgid ""
 "Opening a document from the command line with the `-g` option now scrolls to "
 "the selected range"
 msgstr ""
+"コマンドラインから `-g` オプションを指定してドキュメントを開いた際、選択範囲"
+"にスクロールするように修正"
 
 #: data/code.metainfo.xml.in:83
 msgid ""
 "When entering an ordered list in markdown mode, inserted lines are now "
 "indented and numbered correctly"
 msgstr ""
+"Markdown モードで番号付きリストを入力する際、挿入行が適切にインデントされ連番"
+"になるように修正"
 
 #: data/code.metainfo.xml.in:84
 msgid ""
 "Several shortcuts are no longer intercepted by the main window when the "
 "terminal is focused"
 msgstr ""
+"ターミナルにフォーカスがある場合、一部のショートカットがメインウィンドウに送"
+"られないように修正"
 
 #: data/code.metainfo.xml.in:85 data/code.metainfo.xml.in:102
 #: data/code.metainfo.xml.in:128 data/code.metainfo.xml.in:156
@@ -223,8 +233,8 @@ msgid ""
 "Closing a second window by headerbar or shortcut only closes that window, "
 "saving its documents"
 msgstr ""
-"ヘッダーバーやショートカットで2個目のウィンドウを閉じた場合、ドキュメントを保"
-"存したうえでそのウィンドウだけを閉じるように修正"
+"ヘッダーバーやショートカットで 2 個目のウィンドウを閉じた場合、ドキュメントを"
+"保存したうえでそのウィンドウだけを閉じるように修正"
 
 #: data/code.metainfo.xml.in:119
 msgid "The system font is shown and can be selected in the Preferences dialog"
@@ -272,74 +282,72 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:149
 msgid "Focus following is implemented between textview and terminal pane"
-msgstr ""
+msgstr "テキストビューとターミナルペインの間でフォーカスに追従する機能を実装"
 
 #: data/code.metainfo.xml.in:150
 msgid ""
 "A new dialog for branch actions (open, new) is implemented linked to hot-key "
 "Ctrl-B"
 msgstr ""
+"ブランチアクション (チェックアウトと新規作成) が可能な新しいダイアログを実装 "
+"(ショートカットキーは Ctrl + B)"
 
 #: data/code.metainfo.xml.in:151
 msgid "It is now possible to create a new document from a template"
-msgstr ""
+msgstr "テンプレートから新しいドキュメントを作成できる機能を追加"
 
 #: data/code.metainfo.xml.in:155
 msgid ""
 "Restoring screen state no longer can get stuck always restoring full screen"
-msgstr ""
+msgstr "画面の状態が常に全画面表示に復元される不具合を修正"
 
 #: data/code.metainfo.xml.in:169
 msgid ""
 "The high-contrast style-scheme is replaced by an elementary version with "
 "improved contrast for line numbers"
 msgstr ""
+"ハイコントラストのスタイルスキームを、行番号のコントラストを改善した "
+"elementary OS 版で置き換え"
 
 #: data/code.metainfo.xml.in:170
-#, fuzzy
-#| msgid ""
-#| "The terminal pane is now synchronized with the Terminal app foreground, "
-#| "background and palette settings"
 msgid "The terminal pane now follows Terminal app color-scheme setting"
-msgstr ""
-"“ターミナル”ペインが“ターミナル”アプリの文字色・背景色・パレットカラー設定に"
-"従うように修正"
+msgstr "ターミナルペインが“ターミナル”アプリのカラースキーム設定に従うように修正"
 
 #: data/code.metainfo.xml.in:171
 msgid "It is now possible to disable syntax highlighting"
-msgstr ""
+msgstr "シンタックスハイライトを無効化できる機能を追加"
 
 #: data/code.metainfo.xml.in:172
 msgid "There is now an option to keep the project folders sorted"
-msgstr ""
+msgstr "プロジェクトフォルダーを整列できるオプションを追加"
 
 #: data/code.metainfo.xml.in:176
 msgid "Absence of Terminal or Gnome settings no longer causes a crash"
-msgstr ""
+msgstr "“ターミナル”や GNOME の設定が存在しなくてもクラッシュしないように修正"
 
 #: data/code.metainfo.xml.in:177
-#, fuzzy
-#| msgid "The Terminal pane now has a settable default directory"
 msgid "The terminal pane now handles the shell exiting gracefully"
-msgstr "“ターミナル”ペインのデフォルトディレクトリを設定できるように修正"
+msgstr "ターミナルペインがシェルの終了を処理できるように修正"
 
 #: data/code.metainfo.xml.in:178
 msgid ""
 "The terminal pane now follows the current active project path on start or "
 "opening"
 msgstr ""
+"“コード”の起動時やターミナルペインを開いた際に、現在アクティブなプロジェクト"
+"のパスがターミナルペインのカレントディレクトリになるように修正"
 
 #: data/code.metainfo.xml.in:179
 msgid "It is no longer possible to open multiple PasteBin dialogs"
-msgstr ""
+msgstr "複数の PasteBin ダイアログを開けないように修正"
 
 #: data/code.metainfo.xml.in:180
 msgid "A cause of possible crashing by the sidebar on startup was fixed"
-msgstr ""
+msgstr "起動時にサイドバーが原因でクラッシュすることがある不具合を修正"
 
 #: data/code.metainfo.xml.in:181
 msgid "Two issues where global search shows incorrect information are fixed"
-msgstr ""
+msgstr "プロジェクト全体の検索で誤った情報が表示される 2 件の不具合を修正"
 
 #: data/code.metainfo.xml.in:205
 msgid "The tooltips for C symbols are now more informative"
@@ -369,15 +377,14 @@ msgid ""
 "The terminal pane is now synchronized with the Terminal app foreground, "
 "background and palette settings"
 msgstr ""
-"“ターミナル”ペインが“ターミナル”アプリの文字色・背景色・パレットカラー設定に"
-"従うように修正"
+"ターミナルペインが“ターミナル”アプリの文字色・背景色・パレットカラー設定に従"
+"うように修正"
 
 #: data/code.metainfo.xml.in:223
 msgid ""
 "The terminal pane is now synchronized with GNOME font and cursor blink "
 "settings"
-msgstr ""
-"“ターミナル”ペインが GNOME 側のフォントとカーソル点滅設定に従うように修正"
+msgstr "ターミナルペインが GNOME 側のフォントとカーソル点滅設定に従うように修正"
 
 #: data/code.metainfo.xml.in:237
 msgid ""
@@ -463,8 +470,8 @@ msgid ""
 "Opening and immediately closing a new document no longer prevents further "
 "documents being opened"
 msgstr ""
-"新しいドキュメントを開いてすぐ閉じると、以降ドキュメントを開けなくなる問題を"
-"修正"
+"新しいドキュメントを開いてすぐ閉じると、以降ドキュメントを開けなくなる不具合"
+"を修正"
 
 #: data/code.metainfo.xml.in:274
 msgid ""
@@ -476,12 +483,13 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:275
 msgid "The \"Open in …\" menu is no longer empty when running as Flatpak"
-msgstr "Flatpak 版で \"指定した方法で開く\" メニューが空で表示される問題を修正"
+msgstr "Flatpak 版で\"指定した方法で開く\"メニューが空で表示される不具合を修正"
 
 #: data/code.metainfo.xml.in:276
 msgid "The search term now persists until editing or closing the search bar."
 msgstr ""
-"検索バーに文字入力したり閉じたりしない限り、検索語句を消去しないように修正。"
+"検索バーに文字入力したり閉じたりしない限り、キーワードを消去しないように修正"
+"。"
 
 #: data/code.metainfo.xml.in:277
 msgid ""
@@ -508,8 +516,8 @@ msgstr ""
 msgid ""
 "The \"Open in …\" menu is now sorted and includes a \"Terminal Pane\" entry"
 msgstr ""
-"\"指定した方法で開く\" メニューがアルファベット順で並ぶように修正。また、"
-"\"ターミナルペイン\" のメニュー項目を含めるように修正"
+"\"指定した方法で開く\"メニューがアルファベット順で並ぶように修正。また、"
+"ターミナルペインのメニュー項目を含めるように修正"
 
 #: data/code.metainfo.xml.in:282
 msgid "Folders containing may items now expand faster without blocking the UI"
@@ -529,7 +537,7 @@ msgstr "シンボルフィルターを“アウトライン”ペインに追加
 
 #: data/code.metainfo.xml.in:330
 msgid "The Terminal pane now has a settable default directory"
-msgstr "“ターミナル”ペインのデフォルトディレクトリを設定できるように修正"
+msgstr "ターミナルペインのデフォルトディレクトリを設定できるように修正"
 
 #: data/code.metainfo.xml.in:331
 msgid "New Tab Bar with improved animations and Drag-n-Drop"
@@ -630,8 +638,7 @@ msgstr ""
 #: data/code.metainfo.xml.in:407
 msgid ""
 "The search results no longer change unexpectedly when focusing a document"
-msgstr ""
-"ドキュメントにフォーカスすると意図せず検索結果が変わってしまう不具合を修正"
+msgstr "ドキュメントにフォーカスすると意図せず検索結果が変わってしまう不具合を修正"
 
 #: data/code.metainfo.xml.in:408
 msgid ""

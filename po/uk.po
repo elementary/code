@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-06 19:03+0000\n"
-"PO-Revision-Date: 2026-08-07 01:01+0000\n"
+"PO-Revision-Date: 2026-09-24 01:03+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/code/code/"
 "uk/>\n"
@@ -22,16 +22,12 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: plugins/FuzzySearch/FuzzySearch.vala:91
-#, fuzzy
-#| msgid "Find in Project…"
 msgid "Find Project Files"
-msgstr "Пошук у проєкті…"
+msgstr "Пошук файлу проєкту"
 
 #: plugins/FuzzySearch/FuzzySearchPopover.vala:44
-#, fuzzy
-#| msgid "Filter projects"
 msgid "Find project files"
-msgstr "Фільтрувати проєкти"
+msgstr "Знайти файли проєкту"
 
 #: plugins/pastebin/pastebin.vala:139 plugins/pastebin/pastebin_dialog.vala:247
 #: plugins/pastebin/pastebin_dialog.vala:329
@@ -117,17 +113,15 @@ msgstr "%s - завершення слів"
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:61
 #, c-format
 msgid "Perform branch action on project '%s'"
-msgstr ""
+msgstr "Виконати дію з гілкою у проєкті «%s»"
 
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:68
 msgid "Apply"
-msgstr ""
+msgstr "Застосувати"
 
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:75
-#, fuzzy
-#| msgid "Do not Checkout"
 msgid "Checkout"
-msgstr "Не вивантажувати"
+msgstr "Виконати Checkout"
 
 #. scan all children
 #. No need to show status when children shown
@@ -141,43 +135,35 @@ msgstr "Нова"
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:89
 #, c-format
 msgid "'%s' is not a git repository"
-msgstr ""
+msgstr "«%s» не є репозиторієм Git"
 
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:92
 msgid "Unable to perform branch actions"
-msgstr ""
+msgstr "Неможливо виконати дії з гілками"
 
 #: src/Dialogs/BranchActions/BranchCreatePage.vala:44
 msgid "Name of branch to create"
-msgstr ""
+msgstr "Назва гілки, яку потрібно створити"
 
 #: src/Dialogs/BranchActions/BranchCreatePage.vala:47
 msgid "Enter new branch name"
-msgstr ""
+msgstr "Введіть назву нової гілки"
 
 #: src/Dialogs/BranchActions/BranchListBox.vala:50
-#, fuzzy
-#| msgid "Hide search bar"
 msgid "Enter search term"
-msgstr "Сховати панель пошуку"
+msgstr "Введіть запит"
 
 #: src/Dialogs/BranchActions/BranchListBox.vala:53
-#, fuzzy
-#| msgid "Create Branch"
 msgid "Recent Branches"
-msgstr "Створити гілку"
+msgstr "Недавні гілки"
 
 #: src/Dialogs/BranchActions/BranchListBox.vala:54
-#, fuzzy
-#| msgid "Branch"
 msgid "Local Branches"
-msgstr "Гілка"
+msgstr "Локальні гілки"
 
 #: src/Dialogs/BranchActions/BranchListBox.vala:55
-#, fuzzy
-#| msgid "Create Branch"
 msgid "Remote Branches"
-msgstr "Створити гілку"
+msgstr "Віддалені гілки"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
@@ -267,15 +253,15 @@ msgstr "Пошуковий термін розглядатиметься як в
 
 #: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will be case sensitive"
-msgstr ""
+msgstr "Під час пошуку враховуватиметься регістр символів"
 
 #: src/Dialogs/GlobalSearchDialog.vala:65
 msgid "Search will be case insensitive"
-msgstr ""
+msgstr "Під час пошуку не враховуватиметься регістр символів"
 
 #: src/Dialogs/GlobalSearchDialog.vala:66
 msgid "Search will match only whole words"
-msgstr ""
+msgstr "Пошук буде знаходити лише цілі слова"
 
 #: src/Dialogs/GlobalSearchDialog.vala:69
 #, c-format
@@ -336,7 +322,7 @@ msgstr "Вилучати пробіли в кінці рядків під час
 
 #: src/Dialogs/PreferencesDialog.vala:29
 msgid "Except Plain Text, Markdown and YAML"
-msgstr ""
+msgstr "За винятком простого тексту, Markdown та YAML"
 
 #: src/Dialogs/PreferencesDialog.vala:32
 msgid "Smart cut/copy lines"
@@ -399,8 +385,6 @@ msgid "Highlight matching brackets"
 msgstr "Виділяти відповідні дужки"
 
 #: src/Dialogs/PreferencesDialog.vala:118
-#, fuzzy
-#| msgid "Syntax Highlighting"
 msgid "Syntax highlighting"
 msgstr "Підсвічування синтаксису"
 
@@ -499,7 +483,7 @@ msgstr "Порожній файл"
 
 #: src/FolderManager/FolderItem.vala:238
 msgid "…too many templates"
-msgstr ""
+msgstr "…забагато шаблонів"
 
 #: src/FolderManager/FolderItem.vala:241
 msgid "Templates"
@@ -909,10 +893,8 @@ msgid "Plain Text"
 msgstr "Звичайний текст"
 
 #: src/Widgets/FormatBar.vala:148
-#, fuzzy
-#| msgid "Filter languages"
 msgid "Document language"
-msgstr "Фільтрувати мови"
+msgstr "Мова документа"
 
 #: src/Widgets/FormatBar.vala:153
 msgid "Go To Line:"
@@ -988,17 +970,15 @@ msgstr "Меню"
 
 #: src/Widgets/HeaderBar.vala:387
 msgid "Light"
-msgstr ""
+msgstr "Світла"
 
 #: src/Widgets/HeaderBar.vala:390
 msgid "Dark"
-msgstr ""
+msgstr "Темна"
 
 #: src/Widgets/HeaderBar.vala:393
-#, fuzzy
-#| msgid "High Contrast"
 msgid "Contrast"
-msgstr "Висококонтрастна"
+msgstr "Контраст"
 
 #: src/Widgets/SearchBar.vala:117
 msgid "Find"
@@ -1067,7 +1047,7 @@ msgstr "нічого не знайдено"
 
 #: src/Widgets/Sidebar.vala:54
 msgid "Cloning complete"
-msgstr ""
+msgstr "Клонування завершено"
 
 #: src/Widgets/Sidebar.vala:82
 msgid "Collapse All"
@@ -1075,70 +1055,54 @@ msgstr "Згорнути все"
 
 #: src/Widgets/Sidebar.vala:91
 msgid "Keep Sorted"
-msgstr ""
+msgstr "Лишити відсортованим"
 
 #: src/Widgets/Sidebar.vala:100
 msgid "Manage project folders…"
 msgstr "Керувати теками проєкту…"
 
 #: src/Widgets/SourceView.vala:216
-#, fuzzy
-#| msgid "Sort Selected Lines"
 msgid "Sort Lines"
-msgstr "Впорядкувати вибрані рядки"
+msgstr "Відсортувати рядки"
 
 #: src/Widgets/SourceView.vala:217
-#, fuzzy
-#| msgid "Mark Current Line"
 msgid "Mark Line"
-msgstr "Позначити поточний рядок"
+msgstr "Позначити рядок"
 
 #: src/Widgets/SourceView.vala:218
-#, fuzzy
-#| msgid "Previous Tab"
 msgid "Previous Mark"
-msgstr "Попередня вкладка"
+msgstr "Попередня позначка"
 
 #: src/Widgets/SourceView.vala:219
-#, fuzzy
-#| msgid "Next Tab"
 msgid "Next Mark"
-msgstr "Наступна вкладка"
+msgstr "Наступна позначка"
 
 #: src/Widgets/SourceView.vala:220
 msgid "Toggle Comment"
 msgstr "Закоментувати/розкоментувати"
 
 #: src/Widgets/SourceView.vala:221
-#, fuzzy
-#| msgid "Highlight matching brackets"
 msgid "Goto Matching Bracket"
-msgstr "Виділяти відповідні дужки"
+msgstr "Перейти до відповідної дужки"
 
 #: src/Widgets/SourceView.vala:905
 #, c-format
 msgid ""
 "A required bracket is missing or there is an extra bracket between lines %i "
 "and %i"
-msgstr ""
+msgstr "Відсутня необхідна дужка або між рядками %i та %i є зайва дужка"
 
 #: src/Widgets/SourceView.vala:907
-#, fuzzy
-#| msgid "Save this file with a different name"
 msgid "Matching bracket has different indent"
-msgstr "Зберегти цей файл під іншою назвою"
+msgstr "Відповідна дужка має інший рівень вкладеності"
 
 #: src/Widgets/SourceView.vala:907
-#, fuzzy
-#| msgid "Highlight matching brackets"
 msgid "No matching bracket found"
-msgstr "Виділяти відповідні дужки"
+msgstr "Відповідної дужки не знайдено"
 
 #: src/Widgets/SourceView.vala:908
-#, fuzzy
-#| msgid "You may not have permission to read the file."
 msgid "You may need to adjust the indents"
-msgstr "Можливо, у вас немає дозволу на читання файлу."
+msgstr "Можливо, вам доведеться скорегувати відступи"
 
 #: src/Widgets/Terminal.vala:142
 msgid "Copy"
