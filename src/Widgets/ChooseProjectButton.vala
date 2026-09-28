@@ -11,8 +11,6 @@ public class Code.ChooseProjectButton : Gtk.Bin {
     private Gtk.Label label_widget;
     private Gtk.ListBox project_listbox;
 
-    public signal void project_chosen ();
-
     construct {
         var img = new Gtk.Image.from_icon_name ("git-symbolic", SMALL_TOOLBAR);
 
