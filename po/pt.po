@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-29 16:05+0000\n"
+"POT-Creation-Date: 2026-09-06 19:03+0000\n"
 "PO-Revision-Date: 2025-05-03 18:55+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementaryos.org/projects/code/code/"
@@ -32,33 +32,33 @@ msgstr "Localizar no projeto…"
 msgid "Find project files"
 msgstr "Filtrar projetos"
 
-#: plugins/pastebin/pastebin.vala:139 plugins/pastebin/pastebin_dialog.vala:250
-#: plugins/pastebin/pastebin_dialog.vala:332
+#: plugins/pastebin/pastebin.vala:139 plugins/pastebin/pastebin_dialog.vala:247
+#: plugins/pastebin/pastebin_dialog.vala:329
 msgid "Upload to Pastebin"
 msgstr "Enviar para Pastebin"
 
-#: plugins/pastebin/pastebin_dialog.vala:259
+#: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
 msgstr "Nome:"
 
-#: plugins/pastebin/pastebin_dialog.vala:263
+#: plugins/pastebin/pastebin_dialog.vala:260
 msgid "Format:"
 msgstr "Formato:"
 
-#: plugins/pastebin/pastebin_dialog.vala:270
+#: plugins/pastebin/pastebin_dialog.vala:267
 msgid "Choose different format"
 msgstr "Escolha um formato diferente"
 
-#: plugins/pastebin/pastebin_dialog.vala:292
+#: plugins/pastebin/pastebin_dialog.vala:289
 msgid "Expiration:"
 msgstr "Expiração:"
 
-#: plugins/pastebin/pastebin_dialog.vala:299
+#: plugins/pastebin/pastebin_dialog.vala:296
 msgid "Keep this paste private"
 msgstr "Manter esta pasta privada"
 
-#: plugins/pastebin/pastebin_dialog.vala:331
-#: plugins/pastebin/pastebin_dialog.vala:386
+#: plugins/pastebin/pastebin_dialog.vala:328
+#: plugins/pastebin/pastebin_dialog.vala:383
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:59
 #: src/Dialogs/CloneRepositoryDialog.vala:58
 #: src/Dialogs/CloneRepositoryDialog.vala:97
@@ -67,36 +67,36 @@ msgstr "Manter esta pasta privada"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: plugins/pastebin/pastebin_dialog.vala:358
+#: plugins/pastebin/pastebin_dialog.vala:355
 msgid "Available Formats"
 msgstr "Formatos disponíveis"
 
-#: plugins/pastebin/pastebin_dialog.vala:388
+#: plugins/pastebin/pastebin_dialog.vala:385
 msgid "Select Format"
 msgstr "Selecionar formato"
 
-#: plugins/pastebin/pastebin_dialog.vala:444
+#: plugins/pastebin/pastebin_dialog.vala:441
 #: src/Dialogs/PreferencesDialog.vala:176
 msgid "Close"
 msgstr "Fechar"
 
-#: plugins/pastebin/pastebin_dialog.vala:483 src/Widgets/SearchBar.vala:151
+#: plugins/pastebin/pastebin_dialog.vala:480 src/Widgets/SearchBar.vala:149
 msgid "Never"
 msgstr "Nunca"
 
-#: plugins/pastebin/pastebin_dialog.vala:484
+#: plugins/pastebin/pastebin_dialog.vala:481
 msgid "Ten minutes"
 msgstr "Dez minutos"
 
-#: plugins/pastebin/pastebin_dialog.vala:485
+#: plugins/pastebin/pastebin_dialog.vala:482
 msgid "One hour"
 msgstr "Uma hora"
 
-#: plugins/pastebin/pastebin_dialog.vala:486
+#: plugins/pastebin/pastebin_dialog.vala:483
 msgid "One day"
 msgstr "Um dia"
 
-#: plugins/pastebin/pastebin_dialog.vala:487
+#: plugins/pastebin/pastebin_dialog.vala:484
 msgid "One month"
 msgstr "Um mês"
 
@@ -1008,68 +1008,68 @@ msgstr ""
 msgid "Contrast"
 msgstr "Alto contraste"
 
-#: src/Widgets/SearchBar.vala:119
+#: src/Widgets/SearchBar.vala:117
 msgid "Find"
 msgstr "Localizar"
 
-#: src/Widgets/SearchBar.vala:123
+#: src/Widgets/SearchBar.vala:121
 msgid "No Results"
 msgstr "Sem resultados"
 
-#: src/Widgets/SearchBar.vala:133
+#: src/Widgets/SearchBar.vala:131
 msgid "Search next"
 msgstr "Localizar seguinte"
 
-#: src/Widgets/SearchBar.vala:144
+#: src/Widgets/SearchBar.vala:142
 msgid "Search previous"
 msgstr "Localizar anterior"
 
-#: src/Widgets/SearchBar.vala:148
+#: src/Widgets/SearchBar.vala:146
 msgid "Cyclic Search"
 msgstr "Procura cíclica"
 
-#: src/Widgets/SearchBar.vala:152
+#: src/Widgets/SearchBar.vala:150
 msgid "Mixed Case"
 msgstr "Maiúsculas/minúsculas misturadas"
 
-#: src/Widgets/SearchBar.vala:153
+#: src/Widgets/SearchBar.vala:151
 msgid "Always"
 msgstr "Sempre"
 
-#: src/Widgets/SearchBar.vala:156
+#: src/Widgets/SearchBar.vala:154
 msgid "Case Sensitive"
 msgstr "Sensível a maiúsculas e minúsculas"
 
-#: src/Widgets/SearchBar.vala:163
+#: src/Widgets/SearchBar.vala:161
 msgid "Use Regular Expressions"
 msgstr "Usar expressões regulares"
 
-#: src/Widgets/SearchBar.vala:164
+#: src/Widgets/SearchBar.vala:162
 msgid "Match Whole Words"
 msgstr "Combinar palavras inteiras"
 
-#: src/Widgets/SearchBar.vala:186
+#: src/Widgets/SearchBar.vala:184
 msgid "Search Options"
 msgstr "Opções de pesquisa"
 
-#: src/Widgets/SearchBar.vala:233
+#: src/Widgets/SearchBar.vala:206
 msgid "Replace With"
 msgstr "Substituir por"
 
-#: src/Widgets/SearchBar.vala:237
+#: src/Widgets/SearchBar.vala:210
 msgid "Replace"
 msgstr "Substituir"
 
-#: src/Widgets/SearchBar.vala:241
+#: src/Widgets/SearchBar.vala:214
 msgid "Replace all"
 msgstr "Substituir tudo"
 
-#: src/Widgets/SearchBar.vala:559
+#: src/Widgets/SearchBar.vala:553
 #, c-format
 msgid "%d of %d"
 msgstr "%d de %d"
 
-#: src/Widgets/SearchBar.vala:564
+#: src/Widgets/SearchBar.vala:558
 msgid "no results"
 msgstr "sem resultados"
 
