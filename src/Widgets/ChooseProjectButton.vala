@@ -10,6 +10,9 @@ public class Code.ChooseProjectButton : Gtk.Bin {
     private const string PROJECT_TOOLTIP = N_("Active Git Project: %s");
     private Gtk.Label label_widget;
     private Gtk.ListBox project_listbox;
+    private Gtk.SearchEntry project_filter;
+    private ListStore project_liststore;
+    private Scratch.Services.GitManager git_manager;
 
     construct {
         var img = new Gtk.Image.from_icon_name ("git-symbolic", SMALL_TOOLBAR);
@@ -33,9 +36,17 @@ public class Code.ChooseProjectButton : Gtk.Bin {
         box.add (label_widget);
         box.add (cloning_spinner);
 
+        git_manager = Scratch.Services.GitManager.get_instance ();
+        project_liststore = git_manager.project_liststore;
         project_listbox = new Gtk.ListBox () {
             selection_mode = SINGLE
         };
+
+        //TODO Use list of objects not widgets
+        project_listbox.bind_model (project_liststore, (obj) => {
+            var path = ((Scratch.FolderManager.Item) obj).path;
+            return new ProjectRow (path);
+        });
 
         var project_filter = new Gtk.SearchEntry () {
             margin_top = 12,
@@ -95,36 +106,9 @@ public class Code.ChooseProjectButton : Gtk.Bin {
 
         child = menu_button;
 
-        // Initialise with any pre-existing projects (needed for second and subsequent window)
-        var git_manager = Scratch.Services.GitManager.get_instance ();
-        var src = git_manager.project_liststore;
-        for (int index = 0; index < src.n_items; index++) {
-            var item = src.get_object (index);
-            if (item is Scratch.FolderManager.ProjectFolderItem) {
-                var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item);
-                project_listbox.insert (row, index);
-            }
-        }
-
-        git_manager.project_liststore.items_changed.connect ((src, pos, n_removed, n_added) => {
-            var rows = project_listbox.get_children ();
-            for (int index = (int)pos; index < pos + n_removed; index++) {
-                var row = rows.nth_data (index);
-                row.destroy ();
-            }
-
-            for (int index = (int)pos; index < pos + n_added; index++) {
-                var item = src.get_object (index);
-                if (item is Scratch.FolderManager.ProjectFolderItem) {
-                    var row = create_project_row ((Scratch.FolderManager.ProjectFolderItem)item);
-                    project_listbox.insert (row, index);
-                }
-            }
-        });
-
         menu_button.toggled.connect (() => {
             if (menu_button.active) {
-                unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
+                unowned var active_path = git_manager.active_project_path;
                 foreach (var child in project_listbox.get_children ()) {
                     var project_row = ((ProjectRow) child);
                     // All paths must not end in directory separator so can be compared directly
@@ -139,7 +123,7 @@ public class Code.ChooseProjectButton : Gtk.Bin {
 
     // Set appearance (only) of project chooser button and list according to active path
     private void update_button () {
-        unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
+        unowned var active_path = git_manager.active_project_path;
         if (active_path != "") {
             label_widget.label = Path.get_basename (active_path);
             tooltip_text = _(PROJECT_TOOLTIP).printf (Scratch.Utils.replace_home_with_tilde (active_path));
@@ -147,14 +131,6 @@ public class Code.ChooseProjectButton : Gtk.Bin {
             label_widget.label = Path.get_basename (_(NO_PROJECT_SELECTED));
             tooltip_text = _(PROJECT_TOOLTIP).printf (_(NO_PROJECT_SELECTED));
         }
-    }
-
-    private Gtk.Widget create_project_row (Scratch.FolderManager.ProjectFolderItem project_folder) {
-        var project_path = project_folder.file.file.get_path ();
-        var project_row = new ProjectRow (project_path);
-        // Project folder items cannot be renamed in UI, no need to handle
-
-        return project_row;
     }
 
     public class ProjectRow : Gtk.ListBoxRow {
