@@ -316,18 +316,9 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
 
     public bool search () {
         search_entry.grab_focus ();
-        if (search_context == null) {
+        if (search_context == null || text_buffer == null || search_entry.text == "") {
             return false;
         }
-
-        search_context.highlight = false;
-
-        if (!has_matches ()) {
-            debug ("Can't search anything in a non-existent buffer and/or without anything to search.");
-            return false;
-        }
-
-        search_context.highlight = true;
 
         Gtk.TextIter? start_iter, end_iter;
         text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
@@ -461,17 +452,6 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
                 // Don't update widgets for non-search settings change
                 return;
         }
-    }
-
-    private bool has_matches () {
-        if (text_buffer == null || search_entry.text == "") {
-            return false;
-        }
-
-        bool has_wrapped_around;
-        Gtk.TextIter? start_iter, end_iter;
-        text_buffer.get_start_iter (out start_iter);
-        return search_context.forward (start_iter, out start_iter, out end_iter, out has_wrapped_around);
     }
 
     private bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
