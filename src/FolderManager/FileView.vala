@@ -265,6 +265,7 @@ public class Scratch.FolderManager.FileView : Code.Widgets.SourceList, Code.Pane
             case MERGE:
                 break;
             case DELETE:
+                dialog.project.delete_branch (dialog.branch_ref);
                 break;
             case CREATE:
                 dialog.project.new_branch (dialog.new_branch_name);
