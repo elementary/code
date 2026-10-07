@@ -46,8 +46,8 @@ public class Code.ChooseProjectButton : Gtk.Bin {
         };
 
         project_listbox.set_filter_func ((row) => {
-            //Both are lowercased so that the case doesn't matter when comparing.
-            return (((ProjectRow) row).project_name.down ().contains (project_filter.text.down ().strip ()));
+            var name = Path.get_basename (((ProjectRow) row).project_path);
+            return name.contains (project_filter.text);  //TODO Is "has_prefix" more useful?
         });
 
         project_filter.changed.connect (() => {
@@ -96,6 +96,7 @@ public class Code.ChooseProjectButton : Gtk.Bin {
         child = menu_button;
 
         // Initialise with any pre-existing projects (needed for second and subsequent window)
+        // Note: for 1st window this happens too early. Rows are added by the item changed handler
         var git_manager = Scratch.Services.GitManager.get_instance ();
         var src = git_manager.project_liststore;
         for (int index = 0; index < src.n_items; index++) {
@@ -122,22 +123,12 @@ public class Code.ChooseProjectButton : Gtk.Bin {
             }
         });
 
-        menu_button.toggled.connect (() => {
-            if (menu_button.active) {
-                unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
-                foreach (var child in project_listbox.get_children ()) {
-                    var project_row = ((ProjectRow) child);
-                    // All paths must not end in directory separator so can be compared directly
-                    project_row.is_active_project = active_path == project_row.project_path;
-                }
-            }
-        });
-
+        menu_button.clicked.connect (update_active_row);
         git_manager.notify["active-project-path"].connect (update_button);
         update_button ();
     }
 
-    // Set appearance (only) of project chooser button and list according to active path
+    // Set appearance (only) of project chooser button according to active path
     private void update_button () {
         unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
         if (active_path != "") {
@@ -146,6 +137,17 @@ public class Code.ChooseProjectButton : Gtk.Bin {
         } else {
             label_widget.label = Path.get_basename (_(NO_PROJECT_SELECTED));
             tooltip_text = _(PROJECT_TOOLTIP).printf (_(NO_PROJECT_SELECTED));
+        }
+    }
+
+    // Ensure correct row is checked
+    private void update_active_row () {
+        unowned var active_path = Scratch.Services.GitManager.get_instance ().active_project_path;
+        var index = 0;
+        var project_row = project_listbox.get_row_at_index (index);
+        while (project_row != null) {
+            ((ProjectRow) project_row).update_active (active_path);
+            project_row = project_listbox.get_row_at_index (++index);
         }
     }
 
@@ -158,23 +160,9 @@ public class Code.ChooseProjectButton : Gtk.Bin {
     }
 
     public class ProjectRow : Gtk.ListBoxRow {
-        private Gtk.CheckButton check_button;
-        public bool is_active_project {
-            get {
-                return check_button.active;
-            }
-
-            set {
-                check_button.active = value;
-            }
-        }
-
         public string project_path { get; construct; }
-        public string project_name {
-            get {
-                return check_button.label;
-            }
-        }
+        private Gtk.CheckButton check_button;
+        private Gtk.GestureMultiPress button_controller;
 
         public ProjectRow (string project_path) {
             Object (
@@ -182,14 +170,14 @@ public class Code.ChooseProjectButton : Gtk.Bin {
             );
         }
 
-        private Gtk.GestureMultiPress button_controller;
-
         class construct {
             set_css_name (Gtk.STYLE_CLASS_MENUITEM);
         }
 
         construct {
             can_focus = true;
+            activatable = true;
+
             action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_SET_ACTIVE_PROJECT;
             action_target = new Variant.string (project_path);
 
@@ -204,10 +192,14 @@ public class Code.ChooseProjectButton : Gtk.Bin {
                 button = 0
             };
             button_controller.released.connect (() => {
-                activate ();
+                activate (); // This activates the *action* (no "row-activated" signal sent)
             });
 
             show_all ();
+        }
+
+        public void update_active (string active_path) {
+            check_button.active = active_path == project_path;
         }
     }
 }
