@@ -74,7 +74,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/libssh2/libssh2.git
-            tag: libssh2-1.10.0
+            tag: libssh2-1.11.1
+            commit: a312b43325e3383c865a87bb1d26cb52e3292641
       - name: libgit2
         buildsystem: cmake-ninja
         config-opts:
