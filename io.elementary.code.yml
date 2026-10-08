@@ -129,6 +129,20 @@ modules:
         url: https://github.com/universal-ctags/ctags.git
         tag: v6.0.0
 
+  # TODO: Remove when migrating to GTK 4
+  - name: libhandy
+    buildsystem: meson
+    config-opts:
+      - -Dtests=false
+      - -Dexamples=false
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/libhandy/1.8/libhandy-1.8.3.tar.xz
+        sha256: 05b497229073ff557f10b326e074c5066f8743a302d4820ab97bcb5cd2dab087
+        x-checker-data:
+          type: gnome
+          name: libhandy
+
   - name: code
     buildsystem: meson
     config-opts:
