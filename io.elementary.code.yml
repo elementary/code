@@ -1,6 +1,6 @@
 id: io.elementary.code
 runtime: io.elementary.Sdk # The outline plugin requires libvala which is only in the SDK, not the runtime
-runtime-version: '8.2'
+runtime-version: '9.1'
 sdk: io.elementary.Sdk
 command: io.elementary.code
 finish-args:
@@ -74,7 +74,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/libssh2/libssh2.git
-            tag: libssh2-1.10.0
+            tag: libssh2-1.11.1
+            commit: a312b43325e3383c865a87bb1d26cb52e3292641
       - name: libgit2
         buildsystem: cmake-ninja
         config-opts:
@@ -127,6 +128,20 @@ modules:
       - type: git
         url: https://github.com/universal-ctags/ctags.git
         tag: v6.0.0
+
+  # TODO: Remove when migrating to GTK 4
+  - name: libhandy
+    buildsystem: meson
+    config-opts:
+      - -Dtests=false
+      - -Dexamples=false
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/libhandy/1.8/libhandy-1.8.3.tar.xz
+        sha256: 05b497229073ff557f10b326e074c5066f8743a302d4820ab97bcb5cd2dab087
+        x-checker-data:
+          type: gnome
+          name: libhandy
 
   - name: code
     buildsystem: meson
