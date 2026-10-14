@@ -251,7 +251,10 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
 
         // Connecting to some signals
         search_entry.bind_property ("text", search_settings, "search-text", SYNC_CREATE);
-        search_entry.changed.connect (update_search_widgets);
+        search_entry.changed.connect (() => {
+            update_search_widgets ();
+            this.window.folder_manager_view.clear_badges ();
+        });
         search_entry.notify["is-focus"].connect (() => {
             if (search_entry.is_focus && text_buffer != null) {
                 Idle.add (() => {

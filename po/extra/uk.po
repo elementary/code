@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-06 19:03+0000\n"
-"PO-Revision-Date: 2026-09-24 22:44+0000\n"
+"PO-Revision-Date: 2026-10-09 14:50+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/code/extra/"
 "uk/>\n"
@@ -256,26 +256,35 @@ msgstr ""
 #: data/code.metainfo.xml.in:124
 msgid "Closing all windows by shortcut now correctly saves all documents"
 msgstr ""
+"Закриття всіх вікон за допомогою комбінації клавіш тепер коректно зберігає "
+"всі документи"
 
 #: data/code.metainfo.xml.in:125
 msgid ""
 "Filetypes excluded from stripping trailing whitespace are shown in the "
 "application menu"
 msgstr ""
+"Типи файлів, для яких не виконується видалення кінцевих пробілів, вказані в "
+"меню застосунку"
 
 #: data/code.metainfo.xml.in:126
 msgid "Stripping trailing whitespace now correctly excludes string literals"
 msgstr ""
+"Під час видалення пробілів у кінці рядка тепер правильно виключаються "
+"рядкові літерали"
 
 #: data/code.metainfo.xml.in:127
 msgid "Fuzzy searching for project files now correctly searches active project"
 msgstr ""
+"Приблизний пошук файлів проєкту тепер коректно знаходить активний проєкт"
 
 #: data/code.metainfo.xml.in:148
 msgid ""
 "Trailing spaces are now removed when the document focuses out (subject to "
 "setting)"
 msgstr ""
+"Пробіли в кінці рядка тепер вилучаються, коли фокус з документа знімається "
+"(залежно від налаштувань)"
 
 #: data/code.metainfo.xml.in:149
 msgid "Focus following is implemented between textview and terminal pane"
