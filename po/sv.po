@@ -8,29 +8,25 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-06 19:03+0000\n"
-"PO-Revision-Date: 2026-04-06 19:23+0000\n"
+"PO-Revision-Date: 2026-10-18 08:00+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
-"Language-Team: Swedish <https://l10n.elementaryos.org/projects/code/code/sv/"
-">\n"
+"Language-Team: Swedish <https://l10n.elementaryos.org/projects/code/code/sv/>"
+"\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: plugins/FuzzySearch/FuzzySearch.vala:91
-#, fuzzy
-#| msgid "Find in Project…"
 msgid "Find Project Files"
-msgstr "Hitta i projekt…"
+msgstr "Hitta projektfiler"
 
 #: plugins/FuzzySearch/FuzzySearchPopover.vala:44
-#, fuzzy
-#| msgid "Filter projects"
 msgid "Find project files"
-msgstr "Filtrera projekt"
+msgstr "Hitta projektfiler"
 
 #: plugins/pastebin/pastebin.vala:139 plugins/pastebin/pastebin_dialog.vala:247
 #: plugins/pastebin/pastebin_dialog.vala:329
@@ -116,17 +112,15 @@ msgstr "%s - Ordförslag"
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:61
 #, c-format
 msgid "Perform branch action on project '%s'"
-msgstr ""
+msgstr "Utför grenåtgärd för projektet ”%s”"
 
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:68
 msgid "Apply"
-msgstr ""
+msgstr "Verkställ"
 
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:75
-#, fuzzy
-#| msgid "Do not Checkout"
 msgid "Checkout"
-msgstr "Checka inte ut"
+msgstr "Checka ut"
 
 #. scan all children
 #. No need to show status when children shown
@@ -140,43 +134,35 @@ msgstr "Nytt"
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:89
 #, c-format
 msgid "'%s' is not a git repository"
-msgstr ""
+msgstr "”%s” är inte ett Git-arkiv"
 
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:92
 msgid "Unable to perform branch actions"
-msgstr ""
+msgstr "Det går inte att utföra grenåtgärder"
 
 #: src/Dialogs/BranchActions/BranchCreatePage.vala:44
 msgid "Name of branch to create"
-msgstr ""
+msgstr "Namn på grenen som ska skapas"
 
 #: src/Dialogs/BranchActions/BranchCreatePage.vala:47
 msgid "Enter new branch name"
-msgstr ""
+msgstr "Ange namn på den nya grenen"
 
 #: src/Dialogs/BranchActions/BranchListBox.vala:50
-#, fuzzy
-#| msgid "Hide search bar"
 msgid "Enter search term"
-msgstr "Dölj sökfältet"
+msgstr "Ange söktext"
 
 #: src/Dialogs/BranchActions/BranchListBox.vala:53
-#, fuzzy
-#| msgid "Create Branch"
 msgid "Recent Branches"
-msgstr "Skapa gren"
+msgstr "Senaste grenarna"
 
 #: src/Dialogs/BranchActions/BranchListBox.vala:54
-#, fuzzy
-#| msgid "Branch"
 msgid "Local Branches"
-msgstr "Gren"
+msgstr "Lokala grenar"
 
 #: src/Dialogs/BranchActions/BranchListBox.vala:55
-#, fuzzy
-#| msgid "Create Branch"
 msgid "Remote Branches"
-msgstr "Skapa gren"
+msgstr "Fjärrgrenar"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
@@ -197,7 +183,7 @@ msgstr "Klona arkiv"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:69
 msgid "https://example.com/username/projectname.git"
-msgstr "https://exempel.se/användarnamn/projektnamn.git"
+msgstr "https://example.com/username/projectname.git"
 
 #: src/Dialogs/CloneRepositoryDialog.vala:93
 msgid "Select folder where the cloned repository will be created"
@@ -300,7 +286,7 @@ msgid ""
 "<i>It is recommended that uncommitted changes are stashed, committed, or "
 "reverted before proceeding.</i>"
 msgstr ""
-"Icke-bekräftade ändringar kommer att förloras permanent om <b>'%s</b> ' "
+"Icke-bekräftade ändringar kommer att förloras permanent om <b>'%s'</b> "
 "checkas ut nu.\n"
 "\n"
 "<i>Vi rekommenderar att ändringar som inte arkiverats stashas, committas "
@@ -332,7 +318,7 @@ msgstr "Avlägsna efterföljande blanksteg när du sparar"
 
 #: src/Dialogs/PreferencesDialog.vala:29
 msgid "Except Plain Text, Markdown and YAML"
-msgstr ""
+msgstr "Utom oformaterad text, Markdown och YAML"
 
 #: src/Dialogs/PreferencesDialog.vala:32
 msgid "Smart cut/copy lines"
@@ -411,10 +397,9 @@ msgid "Line width guide"
 msgstr "Radbreddsguide"
 
 #: src/Dialogs/PreferencesDialog.vala:128
-#, fuzzy, c-format
-#| msgid "Use system font"
+#, c-format
 msgid "Use system font (%s)"
-msgstr "Använd systemtypsnitt"
+msgstr "Använd systemtypsnittet (%s)"
 
 #: src/Dialogs/PreferencesDialog.vala:138
 msgid "Font"
@@ -496,7 +481,7 @@ msgstr "Tom fil"
 
 #: src/FolderManager/FolderItem.vala:238
 msgid "…too many templates"
-msgstr ""
+msgstr "…för många mallar"
 
 #: src/FolderManager/FolderItem.vala:241
 msgid "Templates"
@@ -1093,10 +1078,8 @@ msgid "Toggle Comment"
 msgstr "Växla kommentar"
 
 #: src/Widgets/SourceView.vala:221
-#, fuzzy
-#| msgid "Highlight matching brackets"
 msgid "Goto Matching Bracket"
-msgstr "Markera matchande parenteser"
+msgstr "Gå till matchande parentes"
 
 #: src/Widgets/SourceView.vala:905
 #, c-format
@@ -1104,24 +1087,20 @@ msgid ""
 "A required bracket is missing or there is an extra bracket between lines %i "
 "and %i"
 msgstr ""
+"En nödvändig parentes saknas eller så finns en extra parentes mellan raderna "
+"%i och %i"
 
 #: src/Widgets/SourceView.vala:907
-#, fuzzy
-#| msgid "Save this file with a different name"
 msgid "Matching bracket has different indent"
-msgstr "Spara denna fil med ett annat namn"
+msgstr "Den matchande parentesen har ett annat indrag"
 
 #: src/Widgets/SourceView.vala:907
-#, fuzzy
-#| msgid "Highlight matching brackets"
 msgid "No matching bracket found"
-msgstr "Markera matchande parenteser"
+msgstr "Ingen matchande parentes hittades"
 
 #: src/Widgets/SourceView.vala:908
-#, fuzzy
-#| msgid "You may not have permission to read the file."
 msgid "You may need to adjust the indents"
-msgstr "Du kanske inte har behörighet att läsa filen."
+msgstr "Du kan behöva justera indragen"
 
 #: src/Widgets/Terminal.vala:142
 msgid "Copy"
