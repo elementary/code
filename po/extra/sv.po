@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-06 19:03+0000\n"
-"PO-Revision-Date: 2026-02-24 11:55+0000\n"
+"PO-Revision-Date: 2026-10-18 08:00+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
-"Language-Team: Swedish <https://l10n.elementaryos.org/projects/code/extra/sv/"
-">\n"
+"Language-Team: Swedish <https://l10n.elementaryos.org/projects/code/extra/"
+"sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/code.metainfo.xml.in:9
@@ -35,10 +35,10 @@ msgid ""
 "files to ensure they're always up-to-date, and it remembers your tabs so you "
 "never lose your spot—even between sessions."
 msgstr ""
-"Oavsett om du skriver i Markdown eller hanterar en komplex appkodbas är Kod "
-"den lätta men fullt utrustade redigeraren för dig. Den sparar dina filer "
-"automatiskt så att de alltid är uppdaterade, och den kommer ihåg dina flikar "
-"så att du aldrig tappar bort din plats - inte ens mellan sessioner."
+"Oavsett om du skriver i Markdown eller hanterar en komplex appkodbas är Code "
+"en lätt men fullständig redigerare för dig. Den sparar automatiskt dina "
+"filer så att de alltid är uppdaterade och kommer ihåg dina flikar så att du "
+"aldrig tappar bort din plats, inte ens mellan sessioner."
 
 #: data/code.metainfo.xml.in:13
 msgid ""
@@ -77,10 +77,10 @@ msgid ""
 "optional extensions for Markdown actions, spell checking, whitespace "
 "trimming, word completion, and more."
 msgstr ""
-"Genomgående smarta funktioner: automatisk indragning, smart klipp-/"
-"kopieringsbeteende, synligt blanksteg för markerad text och i slutet av "
-"rader som standard, och valfria tillägg för Markdown-åtgärder, "
-"stavningskontroll, trimning av blanksteg, ordkomplettering med mera."
+"Genomgående smarta funktioner: automatisk indragning, smart hantering av att "
+"klippa ut och kopiera, synliga blanksteg i markerad text och vid radslut som "
+"standard samt valfria tillägg för Markdown-åtgärder, stavningskontroll, "
+"borttagning av blanksteg, ordkomplettering med mera."
 
 #: data/code.metainfo.xml.in:17
 msgid ""
@@ -143,23 +143,27 @@ msgstr "elementary, Inc."
 
 #: data/code.metainfo.xml.in:73
 msgid "New features:"
-msgstr ""
+msgstr "Nya funktioner:"
 
 #: data/code.metainfo.xml.in:75
 msgid ""
 "The font size in the terminal pane can now be changed independently of the "
 "document font size"
 msgstr ""
+"Teckenstorleken i terminalpanelen kan nu ändras oberoende av dokumentets "
+"teckenstorlek"
 
 #: data/code.metainfo.xml.in:76
 msgid "The Close Other Tabs action now has the shortcut Shift + Ctrl + W"
-msgstr ""
+msgstr "Åtgärden Stäng övriga flikar har nu genvägen Skift + Ctrl + W"
 
 #: data/code.metainfo.xml.in:77
 msgid ""
 "A Find Matching Bracket action that works over the whole document is "
 "introduced, with the shortcut Shift + Ctrl + I"
 msgstr ""
+"En åtgärd för att hitta matchande parenteser i hela dokumentet har lagts "
+"till, med genvägen Skift + Ctrl + I"
 
 #: data/code.metainfo.xml.in:79 data/code.metainfo.xml.in:100
 #: data/code.metainfo.xml.in:122 data/code.metainfo.xml.in:153
@@ -177,24 +181,31 @@ msgid ""
 "The syntax is now correctly displayed in the format bar when the document is "
 "first opened"
 msgstr ""
+"Syntaxen visas nu korrekt i formatfältet när dokumentet öppnas första gången"
 
 #: data/code.metainfo.xml.in:82
 msgid ""
 "Opening a document from the command line with the `-g` option now scrolls to "
 "the selected range"
 msgstr ""
+"När ett dokument öppnas från kommandoraden med flaggan `-g` rullas den valda "
+"texten nu fram"
 
 #: data/code.metainfo.xml.in:83
 msgid ""
 "When entering an ordered list in markdown mode, inserted lines are now "
 "indented and numbered correctly"
 msgstr ""
+"När en numrerad lista skrivs i Markdown-läge får infogade rader nu rätt "
+"indrag och numrering"
 
 #: data/code.metainfo.xml.in:84
 msgid ""
 "Several shortcuts are no longer intercepted by the main window when the "
 "terminal is focused"
 msgstr ""
+"Flera genvägar fångas inte längre upp av huvudfönstret när terminalen har "
+"fokus"
 
 #: data/code.metainfo.xml.in:85 data/code.metainfo.xml.in:102
 #: data/code.metainfo.xml.in:128 data/code.metainfo.xml.in:156
@@ -217,66 +228,78 @@ msgstr "Förbättringar:"
 
 #: data/code.metainfo.xml.in:117
 msgid "The sidebar can now be focused using a keyboard shortcut"
-msgstr ""
+msgstr "Sidopanelen kan nu få fokus med en tangentbordsgenväg"
 
 #: data/code.metainfo.xml.in:118
 msgid ""
 "Closing a second window by headerbar or shortcut only closes that window, "
 "saving its documents"
 msgstr ""
+"När ett andra fönster stängs från rubrikraden eller med en genväg stängs "
+"bara det fönstret och dess dokument sparas"
 
 #: data/code.metainfo.xml.in:119
 msgid "The system font is shown and can be selected in the Preferences dialog"
-msgstr ""
+msgstr "Systemtypsnittet visas och kan väljas i inställningsdialogrutan"
 
 #: data/code.metainfo.xml.in:120
 msgid ""
 "Improved desktop consistency and contrast by using user accent color for "
 "selections"
 msgstr ""
+"Skrivbordets enhetlighet och kontrast har förbättrats genom att användarens "
+"accentfärg används för markeringar"
 
 #: data/code.metainfo.xml.in:124
 msgid "Closing all windows by shortcut now correctly saves all documents"
-msgstr ""
+msgstr "När alla fönster stängs med en genväg sparas nu alla dokument korrekt"
 
 #: data/code.metainfo.xml.in:125
 msgid ""
 "Filetypes excluded from stripping trailing whitespace are shown in the "
 "application menu"
 msgstr ""
+"Filtyper som undantas när avslutande blanksteg tas bort visas i programmenyn"
 
 #: data/code.metainfo.xml.in:126
 msgid "Stripping trailing whitespace now correctly excludes string literals"
-msgstr ""
+msgstr "När avslutande blanksteg tas bort undantas nu strängliteraler korrekt"
 
 #: data/code.metainfo.xml.in:127
 msgid "Fuzzy searching for project files now correctly searches active project"
 msgstr ""
+"Ungefärlig sökning efter projektfiler söker nu korrekt i det aktiva projektet"
 
 #: data/code.metainfo.xml.in:148
 msgid ""
 "Trailing spaces are now removed when the document focuses out (subject to "
 "setting)"
 msgstr ""
+"Avslutande blanksteg tas nu bort när dokumentet förlorar fokus, enligt "
+"inställningen"
 
 #: data/code.metainfo.xml.in:149
 msgid "Focus following is implemented between textview and terminal pane"
-msgstr ""
+msgstr "Fokus växlar nu mellan textvyn och terminalpanelen"
 
 #: data/code.metainfo.xml.in:150
 msgid ""
 "A new dialog for branch actions (open, new) is implemented linked to hot-key "
 "Ctrl-B"
 msgstr ""
+"En ny dialogruta för grenåtgärder, öppna och skapa, har lagts till och kan "
+"öppnas med tangentbordsgenvägen Ctrl + B"
 
 #: data/code.metainfo.xml.in:151
 msgid "It is now possible to create a new document from a template"
-msgstr ""
+msgstr "Det går nu att skapa ett nytt dokument från en mall"
 
 #: data/code.metainfo.xml.in:155
 msgid ""
 "Restoring screen state no longer can get stuck always restoring full screen"
 msgstr ""
+"Återställningen av skärmtillståndet kan inte längre fastna i att alltid "
+"återställa helskärmsläge"
 
 #: data/code.metainfo.xml.in:169
 msgid ""
@@ -459,7 +482,7 @@ msgstr ""
 
 #: data/code.metainfo.xml.in:275
 msgid "The \"Open in …\" menu is no longer empty when running as Flatpak"
-msgstr "Menyn \"Öppna i ...\" är inte längre tom när du kör som Flatpak"
+msgstr "Menyn ”Öppna i …” är inte längre tom när du kör som Flatpak"
 
 #: data/code.metainfo.xml.in:276
 msgid "The search term now persists until editing or closing the search bar."
@@ -489,8 +512,7 @@ msgstr "Tillägg för markering fungerar nu med markeringar av mer än ett ord"
 msgid ""
 "The \"Open in …\" menu is now sorted and includes a \"Terminal Pane\" entry"
 msgstr ""
-"Menyn \"Öppna i ...\" är nu sorterad och innehåller en post för "
-"\"Terminalfönster\""
+"Menyn ”Öppna i …” är nu sorterad och innehåller en post för ”Terminalfönster”"
 
 #: data/code.metainfo.xml.in:282
 msgid "Folders containing may items now expand faster without blocking the UI"
