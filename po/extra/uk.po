@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-06 19:03+0000\n"
-"PO-Revision-Date: 2026-10-09 14:50+0000\n"
+"PO-Revision-Date: 2026-10-16 19:03+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/code/extra/"
 "uk/>\n"
@@ -289,99 +289,123 @@ msgstr ""
 #: data/code.metainfo.xml.in:149
 msgid "Focus following is implemented between textview and terminal pane"
 msgstr ""
+"Між текстовим полем та панеллю терміналу реалізовано функцію відстеження "
+"фокусу"
 
 #: data/code.metainfo.xml.in:150
 msgid ""
 "A new dialog for branch actions (open, new) is implemented linked to hot-key "
 "Ctrl-B"
 msgstr ""
+"Реалізовано нове діалогове вікно для операцій з гілками (відкрити, створити)"
+", пов’язане з комбінацією клавіш Ctrl-B"
 
 #: data/code.metainfo.xml.in:151
 msgid "It is now possible to create a new document from a template"
-msgstr ""
+msgstr "Тепер можна створити новий документ із шаблону"
 
 #: data/code.metainfo.xml.in:155
 msgid ""
 "Restoring screen state no longer can get stuck always restoring full screen"
 msgstr ""
+"Функція відновлення стану екрана більше не може зависати, постійно "
+"відновлюючи повноекранний режим"
 
 #: data/code.metainfo.xml.in:169
 msgid ""
 "The high-contrast style-scheme is replaced by an elementary version with "
 "improved contrast for line numbers"
 msgstr ""
+"Схема оформлення з високим контрастом замінена на спрощену версію з "
+"покращеним контрастом номерів рядків"
 
 #: data/code.metainfo.xml.in:170
 msgid "The terminal pane now follows Terminal app color-scheme setting"
 msgstr ""
+"Панель терміналу тепер відповідає налаштуванням колірної схеми застосунку "
+"Термінал"
 
 #: data/code.metainfo.xml.in:171
 msgid "It is now possible to disable syntax highlighting"
-msgstr ""
+msgstr "Відтепер можна вимкнути підсвічування синтаксису"
 
 #: data/code.metainfo.xml.in:172
 msgid "There is now an option to keep the project folders sorted"
-msgstr ""
+msgstr "Відтепер з’явилася опція зберігати теки проєкту впорядкованими"
 
 #: data/code.metainfo.xml.in:176
 msgid "Absence of Terminal or Gnome settings no longer causes a crash"
 msgstr ""
+"Відсутність налаштувань Терміналу або Gnome більше не призводить до збою"
 
 #: data/code.metainfo.xml.in:177
-#, fuzzy
-#| msgid "The Terminal pane now has a settable default directory"
 msgid "The terminal pane now handles the shell exiting gracefully"
-msgstr "Панель термінала відтепер має налаштовувану усталену директорію"
+msgstr ""
+"Панель терміналу відтепер забезпечує коректне завершення роботи оболонки"
 
 #: data/code.metainfo.xml.in:178
 msgid ""
 "The terminal pane now follows the current active project path on start or "
 "opening"
 msgstr ""
+"Відтепер панель терміналу показує шлях до поточного активного проєкту під "
+"час запуску або відкриття"
 
 #: data/code.metainfo.xml.in:179
 msgid "It is no longer possible to open multiple PasteBin dialogs"
 msgstr ""
+"Відтепер неможливо відкривати кілька діалогових вікон PasteBin одночасно"
 
 #: data/code.metainfo.xml.in:180
 msgid "A cause of possible crashing by the sidebar on startup was fixed"
 msgstr ""
+"Виправлено причину можливого збою, пов’язаного з бічною панеллю під час "
+"запуску"
 
 #: data/code.metainfo.xml.in:181
 msgid "Two issues where global search shows incorrect information are fixed"
 msgstr ""
+"Виправлено дві проблеми, через які глобальний пошук показував неправильну "
+"інформацію"
 
 #: data/code.metainfo.xml.in:205
-#, fuzzy
-#| msgid "The Vala symbol pane now gives more information in the tooltips"
 msgid "The tooltips for C symbols are now more informative"
-msgstr "Панель символів Vala тепер надає більше інформації у підказках"
+msgstr "Підказки для символів мови C стали інформативнішими"
 
 #: data/code.metainfo.xml.in:206
 msgid "Cloning success is now indicated by toast instead of a dialog"
 msgstr ""
+"Про успішне клонування відтепер повідомляється за допомогою спливного "
+"повідомлення замість діалогового вікна"
 
 #: data/code.metainfo.xml.in:207
 msgid "Global search and local search now have the same case sensitivity"
 msgstr ""
+"Глобальний та локальний пошук відтепер однаково враховують регістр символів"
 
 #: data/code.metainfo.xml.in:208
 msgid ""
 "Opening a second window no longer results in duplicate project entries in "
 "the project chooser"
 msgstr ""
+"Відкриття другого вікна більше не призводить до появи дублікатів записів про "
+"проєкти у вікні вибору проєктів"
 
 #: data/code.metainfo.xml.in:222
 msgid ""
 "The terminal pane is now synchronized with the Terminal app foreground, "
 "background and palette settings"
 msgstr ""
+"Панель терміналу відтепер синхронізується з налаштуваннями застосунку "
+"Термінал щодо переднього плану, фону та палітри"
 
 #: data/code.metainfo.xml.in:223
 msgid ""
 "The terminal pane is now synchronized with GNOME font and cursor blink "
 "settings"
 msgstr ""
+"Панель терміналу відтепер синхронізується з налаштуваннями шрифтів та "
+"миготіння курсора в GNOME"
 
 #: data/code.metainfo.xml.in:237
 msgid ""

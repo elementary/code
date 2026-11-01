@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-06 19:03+0000\n"
-"PO-Revision-Date: 2026-08-16 12:01+0000\n"
+"PO-Revision-Date: 2026-10-19 20:03+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
 "l10n.elementaryos.org/projects/code/code/zh_TW/>\n"
@@ -20,16 +20,12 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: plugins/FuzzySearch/FuzzySearch.vala:91
-#, fuzzy
-#| msgid "Find in Project…"
 msgid "Find Project Files"
-msgstr "在專案中尋找…"
+msgstr "尋找專案檔案"
 
 #: plugins/FuzzySearch/FuzzySearchPopover.vala:44
-#, fuzzy
-#| msgid "Filter projects"
 msgid "Find project files"
-msgstr "過濾專案"
+msgstr "尋找專案檔案"
 
 #: plugins/pastebin/pastebin.vala:139 plugins/pastebin/pastebin_dialog.vala:247
 #: plugins/pastebin/pastebin_dialog.vala:329
@@ -115,17 +111,15 @@ msgstr "%s - 單字補完"
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:61
 #, c-format
 msgid "Perform branch action on project '%s'"
-msgstr ""
+msgstr "對專案「%s」進行分支動作"
 
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:68
 msgid "Apply"
-msgstr ""
+msgstr "套用"
 
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:75
-#, fuzzy
-#| msgid "Do not Checkout"
 msgid "Checkout"
-msgstr "不要簽出"
+msgstr "簽出"
 
 #. scan all children
 #. No need to show status when children shown
@@ -139,43 +133,35 @@ msgstr "新增"
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:89
 #, c-format
 msgid "'%s' is not a git repository"
-msgstr ""
+msgstr "「%s」不是 git 版本庫"
 
 #: src/Dialogs/BranchActions/BranchActionDialog.vala:92
 msgid "Unable to perform branch actions"
-msgstr ""
+msgstr "無法進行分支動作"
 
 #: src/Dialogs/BranchActions/BranchCreatePage.vala:44
 msgid "Name of branch to create"
-msgstr ""
+msgstr "要建立的分支的名稱"
 
 #: src/Dialogs/BranchActions/BranchCreatePage.vala:47
 msgid "Enter new branch name"
-msgstr ""
+msgstr "請輸入新分支名稱"
 
 #: src/Dialogs/BranchActions/BranchListBox.vala:50
-#, fuzzy
-#| msgid "Hide search bar"
 msgid "Enter search term"
-msgstr "隱藏搜尋列"
+msgstr "輸入搜尋文字"
 
 #: src/Dialogs/BranchActions/BranchListBox.vala:53
-#, fuzzy
-#| msgid "Create Branch"
 msgid "Recent Branches"
-msgstr "建立分支"
+msgstr "最近的分支"
 
 #: src/Dialogs/BranchActions/BranchListBox.vala:54
-#, fuzzy
-#| msgid "Branch"
 msgid "Local Branches"
-msgstr "分支"
+msgstr "本地分支"
 
 #: src/Dialogs/BranchActions/BranchListBox.vala:55
-#, fuzzy
-#| msgid "Create Branch"
 msgid "Remote Branches"
-msgstr "建立分支"
+msgstr "遠端分支"
 
 #. /TRANSLATORS "Git" is a proper name and must not be translated
 #: src/Dialogs/CloneRepositoryDialog.vala:55
@@ -1067,35 +1053,27 @@ msgid "Toggle Comment"
 msgstr "切換註釋"
 
 #: src/Widgets/SourceView.vala:221
-#, fuzzy
-#| msgid "Highlight matching brackets"
 msgid "Goto Matching Bracket"
-msgstr "標明對應括號"
+msgstr "跳到對應括號"
 
 #: src/Widgets/SourceView.vala:905
 #, c-format
 msgid ""
 "A required bracket is missing or there is an extra bracket between lines %i "
 "and %i"
-msgstr ""
+msgstr "可能沒有必要的括號，或是第 %i 行與第 %i 行間有多餘的括號"
 
 #: src/Widgets/SourceView.vala:907
-#, fuzzy
-#| msgid "Save this file with a different name"
 msgid "Matching bracket has different indent"
-msgstr "以不同名稱儲存這個檔案"
+msgstr "對應括號的縮排不同"
 
 #: src/Widgets/SourceView.vala:907
-#, fuzzy
-#| msgid "Highlight matching brackets"
 msgid "No matching bracket found"
-msgstr "標明對應括號"
+msgstr "找不到對應括號"
 
 #: src/Widgets/SourceView.vala:908
-#, fuzzy
-#| msgid "You may not have permission to read the file."
 msgid "You may need to adjust the indents"
-msgstr "您可能沒有讀取該檔案的權限。"
+msgstr "您可能需要調整縮排"
 
 #: src/Widgets/Terminal.vala:142
 msgid "Copy"
