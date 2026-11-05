@@ -204,7 +204,7 @@ public class Scratch.Widgets.SearchBar : Gtk.Box { //TODO In Gtk4 use a BinLayou
         replace_entry = new Gtk.SearchEntry () {
             hexpand = true,
             placeholder_text = _("Replace With"),
-            primary_icon_name = "edit-symbolic"
+            primary_icon_name = "document-edit-symbolic"
         };
 
         var replace_tool_button = new Gtk.Button.with_label (_("Replace")) {

@@ -134,7 +134,7 @@ public class Scratch.Widgets.NavMarkGutterRenderer : Gtk.SourceGutterRendererPix
     ) {
         var line = start.get_line ();
         if (sorted_line_list.contains (line)) {
-            icon_name = "edit-symbolic";
+            icon_name = "document-edit-symbolic";
         } else {
             icon_name = "";
         }
