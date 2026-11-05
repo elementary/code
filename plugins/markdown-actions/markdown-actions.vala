@@ -86,7 +86,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Scratch.Services
                 case Gdk.Key.I:
                     add_markdown_tag ("_");
                     return true;
-                case Gdk.Key.K:
+                case Gdk.Key.L:
                     insert_link ();
                     break;
             }
